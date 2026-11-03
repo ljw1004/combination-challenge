@@ -35,9 +35,9 @@ function chapterSection(directory:string,chapter:number) {
     throw error;
   }
   const heading = /^#{1,6}[ \t]+[^\r\n]*/m.exec(source);
-  const title = heading && /^# Chapter ([1-9]\d*)(?:[ \t]+.*)?$/.exec(heading[0]);
+  const title = heading && /^# Chapter ([1-9]\d*): (\S[^\r\n]*)$/.exec(heading[0]);
   if (!heading || !title || title[1] !== String(chapter)) {
-    throw new Error(`${file}: the first heading must be "# Chapter ${chapter}" followed by any chapter title, matching the filename.`);
+    throw new Error(`${file}: the first heading must be "# Chapter ${chapter}: <Chapter title from markdown>", matching the filename.`);
   }
   const synthesis = markedBlock(source,file,'chapter-synthesis');
   if (heading.index >= synthesis.start) throw new Error(`${file}: put the chapter title before the chapter-synthesis markers.`);

@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to examine the channel grains, and collecting them in a sample jar is a natural first step.",
+    "choice": 1,
+    "expectation": "I expect to collect a channel sample that I can inspect, perhaps with the hand lens.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Exposing the rock surface also matches a goal, but I want to start with the channel sample."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jar collected channel sediment, so I can now inspect it with the hand lens.",
+    "reaction": "The result was straightforward; I’m curious what the grains will show.",
+    "step": 2,
+    "reason": "Examining the sediment directly advances the goal of looking at the channel grains.",
+    "choice": 1,
+    "expectation": "I expect the lens to reveal features of the grains, though I don’t know what they will suggest.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The rock ledge is also a goal, but I want to finish examining the sample first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rounded grains suggest wear and movement, but do not establish what carried them. The channel goal is complete, leaving the rock ledge to examine.",
+    "reaction": "I appreciated the distinction between evidence of movement and its unknown cause.",
+    "step": 3,
+    "reason": "Using the hammer on the ledge is the only available combination and matches the remaining goal of exposing fresh rock.",
+    "choice": 1,
+    "expectation": "I expect to expose or collect a fresh rock surface, though I don’t yet know what it will reveal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hammer produced a layered rock chip, and its rough face needs smoothing before I can examine the grains inside.",
+    "reaction": "The next step is clear, and I’m curious how the rock’s grains are arranged.",
+    "step": 4,
+    "reason": "The abrasive pad is the only available combination and should expose the chip’s internal surface.",
+    "choice": 1,
+    "expectation": "I expect a smoother rock face that reveals its grain arrangement, though I don’t know what it will show.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The smoothed chip revealed fine bands around coarser grains and a pale vein crossing them, completing the rock examination without establishing how those features formed.",
+    "reaction": "I’m curious about the vein and what the arrangement might record.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Examining the channel grains was most worthwhile: their rounded edges suggested wear and movement, while the story made clear that this alone does not identify what carried them.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Collecting the channel sediment was a straightforward preparatory action with little to discover on its own.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The fresh rock face had fine bands curving around coarser grains, with a pale vein cutting across them. I did not expect that combination of features.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; collecting and inspecting the sediment, then exposing and smoothing the rock, each had a clear purpose.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The rounded grains and crosscutting vein leave me curious about what further observations might reveal about the landscape.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "step": 1,
+    "reason": "The wet methane needs preparation for its cold store, and the methane liquefier is the matching equipment.",
+    "choice": 1,
+    "expectation": "I expect methane to be dried and cooled for storage, though I do not know whether this is the whole process.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen also needs its own cold store, but I chose to address the explicitly wet methane first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane step completed the dry, cold storage goal in one action, so I can turn to oxygen.",
+    "reaction": "The result is clear but terse; I am curious how the water was removed.",
+    "step": 2,
+    "reason": "The oxygen liquefier matches the remaining oxygen storage goal and is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect a separate liquid oxygen store and completion of the oxygen goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen store completes the second goal and the chapter; the two materials now have separate stores.",
+    "reaction": "The result is straightforward, but I would have liked a little more about the storage systems.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Routing the wet methane into its liquefier connected the reactor output to a usable fuel store, which gave the task a clear purpose.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The oxygen step felt repetitive: it matched a named supply to its named machine and returned a store without further detail.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected there might be a separate drying step for the wet methane, but its single liquefier action completed the dry storage goal without explaining the removal of water.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt purposeless; both machines clearly matched the stated storage goals, although the processing was opaque.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see what the completed fuel system enables, although this short chapter by itself offered little decision-making or explanation.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "step": 1,
+    "reason": "Connect the methane line to its matching store as a first step toward filling the flight tank.",
+    "choice": 1,
+    "expectation": "I expect a methane transfer connection, perhaps still needing attachment to the lander.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen line also needs connecting; I picked methane first without a strong preference."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching line and store formed an assembly, which can now be used at the methane tank.",
+    "reaction": "That was predictable and clear.",
+    "step": 2,
+    "reason": "Finish the methane transfer before setting up oxygen.",
+    "choice": 2,
+    "expectation": "The assembly should connect to and fill the methane tank, though a further check may be needed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I could prepare the oxygen line first, but prefer to complete one path at a time."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane tank is filled, leaving the oxygen path to set up.",
+    "reaction": "A small, straightforward sense of progress.",
+    "step": 3,
+    "reason": "Prepare the matching oxygen line and store; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect an oxygen transfer assembly analogous to the methane one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen assembly is ready for its tank, just like methane.",
+    "reaction": "The parallel sequence is clear but repetitive.",
+    "step": 4,
+    "reason": "Fill the oxygen tank with the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect a filled oxygen tank and completion of the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both separate flight tanks are now filled and the goal is complete.",
+    "reaction": "It is reassuring to complete the return preparation, though the outcome was expected.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filling the methane tank gave a concrete payoff to the long-running fuel production and made progress toward return feel tangible.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The oxygen assembly and transfer repeated the methane sequence with little new information or choice.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Nothing in this chapter particularly surprised me; each matching line and tank behaved as expected.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear purpose: matching each certified line to its liquid and tank made sense. The order between the paths felt inconsequential.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue to see how the discovered body and its surrounding ice make the journey home; this short chapter itself was more procedural than compelling.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

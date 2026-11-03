@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to start the fuel reaction, so I'll put one of its named inputs at the reactor.",
+    "choice": 2,
+    "expectation": "Hydrogen will be staged at the reactor, ready to combine with carbon dioxide; I don't expect fuel yet.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Carbon dioxide is the other necessary input and could plausibly be staged first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen is staged as expected, and the reactor combination is now available.",
+    "reaction": "The placement feels like a practical setup step, though it is not exciting on its own.",
+    "step": 2,
+    "reason": "The two gases are named as the fuel reaction inputs, so I want to run them through the reactor.",
+    "choice": 1,
+    "expectation": "The reactor will produce methane, perhaps along with water for recovery.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered connecting the water return first, but want to start fuel production now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gases made a wet methane stream and revealed a goal to return the reaction water.",
+    "reaction": "It's satisfying to see the hydrogen loop back into water, alongside the fuel.",
+    "step": 3,
+    "reason": "The hose at the cooled return port is the only gameplay option and matches the new goal.",
+    "choice": 1,
+    "expectation": "The hose will connect the condensed water back toward treatment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return feeds treatment and electrolysis, completing the loop and the chapter.",
+    "reaction": "I like the concrete payoff that each batch needs less new water.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Running the reactor and then connecting the return made the fuel and water cycle understandable as a practical system, with an ongoing payoff.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Staging hydrogen felt like a small administrative step; it did not reveal much on its own.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Seeing some hydrogen become water again alongside methane made the recycling connection more vivid.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the input placement was required by the interface and the hose had an explicit destination.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes, cautiously: the practical fuel and water loop makes me curious what the expedition does next, though this short chapter offered little decision difficulty.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

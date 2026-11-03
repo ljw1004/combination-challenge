@@ -1,0 +1,70 @@
+[
+  {
+    "step": 1,
+    "reason": "The strainer is visibly clogged, and the service tool is the only available action for clearing it.",
+    "choice": 1,
+    "expectation": "I expect to open or clear the strainer, though flow may require another step to restore.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Backflushing restored the water flow and left a sample to investigate, so the next goal is to identify the blockage.",
+    "reaction": "The curled flecks make me curious about what the residue contains.",
+    "step": 2,
+    "reason": "The filter cloth is the only offered combination and may separate material in the collected residue for examination.",
+    "choice": 1,
+    "expectation": "I expect the cloth to separate or capture some of the residue, though I do not yet know what it will reveal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane separated the flecks, making their shapes easier to examine under the microscope.",
+    "reaction": "The regular row of projections makes me curious about what the fleck is.",
+    "step": 3,
+    "reason": "The microscope is the only offered combination and should provide a closer look at the particles.",
+    "choice": 1,
+    "expectation": "I expect to see more detail in the flecks, though I do not know whether that will identify them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microscope revealed a segmented body with limbs in the residue, completing the investigation and prompting a record to be sent to Earth. Its origin and identity remain unknown.",
+    "reaction": "The discovery was surprising and unsettling, especially because it came through the water system.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Examining the membrane under the microscope was most worthwhile: the separated fleck became a startling, specific discovery that changed the meaning of the blockage.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filtering the residue was a useful preparation, but it felt less engaging as the only available combination.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I did not expect the residue to contain a body with limbs and segments; the result leaves me curious about what it is.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless. Each followed naturally from clearing the strainer, separating the flecks, and examining them, though each decision offered only one combination.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would want to learn what Earth makes of the microscope record and where the body came from.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "step": 1,
+    "reason": "The reactor needs hydrogen to make methane, so placing its supply there seems like a useful first step.",
+    "choice": 2,
+    "expectation": "I expect the hydrogen supply to be positioned at the reactor, with carbon dioxide still needed before fuel production can begin.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Connecting the water return also fits the chapter's goal, but I want to start with the reactor inputs."
+      },
+      {
+        "choice": 3,
+        "reason": "Carbon dioxide is also a reactor input, and starting with it seems equally plausible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hydrogen is positioned at the reactor, and combining it with carbon dioxide is now available.",
+    "reaction": "The preparation worked as expected; I’m curious how the reactor handles the resulting water.",
+    "step": 2,
+    "reason": "Both gases are needed to start making methane, so combining them at the reactor directly advances the goal.",
+    "choice": 1,
+    "expectation": "I expect the reactor to start producing methane and water, though I’m unsure how those outputs will be presented.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hose could prepare the water return, but I want to start the reaction first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reactor produces a wet methane stream, and the new goal is to return the condensed reaction water.",
+    "reaction": "It is satisfying to see some of the hydrogen become water again, though I’m curious how the return connects to treatment.",
+    "step": 3,
+    "reason": "The hose at the cooled return port is the only available combination and directly fits the new goal.",
+    "choice": 1,
+    "expectation": "I expect the hose to provide a path for the cooled water back toward the treatment plant.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connected return sends reaction water through treatment and electrolysis, reducing the new water needed for fuel production. The chapter is complete.",
+    "reaction": "I found the water loop satisfying because it connects fuel production back to the earlier water system.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the reactor return was most worthwhile: it made the practical value of recovering reaction water clear.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the hydrogen supply was the least interesting action; it was a straightforward preparation without much feedback beyond placement.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was interested to see water condense alongside the methane and then return to electrolysis.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary. The reactor inputs and the return hose had clear purposes, although the final combination was the only available action.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the fuel system supports the eventual return, and I enjoyed seeing the water loop connect earlier systems.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

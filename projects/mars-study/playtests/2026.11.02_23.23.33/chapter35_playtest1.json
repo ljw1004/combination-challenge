@@ -1,0 +1,65 @@
+[
+  {
+    "step": 1,
+    "reason": "The methane store matches the lander's methane tank, so transferring it should advance the goal.",
+    "choice": 1,
+    "expectation": "I expect methane to transfer into its dedicated flight tank; the oxygen tank will still need filling.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen tank also needs filling, but either matching transfer seems like a reasonable place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane is now in its dedicated flight tank, leaving the oxygen transfer to complete the stated goal.",
+    "reaction": "The separate transfer line makes the fuel handling clear, though the step was predictable.",
+    "step": 2,
+    "reason": "The oxygen store matches the lander's oxygen tank, and this is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect liquid oxygen to transfer into its separate flight tank and complete the filling goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen transfer completed the separate flight tanks and clarified that the fuel and oxidizer meet later in the engine.",
+    "reaction": "The distinction between the separate connections and their eventual meeting in the engine was useful, though the action was predictable.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filling the oxygen tank was most worthwhile because its explanation connected the separate storage systems to their eventual use in the engine.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The methane transfer was the least engaging: the matching tank made the action obvious, and its result was expected.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that fuel and oxidizer meet in the engine added context I had not explicitly anticipated.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary; each store had a clearly matching tank and dedicated transfer line.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to continue because the fueled lander suggests the return is close, although this chapter's choices themselves were straightforward.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

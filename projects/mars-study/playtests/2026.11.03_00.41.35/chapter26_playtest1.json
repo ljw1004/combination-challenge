@@ -1,0 +1,65 @@
+[
+  {
+    "step": 1,
+    "reason": "The methane store matches the lander's methane tank, so this should start filling the separate flight tanks.",
+    "choice": 1,
+    "expectation": "I expect methane to transfer into its flight tank; the oxygen tank will still need filling.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Filling the oxygen tank also matches the goal, but either tank seems like a reasonable place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane is now in its dedicated flight tank, leaving the oxygen tank to fill.",
+    "reaction": "The separate transfer line makes the separation of the two liquids clear.",
+    "step": 2,
+    "reason": "The oxygen store matches the remaining flight tank, and it is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect liquid oxygen to transfer into its own tank, completing the filling goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen is now in its separate flight tank, completing the chapter’s goal. The result also clarifies that the fuel and oxidizer meet later in the engine.",
+    "reaction": "The distinction between separate storage and meeting in the engine was a useful detail.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filling the oxygen tank was most worthwhile because the explanation connected the separate tanks to how the engine uses their contents.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the methane tank was straightforward and predictable, though it clearly served the goal.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that fuel and oxidizer meet in the engine gave the separate transfer lines a clearer purpose.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: each liquid had a matching tank and dedicated connection.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would want to see the return and learn what the receiving lab finds in the specimens, though this chapter itself offered little decision-making.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

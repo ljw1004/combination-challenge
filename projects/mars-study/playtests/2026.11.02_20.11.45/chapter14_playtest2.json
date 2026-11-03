@@ -1,0 +1,83 @@
+[
+  {
+    "step": 1,
+    "reason": "Start splitting the water by collecting hydrogen at its outlet.",
+    "choice": 1,
+    "expectation": "I expect a supply of hydrogen for the fuel plant; I am unsure whether oxygen is collected simultaneously.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Capturing carbon dioxide also advances a goal, but I want to start with the water split."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen is available separately; I still need to collect oxygen.",
+    "reaction": "The result is straightforward, though it does not explain whether the other gas was produced at the same time.",
+    "step": 2,
+    "reason": "Collect oxygen to finish separating the water.",
+    "choice": 1,
+    "expectation": "I expect an oxygen supply and completion of the water-separation goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Carbon dioxide capture is another goal, but I want to finish the water route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both gases are now collected and the separation goal is complete.",
+    "reaction": "The two separate outlet actions felt a little repetitive, but their purpose was clear.",
+    "step": 3,
+    "reason": "Capture carbon dioxide for the remaining goal; it is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "The receiver will collect compressed carbon dioxide, though compression might require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver captures and compresses carbon dioxide in one action, completing the chapter.",
+    "reaction": "I was surprised it ended here; I expected to see the gases used to fill the lander tanks.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Collecting hydrogen and oxygen linked the water supply to the return plant, an appealing reuse of something already made.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two outlet actions felt repetitive: each produced a named supply without showing much about the separation.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Capturing carbon dioxide completed the chapter before any fuel-making or tank-filling action appeared.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The separate water-to-outlet actions made sense as collection, though I was unsure how they represented one water-splitting process.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue to see how the captured gases become propellant and connect to the journey home; this short chapter alone felt more like setup than a satisfying construction.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

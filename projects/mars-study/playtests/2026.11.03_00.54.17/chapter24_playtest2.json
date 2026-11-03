@@ -1,0 +1,81 @@
+[
+  {
+    "step": 1,
+    "reason": "The array is coated in grit, so brushing it clean seems like a useful first step toward restoring power.",
+    "choice": 1,
+    "expectation": "I expect to clear the solar panels so they can collect sunlight more effectively, though the station may still need a separate restart.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The water line also needs restarting, but restoring solar power seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Brushing the array restored the solar supply; it still needs to be connected through the restart controls.",
+    "reaction": "The result was straightforward, though I would have liked a little more detail about the restored array.",
+    "step": 2,
+    "reason": "The restored solar supply seems useful to reconnect before restarting the water line.",
+    "choice": 2,
+    "expectation": "I expect the controls to restore station power from the array, though other services may still need separate restarts.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The drained water line also needs restarting, but I expect it to need power first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The solar restart brought the return plant back online, but it must replace propellant lost during the shutdown over the coming weeks.",
+    "reaction": "The lost propellant was an unexpected consequence of the storm, and the restart checks made the recovery feel concrete.",
+    "step": 3,
+    "reason": "The drained water line is the only available gameplay action and needs to be restored as part of restarting essential services.",
+    "choice": 1,
+    "expectation": "I expect the controls to prepare the line for water and restore flow, possibly after heating and checks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The restart controls heated and checked the outdoor line before priming it and reopening the well inlet, restoring water to the cabin tap and completing the chapter.",
+    "reaction": "The sequence was satisfying because it explained how the drained line became safe to use again.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Restarting the water line was most worthwhile: the heating, checks and priming made the recovery understandable.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Brushing the solar array was straightforward, but its result offered little detail.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that some stored propellant boiled away during the shutdown and would take weeks to replace.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each had a clear connection to restoring power or water.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see whether the specimens reach Earth and what the lab learns, though this chapter's restart itself was fairly straightforward.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

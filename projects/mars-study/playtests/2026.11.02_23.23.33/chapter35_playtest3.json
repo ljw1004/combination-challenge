@@ -1,0 +1,66 @@
+[
+  {
+    "step": 1,
+    "reason": "The methane store matches the lander's methane tank, so this should start filling the separate flight tanks.",
+    "choice": 1,
+    "expectation": "I expect methane to transfer into its flight tank, though I don't know whether any further preparation will be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen tank also needs filling; I chose methane first without a particular preference."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane transfer filled its dedicated tank, leaving the oxygen tank to fill.",
+    "reaction": "The separate transfer line makes the two-system setup clear.",
+    "step": 2,
+    "reason": "The oxygen store matches the lander's oxygen tank, and this is the only remaining combination.",
+    "choice": 1,
+    "expectation": "I expect liquid oxygen to transfer into its own flight tank and complete the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen transfer completed the separate flight tanks and the chapter. The result clarifies that fuel and oxidizer meet in the engine, while their storage and connections remain separate.",
+    "reaction": "The explanation of where the two liquids meet was useful, though the transfer itself was predictable.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filling the oxygen tank was most worthwhile because the result explained how the separate tanks relate to the engine.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two transfers felt repetitive: each store had an obvious matching tank.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The explicit explanation that fuel and oxidizer meet in the engine clarified why their storage and connections stay separate.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary; both directly filled a tank needed for the return.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the return and the discovery unfold, though this chapter's choices offered little uncertainty.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

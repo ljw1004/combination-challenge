@@ -123,9 +123,9 @@ The timestamp is the start time in the user's timezone (the CLI defaults to Amer
 
 Each `chapterN_playtestM.json` is an array of the player's actual accepted structured responses, in order, including the final report. The harness adds `lookedAgain` to each response; a refresh alone adds no entry. Rejected replies and interrupted steps with no structured response remain in temporary diagnostic records. Do not rewrite the player's words, synthesize missing reasoning or include raw board/runtime snapshots in these arrays.
 
-Each `chapterN_report.md` puts `Story: path/to/story.md` immediately under its title, then retains the detailed per-player assessments: worthwhile and meaningful counts, total actions, hook, qualitative verdict, action-level evidence, timing and limits. Put the required [chapter synthesis](#chapter-synthesis) at the bottom after the individual assessments and run metadata. Keep each independent grade and the chapter reviewer's additions clearly attributed. Record the exact additional guidance (or its explicit absence), experiment-specific model choices, timing scope, version identifiers and evidence limits in these chapter reports. Do not create separate run-level `instructions.md` or `outcomes.md` files; the standing instructions and rubrics live in this guide.
+Each `chapterN_report.md` uses the heading `# Chapter N: <Chapter title from markdown>`, taking the exact chapter title from the tested manuscript. Put `Story: path/to/story.md` immediately below it, then retain the detailed per-player assessments: worthwhile and meaningful counts, total actions, hook, qualitative verdict, action-level evidence, timing and limits. Put the required [chapter synthesis](#chapter-synthesis) at the bottom after the individual assessments and run metadata. Keep each independent grade and the chapter reviewer's additions clearly attributed. Record the exact additional guidance (or its explicit absence), experiment-specific model choices, timing scope, version identifiers and evidence limits in these chapter reports. Do not create separate run-level `instructions.md` or `outcomes.md` files; the standing instructions and rubrics live in this guide.
 
-The run's `report.md` is assembled mechanically: `# Report`, the same `Story: path/to/story.md` line immediately beneath it, the brief [canonical definitions](#report-definitions), then chapter headings and their marked syntheses in numerical order. It copies the definitions and syntheses verbatim, without another AI pass, recomputing scores or including per-player detail. The [chapter rubric](#required-chapter-review) owns the synthesis markers. Build it only after every chapter represented in the run has its finished report; an incomplete or malformed input is an error rather than a silently omitted chapter.
+The run's `report.md` is assembled mechanically: `# Report`, the same `Story: path/to/story.md` line immediately beneath it, the brief [canonical definitions](#report-definitions), then chapter headings and their marked syntheses in numerical order. Preserve each chapter title as `## Chapter N: <Chapter title from markdown>`, changing only the heading level from its chapter report; do not reload a potentially revised manuscript to rename it. Copy the definitions and syntheses verbatim, without another AI pass, recomputing scores or including per-player detail. The [chapter rubric](#required-chapter-review) owns the synthesis markers. Build it only after every chapter represented in the run has its finished report; an incomplete or malformed input is an error rather than a silently omitted chapter.
 
 ```sh
 npm run playtest -- report projects/mars-study/playtests/YYYY.MM.DD_HH.MM.SS
@@ -265,6 +265,7 @@ What mindset do you have when playing this game?
 - You like to be faced with meaningful gameplay decisions
 - You're eager to learn more of how the story unfolds
 - You like to exercise your brain, maybe by learning something about things work that apply outside this game, or maybe by figuring out how the game works
+- Obvious or predictable or only-possible steps are not always bad. Sometimes they're like dessert, a little reassuring satisfaction and a mental break.
 
 #### How the game works
 
@@ -369,6 +370,7 @@ What is our target audience for this game?
 - They like to be faced with meaningful gameplay decisions
 - They're eager to learn more of how the story unfolds
 - They like to exercise their brains, maybe by learning something about things work that apply outside this game, or maybe by figuring out how the game works
+- Obvious or predictable or only-possible steps are not always bad. Sometimes they're like dessert, a little reassuring satisfaction and a mental break.
 
 #### Fun: meaningful decisions / total decisions
 
@@ -446,14 +448,14 @@ In the detailed report, outside the synthesis, state how many records are includ
 
 #### Required chapter review
 
-Return the complete Markdown chapter report, saved as `chapterN_report.md`, in this order: title, `Story: path/to/story.md`, all per-player detailed breakdowns and run metadata, then the chapter synthesis at the bottom. Use the actual filename supplied with the assignment, preferably relative to the repository root. The synthesis contains only the five categories Worthwhile, Fun, Hook, Strongest moments and Weakest moments. Put a blank line before Strongest moments and before Weakest moments. Do not add a concluding paragraph, completion statistics or caveats; put evidence limits and methodological details elsewhere in the report. Wrap only the five categories in one `<!-- chapter-synthesis:start -->` / `<!-- chapter-synthesis:end -->` pair. Keep per-player detail and run metadata outside those markers. The assembler copies the marked text without rewriting it into the run's `report.md`, preceded by the chapter heading. The combined report puts the same story filename immediately under `# Report`, before the canonical definitions. Do not repeat the report definitions in each synthesis.
+Return the complete Markdown chapter report, saved as `chapterN_report.md`, in this order: `# Chapter N: <Chapter title from markdown>`, `Story: path/to/story.md`, all per-player detailed breakdowns and run metadata, then the chapter synthesis at the bottom. Use the exact chapter title from the tested manuscript, supplied with the assignment and shown in its chapter opening; do not substitute a generic “playtest report” title or invent a new one. The organizer supplies the title from the frozen manuscript. Use the actual story filename supplied with the assignment, preferably relative to the repository root. The synthesis contains only the five categories Worthwhile, Fun, Hook, Strongest moments and Weakest moments. Put a blank line before Strongest moments and before Weakest moments. Do not add a concluding paragraph, completion statistics or caveats; put evidence limits and methodological details elsewhere in the report. Wrap only the five categories in one `<!-- chapter-synthesis:start -->` / `<!-- chapter-synthesis:end -->` pair. Keep per-player detail and run metadata outside those markers. The assembler copies the marked text without rewriting it into the run's `report.md`, preceded by the same chapter heading at level two (`## Chapter N: <Chapter title from markdown>`). The combined report puts the same story filename immediately under `# Report`, before the canonical definitions. Do not repeat the report definitions in each synthesis.
 
 Preserve each supplied independent assessment as an attributed assessment; label your added worthwhile classification as the chapter reviewer's judgment. Include the per-player worthwhile/meaningful/total counts, supporting action classifications, original fun and hook assessments, strongest/weakest evidence, and timing and limits. Do not silently revise an independent grader's classifications to make the synthesis agree. Record relevant model choices, timings, version identifiers and evidence limits in the chapter report; do not create separate run-level `instructions.md` or `outcomes.md` files.
 
 Illustrative layout only, not a reassessment of an existing chapter:
 
 ```markdown
-# Chapter 2 playtest report
+# Chapter 2: A voice in the cabin
 
 Story: path/to/story.md
 

@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "reason": "The plant needs both separated gases, so I’ll start by connecting the hydrogen receiver to the electrolysis unit.",
+    "choice": 1,
+    "expectation": "I expect the receiver to collect hydrogen produced from water, though the unit may need the oxygen receiver installed before it runs.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Capturing carbon dioxide is also a stated goal, but I’ll start with the water electrolysis equipment."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plant began splitting water once the hydrogen receiver was attached, with oxygen routed separately. I still need to collect that oxygen.",
+    "reaction": "I’m curious how the separate oxygen circuit feeds its receiver.",
+    "step": 2,
+    "reason": "Connecting the oxygen receiver should complete the collection of both gases from electrolysis.",
+    "choice": 1,
+    "expectation": "I expect oxygen from the separate circuit to collect in the receiver, completing the water-splitting goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Carbon dioxide capture is also needed, but I want to finish collecting the electrolysis gases first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both gases are now collected, and I understand that the oxygen will serve as the lander's oxidizer.",
+    "reaction": "The distinction between oxygen as oxidizer and hydrogen as fuel is useful.",
+    "step": 3,
+    "reason": "Carbon dioxide capture is the remaining stated goal and the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect the receiver to collect compressed carbon dioxide, though I don't yet know what the plant will do with it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plant has captured and compressed carbon dioxide from Martian air, completing the chapter; its later use remains unclear.",
+    "reaction": "I’m curious what the plant will make with carbon dioxide and hydrogen.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Collecting oxygen was most worthwhile because it explained its role as the lander’s oxidizer and distinguished it from fuel.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the hydrogen receiver was fairly straightforward, though it established how the plant splits water.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I had expected both receivers might need to be installed before electrolysis began, but hydrogen collection started with the first connection.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt purposeless: each receiver matched a stated collection goal, although the eventual use of the carbon dioxide was not explained.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would like to learn how the captured gases contribute to the early return and what the distant ice core reveals.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

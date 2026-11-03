@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "The exposed ice is at the scoured bank, and a geology hammer seems useful for examining or sampling it.",
+    "choice": 2,
+    "expectation": "I expect to expose or collect some ice for closer examination, though I don't know what the hammer will reveal.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "A shovel might expose more of the bank, but the hammer seems better suited to sampling ice."
+      },
+      {
+        "choice": 3,
+        "reason": "Sampling the dry bank could provide a comparison, but I want to inspect the ice first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hammer freed a block of ice, giving me a sample to examine further.",
+    "reaction": "I’m curious what the ice contains; the result itself was straightforward.",
+    "step": 2,
+    "reason": "Using the hammer on the loose block may expose its interior for examination.",
+    "choice": 1,
+    "expectation": "I expect to break or open the block, though I don’t know what it will reveal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A dry-bank sample could provide a useful comparison, but I want to examine the ice first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clean interior chips contain a brown line, giving me something specific to investigate and potentially compare with the dry bank.",
+    "reaction": "The line is intriguing because it may relate to the sediment in the water.",
+    "step": 3,
+    "reason": "Putting the trimmed chips in sample jars seems like a practical next step toward examining and preserving them.",
+    "choice": 1,
+    "expectation": "I expect to obtain a jarred ice sample; I don't yet know whether this will reveal what the brown line contains.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A dry-bank sample could offer a comparison, but I want to secure the ice chips first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clean jar confirms that the brown material is within the ice, giving me a more reliable sample to inspect.",
+    "reaction": "I’m curious whether the lens will make the material identifiable.",
+    "step": 4,
+    "reason": "The hand lens is a natural way to examine the brown material more closely.",
+    "choice": 2,
+    "expectation": "I expect a closer view of the material, though it may not be enough to identify it.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "A dry-bank sample might provide a useful comparison, but I want to inspect the ice sample first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens shows a buried layer that predates the ice above it, and the next goal is to examine the dry bank.",
+    "reaction": "The line now feels like a clue to how the ice accumulated; I’m curious what the dry bank will show.",
+    "step": 5,
+    "reason": "Sampling the dry bank is the only available combination and directly advances the new goal.",
+    "choice": 1,
+    "expectation": "I expect to collect material from the dry bank for examination or comparison with the ice, though I don’t know what it will reveal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dry-bank jar provides pale chips and dark grains for a closer look alongside the ice sample.",
+    "reaction": "I’m curious whether the grains resemble the brown layer in the ice.",
+    "step": 6,
+    "reason": "The hand lens is the only available combination and should help examine the dry-bank material.",
+    "choice": 1,
+    "expectation": "I expect a closer view of the chips and grains, though it may not establish their relationship to the ice layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens shows pale chips and dark angular grains in the dry bank, while the finer brown material in the ice lies beneath a later layer. Both samples are kept, with the ice frozen.",
+    "reaction": "I’m interested in the contrast, though the result leaves their relationship uncertain.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Examining the ice with the lens was most worthwhile: the brown line became evidence of material buried before the upper ice formed.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Freeing the ice block was straightforward but gave little to examine until the next step.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that a thin brown line could point to an earlier deposit beneath later ice.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; collecting clean samples and inspecting them with a lens made practical sense.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue because I’m curious what further examination might reveal about the ice and its buried material.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "step": 1,
+    "reason": "The strainer is blocked, and the service tool may let me open or clear it. It is also the only offered action.",
+    "choice": 1,
+    "expectation": "I expect to access or remove the sludge from the strainer, though restoring flow may take another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Backflushing restored the water flow and left a residue sample to investigate, including some curled flecks.",
+    "reaction": "I’m curious about the flecks and whether they differ from the fine material.",
+    "step": 2,
+    "reason": "The filter cloth may separate the residue into more useful fractions for examination; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the cloth to separate or collect some of the material, though I’m unsure which particles it will retain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane separated the curled flecks, making their edge features easier to examine.",
+    "reaction": "The regular projections make me curious about what the flecks are.",
+    "step": 3,
+    "reason": "The microscope is the only offered combination and should help investigate the particles blocking the intake.",
+    "choice": 1,
+    "expectation": "I expect a closer view of the flecks, though I don't yet know what they are.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microscope revealed a segmented body with limbs in the strainer residue, and the record was sent to Earth. The chapter is complete, but what the body is remains uncertain.",
+    "reaction": "I was surprised by the joints and limbs; the ordinary task of clearing a blockage suddenly became more intriguing.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Examining the membrane under the microscope was most worthwhile: it turned the unusual flecks into a concrete observation and raised a compelling question about their origin.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filtering the residue was a useful preparation, but less engaging on its own than restoring flow or seeing the microscopic body.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The curled fleck resolved into a segmented body with limbs, rather than merely looking like an ordinary particle.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: clearing the strainer, separating the flecks and examining them followed naturally from the goals. Each step had only one offered combination, though, so there was little decision-making.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would want to learn what Earth makes of the microscope record and where the body came from.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

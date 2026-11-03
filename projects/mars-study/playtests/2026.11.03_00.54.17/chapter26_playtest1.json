@@ -1,0 +1,65 @@
+[
+  {
+    "step": 1,
+    "reason": "The methane tank has a matching transfer line, so filling it advances the goal.",
+    "choice": 1,
+    "expectation": "I expect methane to transfer from its cold store into the lander's methane tank; the oxygen tank will still need filling.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen tank also needs filling, and its matching store looks equally suitable to start with."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane transfer filled its dedicated tank, leaving the oxygen tank to address.",
+    "reaction": "The rising cockpit indicator makes the progress tangible.",
+    "step": 2,
+    "reason": "The oxygen store matches the remaining tank, and this is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect liquid oxygen to transfer into the lander's separate oxygen tank and complete the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen transfer completed the goal and clarified that fuel and oxidizer remain separate until they meet in the engine.",
+    "reaction": "That distinction made the second transfer more informative than I expected.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filling the oxygen tank was most worthwhile because it explained why the two liquids have separate tanks and connections.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The methane transfer was straightforward and predictable, though the rising cockpit indicator made the progress visible.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that fuel and oxidizer meet in the engine clarified the purpose of keeping their storage systems separate.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary; each store matched a named tank and dedicated transfer line.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the return and delivery of the specimens unfold, although this chapter itself offered little decision-making.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

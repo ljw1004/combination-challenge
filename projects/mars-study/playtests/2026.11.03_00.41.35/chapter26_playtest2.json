@@ -1,0 +1,65 @@
+[
+  {
+    "step": 1,
+    "reason": "The methane store matches the lander's methane tank, so this should begin filling the separate flight tanks.",
+    "choice": 1,
+    "expectation": "I expect methane to transfer into its flight tank, though I don't know whether it will fill in one step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen tank also needs filling, but either matching transfer seems like a reasonable place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane transferred into its dedicated flight tank, leaving the oxygen tank to fill.",
+    "reaction": "The separate transfer line makes the distinction between the two liquids clear.",
+    "step": 2,
+    "reason": "The oxygen store matches the remaining flight tank, and this is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect liquid oxygen to transfer into its own tank through its dedicated line.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen transfer filled the separate oxidizer tank and completed the chapter. The result explains that fuel and oxidizer meet later in the engine.",
+    "reaction": "The engine detail made the separate tanks feel purposeful, though the transfer itself was predictable.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filling the oxygen tank was most worthwhile because the result connected the separate stores to their eventual use in the engine.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The methane transfer felt routine: the matching tank made the action obvious, and the result largely confirmed it.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that fuel and oxidizer will meet in the engine added a useful connection between the two transfers.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary; each liquid had a clearly matching tank and transfer line.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the return and the specimens' journey unfold. The tank transfers themselves offered little decision-making, but they brought the return closer.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

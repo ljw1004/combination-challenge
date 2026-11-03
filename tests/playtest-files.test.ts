@@ -23,7 +23,7 @@ function grade(meaningful:boolean):Grade {
     strongest:{text:'A concrete result.',steps:[1]},weakest:{text:'Limited alternatives.',steps:[1]},limits:'One synthetic player; text interface only.'};
 }
 function review(graderId:string,meaningful:boolean):ChapterReview {
-  return {session:'player-one',story:'stories/fixture.md',graderId,model:`model-${graderId}`,grade:grade(meaningful),
+  return {session:'player-one',story:'stories/fixture.md',chapterTitle:'A useful discovery',graderId,model:`model-${graderId}`,grade:grade(meaningful),
     lookedAgainSteps:[2],playerElapsedMs:1200,graderElapsedMs:800,outcome:'completed'};
 }
 
@@ -72,6 +72,7 @@ test('combined reviews retain independent fun, hook, evidence and classification
   const project = fixture(t),directory = createPlaytest(project,{startedAt:start}),target = {directory,player:1};
   appendChapterReview(target,2,review('first',true));
   const file = join(directory,'chapter2_report.md'),first = readFileSync(file,'utf8');
+  assert(first.startsWith('# Chapter 2: A useful discovery\n\nStory: stories/fixture.md\n'));
   appendChapterReview(target,2,review('second',false));
   const combined = readFileSync(file,'utf8');
   assert(combined.startsWith(first));
@@ -83,10 +84,14 @@ test('combined reviews retain independent fun, hook, evidence and classification
   for (const value of ['The discovery mattered.','The choice felt routine.','A concrete result.','Limited alternatives.',
     'One synthetic player; text interface only.','Look-again requests: 1; steps: 2','Player elapsed: 1200 ms','Grader elapsed: 800 ms']) assert(combined.includes(value));
   assert.throws(() => appendChapterReview(target,2,review('first',false)),/already exists/);
+  assert.throws(() => appendChapterReview(target,2,{...review('third',true),chapterTitle:'A different chapter'}),/title does not match/);
+  for (const chapterTitle of ['', ' \t', 'First\nSecond', 'First\rSecond']) {
+    assert.throws(() => appendChapterReview(target,2,{...review('third',true),chapterTitle}),/Chapter title must be nonempty and on one line/);
+  }
   assert.equal(readFileSync(file,'utf8'),combined);
   const unassessed = grade(false);
   unassessed.decisions=[];unassessed.fun={meaningful:0,total:0,ratio:null,explanation:'No decisions.'};unassessed.hook={score:null,reason:'No final report.',steps:[]};
-  appendChapterReview({...target,player:2},2,{session:'player-two',story:'stories/fixture.md',graderId:'first',model:'fixture',grade:unassessed,lookedAgainSteps:[]});
+  appendChapterReview({...target,player:2},2,{session:'player-two',story:'stories/fixture.md',chapterTitle:'A useful discovery',graderId:'first',model:'fixture',grade:unassessed,lookedAgainSteps:[]});
   const final = readFileSync(file,'utf8');assert(final.startsWith(combined));
   assert.match(final,/Player 2 — Grader first/);assert.match(final,/ratio: unknown \(no gameplay decisions\)/);assert.match(final,/Hook: unknown/);
   assert.deepEqual(readdirSync(directory),['chapter2_report.md']);
@@ -98,7 +103,7 @@ test('separate grader processes safely append to the same chapter review',async 
   const run = promisify(execFile),script = `import {appendChapterReview} from ${JSON.stringify(module)};appendChapterReview(JSON.parse(process.argv[1]),1,JSON.parse(process.argv[2]));`;
   await Promise.all(['a','b','c','d'].map(id => run(process.execPath,['--input-type=module','--eval',script,JSON.stringify(target),JSON.stringify(review(id,id === 'a'))])));
   const file = join(directory,'chapter1_report.md'),combined = readFileSync(file,'utf8');
-  assert.equal((combined.match(/^# Chapter 1 playtest report$/gm) ?? []).length,1);
+  assert.equal((combined.match(/^# Chapter 1: A useful discovery$/gm) ?? []).length,1);
   for (const id of ['a','b','c','d']) assert.equal((combined.match(new RegExp(`^## Player 1 — Grader ${id}$`,'gm')) ?? []).length,1);
   const duplicate = await Promise.allSettled([1,2].map(() => run(process.execPath,['--input-type=module','--eval',script,JSON.stringify(target),JSON.stringify(review('same',true))])));
   assert.equal(duplicate.filter(result => result.status === 'fulfilled').length,1);

@@ -18,22 +18,22 @@ function fixture(t:{after:(cleanup:()=>void)=>void}) {
   writeFileSync(definitions,`${definitionStart}\nMeaningful choices and worthwhile results.\n${definitionEnd}\n`);
   return {project,directory,definitions,output:join(directory,'report.md')};
 }
-function chapter(number:number,synthesis = 'Worthwhile: 2/3\nFun: 1/3\nHook: medium') {
-  return `# Chapter ${number} playtest report\n\nStory: stories/fixture.md\n\n## Player 1\n\nDetailed player evidence.\n\n## Chapter synthesis\n\n${synthesisStart}\n\n${synthesis}\n\n${synthesisEnd}\n`;
+function chapter(number:number,synthesis = 'Worthwhile: 2/3\nFun: 1/3\nHook: medium',title = `Scene ${number}`) {
+  return `# Chapter ${number}: ${title}\n\nStory: stories/fixture.md\n\n## Player 1\n\nDetailed player evidence.\n\n## Chapter synthesis\n\n${synthesisStart}\n\n${synthesis}\n\n${synthesisEnd}\n`;
 }
 
-test('report copies definitions and chapter syntheses verbatim in numerical order, excluding details',t => {
+test('report preserves chapter titles and copies definitions and syntheses verbatim in numerical order',t => {
   const {directory,definitions,output} = fixture(t);
   const explanation = '## Measures\r\n\r\nExact **definitions**.  \r\nA second line.';
   const second = 'Worthwhile: 1.7/3\r\nFun: 0.7/3\r\nHook: low/high\r\n\r\nPreserve  spacing and **judgments**.';
   const tenth = 'Worthwhile: unknown\n\nAn incomplete record stays visible.';
   writeFileSync(definitions,`Not part of the definitions.\n${definitionStart}\n\n${explanation}\n\n${definitionEnd}\nPrivate rubric.`);
-  writeFileSync(join(directory,'chapter10_report.md'),chapter(10,tenth));
-  writeFileSync(join(directory,'chapter2_report.md'),chapter(2,second));
+  writeFileSync(join(directory,'chapter10_report.md'),chapter(10,tenth,'The last light: **home**'));
+  writeFileSync(join(directory,'chapter2_report.md'),chapter(2,second,'A voice in the cabin'));
   writeFileSync(join(directory,'chapter2_playtest1.json'),'[]\n');
   assert.equal(assemblePlaytestReport(directory,definitions),output);
   const result = readFileSync(output,'utf8');
-  assert.equal(result,`# Report\n\nStory: stories/fixture.md\n\n${explanation}\n\n## Chapter 2 playtest report\n\n${second}\n\n## Chapter 10 playtest report\n\n${tenth}\n`);
+  assert.equal(result,`# Report\n\nStory: stories/fixture.md\n\n${explanation}\n\n## Chapter 2: A voice in the cabin\n\n${second}\n\n## Chapter 10: The last light: **home**\n\n${tenth}\n`);
   assert(!result.includes('Player 1'));assert(!result.includes('Detailed player evidence'));
   assemblePlaytestReport(directory,definitions);
   assert.equal(readFileSync(output,'utf8'),result);
@@ -47,7 +47,7 @@ test('every chapter represented by a player file requires a report and synthesis
   writeFileSync(join(directory,'chapter3_playtest2.json'),'[]\n');
   assert.throws(() => assemblePlaytestReport(directory,definitions),/chapter3_report\.md: missing chapter report/);
   assert.equal(readFileSync(output,'utf8'),prior);
-  writeFileSync(join(directory,'chapter3_report.md'),'# Chapter 3 playtest report\n\n## Player 2\nAn independent grade without synthesis.\n');
+  writeFileSync(join(directory,'chapter3_report.md'),'# Chapter 3: Scene 3\n\n## Player 2\nAn independent grade without synthesis.\n');
   assert.throws(() => assemblePlaytestReport(directory,definitions),/chapter3_report\.md: expected exactly one <!-- chapter-synthesis:start -->/);
   assert.equal(readFileSync(output,'utf8'),prior);
   assert(!readdirSync(directory).some(file => file.endsWith('.tmp')));
@@ -79,13 +79,16 @@ test('malformed chapter markers and mismatched or misplaced headings preserve th
     [valid.replace(synthesisEnd,''),/chapter-synthesis:end.*found 0/],
     [valid.replace(synthesisStart,`${synthesisStart}\n${synthesisStart}`),/chapter-synthesis:start.*found 2/],
     [valid.replace(synthesisEnd,`${synthesisEnd}\n${synthesisEnd}`),/chapter-synthesis:end.*found 2/],
-    [`# Chapter 2\n${synthesisEnd}\nText\n${synthesisStart}`,/must appear before/],
+    [`# Chapter 2: Scene 2\n${synthesisEnd}\nText\n${synthesisStart}`,/must appear before/],
     [chapter(2,' \n\t'),/chapter-synthesis is empty/],
-    [chapter(3),/first heading must be "# Chapter 2"/],
-    [valid.replace('# Chapter 2','## Chapter 2'),/first heading must be "# Chapter 2"/],
-    [`# Other heading\n\n${valid}`,/first heading must be "# Chapter 2"/],
-    [valid.replace('# Chapter 2','Chapter 2'),/first heading must be "# Chapter 2"/],
-    [`${synthesisStart}\nText\n${synthesisEnd}\n# Chapter 2`,/title before the chapter-synthesis markers/],
+    [chapter(3),/first heading must be "# Chapter 2:/],
+    [valid.replace('# Chapter 2','## Chapter 2'),/first heading must be "# Chapter 2:/],
+    [`# Other heading\n\n${valid}`,/first heading must be "# Chapter 2:/],
+    [valid.replace('# Chapter 2','Chapter 2'),/first heading must be "# Chapter 2:/],
+    [valid.replace('# Chapter 2: Scene 2','# Chapter 2 playtest report'),/first heading must be "# Chapter 2:/],
+    [chapter(2,undefined,''),/first heading must be "# Chapter 2:/],
+    [chapter(2,undefined,' \t'),/first heading must be "# Chapter 2:/],
+    [`${synthesisStart}\nText\n${synthesisEnd}\n# Chapter 2: Scene 2`,/title before the chapter-synthesis markers/],
   ] as const) {
     writeFileSync(file,source);
     assert.throws(() => assemblePlaytestReport(directory,definitions),error);

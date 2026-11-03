@@ -1,0 +1,71 @@
+[
+  {
+    "step": 1,
+    "reason": "Melting the sampled ice seems like a useful first step toward separating its solid grains, and it is the only available action.",
+    "choice": 1,
+    "expectation": "I expect the ice sample to melt, leaving the suspended grains available for separation, though I don't know exactly how the game will handle the sample.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Melting released the particles but destroyed their original positions, so I can examine the grains without recovering their arrangement in the ice.",
+    "reaction": "The loss of positional information is a useful and slightly surprising detail.",
+    "step": 2,
+    "reason": "Filtering the suspension seems like the natural way to separate its solid grains, and it is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect the cloth to retain the sediment grains while the meltwater passes through, though I don't know how fine the collected material will be.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter separated the solids from the meltwater, leaving them crowded together for closer examination.",
+    "reaction": "The crowded particles make me curious about what the microscope will reveal.",
+    "step": 3,
+    "reason": "The microscope is the natural way to examine the trapped grains, and this is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect to see details of the collected particles, though their crowded arrangement may make them difficult to distinguish.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microscope revealed a segmented body with limbs in the band sediment. Because the specimen was damaged on the filter, the plan is now to bring back unmelting ice in hopes of preserving a whole one.",
+    "reaction": "The discovery was startling, especially after the sample had seemed to be ordinary sediment.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Melting the chip was worthwhile because it made the grains accessible while clearly showing that their original positions were lost.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filtering was a straightforward, only-available step; it was useful but less engaging as a decision.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The microscope revealed a body with joints and limbs among what I expected to be sediment grains.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary, although each step offered only one gameplay combination.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would want to know what the body is and whether intact ice preserves a whole specimen; the discovery also makes the sample-handling tradeoff matter.",
+        "steps": [
+          1,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

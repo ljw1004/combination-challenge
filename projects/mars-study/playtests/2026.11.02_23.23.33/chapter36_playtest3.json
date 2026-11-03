@@ -1,0 +1,93 @@
+[
+  {
+    "step": 1,
+    "reason": "The flight carrier needs a cold-transfer margin, so fitting the reconditioned packs seems useful before moving the discovery.",
+    "choice": 1,
+    "expectation": "I expect the packs to prepare the carrier for the transfer, though it may still need active cooling.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Placing the discovery case at the transfer bench also seems necessary, but I want to prepare the carrier first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The flight packs produced a conditioned carrier, so I can prepare the transfer at the cold bench.",
+    "reaction": "The result is straightforward; I am curious how the transfer will keep the core cold.",
+    "step": 2,
+    "reason": "The discovery case needs to reach the cold transfer bench for the transfer.",
+    "choice": 1,
+    "expectation": "I expect the case to be placed at the bench, ready to transfer its contents, though the carrier may also need to be there.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The conditioned carrier likely also needs to be at the bench, but I chose to move the case first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The discovery case is at the cold transfer bench, and the conditioned carrier can now be combined with it there.",
+    "reaction": "The transfer is ready; I am curious how the surrounding ice will be preserved.",
+    "step": 3,
+    "reason": "Combining the carrier and case at the bench directly advances the goal of transferring the discovery.",
+    "choice": 1,
+    "expectation": "I expect the body-bearing core and its surrounding ice to be moved into the conditioned flight carrier, still cold, though it may need a separate connection to flight cooling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sealed liner is now in the flight carrier with the body and neighboring ice together; it still needs the lander's refrigerated bay.",
+    "reaction": "It is satisfying to see the surrounding ice preserved through the transfer.",
+    "step": 4,
+    "reason": "The refrigerated bay is the only offered combination and should complete the transfer to flight cooling.",
+    "choice": 1,
+    "expectation": "I expect the packed core to be placed in the lander's refrigerated bay and connected to cooling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is locked into the lander's bay and connected to powered cooling, completing the transfer while preserving the core and its surrounding ice.",
+    "reaction": "It is satisfying that the cold packs bridged the transfer and the refrigerator now takes over.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Moving the sealed liner into the flight carrier was most worthwhile: the body and untouched neighboring ice stayed together, preserving context as well as the discovery.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Preparing the carrier and placing the case at the bench were straightforward setup steps, though their purpose was clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The transfer moved the whole sealed liner, including the neighboring ice, into the flight cradle.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each contributed to preparing, transferring or cooling the core.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see what researchers learn from the body and its surrounding ice after the journey.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

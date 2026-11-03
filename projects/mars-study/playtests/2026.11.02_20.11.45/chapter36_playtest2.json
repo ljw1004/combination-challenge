@@ -1,0 +1,99 @@
+[
+  {
+    "step": 1,
+    "reason": "Connect the methane transfer line to its matching store to prepare for filling the fuel tank.",
+    "choice": 1,
+    "expectation": "I expect a connected methane transfer supply, though it may still need attaching to the lander.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen system also needs connecting; I chose methane first without a strong preference."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching line and store made a transfer assembly, as expected, and it can now be used at the methane tank.",
+    "reaction": "Clear and predictable; it feels like a straightforward connection.",
+    "step": 2,
+    "reason": "Finish the methane path while its assembly is ready.",
+    "choice": 2,
+    "expectation": "I expect the methane tank to be filled from the store.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I could assemble the oxygen line first, but finishing one path is easier to follow."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane tank is fueled, leaving the oxygen path to complete.",
+    "reaction": "A small satisfying payoff, though expected.",
+    "step": 3,
+    "reason": "Connect the oxygen line to its matching store; it is the only offered gameplay action and prepares the other tank.",
+    "choice": 1,
+    "expectation": "I expect an oxygen transfer assembly analogous to the methane one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen assembly is ready for its matching tank, as the methane sequence suggested.",
+    "reaction": "This repeats the first path without adding much surprise.",
+    "step": 4,
+    "reason": "Use the assembly at the oxygen tank to complete the second filling; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect the oxygen tank to be filled and the goal completed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both flight tanks are filled, completing the chapter's goal as expected.",
+    "reaction": "The completion is reassuring, but the parallel actions were very predictable.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filling the methane tank gave the first concrete payoff: the return preparation became a fueled tank after connecting its matching line.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The oxygen assembly and tank repeated the same sequence without a further detail or decision that made it distinct.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Nothing in this chapter surprised me; both paths worked as their names and the first result suggested.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear purpose: each certified line matched its store and each assembly matched its tank. The order was a preference rather than a meaningful choice.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the discovery and return resolve, though this chapter alone offered little to think through or learn beyond the separate transfer paths.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "step": 1,
+    "reason": "The methane store matches the lander's methane tank, so connecting it should fill one of the separate flight tanks.",
+    "choice": 1,
+    "expectation": "I expect methane to transfer into its tank; the oxygen tank will still need filling.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen store also matches its tank and should advance the same goal; I chose methane first arbitrarily."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane transfer filled its dedicated tank, leaving the oxygen tank to be filled.",
+    "reaction": "The rising cockpit indicator makes the progress toward departure feel tangible.",
+    "step": 2,
+    "reason": "The oxygen store matches the remaining flight tank, and this is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect liquid oxygen to transfer into its separate tank and complete the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen transfer completed the separate flight tanks and clarified that fuel and oxidizer meet in the engine, while their storage and connections remain separate.",
+    "reaction": "The distinction between separate storage and meeting in the engine was a useful detail.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filling the oxygen tank was most worthwhile because its explanation made the different roles of fuel and oxidizer clearer.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two transfers were straightforward and similarly structured, so the chapter offered little room for a meaningful decision.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that the two liquids meet in the engine clarified why they remain separate in storage.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Choosing methane first was arbitrary; both matching transfers were available and had an evident purpose.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the specimens and their surrounding ice make it home, although this chapter's combinations were predictable.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

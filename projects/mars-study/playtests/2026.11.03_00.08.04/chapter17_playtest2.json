@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "The cold packs seem likely to need freezing before they can help keep the core cold, so I’ll prepare them first.",
+    "choice": 2,
+    "expectation": "I expect the freezer to cool or recharge the packs for use in the case, though their exact role is unclear.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Combining the metal stock and refrigeration insert also looks like a natural way to start building the case, but I chose to prepare the packs first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The packs are charged for a limited transfer, with spares staying in the freezer; active refrigeration will be needed to restore their capacity.",
+    "reaction": "The limit on the packs makes their role clearer and makes me curious how the case will use them.",
+    "step": 2,
+    "reason": "Combining the metal stock with the refrigeration insert is the only numbered action available and looks like the start of the cold case.",
+    "choice": 1,
+    "expectation": "I expect to make a refrigerated case or frame, though it may still need insulation and the conditioned packs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The case has a core cradle, a rover power connector, and an external radiator suited to rejecting heat outdoors.",
+    "reaction": "The explanation of the radiator makes the case feel more grounded in the Martian setting.",
+    "step": 3,
+    "reason": "Insulation should reduce heat entering the case, and this is the only numbered action available.",
+    "choice": 1,
+    "expectation": "I expect an insulated refrigerated case, possibly still needing the conditioned cold packs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The case is insulated while its radiator and power connection remain usable; the conditioned packs are the remaining compatible addition.",
+    "reaction": "Keeping the radiator exposed makes the insulation step more physically understandable.",
+    "step": 4,
+    "reason": "Adding the charged packs should help protect the core during transfers, and it is the only numbered action available.",
+    "choice": 1,
+    "expectation": "I expect a completed cold case with temporary backup cooling from the packs, though it may still need rover power for active refrigeration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed case combines active refrigeration near minus 45 degrees with cold packs that provide a short margin during power changes.",
+    "reaction": "The distinction between continuous refrigeration and the packs’ temporary buffer makes the finished case more understandable.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the refrigerated case was most worthwhile because its external radiator explained how it can reject heat in the Martian environment.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the insulation was straightforward, although the explanation about leaving the radiator exposed gave it a useful purpose.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the cold packs provide only a limited transfer margin and need active refrigeration to restore their capacity.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt arbitrary; each action had a clear role in building or buffering the case, though the sequence offered only one numbered action at each step after the first.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would like to see whether the case can bring back an intact core and what the preserved band reveals.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

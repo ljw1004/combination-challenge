@@ -6,7 +6,7 @@ import type {Grade} from './grading.ts';
 
 export interface PlaytestTarget {directory:string;player:number}
 export interface ChapterReview {
-  session:string;story:string;graderId:string;model:string;grade:Grade;
+  session:string;story:string;chapterTitle:string;graderId:string;model:string;grade:Grade;
   guidance?:string;
   playerElapsedMs?:number;graderElapsedMs?:number;lookedAgainSteps:number[];outcome?:string;
 }
@@ -93,6 +93,8 @@ export function appendChapterReview(target:PlaytestTarget,chapter:number,entry:C
   const file = chapterPath(target,chapter,'report.md'), {grade} = entry;
   if (!entry.session.trim() || !entry.graderId.trim()) throw new Error('Session and grader ID must be nonempty.');
   if (!entry.story.trim() || /[\r\n]/.test(entry.story)) throw new Error('Story must be a filename on one line.');
+  if (!entry.chapterTitle.trim() || /[\r\n]/.test(entry.chapterTitle)) throw new Error('Chapter title must be nonempty and on one line.');
+  const title = `# Chapter ${chapter}: ${entry.chapterTitle.trim()}`;
   const marker = `<!-- playtest-review:${Buffer.from(JSON.stringify([entry.session,entry.graderId])).toString('base64url')} -->`;
   const section = [marker,`## Player ${target.player} — Grader ${label(entry.graderId)}`,'',
     `- Session: ${label(entry.session)}`,`- Grader model: ${label(entry.model)}`,
@@ -118,7 +120,8 @@ export function appendChapterReview(target:PlaytestTarget,chapter:number,entry:C
     if (previous.includes(marker)) throw new Error(`A review for session ${entry.session} and grader ${entry.graderId} already exists.`);
     const storyLine = `Story: ${entry.story.trim()}`;
     if (previous && !previous.split('\n').includes(storyLine)) throw new Error('Chapter report story filename does not match this session.');
-    const heading = `# Chapter ${chapter} playtest report\n\n${storyLine}\n\nEach section is one independent grader's assessment of one player.\n`;
+    if (previous && previous.split(/\r?\n/)[0] !== title) throw new Error('Chapter report title does not match this session.');
+    const heading = `${title}\n\n${storyLine}\n\nEach section is one independent grader's assessment of one player.\n`;
     atomicWrite(file,`${previous || heading}\n${section}`);
   });
 }

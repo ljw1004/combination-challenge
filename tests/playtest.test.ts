@@ -49,11 +49,14 @@ test('numbered AI, two isolated graders, timings and frozen replay work end to e
     assert.throws(()=>run('src/playtest/cli.ts',['init','incomplete',manuscript,'--guidance','','--player','2']),/together/);
     assert.equal(session.adventure.state.chapter,0);assert.equal(session.adventure.state.pending.length,0);
     const packet=JSON.parse(run('src/playtest/evaluate-cli.ts',['protocol','--packet']));assert.equal(packet.guidance,guidance);assert.equal(packet.verification.protocolRejections,1);assert.equal(packet.protocolIssues[0].reply.choice,999);assert(!JSON.stringify(packet).includes('protocol-fixture'));
+    // Reports name the tested chapter even when the live manuscript has been edited.
+    writeFileSync(manuscript,workshop.replace('## Make a case','## A later chapter title'));
     for(const model of ['grader-one','grader-two']) {
       const report=JSON.parse(run('src/playtest/evaluate-cli.ts',['protocol','--agent',JSON.stringify([process.execPath,gradeAgent]),'--model',model,'--output',`${model}.json`]));
       assert.equal(report.replayVerified,true);assert.equal(report.grade.fun.total,3);assert.equal(report.grade.fun.ratio,0);assert.equal(report.grade.hook.score,'low');assert(report.grader.elapsedMs>0);
     }
     const combined=readFileSync(join(batch,'chapter1_report.md'),'utf8');
+    assert(combined.startsWith(`# Chapter 1: Make a case\n\nStory: ${manuscript}\n`));
     for(const name of ['grader-one','grader-two']) assert(combined.includes(name));
     assert(combined.includes('> Designed as a high-school study assistant.\n> Connect ideas to concrete cases.'));
     assert.equal((combined.match(/Fun: 0 \/ 3/g)||[]).length,2);

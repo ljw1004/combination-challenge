@@ -1,0 +1,66 @@
+[
+  {
+    "step": 1,
+    "reason": "The flight tanks need filling, and the methane store matches the lander's methane tank.",
+    "choice": 1,
+    "expectation": "I expect methane to transfer into its flight tank; the oxygen tank will still need filling.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen tank also needs filling, but either matching transfer seems like a reasonable place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The methane is now contained in its flight tank, leaving the oxygen transfer to complete the goal.",
+    "reaction": "The rising cockpit indicator makes the transfer feel tangible.",
+    "step": 2,
+    "reason": "The oxygen store matches the remaining flight tank, and this is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect liquid oxygen to transfer through its dedicated line into the oxygen tank, completing the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both flight tanks are filled, and the explanation clarifies that fuel and oxidizer remain separate until they reach the engine.",
+    "reaction": "The separate oxygen-compatible line makes the distinction between the two transfers clear.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filling the oxygen tank was most worthwhile because it completed the preparation and explained where the two liquids eventually meet.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The methane transfer was straightforward and predictable, though the rising cockpit indicator made it tangible.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; both transfers worked as expected.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: each store matched its dedicated tank and transfer line.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see whether the specimens reach Earth and what the receiving lab finds. The tank transfers themselves offered little decision-making.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

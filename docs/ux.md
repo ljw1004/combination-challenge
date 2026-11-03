@@ -94,6 +94,8 @@ The human command-line game and AI playtester share one numbered adventure runne
 - Human play prints **All goals completed**, then automatically presents the next chapter's text and board. Preserve the engine's chapter-skipping rules and ending. AI chapter assignments stop at the boundary after showing final results, then request the last reflection and structured closing report.
 - AI gameplay replies include the current step, one numbered option and the rubric's required fields. A look uses only `{"step": N, "choice": "L"}` and defers the full structured reply until after the board refresh. Reflection on the previous gameplay result remains due. Record only actual gameplay responses in the action log, with a harness-owned `lookedAgain` boolean on the response that follows the refresh. Preserve the shown board as supporting metadata, not another action entry. An interrupted look remains pending rather than inventing a turn. Reject stale, malformed or unlisted choices without mutation. Raw engine state, action IDs and unperformed developer routes remain internal.
 
+Retained chapter evaluations use the tested manuscript's chapter titles, preserved in the combined report, so authors can navigate between the story and its findings. The [evaluation report format](fun-and-evaluation.md#run-files) owns the exact headings and assembly rules.
+
 ## Result placement
 
 For a two-item combination, A is the dragged item and B is the receiving item, regardless of their order in the Markdown recipe. Use their **final computed dispositions**, after the engine protects ingredients still needed later. A preserved A returns to its exact source position and placement; a preserved B stays put.

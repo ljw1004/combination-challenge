@@ -193,6 +193,15 @@ npm run analyze -- --table --include projects/mars-study/mars-v3/mars.md --outpu
 
 Run the shared [checks and preview](#check-and-preview-a-draft), analyze the structure when relevant, and inspect the working sets and explanations in the browser. State what a change should improve, then use the [playtesting tools](fun-and-evaluation.md#logical-playtesting) under the [evaluation method](fun-and-evaluation.md#a-closed-loop-that-can-change-its-mind). Keep an observed success and its limitations together; a simulated report cannot overrule the user's enjoyment.
 
+Here's a process for evaluating the report.md that came from playtesting:
+1. Look for say bottom half of chapters in terms of their % worthwhile. And look for chapters in which the hook rating is entirely medium or lower, i.e. where no one reported a high hook. Together these will give us a shortlist of which chapters to focus on (it's a shortlist, not a verdict). I think that % fun is hard to use as a criterion. Note that a high hook shouldn't protect a chapter from scrutiny: players can remain eager about discovery while finding the intervening work tedious, and we still want to address that.
+2. Look for themes about "Strongest moments" so we know what kind of combinations to copy
+3. Look at all "Weakest moments", see if we can identify themes
+4. Then we'll look at our chapter shortlists. Low "hook" ratings should prompt us to look at the emotional weight of the story arc around this chapter. Low "% worthwhile" should prompt us to look at the combinations available in the chapter. Any combinations that match the common "weakest moments" themes are particularly ripe for rework.
+
+You should write down in a study-specific working-notes.md file, e.g. projects/mars-study/working-notes.md, the actions you propose to take -- presumably things like how you'd restructure combinations/items within existing chapters, or even how you'd re-organize story arcs or chapter texts.
+
+
 Review the concrete manuscript rather than treating an outline or target recipe count as evidence of quality. Check motivation and pacing separately from factual plausibility. Propose replacements for weak passages; neither cutting everything nor adding more steps necessarily improves the story. Use the [independent-review and blind-reading procedures](fun-and-evaluation.md#reviewer-independence) for narrative, continuity and authenticity reviews, and for predictions of combinations or story beats.
 
 Sources: archived [human design decisions](<../archive/2026.10.30 initial experiments/DESIGN_PRINCIPLES.md>), [design contract](<../archive/2026.10.30 initial experiments/docs/design-contract.md>), [late manuscript decisions](<../archive/2026.10.30 initial experiments/notes.md>), [observation simplification](<../archive/2026.10.30 initial experiments/docs/mars-observation-streamline.md>), and [fun theory revision 9](<../archive/2026.10.30 initial experiments/docs/what-is-fun.md>). The [salvage index](../archive/salvage-index.md) records superseded historical directions.

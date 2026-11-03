@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "I need a case to hold and protect the core, so folding the metal seems like a sensible first step.",
+    "choice": 1,
+    "expectation": "I expect the jig to form a case shell, though it may need insulation and cooling afterward.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The packs will be needed to keep it cold, but I want the container first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jig produced the shell as expected; I can now insulate it.",
+    "reaction": "A straightforward, satisfying first piece.",
+    "step": 2,
+    "reason": "Insulation belongs in the shell to slow warming of the sample.",
+    "choice": 1,
+    "expectation": "I expect an insulated case, still needing refrigeration.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Freezing the packs is also useful, but I want to finish the case structure first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shell is now insulated, leaving the cooling insert to fit.",
+    "reaction": "It behaved as expected; nothing surprising.",
+    "step": 3,
+    "reason": "The refrigeration insert should actively keep the insulated case cold.",
+    "choice": 1,
+    "expectation": "I expect a refrigerated field case; the packs may still be needed as backup.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The packs need freezing too, but I am continuing the case assembly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The case now has refrigeration; the remaining offered action is preparing the packs.",
+    "reaction": "The assembly is logical but predictable so far.",
+    "step": 4,
+    "reason": "Freezing the packs is the only offered combination and should prepare extra cooling.",
+    "choice": 1,
+    "expectation": "I expect cold packs ready to install in the case.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The packs are charged and the text clarifies that they buffer incoming heat only temporarily and need refrigeration to recharge.",
+    "reaction": "I liked the distinction between passive heat absorption and active cooling; it gives the packs a clear purpose.",
+    "step": 5,
+    "reason": "The only offered combination puts the charged packs with the refrigerated case for transport.",
+    "choice": 1,
+    "expectation": "I expect a completed cold case with the packs as a temporary buffer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The packs complete the buffered case, so it is ready for the intended core collection.",
+    "reaction": "It is satisfying to have assembled the case, though the final result is terse.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Charging the packs explained their limited heat-absorbing capacity and the role of active refrigeration; that made the design clearer.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The shell and insulation steps were sensible but predictable, with little detail beyond the created objects.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I had not considered that active refrigeration must restore the packs' capacity after they absorb heat.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the assembly sequence was clear, though the later choices were forced.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I want to see whether the protected ice contains a whole ridged object, although this case-building sequence itself offered little decision-making.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

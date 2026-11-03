@@ -1,0 +1,99 @@
+[
+  {
+    "step": 1,
+    "reason": "The pallet is buried, so I want to use the winch to pull it free.",
+    "choice": 1,
+    "expectation": "The winch may lift or uncover the pallet, though it might need an attachment first.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Opening the shipping frame could help, but freeing the buried pallet seems more urgent."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array is free and now needs to power the cabin.",
+    "reaction": "The winch worked as expected; the new goal makes the next job clear.",
+    "step": 2,
+    "reason": "The service tool and shipping frame are the only offered combination, and may release equipment for the connection.",
+    "choice": 1,
+    "expectation": "I expect to open or dismantle the frame and find a useful component, but I am guessing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shipping frame yields reusable aluminium, suggesting I can fabricate a part.",
+    "reaction": "I like repurposing the shipping braces, though their connection to powering the cabin is still unclear.",
+    "step": 3,
+    "reason": "This is the only offered combination, and the stock can apparently be worked with the tool.",
+    "choice": 1,
+    "expectation": "I expect to make a component from the aluminium, perhaps an array support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cut stock can provide mounting feet for the array and material for later work.",
+    "reaction": "The description makes the reuse feel purposeful and gives a concrete picture of the parts.",
+    "step": 4,
+    "reason": "The array needs its mounting feet, and this is the offered combination.",
+    "choice": 1,
+    "expectation": "The feet will be attached to stabilize the array.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array now stands, ready for a power connection.",
+    "reaction": "Satisfying to see the recovered parts become a working setup, though it happened quickly.",
+    "step": 5,
+    "reason": "The power lead naturally connects the standing array to the cabin.",
+    "choice": 1,
+    "expectation": "The lead will connect the array and supply power to the cabin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connected array powers the cabin and completes the goal.",
+    "reaction": "The fan changing note gives a satisfying sensory payoff to the assembly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the array and hearing the cabin fan settle made the practical result tangible.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Cutting the stock felt like a necessary intermediate action rather than an interesting decision, since it was the only combination offered.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I didn't initially expect the shipping frame to become mounting feet for the array.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Opening the frame was initially unclear as a route to powering the cabin, although the later mounting feet explained it.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, cautiously: the reuse of materials and concrete payoff make me curious what I might build next, although most of this chapter offered only one action at a time.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

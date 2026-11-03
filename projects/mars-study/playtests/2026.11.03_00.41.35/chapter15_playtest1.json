@@ -1,0 +1,84 @@
+[
+  {
+    "step": 1,
+    "reason": "The reactor needs hydrogen and carbon dioxide to make methane, so I’ll start by placing one of its inputs.",
+    "choice": 2,
+    "expectation": "I expect the hydrogen supply to be positioned at the reactor, ready for a further step; this alone may not start the reaction.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Carbon dioxide is also a required input, and placing it first seems equally plausible."
+      },
+      {
+        "choice": 1,
+        "reason": "The hose should help return produced water, but I want to prepare the reactor inputs first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hydrogen is positioned at the reactor, and the carbon dioxide can now be combined with it there.",
+    "reaction": "The preparation worked as expected; I’m curious about the reactor’s output.",
+    "step": 2,
+    "reason": "Combining the two inputs at the reactor directly advances the goal of making fuel.",
+    "choice": 1,
+    "expectation": "I expect the reactor to begin producing methane and water, though I’m unsure how the outputs will be collected.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hose could prepare the water return, but I want to start the reaction first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reactor is collecting methane, and the condensed reaction water now needs a return path.",
+    "reaction": "Seeing some of the well’s hydrogen return as water makes the loop clearer.",
+    "step": 3,
+    "reason": "The hose is the only available combination and should connect the cooled water return.",
+    "choice": 1,
+    "expectation": "I expect the hose to route the condensed water back toward treatment, though I’m unsure whether another connection will be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hose connects the reactor’s water return to treatment and electrolysis, completing the loop and reducing the need for new water.",
+    "reaction": "It was satisfying to see how the reaction water can be used again.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Starting the reactor was most worthwhile: the methane and condensed water made the connection between the inputs and the water loop concrete.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the hydrogen was a straightforward preparation with little to discover on its own.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that some hydrogen from the well becomes water again made the loop clearer.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though choosing which reactor input to place first seemed arbitrary.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would want to see what happens to the specimens and the early return, and whether the fuel plant is enough to get them home.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

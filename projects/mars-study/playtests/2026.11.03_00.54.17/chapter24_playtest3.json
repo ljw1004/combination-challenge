@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "reason": "The array is coated in grit, so brushing it seems like a natural first step toward restoring power.",
+    "choice": 1,
+    "expectation": "I expect to clear the panels so they can collect more sunlight, though other restart steps may still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Restarting the water line also serves the goal, but restoring the solar array seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array now provides a restored solar supply, which can be connected at the restart controls.",
+    "reaction": "The result was straightforward; I’m curious how the water line will be brought back online.",
+    "step": 2,
+    "reason": "Connecting the restored solar supply seems like a useful first step toward restarting the station’s services.",
+    "choice": 2,
+    "expectation": "I expect the station to switch back to solar power, though the water line may still need a separate restart.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The water line also needs restarting, but I would connect the restored power supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return plant is running again, but it will need weeks to replace propellant lost during the shutdown. The water line still needs attention.",
+    "reaction": "I was surprised that some stored propellant boiled away during the shutdown.",
+    "step": 3,
+    "reason": "Restarting the drained water line is the only available combination and should help restore the remaining essential service.",
+    "choice": 1,
+    "expectation": "I expect the line to be checked and brought back into service, though I don't know whether that will complete the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heated exterior line is primed and water is flowing from the well to the cabin again, completing the chapter.",
+    "reaction": "The sequence of heating, checking and priming the line made its restart satisfying to follow.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Restarting the water line was most worthwhile: the explanation showed how heating and priming prepare it before the well inlet opens.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Brushing the array was straightforward, but the result gave little detail beyond the restored supply.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that stored propellant boiled away during the shutdown and would take weeks to replace.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; cleaning the array and restarting power and water all served the stated goal.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The propellant loss leaves me curious about the wait for departure and what happens to the specimens.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

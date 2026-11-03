@@ -1,0 +1,85 @@
+[
+  {
+    "step": 1,
+    "reason": "The reactor needs hydrogen to make methane, so I will put its supply there first.",
+    "choice": 2,
+    "expectation": "The hydrogen supply will be positioned at the reactor, ready to combine with carbon dioxide; I don't know whether that starts a reaction by itself.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Carbon dioxide is also a required feed, and could probably be placed first."
+      },
+      {
+        "choice": 1,
+        "reason": "The return hose sounds useful for recovering water, but I want to set up the fuel reaction first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hydrogen is positioned and the combined reactor action is now available.",
+    "reaction": "As expected; the separate placement feels like a small setup step.",
+    "step": 2,
+    "reason": "Combine the two stated feed gases at the reactor to start making fuel.",
+    "choice": 1,
+    "expectation": "The reactor will produce methane, and perhaps water as the introduction says.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hose will be needed for the water return, but I want to start the reactor first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Methane is being collected and the condenser has water; the new goal is to return that water.",
+    "reaction": "I like the concrete image of hydrogen from the well becoming water again, tying the loop together.",
+    "step": 3,
+    "reason": "The hose at the return port is the only combination offered and should give the water a route back.",
+    "choice": 1,
+    "expectation": "The hose will connect the cooled return to treatment, completing the water return goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return feeds treatment and electrolysis, so the chapter's fuel and water loop is operating.",
+    "reaction": "Satisfying to see the hose produce a useful connection to the earlier water system.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Starting the reactor and seeing water condense was most worthwhile: hydrogen from the well becomes part of a water return while methane is collected.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the hydrogen separately felt like a small procedural step with little to discover by itself.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The explicit connection back to treatment and electrolysis clarified how the recovered water reduces new water use.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial placement is understandable, but choosing which gas to place first felt inconsequential given both are required.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter to see how the fuel and other systems contribute to the return, though these short and mostly obvious choices alone would not sustain my interest for long.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

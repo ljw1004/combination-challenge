@@ -26,7 +26,7 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **Cookbook** teaches practical cooking through pen-and-wash illustrations, from breakfast through afternoon tea to dinner: `/combinations.html?story=cookbook/cookbook.md`. See its [design examples](stories/cookbook/design-examples.png) and lasting [design brief](stories/cookbook/design-brief.md). The completed [Cookbook study](<archive/2026.11.01 cookbook study/README.md>) retains the adaptation research, artistic directions and verdicts, comparisons, production source art and all 35 completed cookbook page PNGs.
 
-**Mars: A Light That Answers** is the restored illustrated version: `/combinations.html?story=mars/mars.md`. The active [Mars study](projects/mars-study/README.md) retains the artwork, the unaccepted [v2 experiment](projects/mars-study/mars-v2/README.md), the separate [v3 candidate](projects/mars-study/mars-v3/README.md) and the user's [story-design guidance](projects/mars-study/README.md#story-direction). The project continues beyond any individual story or artwork pass.
+**Mars: A Light That Answers** is the restored illustrated version: `/combinations.html?story=mars/mars.md`. The active [Mars study](projects/mars-study/README.md) retains the artwork, the unaccepted [v2 experiment](projects/mars-study/mars-v2/README.md), the preserved [v3 baseline](projects/mars-study/mars-v3/README.md), the [current v8 candidate](projects/mars-study/mars-v8/README.md) and the user's [story-design guidance](projects/mars-study/README.md#story-direction). The project continues beyond any individual story or artwork pass.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 

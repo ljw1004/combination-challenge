@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "reason": "The local fuel plant needs carbon dioxide, so connecting the receiver to the capture unit seems like a useful first step.",
+    "choice": 3,
+    "expectation": "I expect the receiver to collect compressed carbon dioxide, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I also considered starting water separation at the hydrogen outlet, but chose to prepare the carbon dioxide supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver produced compressed carbon dioxide and completed that goal, leaving water separation to address.",
+    "reaction": "The result matched my expectation, though it gave little detail about the capture process.",
+    "step": 2,
+    "reason": "I’ll start at the hydrogen outlet to work toward separating water into hydrogen and oxygen.",
+    "choice": 1,
+    "expectation": "I expect to obtain hydrogen from the water, though I’m unsure how the oxygen will be handled.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen outlet also serves the separation goal, but I chose to start with hydrogen."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plant produced hydrogen and clarified that oxygen comes from the other outlet of the same running electrolysis process.",
+    "reaction": "The clarification about the shared process was useful; I had been unsure how the oxygen would be handled.",
+    "step": 3,
+    "reason": "Collecting oxygen is the only available combination and should complete the water separation goal.",
+    "choice": 1,
+    "expectation": "I expect to collect the oxygen stream from the running electrolyzer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Collecting oxygen completed the chapter and clarified that the lander will use it as an oxidizer, separate from the hydrogen.",
+    "reaction": "The distinction between oxidizer and fuel was useful, though the chapter ended before I saw how the supplies would be used.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Collecting hydrogen was most worthwhile because the explanation clarified that both gases come from the same running electrolysis process.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Capturing carbon dioxide was the least informative passage: it completed the goal without explaining the capture or compression process.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I had been unsure how oxygen would be handled; the result explained that it comes from the other outlet of the same process.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The two separate outlet actions felt somewhat mechanical, but their purpose was clear once the shared process was explained.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the fuel plant is used and whether the untouched ice can be brought home; this chapter left both developments open.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

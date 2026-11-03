@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "The electrolysis unit has separate receivers for its gases, so I’ll start by fitting the hydrogen receiver.",
+    "choice": 1,
+    "expectation": "I expect the receiver to be connected to the hydrogen side; oxygen may still need its own receiver before collection begins.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen receiver also needs fitting, but either gas seems like a reasonable place to start."
+      },
+      {
+        "choice": 3,
+        "reason": "Capturing carbon dioxide is also a goal, but I’ll start with the water electrolysis unit."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hydrogen receiver is collecting gas already, while oxygen follows a separate circuit. I’ll fit its receiver next.",
+    "reaction": "I’m a little surprised electrolysis started before the oxygen receiver was fitted.",
+    "step": 2,
+    "reason": "The oxygen receiver belongs at the same unit and should complete collection of both gases.",
+    "choice": 1,
+    "expectation": "I expect the receiver to collect oxygen from the separate circuit and possibly complete the electrolysis goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Carbon dioxide capture is also required, but I want to finish setting up gas collection from water first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both gases are now collected separately, completing the electrolysis goal; the oxygen will serve as oxidizer for the lander.",
+    "reaction": "The distinction between oxygen as oxidizer and fuel is useful.",
+    "step": 3,
+    "reason": "Carbon dioxide capture is the remaining goal, and this is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect the receiver to collect and compress carbon dioxide, completing that goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Carbon dioxide capture completes the chapter’s two goals and provides a compressed ingredient for the plant.",
+    "reaction": "The idea of gathering a chemical ingredient from the thin Martian air is interesting.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Collecting oxygen was most worthwhile because the result clarified its role as the lander’s oxidizer.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the separate receivers became a little repetitive, although the results distinguished the gases and their roles.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that hydrogen began collecting before the oxygen receiver was fitted.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; each receiver matched a named unit and an explicit goal.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I’m curious how the collected gases will support the early return and what happens to the specimens.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "step": 1,
+    "reason": "Thawing the banded ice is the only offered action and should let me begin separating its solid grains.",
+    "choice": 1,
+    "expectation": "I expect the melter to thaw a small portion so its suspended solids can be collected, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The melted portion can reveal the grains, but their original positions are lost; the rest remains cold.",
+    "reaction": "I’m curious about the grains, and the loss of their original arrangement makes the sampling tradeoff clear.",
+    "step": 2,
+    "reason": "Filtering the suspension is the only offered combination and should separate the solid grains from the meltwater.",
+    "choice": 1,
+    "expectation": "I expect the cloth to catch the sediment, though I don’t yet know what the grains will reveal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter separated the solids, but they are crowded together; the next goal is to inspect them closely.",
+    "reaction": "I’m curious whether the hand lens can distinguish anything in the crowded material.",
+    "step": 3,
+    "reason": "The hand lens is the only offered combination and should help examine the trapped grains.",
+    "choice": 1,
+    "expectation": "I expect a closer view of the particles, though their crowding may limit what I can see.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens revealed a ridged fragment, but its source is unclear and drying damaged one edge. The remaining frozen band may preserve a whole specimen.",
+    "reaction": "The fragment is intriguing, and its damaged edge makes the cost of this examination tangible.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Examining the filtered grains was most worthwhile: the ridged fragment raises a concrete question while leaving its origin uncertain.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filtering was a predictable, necessary step, but it was the least engaging action on its own.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The melted particles lost their original positions, and the fragment later crumbled at one edge. Both details changed how I understood the limits of the sample.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt purposeless; each followed naturally from the goal, though each menu offered only one combination.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would want to learn whether an intact specimen can be recovered from the frozen band and what it might be.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -46,7 +46,7 @@ try {
       const profile={session:id,replayVerified:true,outcome:session.outcome ?? 'awaiting-report',decisions:packet.verification.decisions,playerElapsedMs:session.elapsedMs ?? null,grade,grader:grade ? {model:options['--model'] ?? 'unspecified grader',elapsedMs:elapsedMs ?? null} : null,...(!grade ? {note:'No independent grading supplied. Fun and hook are unassessed. Use --packet, --grade FILE, or a fresh --agent.'} : {})};
       writeFileSync(output,JSON.stringify(profile,null,2)+'\n',{flag:'wx'});
       if ((session.version === 4 || session.version === 5) && session.playtest && grade) appendChapterReview(session.playtest,session.chapter,{
-        session:id,story:session.story,graderId:name,model:options['--model'] ?? 'unspecified grader',grade,
+        session:id,story:session.story,chapterTitle:story.chapters[session.chapter-1].name,graderId:name,model:options['--model'] ?? 'unspecified grader',grade,
         ...(session.version === 5 ? {guidance:session.guidance} : {}),
         playerElapsedMs:session.elapsedMs,graderElapsedMs:elapsedMs,
         lookedAgainSteps:session.turns.filter(turn => turn.lookedAgain).map(turn => turn.reply.step),outcome:session.outcome,

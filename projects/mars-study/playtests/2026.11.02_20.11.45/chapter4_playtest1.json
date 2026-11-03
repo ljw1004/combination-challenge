@@ -1,0 +1,70 @@
+[
+  {
+    "step": 1,
+    "reason": "The melter should turn a separate portion of the ice into water for removing grit; it is the only offered action.",
+    "choice": 1,
+    "expectation": "Some ice will melt in the sealed vessel, leaving water with suspended grit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meltwater is collected, so it is ready to filter.",
+    "reaction": "The result is straightforward, with no detail yet about what the water carries.",
+    "step": 2,
+    "reason": "Filter cloth should remove grit from the meltwater, matching the goal; it is the only combination offered.",
+    "choice": 1,
+    "expectation": "The cloth will trap solid grit and produce filtered water, though dissolved material may remain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Filtering completed the grit-removal goal and revealed a test for material left after drying.",
+    "reaction": "I am curious whether the clear water leaves a visible residue.",
+    "step": 3,
+    "reason": "The evaporation dish is the only offered combination and should dry the filtered water to reveal residue.",
+    "choice": 1,
+    "expectation": "The water will evaporate and leave any dissolved solids behind, possibly as a deposit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crystals show that clear, filtered water still contained dissolved salts, so a cabin processor needs another removal step.",
+    "reaction": "The visible crystals make the distinction between grit and dissolved material satisfying and concrete.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Evaporating the filtered water gave a concrete result and explained why clear water can still require treatment.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Collecting meltwater was a necessary but uneventful first action; the result added little beyond its name.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The salt crystals made the dissolved material visible, though I had expected some possible residue.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: melting, filtering and evaporating followed the stated investigation. Each step offered only one combination, however, so there was little decision-making.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter to see how the ice investigation develops; the salt result connects a simple experiment to the practical cabin problem, though I hope for more choices.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

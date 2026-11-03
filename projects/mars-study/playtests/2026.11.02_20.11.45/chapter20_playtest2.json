@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The case needs a shell, so folding the metal seems like a useful first step.",
+    "choice": 1,
+    "expectation": "The jig will form a case or its frame; it may still need insulation and cooling.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cooling the packs also seems necessary, but I want to build the container first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jig made the expected shell, ready for the insulation.",
+    "reaction": "A clear, satisfying first construction step.",
+    "step": 2,
+    "reason": "Insulating the shell should slow heat entering the case.",
+    "choice": 1,
+    "expectation": "The felt will line or wrap the shell, making an insulated case.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The packs need chilling too, but I want to finish the shell first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The felt made an insulated case as expected; it still needs cooling.",
+    "reaction": "The assembly makes physical sense, though it is straightforward.",
+    "step": 3,
+    "reason": "The refrigeration insert belongs in the insulated case to keep the sample cold.",
+    "choice": 1,
+    "expectation": "The insert will fit into the case to make a refrigerated container, perhaps still requiring the packs.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Freezing the packs is also needed, but I want to finish fitting the case."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The insert produced a refrigerated case; the remaining packs appear to be the next requirement.",
+    "reaction": "The result is as expected, with no explanation yet of how the insert and packs work together.",
+    "step": 4,
+    "reason": "The freezer can prepare the packs, and this is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "The packs will be chilled for use in or with the case.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The packs are charged for temporary heat absorption; active refrigeration restores their capacity, clarifying their role during transfer.",
+    "reaction": "That distinction is useful and makes the two cooling components make sense.",
+    "step": 5,
+    "reason": "Putting the conditioned packs into the case should complete the cold transport setup; it is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "The result will be a prepared cold case for the core.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The conditioned packs completed the buffered field case and the chapter goal.",
+    "reaction": "It is satisfying to finish a tangible tool for preserving the fragile sample, though the final result has little detail.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Charging the cold packs explained how they buffer incoming heat temporarily and why active refrigeration is still needed; that made the case more than a list of parts.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The shell and insulation actions were sensible but predictable, with little feedback beyond the created item names.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The distinction between the packs' limited heat absorption and refrigeration restoring that capacity clarified how the cooling system works.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; fitting the refrigeration insert initially left its relationship to the packs unclear, but the next result helped explain it.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue to see whether the case helps retrieve an intact sample and what the ridged fragment turns out to be. The assembly itself was rather linear.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

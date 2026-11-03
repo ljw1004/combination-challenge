@@ -1,0 +1,89 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to start separating water for the lander's fuel supply, and the hydrogen outlet is a compatible starting point.",
+    "choice": 1,
+    "expectation": "I expect the electrolyzer to produce or collect hydrogen from the water, though I don't know how the oxygen will be handled yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen outlet also seems relevant to splitting water, but I chose to start with hydrogen."
+      },
+      {
+        "choice": 3,
+        "reason": "Capturing carbon dioxide is another stated goal, but I chose to begin with water separation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hydrogen outlet produced a hydrogen supply; I still need to collect the oxygen and capture carbon dioxide.",
+    "reaction": "The result was straightforward, though it did not explain the separation process.",
+    "step": 2,
+    "reason": "The oxygen outlet is the other available action for separating water, so I want to complete that part next.",
+    "choice": 1,
+    "expectation": "I expect to obtain an oxygen supply from the electrolyzer.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Capturing carbon dioxide is also a goal, but I want to finish the water separation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Collecting oxygen completed the water-separation goal, leaving carbon dioxide capture.",
+    "reaction": "The result was straightforward, though I am still curious about how the gases will be used.",
+    "step": 3,
+    "reason": "This is the only available combination and directly addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the receiver to collect compressed carbon dioxide, though I do not know whether another step will be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver produced compressed carbon dioxide and completed the chapter's remaining goal. The gases' eventual use was not shown.",
+    "reaction": "The result was straightforward, but I was curious how the gases would become propellant.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Collecting oxygen completed the separation goal and established that the plant supplied both gases from water.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Collecting the two gases felt repetitive, and neither result explained how electrolysis works.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The chapter ended after collecting the gases; I had expected to learn more about how they would fill the lander's tanks.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Using drinking water separately at each electrolyzer outlet felt like a game convention whose physical process was unclear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because I want to see how the hydrogen, oxygen and carbon dioxide are used to prepare for the return.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

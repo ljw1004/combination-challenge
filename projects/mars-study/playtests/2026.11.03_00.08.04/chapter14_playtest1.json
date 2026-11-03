@@ -1,0 +1,85 @@
+[
+  {
+    "step": 1,
+    "reason": "Capturing carbon dioxide directly addresses one of the two plant goals, and the receiver appears suited to the capture unit.",
+    "choice": 3,
+    "expectation": "I expect the unit to collect and compress carbon dioxide into the receiver, though I don't know whether that completes the goal in one step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Splitting water also serves a goal, but I chose the more straightforward receiver-and-capture-unit pairing first."
+      },
+      {
+        "choice": 2,
+        "reason": "The oxygen outlet may also start water separation, but I'm unsure how the two outlet options differ."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver produced compressed carbon dioxide and completed the capture goal; water separation remains.",
+    "reaction": "The result was straightforward, though it gave no detail about the capture process.",
+    "step": 2,
+    "reason": "The hydrogen outlet is one of two available paths toward separating water. I’m choosing it first without knowing whether the order matters.",
+    "choice": 1,
+    "expectation": "I expect the electrolyzer to produce hydrogen from the drinking water, though oxygen may require a separate action.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The oxygen outlet also appears relevant, but I have no indication it should come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plant produced a separate hydrogen stream, and the explanation makes clear that oxygen collection is the other side of the same running process.",
+    "reaction": "The clarification resolved my uncertainty about why water appeared at both outlets.",
+    "step": 3,
+    "reason": "Collecting oxygen is the only available combination and should complete the water-separation goal.",
+    "choice": 1,
+    "expectation": "I expect to collect an oxygen supply from the electrolyzer and complete the separation goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Collecting oxygen completed the water-separation goal. The result clarified that the lander will use it as an oxidizer, while keeping it separate from hydrogen.",
+    "reaction": "The distinction between oxidizer and fuel was useful, though collecting oxygen was a predictable final step.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Collecting hydrogen was most worthwhile because the explanation clarified that both outlets belong to the same electrolysis process.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Capturing carbon dioxide felt least informative: the goal was completed immediately without explaining the capture or compression process.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I initially wondered why drinking water appeared at both outlets; the hydrogen result explained that oxygen collection was part of the same running process.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Choosing the hydrogen outlet before the oxygen outlet felt somewhat arbitrary because the menu gave no indication that the order mattered.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the discovery of a segmented body in the ice and the plan to return an untouched core make me curious about what happens next. This chapter's plant actions were fairly straightforward, though.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
