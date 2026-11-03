@@ -58,12 +58,21 @@ export function goalPossible(goal: Goal, available: Map<string, Set<string>>, ho
 export function continuationPossible(story: Story, state: State, removed: Set<string> = new Set(), includeCurrentItems=false): boolean {
   return possibility(story,state,removed,includeCurrentItems);
 }
+export interface ContinuationBlocker {chapter:number; goal?:Goal; supply?:Ref}
+/** Explain the same closure used by retention, without running a second planner. */
+export function analyzeContinuation(story: Story, state: State): {possible:boolean; blockers:ContinuationBlocker[]} {
+  const blockers = new Map<string,ContinuationBlocker>();
+  const possible = possibility(story,state,new Set(),true,undefined,blocker => {
+    blockers.set(blocker.goal?.id ?? `${blocker.chapter}:${JSON.stringify(blocker.supply)}`,blocker);
+  });
+  return {possible,blockers:possible ? [] : [...blockers.values()]};
+}
 /** Can these preparations coexist on a remaining branch? Missing does not mean retired.
  * Reuse the planning closure without requiring unrelated goals to be complete. */
 export function preparationPossible(story: Story, state: State, required: readonly Ref[]): boolean {
   return possibility(story,state,new Set(),false,required);
 }
-function possibility(story: Story, state: State, removed: Set<string>, includeCurrentItems:boolean, required?:readonly Ref[]):boolean {
+function possibility(story: Story, state: State, removed: Set<string>, includeCurrentItems:boolean, required?:readonly Ref[], onFailure?:(blocker:ContinuationBlocker)=>void):boolean {
   const index = indexStory(story), banned = new Set(state.excluded);
   for (const token of Object.values(state.tokens)) if (token.status !== 'available' && token.status !== 'installed') banned.add(token.id);
   for (const id of removed) banned.add(id);
@@ -93,13 +102,18 @@ function possibility(story: Story, state: State, removed: Set<string>, includeCu
       }
       const c = story.chapters[chapter];
       const checkGoal = (g: Goal) => state.achieved.includes(g.id) || goalPossible(g, available, hotspots);
-      if (!required && !chapterGoalsSatisfied(c, checkGoal)) return false;
+      if (!required && !chapterGoalsSatisfied(c, checkGoal)) {
+        if (onFailure) for (const goal of c.goals) if (!checkGoal(goal)) onFailure({chapter,goal});
+        return false;
+      }
       // Excluded optional alternatives do not become mandatory through an Items listing.
       if (!required && (chapter > state.chapter || includeCurrentItems) && chapterSupplies(story, chapter).some(r => {
         const token = state.tokens[r.id];
         const excludedChoice = state.excluded.includes(r.id) || index.pairs.some(pair => pair.includes(r.id) && denied.has(r.id) && !banned.has(r.id));
         const alreadyRetired = token && token.status !== 'available' && !removed.has(r.id);
-        return !excludedChoice && !alreadyRetired && !hasRef(available,r);
+        const missing = !excludedChoice && !alreadyRetired && !hasRef(available,r);
+        if (missing) onFailure?.({chapter,supply:r});
+        return missing;
       })) return false;
     }
     return !required || required.every(ref=>hasRef(available,ref));

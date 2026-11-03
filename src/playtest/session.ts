@@ -20,13 +20,17 @@ const root=resolve(import.meta.dirname,'../..');
 export const runsRoot=process.env.COMBINATION_RUNS_DIR?resolve(process.env.COMBINATION_RUNS_DIR):join(root,'runs');
 export function digest(text:string|Buffer){return createHash('sha256').update(text).digest('hex');}
 function sourceFiles(dir=join(root,'src')):string[]{return readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?sourceFiles(join(dir,e.name)):[join(dir,e.name)]).sort();}
-export function runtimeHash(){return digest(sourceFiles().map(p=>relative(root,p)+'\0'+digest(readFileSync(p))).join('\n'));}
+function snapshotFiles(){return [...sourceFiles(),join(root,'docs/fun-and-evaluation.md')].sort();}
+export function runtimeHash(){return digest(snapshotFiles().map(p=>relative(root,p)+'\0'+digest(readFileSync(p))).join('\n'));}
+export function freezeRuntime(folder:string,markdown:string){
+  mkdirSync(folder,{recursive:true});writeFileSync(join(folder,'story.md'),markdown);
+  for(const path of snapshotFiles()){const dest=join(folder,'source',relative(root,path));mkdirSync(resolve(dest,'..'),{recursive:true});copyFileSync(path,dest);}
+  for(const name of ['package.json','package-lock.json'])copyFileSync(join(root,name),join(folder,'source',name));
+}
 export function runPath(id:string){if(!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$/.test(id))throw new Error('Session IDs may contain letters, numbers, underscores and hyphens.');return join(runsRoot,id);}
 export function createSession(id:string,storyId:string,options:{condition?:Session['condition'];assignment?:string;model?:string}={}):Session{
   const folder=runPath(id);if(existsSync(folder))throw new Error('Session already exists; use a new ID.');
-  const {story,hash,markdown}=loadStory(storyId);mkdirSync(folder,{recursive:true});writeFileSync(join(folder,'story.md'),markdown);
-  for(const path of sourceFiles()){const dest=join(folder,'source',relative(root,path));mkdirSync(resolve(dest,'..'),{recursive:true});copyFileSync(path,dest);}
-  for(const name of ['package.json','package-lock.json'])copyFileSync(join(root,name),join(folder,'source',name));
+  const {story,hash,markdown}=loadStory(storyId);freezeRuntime(folder,markdown);
   const session:Session={version:1,id,story:storyId,storyHash:hash,runtimeHash:runtimeHash(),createdAt:new Date().toISOString(),condition:options.condition??'fresh',assignment:options.assignment??'Explore the story through combining. Stop if satisfied, bored or confused; completion is optional. Report concrete moments you valued or disliked, without trying to please the designer.',...(options.model?{model:options.model}:{}),state:newGame(story),entries:[]};
   saveSession(session);return session;
 }

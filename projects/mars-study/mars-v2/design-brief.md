@@ -1,6 +1,6 @@
 # Mars v2 design brief
 
-This brief belongs to the preserved, unaccepted v2 experiment. Use the parent [story-design guidance](../story-design.md) for the user’s current requirements and open questions.
+This brief belongs to the preserved, unaccepted v2 experiment. Use the parent [story-design guidance](../README.md#story-direction) for the user’s current requirements and open questions.
 
 **Mars: What the Ice Kept** is a compact science-fiction expedition about making a place to work, noticing something extraordinary and bringing the actual samples back. The [game's philosophy](../../../README.md#philosophy) guides its combination of useful understanding, construction and discovery. The manuscript owns the playable events; [UX](../../../docs/ux.md) owns interaction, and the [icon guide](../../../docs/icon-guide.md) owns artwork production.
 

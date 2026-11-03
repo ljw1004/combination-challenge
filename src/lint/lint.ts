@@ -1,8 +1,9 @@
 import type { Story, Diagnostic, Source, Ref, Fate, RelatedLocation, DiagnosticFix } from '../story/types.ts';
-import { continuationPossible, indexStory, activeHotspots, chapterSupplies } from '../engine/analysis.ts';
+import { analyzeContinuation, indexStory, activeHotspots, chapterSupplies } from '../engine/analysis.ts';
 import { newGame } from '../engine/game.ts';
 import { analyzeOpportunities, type OpportunityOptions, type OpportunityReport } from './opportunities.ts';
 import { goalCountDiagnostics } from './goal-count.ts';
+import { hotspotCountDiagnostics } from './hotspot-count.ts';
 import { tutorialAction } from '../engine/tutorial.ts';
 import { declarationDiagnostics } from './declarations.ts';
 
@@ -106,6 +107,7 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
     const earlier = new Set(story.chapters.slice(0,i).flatMap(c=>c.items.map(r=>r.id)));
     if (i && !c.image && c.items.some(r=>index.primitives.has(r.id) && !earlier.has(r.id))) warning('new-primitives-without-image',`${c.name} introduces primitive items without a new setting image.`,c.source);
     diagnostics.push(...goalCountDiagnostics(c));
+    diagnostics.push(...hotspotCountDiagnostics(story, i));
     for (const ref of c.items) checkRef(ref,c.source);
     const supplies = chapterSupplies(story, i);
     for (const [a,b] of index.pairs) if (supplies.some(r=>r.id===a)&&supplies.some(r=>r.id===b)) error('exclusive-needs',`${c.name} supplies both mutually exclusive primitives ${story.items[a].name} and ${story.items[b].name}.`,c.source);
@@ -138,8 +140,15 @@ export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagno
       const source = story.tutorials![0].source;
       return [{severity: 'error', code: 'tutorial-unavailable', message: 'The tutorial drag must make its result immediately on entering chapter one, with its inputs available and no preparatory placement or combinations.', source, span: source.span!, stage: 'deep'}];
     }
-    if (!continuationPossible(story, newGame(story), new Set(), true)) {
-      return error('no-continuation', 'There is no consistent exclusive branch that can satisfy the story requirements. Check cycles, goals and top-level needs.');
+    const continuation = analyzeContinuation(story, newGame(story));
+    if (!continuation.possible) {
+      return continuation.blockers.map(({chapter,goal,supply}) => {
+        const source = goal?.source ?? story.chapters[chapter].source;
+        return {severity:'error',code:'no-continuation',stage:'deep',source,span:source.span!,
+          message:goal
+            ? `No consistent completion satisfies the story requirements. Goal "${goal.text}" in "${story.chapters[chapter].name}" is blocked on the failing branches; check its dependencies and conflicts with other required goals.`
+            : `No consistent completion satisfies the story requirements. The primitive supply ${story.items[supply!.id].name} is unavailable in "${story.chapters[chapter].name}".`} satisfies Diagnostic;
+      });
     }
   } catch (exception) { return error('analysis-limit', (exception as Error).message); }
   if (options.opportunities === false) return [];

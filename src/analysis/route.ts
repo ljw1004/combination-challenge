@@ -3,7 +3,7 @@ import type {Action, State} from '../engine/types.ts';
 import {act, newGame, recipeFor} from '../engine/game.ts';
 import {checkpoint} from '../debug/checkpoint.ts';
 
-export interface CheckpointMeasurement {requestedChapter: number; chapter: number; name: string; items: number}
+export interface CheckpointMeasurement {requestedChapter: number; chapter: number; name: string; items: number; peakItems:number}
 export interface ItemPersistence {id: string; chapters: number; chapterPath: number[]}
 export interface RouteMeasurement {
   completed: boolean;
@@ -18,11 +18,13 @@ export interface RouteMeasurement {
  */
 export function measureRoute(story: Story, actions: readonly Action[] = checkpoint(story, story.chapters.length).actions): RouteMeasurement {
   let state = newGame(story), combinations = 0;
-  const entries = new Map<number, number>(), ancestry = new Map<string, number[]>();
+  const entries = new Map<number, number>(), peaks = new Map<number, number>(), ancestry = new Map<string, number[]>();
   function observe(current: State) {
     for (const token of Object.values(current.tokens)) if (!ancestry.has(token.id)) ancestry.set(token.id, []);
-    if (story.chapters[current.chapter] && !entries.has(current.chapter)) {
-      entries.set(current.chapter, Object.values(current.tokens).filter(t => t.status === 'available' && t.chapter === current.chapter).length);
+    if (story.chapters[current.chapter]) {
+      const count = Object.values(current.tokens).filter(t => t.status === 'available' && t.chapter === current.chapter).length;
+      if (!entries.has(current.chapter)) entries.set(current.chapter,count);
+      peaks.set(current.chapter,Math.max(peaks.get(current.chapter) ?? 0,count));
     }
   }
   observe(state);
@@ -48,7 +50,7 @@ export function measureRoute(story: Story, actions: readonly Action[] = checkpoi
   // instead of replaying every earlier chapter separately for each target.
   const checkpoints = story.chapters.map((_, requestedChapter) => {
     const chapter = [...entries.keys()].find(index => index >= requestedChapter) ?? state.chapter;
-    return {requestedChapter, chapter, name: story.chapters[chapter].name, items: entries.get(chapter) ?? 0};
+    return {requestedChapter, chapter, name: story.chapters[chapter].name, items: entries.get(chapter) ?? 0, peakItems:peaks.get(chapter) ?? 0};
   });
   return {
     completed: state.completed, visitedChapters: state.visited, checkpoints, combinations,

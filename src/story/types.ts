@@ -34,6 +34,9 @@ export interface Chapter {
   hotspots: string[]; items: Ref[]; goals: Goal[]; goalOperator: 'and' | 'or'; source: Source; goalsSource?: Source;
   goalsInsertion?: {offset: number; newline: string; indent: string};
   goalAcknowledgments?: {reason: string; source: Source; removalSpan: TextSpan}[];
+  hotspotsSource?: Source;
+  hotspotsInsertion?: {offset: number; newline: string; indent: string; needsHeading?: boolean};
+  hotspotAcknowledgments?: {reason: string; source: Source; removalSpan: TextSpan}[];
 }
 export interface Recipe {
   id: string; a: Ingredient; b?: Ingredient; hotspot?: string; result: Ref;

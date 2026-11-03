@@ -88,15 +88,15 @@ For example, neighboring fragments in Cloth and Festival banner required a [sepa
 
 ## 6. Run separate recognition and art-direction reviews
 
-Use a reviewer who did not make the artwork. A fresh agent can provide an initial recognition check; a human trial is needed for claims about human recognition or preference. Give each reviewer a defined assignment and record what they have already seen.
+Use a reviewer who did not make the artwork and follow [reviewer independence](fun-and-evaluation.md#reviewer-independence) for every assignment and revision. A fresh agent can provide an initial recognition check; a human trial is needed for claims about human recognition or preference. Give each reviewer a defined assignment and record what they have already seen.
 
 ### First interpretation
 
-Show unnamed pictures at the intended display size without target names, revealing filenames, recipes or earlier answers. Ask for a best guess, confidence, plausible alternatives and the visible features supporting the guess. Request concrete uncertainty rather than a general approval of the set.
+Show unnamed pictures at the intended display size without target names, revealing filenames, recipes or earlier answers. Keep the answer key separate. Ask for a best guess, confidence, plausible alternatives and the visible features supporting the guess. Request concrete uncertainty rather than a general approval of the set.
 
 Choose presentation to match the question. Individual images test interpretation without neighboring clues. Unnamed sheets help compare a family but allow neighboring pictures to supply context. In-game views test the information available during play. Record the condition, and use neutral identifiers or a shuffled order rather than exposing the target list through numbering.
 
-Decide acceptable matches before scoring. Allow semantic equivalents such as “soil” for “Earth,” but keep broad-family recognition separate from the exact material, contents or preparation state that play requires. Correctly identifying a bowl does not establish that it contains brine.
+Decide acceptable matches before scoring. Allow semantic equivalents such as “soil” for “Earth,” but keep broad-family recognition separate from the exact material, contents or preparation state that play requires. Correctly identifying a bowl does not establish that it contains brine. A picture of a scientific record need not communicate its exact finding, provenance or causal conclusion; distinguish the visible physical object from meanings supplied by names and readings.
 
 ### Interpretation with context
 
@@ -106,7 +106,7 @@ For example, a picture of fruit beside a jug may communicate a fruit drink while
 
 ### Art direction and family consistency
 
-After recognition answers are recorded, compare the work with the visual brief and references. Ask about specific differences in silhouette, mark-making, colour, perspective, finish and scene fit. A style reviewer may know the intended objects; keep that informed critique separate from first-use recognition evidence.
+In a separate fresh assignment, compare the work with the visual brief and references. Ask about specific differences in silhouette, mark-making, colour, perspective, finish and scene fit. A style reviewer may know the intended objects; keep that informed critique separate from first-use recognition evidence.
 
 Compare references and candidates at similar scales where possible. An enlarged reference can make its texture seem richer than a small icon. Check the family together for uneven detail, visual weight and departures from the chosen language.
 
@@ -129,7 +129,7 @@ Identify the artwork version that received the feedback. Make a targeted revisio
 
 Check for regressions across review dimensions. In the [coloured woodcut comparison](../archive/icon-generation/icon-study/reviews/round-5-colour-review.md), removing staging marks improved the print treatment but also removed the motion cue that distinguished a pendulum from a hanging weight. A style improvement can therefore justify another recognition check.
 
-Use an already exposed reviewer to diagnose changes and a fresh reviewer when testing first-use recognition of the revised version. Never pool repeat-exposure answers with blind answers into one claimed recognition rate. If fresh review is unavailable, label the result as a repair check and leave first-use recognition unresolved.
+Use a new reviewer for the revised artwork, including informed repair checks. Initial interpretation followed by contextual interpretation of the same unchanged sample can be stages within one assignment; a new version is another assignment. Never pool historical repeat-exposure answers with blind answers into one claimed recognition rate. If fresh review is unavailable, leave that check unresolved.
 
 Repeat while the feedback points to useful changes. When iterations stop resolving a problem, revisit the depiction, style or role of contextual information rather than repeatedly strengthening the same prompt. Do not force a false visual difference between things whose distinction is not visible. Decide how an acceptable ambiguity will be handled through the existing names, context and readings, and verify that in play.
 
@@ -139,7 +139,7 @@ Select a direction when the representative examples support the visual brief and
 
 Extend the visual catalogue before generating the rest of the story. Group related materials, tools, containers and preparation states so their differences can be designed together. Use the approved reference family across batches, supplementing it with relevant neighboring objects. Review each batch against the original anchors as well as against itself.
 
-Inspect every delivered icon at display size. Give new or difficult distinctions recognition review; use informed visual inspection for coverage, consistent treatment and technical defects. Do not describe an author checking known targets as a fresh recognition trial.
+Inspect every delivered icon at display size on light, dark and representative scene grounds. Compare related states for silhouettes, transparent margins, repeated-component scale, preparation changes and readable record contents. Give new or difficult distinctions recognition review; use informed visual inspection for coverage, consistent treatment and technical defects. Do not describe an author checking known targets as a fresh recognition trial.
 
 For compound objects, plan the empty base and fitted appearances together. Compose the complete intended arrangement before extracting individual fittings when their relative size, perspective or placement is difficult to judge separately. When furniture must belong to a room, establish it within the scene first, then extract the matching object; compare the isolated result with the scene to catch changed proportions or perspective. After extraction and final registration, extend receding edges and surface seams to check that they share the room’s vanishing region. Generated isolation can symmetrize a shape or change its depth even when it preserves the object’s identity. Check ground contact, occluded supports and whether fitted objects rest on their surfaces. Follow the [compound artwork contract](story-format-spec.md) and inspect both standalone components and installed states. Check meaningful combinations, alternative fittings and possible overlap, including partial assemblies. A small compound can be checked exhaustively: three independent fittings give eight combinations, as illustrated by the [House proof](../archive/icon-generation/settlement-icons/contact-sheets/house-fittings.png). Choose coverage according to the actual structure rather than copying that count.
 
@@ -153,11 +153,13 @@ Separate the generated painting from its page framing when layout limits need pr
 
 Check the delivered story as well as its art files. Apply the current [engineering checks](engineering.md#tests-that-earn-their-cost) and [build/lint commands](../README.md#tools). For an artwork conversion, verify that recipes, goals, item identities and chapter supplies retain their intended behavior; adding metadata must not silently redesign the story.
 
-Inspect relevant chapter entries, busy working states and completed assemblies in the browser at supported widths. Check loading and sizing, contrast against scenes, clipping and overflow, names and feedback, dragging and placement, fitting, and saved-state restoration as applicable. Exercise actual actions in addition to viewing checkpoint screenshots. Fix the cause of a failure, whether it lies in artwork, layout or interaction code.
+Inspect relevant chapter entries, busy working states and completed assemblies in the browser at supported widths. Allow required artwork to decode and inspect fixed targets in the actual narrow-screen crop. Check loading and sizing, contrast against scenes, clipping and overflow, names and feedback, dragging and placement, fitting, and saved-state restoration as applicable. Exercise actual actions in addition to viewing checkpoint screenshots. Fix the cause of a failure, whether it lies in artwork, layout or interaction code.
 
 Keep the conclusions proportional to the check. Browser emulation does not establish native touch behavior; a legal checkpoint is not a fresh playthrough; accurate guesses do not establish enjoyment. Measure recognition speed with representative users if speed is a success criterion. Follow the [evaluation method](fun-and-evaluation.md) for broader experience claims.
 
 Retain a compact record in the named [active project directory](../projects/README.md) containing the brief and selected style guide, visual catalogue and references, source artwork and revision requests, extraction/registration information, reviewer instructions and final review/check outcomes. Identify selected and superseded artwork versions, reasons for changes, and unresolved questions. Verification inputs, individual answers, captures and detailed run records are temporary; follow [verification retention](engineering.md#verification-records). Apply the [directory hygiene and archive policy](../archive/README.md#project-evidence); put current UX decisions in UX and outstanding proposals in the [backlog](../projects/backlog.md).
+
+Keep each review's concise report under `projects/<project>/art-review/YYYY.MM.DD_HH.MM.SS/report.md`, using the review's start time in the user's timezone. Record its artwork version, selected samples, supplied context, coverage and outcomes there; link to this guide for reusable instructions. When relocating an older summary whose review-start time is unknown, state the dated record used for its directory timestamp rather than inventing a start time. Keep source art and production tooling together separately, and evolving project notes in the project's `working-notes.md`.
 
 ## Examples and supporting material
 
@@ -170,6 +172,6 @@ Use these sources to inspect concrete implementations of the workflow. Their sty
 | [Study prompts](../archive/icon-generation/icon-study/prompts.json), [source art](../references/icon-sets/generated-study/) and [review records](../archive/icon-generation/icon-study/reviews/) | Comparing requests, versions, guesses and targeted repairs |
 | [Style comparison](../archive/icon-generation/icon-study/screenshots/comparison.png) | Inspecting the same pilot subjects in several visual languages and matching scenes |
 | [Production record](../archive/icon-generation/settlement-icons/README.md), [generation records](../archive/icon-generation/settlement-icons/generations/) and [contact sheets](../archive/icon-generation/settlement-icons/contact-sheets/) | Extending a selected direction across a whole campaign |
-| [Mars production sources](<../projects/mars-study/production/README.md>) and [outcomes](<../projects/mars-study/outcomes.md>) | Physically informed sizes, varied silhouettes, registered equipment fittings and landscape targets |
+| [Mars production sources](<../projects/mars-study/production/README.md>) and [outcomes](<../projects/mars-study/art-review/2026.11.01_22.36.52/report.md>) | Physically informed sizes, varied silhouettes, registered equipment fittings and landscape targets |
 
 Archived scripts and embedded paths are historical source material. Adapt the method to current tooling rather than running old regeneration commands unchanged. The [archive index](../archive/README.md#icon-development-evidence) and [working notes](../notes.md#31-october-2026--reconstruct-the-icon-development-process) retain the original process and its provenance.

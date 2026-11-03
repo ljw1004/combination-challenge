@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test';
+import {mkdtempSync,mkdirSync,writeFileSync,rmSync} from 'node:fs';
+import {resolve,relative,join} from 'node:path';
 
 const manuscript = `# Shared artwork
 ## Workshop
@@ -44,4 +46,25 @@ test('a missing named manuscript returns 404 instead of the development HTML fal
   await page.goto('/combinations.html?story=missing/absent.md');
   expect((await response).status()).toBe(404);
   await expect(page.getByText(/Could not load the story.*HTTP 404/)).toBeVisible();
+});
+
+test('repository drafts and their artwork load relative to the player page without public-directory rewriting',async({page,request})=>{
+  const scratch=resolve('runs');mkdirSync(scratch,{recursive:true});
+  const folder=mkdtempSync(join(scratch,'draft preview ')),path=relative(process.cwd(),folder).replaceAll('\\','/');
+  try {
+    mkdirSync(join(folder,'assets'));
+    writeFileSync(join(folder,'draft.md'),manuscript);
+    writeFileSync(join(folder,'assets/bg.svg'),'<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844"/>');
+    await page.goto(`/combinations.html?story=${encodeURIComponent(path+'/draft.md')}`);
+    await expect(page.getByRole('button',{name:'Start',exact:true})).toBeVisible();
+    await expect.poll(()=>page.locator('.scene-art').first().evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
+    const asset=await page.locator('.scene-art').first().getAttribute('src');
+    expect(decodeURIComponent(asset!)).toContain('/'+path+'/assets/bg.svg');
+    await page.goto(`/${path}/combinations.html?story=draft.md`);
+    await expect(page.getByRole('button',{name:'Start',exact:true})).toBeVisible();
+    expect(decodeURIComponent((await page.locator('.scene-art').first().getAttribute('src'))!)).toContain('/'+path+'/assets/bg.svg');
+    const absent=await request.get('/'+path+'/missing.md');expect(absent.status()).toBe(404);
+    const catalogue=await (await request.get('/stories.json')).json();
+    expect(catalogue.some((entry:{path:string})=>entry.path.includes(path))).toBe(false);
+  } finally {rmSync(folder,{recursive:true,force:true});}
 });

@@ -1,6 +1,6 @@
 # Mars v2 review outcomes — 2 November 2026
 
-This records the original v2 review pass. The user subsequently rejected the version and asked to preserve it for rethinking; the illustrated story is restored at the main URL. Positive agent findings below are historical evidence, not user acceptance. **Mars: What the Ice Kept** remains in this directory as a separate experiment. It is a complete, compact solo survey: prepare a station and crop, collect contrasting ice samples, compare them, discover a long-dead animal under microscopy, harvest lettuce and return both cores to the orbiting laboratory. The [v2 design brief](design-brief.md) records this experiment’s intent. The parent [story-design guidance](../story-design.md) owns the user’s current direction.
+This records the original v2 review pass. The user subsequently rejected the version and asked to preserve it for rethinking; the illustrated story is restored at the main URL. Positive agent findings below are historical evidence, not user acceptance. **Mars: What the Ice Kept** remains in this directory as a separate experiment. It is a complete, compact solo survey: prepare a station and crop, collect contrasting ice samples, compare them, discover a long-dead animal under microscopy, harvest lettuce and return both cores to the orbiting laboratory. The [v2 design brief](design-brief.md) records this experiment’s intent. The parent [story-design guidance](../README.md#story-direction) owns the user’s current direction.
 
 ## Scope and delivered graph
 

@@ -1,9 +1,32 @@
-import { storyIds } from '../story/load.ts';
-import {createSession,openSession,step,saveSession} from './session.ts';
-import {observe} from './observe.ts';
-const [command,id,...args]=process.argv.slice(2);
-try{
-  if(command==='list'||!command)console.log(JSON.stringify({stories:storyIds(),commands:['init SESSION STORY','view SESSION','act SESSION ACTION_JSON [ACCOUNT_JSON]','report SESSION REPORT_JSON','stop SESSION REPORT_JSON']},null,2));
-  else if(command==='init'){const session=createSession(id,args[0]);const {story}=openSession(id);console.log(JSON.stringify(observe(story,session.state),null,2));}
-  else{const {session,story}=openSession(id);if(command==='view')console.log(JSON.stringify(observe(story,session.state),null,2));else if(command==='act')console.log(JSON.stringify(step(session,story,JSON.parse(args[0]),args[1]?JSON.parse(args[1]):undefined),null,2));else if(command==='report'||command==='stop'){session.report=JSON.parse(args[0]);if(command==='stop')session.outcome=session.state.completed?'completed':'stopped';saveSession(session);console.log(JSON.stringify({saved:true,outcome:session.outcome}));}else throw new Error('Unknown command. Use npm run play -- list.');}
-}catch(error){console.error((error as Error).message);process.exitCode=1;}
+import {readFileSync} from 'node:fs';
+import {storyIds} from '../story/load.ts';
+import {createChapterSession,openChapterSession,playerRequest,saveChapterSession,submitReply} from './chapter-session.ts';
+import {playTerminal} from './terminal.ts';
+import {argumentsFor,playtestTarget,positiveInteger,requiredGuidance} from './arguments.ts';
+
+try {
+  const {options,positional} = argumentsFor(process.argv.slice(2),['--chapter','--playtest','--player','--guidance']);
+  const [command,id,...rest] = positional;
+  // npm versions that consume unknown options expose --chapter as npm_config_chapter.
+  // The explicit `--` separator is portable across npm versions.
+  const npmChapter = process.env.npm_config_chapter;
+  const chapter = positiveInteger(options['--chapter'] ?? (npmChapter === 'true' ? positional.at(-1) : npmChapter),1,'--chapter');
+  if (command !== 'init' && (options['--playtest'] || options['--player'])) throw new Error('--playtest and --player belong to init.');
+  if (command !== 'init' && Object.hasOwn(options,'--guidance')) throw new Error('--guidance belongs to init; existing sessions retain their original guidance.');
+  if (!command || command === 'list') console.log(JSON.stringify({stories:storyIds(),commands:['STORY [--chapter N]','init SESSION STORY --guidance TEXT [--chapter N] [--playtest DIRECTORY --player M]','view SESSION','respond SESSION JSON (or - for stdin)']},null,2));
+  else if (command === 'init') {
+    if (!id || rest.length !== 1) throw new Error('Usage: npm run play -- init SESSION STORY --guidance TEXT [--chapter N]');
+    const guidance = requiredGuidance(options['--guidance']);
+    const {session} = createChapterSession(id,rest[0],{guidance,chapter,playtest:playtestTarget(options)});
+    console.log(JSON.stringify(playerRequest(session),null,2));
+  } else if (command === 'view' || command === 'respond') {
+    if (!id || rest.length !== (command === 'view' ? 0 : 1)) throw new Error('Use view SESSION or respond SESSION JSON (or - for stdin).');
+    const {session,story} = openChapterSession(id);
+    if (command === 'respond') {submitReply(session,story,JSON.parse(rest[0] === '-' ? readFileSync(0,'utf8') : rest[0]));saveChapterSession(session);}
+    console.log(JSON.stringify(playerRequest(session),null,2));
+  } else {
+    const expected = npmChapter === 'true' && !options['--chapter'] ? 2 : 1;
+    if (positional.length !== expected) throw new Error('Usage: npm run play -- path/to/story.md [--chapter N]');
+    await playTerminal(command,chapter);
+  }
+} catch (error) {console.error((error as Error).message);process.exitCode=1;}

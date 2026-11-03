@@ -870,12 +870,15 @@ test('find totals stay current after replacements, edits and reopening from a se
   await expect(count).toHaveText('3 of 3');
 });
 
-test('three-goal quick actions select the reason, save and undo, and remove a stale wrapped acknowledgment', async ({page}) => {
-  const text = manuscript.replace('- Build the kit -- `kit`', '- Build the kit -- `kit`\n- Keep the frame -- `frame`\n- Keep the tool -- `tool`');
+for (const kind of ['goals','hotspots'] as const) test(`three-${kind} quick actions select the reason, save and undo, and remove a stale acknowledgment`, async ({page}) => {
+  const singular = kind === 'goals' ? 'goal' : 'hotspot', heading = kind === 'goals' ? '**Goals**' : '**Hotspots**';
+  const countCode = kind === 'goals' ? 'many-visible-goals' : 'many-hotspots';
+  const remove = kind === 'goals' ? '- Keep the tool -- `tool`\n' : '- Sink\n';
+  const text = kind === 'hotspots' ? manuscript.replace('**Goals**', '**Hotspots**\n- Oven\n- Hob\n- Sink\n\n**Goals**') : manuscript.replace('- Build the kit -- `kit`', '- Build the kit -- `kit`\n- Keep the frame -- `frame`\n- Keep the tool -- `tool`');
   await serveFixture(page, text.replaceAll('\n', '\r\n'));
   await page.goto('/combinations.html?story=fixture/story.md');
   await openEditor(page);
-  const group = page.locator('.editor-diagnostic-entry').filter({hasText: 'many-visible-goals'});
+  const group = page.locator('.editor-diagnostic-entry').filter({hasText: countCode});
   await expectTextOverlay(group.locator('.editor-diagnostic-fix'));
   await group.locator('.editor-diagnostic').click();
   const bulb = page.locator('.cm-activeLine .editor-source-fix');
@@ -888,30 +891,30 @@ test('three-goal quick actions select the reason, save and undo, and remove a st
   expect(await savedText(page, text)).toBe(false);
   await page.keyboard.press('ControlOrMeta+.');
   await page.keyboard.press('Enter');
-  const inserted = text.replace('**Goals**', '**Goals**\n- (three goals are a lot but okay here because <REASON>)');
+  const inserted = text.replace(heading, `${heading}\n- (three ${kind} are a lot but okay here because <REASON>)`);
   await expect.poll(() => savedText(page, inserted)).toBe(true);
-  await expect(page.locator('.editor-diagnostic').filter({hasText: 'goal-acknowledgment-reason'})).toBeVisible();
+  await expect(page.locator('.editor-diagnostic').filter({hasText: `${singular}-acknowledgment-reason`})).toBeVisible();
   const reason = 'the shared tools make three independent preparations clear, while a forced sequence would hide their relationship';
   await page.keyboard.insertText(reason);
   const explained = inserted.replace('<REASON>', reason);
   await expect.poll(() => savedText(page, explained)).toBe(true);
   await expect(group).toHaveCount(0);
-  await expect(page.locator('.editor-diagnostic').filter({hasText: 'goal-acknowledgment-reason'})).toHaveCount(0);
+  await expect(page.locator('.editor-diagnostic').filter({hasText: `${singular}-acknowledgment-reason`})).toHaveCount(0);
   await page.keyboard.press('ControlOrMeta+z');
   await expect.poll(() => savedText(page, inserted)).toBe(true);
   await page.keyboard.press('ControlOrMeta+z');
   await expect.poll(() => savedText(page, text)).toBe(true);
 
-  await edit(page, explained.replace('- Keep the tool -- `tool`\n', ''));
+  await edit(page, explained.replace(remove, ''));
   await page.setViewportSize({width: 1000, height: 800});
-  const stale = page.locator('.editor-diagnostic-entry').filter({hasText: 'stale-goal-acknowledgment'});
+  const stale = page.locator('.editor-diagnostic-entry').filter({hasText: `stale-${singular}-acknowledgment`});
   await stale.locator('.editor-diagnostic').click();
   await expectTextOverlay(stale.locator('.editor-diagnostic-fix'));
   await expectTextOverlay(page.locator('.cm-activeLine .editor-source-fix'));
   await page.keyboard.press('ControlOrMeta+.');
   await page.keyboard.press('Enter');
   await expect(stale).toHaveCount(0);
-  await expect.poll(() => savedText(page, text.replace('- Keep the tool -- `tool`\n', ''))).toBe(true);
+  await expect.poll(() => savedText(page, text.replace(remove, ''))).toBe(true);
 });
 
 test('checkpoint quick actions open at the caret and require a keyboard menu choice', async ({page}) => {

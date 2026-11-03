@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { resolve, join, basename, relative } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseStory } from './parser.ts';
@@ -10,6 +10,11 @@ export function storyIds(root = storyRoot): string[] {
     .map(entry => relative(root, join(entry.parentPath, entry.name)).replaceAll('\\', '/')).sort();
 }
 export function loadStory(id: string, root = storyRoot) {
+  const local = resolve(id);
+  if (existsSync(local) && statSync(local).isFile()) {
+    const markdown = readFileSync(local, 'utf8');
+    return { story: parseStory(markdown, { id, file: relative(process.cwd(), local) }), path: local, hash: createHash('sha256').update(markdown).digest('hex'), markdown };
+  }
   const paths = storyIds(root);
   const matches = paths.includes(id) ? [id] : paths.filter(path => basename(path).replace(/\.md$/i, '') === id);
   if (!matches.length) throw new Error(`Unknown story ${id}. Choose ${paths.join(', ')}.`);

@@ -131,7 +131,7 @@ Done.`);
     return {requestedChapter: index, chapter: state.chapter, name: s.chapters[state.chapter].name,
       items: Object.values(state.tokens).filter(t => t.status === 'available' && t.chapter === state.chapter).length};
   });
-  assert.deepEqual(route.checkpoints, counts);
+  assert.deepEqual(route.checkpoints.map(({peakItems,...entry})=>entry), counts);
   assert.equal(counts[1].chapter, 2);
   assert.equal(counts.at(-1)?.items, 0);
   assert.equal(result.chapterItems.average, counts.reduce((sum, c) => sum + c.items / counts.length, 0));
@@ -188,6 +188,7 @@ test('a hotspot operation adds one construction step, without treating the lands
   assert.equal(item(s, 'Core').depth, 1);
   assert.equal(result.details.route.combinations, 1);
   assert.equal(result.chapterItems.max, 1); // Drill on entry, not Drill + Core after combining
+  assert.equal(result.details.route.checkpoints[0].peakItems,2);
 });
 
 test('CLI accepts one file on stdout, includes drafts, deduplicates paths and preserves output on failure', () => {

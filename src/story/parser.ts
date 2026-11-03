@@ -240,6 +240,9 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     else target.icon ??= value;
   }
   function itemNode(node: Bullet, parent?: Ref, at?: string, topLevelItem = false): Ref | undefined {
+    if (/^\(three hotspots\b/i.test(node.text)) {
+      error('hotspot-acknowledgment-syntax', 'A three-hotspot acknowledgment belongs at the top level of a Hotspots section.', node.line);return;
+    }
     if (/^place\s*:/.test(node.text)) {
       error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text);
       return;
@@ -316,6 +319,11 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
           const offset = chapter.goalsSource.span!.from - (chapter.goalsSource.column! - 1) + originalLines[line.line - 1].length;
           chapter.goalsInsertion = {offset, newline: /^(\r\n?|\n)/.exec(markdown.slice(offset))?.[0] ?? '\n', indent: ''};
         }
+        if (current === 'Hotspots' && !chapter.hotspotsSource) {
+          chapter.hotspotsSource = source(line.line);
+          const offset = chapter.hotspotsSource.span!.from - (chapter.hotspotsSource.column! - 1) + originalLines[line.line - 1].length;
+          chapter.hotspotsInsertion = {offset, newline: /^(\r\n?|\n)/.exec(markdown.slice(offset))?.[0] ?? '\n', indent: ''};
+        }
       }
       else sections.get(current)!.push(line);
     }
@@ -362,7 +370,31 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     }
     if (goalOps.size > 1) error('mixed-goals', 'Do not mix conjunction and disjunction between goal chains.', block.heading.line);
     if (goalOps.has('or')) chapter.goalOperator = 'or';
-    for (const node of bullets(sections.get('Hotspots') ?? [])) {
+    const hotspotLines = sections.get('Hotspots') ?? [], hotspotNodes = bullets(hotspotLines);
+    if (!chapter.hotspotsInsertion) {
+      const next = chapterLines[story.chapters.length + 1];
+      chapter.hotspotsInsertion = {offset: next ? source(next.heading.line).span!.from : markdown.length,
+        newline: /\r\n?|\n/.exec(markdown)?.[0] ?? '\n', indent: '', needsHeading: true};
+    } else if (hotspotNodes.length) chapter.hotspotsInsertion.indent = /^[\t ]*/.exec(originalLines[hotspotNodes[0].line - 1])![0];
+    for (const line of hotspotLines) if (/^[\t ]*(?:\+\s+)?\(three\b/i.test(line.text)) {
+      error('hotspot-acknowledgment-syntax', 'Use the exact three-hotspot acknowledgment as a top-level hyphen bullet.', line.line);
+    }
+    for (const node of hotspotNodes) {
+      const acknowledgment = /^[\t ]*-[\t ]+\(three hotspots are a lot but okay here because (.*)\)$/.exec(originalLines[node.line - 1]);
+      if (acknowledgment) {
+        if (node.children.length || node.prose.some(part => part.text.trim())) {
+          error('hotspot-acknowledgment-syntax', 'A three-hotspot acknowledgment must be a single top-level bullet without nested content.', node.line);
+          continue;
+        }
+        const location = source(node.line), start = location.span!.from - (location.column! - 1), end = start + originalLines[node.line - 1].length;
+        (chapter.hotspotAcknowledgments ??= []).push({reason: acknowledgment[1], source: location,
+          removalSpan: {from: start, to: end + (/^(\r\n?|\n)/.exec(markdown.slice(end))?.[0].length ?? 0)}});
+        if (!acknowledgment[1].trim() || acknowledgment[1].includes('<REASON>')) error('hotspot-acknowledgment-reason', 'Replace <REASON> with a nonempty explanation for keeping three hotspots.', node.line);
+        continue;
+      }
+      if (/^\(three\b/i.test(node.text)) {
+        error('hotspot-acknowledgment-syntax', 'Use the exact three-hotspot acknowledgment wording and a top-level hyphen bullet.', node.line);continue;
+      }
       if (/^place\s*:/.test(node.text)) { error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
       const h = ref(node.text, node.line, 'hotspot', 'hotspot-declaration', 'declaration'); chapter.hotspots.push(h.id);
       for (const child of node.children) {

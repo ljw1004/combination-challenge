@@ -1,6 +1,6 @@
 # Mars v2 — preserved experiment
 
-The user rejected this version on 2 November 2026 and asked to retain it beside the illustrated story for rethinking. The manuscript is preserved unchanged from the replaced push `e99a6228`; its [design brief](design-brief.md) describes that experiment, not accepted requirements for the next version. The parent [story-design guidance](../story-design.md) owns the user's current direction.
+The user rejected this version on 2 November 2026 and asked to retain it beside the illustrated story for rethinking. The manuscript is preserved unchanged from the replaced push `e99a6228`; its [design brief](design-brief.md) describes that experiment, not accepted requirements for the next version. The parent [story-design guidance](../README.md#story-direction) owns the user's current direction.
 
 [Outcomes](outcomes.md) retain the director/redraft loop, blind reads, player-only trials and evidence limits. [Assignments](review-instructions.md) and executable checks remain available. Detailed review and run output was discarded after the original pass.
 

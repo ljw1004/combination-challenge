@@ -27,7 +27,7 @@ test('fast lint omits global reachability and deep analysis adds separately attr
   assert(!fast.some(diagnostic => diagnostic.code === 'no-continuation'));
   const deep = lintStoryAnalysis(story, fast);
   assert.equal(deep.length, 1); assert.equal(deep[0].code, 'no-continuation');
-  assert.equal(deep[0].stage, 'deep'); assert.deepEqual(deep[0].span, {from: 0, to: 7});
+  assert.equal(deep[0].stage, 'deep'); assert.deepEqual(deep[0].span, story.chapters[0].goals[0].source.span);
   assert.deepEqual(lintStory(story), [...fast, ...deep]);
 });
 
@@ -78,4 +78,30 @@ test('many visible goals point at their first Goals heading with original CRLF o
   assert.equal(diagnostic.span.from, markdown.indexOf('**Goals**'));
   assert.equal(markdown.slice(diagnostic.span.from, diagnostic.span.to), '**Goals**');
   assert.deepEqual(diagnostic.source, story.chapters[0].goalsSource);
+});
+
+
+test('incompatible goals point at their requirements while a legal alternative avoids errors', () => {
+  const text = `# Branches
+## Workshop
+![room](room.webp)
+**Goals**
+- Make A -- A
+- Make B -- B
+**Items**
+- Seed
+- Brush
+- Tool
+- Paint
+- A (exclusive with B)
+- B (exclusive with A)
+**Combinations**
+- Seed [preserve] + Brush [preserve] -> Paint (tutorial)
+- Paint [preserve] + Tool [preserve] -> A
+- Seed [preserve] + Tool [preserve] -> B`;
+  const story=parseStory(text),blocked=lintStory(story).filter(d=>d.code==='no-continuation');
+  assert.deepEqual(new Set(blocked.map(d=>text.slice(d.span.from,d.span.to))),new Set(['- Make A -- A','- Make B -- B']));
+  assert(blocked.every(d=>d.severity==='error'&&d.stage==='deep'));
+  const alternative=text.replace('- Make A -- A','- either: Make A -- A').replace('- Make B -- B','- or: Make B -- B');
+  assert(!lintStory(parseStory(alternative)).some(d=>d.code==='no-continuation'));
 });

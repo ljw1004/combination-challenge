@@ -1,5 +1,5 @@
-import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { existsSync, statSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { resolve, dirname, relative, isAbsolute } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
 import { loadStory, storyIds } from './src/story/load.ts';
 
@@ -28,11 +28,18 @@ function storyPages(): Plugin {
           response.end(await server.transformIndexHtml(path, html));
           return;
         }
-        // A missing manuscript must be a 404, never Vite's HTML fallback.
-        if (/\.md$/i.test(path) && !existsSync(resolve(server.config.publicDir, `.${decodeURIComponent(path)}`))) {
-          response.statusCode = 404;
-          response.end('Story not found.');
-          return;
+        // Preserve the requested URL. Vite serves published public files and
+        // repository-relative drafts; the browser resolves assets beside the story.
+        if (/\.md$/i.test(path)) {
+          let decoded: string;
+          try { decoded = decodeURIComponent(path); } catch { response.statusCode = 400;response.end('Invalid story path.');return; }
+          const fileIn = (root:string) => {
+            const file = resolve(root, `.${decoded}`), local = relative(root,file);
+            return local !== '..' && !local.startsWith('../') && !isAbsolute(local) && existsSync(file) && statSync(file).isFile();
+          };
+          if (!fileIn(server.config.publicDir) && !fileIn(server.config.root)) {
+            response.statusCode = 404;response.end('Story not found.');return;
+          }
         }
         next();
       });
