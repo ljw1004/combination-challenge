@@ -36,8 +36,10 @@ import {containsPoint, hotspotCentre, hotspotRect, hotspotHTML, hotspotProbeHTML
 import {tutorialAction, hotspotTutorials, completesHotspotTutorial} from '../engine/tutorial.ts';
 import {TutorialProgress} from './tutorial-progress.ts';
 import {TutorialOverlay} from './tutorial-overlay.ts';
+import { guardGameInput } from './game-input.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
+guardGameInput(app);
 let inputTrace:DragTrace|undefined;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
 const surface = document.createElement('div'); surface.className = 'game-surface';
@@ -910,7 +912,6 @@ app.addEventListener('lostpointercapture',e=>{
   // Losing capture while a button is still held remains an interrupted gesture.
   if(buttons!==0&&(drag?.pointer===pointerId||hotspotPress?.pointer===pointerId))cancelGesture('lost-pointer-capture');
 });
-app.addEventListener('dragstart',e=>e.preventDefault());
 app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));}});
 app.addEventListener('pointerout',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const next=e.relatedTarget instanceof Element?e.relatedTarget.closest<HTMLElement>('[data-item],[data-hotspot]'):null;feedback.hover(next&&app.contains(next)?feedbackKey(next):undefined);}});
 app.addEventListener('focusin',e=>{const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!drag&&!hotspotPress&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));});

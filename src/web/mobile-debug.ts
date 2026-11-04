@@ -1,3 +1,5 @@
+import { guardGameInput } from './game-input.ts';
+
 /** A phone-sized checkpoint picker; no text buffer or game logic lives here. */
 export class MobileDebug {
   private dialog?: HTMLDialogElement;
@@ -9,6 +11,7 @@ export class MobileDebug {
   open(chapters: readonly string[], current: number) {
     if (this.dialog) return;
     const dialog = this.dialog = document.createElement('dialog');
+    guardGameInput(dialog);
     dialog.id = 'mobile-debug-panel'; dialog.className = 'mobile-debug';
     dialog.setAttribute('aria-label', 'Jump to chapter');
     const header = document.createElement('header');
