@@ -1,0 +1,96 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and assembling the lenses should prepare the telescope for observing the sky.",
+    "choice": 1,
+    "expectation": "I expect a telescope or a basic optical instrument, though I don't know exactly how it will be described.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The telescope is ready to test the three astronomical observations.",
+    "reaction": "The result was expected; comparing observations with models is the more interesting part.",
+    "step": 2,
+    "reason": "Start with the Moon and use its changing shadows to assess its surface.",
+    "choice": 1,
+    "expectation": "I expect the shadows to support a rough, uneven lunar surface, though interpreting them may require comparison.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Jupiter's nearby points could test whether everything circles Earth, but I chose the Moon first."
+      },
+      {
+        "choice": 3,
+        "reason": "Venus's phases could test sky models, but I chose the more immediate surface observation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon’s changing shadows support a rough surface and challenge the contrast between perfect heavens and imperfect Earth.",
+    "reaction": "The comparison with familiar shadows made the inference clear.",
+    "step": 3,
+    "reason": "Observe the points near Jupiter to test whether everything must circle Earth.",
+    "choice": 1,
+    "expectation": "I expect their changing positions to suggest they orbit Jupiter rather than Earth, though the observations may need interpretation.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Venus’s phases also test sky models, but I want to examine Jupiter first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Jupiter’s moons show that not everything orbits Earth directly, without proving Earth moves.",
+    "reaction": "That distinction makes the observation’s limits clear.",
+    "step": 4,
+    "reason": "Venus is the remaining goal, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect observations over several months to reveal a sequence of Venusian phases that can be compared with sky models.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Venus’s full range of phases supplies another observation that successful sky models must explain; all chapter goals are complete.",
+    "reaction": "I wanted a more explicit comparison of which models accommodate the phases.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Observing Jupiter’s moons was most worthwhile: it challenged the idea that everything circles Earth directly while clearly distinguishing that from proof that Earth moves.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Assembling the telescope was necessary but predictable, with only one available action.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The Moon’s roughness also challenged the supposed contrast between perfect heavens and an imperfect Earth.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each served an observation goal, although the telescope assembly was the only available first move.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see the observations compared more explicitly with competing sky models; the limits of the Jupiter inference made that question interesting.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

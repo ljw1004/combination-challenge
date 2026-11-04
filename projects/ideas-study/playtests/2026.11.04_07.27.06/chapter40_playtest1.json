@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the lunar method by organizing the new readings using the archive's recordkeeping practice.",
+    "choice": 1,
+    "expectation": "I expect a comparable lunar record that can be used with the reference-time tables, though it may take another step to locate the ship.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The sea-trial report could test the clock, but I chose to investigate the lunar method first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lunar readings and tables provide reference time, which can now be compared with local noon.",
+    "reaction": "The Moon's changing position serving as a clock is interesting.",
+    "step": 2,
+    "reason": "Compare lunar reference time with local solar time to work toward longitude.",
+    "choice": 1,
+    "expectation": "I expect the time difference to indicate the ship's longitude, though the result may qualify its precision.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lunar method establishes longitude by comparing reference and local times, provided the sky is clear.",
+    "reaction": "The clear-sky limitation makes the clock alternative more interesting.",
+    "step": 3,
+    "reason": "Compare the clock's reference time with local noon to investigate the other longitude method.",
+    "choice": 1,
+    "expectation": "I expect the time difference to yield longitude, though calibration alone may not establish accuracy at sea.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sea-trial report could assess the clock's performance, but I want to establish how it is used first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clock method also derives longitude from the difference between local and reference time, so its reliability at sea matters.",
+    "reaction": "The shared principle makes the two methods easier to compare.",
+    "step": 4,
+    "reason": "Consult the sea-trial report to assess the clock's performance; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the report to provide evidence about whether the clock kept reference time during a voyage, but I don't know how well it performed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sea trial supports H4's use as a reference clock, while leaving broader reliability and the reward dispute unresolved.",
+    "reaction": "The distinction between one successful trial and certifying every clock is useful.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing lunar reference time with local time made the longitude method clear and showed why a clear sky matters.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The clock-and-noon combination repeated the time-difference principle already established for the lunar method, although it set up the reliability question.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The Moon's changing position can provide reference time without carrying a sea clock.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though using the planetary archive to create a lunar method was guided by the supplied recordkeeping explanation rather than discovered compatibility.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in another chapter that compares practical methods and the evidence for their reliability.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

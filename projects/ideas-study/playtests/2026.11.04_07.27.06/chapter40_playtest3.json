@@ -1,0 +1,97 @@
+[
+  {
+    "step": 1,
+    "reason": "Combine the lunar readings with the recordkeeping practice to work toward the Moon-based longitude method.",
+    "choice": 1,
+    "expectation": "I expect a way to compare lunar observations with reference-time tables, though it may need another step to locate the ship.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The sea-trial report could test the clock, but I want to explore the lunar method first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lunar readings and tables provide reference time; comparing it with local noon should help determine longitude.",
+    "reaction": "The Moon’s changing position makes a useful natural clock.",
+    "step": 2,
+    "reason": "Finish the lunar method by comparing reference time with local solar time.",
+    "choice": 1,
+    "expectation": "I expect the time difference to indicate the ship’s longitude, though the result may explain further conditions.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The sea-trial report is relevant to the clock goal, but I want to finish the lunar comparison first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lunar method establishes longitude by comparing reference and local times, provided the sky is visible.",
+    "reaction": "The clear-sky requirement makes the alternative to a clock more concrete.",
+    "step": 3,
+    "reason": "Compare the clock’s reference time with local noon to establish how it can give longitude.",
+    "choice": 1,
+    "expectation": "The time difference should indicate east–west position, but calibration alone may not show that the clock works reliably at sea.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sea-trial report tests the clock’s performance, but I want to establish its navigational use first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The time comparison gives longitude only if the reference clock is reliable, so the sea-trial record is the next test.",
+    "reaction": "The distinction between the method and the clock’s reliability is useful.",
+    "step": 4,
+    "reason": "Check the sea-trial report; it is the only offered gameplay action and addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the report to show how the calibrated clock performed on a voyage, though I don't yet know the result.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sea-trial report supports H4’s use as a reference clock at sea, while leaving broader reliability and the reward disputed.",
+    "reaction": "The distinction between a successful trial and certifying every clock was useful.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing lunar reference time with local time made the longitude method concrete and showed its dependence on clear skies.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The clock–local noon comparison repeated the same time-difference principle already explained for the lunar method, though it prepared the reliability question.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The successful H4 trial did not end disputes over further testing and the reward.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The archive’s contribution to the lunar method felt somewhat indirect: it supplied recordkeeping practice rather than the readings or tables themselves.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would continue: comparing two ways to find reference time, and distinguishing a method from its practical reliability, made the history useful.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

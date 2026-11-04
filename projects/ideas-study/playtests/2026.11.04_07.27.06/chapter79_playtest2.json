@@ -1,0 +1,77 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the ancient air samples to investigate atmospheric history.",
+    "choice": 1,
+    "expectation": "I expect the samples to provide a sequence of past atmospheric conditions, though dating them may need more evidence.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lead blanks also look useful, but I want to examine the air record first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Dated ice bubbles provide a history of atmospheric composition, completing the air-samples goal.",
+    "reaction": "The distinction between dated and undated samples is useful.",
+    "step": 2,
+    "reason": "The only offered combination may show how lead contamination affected dating work.",
+    "choice": 1,
+    "expectation": "I expect the blank tests to reveal contamination in lead measurements, though I do not yet know its source.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The blank tests show that laboratory lead can distort dating measurements, so the next step is to investigate the wider contamination.",
+    "reaction": "The connection between dating work and pollution is interesting.",
+    "step": 3,
+    "reason": "The only offered combination compares the contamination with modern environmental lead levels.",
+    "choice": 1,
+    "expectation": "I expect it to connect the extra lead to industrial pollution, though the comparison may not identify a specific source.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The comparison connects the laboratory contamination with evidence of industrial lead pollution, completing the remaining goal without identifying a specific source.",
+    "reaction": "It was interesting to see a measurement problem become evidence about pollution.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The final lead comparison was most worthwhile: it turned an obstacle to dating into evidence of environmental pollution.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The air-sample combination was useful but felt relatively straightforward compared with the lead investigation.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Lead in blank tests could interfere with dating and also point toward a wider pollution problem.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, although the lead investigation followed the only offered combinations rather than requiring a choice between competing approaches.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The connection between measurement error and a broader environmental question makes me curious about other links between methods and discoveries.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

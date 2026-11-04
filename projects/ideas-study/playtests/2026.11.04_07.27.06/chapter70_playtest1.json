@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "reason": "Encoding a procedure as data seems like a useful first step toward examining whether programs can predict termination.",
+    "choice": 1,
+    "expectation": "I expect a machine that can process encoded procedures, though the limit on predicting whether they stop may need another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This could address feedback, but I want to investigate the stopping question first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Encoding instructions as data gives one machine multiple possible procedures, setting up the stopping question.",
+    "reaction": "The distinction between a general-purpose machine and a built-in task is clear.",
+    "step": 2,
+    "reason": "I want to follow the general-purpose machine into the question of whether it can decide when procedures stop.",
+    "choice": 1,
+    "expectation": "I expect an explanation of why no procedure can decide for every possible program whether it will stop.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Feedback is the other goal, but I want to finish investigating the stopping question first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stopping goal is complete; the limit concerns a universal test, not every individual case.",
+    "reaction": "The distinction is useful, though the result does not explain why the universal test is impossible.",
+    "step": 3,
+    "reason": "This is the only offered combination and addresses the remaining feedback goal.",
+    "choice": 1,
+    "expectation": "I expect a feedback controller that compares a measurement with a target and adjusts its actions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The feedback result completes the remaining goal: a machine can adjust its actions using measurements of their effects.",
+    "reaction": "The distinction between responding to feedback and understanding is useful, though the example remains abstract.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The halting result was most worthwhile because it distinguished a limit on a universal test from the usefulness of programs generally.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The halting passage was also the least satisfying: it states the impossibility without showing why it holds.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The result clarified that the limit applies to a test for every program, not necessarily to deciding individual cases.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The feedback combination had a clear purpose, but the connection to a rule-governed symbol machine felt somewhat abstract.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it explained ideas through concrete examples or arguments; this one raised useful questions but left the halting result unexplained.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

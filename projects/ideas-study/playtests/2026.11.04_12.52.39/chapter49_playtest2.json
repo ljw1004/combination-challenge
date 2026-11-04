@@ -1,0 +1,48 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and comparing the received block with the codebook should recover the bit.",
+    "choice": 1,
+    "expectation": "I expect 101 to decode as 1, since it differs from 111 by one bit; this relies on the stated error limit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result confirmed that 101 decodes to 1 under the one-flip limit, while clarifying that two flips can defeat the code and that accurate transmission does not establish truth.",
+    "reaction": "The distinction between recovering a message and verifying its claim was a useful addition.",
+    "step": 2,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Decoding 101 was worthwhile because the distance from each codeword makes the error limit concrete.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The only action was predictable from the supplied codebook and was the sole available choice, leaving little room for a decision.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The result connected error correction to a separate issue: a faithfully recovered message can still be false.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; the codebook and error limit made the combination’s purpose clear.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would consider continuing: the concise example made a useful distinction, though I would hope for more meaningful choices.",
+        "steps": [
+          1
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

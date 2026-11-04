@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "reason": "Compare the model’s prediction with the unfamiliar observation before examining the proposed trial.",
+    "choice": 1,
+    "expectation": "The varying trace should challenge the steady prediction for this target, though it may not reveal why the model failed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pointing trial looks useful for checking the signal, but I want to establish the discrepancy first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The varying trace contradicts the prediction, so the next step is to investigate it with the proposed trial.",
+    "reaction": "The distinction between an observed model failure and a general computational limit is useful.",
+    "step": 2,
+    "reason": "The pointing trial is the only offered combination and should help test whether the signal tracks the target.",
+    "choice": 1,
+    "expectation": "I expect a procedure for checking whether the signal disappears when pointing away and returns when pointing back; its interpretation remains uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proposed trial tests whether the signal follows pointing direction without assuming its cause.",
+    "reaction": "The distinction between tracking the target and explaining the signal is useful.",
+    "step": 3,
+    "reason": "The only offered combination compares the proposed trial with the two instruments’ results.",
+    "choice": 1,
+    "expectation": "The results should support the signal tracking the target’s direction, though they may not establish its physical cause.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two-instrument result weakens an isolated-instrument explanation, but shared errors remain possible and the steady prediction is still challenged.",
+    "reaction": "The remaining uncertainty makes the trial’s conclusion more informative than a simple confirmation.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the pointing trial with both instruments’ results was most worthwhile: it separated evidence that the signal tracks the target from an explanation of its cause.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Preparing the proposed trial was the least engaging passage: it clarified the procedure, but was the only offered combination and did not yet reveal the result.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Both instruments recovered the varying signal on target, yet shared pointing errors or disturbances remain possible.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the trial preparation was the only available combination rather than a meaningful choice.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how a further test distinguishes a real target signal from shared errors, although the forced sequence limited the gameplay decisions.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

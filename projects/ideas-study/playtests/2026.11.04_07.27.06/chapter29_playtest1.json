@@ -1,0 +1,88 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action; combining the lenses in a tube should prepare an instrument for the observations.",
+    "choice": 1,
+    "expectation": "I expect a telescope, though its exact capabilities are uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The telescope is ready for observations, whose interpretation still requires comparison.",
+    "reaction": "A straightforward preparation; I’m curious what the observations will show.",
+    "step": 2,
+    "reason": "I’ll examine the Moon’s changing shadows to address whether its surface is smooth.",
+    "choice": 1,
+    "expectation": "The shadows will suggest a rough surface, though interpreting them requires comparison with familiar shadows.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Jupiter’s nearby points could address whether everything circles Earth, but I’ll start with the Moon."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon’s shadows suggest a rough surface and challenge a sharp distinction between perfect heavens and imperfect Earth.",
+    "reaction": "The comparison with familiar shadows makes the inference clear.",
+    "step": 3,
+    "reason": "I’ll examine the points near Jupiter to address whether everything must circle Earth.",
+    "choice": 1,
+    "expectation": "Their changing positions may suggest objects orbiting Jupiter rather than Earth.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Venus’s changing appearance is also a goal, but I’ll examine Jupiter first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Jupiter’s moons show that not everything circles Earth directly, though they do not by themselves prove Earth moves.",
+    "reaction": "The distinction between those conclusions is useful.",
+    "step": 4,
+    "reason": "Watching Venus is the only offered combination and addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect observations of Venus’s changing appearance over time, possibly showing phases.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Venus shows a full range of phases, which a successful sky model must account for; all chapter goals are complete.",
+    "reaction": "The repeated observations provide a useful constraint, though I would have liked to compare specific models.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Observing Jupiter’s moons was most worthwhile: it showed that not everything circles Earth directly while distinguishing that result from proof that Earth moves.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the telescope was straightforward but less engaging than interpreting the observations; it was also the only offered action.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Jupiter’s moons challenge the idea that everything circles Earth directly without, on their own, proving that Earth moves.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the compatible options were supplied rather than discovered.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would be interested in comparing how competing sky models account for Venus’s phases and the other observations.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

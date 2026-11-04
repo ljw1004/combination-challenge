@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "reason": "Preserving the traces, logs and revisions should make the finding inspectable rather than relying on an authoritative-looking claim.",
+    "choice": 1,
+    "expectation": "I expect an inspectable record that lets others check the observations and changes, though its exact form is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I also considered distinguishing routine pointing from destructive erasure, but chose to secure the evidence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The traces and revisions now form an examinable record, though their inclusion does not certify every measurement.",
+    "reaction": "The distinction between inspectability and certainty is useful.",
+    "step": 2,
+    "reason": "The record still needs to reach others; the error-recovery message may help preserve it in transmission.",
+    "choice": 1,
+    "expectation": "I expect a way to transmit the record with protection against specified errors, not a guarantee that its contents are correct.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered addressing the pointing and erasure requests first, but chose to complete the record’s communication."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The finding can now be transmitted with bounded error protection and checked against its provenance; neither guarantees truth.",
+    "reaction": "The distinction between transmission accuracy and evidential accuracy is clear.",
+    "step": 3,
+    "reason": "This is the only gameplay action offered and addresses the remaining review goal.",
+    "choice": 1,
+    "expectation": "I expect routine repointing to proceed within limits while erasing the sole untransmitted trace requires review.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining goal is complete: routine pointing can proceed, while erasure of the sole raw trace waits for authorized review.",
+    "reaction": "The boundary was satisfying because it changed a concrete operation rather than merely invoking oversight.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Distinguishing transmission error correction from an inspectable record was most worthwhile: a message can arrive intact yet still be false.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Creating the initial record felt somewhat preparatory on its own; its purpose became clearer when it was combined with error correction.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The review boundary applied specifically to erasing the sole untransmitted trace, while routine pointing could proceed immediately.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the menu supplied compatible combinations rather than requiring me to discover them.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue: the chapter connected practical safeguards to distinct questions about evidence, communication and oversight, though its choices were quite guided.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
