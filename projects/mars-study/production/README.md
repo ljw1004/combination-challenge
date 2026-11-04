@@ -1,6 +1,10 @@
 # Mars production sources
 
+The current [v12 production package](v12/README.md) extends this visual library for **A Place That Can Endure**. Its catalogue, sources, repairs and exports are separate; the files described below continue to reproduce the earlier illustrated story.
+
 The story's [design brief](../../../stories/mars/design-brief.md) owns the adopted visual direction. These files retain the artwork briefs, source paintings and reproducible export/registration information for this collection.
+
+Keep selected source masters, exact requests, authoring geometry and export tools here. Finished game assets belong beside their manuscript; use those files directly instead of keeping production copies. Contact sheets and reference crops are disposable scratch under `runs/`. Superseded v12 generations and unused cutout experiments have been removed. Retained requests record the original inputs, some of which were superseded or temporary and are no longer stored; the selected masters remain available for deterministic export.
 
 - `subjects.tsv` is the authored physical catalogue: one row per story identity, desired longest visible edge at the reference viewport, depiction and nearest ambiguity. `catalogue.json` adds parsed item identities, declaration sites, creating/using recipes, ownership and runtime paths.
 - `atlas-groups.json` records exact row-major extraction order. `atlases/` keeps the generated transparent sheets and their exact prompts. The first five sheets were generated while the complete catalogue was being prepared; their recorded prompts define their fixed order.

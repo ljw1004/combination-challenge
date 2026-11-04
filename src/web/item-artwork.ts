@@ -17,8 +17,8 @@ export class ItemArtwork {
 
   retryFailures() { this.images.retryFailures(); }
 
-  private size(icon: Icon, asset: (path: string) => string, bounds?: {width: number; height: number}) {
-    const base = this.images.get(asset(icon.url))?.size, size = iconDimensions(base?.width ?? 224, base?.height ?? 224);
+  private size(icon: Icon, asset: (path: string) => string, bounds?: {width: number; height: number}, fixed = false) {
+    const base = this.images.get(asset(icon.url))?.size, size = iconDimensions(base?.width ?? 224, base?.height ?? 224, fixed);
     const fit = bounds ? Math.min(1, bounds.width / size.width, bounds.height / size.height) : 1;
     return `--icon-width:${size.width*fit}px;--icon-height:${size.height*fit}px;`;
   }
@@ -27,12 +27,12 @@ export class ItemArtwork {
     const icon = hotspot.icon;
     if (!icon || this.images.get(asset(icon.url))?.failed) return {className: '', style: '', html: escape(hotspot.name)};
     return {
-      className: `hotspot-icon${icon.circular ? ' hotspot-circular' : ''}`, style: this.size(icon, asset),
+      className: `hotspot-icon${icon.circular ? ' hotspot-circular' : ''}`, style: this.size(icon, asset, undefined, true),
       html: `<span class="icon-stack" aria-hidden="true"><img class="hotspot-art" src="${escape(asset(icon.url))}" alt="" draggable="false"></span><span class="icon-name" aria-hidden="true">${escape(hotspot.name)}</span>`,
     };
   }
 
-  visual(item: Item, filled: readonly string[], name: (id: string) => string, asset: (path: string) => string, bounds?: {width: number; height: number}, icon = item.icon) {
+  visual(item: Item, filled: readonly string[], name: (id: string) => string, asset: (path: string) => string, bounds?: {width: number; height: number}, icon = item.icon, fixed = false) {
     const base = icon && this.images.get(asset(icon.url));
     const fitted = item.slots.filter(slot => filled.includes(slot.accepts));
     const usable = icon && !base?.failed && fitted.every(slot => slot.icon && !this.images.get(asset(slot.icon.url))?.failed);
@@ -42,7 +42,7 @@ export class ItemArtwork {
     };
     return {
       icon: true, className: `icon-thing${icon.circular ? ' icon-circular' : ''}`,
-      style: this.size(icon, asset, bounds),
+      style: this.size(icon, asset, bounds, fixed),
       html: `<span class="icon-stack" aria-hidden="true"><img class="item-icon" src="${escape(asset(icon.url))}" alt="" draggable="false">${fitted.map(slot => `<img class="slot-icon" data-icon-slot="${escape(slot.accepts)}" src="${escape(asset(slot.icon!.url))}" alt="" draggable="false">`).join('')}</span><span class="item-label icon-name" aria-hidden="true">${escape(name(item.id))}</span>`,
     };
   }

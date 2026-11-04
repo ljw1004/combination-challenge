@@ -42,7 +42,7 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 
 The `story` parameter points to a `.md` file on the same server. Relative paths resolve against the player page, so the same layout works under a website subdirectory; root-relative paths also work. Without the parameter, the player always requests `story.md` beside itself. A missing story displays an error. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.
 
-The shared development server also loads repository drafts: `/combinations.html?story=projects/mars-study/mars-v3/mars.md`. It does not add a `stories/` prefix to the parameter. Project drafts stay outside the published catalogue and build; use the [standard authoring workflow](docs/story-authoring.md#check-and-preview-a-draft) to check and preview them.
+The current [illustrated Mars v12 draft](projects/mars-study/mars-v12/README.md) preserves v11’s story with new artwork and shorter prose. The shared development server loads it at `/combinations.html?story=projects/mars-study/mars-v12/mars.md`. It does not add a `stories/` prefix to the parameter. Project drafts stay outside the published catalogue and build; use the [standard authoring workflow](docs/story-authoring.md#check-and-preview-a-draft) to check and preview them.
 
 `npm run build` runs story lint, TypeScript checking and Vite bundling in sequence. Lint errors stop the command; warnings allow it to continue. This check runs when the build command is invoked; `npm run dev` and ordinary story loading do not run the CLI lint check. The live editor displays its own diagnostics without blocking saving or preview.
 

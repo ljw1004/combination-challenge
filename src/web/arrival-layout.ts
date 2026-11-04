@@ -7,6 +7,8 @@ export interface ArrivalTile extends Rect {
   fromChapter?: number;
   start?: {x: number; y: number};
   fixed?: boolean;
+  /** Measured transient icon badge above the image, in scene coordinates. */
+  headroom?: number;
 }
 export interface ArrivalOptions {
   bounds: Rect;
@@ -174,6 +176,12 @@ function placeGroup(group: ArrivalTile[], fixed: ArrivalTile[], bounds: Rect, ho
       for(const state of states){
         const occupied=[...fixed,...state.placed];
         const choices=candidates(tile,bounds,hotspots,[...occupied,...group],12,screen);
+        // A visible badge may use the top comfort margin without displacing an
+        // already settled image. Keep all real board and obstacle constraints.
+        if(tile.headroom&&tile.y<bounds.y){
+          const top=Math.max(screen.y,bounds.y-tile.headroom);
+          if(fits(tile,{...bounds,y:top,height:bottom(bounds)-top})&&hotspots.every(h=>!overlapsHotspot(tile,h)))choices.unshift(tile);
+        }
         let count=0;
         for(const p of choices){
           if(gap&&occupied.some(r=>touches({x:p.x-gap,y:p.y-gap,width:p.width+2*gap,height:p.height+2*gap},r)))continue;
@@ -209,7 +217,7 @@ function repackGroup(group: ArrivalTile[], fixed: ArrivalTile[], bounds: Rect, h
   return best?.placed;
 }
 
-export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): ArrivalLayout {
+function layoutFootprints(tiles: ArrivalTile[], options: ArrivalOptions): ArrivalLayout {
   const {bounds,hotspots,previousChapter}=options;
   const working={x:bounds.x+8,y:bounds.y+EDGE,width:Math.max(0,bounds.width-16),height:Math.max(0,Math.min(bottom(bounds)-2*EDGE,options.goalsTop-GAP)-bounds.y-EDGE)};
   const fixed=tiles.filter(t=>t.fixed||t.fresh&&t.start).map(t=>t.fresh&&t.start?{...t,x:t.start.x*390-t.width/2,y:t.start.y*844-t.height/2}:{...t});
@@ -288,4 +296,17 @@ export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): Ar
   }
   placed.push(...supplies);
   return arrivalResult(placed,crowded);
+}
+
+/** Pack the visible image-and-badge footprint, returning image positions.
+ * Authored centres and inherited occupants retain their exact image anchors. */
+export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): ArrivalLayout {
+  const headroom = new Map(tiles.map(tile => [tile.id, tile.headroom ?? 0]));
+  const footprints = tiles.map(tile => {
+    const above = headroom.get(tile.id)!;
+    return {...tile, y: tile.y - above, height: tile.height + above,
+      start: tile.start && {...tile.start, y: tile.start.y - above / (2 * 844)}};
+  });
+  const layout = layoutFootprints(footprints, options);
+  return {...layout, positions: new Map([...layout.positions].map(([id, position]) => [id, {...position, y: position.y + headroom.get(id)!}]))};
 }

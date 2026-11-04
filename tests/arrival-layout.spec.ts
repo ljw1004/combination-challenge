@@ -128,7 +128,12 @@ Finish the preparation.
     await jumpToChapter(page,'Second',true);
     await page.getByRole('button',{name:'Begin',exact:true}).click();
     const panel=page.locator('.chapter-panel').last();
-    const positions=()=>panel.locator('.thing').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom};}));
+    const positions=()=>panel.locator('.thing').evaluateAll(els=>els.map(el=>{
+      const r=el.getBoundingClientRect(),label=el.querySelector<HTMLElement>('.icon-name');
+      let headroom=0;
+      if(label){const style=label.style.cssText;label.style.display='block';label.style.visibility='hidden';headroom=label.getBoundingClientRect().height;label.style.cssText=style;}
+      return {x:r.x,y:r.y-headroom,right:r.right,bottom:r.bottom};
+    }));
     const placed=await positions(),board=(await panel.boundingBox())!,station=(await panel.locator('[data-hotspot]').boundingBox())!;
     expect(placed.length).toBeGreaterThan(1);
     const centreY=(Math.min(...placed.map(t=>t.y))+Math.max(...placed.map(t=>t.bottom)))/2;
@@ -142,4 +147,77 @@ Finish the preparation.
     await page.reload();
     await expect.poll(positions).toEqual(placed);
   }
+});
+
+test('wrapped icon badges fit a narrow checkpoint and edge badges stay inside the scene',async({page})=>{
+  const names=['Charged emergency reserve','Insulated service loop','Running process installation','Station operating controls'];
+  const sizes=[[144,114],[183,192],[230,167],[177,182]];
+  const manuscript=`# Badge clearances
+## Supplies
+![room](room.svg)
+Equipment is ready.
+**Hotspots**
+- Separate propellant service connections (at 82.5%, 27%)
+  - icon: ![ports](ports.svg)
+**Items**
+- Separate propellant service connections
+${names.slice(0,3).map((name,index)=>`- ${name}\n  - icon: ![equipment](${index}.svg)`).join('\n')}
+- Commissioned process enclosure
+  - icon: ![enclosure](enclosure.svg)
+**Combinations**
+- ${names[0]} [preserve] @ Separate propellant service connections -> Commissioned process enclosure
+## Controls
+![room](room.svg)
+Select the systems.
+**Goals**
+- Select emergency operation -- ${names[3]}[${names.slice(0,3).join(', ')}]
+**Items**
+- ${names[3]} (compound)
+  - icon: ![panel](3.svg)
+${names.slice(0,3).map(name=>`  - slot: ${name}, accepts ${name}, icon: ![selected](selected.svg)`).join('\n')}`;
+  await page.setViewportSize({width:320,height:740});
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.route('**/badge-fixture/story.md',route=>route.fulfill({contentType:'text/markdown',body:manuscript}));
+  await page.route('**/badge-fixture/*.svg',route=>{
+    const filename=new URL(route.request().url()).pathname.split('/').at(-1)!;
+    const size=filename==='ports.svg'?[60,68]:filename==='room.svg'?[390,844]:filename==='enclosure.svg'?[240,480]:filename==='selected.svg'?sizes[3]:sizes[Number(filename[0])];
+    return route.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${size[0]*4}" height="${size[1]*4}"><rect width="100%" height="100%" fill="tan"/></svg>`});
+  });
+  await page.goto('/combinations.html?story=badge-fixture/story.md');
+  await page.getByRole('button',{name:'Start',exact:true}).click();
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
+  const station=page.locator('[data-hotspot]');await station.hover();
+  await expect(station.locator('.icon-name')).toBeVisible();
+  const stationName=await station.locator('.icon-name').boundingBox();
+  expect(stationName).not.toBeNull();expect(stationName!.x).toBeGreaterThanOrEqual(-.5);expect(stationName!.x+stationName!.width).toBeLessThanOrEqual(320.5);
+  await page.getByRole('button',{name:names[0],exact:true}).dragTo(station);
+  const enclosure=page.getByRole('button',{name:'Commissioned process enclosure',exact:true});
+  await expect(enclosure).toBeVisible();
+  const image=(await enclosure.boundingBox())!,createdName=(await enclosure.locator('.icon-name').boundingBox())!;
+  expect(image.height).toBeCloseTo(480*740/844,1);
+  expect(createdName.y).toBeGreaterThanOrEqual(-.5);
+  expect(createdName.y+createdName.height).toBeLessThanOrEqual(image.y+.5);
+  await page.mouse.move(image.x+image.width/2,image.y+image.height/2);await page.mouse.down();
+  await page.mouse.move(1,1,{steps:6});
+  const draggedName=(await enclosure.locator('.icon-name').boundingBox())!;
+  expect(draggedName.x).toBeGreaterThanOrEqual(-.5);expect(draggedName.y).toBeGreaterThanOrEqual(-.5);
+  await page.mouse.up();
+  await jumpToChapter(page,'Controls',true);
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
+  const current=page.locator('.chapter-panel').last();
+  const positions=()=>current.locator('.thing').evaluateAll(elements=>elements.map(element=>{const r=element.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height};}));
+  for(const name of names){
+    const item=current.getByRole('button',{name,exact:true});await item.hover();
+    await expect(item.locator('.icon-name')).toBeVisible();
+    const badge=await item.locator('.icon-name').boundingBox();
+    expect(badge).not.toBeNull();expect(badge!.y).toBeGreaterThanOrEqual(-.5);
+    expect(badge!.x).toBeGreaterThanOrEqual(-.5);expect(badge!.x+badge!.width).toBeLessThanOrEqual(320.5);
+  }
+  const before=await positions();await page.reload();await expect.poll(positions).toEqual(before);
+  const item=current.getByRole('button',{name:names[0],exact:true}),box=(await item.boundingBox())!;
+  await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();
+  await page.mouse.move(1,box.y+box.height/2,{steps:5});
+  const badge=(await item.locator('.icon-name').boundingBox())!;
+  expect(badge.x).toBeGreaterThanOrEqual(-.5);expect(badge.x+badge.width).toBeLessThanOrEqual(320.5);
+  await page.mouse.up();
 });

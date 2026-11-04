@@ -157,6 +157,31 @@ test('checkpoint rows centre the whole inventory with breathing room, including 
   }
 });
 
+test('large checkpoint icons reserve wrapped badge headroom without changing their image sizes',()=>{
+  const tiles=[
+    tile('reserve',0,0,{width:144,height:114,headroom:41}),
+    tile('water line',0,0,{width:183,height:192,headroom:26}),
+    tile('plant',0,0,{width:230,height:167,headroom:26}),
+    tile('controls',0,0,{width:177,height:182,headroom:41,fresh:true}),
+  ];
+  const {placed,result}=layout(tiles,{bounds:{x:12.5,y:0,width:365,height:844},goalsTop:766,checkpoint:true});
+  assert.equal(result.crowded,false);
+  for(const item of placed){
+    assert(item.y-item.headroom!>=0,`${item.id}'s name is clipped`);
+    const footprint={...item,y:item.y-item.headroom!,height:item.height+item.headroom!};
+    assert(coveredFraction(footprint,placed.filter(other=>other!==item).map(other=>({...other,y:other.y-other.headroom!,height:other.height+other.headroom!})))<=.100001);
+  }
+  const anchor=tile('anchored',0,0,{fresh:true,start:{x:.5,y:.4},headroom:41});
+  assert.deepEqual(arrivalLayout([anchor],options).positions.get(anchor.id),{x:195-anchor.width/2,y:844*.4-anchor.height/2});
+});
+
+test('carrying an icon preserves visible badge clearance inside the top comfort margin',()=>{
+  const settled=tile('air',187,31,{headroom:22});
+  assert.deepEqual(arrivalLayout([settled],options).positions.get(settled.id),{x:187,y:31});
+  const clipped={...settled,y:10};
+  assert(arrivalLayout([clipped],options).positions.get(clipped.id)!.y>=clipped.headroom!);
+});
+
 test('checkpoint centring yields to hotspots and authored anchors before overlapping items',()=>{
   const tiles=[tile('a',0,0,{width:80,height:90}),tile('b',0,0,{width:100,height:70}),tile('c',0,0,{fresh:true}),
     tile('anchor',0,0,{fresh:true,start:{x:.5,y:.5}}),tile('occupant',210,170,{fixed:true})];

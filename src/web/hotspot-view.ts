@@ -8,8 +8,10 @@ export interface HotspotRegion extends Rect {circular?: boolean}
 export interface HotspotMeasurement {id: string; chapter: number; width: number; height: number; circular?: boolean}
 export interface HotspotVisual {className: string; style: string; html: string}
 
-export function iconDimensions(width: number, height: number) {
-  const fit = Math.min(1, 1448 / width);
+export function iconDimensions(width: number, height: number, fixed = false) {
+  // Fixed artwork is registered to the background, so its authored scale must
+  // survive even when a scene-wide replacement exceeds the portable-item cap.
+  const fit = fixed ? 1 : Math.min(1, 1448 / width);
   return {width: width / 4 * fit, height: height / 4 * fit};
 }
 const referenceBounds = {x: 0, y: 0, width: 390, height: 844};

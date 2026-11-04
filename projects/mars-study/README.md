@@ -16,7 +16,8 @@ The user rejected the v2 rewrite on 2 November 2026 and asked to preserve both v
 | V8 — Iteration #8 | [Accepted story baseline](mars-v8/README.md), [design brief](mars-v8/design-brief.md) and [working notes](working-notes.md). Requested revisions are complete, with [changed-chapter evaluation](playtests/2026.11.03_00.54.17/report.md) and final clarification checks recorded in the notes. |
 | V9 — Iteration #9 | [Preserved expansion](mars-v9/README.md), [script](mars-v9/script.md), [design brief](mars-v9/design-brief.md) and [supply audit](mars-v9/supply-audit.md). Staged director review and the [full fast campaign](playtests/2026.11.03_10.21.01/report.md) are complete; findings and proposals are in the working notes. |
 | V10 — Iteration #10 | [Preserved revision](mars-v10/README.md), [script](mars-v10/script.md), [design brief](mars-v10/design-brief.md) and [supply audit](mars-v10/supply-audit.md). The chapter-specific fast review and revisions, and the [whole-story detailed report](playtests/2026.11.03_12.32.41/report.md), are complete. The same detailed assignments resumed across the authorized interaction change. The accepted findings lead to v11. |
-| V11 — Iteration #11 | [Current revision](mars-v11/README.md), [script](mars-v11/script.md), [design brief](mars-v11/design-brief.md) and [supply audit](mars-v11/supply-audit.md). Focused detailed review, revisions and retests are complete for all fifteen changed chapters; [findings and aligned score comparisons](working-notes.md#iteration-11) link the three preserved reports. |
+| V11 — Iteration #11 | [Preserved text revision](mars-v11/README.md), [script](mars-v11/script.md), [design brief](mars-v11/design-brief.md) and [supply audit](mars-v11/supply-audit.md). Focused detailed review, revisions and retests are complete for all fifteen changed chapters; [findings and aligned score comparisons](working-notes.md#iteration-11) link the three preserved reports. |
+| V12 — Illustrated revision | [Current playable draft](mars-v12/README.md), [visual and physical brief](mars-v12/design-brief.md), and [artwork sources](production/v12/README.md). V11’s story with complete artwork and substantially shorter player prose. |
 | Artwork studies | [Inspiration and verdicts](inspiration/README.txt), including the preferred industrial/multiple-accent reference. |
 | Artwork production | [Sources and tooling](production/README.md), [November 1 delivery and review report](art-review/2026.11.01_22.36.52/report.md): 317 item identities, 35 fitted appearances, 27 backgrounds and 24 landscape targets. |
 
@@ -37,16 +38,17 @@ Run `npm run dev` and use the shared player:
 | V9 | `/combinations.html?story=projects/mars-study/mars-v9/mars.md` |
 | V10 | `/combinations.html?story=projects/mars-study/mars-v10/mars.md` |
 | V11 | `/combinations.html?story=projects/mars-study/mars-v11/mars.md` |
+| V12 | `/combinations.html?story=projects/mars-study/mars-v12/mars.md` |
 
 Project drafts are not added to the published catalogue. The `story=` path resolves relative to `combinations.html`, with no implicit `stories/` prefix. Use the shared [lint, analysis and preview workflow](../../docs/story-authoring.md#check-and-preview-a-draft) for all versions. The earlier versions and their artwork references are preserved without generating or recompressing images.
 
-The artwork phase was completed on 1 November 2026. Its source paintings, exact generation requests, extraction and registration records remain available for further development. The narrative rewrite is another phase of this same project, not grounds to close it. Keep detailed reviewer output and verification captures in ignored `runs/` space; retain only concise outcomes and useful project deliverables here.
+The earlier artwork phase was completed on 1 November 2026. Its source paintings, exact generation requests, extraction and registration records remain available for further development. The narrative rewrite is another phase of this same project, not grounds to close it. Keep detailed reviewer output and verification captures in ignored `runs/` space; retain only concise outcomes and useful project deliverables here.
 
 ## Story direction
 
 The central design problem is to make dramatic tension and practical tinkering work through combinations. The player should build a dependable, eventually fruitful place from a small useful set of mission equipment and local materials, then do science that changes what they understand and what they need to do. This is a direction to test through the [shared development process](../../docs/story-authoring.md#develop-a-story), not an assertion that the current candidate has succeeded.
 
-The user confirmed a **solo surface expedition**, plausible future engineering and a handful of explicit fictional allowances where useful. The mission's scientific purpose remains central. This resolves the earlier question about rescuing crewmates: passive companions should not become objects the player must manage. Draft-specific equipment and fiction assumptions belong in each `design-brief.md`; the [current brief](mars-v11/design-brief.md) records its choices and scientific boundaries.
+The user confirmed a **solo surface expedition**, plausible future engineering and a handful of explicit fictional allowances where useful. The mission's scientific purpose remains central. This resolves the earlier question about rescuing crewmates: passive companions should not become objects the player must manage. Draft-specific equipment and fiction assumptions belong in each `design-brief.md`; the [current brief](mars-v12/design-brief.md) records its choices and scientific boundaries.
 
 We have to reconcile how we can match the constraints of a "combining game" with a Mars survival story. I have two central ideas:
 1. It's hard to boost payload into orbit. That's why there's only mass allowance for one person. That's why you're on your own.

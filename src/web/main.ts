@@ -25,6 +25,7 @@ import { AuthoringSession } from './authoring.ts';
 import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
+import { IconNames } from './icon-names.ts';
 import {coverArtwork, currentArtwork, lookaheadArtwork, placementArtwork, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
 import { arrivalLayout } from './arrival-layout.ts';
 import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard } from './board-geometry.ts';
@@ -40,6 +41,7 @@ import { guardGameInput } from './game-input.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 guardGameInput(app);
+const iconNames = new IconNames();
 let inputTrace:DragTrace|undefined;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
 const surface = document.createElement('div'); surface.className = 'game-surface';
@@ -637,9 +639,10 @@ function commit(action: Action) { try {
         }
         const centre = hotspot && (!receiver||isFixed(story,receiver)) ? hotspotCentre(fixedPresentation(token.chapter,hotspot), activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry().bounds) : undefined;
         const occupied=availableTokens(state).filter(t=>t.id!==born&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
+        const creationBounds=iconNames.creationBounds(element,boardGeometry().bounds);
         const position=preferred ?? (receivingRect&&receiver
-          ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',boardGeometry().bounds,occupied)
-          :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,boardGeometry().bounds));
+          ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',creationBounds,occupied)
+          :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,creationBounds));
         token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
       }
     }
@@ -657,6 +660,7 @@ function positionTile(element: HTMLElement, position: {x: number; y: number}) {
   const bounds = boardGeometry().bounds;
   const fitted = fitOnBoard(position.x, position.y, element.offsetWidth, element.offsetHeight, bounds);
   element.style.left = `${fitted.x - bounds.x}px`; element.style.top = `${fitted.y}px`;
+  iconNames.position(element, bounds.width);
 }
 
 /** Shared framing keeps cover/Start identical and clips transformed overflow at the world's end. */
@@ -676,6 +680,7 @@ function packArrival(checkpointLayout=false, source?: State){
     const start=primitives.has(t.id)&&position&&Object.values(position).every(value=>Number.isFinite(value)&&value>=0&&value<=1)?position:undefined;
     const element=tile(t.id)!,measured=element.getBoundingClientRect();
     return {id:t.id,x:t.x,y:t.y,width:measured.width/geometry.scale,height:measured.height/geometry.scale,
+      headroom:iconNames.headroom(element),
       fresh:fresh.has(t.id),start,fromChapter:source?.tokens[t.id]?.chapter??previousChapter,
       fixed:!!t.hotspot&&!story.chapters[state.chapter].image};
   });
@@ -741,7 +746,7 @@ function fixedPresentation(chapter:number,id:string){
 }
 function fixedHTML(chapter:number,id:string){
   const h=fixedPresentation(chapter,id),item=story.items[id],token=state.tokens[id];
-  const visual=itemArtwork.visual(item,token.slots,name,asset,undefined,h.icon);
+  const visual=itemArtwork.visual(item,token.slots,name,asset,undefined,h.icon,true);
   const fixedVisual={...visual,className:visual.icon?visual.className.replace('icon-thing','hotspot-icon').replace('icon-circular','hotspot-circular'):''};
   return hotspotHTML(h,activeHotspots(story,chapter).indexOf(id),fixedVisual,boardGeometry().bounds);
 }
@@ -766,8 +771,10 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
   }).join(''),state.visited.map(chapter=>({chapter,image:background(story,chapter)})))}</div>${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleTutorialUpdate();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*app.clientHeight):scroll);
+  for(const element of surface.querySelectorAll<HTMLElement>('.icon-thing,.hotspot-icon'))iconNames.measure(element);
   if(arrival){packArrival(checkpointLayout,arrivalSource);if(finish)chapterSession=captureChapter(state,itemOrder);}
   for(const token of availableTokens(state)){const element=tile(token.id);if(element)positionTile(element,token);}
+  for(const element of surface.querySelectorAll<HTMLElement>('.hotspot-icon'))iconNames.position(element,geometry.bounds.width);
   if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
   updateEditingIndicators();
   inputTrace?.record('render:finished');
@@ -865,6 +872,7 @@ function previewDrag(d:Drag){
   const destination=dragDestination(d,d.point),source=d.el.closest<HTMLElement>('[data-chapter]')!.getBoundingClientRect(),size=scale();
   d.el.classList.add('dragging');app.classList.add('is-dragging');
   d.el.style.left=`${(destination.rectangle.x-source.left)/size}px`;d.el.style.top=`${(destination.rectangle.y-source.top)/size}px`;
+  iconNames.position(d.el,boardGeometry().bounds.width,destination.position.y);
   app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
   const {target, action, usefulPlacement, ambiguous}=dropAt(d,d.point,destination);
   inputTrace?.record('drag:preview',{chapter:destination.chapter,position:destination.position,rectangle:destination.rectangle,target:target?feedbackKey(target):null,action,usefulPlacement,ambiguous});
