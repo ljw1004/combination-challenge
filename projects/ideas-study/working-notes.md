@@ -1,6 +1,8 @@
 # Ideas: working notes
 
-## Current revision brief — 4 November 2026
+The current work is the [teaching and presentation audit](#teaching-and-presentation-audit), with a [chapter-by-chapter coverage map](teaching-audit.md). The shortening brief and two evaluation cycles below are retained history; length is now settled.
+
+## Shortening brief — 4 November 2026
 
 Shorten the ancient-to-modern journey to roughly two-thirds of its former size. Keep an encounter when it makes an important connection or offers an important experience in its own right. The [design brief](../../stories/ideas/design-brief.md) owns that lasting intent.
 
@@ -188,7 +190,7 @@ Every weakest section was considered. Recurring problems are broad or repeated s
 3. **Test further compression selectively:** lens shaping (14), gear setup (24), culture preparation (40), multiple prints (43), pointing-trial preparation (54) and the middle appeal operation (57). Carry forward any distinct limitation or practical right that players value. Do not remove the named care undertaking or dawn reconsideration merely to improve the fraction.
 4. **Keep the length target and test the continuous experience.** One example can deepen an existing result—such as mapping the four explanations onto the statue—without another chapter. Some open questions deliberately pay off later, especially Venus's rival models and heredity. Human play should test whether those returns earn the distance between them. A later `--detailed` trial can investigate actual deliberation; these fast results cannot supply that measure.
 
-No third manuscript revision was applied after this retest. The current source is the second tested revision. The study remains active; these recommendations are options for later work, not unfinished parts of the requested two cycles.
+At the end of these two requested cycles, no third manuscript revision had been applied. These were recommendations for subsequent work, not unfinished parts of those two cycles. The later [teaching audit](#teaching-and-presentation-audit) records the adopted repairs and the user's decision that length is settled. The study remains active.
 
 ### Second revised chapter scores
 
@@ -490,3 +492,35 @@ Ch  Chapter                       Fun           Worthwhile  W %    H/M/L  Screen
 84  City proposals                not measured  2.3/3       77.8%  0/3/0  W+H
 85  Common-rule proposals         not measured  3/3         100%   0/3/0  H
 ```
+
+## Teaching and presentation audit
+
+4 November 2026. The user confirmed that length is settled and requested a comprehensive teaching/presentation audit and implementation, informed by Theology's brief. Central intent is now explicit in the [Ideas brief](../../stories/ideas/design-brief.md): trace interesting interplay across intellectual thought, retain valuable fruits even without later descendants, and offer a smart curious reader an interesting, educational reason to continue. Direct reasoning replaces autobiographical “I read/I extend” narration; hypothetical first person remains permissible. The shared authoring guidance already contains that distinction and is linked rather than duplicated as a competing UX rule.
+
+The [coverage map](teaching-audit.md) records every playable chapter and the ending, its learning question, connection or independent value, and adopted response. All 164 distinct result cards were revised; all primitive explanations, goals and recipes were read. The final structure remains 57 playable chapters plus the ending, 165 recipes and 164 completion-route combinations, with 180 primitive and 164 derived identities. New examples, self-contained premises, simpler titles and paragraph structure deepen teaching without another required operation. Result readings contain more text than the compressed version because they now supply their own examples and premises; this is not claimed as a word-count reduction or a measured pacing improvement.
+
+### Review instructions and outcomes
+
+Five fresh independent assignments received no previous drafts, diffs, playtests, working notes or other reviewers' findings:
+
+- **Informed story review:** read the current manuscript and durable brief with standing authoring/evaluation guidance; inspect all chapters for meaningful connections, independent endpoints, educational explanations, hooks and simple prose. It supported the recordkeeping, optics, geology/heredity and work/care threads, and found missing H4 outcome evidence, thin Avicenna/Ptolemy/Mandeville explanations, a generic Burton example and a few standalone dependencies. These findings were repaired with a reported trial result, explicit inferential/mechanical links, invented status-seeking buyers and an empty-chair/lost-appetite comparison, plus restored premises.
+- **Factual/inference review:** read the complete current manuscript and brief; independently check uncertain claims and worked cases using primary or authoritative sources. It found two material ambiguities: the Earth shadow angle needed local verticals and the same observation date, and Lamarck's animal habits/use-disuse account should not appear to explain plants unchanged. Both were corrected. Selected checks supported Aristotle, gear/coordinate arithmetic, Bacon, Mendel/DNA, halting, climate and political distinctions. This was a complete reading with selective source checks, not exhaustive authentication. Text/extracted PDF access sufficed; no images were studied.
+- **Blind card collection:** receive only desk orientation and all 164 result-card texts, grouped in chapter order, without ingredient titles, primitive readings, goals or recipes. The reader identified unnamed cholera, missing philosophical bridges, unclear plantation mobility, unexpanded fermentation/PKU premises and technical shorthand. Repairs identify the actual comparison or process, explain unfamiliar terms and remove redundant historical denials. Suggested cuts that would remove an actual ingredient's contribution were not adopted mechanically: Epicurus's death argument remains restated, and the category case retains the function of a shared concept. Other cards in the collection were available; this is not isolated-card comprehension or gameplay evidence.
+- **Blind title collection:** receive only the orientation and all 344 item titles at their declaration chapters, without cards, goals or recipes. Nineteen prioritized suggestions concerned unnamed phenomena and opaque shorthand. Adopted or adapted titles now identify Ptolemy's challenged arrangement, the water-supplier groups, fossil order, half-lives, field influence, fermentation outside cells, experienced time, the universal stopping question and the bridge appeal. Group labels were verified against the source rather than guessed from the title packet. This was a title collection, not a reconstruction of the actual board at every action.
+- **Plain-English follow-up:** after the user's explicit warning against AI-style jargon, receive only result cards and orientation from 17 selected philosophical and institutional chapters. Ask for unexplained terms, vague abstractions and unnecessarily formal phrasing, preserving the ideas rather than merely shortening them. Eight concrete suggestions were adopted: explain substance and properties, nominalism, Kant's observation order, Locke's invented agreement, Boolean digits, the universal machine, the halting argument and PKU. The review concerns this card collection, not every revised passage or player learning. The wider author pass also replaced abstract titles and introductions with direct descriptions of actions and consequences.
+
+The first informed and card reviews concerned candidate SHA-256 `cd4b641de16ce801e8a23f3b0e5a360d6a313bce919452f5d754d03392e1a315`; their findings led to further edits. The frozen card packet hash was `851037fec63ff2e933e51280149650bda23512ad5b0fdc33ca4e0c0408d7056a`. The later title packet hash was `266064545da75dcde7bc1b9132d09c46a86e2015eb220a0354fc2adf60fcedf3`, and the plain-English packet hash was `0b153a991a10f5190c85d98530c8ead7b4f89270cd8925c91390fbdb661c0aa9`. Reviewer outputs are not claimed as a fresh approval of the final repaired wording. Only the concise instructions and outcomes are retained; scratch packets, scripts and detailed reports are disposable.
+
+Post-review source checks used [Lamarck, chapter 7](https://web.viu.ca/johnstoi/lamarck/lamarck7.htm), [NOAA's shadow geometry](https://www.noaa.gov/jetstream/global/learning-lesson-shadow-knows-i), [NHGRI base pairing](https://www.genome.gov/genetics-glossary/Base-Pair) and [DNA replication](https://www.genome.gov/genetics-glossary/DNA-Replication), [NHGRI PKU](https://www.genome.gov/Genetic-Disorders/Phenylketonuria), [the 1801 constitution, articles 14–16](https://www.marxists.org/history/haiti/1801/constitution.htm), [Mandeville's Grumbling Hive](https://englishphilosophy.org/mandeville/fb/gh), [NIST's timekeeping history, p. 50](https://tf.nist.gov/general/pdf/2533.pdf) and [Royal Museums Greenwich's H4 trial account](https://www.rmg.co.uk/stories/time/harrisons-clocks-longitude-problem). The story notes distinguish these sources from invented examples and preserve the limits of each inference.
+
+### Final checks and limits
+
+Final manuscript SHA-256: `b7745245762af421e4fce6b27b1cfe6ff59625e1cd2914b08b69fbac4fc435a8`.
+
+- Ideas lint: **0 errors, 1 reviewed warning**. The same lens is preserved for close magnification and later incorporated into the telescope; its mixed fate remains intentional.
+- The shared analyzer completes all 58 chapters in **164 combinations**. Maximum chapter-arrival inventory remains seven items. This is one legal route, not a claim of a globally shortest route or human duration.
+- A scoped shared-engine checkpoint completes the story and replays to an identical state. Parsed checks confirm one correctly structured card for every derived identity, a local-title closing line, orientation in every chapter, no autobiographical first-person card wording and no cleared-table narration.
+- `node --test tests/story.test.ts`: **10 passed, 1 failed**. The repository-wide manuscript test stops at `stories/mars/mars.md` because its fixed-item analysis exceeds 20,000 states. This is outside the Ideas changes; the separate Ideas lint/completion/replay checks pass. No Mars files were changed by this work.
+- Scoped whitespace/diff checks pass. No engine, browser or artwork changes were needed.
+
+The earlier full `--fast` results remain historical evidence for the shortening versions. This pass used manuscript/source and wording reviews, not a new full playtest, isolated human learning test or enjoyment measurement. The [backlog](../backlog.md#ideas-story-development) retains meaningful deliberation, cumulative hooks, learner transfer/retention and selective regional coverage as future evaluation questions. The Ideas project remains active.
