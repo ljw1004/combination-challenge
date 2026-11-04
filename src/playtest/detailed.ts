@@ -1,17 +1,17 @@
 import type {Story} from '../story/types.ts';
 import type {State} from '../engine/types.ts';
 import {availableTokens,label} from '../engine/game.ts';
-import {activeHotspots} from '../engine/analysis.ts';
 import {logicalPlacements,logicalReactions,performLogicalPlacement,performLogicalReaction} from '../engine/logical-actions.ts';
 import type {LogicalPlacement,LogicalReaction} from '../engine/logical-actions.ts';
 import {resolveName} from './commands.ts';
 import type {DetailedChoice,NamedObject} from './commands.ts';
 import {itemName} from './names.ts';
+import {isFixed,presentHotspots} from '../engine/fixed-items.ts';
 
 type Operation = {reaction:LogicalReaction}|{placement:LogicalPlacement};
 export function detailedObjects(story:Story,state:State):NamedObject[] {
-  return [...availableTokens(state).filter(t => t.chapter === state.chapter).map(t => ({id:t.id,name:itemName(story,state,t.id),kind:'item' as const})),
-    ...activeHotspots(story,state.chapter).map(id => ({id,name:label(story,state,id),kind:'hotspot' as const}))];
+  return [...availableTokens(state).filter(t => t.chapter === state.chapter&&!isFixed(story,t)).map(t => ({id:t.id,name:itemName(story,state,t.id),kind:'item' as const})),
+    ...presentHotspots(story,state,state.chapter).map(id => ({id,name:itemName(story,state,id),kind:'hotspot' as const}))];
 }
 function operations(story:Story,state:State):Operation[] {
   const reactions = logicalReactions(story,state);
@@ -77,7 +77,7 @@ export function detailedTurn(story:Story,state:State,choice:DetailedChoice):{sta
     const other = first.id === a.b || (!inspecting && second?.id === a.b) ? a.a : a.b;
     messages.push(`Combined this together with: ${itemName(story,state,other)}.`);
   }
-  const inputs = [a.a,...(a.b ? [a.b] : [])];
+  const inputs = [a.a,...(a.b ? [a.b] : []),...(a.hotspot ? [a.hotspot] : [])];
   const consumed = inputs.filter(id => state.tokens[id].status === 'available' && after.tokens[id].status === 'consume');
   if (consumed.length) messages.push(`Consumed: ${consumed.map(id => itemName(story,state,id)).join(', ')}.`);
   if (reaction.recipe.installation) messages.push(`Slotted in: ${result}.`);

@@ -1,5 +1,6 @@
 import type {Ref, Story} from '../story/types.ts';
 import {indexStory} from '../engine/analysis.ts';
+import {recipeIngredients} from '../engine/fixed-items.ts';
 
 interface Construction {
   depth: number;
@@ -44,7 +45,7 @@ export function constructionMetrics(story: Story): ItemConstruction[] {
     }
     if (index.primitives.has(ref.id)) fit({depth: 0, depthPath: [item.name]}, []);
     for (const recipe of index.producers.get(ref.id) ?? []) {
-      const inputs = [recipe.a.ref, ...(recipe.b ? [recipe.b.ref] : [])].map(reference);
+      const inputs = recipeIngredients(recipe).map(input=>reference(input.ref));
       const deepest = inputs.reduce((a, b) => a.depth >= b.depth ? a : b);
       fit({
         depth: deepest.depth + 1,
@@ -64,7 +65,7 @@ export function constructionMetrics(story: Story): ItemConstruction[] {
     chapter.items.forEach(add);
     for (const goal of chapter.goals) for (const condition of goal.conditions) add(condition.item);
   }
-  for (const recipe of story.recipes) { add(recipe.a.ref); if (recipe.b) add(recipe.b.ref); add(recipe.result); }
+  for (const recipe of story.recipes) { recipeIngredients(recipe).forEach(input=>add(input.ref)); add(recipe.result); }
   return Object.values(story.items).map(item => ({
     id: item.id, name: item.name, primitive: index.primitives.has(item.id),
     ...maximum(forms.get(item.id)!.map(reference)),

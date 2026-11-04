@@ -3,6 +3,7 @@ import type { State } from '../engine/types.ts';
 import { activeHotspots, indexStory } from '../engine/analysis.ts';
 import { matches, recipeFor } from '../engine/game.ts';
 import { localClosure } from './opportunity-state.ts';
+import {recipeIngredients} from '../engine/fixed-items.ts';
 
 export interface OpportunityExplanation { message: string; related: RelatedLocation[] }
 interface Blocker {
@@ -27,7 +28,7 @@ export class OpportunityExplanations {
     const upper = localClosure(story, state);
     const blocker = (id: string, kind: Blocker['kind'], message: string): Blocker => ({item: id, kind, message, source: story.items[id].source,
       ...(['retired', 'merge', 'installed'].includes(kind) ? {retiring: story.recipes.filter(recipe => state.tokens[recipe.result.id]
-        && [recipe.a, ...(recipe.b ? [recipe.b] : [])].some(input => input.ref.id === id && input.fate !== 'preserve')).slice(-2)} : {})});
+        && recipeIngredients(recipe).some(input => input.ref.id === id && input.fate !== 'preserve')).slice(-2)} : {})});
     const context = (recipe: Recipe): Blocker[] => recipe.hotspot && !hotspots.has(recipe.hotspot)
       ? [{kind: 'hotspot', message: `${story.hotspots[recipe.hotspot].name} is not active on this chapter's board`, source: story.hotspots[recipe.hotspot].source}] : [];
     const difficulty = (reasons: Blocker[]) => reasons.length + reasons.filter(b => b.kind === 'hotspot').length * 10;
@@ -47,11 +48,11 @@ export class OpportunityExplanations {
       if (trail.has(id)) return [blocker(id, 'cycle', `${name} depends on a construction cycle with no available starting item`)];
       const next = new Set([...trail, id]);
       const alternatives = (index.producers.get(id) ?? []).map(recipe => [...context(recipe),
-        ...[recipe.a, ...(recipe.b ? [recipe.b] : [])].flatMap(input => reasonsFor(input.ref, next))]);
+        ...recipeIngredients(recipe).flatMap(input => reasonsFor(input.ref, next))]);
       return alternatives.sort((a, b) => difficulty(a) - difficulty(b))[0] ?? [];
     };
     for (const target of targets) for (const recipe of index.producers.get(target) ?? []) {
-      const inputs = [recipe.a, ...(recipe.b ? [recipe.b] : [])];
+      const inputs = recipeIngredients(recipe);
       const blockers = [...new Map([...context(recipe), ...inputs.flatMap(input => reasonsFor(input.ref, new Set([target]))) ]
         .map(reason => [reason.message, reason] as const)).values()];
       if (!blockers.length) {

@@ -45,9 +45,9 @@ test('lint requires one opening marker and a legal first drag without preparatio
   assert.deepEqual(errors(fixture(`- ${recipe}\n## Later\n**Combinations**\n- ${recipe} (tutorial)`)).map(d => d.code), ['tutorial-chapter']);
   const dependent = fixture(`- D\n- ${recipe}\n- C [preserve] + B [preserve] -> D (tutorial)`);
   assert.equal(errors(dependent)[0].code, 'tutorial-unavailable');
-  const context = fixture(`- A [preserve] + B [preserve] @ Bench -> C (tutorial)`).replace('**Combinations**', '**Hotspots**\n- Bench\n**Combinations**');
+  const context = fixture(`- A [preserve] + B [preserve] @ Bench -> C (tutorial)`).replace('**Combinations**', '**Hotspots**\n- Bench\n**Items**\n- Bench\n**Combinations**');
   assert.equal(errors(context)[0].code, 'tutorial-unavailable', 'receiving placement must already hold');
-  const single = fixture('- A [preserve] @ Bench -> C (tutorial)').replace('**Combinations**', '**Hotspots**\n- Bench\n**Combinations**');
+  const single = fixture('- A [preserve] @ Bench -> C (tutorial)').replace('**Combinations**', '**Hotspots**\n- Bench\n**Items**\n- Bench\n**Combinations**');
   assert.deepEqual(errors(single), [], 'a direct item-to-hotspot operation needs no prior placement');
 });
 

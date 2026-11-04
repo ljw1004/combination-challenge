@@ -21,6 +21,7 @@ const station = parseStory(`# Station
 **Hotspots**
 - Warm hearth
 **Items**
+- Warm hearth
 - Warm dough
 - Cold water
 - Starter
@@ -88,6 +89,7 @@ test('one highlighted hotspot with multiple operations does not trigger an autom
 **Hotspots**
 - H
 **Items**
+- H
 - A
 - B
 - D
@@ -110,6 +112,7 @@ test('a redirected contextual reaction reports its selected hotspot and actual t
 **Hotspots**
 - Hearth
 **Items**
+- Hearth
 - Dough
 - Starter
 - Bread
@@ -160,6 +163,7 @@ test('direct hotspot reactions take priority, report actual fates, and missing i
 **Hotspots**
 - H
 **Items**
+- H
 - A
 - B
 - Tool
@@ -183,6 +187,7 @@ test('direct hotspot reactions take priority, report actual fates, and missing i
 **Hotspots**
 - H
 **Items**
+- H
 - A
 - Tool
 - B
@@ -208,6 +213,8 @@ test('joint placement goals can complete without leaving station occupancy betwe
 - H
 - J
 **Items**
+- H
+- J
 - A
 - B
 `);

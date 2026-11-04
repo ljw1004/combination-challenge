@@ -127,6 +127,7 @@ test('hotspot artwork retains coordinates and contextual recipes without introdu
   - Clay [transform] + Fire [preserve] -> Bowl
 > NOTE: Hotspot centre is on the right firing ground.
 **Items**
+- Kiln yard
 - Clay
 - Fire
 ## Return
@@ -137,13 +138,13 @@ test('hotspot artwork retains coordinates and contextual recipes without introdu
   - icon: ![conflicting](other.png)
 `);
   const story = parseStory(text), hotspot = story.hotspots['name:Kiln yard'];
-  assert.deepEqual(Object.keys(story.items).sort(), ['name:Bowl', 'name:Clay', 'name:Fire']);
+  assert.deepEqual(Object.keys(story.items).sort(), ['name:Bowl', 'name:Clay', 'name:Fire', 'name:Kiln yard']);
   assert.equal(hotspot.x, .78); assert.equal(hotspot.y, .65);
   assert.equal(hotspot.icon?.url, 'yard.png');
   assert.equal(story.recipes.length, 1);
   assert.equal(story.recipes[0].hotspot, hotspot.id);
   assert.deepEqual(iconErrors(text).map(d => d.code), ['conflicting-icon']);
-  assert.deepEqual(Object.keys(newGame(story).tokens).sort(), ['name:Clay', 'name:Fire']);
+  assert.deepEqual(Object.keys(newGame(story).tokens).sort(), ['name:Clay', 'name:Fire', 'name:Kiln yard']);
   const missing = lintStoryImages(story, text).filter(d => d.code === 'missing-image');
   assert(missing.length > 0);
   assert(missing.every(d => text.slice(d.span.from, d.span.to) === 'yard.png'));
@@ -194,6 +195,7 @@ test('icon start coordinates validate ranges, duplicate markers and placement co
 - Shore (at 70%, 80%)
   - icon: ![shore](shore.png) (at 20%, 30%)
 **Items**
+- Shore
 - House (compound)
   - icon: ![house](house.png)
   - unnamed slot: accepts Window, icon: ![fitted](fitted.png) (at 20%, 30%)

@@ -2,6 +2,7 @@ import type { Story } from '../story/types.ts';
 import type { State, Token } from '../engine/types.ts';
 import { canonicalState, relevantItems } from './opportunity-state.ts';
 import {activeHotspots, continuationPossible} from '../engine/analysis.ts';
+import {isFixed} from '../engine/fixed-items.ts';
 import type { RetirementCheck } from '../engine/game.ts';
 
 function historyState(story: Story, input: State): State {
@@ -10,7 +11,9 @@ function historyState(story: Story, input: State): State {
   const goalHotspots = new Set(story.chapters.slice(state.chapter).flatMap(c => c.goals.flatMap(g => g.conditions.flatMap(c => c.hotspot ? [c.hotspot] : []))));
   for (const token of Object.values(state.tokens)) {
     if (token.chapter < state.chapter) {
-      token.chapter = -1;
+      // The original chapter carries fixedness; forgetting it would make an
+      // old installation look portable to the chapter-needs calculation.
+      if (!isFixed(story,token)) token.chapter = -1;
       if (token.hotspot && !futureHotspots.has(token.hotspot) && !goalHotspots.has(token.hotspot)) delete token.hotspot;
     }
   }
@@ -116,7 +119,7 @@ export class OptionalHistory {
       if (retired) { token.status = 'consume'; token.chapter = -1; delete token.hotspot; }
       else if (relevant.has(id)) {
         if (all.some(value => value?.status === 'installed')) token.status = 'installed';
-        if (all.some(value => value?.chapter !== token.chapter)) token.chapter = -1;
+        if (all.some(value => value?.chapter !== token.chapter)) token.chapter = all.find(value => isFixed(this.story,value))?.chapter ?? -1;
         if (all.some(value => value?.hotspot !== token.hotspot)) delete token.hotspot;
       }
       state.tokens[id] = token;

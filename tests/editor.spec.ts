@@ -874,7 +874,7 @@ for (const kind of ['goals','hotspots'] as const) test(`three-${kind} quick acti
   const singular = kind === 'goals' ? 'goal' : 'hotspot', heading = kind === 'goals' ? '**Goals**' : '**Hotspots**';
   const countCode = kind === 'goals' ? 'many-visible-goals' : 'many-hotspots';
   const remove = kind === 'goals' ? '- Keep the tool -- `tool`\n' : '- Sink\n';
-  const text = kind === 'hotspots' ? manuscript.replace('**Goals**', '**Hotspots**\n- Oven\n- Hob\n- Sink\n\n**Goals**') : manuscript.replace('- Build the kit -- `kit`', '- Build the kit -- `kit`\n- Keep the frame -- `frame`\n- Keep the tool -- `tool`');
+  const text = kind === 'hotspots' ? manuscript.replace('**Goals**', '**Hotspots**\n- Oven\n- Hob\n- Sink\n\n**Goals**\n**Items**\n- Oven\n- Hob\n- Sink\n\n') : manuscript.replace('- Build the kit -- `kit`', '- Build the kit -- `kit`\n- Keep the frame -- `frame`\n- Keep the tool -- `tool`');
   await serveFixture(page, text.replaceAll('\n', '\r\n'));
   await page.goto('/combinations.html?story=fixture/story.md');
   await openEditor(page);

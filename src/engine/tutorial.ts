@@ -1,8 +1,8 @@
 import type {Story} from '../story/types.ts';
 import type {State, Action} from './types.ts';
 import {act, matches, recipeFor} from './game.ts';
-import {activeHotspots} from './analysis.ts';
 import {hotspotDrop} from './hotspot-drop.ts';
+import {isFixed,presentHotspots} from './fixed-items.ts';
 
 /** The authored direction must itself be executable, including receiving placement. */
 export function tutorialAction(story: Story, state: State): Extract<Action, {type: 'combine'}> | undefined {
@@ -28,7 +28,7 @@ export interface HotspotTutorial {
 /** Discover a real two-item opportunity, including the preparation before it is executable. */
 export function hotspotTutorials(story: Story, state: State, preferred?: string): HotspotTutorial[] {
   if (state.completed) return [];
-  const hotspots = activeHotspots(story, state.chapter);
+  const hotspots = presentHotspots(story, state, state.chapter);
   const candidates: HotspotTutorial[] = [];
   for (const recipe of story.recipes) {
     if (!recipe.b || !recipe.hotspot || !hotspots.includes(recipe.hotspot)) continue;
@@ -39,8 +39,10 @@ export function hotspotTutorials(story: Story, state: State, preferred?: string)
     const orders = [[a, b], [b, a]].sort(([left], [right]) =>
       Number(right.hotspot === recipe.hotspot) - Number(left.hotspot === recipe.hotspot));
     for (const [receiver, incoming] of orders) {
+      if(isFixed(story,incoming))continue;
       let prepared = state;
       if (receiver.hotspot !== recipe.hotspot) {
+        if(isFixed(story,receiver))continue;
         const drop = hotspotDrop(story, state, receiver.id, recipe.hotspot, state.chapter);
         // An operation or ambiguous drop cannot demonstrate parking this ingredient.
         if (drop.action || drop.ambiguous.length) continue;

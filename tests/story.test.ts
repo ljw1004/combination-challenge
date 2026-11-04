@@ -12,7 +12,7 @@ const fixture=(content:string)=>parseStory(`# Test\n\n## Start\n\n![room](room.w
 const combine=(s:Story,state:ReturnType<typeof newGame>,a:string,b:string)=>act(s,state,{type:'combine',a:`name:${a}`,b:`name:${b}`});
 
 test('Markdown shorthands compile with source locations, scoped hotspots and hidden author notes',()=>{
-  const s=fixture(`A room.\n\n> NOTE: not for players\n> secret continuation\n\n**Goals**\n- Make C -- C\n**Hotspots**\n- Bench (at 25%, 75%)\n  - A [preserve] + B [preserve] -> C\n**Items**\n- A\n  + ignored prose\n- B\n- C\n\n  A useful explanation.`);
+  const s=fixture(`A room.\n\n> NOTE: not for players\n> secret continuation\n\n**Goals**\n- Make C -- C\n**Hotspots**\n- Bench (at 25%, 75%)\n  - A [preserve] + B [preserve] -> C\n**Items**\n- Bench\n- A\n  + ignored prose\n- B\n- C\n\n  A useful explanation.`);
   assert.equal(s.recipes[0].hotspot,'name:Bench');assert.equal(s.hotspots['name:Bench'].x,.25);assert(!s.chapters[0].intro.includes('secret'));assert.equal(s.items['name:C'].wonders[0].markdown,'A useful explanation.');assert(s.recipes[0].source.line>1);
   assert.deepEqual(s.diagnostics,[]);
 });
@@ -45,7 +45,7 @@ test('future intermediate goals protect a reagent even when final goal has a sho
   const state=combine(s,newGame(s),'Grain','Stone');assert.equal(state.tokens['name:Grain'].status,'available');
 });
 test('placement achievement latches; old copy stays where dragged from on combination',()=>{
-  const s=fixture('**Goals**\n- Place A -- A @ Bench\n- Make C -- C\n**Hotspots**\n- Bench\n**Combinations**\n- A [preserve] + B [preserve] -> C');
+  const s=fixture('**Goals**\n- Place A -- A @ Bench\n- Make C -- C\n**Hotspots**\n- Bench\n**Combinations**\n- A [preserve] + B [preserve] -> C\n**Items**\n- Bench\n\n');
   let state=newGame(s);state=act(s,state,{type:'move',item:'name:A',chapter:0,x:80,y:500,hotspot:'name:Bench'});state=act(s,state,{type:'move',item:'name:A',chapter:0,x:20,y:100});assert(state.achieved.includes(s.chapters[0].goals[0].id));state=combine(s,state,'A','B');assert.equal(state.tokens['name:A'].x,20);assert.equal(state.tokens['name:A'].y,100);
 });
 test('fresh observations have partners but no future recipe output or author notes',()=>{
@@ -53,7 +53,7 @@ test('fresh observations have partners but no future recipe output or author not
   const text=JSON.stringify(observe(s,newGame(s)));assert(!text.includes('Secret invention'));assert(!text.includes('secret note'));assert(text.includes('name:A'));
 });
 test('a hotspot operand creates its result at the receiving chapter, even when its source came from scrollback',()=>{
-  const s=fixture('**Goals**\n- First -- C\n**Combinations**\n- A [consume] + B [consume] -> C\n\n## Workshop\n\n![room](room.webp)\n\n**Goals**\n- Finish -- D\n**Hotspots**\n- Bench\n**Combinations**\n- Raw [transform] @ Bench -> D');
+  const s=fixture('**Goals**\n- First -- C\n**Combinations**\n- A [consume] + B [consume] -> C\n\n## Workshop\n\n![room](room.webp)\n\n**Goals**\n- Finish -- D\n**Hotspots**\n- Bench\n**Combinations**\n- Raw [transform] @ Bench -> D\n**Items**\n- Bench\n\n');
   let state=combine(s,newGame(s),'A','B');while(state.pending.length)state=act(s,state,{type:'dismiss'});state=act(s,state,{type:'advance'});state=act(s,state,{type:'move',item:'name:Raw',chapter:0,x:20,y:100});state=act(s,state,{type:'combine',a:'name:Raw',hotspot:'name:Bench',chapter:1});assert.equal(state.tokens['name:D'].chapter,1);assert.equal(state.tokens['name:D'].hotspot,'name:Bench');assert.equal(state.tokens['name:Raw'].status,'transform');
 });
 test('all manuscripts pass structural/continuation lint and have legal complete replay witnesses',()=>{

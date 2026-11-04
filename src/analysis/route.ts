@@ -2,6 +2,7 @@ import type {Story} from '../story/types.ts';
 import type {Action, State} from '../engine/types.ts';
 import {act, newGame, recipeFor} from '../engine/game.ts';
 import {checkpoint} from '../debug/checkpoint.ts';
+import {recipeIngredients} from '../engine/fixed-items.ts';
 
 export interface CheckpointMeasurement {requestedChapter: number; chapter: number; name: string; items: number; peakItems:number}
 export interface ItemPersistence {id: string; chapters: number; chapterPath: number[]}
@@ -32,7 +33,7 @@ export function measureRoute(story: Story, actions: readonly Action[] = checkpoi
     if (action.type === 'combine') {
       const recipe = recipeFor(story, state, action);
       if (!recipe) throw new Error('Reference replay contains an unavailable combination.');
-      const paths = [recipe.a.ref.id, ...(recipe.b ? [recipe.b.ref.id] : [])].map(id => {
+      const paths = recipeIngredients(recipe).map(input=>input.ref.id).map(id => {
         const previous = ancestry.get(id)!;
         return previous.at(-1) === state.chapter ? previous : [...previous, state.chapter];
       });

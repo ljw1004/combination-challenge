@@ -32,6 +32,7 @@ Finish outside.
 - Bench
   - icon: ![bench](art/bench.svg)
 **Items**
+- Bench
 - P
   - icon: ![P](art/p.svg)
 - R

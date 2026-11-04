@@ -941,6 +941,7 @@ It is evening. The worktable is cleared for a new session. At the optical bench,
 - "Dark room"
 
 **Items**
+- Dark room
 - "A closed box, small opening and receiving screen"
 
   A dark box with a small opening and a screen can receive an image formed by incoming light.
@@ -1852,6 +1853,7 @@ These records cover c. 1714–1770 CE. Compare a reference clock with a lunar me
 - "H4 sea-trial report"
 
 **Items**
+- H4 sea-trial report
 - "Local noon follows the Sun at this place"
 
   Local noon is determined by the Sun at this place. It need not occur at the same moment as noon at the clock's reference place.

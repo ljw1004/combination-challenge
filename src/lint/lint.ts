@@ -7,6 +7,9 @@ import { hotspotCountDiagnostics } from './hotspot-count.ts';
 import { tutorialAction } from '../engine/tutorial.ts';
 import { declarationDiagnostics } from './declarations.ts';
 import { presentationDiagnostics } from './presentations.ts';
+import {recipeConflictDiagnostics} from './recipe-conflicts.ts';
+import {recipeIngredients} from '../engine/fixed-items.ts';
+import {dynamicHotspotChapter,fixedItemDiagnostics} from './fixed-items.ts';
 
 export interface LintOptions {
   analysis?: boolean;
@@ -15,7 +18,7 @@ export interface LintOptions {
   onOpportunityAnalysis?: (report: OpportunityReport) => void;
 }
 export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[] {
-  const diagnostics = [...story.diagnostics, ...declarationDiagnostics(story), ...presentationDiagnostics(story)];
+  const diagnostics = [...story.diagnostics, ...declarationDiagnostics(story), ...presentationDiagnostics(story), ...recipeConflictDiagnostics(story)];
   const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => diagnostics.push({severity,code,message,source,span:source.span??{from:0,to:0},stage:'fast',...(related?.length?{related}:{}),...(fixes?.length?{fixes,fixTitle}:{})});
   const error = (code:string,message:string,source:Source) => add('error',code,message,source);
   const warning = (code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => add('warning',code,message,source,related,fixes,fixTitle);
@@ -33,12 +36,12 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
     for (const slot of ref.slots) if (!item?.slots.some(s=>s.accepts===slot)) error('unknown-slot',`${item?.name ?? ref.id} has no slot accepting ${story.items[slot]?.name ?? slot}.`,source);
   }
   for (const item of Object.values(story.items)) {
-    if (usesIcons && !item.icon) error('missing-item-icon', `${item.name} needs an icon beneath a top-level Items declaration because this story uses icons.`, item.source);
+    const portableDeclaration=story.chapters.some((c,i)=>c.items.some(ref=>ref.id===item.id)&&!activeHotspots(story,i).includes(item.id));
+    if (usesIcons && !item.icon && (!story.hotspots[item.id]||portableDeclaration)) error('missing-item-icon', `${item.name} needs an icon beneath a top-level Items declaration because this story uses icons.`, item.source);
     if (item.icon?.position) {
       if (!index.primitives.has(item.id)) error('derived-icon-position', `${item.name} is derived; only primitive items can specify an icon starting position.`, item.icon.source);
       if (Object.values(item.icon.position).some(value => !Number.isFinite(value) || value < 0 || value > 1)) error('icon-position', 'Icon starting coordinates must be between 0% and 100%.', item.icon.source);
     }
-    if (story.hotspots[item.id]) error('namespace-clash',`${item.name} names both an item and a hotspot; use distinct backtick identifiers.`,item.source);
     if (item.exclusiveWith === item.id) error('self-exclusion',`${item.name} cannot exclude itself.`,item.source);
     if (item.exclusiveWith && story.items[item.exclusiveWith]?.exclusiveWith !== item.id) error('asymmetric-exclusion',`${item.name}'s exclusivity must also be declared on ${story.items[item.exclusiveWith]?.name ?? item.exclusiveWith}.`,item.source);
     if (item.slots.length && !item.compound) error('slots-on-simple-item',`${item.name} has slots but is not marked (compound).`,item.source);
@@ -53,14 +56,15 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
   }
   for (const recipe of story.recipes) {
     if (recipe.b?.ref.id===recipe.a.ref.id) error('self-combination','A single item cannot combine with itself; author distinct item identities.',recipe.source);
+    if (recipe.hotspot && [recipe.a.ref.id,recipe.b?.ref.id].includes(recipe.hotspot)) error('self-combination','A fixed item cannot also be an ingredient parked or dropped at itself.',recipe.source);
     const context = `${reference(recipe.a.ref)}${recipe.b ? ` + ${reference(recipe.b.ref)}` : ''}${recipe.hotspot ? ` @ ${name(recipe.hotspot)}` : ''} → ${reference(recipe.result)}`;
-    for (const reagent of [recipe.a,...(recipe.b?[recipe.b]:[])]) {
+    for (const reagent of recipeIngredients(recipe)) {
       checkRef(reagent.ref,recipe.source);
       const list = uses.get(reagent.ref.id) ?? [];
       const origin = recipe.installation
         ? reagent === recipe.a ? 'implicit slot-owner preservation' : 'implicit slot installation'
-        : reagent.explicit ? 'explicit' : 'default';
-      list.push({fate:reagent.fate,explicit:reagent.explicit,implicit:!!recipe.installation,source:recipe.source,location:related(recipe.source,`${reagent.fate} (${origin}): ${context}`)});
+        : reagent.explicit ? 'explicit' : reagent===recipe.at ? 'default fixed context' : 'default';
+      list.push({fate:reagent.fate,explicit:reagent.explicit||reagent===recipe.at,implicit:!!recipe.installation,source:recipe.source,location:related(recipe.source,`${reagent.fate} (${origin}): ${context}`)});
       uses.set(reagent.ref.id,list);
     }
     checkRef(recipe.result,recipe.source);
@@ -90,7 +94,7 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
       warning('mixed-fates',`${story.items[id].name} has mixed fates: ${counts.join(', ')}. Review these visibility and placement hints; different roles can be intentional.`,list[0].source,list.map(use=>use.location),fixes,story.items[id].name);
     }
   }
-  for (const hotspot of Object.values(story.hotspots)) {
+  for (const hotspot of story.chapters.flatMap(c=>Object.values(c.hotspotDefinitions??{}))) {
     if ((hotspot.x!==undefined && (hotspot.x<0 || hotspot.x>1)) || (hotspot.y!==undefined && (hotspot.y<0 || hotspot.y>1))) error('hotspot-position','Hotspot coordinates must be between 0% and 100%.',hotspot.source);
     for (const [i, placement] of (hotspot.placements ?? []).entries()) {
       const {item, x, y, source} = placement;
@@ -107,7 +111,7 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
     const earlier = new Set(story.chapters.slice(0,i).flatMap(c=>c.items.map(r=>r.id)));
     if (i && !c.image && c.items.some(r=>index.primitives.has(r.id) && !earlier.has(r.id))) warning('new-primitives-without-image',`${c.name} introduces primitive items without a new setting image.`,c.source);
     diagnostics.push(...goalCountDiagnostics(c));
-    diagnostics.push(...hotspotCountDiagnostics(story, i));
+    diagnostics.push(...hotspotCountDiagnostics(story, i).filter(d=>!dynamicHotspotChapter(story,i)||d.code==='duplicate-hotspot-acknowledgment'));
     for (const ref of c.items) checkRef(ref,c.source);
     const supplies = chapterSupplies(story, i);
     for (const [a,b] of index.pairs) if (supplies.some(r=>r.id===a)&&supplies.some(r=>r.id===b)) error('exclusive-needs',`${c.name} supplies both mutually exclusive primitives ${story.items[a].name} and ${story.items[b].name}.`,c.source);
@@ -151,7 +155,8 @@ export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagno
       });
     }
   } catch (exception) { return error('analysis-limit', (exception as Error).message); }
-  if (options.opportunities === false) return [];
+  const fixedDiagnostics=fixedItemDiagnostics(story);
+  if(fixedDiagnostics.some(d=>d.severity==='error')||options.opportunities===false)return fixedDiagnostics;
   const report = analyzeOpportunities(story, options.opportunities);
   options.onOpportunityAnalysis?.(report);
   if (!report.complete) {
@@ -161,7 +166,7 @@ export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagno
       message: `${report.limit} Evaluated ${report.stats.constructionSets} construction sets; largest set of alternatives ${report.stats.peakFrontier}.`}];
   }
   const primitives = indexStory(story).primitives;
-  return Object.values(story.items).filter(item => !report.opportunities.has(item.id)).map(item => {
+  const itemDiagnostics=Object.values(story.items).filter(item => !report.opportunities.has(item.id)).map(item => {
     const primitive = primitives.has(item.id);
     const explanation = report.explanations.get(item.id);
     const related = story.recipes.filter(recipe => !recipe.installation && recipe.result.id === item.id).map(recipe => ({
@@ -176,4 +181,10 @@ export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagno
         : `${item.name} has no construction opportunity on a current chapter board under the pessimistic analysis. ${explanation?.message ?? 'Its dependencies never yield a legal construction in the analyzed goal-only histories.'}`,
     } satisfies Diagnostic;
   });
+  const recipeDiagnostics:Diagnostic[]=story.recipes.filter(recipe=>!recipe.installation&&!report.recipeOpportunities.has(recipe.id)).map(recipe=>({
+    severity:'warning',code:'no-recipe-opportunity',stage:'deep',source:recipe.source,span:recipe.source.span??{from:0,to:0},
+    message:`This combination has no demonstrated execution opportunity under the pessimistic chapter analysis. Check that its ingredients coexist, its fixed context is built and present, a legal drag exists, and its result has not already been created.`,
+    ...(recipe.hotspot?{related:[{...story.hotspots[recipe.hotspot].source,span:story.hotspots[recipe.hotspot].source.span??{from:0,to:0},message:'Required fixed context; its declaration alone does not make the item available.'}]}:{}),
+  }));
+  return [...fixedDiagnostics,...report.fixedDiagnostics,...itemDiagnostics,...recipeDiagnostics];
 }

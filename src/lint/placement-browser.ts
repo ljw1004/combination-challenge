@@ -13,7 +13,7 @@ export class PlacementBrowser {
   private browser?: Browser;
 
   async lint(story: Story): Promise<Diagnostic[]> {
-    const placements = Object.values(story.hotspots).flatMap(h => h.placements ?? []);
+    const placements = story.chapters.flatMap(chapter=>Object.values(chapter.hotspotDefinitions??{})).flatMap(h => h.placements ?? []);
     if (!placements.length) return [];
     const failure = (message: string): Diagnostic[] => placements.map(p => ({severity: 'error', code: 'place-geometry', message, source: p.source, span: p.source.span!, stage: 'fast'}));
     try { this.browser ??= await chromium.launch(); }
@@ -33,15 +33,15 @@ export class PlacementBrowser {
       const images = await page.locator('[data-hotspot] img').evaluateAll(async images => Promise.all(images.map(async node => {
         const img = node as HTMLImageElement;
         await Promise.race([img.decode().catch(() => {}), new Promise(resolve => setTimeout(resolve, 8000))]);
-        return {id: img.closest<HTMLElement>('[data-hotspot]')!.dataset.hotspot!, width: img.naturalWidth, height: img.naturalHeight};
+        return {id: img.closest<HTMLElement>('[data-hotspot]')!.dataset.hotspot!, chapter: Number(img.closest<HTMLElement>('[data-chapter]')!.dataset.chapter), width: img.naturalWidth, height: img.naturalHeight};
       })));
       if (images.some(image => !image.width || !image.height)) return failure('Cannot verify placement because hotspot artwork could not be decoded.');
       await page.evaluate(sizes => {
         for (const el of document.querySelectorAll<HTMLElement>('[data-hotspot]')) {
-          const size = sizes.find(s => s.id === el.dataset.hotspot);
+          const size = sizes.find(s => s.id === el.dataset.hotspot && s.chapter === Number(el.closest<HTMLElement>('[data-chapter]')!.dataset.chapter));
           if (size) { el.style.setProperty('--icon-width', `${size.width}px`); el.style.setProperty('--icon-height', `${size.height}px`); }
         }
-      }, images.map(image => ({id: image.id, ...iconDimensions(image.width, image.height)})));
+      }, images.map(image => ({id: image.id, chapter:image.chapter, ...iconDimensions(image.width, image.height)})));
       return lintPlacementGeometry(story, await page.evaluate(measureHotspots, await page.evaluateHandle(() => document)));
     } catch (error) { return failure(`Cannot verify hotspot placement geometry: ${(error as Error).message}`); }
     finally { await page.close(); }

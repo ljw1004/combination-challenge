@@ -13,6 +13,8 @@ const story = parseStory(`# Drops
 - Bench
 - Oven
 **Items**
+- Bench
+- Oven
 - A
 - B
 - C
@@ -63,6 +65,7 @@ test('useful preparatory placements compete with combinations using the same cur
 **Hotspots**
 - Bench
 **Items**
+- Bench
 - A
 - B
 - C
@@ -84,6 +87,7 @@ test('an ambiguous station requires a geometrically targeted occupant and uses i
 **Hotspots**
 - Bench
 **Items**
+- Bench
 - A
 - B
 - C

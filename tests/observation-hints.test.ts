@@ -13,6 +13,7 @@ const context = parseStory(`# A workshop
 **Hotspots**
 - Bench
 **Items**
+- Bench
 - A
 - B
 - Secret parcel
@@ -23,6 +24,10 @@ const context = parseStory(`# A workshop
 ![room](later.webp)
 **Hotspots**
 - Unvisited kiln
+
+**Items**
+- Unvisited kiln
+
 `);
 
 test('logical observations offer the browser’s preparatory hotspot drags without revealing the result', () => {
@@ -56,6 +61,9 @@ test('logical hints preserve compound fitting and placement affordances while hi
 - Shelf
 - Kiln
 **Items**
+- Bench
+- Shelf
+- Kiln
 - Box (compound)
   - unnamed slot: accepts Lid
 - Lid
@@ -88,6 +96,7 @@ test('useful placement can precede another ingredient’s creation without expos
 **Hotspots**
 - Cellar
 **Items**
+- Cellar
 - Flour
 - Water
 - Dough
@@ -116,6 +125,7 @@ test('logical hotspot actions honor the browser’s occupied-target priority', (
 **Hotspots**
 - Bench
 **Items**
+- Bench
 - A
 - B
 - Secret pair

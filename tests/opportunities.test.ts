@@ -119,6 +119,8 @@ ${later('Later')}
 - Second finish -- Done U
 **Hotspots**
 - Bench
+**Items**
+- Bench
 **Combinations**
 - X [preserve] + Q [preserve] -> Done X
 - Y [preserve] + Q [preserve] -> Done X
@@ -385,7 +387,8 @@ test('producer alternatives with identical construction sets merge before combin
   const story = parse(`**Goals**\n${goals.join('\n')}\n**Combinations**\n${recipes.join('\n')}`);
   const report = analyzeOpportunities(story);
   assert(report.complete, report.limit);
-  assert.equal(report.stats.constructionSets, 1);
+  assert.equal(report.stats.goalSets, 1);
+  assert.equal(report.recipeOpportunities.size, 22);
   assert.equal(report.stats.peakFrontier, 1);
 });
 
@@ -460,6 +463,8 @@ ${later('Display')}
 **Goals**
 - Finish -- Finished
 **Hotspots**
+- Display stand
+**Items**
 - Display stand
 **Combinations**
 - Fresh [consume] + Tool [preserve] -> Finished

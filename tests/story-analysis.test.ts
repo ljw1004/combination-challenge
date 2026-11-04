@@ -173,23 +173,24 @@ Done.`);
   assert.throws(() => measureRoute(s, []), /did not complete/);
 });
 
-test('a hotspot operation adds one construction step, without treating the landscape as a primitive', () => {
+test('a hotspot operation includes its fixed item prerequisite and adds one construction step', () => {
   const s = fixture(`**Goals**
 - Drill -- Core
 **Hotspots**
 - Ice
 **Items**
+- Ice
 - Drill
 - Core
 **Combinations**
 - Drill [preserve] @ Ice -> Core`);
   const result = analyzeStory(s);
-  assert.equal(result.totals.primitives, 1);
+  assert.equal(result.totals.primitives, 2);
   assert.equal(result.totals.derived, 1);
   assert.equal(item(s, 'Core').depth, 1);
   assert.equal(result.details.route.combinations, 1);
-  assert.equal(result.chapterItems.max, 1); // Drill on entry, not Drill + Core after combining
-  assert.equal(result.details.route.checkpoints[0].peakItems,2);
+  assert.equal(result.chapterItems.max, 2); // Drill and fixed Ice on entry
+  assert.equal(result.details.route.checkpoints[0].peakItems,3);
 });
 
 test('CLI accepts explicit files, deduplicates paths and preserves output on failure', () => {

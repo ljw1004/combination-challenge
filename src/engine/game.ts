@@ -3,6 +3,7 @@ import type { State, Token, Action } from './types.ts';
 import { activeHotspots, goalChains, chapterGoalsSatisfied, chapterNeeds, continuationPossible, indexStory, recipeCandidates } from './analysis.ts';
 import { nextEncounter } from './encounters.ts';
 import { itemPresentation } from './presentation.ts';
+import {fixedCentre, hotspotDefinition, isFixed, presentHotspots, recipeIngredients} from './fixed-items.ts';
 export type { State, Token, Action } from './types.ts';
 
 export function label(story: Story, state: State, id: string): string {
@@ -36,7 +37,9 @@ function enter(story: Story, state: State, start: number) {
     state.newItems = []; state.visited.push(i);
     old.forEach(token => {
       token.chapter = i;
+      if (!inherited) delete token.fixedPosition;
       if (!inherited || !activeHotspots(story, i).includes(token.hotspot ?? '')) delete token.hotspot;
+      if (isFixed(story, token)) delete token.hotspot;
       // Preserve coordinates; the browser only makes room when new supplies need it.
     });
     const primitives = indexStory(story).primitives;
@@ -73,19 +76,23 @@ export function canCreateResult(story:Story,state:State,recipe:Recipe,source?:To
 }
 export function recipeFor(story: Story, state: State, action: Extract<Action,{type:'combine'}>): Recipe | undefined {
   if (action.a === action.b || state.completed) return;
-  if (action.hotspot && !state.visited.some(i => activeHotspots(story,i).includes(action.hotspot!))) return;
-  if (action.chapter!==undefined && (!state.visited.includes(action.chapter) || !action.hotspot || !activeHotspots(story,action.chapter).includes(action.hotspot))) return;
+  if (action.hotspot && !state.visited.some(i => presentHotspots(story,state,i).includes(action.hotspot!))) return;
+  if (action.chapter!==undefined && (!state.visited.includes(action.chapter) || !action.hotspot || !presentHotspots(story,state,action.chapter).includes(action.hotspot))) return;
   const a = state.tokens[action.a], b = action.b ? state.tokens[action.b] : undefined;
   if (!a || a.status !== 'available' || (action.b && (!b || b.status !== 'available'))) return;
+  if (isFixed(story, a)) return;
   for (const r of recipeCandidates(story, action.a, action.b, action.hotspot)) {
     if (!!r.b !== !!b || state.excluded.includes(r.result.id)) continue;
     const forward = r.a.ref.id === a.id && matches(a,r.a.ref) && (!r.b || (r.b.ref.id === b?.id && matches(b,r.b.ref)));
     const reverse = !!r.b && r.a.ref.id === b?.id && matches(b,r.a.ref) && r.b.ref.id === a.id && matches(a,r.b.ref);
     if (!forward && !reverse) continue;
     if (r.hotspot !== action.hotspot) continue;
+    if (r.at && !matches(state.tokens[r.at.ref.id], r.at.ref)) continue;
+    if (r.installation && isFixed(story, state.tokens[r.installation])) continue;
     if (r.hotspot && b && b.hotspot !== r.hotspot) continue;
+    if (r.hotspot && b && !presentHotspots(story,state,b.chapter).includes(r.hotspot)) continue;
     if (r.hotspot && b && action.chapter !== undefined && b.chapter !== action.chapter) continue;
-    if(!canCreateResult(story,state,r,a))continue;
+    if(!canCreateResult(story,state,r,b ?? (r.hotspot ? state.tokens[r.hotspot] : a)))continue;
     return r;
   }
 }
@@ -117,9 +124,10 @@ export function act(story: Story, original: State, action: Action, retirementChe
     if (!state.completed) enter(story,state,state.chapter+1);
   } else if (action.type === 'move') {
     const token = state.tokens[action.item]; if (!token || token.status !== 'available') throw new Error('That item is not available.');
+    if (isFixed(story, token)) throw new Error('That item is fixed in place.');
     if (!state.visited.includes(action.chapter)) throw new Error('That chapter has not been visited.');
     if (![action.x,action.y].every(Number.isFinite)) throw new Error('Position must be finite.');
-    if (action.hotspot && !activeHotspots(story,action.chapter).includes(action.hotspot)) throw new Error('That hotspot is not in this chapter.');
+    if (action.hotspot && !presentHotspots(story,state,action.chapter).includes(action.hotspot)) throw new Error('That hotspot is not available in this chapter.');
     // Clients own measured board bounds; the shared engine retains finite placements exactly.
     token.chapter = action.chapter; token.x = action.x; token.y = action.y;
     if (action.hotspot) token.hotspot = action.hotspot; else delete token.hotspot;
@@ -128,37 +136,47 @@ export function act(story: Story, original: State, action: Action, retirementChe
   } else {
     const recipe = recipeFor(story,state,action); if (!recipe) throw new Error('These things do not make a new result here.');
     if (action.b && state.newItems.includes(action.a)!==state.newItems.includes(action.b)) state.arrivalDivider=false;
-    const receiver = state.tokens[action.b ?? action.a];
+    const receiver = state.tokens[action.b ?? action.hotspot ?? action.a];
+    const receiverFixed = isFixed(story,receiver);
     if (recipe.installation) state.tokens[recipe.result.id].slots.push(recipe.installation);
     else {
-      const destination=action.hotspot&&!action.b?(action.chapter??[...state.visited].reverse().find(i=>activeHotspots(story,i).includes(action.hotspot!))!):receiver.chapter;
-      const hotspot=action.hotspot&&!action.b?story.hotspots[action.hotspot]:undefined,index=hotspot?activeHotspots(story,destination).indexOf(hotspot.id):0;
+      const destination=receiver.chapter;
+      const fixedTarget=receiverFixed?receiver:undefined;
+      const hotspot=fixedTarget?{...hotspotDefinition(story,destination,fixedTarget.id),...fixedCentre(story,fixedTarget)}:undefined,index=hotspot?activeHotspots(story,destination).indexOf(hotspot.id):0;
       state.tokens[recipe.result.id] = { id:recipe.result.id, firstSeen:nextEncounter(state), status:'available', slots:[...recipe.result.slots], chapter:destination, x:hotspot?(hotspot.x??(.19+(index%3)*.31))*390-56:receiver.x+12, y:hotspot?(hotspot.y??(.70+Math.floor(index/3)*.13))*844-22:receiver.y+42, ...(hotspot ? { hotspot:hotspot.id } : {}) };
     }
     if (action.resultPlacement) {
-      const hotspot = action.hotspot ?? receiver.hotspot, result = state.tokens[recipe.result.id];
+      const hotspot = action.hotspot ?? (receiverFixed?receiver.id:receiver.hotspot), result = state.tokens[recipe.result.id];
       if (recipe.installation || !hotspot || ![action.resultPlacement.x, action.resultPlacement.y].every(Number.isFinite) ||
-        !story.hotspots[hotspot]?.placements?.some(p => p.item.id === result.id && p.item.slots.every(id => result.slots.includes(id)))) throw new Error('Invalid authored result placement.');
+        !hotspotDefinition(story,result.chapter,hotspot)?.placements?.some(p => p.item.id === result.id && p.item.slots.every(id => result.slots.includes(id)))) throw new Error('Invalid authored result placement.');
       result.x = action.resultPlacement.x; result.y = action.resultPlacement.y; result.hotspot = hotspot;
     }
     const excluded = story.items[recipe.result.id]?.exclusiveWith;
     if (excluded && !state.excluded.includes(excluded)) state.excluded.push(excluded);
     latch(story,state);
     if (excluded && !continuationPossible(story,state)) throw new Error('This exclusive choice would remove every continuation through the remaining story.');
-    const expendable = [recipe.a, ...(recipe.b ? [recipe.b] : [])].filter(i => i.fate !== 'preserve' && i.ref.id !== recipe.result.id);
-    // Try hiding both inputs first, then each individually. These infinite resources are never depleted.
-    const choices = [expendable, ...expendable.map(i => [i]), []];
+    const expendable = recipeIngredients(recipe).filter(i => i.fate !== 'preserve' && i.ref.id !== recipe.result.id);
+    // Maximise retirement while considering the joint effect on continuation.
+    const choices = Array.from({length: 1 << expendable.length}, (_, mask) => expendable.filter((_, bit) => mask & (1 << bit)))
+      .sort((a, b) => b.length - a.length);
     const retiring = choices.find(inputs => (retirementCheck ?? ((s, removed) => continuationPossible(story,s,removed)))(state,new Set(inputs.map(i => i.ref.id))));
     if (!retiring) throw new Error('This action would remove every continuation through the remaining story.');
     for (const input of retiring) {
       const token = state.tokens[input.ref.id]; token.status = recipe.installation ? 'installed' : input.fate as 'consume' | 'transform';
+      if (isFixed(story, token)) for (const occupant of Object.values(state.tokens)) if (occupant.hotspot === token.id) delete occupant.hotspot;
     }
     // Placement follows the actual receiver and its computed disposition, not recipe order.
     // The browser centres the replacement using measured tile sizes.
-    if(action.b && !recipe.installation && !action.resultPlacement && receiver.status!=='available'){
+    if(action.b && !receiverFixed && !recipe.installation && !action.resultPlacement && receiver.status!=='available'){
       const result=state.tokens[recipe.result.id];
       result.x=receiver.x;result.y=receiver.y;result.chapter=receiver.chapter;
       if(receiver.hotspot)result.hotspot=receiver.hotspot;
+    }
+    const result = state.tokens[recipe.result.id];
+    if (!recipe.installation && isFixed(story, result)) {
+      delete result.hotspot;
+      const replaced = retiring.map(input => state.tokens[input.ref.id]).find(token => isFixed(story, token));
+      if (replaced) result.fixedPosition = fixedCentre(story, replaced);
     }
     state.newItems = state.newItems.filter(id => ![action.a,action.b].includes(id));
     queueWonders(story,state,recipe.result.id); latch(story,state);

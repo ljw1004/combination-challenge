@@ -1,7 +1,8 @@
 import type { Story, Ref, Goal, Recipe } from '../story/types.ts';
 import { act, newGame, matches, chapterComplete, visibleGoals, recipeFor } from '../engine/game.ts';
 import type { State, Action } from '../engine/types.ts';
-import { activeHotspots, indexStory } from '../engine/analysis.ts';
+import { indexStory } from '../engine/analysis.ts';
+import {isFixed, presentHotspots, recipeIngredients} from '../engine/fixed-items.ts';
 
 /** Developer-only dependency planner. Every checkpoint is a replay of real legal actions. */
 export function checkpoint(story: Story, target: number, initial?: State): State {
@@ -10,6 +11,7 @@ export function checkpoint(story: Story, target: number, initial?: State): State
   const index = indexStory(story); let budget = 20000;
   function apply(s: State, action: Action) { if (--budget < 0) throw new Error('Checkpoint planning exceeded its bounded search budget.'); return act(story,s,action); }
   function ensure(s: State, ref: Ref, visiting: Set<string>): State {
+    if (isFixed(story,s.tokens[ref.id]) && s.tokens[ref.id].chapter !== s.chapter) throw new Error('Required fixed item is absent from this chapter.');
     if (matches(s.tokens[ref.id],ref)) return s;
     const key = JSON.stringify(ref); if (visiting.has(key)) throw new Error('Cyclic dependency without a starting ingredient.');
     if (s.excluded.includes(ref.id)) throw new Error('This alternative was permanently excluded.');
@@ -24,17 +26,19 @@ export function checkpoint(story: Story, target: number, initial?: State): State
     const producers = index.producers.get(ref.id) ?? []; let last = '';
     // Prefer preparations whose inputs already exist. This is a dependency-minimal
     // witness, not a promise of a globally shortest solution across chapters.
-    const cost = (r: Recipe) => [r.a,r.b].filter(Boolean).reduce((n,i) => n + (matches(s.tokens[i!.ref.id],i!.ref) ? 0 : 1),0);
+    const cost = (r: Recipe) => recipeIngredients(r).reduce((n,i) => n + (matches(s.tokens[i.ref.id],i.ref) ? 0 : 1),0);
     for (const recipe of [...producers].sort((a,b) => cost(a)-cost(b))) {
       try {
         let candidate = ensure(s,recipe.a.ref,path);
         if (recipe.b) candidate = ensure(candidate,recipe.b.ref,path);
+        if (recipe.at) candidate = ensure(candidate,recipe.at.ref,path);
         if (recipe.hotspot && recipe.b) {
-          const chapter = [...candidate.visited].reverse().find(i => activeHotspots(story,i).includes(recipe.hotspot!));
+          const chapter = [...candidate.visited].reverse().find(i => presentHotspots(story,candidate,i).includes(recipe.hotspot!));
           if (chapter === undefined) throw new Error('Required hotspot has not been visited.');
           candidate = apply(candidate,{ type:'move',item:recipe.b.ref.id,chapter,x:90,y:620,hotspot:recipe.hotspot });
         }
         const action: Extract<Action,{type:'combine'}> = { type:'combine',a:recipe.a.ref.id,...(recipe.b?{b:recipe.b.ref.id}:{}),...(recipe.hotspot?{hotspot:recipe.hotspot}:{}) };
+        if (action.b && isFixed(story,candidate.tokens[action.a])) [action.a,action.b] = [action.b,action.a];
         if (!recipeFor(story,candidate,action)) throw new Error('This recipe is not available.');
         candidate = apply(candidate,action);
         if (matches(candidate.tokens[ref.id],ref)) return candidate;
@@ -50,7 +54,8 @@ export function checkpoint(story: Story, target: number, initial?: State): State
       try {
         let next = ensure(s,condition.item,new Set());
         if (condition.hotspot) {
-          const chapter = [...next.visited].reverse().find(i => activeHotspots(story,i).includes(condition.hotspot!));
+          next = ensure(next,{id: condition.hotspot,slots: []},new Set());
+          const chapter = [...next.visited].reverse().find(i => presentHotspots(story,next,i).includes(condition.hotspot!));
           if (chapter === undefined) throw new Error('Goal hotspot has not been visited.');
           next = apply(next,{ type:'move',item:condition.item.id,chapter,x:90,y:620,hotspot:condition.hotspot });
         }

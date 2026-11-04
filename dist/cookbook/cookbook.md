@@ -30,6 +30,8 @@ Juice, porridge, bread.
   - icon: ![Fruit press](assets/rework/stations/receiving-area.png)
 
 **Items**
+- Cookstove
+- Fruit press
 - Grain
   - icon: ![Grain](assets/cooks-pen/items/grain.png)
 - Millstone
@@ -69,6 +71,8 @@ Juice, porridge, bread.
   - icon: ![Butter churn](assets/rework/stations/receiving-area.png)
 
 **Items**
+- Warm shelf
+- Butter churn
 - Milk
   - icon: ![Milk](assets/cooks-pen/items/milk.png)
 - Yoghurt starter
@@ -107,6 +111,8 @@ What could be nicer than freshly baked bread with butter?
   - place: Bread (at 74.615385%, 19.417062%)
 
 **Items**
+- Proofing shelf
+- `bakehouse-oven-bread` Oven
 - Baker’s yeast
   - icon: ![Baker’s yeast](assets/cooks-pen/items/bakers-yeast.png)
 - Dough
@@ -183,6 +189,7 @@ Acidity balances richness.
   - icon: ![Air fed vat receiving area](assets/cooks-pen/hotspots/air-fed-vat.png)
 
 **Items**
+- Air fed vat
 - Cider yeast
   - icon: ![Cider yeast](assets/cooks-pen/items/cider-yeast.png)
 - Vinegar culture
@@ -221,6 +228,8 @@ Acidity balances richness.
   - place: Apple compote (at 73.076923%, 14.357820%)
 
 **Items**
+- Grill
+- `orchard-stove-orchard-lunch` Hob
 - Herb butter
   - icon: ![Herb butter](assets/cooks-pen/items/herb-butter.png)
 - Butter
@@ -258,6 +267,7 @@ Acidity balances richness.
   - place: Softened onions (at 50.000000%, 14.357820%)
 
 **Items**
+- `soup-stove-soup` Hob
 - Root vegetables
   - icon: ![Root vegetables](assets/cooks-pen/items/root-vegetables.png)
 - Onions
@@ -303,6 +313,7 @@ Acidity balances richness.
   - place: Croutons (at 50.000000%, 19.417062%)
 
 **Items**
+- `roasting-oven-roast` Oven
 - Olive oil
 - Cooked beans
   - icon: ![Cooked beans](assets/cooks-pen/items/cooked-beans.png)
@@ -380,6 +391,7 @@ Add variety through texture
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/saucepan-preserves.png)
 
 **Items**
+- `saucepan-preserves` Saucepan
 - Sugar
   - icon: ![Sugar](assets/rework/items/sugar.png)
 
@@ -426,6 +438,7 @@ Add variety through texture
   - place: Chocolate sponge (at 50.000000%, 19.417062%)
 
 **Items**
+- `choux-oven-sponge` Oven
 - Cocoa powder
   - icon: ![Cocoa powder](assets/cooks-pen/items/cocoa-powder.png)
 - Eggs
@@ -471,6 +484,8 @@ Add variety through texture
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/chocolate-pan-tea.png)
 
 **Items**
+- `tea-oven-tea` Oven
+- `chocolate-pan-tea` Saucepan
 - Sugar
 - Sugar mill
   - icon: ![Sugar mill](assets/cooks-pen/items/sugar-mill.png)
@@ -522,6 +537,7 @@ Add variety through texture
   - icon: ![Kettle](assets/rework/stations/kettle.png)
 
 **Items**
+- `afternoon-tea-kettle` Kettle
 - Tea stand (compound)
   - icon: ![Tea stand](assets/rework/compounds/tea-stand.png) (at 50%, 44%)
   - unnamed slot: accepts Cucumber finger sandwiches, icon: ![Fitted cucumber finger sandwiches](assets/rework/compounds/tea-stand-cucumber-finger-sandwiches.png)
@@ -566,6 +582,7 @@ Add variety through texture
   - icon: ![Frying pan](assets/rework/stations/mushroom-pan.png)
 
 **Items**
+- `mushroom-pan` Frying pan
 - Softened onions
 - Chef’s knife
 - Eggs
@@ -616,6 +633,8 @@ Add variety through texture
   - icon: ![Frying pan receiving area](assets/cooks-pen/hotspots/frying-pan.png)
 
 **Items**
+- Cooking pot
+- Frying pan
 - Fresh noodles
   - icon: ![Fresh noodles](assets/cooks-pen/items/fresh-noodles.png)
 - Butter
@@ -666,6 +685,7 @@ Add variety through texture
   - icon: ![Pastry bench receiving area](assets/cooks-pen/hotspots/pastry-bench.png)
 
 **Items**
+- Pastry bench
 - Flour
 - Butter
 - Water
@@ -702,6 +722,7 @@ Add variety through texture
   - place: Cheese straws (at 50.000000%, 19.417062%)
 
 **Items**
+- `pastry-oven-pastry` Oven
 - Grated cheese
   - icon: ![Grated cheese](assets/cooks-pen/items/grated-cheese.png)
 - Shortcrust
@@ -744,6 +765,7 @@ Add variety through texture
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/saucepan-sauce.png)
 
 **Items**
+- `saucepan-sauce` Saucepan
 - Flour
 - Butter
 - Milk
@@ -780,6 +802,8 @@ Add variety through texture
   - place: Baked cheese noodles (at 73.076923%, 19.417062%)
 
 **Items**
+- Steamer
+- `supper-oven-gratin` Oven
 - Cauliflower
   - icon: ![Cauliflower](assets/cooks-pen/items/cauliflower.png)
 - Cheese sauce
@@ -824,6 +848,8 @@ Add variety through texture
   - icon: ![Controlled stew line receiving area](assets/cooks-pen/hotspots/controlled-stew-line.png)
 
 **Items**
+- Controlled fruit line
+- Controlled stew line
 - Processed bean-stew tin
   - icon: ![Processed bean-stew tin](assets/cooks-pen/items/processed-bean-stew-tin.png)
 - Preserving jar
@@ -869,6 +895,7 @@ Add variety through texture
   - place: Fruit crumble (at 50.000000%, 19.417062%)
 
 **Items**
+- `supper-oven-fruit-baking` Oven
 - Breadcrumbs
 - Butter
 - Shortcrust
@@ -949,6 +976,7 @@ Add variety through texture
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/sugar-pan-caramel.png)
 
 **Items**
+- `sugar-pan-caramel` Saucepan
 - Sugar
 - Water
 - Almonds
@@ -984,6 +1012,7 @@ A pouring sauce and a pastry filling.
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/sugar-pan-custard.png)
 
 **Items**
+- `sugar-pan-custard` Saucepan
 - Egg yolks
   - icon: ![Egg yolks](assets/cooks-pen/items/egg-yolks.png)
 - Vanilla
@@ -1029,6 +1058,7 @@ A pouring sauce and a pastry filling.
   - place: Bread pudding (at 50.000000%, 19.417062%)
 
 **Items**
+- `custard-oven-custard-baking` Oven
 - Processed fruit jar
 - Vanilla custard
 - Jar opener
@@ -1089,6 +1119,8 @@ A pouring sauce and a pastry filling.
   - place: Cheese puffs (at 73.076923%, 19.417062%)
 
 **Items**
+- `choux-pan-choux` Saucepan
+- `choux-oven-choux` Oven
 - Butter
 - Water
 - Flour
@@ -1269,6 +1301,7 @@ A pouring sauce and a pastry filling.
   - place: Soda bread (at 50.000000%, 19.417062%)
 
 **Items**
+- `tea-oven-crew-baking` Oven
 - Soda bread
   - icon: ![Soda bread](assets/cooks-pen/items/soda-bread.png)
 - Baking soda
@@ -1322,6 +1355,7 @@ A pouring sauce and a pastry filling.
   - icon: ![Freezing churn](assets/rework/stations/freezing-churn.png)
 
 **Items**
+- Freezing churn
 - Vanilla custard
 - Apple compote
 - Fruit syrup
@@ -1361,6 +1395,7 @@ A pouring sauce and a pastry filling.
   - place: Macaron shells (at 50.000000%, 19.417062%)
 
 **Items**
+- `meringue-oven-meringue` Oven
 - Egg whites
   - icon: ![Egg whites](assets/cooks-pen/items/egg-whites.png)
 - Whisk
@@ -1414,6 +1449,7 @@ A pouring sauce and a pastry filling.
   - place: Baked Alaska (at 50.000000%, 19.417062%)
 
 **Items**
+- `meringue-oven-dessert-service` Oven
 - Frozen custard
   - icon: ![Frozen custard](assets/cooks-pen/items/frozen-custard.png)
 - Caramel sauce
@@ -1462,6 +1498,8 @@ Beef and mushrooms in puff pastry.
   - place: Beef Wellington (at 73%, 19.500000%)
 
 **Items**
+- `wellington-hob` Hob
+- `wellington-oven` Oven
 - Olive oil
 - Mushroom filling
 - Laminated dough

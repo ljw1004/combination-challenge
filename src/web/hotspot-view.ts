@@ -1,5 +1,7 @@
 import type {Hotspot, Story} from '../story/types.ts';
 import {escape} from './markdown.ts';
+import {activeHotspots, hotspotDefinition} from '../engine/fixed-items.ts';
+import {itemPresentation} from '../engine/presentation.ts';
 
 export interface Rect {x: number; y: number; width: number; height: number}
 export interface HotspotRegion extends Rect {circular?: boolean}
@@ -46,7 +48,10 @@ export function hotspotHTML(h: Hotspot, index: number, visual: HotspotVisual, bo
 
 /** All declared surfaces, including unvisited ones, at the canonical 390px width. */
 export function hotspotProbeHTML(story: Story, visual: (h: Hotspot) => HotspotVisual) {
-  return story.chapters.map((chapter, i) => `<section class="chapter-panel" data-chapter="${i}">${chapter.hotspots.filter(id => story.hotspots[id].placements?.length).map(id => hotspotHTML(story.hotspots[id], chapter.hotspots.indexOf(id), visual(story.hotspots[id]))).join('')}</section>`).join('');
+  return story.chapters.map((chapter, i) => `<section class="chapter-panel" data-chapter="${i}">${[...new Set(chapter.hotspots)].filter(id => hotspotDefinition(story,i,id).placements?.length).map(id => {
+    const definition=hotspotDefinition(story,i,id), item=itemPresentation(story,i,id), h={...definition,name:item.name,icon:definition.icon??item.icon};
+    return hotspotHTML(h, activeHotspots(story,i).indexOf(id), visual(h));
+  }).join('')}</section>`).join('');
 }
 
 /** Self-contained so CLI Chromium and the live editor use the same DOM measurement. */

@@ -2,6 +2,7 @@ import type { Condition, Recipe, Ref, Story } from '../story/types.ts';
 import type { Action, State } from '../engine/types.ts';
 import { act, matches, recipeFor, type RetirementCheck } from '../engine/game.ts';
 import { activeHotspots, chapterSupplies, hasRef } from '../engine/analysis.ts';
+import {isFixed, presentHotspots, recipeIngredients} from '../engine/fixed-items.ts';
 
 /** Reading dismissal, pixel positions and UI bookkeeping do not affect logical opportunities. */
 export function canonicalState(input: State): State {
@@ -25,7 +26,7 @@ function forwardItems(story: Story, initial: Set<string>): Set<string> {
       }
     }
     for (const recipe of story.recipes) {
-      const refs = [recipe.a.ref, ...(recipe.b ? [recipe.b.ref] : [])];
+      const refs = recipeIngredients(recipe).map(input => input.ref);
       if (!refs.every(ref => [ref.id, ...ref.slots].every(id => items.has(id)))) continue;
       for (const id of [recipe.result.id, ...recipe.result.slots]) if (!items.has(id)) { items.add(id); changed = true; }
     }
@@ -49,12 +50,15 @@ export function relevantItems(story: Story, state: State): Set<string> {
       if (items.has(ref.id)) return;
       items.add(ref.id);
       for (const recipe of story.recipes) if (!recipe.installation && recipe.result.id === ref.id) {
-        visit(recipe.a.ref); if (recipe.b) visit(recipe.b.ref);
+        recipeIngredients(recipe).forEach(input => visit(input.ref));
       }
     };
     for (let c = state.chapter; c < story.chapters.length; c++) {
       chapterSupplies(story, c).forEach(visit);
-      for (const goal of story.chapters[c].goals) for (const condition of goal.conditions) visit(condition.item);
+      for (const goal of story.chapters[c].goals) for (const condition of goal.conditions) {
+        visit(condition.item);
+        if(condition.hotspot)visit({id:condition.hotspot,slots:[]});
+      }
     }
     base = forwardItems(story, items);
     chapters.set(state.chapter, base);
@@ -70,28 +74,31 @@ export function conditionMet(state: State, condition: Condition): boolean {
   return matches(token, condition.item) && (!condition.hotspot || token?.hotspot === condition.hotspot);
 }
 
-/** All combinations on the current board, including both drag orientations. No fetching from scrollback. */
-export function* localTransitions(story: Story, state: State, recipes: readonly Recipe[], retirementCheck?: RetirementCheck): Generator<Transition> {
+/** Current-board combinations, or all visited receiving boards for strict fixed-item verification. */
+export function* localTransitions(story: Story, state: State, recipes: readonly Recipe[], retirementCheck?: RetirementCheck, includeScrollback=false): Generator<Transition> {
   if (state.completed) return;
-  const hotspots = new Set(activeHotspots(story, state.chapter));
-  const here = (ref: Ref) => matches(state.tokens[ref.id], ref) && state.tokens[ref.id].chapter === state.chapter;
+  const hotspots = new Set((includeScrollback?state.visited:[state.chapter]).flatMap(chapter=>presentHotspots(story, state, chapter)));
+  const here = (ref: Ref) => matches(state.tokens[ref.id], ref) && (includeScrollback || state.tokens[ref.id].chapter === state.chapter);
   for (const recipe of recipes) {
     if (!here(recipe.a.ref) || (recipe.b && !here(recipe.b.ref)) || (recipe.hotspot && !hotspots.has(recipe.hotspot))) continue;
-    const interchangeable = recipe.b && state.tokens[recipe.a.ref.id].hotspot === state.tokens[recipe.b.ref.id].hotspot
+    const interchangeable = recipe.b && state.tokens[recipe.a.ref.id].chapter === state.tokens[recipe.b.ref.id].chapter && state.tokens[recipe.a.ref.id].hotspot === state.tokens[recipe.b.ref.id].hotspot
       && (!recipe.hotspot || state.tokens[recipe.a.ref.id].hotspot === recipe.hotspot);
-    const orientations = recipe.b && !interchangeable
+    const orientations = recipe.b && (!interchangeable || isFixed(story, state.tokens[recipe.a.ref.id]))
       ? [[recipe.a.ref.id, recipe.b.ref.id], [recipe.b.ref.id, recipe.a.ref.id]]
       : [[recipe.a.ref.id, recipe.b?.ref.id]];
     for (const [a, b] of orientations) {
+      if (isFixed(story, state.tokens[a!])) continue;
       let prepared = state;
+      const receivingChapter=recipe.hotspot?state.tokens[recipe.hotspot].chapter:state.chapter;
       if (recipe.hotspot && b && state.tokens[b].hotspot !== recipe.hotspot) {
-        const move: Action = {type: 'move', item: b, chapter: state.chapter, x: 0, y: 0, hotspot: recipe.hotspot};
+        if (isFixed(story, state.tokens[b])) continue;
+        const move: Action = {type: 'move', item: b, chapter: receivingChapter, x: 0, y: 0, hotspot: recipe.hotspot};
         const moved = act(story, prepared, move);
         prepared = canonicalState(moved);
       }
       const action: Extract<Action, {type: 'combine'}> = {
         type: 'combine', a: a!, ...(b ? {b} : {}),
-        ...(recipe.hotspot ? {hotspot: recipe.hotspot, chapter: state.chapter} : {}),
+        ...(recipe.hotspot ? {hotspot: recipe.hotspot, chapter: receivingChapter} : {}),
       };
       // Match the game's recipe precedence, including ambiguous authored input pairs.
       if (recipeFor(story, prepared, action)?.id !== recipe.id) continue;
@@ -124,7 +131,8 @@ export function localClosure(story: Story, state: State): Set<string> {
     for (const recipe of story.recipes) {
       if (excluded.has(recipe.result.id) || (recipe.hotspot && !hotspots.has(recipe.hotspot))) continue;
       if (!recipe.installation && state.tokens[recipe.result.id]) continue;
-      if (!hasRef(available, recipe.a.ref) || (recipe.b && !hasRef(available, recipe.b.ref))) continue;
+      if (!recipeIngredients(recipe).every(input => hasRef(available, input.ref))) continue;
+      if (hotspots.has(recipe.a.ref.id) && (!recipe.b || hotspots.has(recipe.b.ref.id))) continue;
       let slots = available.get(recipe.result.id);
       if (!slots) { slots = new Set(); available.set(recipe.result.id, slots); changed = true; }
       for (const slot of recipe.result.slots) if (!slots.has(slot)) { slots.add(slot); changed = true; }

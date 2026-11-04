@@ -14,6 +14,8 @@ Try making things.
 - Bench (at 35%, 24%)
 - Pan (at 75%, 24%)
 **Items**
+- Bench
+- Pan
 - A
 - B
 - C

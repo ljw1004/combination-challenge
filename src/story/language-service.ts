@@ -63,7 +63,7 @@ export class StoryLanguageDocument implements StoryLanguageService {
     }
   }
 
-  private key(symbol: Pick<SymbolIdentity, 'id' | 'kind'>) { return `${symbol.kind}:${symbol.id}`; }
+  private key(symbol: Pick<SymbolIdentity, 'id' | 'kind'>) { return `${symbol.kind==='chapter'?'chapter':'item'}:${symbol.id}`; }
 
   referenceAt(position: number): ReferenceLocation | undefined {
     return this.occurrences.find(reference => !reference.implicit && reference.source.span.from <= position && position < reference.source.span.to);
@@ -110,14 +110,14 @@ export class StoryLanguageDocument implements StoryLanguageService {
         referenceCount: this.references(position, {includeDeclaration: true}).length,
       };
     }
-    const item = symbol.kind === 'item' ? story.items[symbol.id] : undefined;
+    const item = story.items[symbol.id];
     const hotspot = symbol.kind === 'hotspot' ? story.hotspots[symbol.id] : undefined;
     const name = (id: string) => story.items[id]?.name ?? story.hotspots[id]?.name ?? id.replace(/^(?:id|name):/, '');
     const label = (ref: Ref) => `${name(ref.id)}${ref.slots.length ? `[${ref.slots.map(name).join(', ')}]` : ''}`;
     const input = (ingredient: Ingredient) => `${label(ingredient.ref)} [${ingredient.fate}${ingredient.explicit ? '' : ', default'}]`;
     const has = (ref: Ref) => ref.id === symbol.id || ref.slots.includes(symbol.id);
     const rules = story.recipes.map(recipe => ({recipe, info: {
-      text: `${input(recipe.a)}${recipe.b ? ` + ${input(recipe.b)}` : ''}${recipe.hotspot ? ` @ ${name(recipe.hotspot)}` : ''} → ${label(recipe.result)}`,
+      text: `${input(recipe.a)}${recipe.b ? ` + ${input(recipe.b)}` : ''}${recipe.at ? ` @ ${input(recipe.at)}` : ''} → ${label(recipe.result)}`,
       source: recipe.source, implicit: !!recipe.installation,
     }}));
     const properties: string[] = [];
@@ -138,10 +138,10 @@ export class StoryLanguageDocument implements StoryLanguageService {
       range: reference.source.span, symbol, declaration: reference.declaration, definitions: this.definition(position),
       descriptions: item?.wonders.map(wonder => ({text: wonder.markdown, requires: wonder.requires.map(name)})) ?? [],
       properties,
-      createdBy: rules.filter(({recipe}) => symbol.kind === 'item' && recipe.result.id === symbol.id).map(rule => rule.info),
-      usedBy: rules.filter(({recipe}) => symbol.kind === 'hotspot' ? recipe.hotspot === symbol.id : has(recipe.a.ref) || !!recipe.b && has(recipe.b.ref)).map(rule => rule.info),
+      createdBy: rules.filter(({recipe}) => recipe.result.id === symbol.id).map(rule => rule.info),
+      usedBy: rules.filter(({recipe}) => recipe.hotspot === symbol.id || has(recipe.a.ref) || !!recipe.b && has(recipe.b.ref)).map(rule => rule.info),
       goals: story.chapters.flatMap(chapter => chapter.goals.filter(goal => goal.conditions.some(condition =>
-        symbol.kind === 'hotspot' ? condition.hotspot === symbol.id : has(condition.item)))
+        condition.hotspot === symbol.id || has(condition.item)))
         .map(goal => ({text: goal.text, chapter: chapter.name, source: goal.source}))),
       referenceCount: this.references(position, {includeDeclaration: true}).length,
     };

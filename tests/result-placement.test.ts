@@ -15,6 +15,7 @@ test('all nine dispositions follow the drop receiver across chapters and recipe 
 **Hotspots**
 - Source
 **Items**
+- Source
 - A
 - B
 **Combinations**
@@ -24,6 +25,8 @@ test('all nine dispositions follow the drop receiver across chapters and recipe 
 **Goals**
 - Make C -- C
 **Hotspots**
+- Destination
+**Items**
 - Destination
 **Combinations**
 - ${operands.join(' + ')}${contextual?' @ Destination':''} -> C`);

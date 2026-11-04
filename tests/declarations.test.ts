@@ -88,7 +88,7 @@ test('all reference positions require declarations, including placements, slots,
 `;
   const diagnostics = declarations(text).filter(d => d.severity === 'error');
   assert.deepEqual(diagnostics.map(d => text.slice(d.span.from, d.span.to)).sort(), [
-    'Goal fitting', 'Ghost', 'Placed', 'Placed fitting', '`unnamed`', 'Slot fitting', 'Reading fitting', 'Excluded', 'Input', 'Output',
+    'Bench', 'Bench', 'Goal fitting', 'Ghost', 'Placed', 'Placed fitting', '`unnamed`', 'Slot fitting', 'Reading fitting', 'Excluded', 'Input', 'Output',
   ].sort());
   assert(!parseStory(text).items['name:Placed'], 'placement-only typos do not create even preview items');
   assert.equal(diagnostics.find(d => d.message.startsWith('Ghost'))?.code, 'undeclared-hotspot');
@@ -107,14 +107,16 @@ test('unused declarations warn once per identity; metadata, repeated declaration
 > NOTE: Unused + Lonely -> Radio
 **Hotspots**
 - Unused bench
+**Items**
+- Unused bench
 `;
   const warnings = declarations(text);
   assert(warnings.every(d => d.severity === 'warning' && d.code === 'unused-declaration'));
-  assert.deepEqual(warnings.map(d => text.slice(d.span.from, d.span.to)), ['Unused', '`lonely` Lonely', 'Unused bench']);
+  assert.deepEqual(warnings.map(d => text.slice(d.span.from, d.span.to)), ['Unused', '`lonely` Lonely']);
   assert.equal(warnings[0].related?.length, 1);
   assert(!warnings.some(d => d.message.startsWith('Radio ')), 'a terminal result is used by its producing recipe');
   const shorthand = text.replace('- Unused\n', '- Unused\n  - + Battery -> Radio\n');
-  assert.deepEqual(declarations(shorthand).map(d => shorthand.slice(d.span.from, d.span.to)), ['`lonely` Lonely', 'Unused bench'], 'an inherited shorthand operand is a genuine use');
+  assert.deepEqual(declarations(shorthand).map(d => shorthand.slice(d.span.from, d.span.to)), ['`lonely` Lonely'], 'an inherited shorthand operand is a genuine use');
 });
 
 test('declaration validation preserves primitive introduction chapters and derived metadata does not supply dependencies', () => {

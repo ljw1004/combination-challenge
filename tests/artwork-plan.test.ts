@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {parseStory} from '../src/story/parser.ts';
 import {act, newGame} from '../src/engine/game.ts';
-import {coverArtwork, currentArtwork, lookaheadArtwork} from '../src/web/artwork-plan.ts';
+import {coverArtwork, currentArtwork, lookaheadArtwork, placementArtwork} from '../src/web/artwork-plan.ts';
 
 const text = `# Loading frontier
 ![cover](cover.svg)
@@ -33,6 +33,7 @@ const text = `# Loading frontier
 - Bench
   - icon: ![bench](bench.svg)
 **Items**
+- Bench
 - P
   - icon: ![P](p.svg)
 - R
@@ -65,6 +66,12 @@ test('cover, one-combination frontier and next-chapter primitives remain separat
   state = act(story, state, {type: 'advance'});
   assert.deepEqual(new Set(currentArtwork(story, state)), new Set(['second.svg', 'bench.svg', 'c.svg', 'p.svg']));
   assert.deepEqual(new Set(lookaheadArtwork(story, state, true)), new Set(['r.svg', 'third.svg', 'q.svg']));
+});
+
+test('fixed result artwork is prefetched and placement probes use fallback item artwork',()=>{
+  const story=parseStory('# Fixed art\n## Work\n![scene](room.svg)\n**Items**\n- A\n- B\n- H\n  - icon: ![default](default.svg)\n**Hotspots**\n- H\n  - icon: ![fixed](fixed.svg)\n  - place: A (at 50%, 50%)\n**Goals**\n- Build -- H\n**Combinations**\n- A + B -> H\n## Revisit\n![scene](room.svg)\n**Hotspots**\n- H\n  - place: A (at 50%, 50%)');
+  assert(lookaheadArtwork(story,newGame(story),true).includes('fixed.svg'));
+  assert.deepEqual(placementArtwork(story),['fixed.svg','default.svg']);
 });
 
 test('slot overlays preload only when a fitting is available, including conditional result readings', () => {

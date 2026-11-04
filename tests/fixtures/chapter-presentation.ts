@@ -34,16 +34,28 @@ Dust settles on the array.
 - Inspect -- \`array\` @ Storm bench
 **Hotspots**
 - Storm bench
+
+**Items**
+- Storm bench
+
 ## Aftermath
 ![room](assets/room.svg)
 **Goals**
 - Inspect again -- \`array\` @ Later bench
 **Hotspots**
 - Later bench
+
+**Items**
+- Later bench
+
 ## \`clear\` Clear skies
 ![room](assets/room.svg)
 **Goals**
 - Finish -- \`array\` @ Final bench
 **Hotspots**
 - Final bench
+
+**Items**
+- Final bench
+
 `;

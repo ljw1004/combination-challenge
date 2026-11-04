@@ -34,6 +34,8 @@ export interface Goal {
 export interface Chapter {
   id: string; name: string; image?: string; intro: string; skipped: string;
   hotspots: string[]; items: Ref[]; goals: Goal[]; goalOperator: 'and' | 'or'; source: Source; goalsSource?: Source;
+  /** Fixed presentation belongs to a chapter; item identity remains global. */
+  hotspotDefinitions?: Record<string, Hotspot>;
   goalsInsertion?: {offset: number; newline: string; indent: string};
   goalAcknowledgments?: {reason: string; source: Source; removalSpan: TextSpan}[];
   hotspotsSource?: Source;
@@ -42,6 +44,8 @@ export interface Chapter {
 }
 export interface Recipe {
   id: string; a: Ingredient; b?: Ingredient; hotspot?: string; result: Ref;
+  /** The actual fixed item required by @, including its optional fate. */
+  at?: Ingredient;
   /** Implicit installation preserves the owner's other fitted contents. */
   installation?: string; source: Source;
 }

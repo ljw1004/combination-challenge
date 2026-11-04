@@ -5,6 +5,7 @@ import './item-artwork.css';
 import { parseStory } from '../story/parser.ts';
 import type { Story } from '../story/types.ts';
 import { newGame, act, availableTokens, label, chapterComplete, readings, matches, recipeFor } from '../engine/game.ts';
+import {fixedCentre, hotspotDefinition, isFixed, presentHotspots} from '../engine/fixed-items.ts';
 import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
 import { itemPresentation } from '../engine/presentation.ts';
 import type { State, Action } from '../engine/types.ts';
@@ -187,7 +188,8 @@ function updateTutorial() {
     try {
       const action = tutorialAction(story, state);
       const source = action && tile(action.a);
-      const target = action?.b ? tile(action.b) : action?.hotspot ? [...(panel(0)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(element => element.dataset.hotspot === action.hotspot) : undefined;
+      const receiver = action?.b ?? action?.hotspot;
+      const target = receiver ? tile(receiver) ?? [...(panel(0)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(element => element.dataset.hotspot === receiver) : undefined;
       if (source && target && tutorialOverlay.show({kind: 'drag', source, target})) return;
     } catch { /* An incomplete live draft must not interrupt play. */ }
   }
@@ -583,7 +585,7 @@ function refreshDialog() {
 }
 function preferredPosition(id: string, hotspot: string | undefined, chapter: number) {
   if (!hotspot) return;
-  const h = story.hotspots[hotspot], token = state.tokens[id], el = tile(id);
+  const h = hotspotDefinition(story,chapter,hotspot), token = state.tokens[id], el = tile(id);
   const place = h?.placements?.find(p => p.item.id === id && matches(token, p.item));
   const location = [...(panel(chapter)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(el => el.dataset.hotspot === hotspot);
   if (!place || !el || !location) return;
@@ -622,7 +624,7 @@ function commit(action: Action) { try {
     if (born) {
       let token=state.tokens[born],element=tile(born);
       if(element){
-        const hotspot = action.type === 'combine' ? action.hotspot ?? receiver?.hotspot : undefined;
+        const hotspot = action.type === 'combine' ? action.hotspot ?? (receiver&&isFixed(story,receiver)?receiver.id:receiver?.hotspot) : undefined;
         const preferred = preferredPosition(born, hotspot, token.chapter);
         if (preferred && action.type === 'combine') {
           // Record the successful authored placement in the same action so @H goals
@@ -631,7 +633,7 @@ function commit(action: Action) { try {
           state = act(story, before, action); render(false, false);
           token = state.tokens[born]; element = tile(born)!;
         }
-        const centre = hotspot && !receiver ? hotspotCentre(story.hotspots[hotspot], activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry().bounds) : undefined;
+        const centre = hotspot && (!receiver||isFixed(story,receiver)) ? hotspotCentre(fixedPresentation(token.chapter,hotspot), activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry().bounds) : undefined;
         const occupied=availableTokens(state).filter(t=>t.id!==born&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
         const position=preferred ?? (receivingRect&&receiver
           ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',boardGeometry().bounds,occupied)
@@ -664,7 +666,7 @@ function worldHTML(chapters: string, scenes: {chapter: number; image?: string}[]
   return `<div class="world" data-panel-height="${height}" style="width:${width}px;height:${scenes.length*height}px;--board-scale:${scale};--card-scale:${width/390/scale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--world-height:${scenes.length*bounds.height}px;--scene-left:${-bounds.x}px"><div class="scene-layer" aria-hidden="true">${scenery}</div><div class="board fixed-locations">${chapters}</div></div>`;
 }
 function packArrival(checkpointLayout=false, source?: State){
-  const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter),fresh=new Set(state.newItems);
+  const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!isFixed(story,t)),fresh=new Set(state.newItems);
   const geometry=boardGeometry(),primitives=indexStory(story).primitives;
   const previousChapter=source?.chapter??state.visited.at(-2);
   const descriptions=tokens.map(t=>{
@@ -675,10 +677,10 @@ function packArrival(checkpointLayout=false, source?: State){
       fresh:fresh.has(t.id),start,fromChapter:source?.tokens[t.id]?.chapter??previousChapter,
       fixed:!!t.hotspot&&!story.chapters[state.chapter].image};
   });
-  const stations=activeHotspots(story,state.chapter).map((id,i)=>{
+  const stations=presentHotspots(story,state,state.chapter).map((id)=>{
     const el=panel(state.chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
     const measured=el.getBoundingClientRect();
-    return hotspotRect(story.hotspots[id],i,{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},geometry.scale,geometry.bounds);
+    return hotspotRect(fixedPresentation(state.chapter,id),activeHotspots(story,state.chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},geometry.scale,geometry.bounds);
   });
   const goals=app.querySelector<HTMLElement>('.hud-stack,.chapter-next');
   const goalsTop=goals?(goals.getBoundingClientRect().top-panel(state.chapter)!.getBoundingClientRect().top)/geometry.scale:geometry.bounds.height;
@@ -730,6 +732,17 @@ function restartChapter() {
     render(); scrollToCurrentChapter(); rememberInteraction(); save();
   });
 }
+function fixedPresentation(chapter:number,id:string){
+  const definition=hotspotDefinition(story,chapter,id),token=state.tokens[id];
+  return {...definition,name:name(id),icon:definition.icon??itemPresentation(story,state.chapter,id).icon,
+    ...(token.fixedPosition?token.fixedPosition:{})};
+}
+function fixedHTML(chapter:number,id:string){
+  const h=fixedPresentation(chapter,id),item=story.items[id],token=state.tokens[id];
+  const visual=itemArtwork.visual(item,token.slots,name,asset,undefined,h.icon);
+  const fixedVisual={...visual,className:visual.icon?visual.className.replace('icon-thing','hotspot-icon').replace('icon-circular','hotspot-circular'):''};
+  return hotspotHTML(h,activeHotspots(story,chapter).indexOf(id),fixedVisual,boardGeometry().bounds);
+}
 function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:State){
   if (starting) return;
   scheduleArtwork();
@@ -745,7 +758,7 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
   const transitioning=goalView?.phase==='leaving'||goalView?.phase==='entering',leaving=goalView?.phase==='leaving',showGoals=goalView?.phase==='goals'||leaving||state.completed;
   const gold=new Set<string>();for(const {goal:g,done} of goals)if(done)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
   reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
-    return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*geometry.bounds.height}px" aria-label="${escape(story.title)} scene ${position+1}">${activeHotspots(story,chapter).map((id,i)=>hotspotHTML(story.hotspots[id],i,itemArtwork.hotspot(story.hotspots[id],asset),geometry.bounds)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
+    return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*geometry.bounds.height}px" aria-label="${escape(story.title)} scene ${position+1}">${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
       const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,itemPresentation(story,state.chapter,t.id).icon);
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
@@ -797,7 +810,7 @@ function dropTargets(scene:HTMLElement,chapter:number):DropTarget<HTMLElement>[]
       const rect=el.getBoundingClientRect();
       // Stations share the circle/rectangle and minimum-touch-area geometry used by lint/layout.
       const region=el.dataset.hotspot
-        ? hotspotRect(story.hotspots[el.dataset.hotspot],0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')})
+        ? hotspotRect(hotspotDefinition(story,chapter,el.dataset.hotspot),0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')})
         : {x:rect.x,y:rect.y,width:rect.width,height:rect.height};
       if(el.dataset.hotspot){region.x=rect.x+(rect.width-region.width)/2;region.y=rect.y+(rect.height-region.height)/2;}
       return {value:el,item:el.dataset.item,hotspot:el.dataset.hotspot,chapter,region,zIndex:Number(getComputedStyle(el).zIndex)||0};
@@ -865,7 +878,7 @@ function restoreGestureTile(d:NonNullable<typeof drag>){
 }
 function endDrag(e:PointerEvent,cancel=false){
   inputTrace?.record('gesture:end-request',{pointer:e.pointerId,cancel});
-  if(hotspotPress?.pointer===e.pointerId){const press=hotspotPress;hotspotPress=undefined;releaseCapture(e.pointerId);if(cancel)feedback.clear();else feedback.release(press.key,false);return;}
+  if(hotspotPress?.pointer===e.pointerId){const press=hotspotPress;hotspotPress=undefined;releaseCapture(e.pointerId);if(cancel)feedback.clear();else if(feedback.release(press.key,true)){suppressReleaseClick=true;read(press.key.slice(8));}return;}
   if(!drag||drag.pointer!==e.pointerId){inputTrace?.record('drag:end-ignored',{reason:drag?'different-pointer':'no-active-drag'});return;}const d=drag;drag=undefined;
   d.edgeScroll?.stop();releaseCapture(d.pointer);
   if(cancel){inputTrace?.record('drag:cancel',{reason:'pointercancel',item:d.id});restoreGestureTile(d);feedback.clear();return;}

@@ -26,7 +26,7 @@ function chapterSurface(story:Story,state:State) {
   const present=new Set(items.map(item => item.id)), surfaces=new Set(hotspots.map(hotspot => hotspot.id));
   const partners=observation.partners.filter(action => action.type === 'move'
     ? present.has(action.item) && action.chapter === state.chapter
-    : present.has(action.a) && (!action.b || present.has(action.b)) &&
+    : present.has(action.a) && (!action.b || present.has(action.b) || surfaces.has(action.b)) &&
       (!action.hotspot || surfaces.has(action.hotspot)) && (action.chapter === undefined || action.chapter === state.chapter));
   return {items,hotspots,partners};
 }
@@ -73,7 +73,10 @@ export function board(story: Story, state: State): string {
     const slots = item.slots.filter(s => !s.filled && s.name).map(s => s.name);
     return `- ${itemName(story,state,item.id)}${item.hotspot ? ` @ ${label(story,state,item.hotspot)}` : ''}${slots.length ? `; empty slots: ${slots.join(', ')}` : ''}`;
   });
-  const hotspots = [...new Set(observation.hotspots.map(h => h.name))].map(name => `- ${name}`);
+  const hotspots = observation.hotspots.map(h => {
+    const token=state.tokens[h.id], slots=story.items[h.id].slots.filter(slot=>slot.name&&!token.slots.includes(slot.accepts)).map(slot=>slot.name);
+    return `- ${itemName(story,state,h.id)}${slots.length?`; empty slots: ${slots.join(', ')}`:''}`;
+  });
   return `${goalsText(story,state)}${hotspots.length ? `\n\nHotspots:\n${hotspots.join('\n')}` : ''}\n\nItems:\n${items.join('\n') || '(none)'}`;
 }
 function wonderText(markdown:string):string {return `  ${markdown.replace(/\s+/g,' ').trim()}`;}

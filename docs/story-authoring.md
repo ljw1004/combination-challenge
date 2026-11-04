@@ -50,7 +50,7 @@ Assume chapter prose and primitive explanations may be skipped. Necessary premis
 
 Authors can distinguish operations on the same material through different receiving locations: `A @ H1` and `A @ H2` can produce different results. Prefer that simple gesture when the place makes the intended work clear. Use `A + B @ H` sparingly, where bringing both ingredients together at that place is compelling; the preparatory placement makes these combinations harder for players to understand.
 
-Prefer no more than two active hotspots in a chapter, counting inherited locations as well as newly declared ones. Three is an occasional exception for distinct, compelling jobs and produces a warning unless that chapter's Hotspots section contains the exact top-level acknowledgment below, with a meaningful explanation replacing `<REASON>`:
+Prefer no more than two simultaneously visible fixed items in a chapter, counting inherited locations too. Successive replacement states count by their simultaneous presence, not by the number of declarations. Three is an occasional exception for distinct, compelling jobs and produces a warning unless that chapter's Hotspots section contains the exact top-level acknowledgment below, with a meaningful explanation replacing `<REASON>`:
 
 ```md
 - (three hotspots are a lot but okay here because <REASON>)
@@ -64,7 +64,7 @@ Elapsed duration is a combination-game abstraction: use sensible time cues where
 
 Keep separate specimens as separate things. Studying two objects does not require combining them into a comparison unit; use a goal to study one and a `next:` goal to study the other. A physical container or working assembly can be a real construction, but merely comparing observations does not create an object. In a discovery story, each scientific operation should reveal something that changes the question or the next action; routine controls and repeated assays need not become compulsory gameplay.
 
-A completed construction can become a hotspot in a later chapter. Establish its creation through earlier goals, then make the later location recognizably the same physical object or its working surface. This lets a player build equipment and subsequently use it as part of the place, without repeatedly carrying a large assembly as an item. The author supplies both representations through the existing story syntax; there is no automatic item-to-hotspot conversion.
+A hotspot is an ordinary item annotated as fixed for a chapter. Declare its identity separately in Items; put starting primitives in the chapter that introduces them. A constructed fixed item appears only after it is made. For a later appearance, establish its creation through earlier goals and list the same surviving identity under Hotspots again. Keep its appearance recognizably the same equipment or working surface. The [specification](story-format-spec.md#specification) owns availability, conditional `@` rules, fixed retirement and carry restrictions. Do not rely on optional earlier work or a special action order to make fixed scenery behave correctly.
 
 Use simple names and direct English. A quotation can be the item itself; do not compress an important 5–12 word claim into an obscure icon or slogan. A stronger tool should retain its applicable uses through explicitly authored alternative recipes. Do not grant capabilities just because an unrelated component is somewhere inside a construction.
 

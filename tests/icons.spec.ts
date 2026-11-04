@@ -62,7 +62,7 @@ test('icons use intrinsic quarter sizes, partner name badges and circular select
 });
 
 test('automatic arrivals avoid an upper station, while a deliberate placement there survives reload', async ({page}) => {
-  await openFixture(page, manuscript.replace('**Items**', '**Hotspots**\n- Workbench (at 50%, 33%)\n  - icon: ![fixed workbench](assets/location-empty.svg)\n\n**Items**'));
+  await openFixture(page, manuscript.replace('**Items**', '**Hotspots**\n- Workbench (at 50%, 33%)\n  - icon: ![fixed workbench](assets/location-empty.svg)\n\n**Items**\n- Workbench\n'));
   const station=page.locator('[data-hotspot="name:Workbench"]');
   const target=(await station.boundingBox())!;
   for(const item of await page.locator('.thing').all()){
@@ -302,6 +302,7 @@ Prepare the stone, then bring it to the landing.
   - icon: ![landing](assets/location.svg)
 
 **Items**
+- Landing
 - Stone
 
 **Combinations**
@@ -351,6 +352,7 @@ Let the dough rise in the warm cellar.
 - Warm cellar (at 75%, 65%)
   - icon: ![cellar](assets/location.svg)
 **Items**
+- Warm cellar
 - Dough
   - icon: ![dough](assets/dough.svg) (at 20%, 25%)
 - Wild starter
@@ -611,6 +613,7 @@ Choose an ingredient.
   - place: A (at 40%, 65%)
   - place: B (at 60%, 65%)
 **Items**
+- Bench
 - A
   - icon: ![a](assets/a.svg) (at 20%, 25%)
 - B

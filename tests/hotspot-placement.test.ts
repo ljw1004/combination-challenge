@@ -17,6 +17,7 @@ const source = `# Placement
   - place: A (at 45%, 50%)
   - place: C (at 55%, 50%)
 **Items**
+- H
 - A
 - B
 **Combinations**
@@ -28,7 +29,7 @@ test('place references resolve forwards without supplying items or defining miss
   const story = parseStory(source);
   assert.equal(errors(source).length, 0);
   assert.deepEqual(story.hotspots['name:H'].placements?.map(p => p.item.id), ['name:A', 'name:C']);
-  assert.deepEqual(story.chapters[0].items.map(r => r.id), ['name:A', 'name:B']);
+  assert.deepEqual(story.chapters[0].items.map(r => r.id), ['name:H', 'name:A', 'name:B']);
   const typo = source.replace('place: C', 'place: Typo');
   assert(!parseStory(typo).items['name:Typo']);
   assert.deepEqual(errors(typo).map(d => d.code), ['undeclared-item']);

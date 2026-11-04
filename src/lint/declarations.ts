@@ -6,7 +6,7 @@ export function declarationDiagnostics(story: Story): Diagnostic[] {
   const groups = new Map<string, SourceReference[]>();
   for (const reference of story.sourceReferences) {
     if (reference.kind === 'chapter') continue;
-    const key = `${reference.kind}:${reference.id}`;
+    const key = reference.id;
     const group = groups.get(key) ?? [];
     group.push(reference); groups.set(key, group);
   }
@@ -17,13 +17,14 @@ export function declarationDiagnostics(story: Story): Diagnostic[] {
   for (const references of groups.values()) {
     references.sort((a, b) => a.source.span.from - b.source.span.from);
     const {id, kind} = references[0];
-    const declarations = references.filter(reference => reference.declaration);
+    // Hotspots annotate an item; their names never supply its item declaration.
+    const declarations = references.filter(reference => reference.declaration && reference.kind === 'item');
     const name = (kind === 'item' ? story.items[id] : story.hotspots[id])?.name ?? id.replace(/^(?:id|name):/, '');
     let code: string | undefined, message = '';
     const changingItem = kind === 'item' && id.startsWith('name:') ? changingNames.get(id.slice(5)) : undefined;
     if (changingItem) {
       code = 'presentation-item-reference'; message = `${name} has chapter-dependent presentation. Refer to it by its backtick identifier \`${changingItem.slice(3)}\`.`;
-    } else if (kind === 'hotspot' && !hotspots.has(id)) {
+    } else if (references.some(reference => reference.kind === 'hotspot') && !hotspots.has(id)) {
       code = 'undeclared-hotspot'; message = `${name} has no Hotspots declaration. Check its spelling or declare it on the intended chapter surface.`;
     } else if (!declarations.length) {
       code = id.startsWith('id:') ? 'undeclared-id' : 'undeclared-item';
@@ -40,7 +41,7 @@ export function declarationDiagnostics(story: Story): Diagnostic[] {
     }
     // An inline named-ID declaration may also be a genuine recipe/goal/etc. use.
     // Slot-owner provenance describes metadata, not an independent use of that owner.
-    const used = references.some(reference => (!reference.declaration || reference.role !== 'declaration')
+    const used = references.some(reference => (reference.kind === 'hotspot' || !reference.declaration || reference.role !== 'declaration')
       && !(reference.implicit && reference.role === 'slot'));
     if (!used) {
       const source = declarations[0].source;

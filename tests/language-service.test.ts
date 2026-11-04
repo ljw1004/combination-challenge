@@ -13,6 +13,7 @@ Tool in prose is not a reference.
   - place: Box[Tool] (at 50%, 60%)
   - Tool + Tool -> Result
 **Items**
+- Bench
 - Tool
 
   A useful tool.
@@ -89,7 +90,7 @@ test('identifiers, quoted punctuation and partial drafts never fall back to text
 });
 
 test('reference spans disambiguate repeated operands and grammar words inside names', () => {
-  const input = '# 🧰 Story\r\n## Room\r\n**Goals**\r\n- A + A -> A -- A + A -> A\r\n**Hotspots**\r\n- Spot\r\n  - place: place (at 50%, 50%)\r\n**Items**\r\n- A (exclusive with with)\r\n- with (exclusive with A)\r\n- `undeclared`\r\n';
+  const input = '# 🧰 Story\r\n## Room\r\n**Goals**\r\n- A + A -> A -- A + A -> A\r\n**Hotspots**\r\n- Spot\r\n  - place: place (at 50%, 50%)\r\n**Items**\r\n- Spot\n- A (exclusive with with)\r\n- with (exclusive with A)\r\n- `undeclared`\r\n';
   const document = new StoryLanguageDocument(input);
   const ruleStart = input.lastIndexOf('A + A -> A');
   const occurrences = document.references(ruleStart, {includeDeclaration: true}).filter(reference => reference.source.line === 4);

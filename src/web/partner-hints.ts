@@ -2,6 +2,7 @@ import type {Story} from '../story/types.ts';
 import type {State} from '../engine/types.ts';
 import {legalActions} from '../engine/game.ts';
 import {placementHints} from '../engine/placement-hints.ts';
+import {isFixed} from '../engine/fixed-items.ts';
 
 export type HintTarget = {kind:'item'|'hotspot';id:string};
 
@@ -10,8 +11,8 @@ export function partnerHints(story:Story,state:State,target:HintTarget,direction
   const items=new Set<string>(),hotspots=new Set<string>();
   for(const action of legalActions(story,state)){
     if(action.b){
-      if(target.kind==='item' && action.a===target.id)items.add(action.b);
-      if(direction==='either' && target.kind==='item' && action.b===target.id)items.add(action.a);
+      if(target.kind==='item' && action.a===target.id)(isFixed(story,state.tokens[action.b])?hotspots:items).add(action.b);
+      if(direction==='either' && action.b===target.id)items.add(action.a);
       if(action.hotspot){
         if(target.kind==='item' && action.a===target.id)hotspots.add(action.hotspot);
         if(target.kind==='hotspot' && action.hotspot===target.id)items.add(action.a);

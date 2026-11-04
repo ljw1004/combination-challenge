@@ -1,4 +1,4 @@
-import type { Story } from '../story/types.ts';
+import type { Diagnostic, Story } from '../story/types.ts';
 import type { State } from '../engine/types.ts';
 import { act, chapterComplete, matches, newGame } from '../engine/game.ts';
 import { indexStory } from '../engine/analysis.ts';
@@ -6,6 +6,9 @@ import { canonicalState, conditionMet, localClosure, localTransitions, type Tran
 import { historyGroupKey, inventoryGroupKey, historyRetirementCheck, OptionalHistory } from './optional-history.ts';
 import { ConstructionPlans, planKey, recipeFacts, type ConstructionPlan } from './construction-plans.ts';
 import { OpportunityExplanations, type OpportunityExplanation } from './opportunity-explanations.ts';
+import {isFixed, presentHotspots, recipeIngredients} from '../engine/fixed-items.ts';
+import {fixedCarryDiagnostics} from './fixed-items.ts';
+import {recipeMeaning} from './recipe-conflicts.ts';
 
 export interface OpportunityOptions {
   /** Bound distinct construction alternatives, including chapter frontiers. */
@@ -24,6 +27,8 @@ export interface OpportunityReport {
   limit?: string;
   /** First certifying chapter, zero-based. Missing items are findings only when complete. */
   opportunities: Map<string, number>;
+  recipeOpportunities: Map<string, number>;
+  fixedDiagnostics: Diagnostic[];
   explanations: Map<string, OpportunityExplanation>;
   stats: OpportunityStats;
 }
@@ -40,7 +45,13 @@ export function analyzeOpportunities(story: Story, options: OpportunityOptions =
     peakFrontier: 0, peakOptionalItems: 0, elapsedMs: 0, activeChapter: 0, phase: 'frontiers', chapters: []};
   const opportunities = new Map<string, number>(), explanations = new Map<string, OpportunityExplanation>();
   const explanationCandidates = new OpportunityExplanations(story);
-  const report: OpportunityReport = {complete: false, opportunities, explanations, stats};
+  const recipeOpportunities=new Map<string,number>();
+  const equivalentRecipes=new Map<string,string[]>();
+  for(const recipe of story.recipes){
+    const key=recipeMeaning(recipe);
+    equivalentRecipes.set(key,[...equivalentRecipes.get(key)??[],recipe.id]);
+  }
+  const report: OpportunityReport = {complete: false, opportunities, recipeOpportunities, fixedDiagnostics: [], explanations, stats};
   const unexplained = () => Object.keys(story.items).filter(id => !opportunities.has(id));
   const index = indexStory(story);
   const frontierVisit = (size: number) => {
@@ -62,7 +73,7 @@ export function analyzeOpportunities(story: Story, options: OpportunityOptions =
   /** Evaluate one construction set, updating one state in dependency order.
    * There is no queue of partial inventories or alternative action orderings.
    */
-  const evaluateConstruction = (entry: State, plan: ConstructionPlan, goalOnly: boolean, possiblyUncreated: ReadonlySet<string> = new Set(), target?: string): State | undefined => {
+  const evaluateConstruction = (entry: State, plan: ConstructionPlan, goalOnly: boolean, possiblyUncreated: ReadonlySet<string> = new Set(), target?: string, requestedRecipe?:string): State | undefined => {
     stats.constructionSets++; stats[goalOnly ? 'goalSets' : 'probeSets']++;
     let state = entry;
     const retirementCheck = historyRetirementCheck(story, possiblyUncreated);
@@ -75,11 +86,12 @@ export function analyzeOpportunities(story: Story, options: OpportunityOptions =
       for (const condition of plan.conditions.values()) {
         if (!condition.hotspot || conditionMet(state, condition)) continue;
         if (!matches(state.tokens[condition.item.id], condition.item) || state.tokens[condition.item.id].chapter !== state.chapter) continue;
+        if (isFixed(story,state.tokens[condition.item.id]) || !presentHotspots(story,state,state.chapter).includes(condition.hotspot)) continue;
         stats.transitions++;
         state = canonicalState(act(story, state, {type: 'move', item: condition.item.id, chapter: state.chapter, x: 0, y: 0, hotspot: condition.hotspot}));
       }
       const built = [...plan.facts].every(fact => constructed(state, fact));
-      if (built) return !goalOnly || chapterComplete(story, state) ? state : undefined;
+      if (built) return (!requestedRecipe||recipeOpportunities.has(requestedRecipe))&&(!goalOnly || chapterComplete(story, state)) ? state : undefined;
       if (goalOnly && chapterComplete(story, state)) return;
       let next: Transition | undefined;
       for (const recipe of recipes) {
@@ -92,6 +104,7 @@ export function analyzeOpportunities(story: Story, options: OpportunityOptions =
         return;
       }
       stats.transitions++; state = next.state; observe({state});
+      for(const id of equivalentRecipes.get(recipeMeaning(next.recipe))!)if(!recipeOpportunities.has(id))recipeOpportunities.set(id,state.chapter);
     }
   };
 
@@ -107,7 +120,7 @@ export function analyzeOpportunities(story: Story, options: OpportunityOptions =
     }
     const retired = new Set<string>();
     const retirementCheck = historyRetirementCheck(story, possiblyUncreated);
-    for (const recipe of plan.recipes.values()) for (const input of [recipe.a, ...(recipe.b ? [recipe.b] : [])]) {
+    for (const recipe of plan.recipes.values()) for (const input of recipeIngredients(recipe)) {
       if (input.fate === 'preserve' || input.ref.id === recipe.result.id) continue;
       const token = result.tokens[input.ref.id];
       if (!token || token.status !== 'available') continue;
@@ -171,6 +184,9 @@ export function analyzeOpportunities(story: Story, options: OpportunityOptions =
       for (const history of groups.values()) {
         stats.peakOptionalItems = Math.max(stats.peakOptionalItems, history.optionalItems);
         const state = history.collapse(), possiblyUncreated = history.possiblyUncreated;
+        for(const diagnostic of fixedCarryDiagnostics(story,state)){
+          if(!report.fixedDiagnostics.some(d=>d.code===diagnostic.code&&d.source.line===diagnostic.source.line))report.fixedDiagnostics.push(diagnostic);
+        }
         chapterStats.entries++;
         frontierVisit(chapterStats.entries);
         const planner = new ConstructionPlans(story, state, frontierVisit);
@@ -200,6 +216,14 @@ export function analyzeOpportunities(story: Story, options: OpportunityOptions =
           };
           if (!examine(targets)) examine(planner.together(targets, plans));
         }
+        for(const recipe of story.recipes){
+          if(recipeOpportunities.has(recipe.id))continue;
+          const targets=planner.recipe(recipe);
+          for(const plan of [...targets,...planner.together(targets,plans)]){
+            evaluateConstruction(state,plan,false,possiblyUncreated,recipe.result.id,recipe.id);
+            if(recipeOpportunities.has(recipe.id))break;
+          }
+        }
         explanationCandidates.consider(state, possiblyUncreated, unexplained());
       }
       // Merge and resolve possible retirement before calculating the next
@@ -212,7 +236,8 @@ export function analyzeOpportunities(story: Story, options: OpportunityOptions =
         if (next.state.completed) observe(next);
         else add(next);
       }
-      if (opportunities.size === Object.keys(story.items).length) break;
+      // Later arrivals can expose reliance on an earlier fixed item even after
+      // every recipe has had an optional execution opportunity.
       histories.delete(chapter);
     }
     report.complete = true;

@@ -284,6 +284,7 @@ At the bakehouse, mix flour with water and tend a wild starter over time. There 
   - icon: ![Warm cellar](assets/hotspots/warm-cellar.png)
 
 **Items**
+- Warm cellar
 - Bread
   - icon: ![Bread](assets/icons/bread.png)
 - Picnic basket
@@ -403,6 +404,7 @@ The potter's yard has space for firing and glazing. Finish a bowl that can hold 
   - icon: ![Kiln yard](assets/hotspots/kiln-yard.png)
 
 **Items**
+- Kiln yard
 - Fired glazed bowl
   - icon: ![Fired glazed bowl](assets/icons/fired-glazed-bowl.png)
 - Tiled table
@@ -439,6 +441,7 @@ At the quarry workshop, make a tool for breaking hard ground and a chest for sto
   - icon: ![Iron quarry](assets/hotspots/iron-quarry.png)
 
 **Items**
+- Iron quarry
 - Pickaxe
   - icon: ![Pickaxe](assets/icons/pickaxe.png)
 - Wooden chest
@@ -558,6 +561,7 @@ Visitors need to find the harbour after dark and secure their boats. Build a lig
   - place: Lighthouse (at 90%, 18%)
 
 **Items**
+- Harbour headland
 - Lighthouse
   - icon: ![Lighthouse](assets/icons/lighthouse.png)
 - Mooring buoy
@@ -874,6 +878,7 @@ At the millpond, examine a water sample more closely. A microscope can reveal th
   - icon: ![Mill pond](assets/hotspots/mill-pond.png)
 
 **Items**
+- Mill pond
 - Lens
   - icon: ![Lens](assets/icons/lens.png)
 - Magnifier
@@ -1031,6 +1036,7 @@ At the tidal shore, boats are preparing for a crossing without a cooking hearth.
   - icon: ![Tidal shore](assets/hotspots/tidal-shore.png)
 
 **Items**
+- Tidal shore
 - Smoked fish
   - icon: ![Smoked fish](assets/icons/smoked-fish.png)
 - Pickle jar
@@ -1181,6 +1187,7 @@ The cooks and guests are here, with water at hand for cooking. Prepare porridge 
   - icon: ![Kitchen hearth](assets/hotspots/kitchen-hearth.png)
 
 **Items**
+- Kitchen hearth
 - Porridge
   - icon: ![Porridge](assets/icons/porridge.png)
 - Fruit compote
@@ -1387,6 +1394,9 @@ It is evening. Put the floating lantern in the sheltered basin at the landing.
 - Place floating lantern at the gathering landing -- Floating lantern @ Gathering landing
 
 > NOTE: Hotspot **Gathering landing** is centred at (82%, 28%) from the background’s top-left: (640, 473) pixels in the 780×1688 asset. The background itself depicts the empty sheltered inlet beside the actual landing, below and to the right of the moored boat; its centre leaves water beneath the floating lantern’s base. Its separate 432×288 icon is 100% transparent and defines only the 108×72 hit area on the 390px board. Hover, focus and compatible drags reveal its name and outline; no separate miniature is drawn over the scenery.
+
+**Items**
+- Gathering landing
 
 **Hotspots**
 - Gathering landing (at 82%, 28%)

@@ -175,7 +175,7 @@ test('creation feedback uses a colon, omits retirement notices and keeps wonders
 });
 
 test('history preserves skip bridges once and does not turn receiving locations into contextual recipes',()=>{
-  const s=parseStory(`# Past\n## First\nStart.\n**Goals**\n- Place it -- B @ H\n- next: Make it -- C @ H\n**Hotspots**\n- H\n**Items**\n- A\n- B\n- C\n**Combinations**\n- A [preserve] + B [consume] -> C\n## Skipped\nAn unplayed normal intro.\n\n[If skipped] We already prepared this.\n\n**Goals**\n- Already have it -- C\n## Next\nContinue here.\n**Goals**\n- Finish -- D\n**Items**\n- Tool\n- D\n**Combinations**\n- C [transform] + Tool [preserve] -> D\n## End\nDone.\n`);
+  const s=parseStory(`# Past\n## First\nStart.\n**Goals**\n- Place it -- B @ H\n- next: Make it -- C @ H\n**Hotspots**\n- H\n**Items**\n- H\n- A\n- B\n- C\n**Combinations**\n- A [preserve] + B [consume] -> C\n## Skipped\nAn unplayed normal intro.\n\n[If skipped] We already prepared this.\n\n**Goals**\n- Already have it -- C\n## Next\nContinue here.\n**Goals**\n- Finish -- D\n**Items**\n- Tool\n- D\n**Combinations**\n- C [transform] + Tool [preserve] -> D\n## End\nDone.\n`);
   assert.equal(s.chapters[1].skipped,'We already prepared this.');
   for(const chapter of [3,4]) {
     const text=renderFrame(startAdventure(s,{chapter,mode:'chapter'}).frame);
@@ -187,7 +187,7 @@ test('history preserves skip bridges once and does not turn receiving locations 
 });
 
 test('the active board and menu exclude earlier rooms while preserving current hotspot recipes',()=>{
-  const s=parseStory(`# Rooms\n## Old room\n![room](old.webp)\n**Goals**\n- Make a piece -- C\n**Hotspots**\n- Old bench\n**Items**\n- A\n- B\n- Spare\n- C\n- Unmade old result\n**Combinations**\n- A [preserve] + B [preserve] @ Old bench -> C\n- A [preserve] + Spare [preserve] -> Unmade old result\n## New room\n![room](new.webp)\n**Goals**\n- Finish -- D\n**Hotspots**\n- New bench\n**Items**\n- Tool\n- D\n**Combinations**\n- C [transform] + Tool [preserve] @ New bench -> D\n## End\nDone.\n`);
+  const s=parseStory(`# Rooms\n## Old room\n![room](old.webp)\n**Goals**\n- Make a piece -- C\n**Hotspots**\n- Old bench\n**Items**\n- Old bench\n- A\n- B\n- Spare\n- C\n- Unmade old result\n**Combinations**\n- A [preserve] + B [preserve] @ Old bench -> C\n- A [preserve] + Spare [preserve] -> Unmade old result\n## New room\n![room](new.webp)\n**Goals**\n- Finish -- D\n**Hotspots**\n- New bench\n**Items**\n- New bench\n- Tool\n- D\n**Combinations**\n- C [transform] + Tool [preserve] @ New bench -> D\n## End\nDone.\n`);
   let a=startAdventure(s,{chapter:2,mode:'chapter'});
   const text=a.frame.messages.filter(m=>m.kind==='board').at(-1)!.text;
   assert.match(text,/Hotspots:\n- New bench/);assert.doesNotMatch(text,/Old bench|Spare|Unmade old result|\n- A\b|\n- B\b/);
@@ -211,7 +211,7 @@ test('different receiving locations still offer just one authored pair, and comp
 });
 
 test('one authored direction is offered even when reversal would inherit a different hotspot',()=>{
-  const s=parseStory(`# Destination\n## Work\n**Goals**\n- First -- A @ H\n- next: Second -- B @ H\n- next: Finish -- C @ H\n**Hotspots**\n- H\n**Items**\n- A\n- B\n- C\n**Combinations**\n- A [consume] + B [preserve] -> C\n`);
+  const s=parseStory(`# Destination\n## Work\n**Goals**\n- First -- A @ H\n- next: Second -- B @ H\n- next: Finish -- C @ H\n**Hotspots**\n- H\n**Items**\n- H\n- A\n- B\n- C\n**Combinations**\n- A [consume] + B [preserve] -> C\n`);
   let a=startAdventure(s,{mode:'chapter'});
   for(const name of ['A','B']) {
     const option=a.frame.options.find(o=>o.text.startsWith(`Place ${name} at`))!;
@@ -228,7 +228,7 @@ test('one authored direction is offered even when reversal would inherit a diffe
 });
 
 test('a contextual recipe uses the reverse direction when only that direction is legal',()=>{
-  const s=parseStory(`# Context\n## Work\n**Goals**\n- Finish -- C\n**Hotspots**\n- H\n**Items**\n- A\n- B\n- C\n**Combinations**\n- A + B @ H -> C\n`);
+  const s=parseStory(`# Context\n## Work\n**Goals**\n- Finish -- C\n**Hotspots**\n- H\n**Items**\n- H\n- A\n- B\n- C\n**Combinations**\n- A + B @ H -> C\n`);
   const initial=startAdventure(s,{mode:'chapter'});
   const state=act(s,initial.state,{type:'move',item:'name:A',chapter:0,hotspot:'name:H',x:0,y:0});
   const pairs=choices(s,state).filter(a=>a.type==='combine');
@@ -237,7 +237,7 @@ test('a contextual recipe uses the reverse direction when only that direction is
 });
 
 test('clearing a hotspot restores an alternative hidden by its occupant',()=>{
-  const s=parseStory(`# Either\n## Work\n**Goals**\n- Make either\n  - either: C\n  - or: D\n**Hotspots**\n- H\n**Items**\n- A\n- B\n- C\n- D\n**Combinations**\n- A [consume] @ H -> D\n- A [consume] + B [preserve] @ H -> C\n`);
+  const s=parseStory(`# Either\n## Work\n**Goals**\n- Make either\n  - either: C\n  - or: D\n**Hotspots**\n- H\n**Items**\n- H\n- A\n- B\n- C\n- D\n**Combinations**\n- A [consume] @ H -> D\n- A [consume] + B [preserve] @ H -> C\n`);
   let a=startAdventure(s,{mode:'chapter'});
   const place=a.frame.options.find(o=>o.text.startsWith('Place B at'))!;assert(place);
   a=choose(s,a,a.frame.step,place.choice);

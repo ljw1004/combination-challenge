@@ -2,8 +2,8 @@ import type {Story, Diagnostic, DiagnosticFix} from '../story/types.ts';
 import {activeHotspots} from '../engine/analysis.ts';
 
 /** Count the actual scene, including inherited hotspots; acknowledgments are local. */
-export function hotspotCountDiagnostics(story: Story, index: number): Diagnostic[] {
-  const chapter = story.chapters[index], count = new Set(activeHotspots(story, index)).size;
+export function hotspotCountDiagnostics(story: Story, index: number, observedCount?:number): Diagnostic[] {
+  const chapter = story.chapters[index], count = observedCount ?? new Set(activeHotspots(story, index)).size;
   const acknowledgments = chapter.hotspotAcknowledgments ?? [], source = chapter.hotspotsSource ?? chapter.source;
   const diagnostics: Diagnostic[] = [];
   if (count >= 4) diagnostics.push({severity:'error', code:'too-many-hotspots', stage:'fast', source, span:source.span!,

@@ -16,7 +16,7 @@ const combine = (s: Story, state: State, a: string, b: string) => act(s, state, 
 const dismiss = (s: Story, initial: State) => { let state = initial; while (state.pending.length) state = act(s, state, { type: 'dismiss' }); return state; };
 
 test('early final achievement neither hides its predecessor nor completes a next chain', () => {
-  const s = parse('**Goals**\n- First -- A @ Bench\n- next: Last -- B @ Shelf\n**Hotspots**\n- Bench\n- Shelf\n\n## End\n\nDone.');
+  const s = parse('**Goals**\n- First -- A @ Bench\n- next: Last -- B @ Shelf\n**Hotspots**\n- Bench\n- Shelf\n\n\n**Items**\n- Bench\n- Shelf\n\n## End\n\nDone.');
   let state = move(s, newGame(s), 'B', 'Shelf');
   assert(state.achieved.includes(s.chapters[0].goals[1].id), 'later achievements still latch independently');
   assert.equal(chapterComplete(s, state), false);
@@ -53,7 +53,7 @@ test('future chains retain unfinished predecessor reagents and are skipped only 
 });
 
 test('OR chooses between complete chains, not between the stages inside a chain', () => {
-  const s = parse('**Goals**\n- either: Left first -- A @ Bench\n- next: Left last -- B @ Bench\n- or: Right first -- C @ Bench\n- next: Right last -- D @ Bench\n**Hotspots**\n- Bench');
+  const s = parse('**Goals**\n- either: Left first -- A @ Bench\n- next: Left last -- B @ Bench\n- or: Right first -- C @ Bench\n- next: Right last -- D @ Bench\n**Hotspots**\n- Bench\n**Items**\n- Bench\n\n');
   assert.equal(s.chapters[0].goalOperator, 'or');
   let state = move(s, newGame(s), 'B', 'Bench');
   state = move(s, state, 'D', 'Bench');

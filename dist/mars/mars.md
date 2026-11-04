@@ -24,6 +24,7 @@ I have landed on Mars, but the radio is damaged. I need to contact the orbiter f
   > NOTE: Mars artwork target: Flat top and connected face of the raised contact ridge. Centre 50%, 17.5%; transparent hit area 240 × 80px at the 390 × 844 reference viewport.
 
 **Items**
+- Contact ridge
 - Broken radio
   - icon: ![Broken radio](assets/expedition/items/broken-radio.png)
 - Cable
@@ -92,6 +93,8 @@ The intact signal mast has a clear orbiter sightline. Our signal here will mark 
   > NOTE: Mars artwork target: The sealed melt vessel and fixed melt-head connection into the ice. Centre 29%, 32.5%; transparent hit area 100 × 90px at the 390 × 844 reference viewport.
 
 **Items**
+- Refuge signal mast
+- Ice melt station
 - Solar charger
   - icon: ![Solar charger](assets/expedition/items/solar-charger.png)
 - Heater
@@ -150,6 +153,7 @@ The mission filter is made for this enclosed water source. Once the growing mate
   > NOTE: Mars artwork target: The illuminated fixed germination shelf beneath the cabin window. Centre 50%, 20.5%; transparent hit area 230 × 70px at the 390 × 844 reference viewport.
 
 **Items**
+- Warm habitat
 - Dirty water
   - icon: ![Dirty water](assets/expedition/items/dirty-water.png)
 - Water filter
@@ -215,6 +219,7 @@ From the route overlook beside the sled, the outcrop and nearby landmarks are vi
   > NOTE: Mars artwork target: The exposed rocky viewing shoulder beside the cargo lander, looking across the route. Centre 70%, 13.5%; transparent hit area 140 × 90px at the 390 × 844 reference viewport.
 
 **Items**
+- Route overlook
 - Support frame
 - Wheels
   - icon: ![Wheels](assets/expedition/items/wheels.png)
@@ -294,6 +299,8 @@ The expedition sampling case holds a scoop, a transparent jar, a core tube and l
   > NOTE: Mars artwork target: The layered rock face above and beyond the ice. Centre 73%, 7.5%; transparent hit area 100 × 80px at the 390 × 844 reference viewport.
 
 **Items**
+- Lookout ice
+- Cliff viewpoint
 - Rover[Drive unit, Solar charger, Seat harness]
 - Outcrop navchip
   - icon: ![Outcrop navchip](assets/expedition/items/outcrop-navchip.png)
@@ -361,6 +368,7 @@ The mothballed station was stored sensibly: its calibrated sensor mast, detached
   > NOTE: Mars artwork target: The empty instrument plinth and mounting socket, with conduit back to the shelter. Centre 39%, 19%; transparent hit area 130 × 76px at the 390 × 844 reference viewport.
 
 **Items**
+- Open weather site
 - Rover[Drive unit, Solar charger, Seat harness]
 - Solar charger
 - Motor controller
@@ -409,6 +417,7 @@ The relay itself is still here, with its complete antenna and charged powerpack 
   > NOTE: Mars artwork target: The raised rocky approach immediately below the fixed relay infrastructure. Centre 66%, 20%; transparent hit area 170 × 90px at the 390 × 844 reference viewport.
 
 **Items**
+- Relay knoll
 - Relay transceiver
   - icon: ![Relay transceiver](assets/expedition/items/relay-transceiver.png)
 - Spare fuse
@@ -589,6 +598,7 @@ The furniture sled’s belongings locker contains protective padding and the cre
   > NOTE: Mars artwork target: The grounded freight sled and cloth-wrapped mess crate on the path shoulder. Centre 74%, 15.5%; transparent hit area 110 × 80px at the 390 × 844 reference viewport.
 
 **Items**
+- Cargo shoulder
 - Sled padding
   - icon: ![Sled padding](assets/expedition/items/sled-padding.png)
 - Picture roll
@@ -636,6 +646,7 @@ The chamber runs matched 20-minute tests. Both samples start at 20°C, with the 
   > NOTE: Mars artwork target: The open insulated test recess and empty specimen shelf. Centre 63%, 13%; transparent hit area 120 × 110px at the 390 × 844 reference viewport.
 
 **Items**
+- Thermal chamber
 - Wall sample
   - icon: ![Wall sample](assets/expedition/items/wall-sample.png)
 - Temperature logger
@@ -691,6 +702,7 @@ The exposed service wall is now covered. The test showed that the wrapped sample
   > NOTE: Mars artwork target: The central service panels beneath the enclosed pipe run. Centre 55%, 14.5%; transparent hit area 180 × 100px at the 390 × 844 reference viewport.
 
 **Items**
+- Ice works
 - Return hose
   - icon: ![Return hose](assets/expedition/items/return-hose.png)
 - Ice melter
@@ -809,6 +821,7 @@ The growing bed and its fitted equipment remain in the greenhouse. The propagati
   > NOTE: Mars artwork target: The fixed raised nursery shelf crossed by daylight and structural shadows. Centre 50%, 23.5%; transparent hit area 270 × 66px at the 390 × 844 reference viewport.
 
 **Items**
+- Nursery test shelf
 - Nursery grid
   - icon: ![Nursery grid](assets/expedition/items/nursery-grid.png)
 - Diffuser sheet
@@ -919,6 +932,7 @@ The geology depot holds a stored Mars scout. Its delicate rotor assembly and bat
   > NOTE: Mars artwork target: The black volcanic rim and open viewing edge beyond the scout clearing. Centre 64%, 16%; transparent hit area 180 × 95px at the 390 × 844 reference viewport.
 
 **Items**
+- Lava overlook
 - Scout airframe
   - icon: ![Scout airframe](assets/expedition/items/scout-airframe.png)
 - Counter rotating rotors
@@ -966,6 +980,7 @@ At the channel survey station, the opened field case holds the ground probe, map
   > NOTE: Mars artwork target: The clear broad approach between the channel banks. Centre 50%, 22%; transparent hit area 220 × 110px at the 390 × 844 reference viewport.
 
 **Items**
+- Channel approach
 - Ground probe
   - icon: ![Ground probe](assets/expedition/items/ground-probe.png)
 - Route overlay
@@ -1005,6 +1020,7 @@ The field laboratory unpacked at the basin core site contains the coring, handli
   > NOTE: Mars artwork target: The accessible low stratified bank in front of the basin walls. Centre 50%, 23.5%; transparent hit area 220 × 90px at the 390 × 844 reference viewport.
 
 **Items**
+- Layered basin
 - Sterile liner
   - icon: ![Sterile liner](assets/expedition/items/sterile-liner.png)
 - Core cradle
@@ -1078,6 +1094,8 @@ The earlier core has a band of larger grains between two finer layers. Its miner
   > NOTE: Mars artwork target: The right conglomerate ledge with rounded embedded pebbles and loose fragments. Centre 77%, 24.5%; transparent hit area 105 × 80px at the 390 × 844 reference viewport.
 
 **Items**
+- Ripple window
+- Gravel window
 - Context board
   - icon: ![Context board](assets/expedition/items/context-board.png)
 - Two-cell comparison case (compound)
@@ -1140,6 +1158,7 @@ Our basin comparison keeps the ripple and gravel sites separate. Rounded gravel 
   > NOTE: Mars artwork target: The near fixed identification marker and its rock footing; smaller markers continue toward the depot. Centre 31%, 22%; transparent hit area 85 × 112px at the 390 × 844 reference viewport.
 
 **Items**
+- Depot marker line
 - Depot survey print
   - icon: ![Depot survey print](assets/expedition/items/depot-survey-print.png)
 - Marker cleaning pad
@@ -1198,6 +1217,7 @@ The oxygen plant holds its stored processing stack, controller and filtered inta
   > NOTE: Mars artwork target: The fixed servicing interface and empty receiving cradle inside the open depot bay. Centre 30%, 11.7%; transparent hit area 110 × 85px at the 390 × 844 reference viewport.
 
 **Items**
+- Ascent plant
 - Electrolyzer stack
   - icon: ![Electrolyzer stack](assets/expedition/items/electrolyzer-stack.png)
 - Process controller
@@ -1238,6 +1258,7 @@ The cabin shell survived, but its hatch seal is damaged. The depot stores hold t
   > NOTE: Mars artwork target: The empty low circular cabin test cradle on the hangar floor. Centre 50%, 23.8%; transparent hit area 300 × 95px at the 390 × 844 reference viewport.
 
 **Items**
+- Ascent pad
 - Ascent cabin shell
   - icon: ![Ascent cabin shell](assets/expedition/items/ascent-cabin-shell.png)
 - Docking ring
@@ -1284,6 +1305,7 @@ The cabin check is recorded. We still need the orbiter’s pass prediction and a
   > NOTE: Mars artwork target: The observatory dome and its entrance terrace, with clear sky above. Centre 31%, 9%; transparent hit area 160 × 110px at the 390 × 844 reference viewport.
 
 **Items**
+- Clear sky station
 - Orbiter position table
   - icon: ![Orbiter position table](assets/expedition/items/orbiter-position-table.png)
 
@@ -1461,6 +1483,8 @@ We have you in sight. Bring your ship alongside; the hatch is waiting.
   > NOTE: Mars artwork target: The large circular forward hatch and illuminated docking rim. Centre 64%, 60.8%; transparent hit area 160 × 160px at the 390 × 844 reference viewport.
 
 **Items**
+- Waiting orbital cabin
+- Orbital hatch
 - Docked vehicle
   - icon: ![Docked vehicle](assets/expedition/items/docked-vehicle.png)
 

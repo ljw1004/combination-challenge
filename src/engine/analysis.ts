@@ -1,5 +1,7 @@
 import type { Story, Ref, Condition, Recipe, Goal, Chapter } from '../story/types.ts';
 import type { State } from './types.ts';
+import {activeHotspots, isFixed, recipeIngredients} from './fixed-items.ts';
+export {activeHotspots} from './fixed-items.ts';
 
 export interface Index { producers: Map<string, Recipe[]>; primitives: Set<string>; pairs: [string, string][]; operands: Map<string, Recipe[]> }
 const indices = new WeakMap<Story, Index>();
@@ -37,17 +39,14 @@ export function chapterGoalsSatisfied(chapter: Chapter, satisfied: (goal: Goal) 
   const chains = goalChains(chapter.goals), complete = (chain: Goal[]) => chain.every(satisfied);
   return !chains.length || (chapter.goalOperator === 'and' ? chains.every(complete) : chains.some(complete));
 }
-export function activeHotspots(story: Story, chapter: number): string[] {
-  const c = story.chapters[chapter]; return !c ? [] : c.image || !chapter ? c.hotspots : activeHotspots(story, chapter - 1);
-}
 export function background(story: Story, chapter: number): string | undefined {
   for (let i = chapter; i >= 0; i--) if (story.chapters[i].image) return story.chapters[i].image;
 }
 export function hasRef(available: Map<string, Set<string>>, ref: Ref): boolean {
   const slots = available.get(ref.id); return !!slots && ref.slots.every(id => slots.has(id));
 }
-export function goalPossible(goal: Goal, available: Map<string, Set<string>>, hotspots: Set<string>): boolean {
-  const check = (c: Condition) => hasRef(available, c.item) && (!c.hotspot || hotspots.has(c.hotspot));
+export function goalPossible(goal: Goal, available: Map<string, Set<string>>, hotspots: Set<string>, fixed: Set<string> = hotspots): boolean {
+  const check = (c: Condition) => hasRef(available, c.item) && (!c.hotspot || !fixed.has(c.item.id) && hotspots.has(c.hotspot) && available.has(c.hotspot));
   return goal.conditions.length > 0 && (goal.operator === 'and' ? goal.conditions.every(check) : goal.conditions.some(check));
 }
 
@@ -84,24 +83,30 @@ function possibility(story: Story, state: State, removed: Set<string>, includeCu
     for (const token of Object.values(state.tokens)) if (!denied.has(token.id) && !removed.has(token.id) && token.status === 'available') available.set(token.id, new Set(token.slots));
     // Installed parts remain inside their owner; they cannot act as outside reagents.
     for (const primitive of index.primitives) if (!denied.has(primitive) && !state.tokens[primitive]) available.set(primitive, new Set());
-    const hotspots = new Set(state.visited.flatMap(i => activeHotspots(story, i)));
+    const fixed = new Set(Object.values(state.tokens).filter(token => isFixed(story, token)).map(token => token.id));
     for (let chapter = state.chapter; chapter < story.chapters.length; chapter++) {
       const current = story.chapters[chapter];
       if (chapter > state.chapter && current.goals.length && chapterGoalsSatisfied(current, g => state.achieved.includes(g.id))) continue;
-      activeHotspots(story, chapter).forEach(h => hotspots.add(h));
+      const hotspots = new Set(activeHotspots(story, chapter));
+      for (const id of hotspots) if (available.has(id)) fixed.add(id);
+      const usable = (ref: Ref) => hasRef(available, ref) && (!fixed.has(ref.id) || hotspots.has(ref.id));
       let changed = true;
       while (changed) {
         changed = false;
         for (const r of story.recipes) {
           if (denied.has(r.result.id) || (state.tokens[r.result.id]?.status && state.tokens[r.result.id].status !== 'available') || (r.hotspot && !hotspots.has(r.hotspot))) continue;
-          if (!hasRef(available, r.a.ref) || (r.b && !hasRef(available, r.b.ref))) continue;
+          if (!recipeIngredients(r).every(input => usable(input.ref))) continue;
+          // With one receiving fixed operand, the other must be draggable.
+          if (r.hotspot && fixed.has(r.a.ref.id) && (!r.b || fixed.has(r.b.ref.id))) continue;
+          if (!r.hotspot && r.b && fixed.has(r.a.ref.id) && fixed.has(r.b.ref.id)) continue;
           let slots = available.get(r.result.id);
           if (!slots) { slots = new Set(); available.set(r.result.id, slots); changed = true; }
+          if (hotspots.has(r.result.id)) fixed.add(r.result.id);
           for (const slot of r.result.slots) if (!slots.has(slot)) { slots.add(slot); changed = true; }
         }
       }
       const c = story.chapters[chapter];
-      const checkGoal = (g: Goal) => state.achieved.includes(g.id) || goalPossible(g, available, hotspots);
+      const checkGoal = (g: Goal) => state.achieved.includes(g.id) || goalPossible(g, available, hotspots, fixed);
       if (!required && !chapterGoalsSatisfied(c, checkGoal)) {
         if (onFailure) for (const goal of c.goals) if (!checkGoal(goal)) onFailure({chapter,goal});
         return false;
@@ -129,22 +134,31 @@ function possibility(story: Story, state: State, removed: Set<string>, includeCu
 /** Backward needs union, with cycle detection and actual creation/retirement state. */
 export function chapterNeeds(story: Story, state: State, chapter: number): Set<string> {
   const index = indexStory(story), needed = new Set<string>(), expanded = new Set<string>();
+  const fixed = new Set(activeHotspots(story, chapter));
   function need(ref: Ref) {
     if (state.excluded.includes(ref.id)) return;
     const token = state.tokens[ref.id];
     if (token && token.status !== 'available') return;
+    if (isFixed(story, token) && !fixed.has(ref.id)) return;
     needed.add(ref.id);
     for (const slot of ref.slots) if (!token?.slots.includes(slot)) need({ id: slot, slots: [] });
     if (token || expanded.has(ref.id)) return;
     expanded.add(ref.id);
     for (const recipe of index.producers.get(ref.id) ?? []) {
-      const operands = [recipe.a, ...(recipe.b ? [recipe.b] : [])];
+      if (recipe.hotspot && !fixed.has(recipe.hotspot)) continue;
+      const operands = recipeIngredients(recipe);
       if (operands.some(i => state.excluded.includes(i.ref.id) || (state.tokens[i.ref.id] && state.tokens[i.ref.id].status !== 'available'))) continue;
+      if (operands.some(i => isFixed(story, state.tokens[i.ref.id]) && !fixed.has(i.ref.id))) continue;
+      if (fixed.has(recipe.a.ref.id) && (!recipe.b || fixed.has(recipe.b.ref.id))) continue;
       for (const input of operands) need(input.ref);
     }
   }
   const c = story.chapters[chapter];
+  for (const id of fixed) if (state.tokens[id]?.status === 'available') need({id, slots: []});
   for (const ref of chapterSupplies(story, chapter)) need(ref);
-  for (const g of c.goals) if (!state.achieved.includes(g.id)) for (const cond of g.conditions) need(cond.item);
+  for (const g of c.goals) if (!state.achieved.includes(g.id)) for (const cond of g.conditions) {
+    need(cond.item);
+    if(cond.hotspot&&fixed.has(cond.hotspot))need({id:cond.hotspot,slots:[]});
+  }
   return needed;
 }

@@ -8,6 +8,7 @@ The delivery van is due. I need a case that will keep the contents dry.
 **Hotspots**
 - Shelf
 **Items**
+- Shelf
 - Sheet
 - Tool
 

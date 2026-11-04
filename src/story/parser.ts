@@ -117,7 +117,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       if (declared.has(id) && declared.get(id) !== name) error('identifier-clash', `Identifier ${named[1]} was already declared as ${declared.get(id)}; the first declaration is used.`, line, '`' + named[1] + '`');
       else declared.set(id, name);
     }
-    if (kind === 'item') {
+    {
       let item = story.items[id];
       if (!item) item = story.items[id] = { id, name, compound, slots: [], wonders: [], presentations: [], source: source(line, raw.trim()) };
       if (named?.[2] && declared.get(id) === name) item.name = name;
@@ -127,16 +127,16 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
         if (item.exclusiveWith && item.exclusiveWith !== partner) error('multiple-exclusions', `${item.name} is exclusive with more than one item.`, line);
         else item.exclusiveWith = partner;
       }
-    } else {
+    }
+    if (kind === 'hotspot') {
       if (!story.hotspots[id]) story.hotspots[id] = { id, name, source: source(line) };
       if (named?.[2]) story.hotspots[id].name = declared.get(id) ?? name;
-      if (coordinate && mode === 'hotspot-declaration') { story.hotspots[id].x = +coordinate[1] / 100; story.hotspots[id].y = +coordinate[2] / 100; }
     }
     const result = {id, slots}; spellings.set(result, raw.trim()); return result;
   }
-  function ingredient(raw: string, line: number, from: number): Ingredient {
+  function ingredient(raw: string, line: number, from: number, kind: 'item' | 'hotspot' = 'item'): Ingredient {
     const match = /\s+\[(consume|transform|preserve)\]$/.exec(raw.trim());
-    return { ref: ref(match ? raw.trim().slice(0, match.index) : raw, line, 'item', 'reference', 'reagent', from), fate: (match?.[1] ?? 'preserve') as Fate, explicit: !!match };
+    return { ref: ref(match ? raw.trim().slice(0, match.index) : raw, line, kind, 'reference', kind === 'hotspot' ? 'context' : 'reagent', from), fate: (match?.[1] ?? 'preserve') as Fate, explicit: !!match };
   }
   function operandSpelling(value: Ref): string | undefined {
     const atom = (id: string): string | undefined => {
@@ -178,7 +178,9 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const reagent = plus[0].text ? ingredient(plus[0].text, line, inputStart + plus[0].from) : parent ? { ref: parent, fate: 'preserve' as Fate, explicit: false } : undefined;
     if (!reagent) { error('missing-parent', 'A shorthand combination needs a parent item or result.', line); return; }
     if (plus.length > 2) error('binary-combination', 'A combination accepts at most two items.', line);
-    const recipe: Recipe = { id: '', a: reagent, ...(plus[1]?.text ? { b: ingredient(plus[1].text, line, inputStart + plus[1].from) } : {}), ...(context[1]?.text ? { hotspot: ref(context[1].text, line, 'hotspot', 'reference', 'context', rawStart + arrow[0].from + context[1].from).id } : at ? { hotspot: at } : {}), result: ref(arrow[1].text, line, 'item', 'reference', 'result', rawStart + arrow[1].from), source: source(line) };
+    const fixed = context[1]?.text ? ingredient(context[1].text, line, rawStart + arrow[0].from + context[1].from, 'hotspot')
+      : at ? {ref: {id: at, slots: []}, fate: 'preserve' as Fate, explicit: false} : undefined;
+    const recipe: Recipe = { id: '', a: reagent, ...(plus[1]?.text ? { b: ingredient(plus[1].text, line, inputStart + plus[1].from) } : {}), ...(fixed ? {hotspot: fixed.ref.id, at: fixed} : {}), result: ref(arrow[1].text, line, 'item', 'reference', 'result', rawStart + arrow[1].from), source: source(line) };
     if (!plus[0].text) {
       record(reagent.ref.id, 'item', 'reagent', rawStart, rawStart + raw.length, false, true);
       for (const slot of reagent.ref.slots) record(slot, 'item', 'fitted', rawStart, rawStart + raw.length, false, true);
@@ -204,7 +206,16 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       }
       story.fateSites!.push(site);
     }
-    const key = JSON.stringify([recipe.a, recipe.b, recipe.hotspot, recipe.result]);
+    if (fixed) {
+      const part=context[1], site:FateSite={item:fixed.ref.id,fate:fixed.fate};
+      if(part?.text){
+        const start=rawStart+arrow[0].from+part.from, annotation=/\[(consume|transform|preserve)\]$/.exec(part.text);
+        site.edit=annotation?{span:{from:start+annotation.index,to:start+part.text.length},prefix:'',suffix:''}
+          :{span:{from:start+part.text.length,to:start+part.text.length},prefix:' ',suffix:''};
+      }
+      story.fateSites!.push(site);
+    }
+    const key = JSON.stringify([recipe.a, recipe.b, recipe.at, recipe.result]);
     const existing = recipes.get(key);
     if (!existing) { recipe.id = `recipe:${story.recipes.length + 1}`; recipes.set(key, recipe); story.recipes.push(recipe); }
     const result = existing ?? recipe;
@@ -439,8 +450,14 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       if (/^place\s*:/.test(node.text)) { error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
       if (/^(?:from|after)\s+chapter\b/.test(node.text)) { error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration.', node.line, node.text); continue; }
       const h = ref(node.text, node.line, 'hotspot', 'hotspot-declaration', 'declaration'); chapter.hotspots.push(h.id);
+      const coordinate = /\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(node.text);
+      const previous = chapter.hotspotDefinitions?.[h.id];
+      if (previous && coordinate && (previous.x !== +coordinate[1]/100 || previous.y !== +coordinate[2]/100)) error('conflicting-hotspot-position', 'The same fixed item has different positions in this chapter.', node.line, node.text);
+      const definition = (chapter.hotspotDefinitions ??= {})[h.id] ??= {id: h.id, name: story.items[h.id].name, source: source(node.line),
+        ...(coordinate ? {x: +coordinate[1] / 100, y: +coordinate[2] / 100} : {})};
+      wonder(story.items[h.id], node.prose, node.line);
       for (const child of node.children) {
-        if (/^icon\s*:/.test(child.text)) assignIcon(story.hotspots[h.id], child);
+        if (/^icon\s*:/.test(child.text)) assignIcon(definition, child);
         else if (/^place\s*:/.test(child.text)) {
           const match = /^place:\s*(.+?)\s+\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(child.text);
           if (!match || child.children.length || child.prose.some(part => part.text.trim())) {
@@ -448,10 +465,12 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
             continue;
           }
           const item = ref(match[1], child.line, 'item', 'placement', 'placement', startOf(child.text, child.line) + child.text.indexOf(match[1], 'place:'.length));
-          (story.hotspots[h.id].placements ??= []).push({item, x: +match[2] / 100, y: +match[3] / 100, source: source(child.line, child.text)});
+          (definition.placements ??= []).push({item, x: +match[2] / 100, y: +match[3] / 100, source: source(child.line, child.text)});
         }
         else itemNode(child, undefined, h.id);
       }
+      // The first authored presentation remains the global fallback for tools.
+      if (!story.chapters.some(c => c.hotspots.includes(h.id))) story.hotspots[h.id] = definition;
     }
     for (const node of bullets(sections.get('Items') ?? [])) { const result = itemNode(node, undefined, undefined, true); if (result) chapter.items.push(result); }
     for (const node of bullets(sections.get('Combinations') ?? [])) itemNode(node);

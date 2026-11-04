@@ -18,12 +18,16 @@ export interface LiveStoryUpdate {
 /** Partial parser output is still playable; an empty buffer has one empty surface. */
 export function recoverPreviewStory(parsed: Story): Story {
   let story = parsed;
+  const coordinate = (value: number | undefined) => value === undefined || !Number.isFinite(value) ? undefined : Math.max(0, Math.min(1, value));
+  const invalid = (hotspot:Hotspot) => [hotspot.x, hotspot.y].some(value => value !== undefined && (!Number.isFinite(value) || value < 0 || value > 1));
   for (const [id, hotspot] of Object.entries(parsed.hotspots)) {
-    if ([hotspot.x, hotspot.y].some(value => value !== undefined && (!Number.isFinite(value) || value < 0 || value > 1))) {
+    if (invalid(hotspot)) {
       if (story === parsed) story = { ...parsed, hotspots: { ...parsed.hotspots } };
-      const coordinate = (value: number | undefined) => value === undefined || !Number.isFinite(value) ? undefined : Math.max(0, Math.min(1, value));
       story.hotspots[id] = { ...hotspot, x: coordinate(hotspot.x), y: coordinate(hotspot.y) };
     }
+  }
+  if(parsed.chapters.some(chapter=>Object.values(chapter.hotspotDefinitions??{}).some(invalid))){
+    story={...story,chapters:parsed.chapters.map(chapter=>({...chapter,hotspotDefinitions:Object.fromEntries(Object.entries(chapter.hotspotDefinitions??{}).map(([id,h])=>[id,invalid(h)?{...h,x:coordinate(h.x),y:coordinate(h.y)}:h]))}))};
   }
   if (story.chapters.length) return story;
   const empty: Chapter = {
@@ -223,6 +227,7 @@ export function restoreLiveState(story: Story, raw: unknown): State | undefined 
     const encounterOrders = new Set<number>();
     for (const [id, token] of Object.entries(state.tokens)) {
       if (!token || !story.items[id] || token.id !== id || !chapter(token.chapter) || !state.visited.includes(token.chapter) || ![token.x, token.y].every(Number.isFinite) || !['available', 'consume', 'transform', 'installed'].includes(token.status) || !strings(token.slots)) return;
+      if (token.fixedPosition && ![token.fixedPosition.x,token.fixedPosition.y].every(value=>Number.isFinite(value)&&value>=0&&value<=1)) return;
       if (token.firstSeen !== undefined) {
         const seen = token.firstSeen;
         if (!seen || typeof seen !== 'object' || (seen.chapter !== null && !chapter(seen.chapter)) || !Number.isSafeInteger(seen.order) || seen.order < 0 || encounterOrders.has(seen.order)) return;

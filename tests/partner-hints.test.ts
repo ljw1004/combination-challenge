@@ -14,6 +14,7 @@ const story=parseStory(`# Cellar
 **Hotspots**
 - Warm cellar
 **Items**
+- Warm cellar
 - Salt
 **Combinations**
 - Wild starter [preserve] + Dough [transform] @ Warm cellar -> Risen dough
@@ -24,7 +25,11 @@ const story=parseStory(`# Cellar
 **Hotspots**
 - Oven
 **Combinations**
-- Risen dough [transform] @ Oven -> Loaf`);
+- Risen dough [transform] @ Oven -> Loaf
+**Items**
+- Oven
+
+`);
 const item=(id:string)=>({kind:'item' as const,id:`name:${id}`});
 const hotspot=(id:string)=>({kind:'hotspot' as const,id:`name:${id}`});
 
@@ -73,6 +78,9 @@ test('unfinished compounds can be placed before fitting, including for a later n
 - Bench
 - Kiln
 **Items**
+- Shelf
+- Bench
+- Kiln
 - Box (compound)
   - unnamed slot: accepts Lid
 **Combinations**
@@ -98,7 +106,11 @@ test('Dough prepares the cellar before Wild starter exists, while Flour is only 
 - Warm cellar
 **Combinations**
 - Flour [transform] + Water [preserve] -> Wild starter
-- Wild starter [preserve] + Dough [transform] @ Warm cellar -> Risen dough`;
+- Wild starter [preserve] + Dough [transform] @ Warm cellar -> Risen dough
+**Items**
+- Warm cellar
+
+`;
   const prep=parseStory(text),state=newGame(prep);
   assert(!state.tokens['name:Wild starter']);
   assert.deepEqual(partnerHints(prep,state,hotspot('Warm cellar')).items,new Set(['name:Dough']));

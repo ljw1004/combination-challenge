@@ -15,6 +15,10 @@ Start here.
 - Bench
 **Combinations**
 - A [preserve] + B [preserve] -> C
+
+**Items**
+- Bench
+
 ## Already done
 ![room](room.webp)
 **Goals**

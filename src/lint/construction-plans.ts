@@ -1,6 +1,7 @@
 import type { Condition, Recipe, Ref, Story } from '../story/types.ts';
 import type { State } from '../engine/types.ts';
 import {activeHotspots, goalChains} from '../engine/analysis.ts';
+import {recipeIngredients} from '../engine/fixed-items.ts';
 
 export interface ConstructionPlan {
   /** Newly constructed identities and installed slots, not partial executions. */
@@ -96,7 +97,7 @@ export class ConstructionPlans {
     const result = new Map<string, ConstructionPlan>();
     const nextTrail = new Set([...trail, fact]);
     for (const recipe of this.producers.get(fact) ?? []) {
-      const ingredients = [recipe.a.ref, ...(recipe.b ? [recipe.b.ref] : [])].flatMap(refFacts);
+      const ingredients = recipeIngredients(recipe).flatMap(input => refFacts(input.ref));
       for (const dependencies of this.facts(ingredients, nextTrail)) {
         // A construction cannot be its own prerequisite, even through a cycle.
         if (recipeFacts(recipe).some(output => dependencies.facts.has(output))) continue;
@@ -114,9 +115,20 @@ export class ConstructionPlans {
 
   reference(ref: Ref): ConstructionPlan[] { return this.facts(refFacts(ref), new Set()); }
 
+  recipe(recipe: Recipe): ConstructionPlan[] {
+    if (recipe.hotspot && !activeHotspots(this.story,this.entry.chapter).includes(recipe.hotspot)) return [];
+    if (this.entry.excluded.includes(recipe.result.id)) return [];
+    if (!recipe.installation && this.entry.tokens[recipe.result.id]) return [];
+    const facts=recipeFacts(recipe), trail=new Set(facts);
+    return this.facts(recipeIngredients(recipe).flatMap(input=>refFacts(input.ref)),trail).map(dependencies=>({
+      facts:new Set([...dependencies.facts,...facts]), recipes:new Map([...dependencies.recipes,[recipe.id,recipe]]), conditions:new Map(),
+    }));
+  }
+
   private condition(condition: Condition): ConstructionPlan[] {
     if (condition.hotspot && !activeHotspots(this.story, this.entry.chapter).includes(condition.hotspot)) return [];
-    return this.reference(condition.item).map(plan => ({...plan,
+    const plans=condition.hotspot?this.together(this.reference(condition.item),this.reference({id:condition.hotspot,slots:[]})):this.reference(condition.item);
+    return plans.map(plan => ({...plan,
       conditions: new Map([[JSON.stringify([condition.item, condition.hotspot ?? '']), condition]])}));
   }
 

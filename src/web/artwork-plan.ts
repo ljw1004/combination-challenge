@@ -4,6 +4,7 @@ import {activeHotspots, background, chapterNeeds, indexStory} from '../engine/an
 import {availableTokens, chapterComplete, legalActions, recipeFor} from '../engine/game.ts';
 import {itemPresentation} from '../engine/presentation.ts';
 import {markdown} from './markdown.ts';
+import {hotspotDefinition, presentHotspots} from '../engine/fixed-items.ts';
 
 function itemImages(story: Story, chapter: number, ref: Ref): string[] {
   const item = story.items[ref.id];
@@ -14,8 +15,9 @@ function readingImages(text: string): string[] {
   markdown(text, path => { paths.push(path); return path; });
   return paths;
 }
-function sceneImages(story: Story, chapter: number): string[] {
-  return [background(story, chapter), ...activeHotspots(story, chapter).map(id => story.hotspots[id].icon?.url)].filter((url): url is string => !!url);
+function sceneImages(story: Story, chapter: number, state?: State): string[] {
+  const ids = state ? presentHotspots(story,state,chapter) : activeHotspots(story,chapter);
+  return [background(story, chapter), ...ids.map(id => hotspotDefinition(story,chapter,id).icon?.url)].filter((url): url is string => !!url);
 }
 
 export function coverArtwork(story: Story): string[] {
@@ -25,7 +27,7 @@ export function coverArtwork(story: Story): string[] {
 
 /** Only the chapter being laid out and the reading about to appear can block entry. */
 export function currentArtwork(story: Story, state: State): string[] {
-  return [...sceneImages(story, state.chapter),
+  return [...sceneImages(story, state.chapter, state),
     ...availableTokens(state).filter(token => token.chapter === state.chapter).flatMap(token => itemImages(story, state.chapter, token)),
     ...readingImages(state.pending[0]?.markdown ?? '')];
 }
@@ -53,18 +55,23 @@ export function resultArtwork(story: Story, state: State, action: Action): strin
   if (!recipe) return [];
   const ref = {id: recipe.result.id, slots: [...recipe.result.slots,
     ...(recipe.installation ? state.tokens[recipe.result.id]?.slots ?? [] : [])]};
-  return [...itemImages(story, state.chapter, ref), ...story.items[ref.id].wonders
+  const receivingChapter=state.tokens[action.b??action.hotspot??action.a].chapter;
+  const fixedIcon=activeHotspots(story,receivingChapter).includes(ref.id)?hotspotDefinition(story,receivingChapter,ref.id).icon?.url:undefined;
+  return [...(fixedIcon?[fixedIcon]:[]), ...itemImages(story, state.chapter, ref), ...story.items[ref.id].wonders
     .filter(wonder => wonder.requires.every(slot => ref.slots.includes(slot)) && !state.seen.includes(`wonder:${ref.id}:${wonder.source.line}`))
     .flatMap(wonder => readingImages(wonder.markdown))];
 }
 
 /** Restored scrollback sizes are filled in after the current chapter is usable. */
 export function scrollbackArtwork(story: Story, state: State): string[] {
-  return [...state.visited.filter(chapter => chapter !== state.chapter).flatMap(chapter => sceneImages(story, chapter)),
+  return [...state.visited.filter(chapter => chapter !== state.chapter).flatMap(chapter => sceneImages(story, chapter, state)),
     ...availableTokens(state).filter(token => token.chapter !== state.chapter).flatMap(token => itemImages(story, state.chapter, token))];
 }
 
 /** Geometry lint only needs declared placement surfaces, and runs when the editor is open. */
 export function placementArtwork(story: Story): string[] {
-  return Object.values(story.hotspots).flatMap(hotspot => hotspot.placements?.length && hotspot.icon ? [hotspot.icon.url] : []);
+  return story.chapters.flatMap((c, chapter) => c.hotspots.flatMap(id => {
+    const h = hotspotDefinition(story,chapter,id), icon=h.icon??itemPresentation(story,chapter,id).icon;
+    return h.placements?.length && icon ? [icon.url] : [];
+  }));
 }

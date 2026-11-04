@@ -67,6 +67,7 @@ test('changed conditions are re-evaluated while unchanged historical placement r
 **Hotspots**
 - Bench
 **Items**
+- Bench
 - Wood
 - Tool
 **Combinations**
@@ -167,7 +168,7 @@ test('partial buffers recover available structure and declarations renamed in pl
 });
 
 test('changing a goal-only ingredient does not rename its old witness into a new satisfied condition', () => {
-  const text = '# Test\n## Room\n![room](room.webp)\n\n**Goals**\n- Place the resource -- Wood @ Bench\n**Hotspots**\n- Bench';
+  const text = '# Test\n## Room\n![room](room.webp)\n\n**Goals**\n- Place the resource -- Wood @ Bench\n**Hotspots**\n- Bench\n**Items**\n- Bench\n\n';
   const before = parse(text);
   const original = act(before, newGame(before), { type: 'move', item: 'name:Wood', chapter: 0, x: 120, y: 410, hotspot: 'name:Bench' });
   assert(original.achieved.includes(before.chapters[0].goals[0].id));

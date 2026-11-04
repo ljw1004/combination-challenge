@@ -12,6 +12,7 @@ Put the bowl at the station.
 - Station (at 50%, 35%)
   - icon: ![station](station.svg) (circular)
 **Items**
+- Station
 - Bowl
 - Spoon
 ## Inherited
@@ -111,6 +112,7 @@ Finish the preparation.
 - Station (at 50%, 15%)
   - icon: ![station](station.svg)
 **Items**
+- Station
 - Flour
 **Goals**
 - Finish -- Finished
