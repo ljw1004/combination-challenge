@@ -35,6 +35,16 @@ These are proposals, not existing tools or syntax:
 
 The retained [opportunity lint](../docs/story-format-spec.md#opportunities-for-authored-content) completes all five stories within its 100-element cap. Review Settlement's four findings (Brush, Weather book, Salt and Brine) and Mars's Illuminated glovebox using their blocking examples and related source rules, without automatically making optional content mandatory. Current evidence and limits are in the [working notes](../notes.md#31-october-2026-retained-opportunity-linter); these are new findings, not reopened historical lint reviews.
 
+## Authoring automation
+
+The [iteration process](../docs/story-authoring.md#develop-a-story) and [techniques](../docs/story-authoring.md#reusable-story-techniques) define required editorial work. The following are proposed tooling, not implemented checks:
+
+- Extend existing parsed catalogues and authoring records with supplied/donor/local provenance, fabrication capabilities, persistent physical features and permitted fictional assumptions. Flag missing origins, circular prerequisites and incompatible simultaneous uses of a unique donor component; keep this separate from the player's infinite-resource model.
+- Generate review packets from actual recipes and legal checkpoints: an object's complete lifecycle, recurring-place views, registered before/after scenes, legal fitting subsets and isolated title/card collections. Reuse existing art, write temporary output under `runs/`, and preserve the distinction between informed comparison and blind interpretation.
+- Track the dependencies of accepted decisions on recipes, prose, supplies, images, source references and checks. A revision should identify affected work and invalidate only the relevant earlier approvals. This needs explicit annotations and scoped checks; it cannot infer every physical or narrative dependency from filenames.
+
+Prefer extending the shared parser/catalogue and existing proof tools over adding duplicate inventories or story-specific validation rules. Distinguish deterministic checks from reviewer judgments, preserve the exact inspected version, and report coverage limits. The existing browser and lint tools do not already enforce this whole process.
+
 ## Ideas story development
 
 The [Ideas study](ideas-study/README.md) retains 57 playable chapters and a 164-combination route. Length is settled. Its [design brief](../stories/ideas/design-brief.md) prioritizes interesting connections, worthwhile independent discoveries, intelligible teaching and hooks for a smart reader. The [teaching audit](ideas-study/teaching-audit.md) records the whole-story card revision and concrete repairs to translation, coordinates, plant geography, DNA copying, Burton and public criticism; the earlier proposed repairs are no longer an untouched task list.

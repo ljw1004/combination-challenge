@@ -1,6 +1,8 @@
 # Mars v12 — survival artwork pipeline
 
-This is the current artwork pipeline for the 24-chapter [Mission to Mars manuscript](../../../mars-v12/mars.md). The [design brief](../../../mars-v12/design-brief.md) owns narrative, physical and visual intent. The [emergency revision record](../emergency-revision/README.md) owns current checks and their limits; [feedback verification](feedback-verification.md) describes the earlier 26-chapter version.
+This package produced the accepted 24-chapter [v12 reference](../../../mars-v12/mars.md), now copied into the editable [live story](../../../../../stories/mars/mars.md). The [live design brief](../../../../../stories/mars/design-brief.md) owns accepted intent for future work, including study iterations. The [current production entry point](../../README.md#current-production-entry-point) identifies targets and scratch storage. The [emergency revision record](../emergency-revision/README.md) records checks of the accepted version; [feedback verification](feedback-verification.md) describes the earlier 26-chapter version.
+
+The commands below still target v12 and are preserved production implementations, not current export commands. Do not run write operations against the frozen reference. Adapt inputs and outputs deliberately for the live story and stage trial results under `runs/`; changing this README does not retarget the scripts. Read-only checks can inspect the reference but do not verify later live edits. The [v12 brief](../../../mars-v12/design-brief.md) is a historical snapshot, not an authority to copy over the live brief.
 
 The current art uses a snug end-on cave room without exterior masonry, hand-carried water, soft cargo-net supports and plain local iron vessels on cleared ground. Small precision parts have finite original experiment/repair donors. A shared service controller moves between scheduled batches. See the [science consultation](../emergency-revision/science-metal-fuel.md) and [austerity review](../emergency-revision/austerity-review.md) for the reasoning and accepted fiction.
 
@@ -14,7 +16,9 @@ The current art uses a snug end-on cave room without exterior masonry, hand-carr
 
 All painting uses built-in imagegen; independent requests can run concurrently. Mechanical work only registers, masks, crops, resizes and composites generated pixels. The [fuel composite record](prompts/austere-fuel-air-composite-mechanical.json) preserves exact Air scrubber geometry across chapters. The [garden composition record](prompts/austere-garden-storm-tabs-r3-assembled.json) identifies the small generated attachment patches. Separate handoff snippets document production proposals; they do not override `layout.json`.
 
-From the repository root, use Python with Pillow, NumPy and OpenCV:
+## Recorded v12 export commands
+
+These describe the original pipeline, using Python with Pillow, NumPy and OpenCV. They are historical commands with v12 write targets; follow the adaptation requirement above before using their implementation for new work:
 
 ```sh
 python3 projects/mars-study/production/v12/survival/tools/export.py

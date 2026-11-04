@@ -35,6 +35,8 @@ The imagined observatory and community should apply the earlier methods to concr
 
 ## Presentation and evaluation
 
+Apply the shared [iteration process](../../docs/story-authoring.md#develop-a-story) and [intellectual synthesis and changing perspectives](../../docs/story-authoring.md#intellectual-synthesis-and-changing-perspectives) technique. This brief records the story's particular voice, scope and educational aims; the shared guide owns the reusable review procedure.
+
 Follow the [shared wonder guidance](../../docs/story-authoring.md#write-wonders-and-attribution): a motivating question, the essential contribution of the ingredients, the reasoning and result, then a separate italic restatement using the item's local title where appropriate. Result cards must explain themselves without ingredient readings; titles must communicate to players who skip the cards. Primitive readings explain their own premise or example and need no artificial synthesis.
 
 Write clear, plain English. Avoid AI-style shorthand that piles abstract labels together: say who does what, what changes and why it matters. A shorter phrase is not simpler if the reader must unpack it. Use a technical term when the idea needs it, and explain it in ordinary language; familiarity with the subject is not a prerequisite.

@@ -2,7 +2,15 @@
 
 This is the guide to designing, writing and revising stories. Start from the [game's philosophy](../README.md#philosophy): enjoyable making and discovery should leave players with understanding worth carrying beyond the game. The [format specification](story-format-spec.md) defines syntax and game semantics; the [README](../README.md) covers file layout and tools; [fun and evaluation](fun-and-evaluation.md) owns review and playtesting methods. These are authoring aims, not claims that every current manuscript already meets them.
 
-Before revising a story, read its companion `design-brief.md` when present. It owns the story’s lasting purpose, voice, pacing and visual direction; update it when that intent changes. Keep experiments and dated construction history in the project, and shared interface rules in UX. The [repository layout](../README.md#story-layout) reserves the brief filename outside manuscript discovery.
+Before revising a story, read its active `design-brief.md`. It owns the story’s lasting purpose, voice, pacing, physical premises and visual direction. This guide owns the development process and reusable story techniques; the [icon guide](icon-guide.md) owns detailed graphics production, and [UX](ux.md) owns interface behavior. The [repository layout](../README.md#story-layout) reserves the brief filename outside manuscript discovery.
+
+## Keep one active design brief
+
+For a story in `stories/<story>/`, its companion `design-brief.md` is the authority for accepted intent, including work performed in a study directory. Link to it from the active study index and production instructions. Read it at the start of each new assignment; do not infer current intent from the nearest old draft or generation prompt. Update it when a decision is adopted, alongside affected work. Refer to the applicable techniques in this guide and record the story's choices and exceptions, rather than copying the universal instructions.
+
+Keep proposed departures and unresolved questions in the study's working notes. An experimental draft follows the active brief except for its explicitly identified hypotheses; accepting an experiment updates the active brief deliberately. Frozen iteration briefs describe their original versions and do not become competing current instructions. Do not repeatedly copy a study brief wholesale over the active one. A new unpublished story may begin with its active brief in the study; move that authority beside the manuscript on promotion and update entry points.
+
+Keep dated decisions and verification outcomes in notes or project records. Production commands must identify their actual input and output paths: moving the manuscript or changing a documentation link does not retarget a script. Preserve frozen references, and adapt historical tools before using them on current work.
 
 ## Choose a premise that works through combination
 
@@ -16,15 +24,40 @@ Satisfying construction and curiosity about the unfolding story are two useful h
 
 ## Develop a story
 
-1. Establish the setting, player role and purpose with the user.
-2. Explore the combination idea and narrative arc together. Challenge the hook, motivation, authenticity and overall experience through the [independent-review process](fun-and-evaluation.md#reviewer-independence), then revise.
-3. Draft actual combinations and a playable manuscript. Track what each object physically represents in author comments where helpful, and examine its contribution and downstream continuity. Use [blind combination and story-beat readings](fun-and-evaluation.md#blind-combination-and-story-beat-readings) for local questions and [chapter playtests](fun-and-evaluation.md#chapter-fun-playtests) for passages of play.
-4. Seek user evaluation of the playable result. Passing checks and positive agent reports do not establish that it works for its intended player.
-5. Explore an art direction with representative items and contrasting contact sheets or playable studies, following the [icon guide](icon-guide.md). Produce the full set once the direction and story justify it.
-6. Recheck physical continuity as objects become visible. Draw useful combination chains and review their form, scale and transformation; artwork can expose a change of identity that prose concealed.
-7. Continue playtesting and revision across story, artwork and interaction. A finished draft or artwork pass is an intermediate milestone.
+Scale this loop to the change. A prose correction need not reopen the art direction, and an intellectual story may be revised entirely in logical/text space. Keep the applicable checks explicit without turning the process into mandatory artwork generation or repeated full campaigns.
+
+1. **Establish intent and scope.** Read the active brief; identify the manuscript being changed, its audience, player role, purpose and applicable techniques below. For a revision, state the problem and the observable improvement sought. Separate accepted constraints from hypotheses and fictional allowances.
+2. **Trace the work before decorating it.** Sketch the motives and actual combinations. For each operation, identify what each input contributes, what changes, why that matters now and what would be lost if the operation were removed or bundled. Follow important objects, ideas and capabilities across chapters. A plausible explanation does not establish that a step is useful.
+3. **Prototype the difficult sequences.** Use text or placeholders to make the combinations playable. Test representative problems such as a recurring place, independent construction orders, a resource-dependent machine or an abstract argument. Resolve dependencies and motives before expanding an expensive artwork family. A familiar easy icon alone is an inadequate pilot for a story whose difficult scenes are assemblies.
+4. **Review the relevant questions.** Choose assignments from the review table below. Use the current artifact and appropriate context, following [reviewer independence](fun-and-evaluation.md#reviewer-independence). Assess findings rather than automatically implementing them. Seek user evaluation of meaningful creative choices and the playable result; routine inconsistencies should be investigated before delivery.
+5. **Carry each correction through the story.** Update the owning brief or shared guidance, then identify affected recipes, readings, supplies, appearances, source references and checks. Inspect downstream uses and earlier scenes that can expose the changed object. Update or retire superseded instructions; do not leave a new requirement only in a chat or one generation prompt.
+6. **Produce and integrate related families when artwork is needed.** Follow the [icon guide](icon-guide.md) with approved physical references and explicit invariants. Generate independent families concurrently when useful; dependent states need a common reference and integration review. Inspect delivered pictures and actual gameplay against the requirements, even when the prompts were correct.
+7. **Verify the changed result.** Run relevant semantic, continuity, visual and comprehension checks. Include meaningful alternate orders, partial assemblies and later appearances. Bind each result to the version and scope actually inspected. A changed dependency or image invalidates affected earlier approvals; unrelated checks need not be repeated without a reason.
+8. **Retain the decision and continue deliberately.** Record concise outcomes, unresolved issues and the next hypothesis in their owning locations. Remove disposable output. A completed draft or artwork pass is an intermediate milestone; passing checks does not establish learning or enjoyment.
 
 Keep the active project's drafts, research, hypotheses and retained design deliverables together until the overall development effort is complete. Follow the [project lifecycle](../AGENTS.md#directory-hygiene) and [verification retention policy](engineering.md#verification-records); those documents own where working material and concise outcomes belong.
+
+### Choose reviews by question
+
+Every substantial draft needs scrutiny of purpose, understandable causality and continuity. Add specialist assignments for the techniques and risks actually present. A narrow correction usually needs the affected checks, not another complete set of director rounds. Role titles alone do not establish coverage.
+
+| Question and applicable scope | Input and useful finding | What it does not establish |
+|---|---|---|
+| Narrative and necessity: all stories | Current arc and recipes. Identify an unmotivated action, weak contribution, missing payoff or a simpler sequence; explain what its removal would lose. | Physical feasibility or player enjoyment. |
+| Forward understanding: new or ambiguous combinations | The [blind two-question case](fun-and-evaluation.md#blind-combination-and-story-beat-readings), with only its prescribed player context. Record a natural action and predicted result before explanation. | Whole-story pacing or factual truth. |
+| Continuity and mechanics: dependencies, reuse and changed states | Actual recipes, goals and versioned engine states. Find a concrete legal order that acts too early, loses a needed object, duplicates a unique one or strands continuation. | Physical identity in artwork or universal proof from one route. |
+| Feasibility, provenance and necessity: physical construction | Available materials, donor equipment, tools, working conditions and allowed fiction, plus actual pictures when available. Identify unexplained parts and propose the least-work solution that serves the purpose. | Engineering qualification; a viable mechanism alone does not justify its construction. |
+| Recognition: important visual distinctions | Unlabelled artwork, then the separately specified contextual stage in the [icon review method](icon-guide.md#6-run-separate-recognition-and-art-direction-reviews). Record interpretations and confusions. | Construction feasibility or consistent appearances elsewhere. |
+| Visual continuity and registration: recurring places and assemblies | All relevant appearances, selected backgrounds, registered composites and legal partial states at playing size. Identify a changed landmark, missing fitted part, seam, wrong scale or obstructed target. | Blind recognition; this reviewer knows the intended objects. |
+| Intellectual explanation and authenticity: arguments and teaching | Separate title-only and card-only readers; an informed reviewer separately receives actual recipes and relevant primary sources. Check each input's contribution, attribution and limits. | Learning from completion or a familiar reviewer repeating the intended label. |
+
+Give informed reviewers the applicable current requirements without earlier criticism or verdicts. For each assignment, identify the input version, supplied context, question, observed issue, adopted response and remaining limit. Prefer a concrete counterexample or a named inspected case over a blanket verdict. Keep mechanics, plausibility, recognition, comprehension and enjoyment conclusions separate. The [evaluation guide](fun-and-evaluation.md) owns independence, player protocols and evidence limits; these assignments select what to examine.
+
+### Keep requirements connected to the work
+
+Use the existing manuscript, catalogue and layout records rather than maintaining parallel inventories. For a relevant object or idea, record its identity, physical form or claim, source or attribution, creating and using recipes, prerequisites, persistent features and appearances. For a change, identify affected entries and the checks that must be repeated. Keep proposed automation in the [backlog](../projects/backlog.md#authoring-automation); temporary review packets and comparison sheets belong in `runs/`.
+
+These are required editorial practices, not claims that tools enforce them. Shared lint, checkpoints, replay and browser tests check their documented mechanics. Automatic provenance validation, complete cross-file change propagation and a general lifecycle-review generator remain proposed tooling. Until implemented, perform those reviews explicitly using the existing records; do not report a documented requirement as an automated pass.
 
 ## Make combining worthwhile
 
@@ -60,9 +93,9 @@ Four or more active hotspots are a hard lint error. Acknowledgments are chapter-
 
 A hotspot should represent a meaningful place, apparatus or process. Cut needless station visits and let complete equipment perform routine internal steps; dividing a process among more locations can turn making into repetitive sequencing. Do not split chapters merely to satisfy the count.
 
-Elapsed duration is a combination-game abstraction: use sensible time cues where they help, without adding waiting steps or rejecting worthwhile combinations merely because their real processes take different lengths of time.
+Use [complete-operation abstractions](#complete-operations-and-elapsed-time) for routine handling and elapsed duration while preserving the important inputs and consequences.
 
-Keep separate specimens as separate things. Studying two objects does not require combining them into a comparison unit; use a goal to study one and a `next:` goal to study the other. A physical container or working assembly can be a real construction, but merely comparing observations does not create an object. In a discovery story, each scientific operation should reveal something that changes the question or the next action; routine controls and repeated assays need not become compulsory gameplay.
+Use [separate specimens and consequential discoveries](#separate-specimens-and-consequential-discoveries) when investigation drives the story. Mere comparison need not create another physical object.
 
 A hotspot is an ordinary item annotated as fixed for a chapter. Declare its identity separately in Items; put starting primitives in the chapter that introduces them. A constructed fixed item appears only after it is made. For a later appearance, establish its creation through earlier goals and list the same surviving identity under Hotspots again. Keep its appearance recognizably the same equipment or working surface. The [specification](story-format-spec.md#specification) owns availability, conditional `@` rules, fixed retirement and carry restrictions. Do not rely on optional earlier work or a special action order to make fixed scenery behave correctly.
 
@@ -78,7 +111,7 @@ Visual form tests a physical combination. Check whether the objects' shape, scal
 
 Primitive icons can begin at an authored point in the landscape: a water supply in a river, for example, or fire beside a shelter. Leave room above each icon for its name. Use the starting-position syntax and restrictions in the [specification](story-format-spec.md); ordinary created items appear where the player combines their ingredients.
 
-Compose hotspots together with their backgrounds, following the [scene composition guidance](icon-guide.md#8-expand-through-related-families). Use existing landscape features where suitable; architecture should meet the ground and surrounding walls naturally. A fully transparent hotspot icon can define a hit area over a feature painted into the background. In author comments, record its centre, display dimensions and the physical feature it covers. Check every appearance, including repeated locations, at phone size; retain enough blank space for arranging items and avoid painting future constructions before the player makes them.
+Use [scenery as an interaction target](#scenery-as-an-interaction-target) and [landscapes that change](#landscapes-that-change-through-fixed-items) when the work belongs in the environment. The [icon guide](icon-guide.md#8-expand-through-related-families) owns production and registration details.
 
 Use a hotspot's `place:` entries when an item should settle at a particular point in the scenery: a tower on a cape, a beacon on a mast, or a cooked result inside an oven. List the receiving ingredient as well as the result when both should share a destination. The [specification](story-format-spec.md) defines centre coordinates, containment lint and occupied-space fallback. Choose a centre inside the hotspot's circular or rectangular hit area and leave room for the whole item and its name; placement does not introduce a supply or require a goal.
 
@@ -149,6 +182,80 @@ Distinguish physical transformation, historical transmission, analogy, interpret
 Do not make intellectual history an inevitable ladder toward the latest speaker. Religious and natural explanations can coexist. Attribute doctrinal claims to particular texts and traditions; completing their combination reconstructs a position, not a proof of religious truth. Keep genuine quotations accurate. Put source references and factual qualifications in `> NOTE:` author comments when they do not belong in gameplay.
 
 Review factual authenticity separately from forward player intuition. A defensible retrospective explanation does not make a contrived combination understandable. Use the [completed authenticity record](<../archive/2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md>) for historical findings, decisions and evidence, and the [editorial backlog](../projects/backlog.md) for new work, current story directions and future ideas.
+
+## Reusable story techniques
+
+Select techniques because the story needs them. Its brief should link to the applicable entries and specify local choices, persistent features and fictional allowances. These are authoring patterns using the existing format, not new engine features. Each combines a purpose, common failures and an appropriate check; use the [review assignments](#choose-reviews-by-question) without imposing every specialist audit on every story.
+
+### Resource-limited construction
+
+Use this when scarce payload, local materials or improvised tools are part of the story's appeal. Trace significant parts to supplied equipment, an actual donor, a local source or an established fabrication process. Record the material's form, the necessary tools and conditions, what the donor loses, and where the part is used later. Distinguish a representative supply icon from a unique reusable object. The engine's infinite-resource abstraction does not establish unlimited physical cargo; an author-side allocation need not become player quantity accounting.
+
+Ask both whether the construction can work and whether the person would choose to spend effort on it. Consider an existing object, a simpler local support, fewer parts or omission before adding machinery. Inspect the delivered picture for implied material, machining, joints, furniture and instruments that the recipe never supplied. Wear and rough paint do not make an elaborate assembly easy to fabricate. A donor cannot keep performing a function whose essential part has been removed; shared hardware cannot occupy two operating machines at once.
+
+Separate the mechanism the story teaches from its bounded fictional allowances. Keep accepted assumptions visible in the brief; do not silently expand them into a supply of arbitrary capabilities, or add manufacturing and inspection chores merely to defend every abstraction. Review a complete chain from obtaining the first material through the later use of its product. Check circular prerequisites, incompatible material forms, unexplained precision parts and simpler ways to achieve the same purpose.
+
+### Complete operations and elapsed time
+
+Use this to keep attention on worthwhile making, investigation and care. A combination may include routine cleaning, fitting, transport, checking, repeated batches or elapsed growth when its result and context make that scope intelligible. Preserve the actual necessary inputs and apparatus, and teach the mechanism that matters. Include a short explanation when an otherwise invisible part of the operation is needed to understand the result.
+
+Bundling must not turn a connection into a complete unexplained factory, a small container into an entire expedition's supply, or an observation into a stronger conclusion. Conversely, different real durations do not require waiting tokens, timers or extra maintenance chapters. Review what the player would reasonably infer from the objects, action and result; ask which omitted detail changes the causal account and which merely adds routine work.
+
+### Landscapes that change through fixed items
+
+Use this when repairing, clearing or constructing should visibly change the place where the player works. Represent each meaningful scene state with an ordinary item declared fixed in that chapter. Transform or consume the old fixed state through an actual recipe into the next state; declare the derived state without supplying it prematurely. Arrange the registered artwork so the action changes that part of the landscape in place. Later appearances must use the state actually established earlier.
+
+Plan logical states and visual changes together. Keep the camera, physical scale, landmarks and unchanged contact points stable. A transparent replacement needs a background that remains valid outside its silhouette. If the old form is painted into the background, the replacement must erase that form without covering an independently changing neighbor. The [registration method](icon-guide.md#register-changing-scenery) covers production details. Do not paint a future construction permanently into an earlier background or add a duplicate portable building as the result.
+
+Check actual fixed-state retirement, including alternative orders and scrollback. Future-use protection can retain an input; the [fixed-item contract](story-format-spec.md#specification) requires retiring fixed operands to disappear whenever the operation is executable. Inspect the initial state, each transition and the completed scene at playing size, then reload. A montage containing every declaration is useful for finding extraction errors, but mutually exclusive states together are not a legal gameplay witness.
+
+### Scenery as an interaction target
+
+Use this for an existing landscape feature or apparatus that belongs naturally in a painting. The complete background can show the rock face, shoreline, oven or work surface; a fully transparent PNG defines its fixed receiving area. Record the feature, center and display dimensions together. The transparent image supplies interaction geometry, not the visible object and not permission to reveal a construction before it exists.
+
+Compose targets with their surroundings and preserve room for movable items and names. Use the existing `place:` mechanism when a received item or result should settle at a particular point; it does not create supplies or enforce a prerequisite. Check the actual hit area, target recognition, placement and narrow-screen crop through real dragging. A beautifully integrated feature can still be hard to identify as the receiver or have an unreachable target. See [scene composition](icon-guide.md#8-expand-through-related-families) and [placement semantics](story-format-spec.md#specification).
+
+### Independent construction and operating states
+
+Use a compound when independently added parts should remain individually meaningful. Its base and slot overlays share the same canvas and registered geometry; declaration order supplies the visual stacking order regardless of installation order. Plan the complete assembly and its partial states together. Preserve already installed parts when another slot is filled. An ordinary transformation creates a new identity and does not automatically transfer fitted details; author the resulting structure deliberately when a true transformation is needed.
+
+Slots can also represent independent operating settings when that interpretation matches the action; an illuminated control need not be a new machine installed inside the panel. Keep required capabilities explicit through fitted-slot operands and goals. The [specification](story-format-spec.md#specification) owns eligibility and compound behavior.
+
+For small assemblies, inspect every legal fitting subset and exercise meaningful alternative installation orders; three independent fittings have eight subsets. Check that incomplete states cannot perform the completed operation, layers do not erase neighboring parts, standalone components match their installed forms, and reload preserves the same appearance. Larger assemblies need stated coverage, especially overlapping parts and coupled prerequisites. Follow the [compound art method](icon-guide.md#8-expand-through-related-families).
+
+### Recurring objects and places
+
+Use this whenever recognition of the same container, vehicle, room, working surface or specimen matters later. Track its physical identity across logical transformations and distinguish it from similar objects. Record persistent features, permitted changes, components, connections, contact points and appearances in the existing catalogue or scene plan. A single reusable basket acquiring different contents should not quietly become several differently built baskets.
+
+For places, establish a simple spatial account: entrances, windows, service walls, working zones and camera directions. Interior and exterior views must describe the same structure; matching screen-left positions is not sufficient when the camera changes sides. Compare all relevant appearances in a lifecycle sheet, including early/late states, reverse views and fitted components. Preserve geometry when repairing a small detail rather than regenerating the whole family without its references.
+
+Review names and recipes alongside pictures: recognizable artwork cannot repair a duplicated unique token or an object appearing at a second site without a movement explanation. Likewise, a shared logical identity does not prove that its paintings agree. Check physical continuity and actual game states separately, using the [icon registration method](icon-guide.md#register-changing-scenery).
+
+### Physical prerequisites and late events
+
+Use physical availability and state to explain why an operation becomes possible. A receiving surface may be reached only after crossing, a room usable only after inflation, or a machine functional only after its fittings exist. Express those prerequisites in the actual operands, construction state or chapter-local fixed context. Global recipes are not gated by their source chapter; `next:` orders goal disclosure but does not prohibit early execution. A name or icon change through `from chapter` is presentation, not a new capability rule.
+
+A late fixed receiver can localize an otherwise global operation to the affected place and time. Establish its existence through real prior work, and avoid supplying a primitive that bypasses the intended prerequisite. Test attempts before and after readiness, reversed preparations, access to earlier boards, and any premature completion that would bank a later repair before its damage occurs. Check the resulting art as well: the inaccessible space or incomplete assembly should make the restriction intelligible. Do not use arbitrary gates merely to force one sequence where alternatives make sense.
+
+### Separate specimens and consequential discoveries
+
+Use this when investigation changes the story's question or purpose. Keep the original material, an extracted section and observations distinct where their differences matter. Track collection, destructive preparation, retained remainder, examination and later custody. A picture of an intact object must not replace an earlier damaged fragment without a new source or operation.
+
+Studying two specimens need not manufacture a comparison object; sequential goals can ask for both observations. Containers and working assemblies may be real constructions, but a comparison alone does not create a physical package. Let results change what the player can ask, understand or do; routine assays and record-making do not automatically deserve separate actions. Review the specimen lineage and the strength of the inference separately: an interesting shape or association may justify further investigation without proving origin, age or mechanism.
+
+### Intellectual synthesis and changing perspectives
+
+Use this when combining reconstructs an argument, interpretation or discovery. Identify the actual question, each ingredient's contribution and what the result establishes. A thematic association, shared vocabulary or chronological succession alone does not make the two inputs a convincing recipe. Worked examples, contrasting cases, predictions and counterexamples can make an abstract relation usable. A worthwhile idea can also be a satisfying endpoint without supplying a later recipe.
+
+Provide the two independent reading paths described in [wonders and attribution](#write-wonders-and-attribution): understandable titles for people who skip cards, and self-contained explanations for people who read only the resulting cards. Use a fresh title-only reader and a separate card-only reader. Supply only the current perspective and the layer under test, without recipes or missing ingredient explanations. Ask what the words mean, what relies on unstated context, and what could be clearer or shorter. Collection reviews give coverage but can teach readers context; use isolated fresh probes for remaining standalone ambiguities. An informed review must then compare each explanation against every recipe that can produce it, including alternate routes and primitive readings that need no invented synthesis.
+
+For a comprehensive wording pass, inventory every chapter opening, local and inherited title variant, primitive explanation and result reading. One integrating editor checks consistency across any divided assignments. If gameplay is intended to stay unchanged, compare parsed structure before and after; check chapter-dependent names, authored closing titles and affected phone-size boards and readings. Keep temporary copies and reader packets under `runs/`. Focused follow-ups cover only their assigned material, not the whole manuscript.
+
+For changing speakers, use the [chapter orientation](#give-chapters-a-purpose-and-a-manageable-working-set) and [attribution](#write-wonders-and-attribution) patterns. State the current speaker's reasoning naturally, attribute inherited claims, preserve the difference between historical quotation and educational reconstruction, and let disagreement earn its force before a reply. Check title changes at perspective changes and returns; a presentation change does not rewrite the original reading. A joint setting must not imply a meeting that did not occur.
+
+Audit teaching through the motivating question, concrete case, explanation and limits, not the presence of a person's name or technical term. Ask readers to explain a distinction and apply it to a fresh case. Successful combination, repetition of the result's label and chapter-level fast completion do not establish understanding, later retention or continuous enjoyment. Follow the [evaluation method](fun-and-evaluation.md) for those separate questions.
+
+To test whether a later reply changes a reader's view, record their response to the earlier argument before revealing the reply, then ask what changed and why. Do not instruct them to find a position persuasive or infer a real community's response from an AI impersonation. An umbrella chapter question need not be answered by every example within it; distinguish local comprehension from the whole argument's effect.
 
 ## Check and preview a draft
 

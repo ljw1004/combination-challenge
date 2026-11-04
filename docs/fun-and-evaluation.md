@@ -41,6 +41,8 @@ Source ledgers: [designer research](<../archive/2026.10.30 initial experiments/d
 
 ## Reviewer independence
 
+Use the [authoring review table](story-authoring.md#choose-reviews-by-question) to select the question, inputs and scope for a development assignment, including techniques for physical or intellectual stories. This guide owns participant independence and the player/evaluation protocols; a specialist review does not replace those protocols or establish enjoyment.
+
 Every review assignment and revision requires a new agent with no inherited history (`fork_turns: "none"`). This applies to players, graders, narrative, continuity, authenticity and artwork reviewers. Never reuse an earlier participant under a new name or ask it to forget. A participant remembers the stages within its one defined assignment, then retires; a different case, chapter, revision or review role requires a new participant. If fresh review is unavailable, report that limitation rather than substituting a returning reviewer.
 
 Choose the evidence for the assignment. An informed manuscript reviewer receives the current manuscript and relevant standing guidance or brief, excluding earlier drafts, criticism, outcomes and working notes. The organizer supplies the applicable current requirements without the history of how they arose. Blind readers and players receive only the context specified below. Keep requests in plain English and record what was supplied. Retain concise findings and adopted changes under the [verification policy](engineering.md#verification-records), or the explicitly requested [playtest deliverables](#run-files).

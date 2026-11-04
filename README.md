@@ -157,8 +157,8 @@ Each document owns one aspect of working here. Update the owning document and li
 |---|---|
 | This README | Project orientation, setup, directory layout, tool catalog. |
 | [Story format](docs/story-format-spec.md) | Markdown syntax, game semantics and required diagnostics. |
-| [Story authoring](docs/story-authoring.md) | Story design, revision, structural analysis and draft checks. |
-| [Icon guide](docs/icon-guide.md) | How to research, develop, review and produce a story's icon set. |
+| [Story authoring](docs/story-authoring.md) | The iteration process, active-brief ownership, review assignments, reusable physical/intellectual story techniques, analysis and draft checks. |
+| [Icon guide](docs/icon-guide.md) | Detailed graphics production, recognition review, scene registration and artwork integration. |
 | [Active projects](projects/README.md) | Work in progress and the editorial/research backlog. |
 | [UX](docs/ux.md) | All current player and authoring UX decisions, their known motivations, and maintenance rules; no historical log. |
 | [Engineering](docs/engineering.md) | Implementation boundaries, technical constraints and testing policy. |
@@ -183,5 +183,5 @@ Maintain the [strict directory hygiene defined in AGENTS.md](AGENTS.md#directory
 - `docs/`: standing specifications, adopted guidance and reusable workflows.
 - `projects/`: active project briefs, research, plans and supporting material; see the [project index](projects/README.md).
 - `stories/`: active stories and their assets.
-- `runs/`: ignored temporary verification output; see the [retention policy](docs/engineering.md#verification-records) for requested playtest deliverables.
+- `runs/`: ignored trial generations, intermediate artwork, review sheets and verification output; see the [retention policy](docs/engineering.md#verification-records) for selected production and requested deliverables.
 - `archive/`: historical source and research; follow its [usage policy](archive/README.md).

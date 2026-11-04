@@ -1,6 +1,6 @@
 # Mars v12 emergency revision
 
-This active production phase implements the user's 32-point response, **Iron recovered from the red ground without char or alloying**, and the later austerity pass. The [current manuscript](../../../mars-v12/mars.md) has 24 chapters. The [design brief](../../../mars-v12/design-brief.md) owns adopted physical and visual intent; this record owns this phase's work and verification scope.
+This record describes the accepted phase implementing the user's 32-point response, **Iron recovered from the red ground without char or alloying**, and the later austerity pass. Its [preserved v12 manuscript](../../../mars-v12/mars.md) has 24 chapters. Future work follows the editable [live story](../../../../../stories/mars/mars.md), its authoritative [design brief](../../../../../stories/mars/design-brief.md) and the [current production entry point](../../README.md#current-production-entry-point). The [v12 brief](../../../mars-v12/design-brief.md) remains a historical snapshot; this record owns the phase's original work and verification scope.
 
 - [Story plan and all 32 request mappings](story-plan.md)
 - [Manual water and garden consultation](science-water-garden.md)
@@ -29,9 +29,9 @@ Four mixed-fate warnings were reviewed and retained deliberately:
 
 The raw soybean harvest has no alternate cooking use; washing transforms and retires it before cooked beans can enter the stew. The artifact's scoped checks are developer replay witnesses, not a fresh player study or an engineering qualification.
 
-## Run the checks
+## Recorded checks for the preserved reference
 
-From the repository root:
+These commands inspect v12 and do not verify later edits to the live copy. From the repository root:
 
 ```sh
 node projects/mars-study/production/v12/emergency-revision/tools/verify-branches.ts
@@ -40,8 +40,6 @@ npm run checkpoint -- projects/mars-study/mars-v12/mars.md 23 runs/mars-v12-endi
 ```
 
 The branch verifier includes fast semantic and image-path checks and prints a concise outcome. The full lint command currently exits with the bounded fixed-analysis error described above. The checkpoint is disposable scratch output; remove it after use. Keep captures, transcripts, checkpoints and detailed run output under ignored `runs/`, following the [engineering retention policy](../../../../../docs/engineering.md#verification-records).
-
-## Artwork and earlier evidence
 
 ## Artwork and browser outcome — 4 November 2026
 
@@ -60,4 +58,4 @@ Fresh independent review records:
 
 Exact executed requests and selected masters remain in production. Superseded source iterations and unused runtime exports were pruned after integration. Temporary review packets, browser captures and detailed output stay under ignored `runs/` and are removed after retaining these concise outcomes.
 
-The [preceding survival verification](../survival/feedback-verification.md), earlier materials/fixed-item production records and previous visual reviews describe their recorded versions. They remain useful provenance, but their passes and old chapter counts do not verify this 24-chapter graph or its replacement artwork. This remains an active development draft outside the published story catalogue.
+The [preceding survival verification](../survival/feedback-verification.md), earlier materials/fixed-item production records and previous visual reviews describe their recorded versions. They remain useful provenance, but their passes and old chapter counts do not verify this 24-chapter graph or its replacement artwork. The accepted version was subsequently promoted into `stories/mars`; the [promotion record](../../../promotion/README.md) reports copy integrity. This phase's checks do not automatically verify later edits there.

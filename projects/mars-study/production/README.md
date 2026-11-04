@@ -1,10 +1,24 @@
 # Mars production sources
 
-The current [v12 survival artwork package](v12/survival/README.md) extends this visual library for **Mission to Mars**. Its catalogue, sources, repairs and exports are separate; the files described below continue to reproduce the earlier illustrated story. The [v12 production index](v12/README.md) distinguishes its preceding passes.
+## Current production entry point
 
-The story's [design brief](../../../stories/mars/design-brief.md) owns the adopted visual direction. These files retain the artwork briefs, source paintings and reproducible export/registration information for this collection.
+The live [Mars design brief](../../../stories/mars/design-brief.md) owns accepted intent for all work in this study. Use its [applicable techniques and revision checks](../../../stories/mars/design-brief.md#revision-and-artwork-requirements), the shared [iteration process](../../../docs/story-authoring.md#develop-a-story) and [graphics methods](../../../docs/icon-guide.md).
 
-Keep selected source masters, exact requests, authoring geometry and export tools here. Finished game assets belong beside their manuscript; use those files directly instead of keeping production copies. Contact sheets and reference crops are disposable scratch under `runs/`. Superseded v12 generations and unused cutout experiments have been removed. Retained requests record the original inputs, some of which were superseded or temporary and are no longer stored; the selected masters remain available for deterministic export.
+| Role | Location and use |
+|---|---|
+| Editable manuscript and runtime assets | `stories/mars/mars.md` and `stories/mars/assets/`. Future integrated changes target these paths. |
+| Accepted physical and visual intent | `stories/mars/design-brief.md`, also governing study iterations. |
+| Preserved story references | `projects/mars-study/mars-v12/` and `illustrated-baseline/`; do not export into or rewrite them. |
+| Selected production inputs | The [v12 survival package](v12/survival/README.md) supplies the accepted source family, registration, exact requests and catalogue. The [v12 index](v12/README.md) distinguishes its earlier passes. |
+| Disposable work | Ignored `runs/` subdirectories for trial generations, rejected candidates, crops, scene/lifecycle proofs and browser captures. |
+
+The retained tools predate promotion. Several survival exporters and integrators hard-code `projects/mars-study/mars-v12`; earlier tools target the old illustrated story at `stories/mars`. Neither is a ready-to-run current production command. Before adapting a tool, inspect its actual source and destination paths, select only the changed family, stage outputs under `runs/`, and verify the intended live target and unchanged reference. A new documentation link does not retarget code. Do not run historical manuscript migrations on the live story.
+
+Keep selected masters, exact requests, necessary reference inputs and authoring geometry here under the [retention policy](../../../docs/engineering.md#verification-records). Finished game assets belong beside their manuscript; use them directly instead of retaining redundant production copies. Reuse existing artwork for review panels where possible. New experimental generations stay in `runs/` until selected; the resulting concise decision belongs with the project.
+
+## Earlier illustrated production records
+
+The files and commands below describe the earlier illustrated story. They retain its original target paths and assumptions, not current regeneration instructions. Superseded generations and unused cutout experiments have been removed. Retained requests record original inputs, some of which were superseded or temporary and are no longer stored; selected masters remain available as production sources.
 
 - `subjects.tsv` is the authored physical catalogue: one row per story identity, desired longest visible edge at the reference viewport, depiction and nearest ambiguity. `catalogue.json` adds parsed item identities, declaration sites, creating/using recipes, ownership and runtime paths.
 - `atlas-groups.json` records exact row-major extraction order. `atlases/` keeps the generated transparent sheets and their exact prompts. The first five sheets were generated while the complete catalogue was being prepared; their recorded prompts define their fixed order.
