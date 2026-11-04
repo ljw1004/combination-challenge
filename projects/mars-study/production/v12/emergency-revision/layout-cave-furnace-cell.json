@@ -1,0 +1,407 @@
+{
+  "scenes": [
+    {
+      "chapters": [
+        "Fire"
+      ],
+      "source": "austere-furnace-contacts",
+      "grid": [
+        3,
+        2
+      ],
+      "no_align": [
+        4,
+        5
+      ],
+      "regions": [
+        {
+          "box": [
+            0.105,
+            0.3,
+            1,
+            0.915
+          ],
+          "states": {
+            "reflector-base": {
+              "cell": 0
+            },
+            "open-reflector": {
+              "cell": 1,
+              "opaque": [
+                0.11,
+                0.305,
+                1,
+                0.91
+              ],
+              "feather": 2
+            },
+            "solar-furnace": {
+              "cell": 2,
+              "opaque": [
+                0.11,
+                0.305,
+                1,
+                0.91
+              ],
+              "feather": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chapters": [
+        "Metal from the red ground"
+      ],
+      "source": "austere-furnace-contacts",
+      "grid": [
+        3,
+        2
+      ],
+      "extra": [
+        {
+          "source": "austere-powered-furnace.png",
+          "grid": [
+            1,
+            1
+          ]
+        }
+      ],
+      "no_align": [
+        4,
+        5
+      ],
+      "registration_from": {
+        "chapter": "Fire",
+        "cells": 6
+      },
+      "background_layers": [
+        {
+          "cell": 2,
+          "opaque": [
+            0.11,
+            0.305,
+            1,
+            0.91
+          ],
+          "feather": 2
+        }
+      ],
+      "regions": [
+        {
+          "box": [
+            0.105,
+            0.3,
+            1,
+            0.915
+          ],
+          "states": {
+            "solar-furnace": {
+              "cell": 2,
+              "opaque": [
+                0.11,
+                0.305,
+                1,
+                0.91
+              ],
+              "feather": 2
+            },
+            "electrochemical-furnace": {
+              "cell": 3,
+              "opaque": [
+                0.11,
+                0.305,
+                1,
+                0.91
+              ],
+              "feather": 2
+            },
+            "powered-reduction-furnace": {
+              "cell": 6,
+              "opaque": [
+                0.11,
+                0.305,
+                1,
+                0.91
+              ],
+              "feather": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chapters": [
+        "Earth"
+      ],
+      "source": "austere-cave-footprint",
+      "grid": [
+        3,
+        2
+      ],
+      "tail": "cavern-threshold.webp",
+      "regions": [
+        {
+          "box": [
+            0.015,
+            0.21,
+            0.97,
+            0.82
+          ],
+          "states": {
+            "surveyed-cavern-floor": {
+              "cell": 0
+            },
+            "cleared-cavern-bay": {
+              "cell": 1,
+              "opaque": [
+                0.02,
+                0.215,
+                0.965,
+                0.81
+              ],
+              "feather": 3
+            },
+            "protected-cavern-floor": {
+              "cell": 2,
+              "opaque": [
+                0.02,
+                0.215,
+                0.965,
+                0.81
+              ],
+              "feather": 3
+            },
+            "sealed-growing-room": {
+              "cell": 3,
+              "opaque": [
+                0.02,
+                0.215,
+                0.965,
+                0.81
+              ],
+              "feather": 3
+            },
+            "pressurized-growing-room": {
+              "cell": 4,
+              "opaque": [
+                0.02,
+                0.215,
+                0.965,
+                0.81
+              ],
+              "feather": 3
+            },
+            "lit-growing-room": {
+              "cell": 5,
+              "opaque": [
+                0.02,
+                0.215,
+                0.965,
+                0.81
+              ],
+              "feather": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chapters": [
+        "Two gases from water"
+      ],
+      "source": "austere-water-cell-station",
+      "grid": [
+        3,
+        2
+      ],
+      "regions": [
+        {
+          "box": [
+            0.105,
+            0.405,
+            1,
+            0.915
+          ],
+          "states": {
+            "salvaged-cell-internals": {
+              "cell": 0
+            }
+          }
+        },
+        {
+          "box": [
+            0.105,
+            0.405,
+            1,
+            0.915
+          ],
+          "states": {
+            "water-electrolysis-cell": {
+              "cell": 1,
+              "opaque": [
+                0.11,
+                0.41,
+                1,
+                0.91
+              ],
+              "feather": 2
+            }
+          },
+          "slots": [
+            {
+              "accepts": "power-cable",
+              "cell": 2,
+              "strokes": [
+                [
+                  [
+                    [
+                      0.882,
+                      0.758
+                    ],
+                    [
+                      0.918,
+                      0.763
+                    ],
+                    [
+                      0.947,
+                      0.774
+                    ],
+                    [
+                      0.977,
+                      0.798
+                    ],
+                    [
+                      1,
+                      0.811
+                    ]
+                  ],
+                  0.033
+                ]
+              ]
+            },
+            {
+              "accepts": "clean-water",
+              "cell": 3,
+              "trace": [
+                [
+                  [
+                    0.276,
+                    0.442
+                  ],
+                  [
+                    0.399,
+                    0.442
+                  ],
+                  [
+                    0.399,
+                    0.542
+                  ],
+                  [
+                    0.276,
+                    0.542
+                  ]
+                ],
+                [
+                  [
+                    0.485,
+                    0.785
+                  ],
+                  [
+                    0.627,
+                    0.785
+                  ],
+                  [
+                    0.627,
+                    0.91
+                  ],
+                  [
+                    0.485,
+                    0.91
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "portables": [
+    {
+      "id": "furnace-receiver",
+      "source": "austere-furnace-contacts.png",
+      "bounds": [
+        0.8,
+        0.208,
+        0.859,
+        0.285
+      ],
+      "display": 48,
+      "trace": [
+        [
+          [
+            0.38,
+            0.025
+          ],
+          [
+            0.6,
+            0.025
+          ],
+          [
+            0.63,
+            0.1
+          ],
+          [
+            0.65,
+            0.14
+          ],
+          [
+            0.91,
+            0.23
+          ],
+          [
+            0.98,
+            0.34
+          ],
+          [
+            0.94,
+            0.46
+          ],
+          [
+            0.89,
+            0.87
+          ],
+          [
+            0.72,
+            0.96
+          ],
+          [
+            0.29,
+            0.96
+          ],
+          [
+            0.1,
+            0.87
+          ],
+          [
+            0.045,
+            0.45
+          ],
+          [
+            0.01,
+            0.34
+          ],
+          [
+            0.08,
+            0.23
+          ],
+          [
+            0.37,
+            0.15
+          ]
+        ]
+      ]
+    }
+  ]
+}

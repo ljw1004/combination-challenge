@@ -1,12 +1,12 @@
 # Mars v12 artwork production
 
-**Current draft:** use the [fixed-item production pipeline](fixed-items/README.md), which incorporates the user’s subsequent scene, interaction and artwork corrections. The record below describes the initial illustrated pass and remains its source library. Its old counts, equivalence checks and integration command do not describe the current manuscript.
+**Current draft:** use the [survival artwork pipeline](survival/README.md) for the 24-chapter emergency revision. Artwork is integrated; [current verification](emergency-revision/README.md) records scoped passes and the remaining deep-analysis limit. The [previous survival checks](survival/verification.md), [material artwork](materials/README.md), [fixed-item migration](fixed-items/README.md) and initial illustrated pass below describe earlier versions. Their counts, passes, equivalence checks and manuscript-rewriting commands do not describe or verify the current manuscript.
 
-Artwork for [A Place That Can Endure](../../mars-v12/README.md), extending the established [Mars equipment direction](../../../../stories/mars/design-brief.md). The [v12 brief](../../mars-v12/design-brief.md) owns narrative, physical premises and visual intent; the [icon guide](../../../../docs/icon-guide.md) owns the reusable workflow.
+Artwork for [Mission to Mars](../../mars-v12/README.md), extending the established [Mars equipment direction](../../../../stories/mars/design-brief.md). The [v12 brief](../../mars-v12/design-brief.md) owns narrative, physical premises and visual intent; the [icon guide](../../../../docs/icon-guide.md) owns the reusable workflow.
 
-The playable draft has 171 default item icons, four chapter-dependent appearances, four registered panel overlays, 31 backgrounds used across 36 chapters and 44 painted landscape targets. Fourteen physically suitable earlier icons are reused; the other item depictions are new. All 254 referenced bitmaps live beside v12, so the draft has no runtime dependency on another version's artwork directory.
+The initial illustrated pass had 171 default item icons, four chapter-dependent appearances, four registered panel overlays, 31 backgrounds used across 36 chapters and 44 painted landscape targets. Fourteen physically suitable earlier icons were reused; the other item depictions were new. All 254 referenced bitmaps lived beside v12, without a runtime dependency on another version's artwork directory. The following records describe that historical pass.
 
-## Source and export records
+## Initial source and export records (historical)
 
 - [Catalogue](catalogue.json): every item and appearance, physical size, intended depiction, nearest ambiguity, recipe context, provenance and manufacturing boundary. Locally made parts use plain cut/folded stock and accessible joints; precision machinery remains imported.
 - [Atlas groups](atlas-groups.json): exact row-major subject order. `atlases/` retains selected generated masters, exact `.prompt.txt` requests and ordered `.inputs.json` references. Superseded generations and temporary input crops have been removed; the reference paths record the original calls. All painting and painted-content corrections used the built-in image-generation tool.
@@ -16,7 +16,7 @@ The playable draft has 171 default item icons, four chapter-dependent appearance
 
 Every icon is extracted without repainting its alpha and fitted to the catalogue's visible size at four-times resolution. Padding is rounded to whole reference pixels. Scene exports are 780 × 1688 WebPs. Fully transparent hotspot PNGs define interactive areas over the actual painted features.
 
-## Selected revisions
+## Initial selected revisions (historical)
 
 The first construction sheet was simplified after reviewing what one astronaut could make: plain bolted angle-stock replaced manufactured furniture fittings, and the berth became a low platform. The subsequent readability sheet exposed disconnected drain stubs, a common return and its fall into an open reservoir, and clearer under-deck insulation.
 

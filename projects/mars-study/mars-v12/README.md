@@ -1,28 +1,25 @@
-# Mars v12 — A Place That Can Endure
+# Mars v12 — Mission to Mars
 
-An illustrated revision of [v11](../mars-v11/README.md), retaining its 36-chapter story while revising operations to depict the actual physical work. Installed objects stay in the landscape and change there; portable parts and compact material/tool symbols are dragged onto them.
+The current emergency revision has 24 chapters: restore shelter, establish the farm, investigate the ice, recover local iron, make return fuel, protect the crops and leave with the specimens. The [current production and verification record](../production/v12/emergency-revision/README.md) distinguishes completed checks from pending work and the remaining exhaustive-analysis limit.
 
-- [Playable manuscript](mars.md)
-- [Design brief](design-brief.md)
-- [Metal survey and next material-revision proposal](metal-survey.md) — Rock and scavenged Steel pin opening, ceramic construction and later metallurgy; manuscript/artwork changes pending.
-- [Implemented fixed-item design](fixed-item-plan.md) and [original interaction audit](fixed-item-audit.md)
-- [Current production pipeline, exact prompts and geometry](../production/v12/fixed-items/README.md)
-- [Artwork audit and verification outcome](../production/v12/fixed-items/audit-outcome.md)
+- [Playable manuscript](mars.md) and [current design brief](design-brief.md)
+- [Survival artwork pipeline](../production/v12/survival/README.md) and [current verification scope and limits](../production/v12/emergency-revision/README.md)
+- [Revision story plan](../production/v12/emergency-revision/story-plan.md), [water/garden science](../production/v12/emergency-revision/science-water-garden.md) and [metal/fuel science](../production/v12/emergency-revision/science-metal-fuel.md)
+- [Previous survival verification](../production/v12/survival/verification.md) and [earlier consultant findings](../production/v12/survival/science-and-story-review.md)
+- [Current metal survey and preserved earlier rationale](metal-survey.md)
+- [Preceding materials artwork](../production/v12/materials/README.md) and its [verification record](../production/v12/materials/verification.md)
+- [Earlier fixed-item design](fixed-item-plan.md), [interaction audit](fixed-item-audit.md) and [v11 text baseline](../mars-v11/README.md)
 
 Local route: `/combinations.html?story=projects/mars-study/mars-v12/mars.md`.
 
 ## Current revision
 
-The draft declares 224 item identities, including terrain, fixed apparatus and construction states. There are 136 explicit combinations and four compound fittings. This is no longer a combination-for-combination copy of v11. Rewritten operations remove fixed-to-fixed drags, duplicate structures and results appearing away from their receivers. V11 is preserved.
+Water is melted, filtered and carried by hand. Farm construction and planting share one scene; tending and first harvest follow. The expedition combines crossing and remote sampling, followed by cold slab preparation and microscopy. Magnetic enrichment and powered molten-oxide reduction yield Iron without char or alloying. Plain local vessels use a finite allocation of original experiment and repair parts. Harvest and supper share one chapter with prepared beans, cooked stew and fresh lettuce. The membrane, source core and standalone remote slab board separately afterward.
 
-The same rounded habitat and upright repaired lander persist. Outdoor solar panels, the atmospheric processor and dish have their own positions. The well's pipe follows one route. The cave enclosure has its window before lighting; its berth uses a thin camping pad. The three crop beds remain in the farm for harvesting and washing. The industrial array has a separate left-hand footing. The press, furnace and process equipment stand on Martian soil, with no unexplained workshop shelter. Steel and Tool kit are compact symbols.
+The [design brief](design-brief.md) owns the physical and visual rules: an end-on cave enclosure with no exterior wall or forecourt, a low collapsed envelope, minimal inner floor, original attachment tabs and synthetic cargo net. Process vessels stand on cleared ground; gas canisters have plain bodies and single salvaged valves. Consult the brief for the finite payload and fabrication boundaries.
 
-Chapter 13 shows ambiguous damaged fragments after heating, pumping and filtration. Chapter 18 supplies the intact outline within untouched ice. Inside the ascent cabin in chapter 34, each actual core goes into its own refrigerated cradle and the original membrane into a separate small locker, in any order.
+Chapter references use semantic IDs only where needed, independent of display order. Old numbered asset names remain migration/source labels; current artwork production uses meaningful scene/state names. Do not run a historical story-rewrite tool over this manuscript.
 
-The pictures carry visible construction and state changes; prose retains motivation, human reactions and mechanisms the art cannot explain. Locally made work remains modest bolted stock, sheet, fabric and insulation. Qualified pressure boundaries and precision machinery remain imported capabilities under the story's stated future-system assumptions.
+## Review status
 
-## Evidence limits
-
-The current audit inspects every declared fixed appearance separately and all together in declaration order, with additional compound fitting proofs. Browser drags cover the complete reference route and selected alternative assembly/loading orders. The linked outcome records exact scope and the remaining deep-linter state limit; it must not be read as an exhaustive proof of every possible play order.
-
-The earlier independent AI reviews in `../art-review/` describe the initial illustrated pass. They are not independent reviews of these replacement scenes. This remains an active development draft, outside the published story catalogue.
+The [emergency revision record](../production/v12/emergency-revision/README.md) owns current check results and limits. Earlier route counts, rendered-image totals and prior-version passes do not verify this revision. This remains an active development draft outside the published story catalogue.

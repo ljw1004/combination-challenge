@@ -288,8 +288,29 @@ test('wide movable artwork fits a cropped panel without changing its aspect rati
 });
 
 test('a tall narrow viewport keeps automatic text rows separate and unpositioned hotspots visible', async ({page}) => {
+  await page.route('**/text-rows/story.md', route => route.fulfill({contentType:'text/markdown',body:`# Text rows
+## Workshop
+Fit the cabinet.
+**Goals**
+- Fit the cabinet -- Fitted cabinet @ Workshop wall
+**Hotspots**
+- Workshop wall
+**Items**
+- Workshop wall
+- Wooden panel
+- Cutting tool
+- Metal fasteners
+- Wooden shelf
+- Cabinet frame
+- Cabinet
+- Fitted cabinet
+**Combinations**
+- Wooden panel [transform] + Cutting tool [preserve] -> Cabinet frame
+- Cabinet frame [transform] + Metal fasteners [consume] -> Cabinet
+- Cabinet [transform] + Wooden shelf [consume] -> Fitted cabinet
+`}));
   await page.setViewportSize({width:320,height:844});
-  await page.goto('/combinations.html?story=mars/mars.md');
+  await page.goto('/combinations.html?story=text-rows/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const cards = await page.locator('[data-item]').evaluateAll(elements => elements.map(el => {

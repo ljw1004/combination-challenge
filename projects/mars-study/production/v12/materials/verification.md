@@ -1,0 +1,25 @@
+# Material artwork verification
+
+Completed 3 November 2026 for the finished [material artwork](README.md). This is an implementation and informed visual check, not a human playtest or exhaustive proof of all orders. The source-art and recognition reviews have separate conditions and outcomes linked from the production README.
+
+The working copy continued receiving independent edits. After the browser and lint checks below, the unfired-blank identity/preparation step was removed: the latest observed manuscript has 224 identities, 137 combinations including fittings, 280 bitmap references and a complete shared-planner route of 129 combinations. The catalogue was refreshed. The 130-operation browser results below apply to the preceding tested revision; the shortened route was checked through the shared planner, not replayed in full in the browser.
+
+## Instructions and coverage
+
+Use the shared parser, engine and checkpoint planner throughout. Inspect full scenes and portable silhouettes at 390 reference pixels, with portable icons also on light, dark and Martian grounds. Render the background, each declared fixed appearance, all declarations in order, and every independent compound fitting. Treat all-declarations panels as stress composites; use legal game states for actual progression.
+
+In the browser, drag the planned ingredients using real pointer events and compare resulting logical state with the shared engine. Inspect changed working/completed scenes, required-image decoding, offboard portable items, horizontal overflow, page/HTTP errors and reload restoration. Check all chapter arrivals at 320 × 740 through the ordinary checkpoint UI. Separately exercise alternative berth, bed-plumbing and propellant-line orders. Browser emulation does not establish native touch behaviour.
+
+## Final outcomes
+
+- All 130 reference-route combinations were exercised across browser segments at 390 × 844. The first segment completed chapters 1–30 (112 operations); a chapter-introduction dismissal race in the automation interrupted continuation. After correcting the harness, a legal checkpoint resumed chapters 31–36 for the remaining 18 operations and the ending. This was not one uninterrupted fresh playthrough. Earlier harness difficulties with overlapping receiving areas were resolved by using the application's real drop behaviour, without changing game code.
+- All 36 checkpoint arrivals passed at 320 × 740, with no horizontal overflow, missing/undecoded images, offboard portable items, page errors or failed HTTP requests. Selected busy/completed scenes were also inspected at 390 pixels.
+- Additional actual drags completed mattress-first berth construction, reservoir-first bed plumbing and oxygen-first lander fueling. Reloads preserved partial and complete constructions/fittings. Both propellant hoses remain visible together on the same canvas.
+- The shared artwork renderer produced 216 composition views across all 36 chapters. The four late-repaired chapter sets were refreshed after their final export. All 16 changed source families and nine portables were inspected; independent reviews and repairs are recorded separately. Every one of the 281 distinct bitmap references decodes, and compound overlays match their base dimensions.
+- A full deterministic re-export followed by integration left the manuscript byte-identical. Integration checks both raw text outside image URLs/coordinates and the shared parser's full prose/game projection. Existing concurrent opening prose/name edits and the reordered furnace/excavator chapters were preserved; the earlier placeholder snapshot is not claimed to be prose- or order-identical to the final manuscript.
+- `npm run check` passed. `npx playwright test tests/fixed-artwork.spec.ts tests/fixed-items.spec.ts` passed all five tests, covering fixed replacement, declared layering, registered scale, fitting and reload behaviour.
+- Final `npm run lint -- projects/mars-study/mars-v12/mars.md --details` reports 36 chapters and 138 combinations, one inherited `fixed-analysis-limit` error at 20,000 states, and three intentional mixed-fate warnings for the array, retort and reactor. No additional lint error was reported. Exhaustive arrival/retirement/peak-hotspot safety remains unverified.
+
+The artwork retains minor perspective crowding between the chapter-23 reactor controls and press. Exact metal/chemical identities, the receiver's specific function and the excavator's powered state are not consistently inferable from an unnamed picture alone. Existing names and readings supply those meanings; the checks do not establish an independent contextual recognition rate.
+
+Retain selected masters, exact requests, physical briefs, catalogue, extraction geometry, export tools, reviewer instructions and these concise outcomes. Temporary input copies, screenshots, proof sheets, answer keys, raw responses and logs were discarded under the [verification-record policy](../../../../../docs/engineering.md#verification-records). No application code, published build or hosted access was changed by this artwork pass.

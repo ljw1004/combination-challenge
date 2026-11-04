@@ -161,7 +161,7 @@ npm run analyze -- path/to/story.md --json --details
 npm run dev
 ```
 
-Lint checks the manuscript against the specification; errors need correction and warnings need author review. Analysis produces a legal debugger route and the structural measures below. Inspect the draft through the normal Vite player and its [debug pane](../README.md#edit-a-story-live). For example, open `/combinations.html?story=projects/mars-study/mars-v3/mars.md` for the Mars project draft. The `story=` value is a Markdown URL resolved relative to `combinations.html`; there is no implicit `stories/` prefix. Artwork paths resolve relative to the manuscript. The [README](../README.md#run-the-game) owns the complete routing and setup instructions.
+Lint checks the manuscript against the specification; errors need correction and warnings need author review. Analysis produces a legal debugger route and the structural measures below. Inspect the draft through the normal Vite player and its [debug pane](../README.md#edit-a-story-live). For example, open `/combinations.html?story=projects/example-study/draft.md` for a draft saved at that repository-relative path. The `story=` value is a Markdown URL resolved relative to `combinations.html`; there is no implicit `stories/` prefix. Artwork paths resolve relative to the manuscript. The [README](../README.md#run-the-game) owns the complete routing and setup instructions.
 
 Use chapter checkpoints to inspect arrivals, combinations, intermediate clutter and results in the browser. The shared route is evidence that the debugger can complete this version legally, not a shortest-route claim, a formal proof that every possible action order succeeds, or evidence of player enjoyment. Keep detailed JSON exports and other disposable verification output in ignored `runs/` space under the [retention policy](engineering.md#verification-records).
 
@@ -193,7 +193,7 @@ The analyzer requires explicit file paths, absolute or relative to the current d
 ```sh
 npm run analyze -- --table stories/cookbook/cookbook.md stories/settlement/settlement.md
 npm run analyze -- --table stories/*/*.md
-npm run analyze -- --table stories/*/*.md projects/mars-study/mars-v3/mars.md
+npm run analyze -- --table stories/*/*.md projects/example-study/draft.md
 npm run analyze -- --table stories/*/*.md --output runs/story-comparison.md
 ```
 
@@ -211,7 +211,7 @@ Here's a process for evaluating the report.md that came from playtesting:
 3. Look at all "Weakest moments", see if we can identify themes
 4. Then we'll look at our chapter shortlists. Low "hook" ratings should prompt us to look at the emotional weight of the story arc around this chapter. Low "% worthwhile" should prompt us to look at the combinations available in the chapter. Any combinations that match the common "weakest moments" themes are particularly ripe for rework.
 
-You should write down in a study-specific working-notes.md file, e.g. projects/mars-study/working-notes.md, the actions you propose to take -- presumably things like how you'd restructure combinations/items within existing chapters, or even how you'd re-organize story arcs or chapter texts.
+You should write down in a study-specific working-notes.md file, e.g. projects/example-study/working-notes.md, the actions you propose to take -- presumably things like how you'd restructure combinations/items within existing chapters, or even how you'd re-organize story arcs or chapter texts.
 
 After a substantial multi-chapter playtest, include a chapter-by-chapter score table in those working notes. Use a fenced text block with space-padded columns so the table lines up in plain ASCII. List every tested chapter by number and title, with its Fun and Worthwhile scores. Follow the evaluation guide's [score definitions](fun-and-evaluation.md#chapter-synthesis): display the mean credited/mean total counts, rounding each to one decimal place and omitting a trailing `.0` (for example, `1.3/5`). Identify the story version, playstyle and linked report. For `--fast`, write `not measured` for Fun; keep missing or incomplete evidence explicit.
 

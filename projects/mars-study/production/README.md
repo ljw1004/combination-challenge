@@ -1,6 +1,6 @@
 # Mars production sources
 
-The current [v12 production package](v12/README.md) extends this visual library for **A Place That Can Endure**. Its catalogue, sources, repairs and exports are separate; the files described below continue to reproduce the earlier illustrated story.
+The current [v12 survival artwork package](v12/survival/README.md) extends this visual library for **Mission to Mars**. Its catalogue, sources, repairs and exports are separate; the files described below continue to reproduce the earlier illustrated story. The [v12 production index](v12/README.md) distinguishes its preceding passes.
 
 The story's [design brief](../../../stories/mars/design-brief.md) owns the adopted visual direction. These files retain the artwork briefs, source paintings and reproducible export/registration information for this collection.
 

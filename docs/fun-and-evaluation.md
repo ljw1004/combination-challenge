@@ -128,7 +128,7 @@ Keep exact packets, menus, responses, results and verification records while eva
 Create one directory at the start of each fun playtest, under the ongoing project:
 
 ```text
-projects/mars-study/playtests/YYYY.MM.DD_HH.MM.SS/
+projects/example-study/playtests/YYYY.MM.DD_HH.MM.SS/
   chapter1_playtest1.json
   chapter1_playtest2.json
   chapter1_playtest3.json
@@ -150,7 +150,7 @@ Each `chapterN_report.md` uses the heading `# Chapter N: <Chapter title from mar
 The run's `report.md` is assembled mechanically: `# Report`, the same `Story: path/to/story.md` line immediately beneath it, the run's `Play style:` line, the brief [canonical definitions](#report-definitions), then chapter headings and their marked syntheses in numerical order. Preserve each chapter title as `## Chapter N: <Chapter title from markdown>`, changing only the heading level from its chapter report; do not reload a potentially revised manuscript to rename it. Copy the definitions and syntheses verbatim, without another AI pass, recomputing scores or including per-player detail. The [chapter rubric](#required-chapter-review) owns the synthesis markers. Build it only after every chapter represented in the run has its finished report; an incomplete or malformed input is an error rather than a silently omitted chapter.
 
 ```sh
-npm run playtest -- report projects/mars-study/playtests/YYYY.MM.DD_HH.MM.SS
+npm run playtest -- report projects/example-study/playtests/YYYY.MM.DD_HH.MM.SS
 ```
 
 These response arrays, chapter reports and mechanically assembled run report are explicitly requested deliverables and are retained with the project. Frozen source, runtime sessions, packets and intermediate grader JSON remain disposable under `runs/`. The retained deliverables are attributed reports, not a complete replay bundle.
@@ -178,8 +178,8 @@ The text interface tests combinations and prose, not dragging, scrolling, artwor
 ### Play at the command line
 
 ```sh
-npm run play -- --fast projects/mars-study/mars-v3/mars.md
-npm run play -- --fast projects/mars-study/mars-v3/mars.md --chapter 5
+npm run play -- --fast stories/mars/mars.md
+npm run play -- --fast stories/mars/mars.md --chapter 5
 npm run play -- --fast mars
 npm run play -- --detailed mars --chapter 5
 npm run play -- list
@@ -197,21 +197,21 @@ Use the `--` separator in npm commands so npm forwards mode and chapter flags to
 
 An organizer creates each session with a fresh participant. Add `--chapter N` to begin later; the interface supplies the same completed-chapter history a human sees. No context file is needed or accepted. Each player sees only the packet printed by the interface, never the session files or source.
 
-Start a project playtest once, then use the printed directory for every participant in that experiment:
+Start a project playtest once, then use the printed directory for every participant in that experiment. Replace `projects/example-study` below with the current study directory; completed studies stay archived:
 
 ```sh
-npm run playtest -- start projects/mars-study
+npm run playtest -- start projects/example-study
 # Use the actual directory printed above:
-npm run play -- init --fast trial-01 projects/mars-study/mars-v3/mars.md \
-  --chapter 1 --guidance "" --playtest projects/mars-study/playtests/YYYY.MM.DD_HH.MM.SS --player 1
+npm run play -- init --fast trial-01 stories/mars/mars.md \
+  --chapter 1 --guidance "" --playtest projects/example-study/playtests/YYYY.MM.DD_HH.MM.SS --player 1
 ```
 
 `--playtest DIRECTORY --player M` reserves the response file and updates it after accepted responses. Both flags are required together. A duplicate chapter/player reservation fails instead of overwriting another participant. The flags are optional for temporary technical checks, but required for retained fun playtests.
 
 ```sh
-npm run play -- init --fast trial-01 projects/mars-study/mars-v3/mars.md --guidance ""
+npm run play -- init --fast trial-01 stories/mars/mars.md --guidance ""
 npm run play -- view trial-01
-npm run play -- respond trial-01 '{"step":1,"reason":"I want to uncover the power supply.","choice":1,"expectation":"The winch should pull the pallet out of the dust.","alternatives":[]}'
+npm run play -- respond trial-01 '{"step":1,"reason":"I want to seal the damaged habitat.","choice":1,"expectation":"The patch should close the puncture.","alternatives":[]}'
 # Read a structured response from stdin instead:
 npm run play -- respond trial-01 -
 ```
@@ -225,7 +225,7 @@ Fast choices name a current menu number or `"L"` when offered. Detailed choices 
 For an unattended chapter trial, connect a JSON agent process or service:
 
 ```sh
-npm run playtest -- --fast --story projects/mars-study/mars-v3/mars.md \
+npm run playtest -- --fast --story stories/mars/mars.md \
   --session ai-trial-01 --model my-player --guidance "" \
   --agent '["/absolute/path/to/agent"]' --max-turns 300
 ```

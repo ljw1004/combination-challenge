@@ -1,6 +1,80 @@
-# Metal in Mars v12: survey and proposed story
+# Metal in the current 24-chapter Mars v12
 
-This is a requested material-flow survey and revision proposal for the [current manuscript](mars.md). The user's selected opening and material priorities now belong in the [design brief](design-brief.md#next-material-revision); the proposal below develops those requirements. The manuscript/artwork rewrite is not implemented, and this is not a mission engineering assessment. Chapter numbers refer to the current 36-chapter fixed-item draft. Review provenance and evidence limits belong in [notes](../../../notes.md); unresolved implementation belongs in the [backlog](../../backlog.md).
+This survey describes the [current manuscript](mars.md) after the 32-point emergency revision, the user's **Iron, without char or alloying** direction and the subsequent austerity cuts. The [design brief](design-brief.md) owns adopted premises. The [current materials consultation](../production/v12/emergency-revision/science-metal-fuel.md) explains the direct molten-oxide process, finite precision-part allocation and limits. A clearly marked historical survey is preserved below; its former chapter numbers and material claims do not describe this version.
+
+## Two distinct material sources
+
+| Material | Actual source | Work it performs |
+|---|---|---|
+| **Steel pin** (`steel-pin`) | One small pin recovered from a broken cargo restraint in chapter 3, Water | With winding-compatible cable, becomes the chapter-13 separator electromagnet. It is not a bulk structural stock or the source of later canisters. |
+| **Iron** (`iron-stock`) | Chapter 13: selected iron-bearing red regolith → magnetic concentrate → molten-oxide electrolysis in the adapted powered solar furnace → finished iron sheets/bars | Seven construction jobs in chapters 14, 15 and 19, listed below. This replenishable local batch stock is not renamed salvaged steel. |
+
+The magnet concentrates minerals. Sunlight melts the mineral bath; electric current separates the iron from oxygen. High-temperature laboratory electrodes and the original electrical supply adapt the furnace. There is **no hydrogen prerequisite, imported carbon/flux, crop-trimming char, alloying, meteoritic iron or bulk salvaged-metal substitute**. The user accepts workable iron and iron canisters strong enough for this game, without player testing or qualification chores. The bounded fictional advances concern compact adaptable equipment and a selected feed/process yielding workable metal.
+
+## Every use of the new Iron
+
+The shared parser currently identifies **seven Iron construction uses: six explicit recipes and one compound installation**. Filling, connecting and transferring the resulting cylinders are later operations on those same objects, not additional Iron fabrication recipes.
+
+| Chapter | Input and receiving operation | Locally made part and surviving identity |
+|---|---|---|
+| **14 — Two gases from water** | Iron at reclaimed electrolyzer insert | Divided water-electrolysis body (`water-electrolysis-cell`). An unused service insert from the regenerative-power experiment supplies its membrane, electrodes and gas separation. The repair controller is shared. |
+| **14** | Iron + hydrogen-service fitting | Empty hydrogen cylinder, then the same filled `hydrogen-cylinder`; installed as the methane plant's hydrogen feed in chapter 15. |
+| **14** | Iron + oxygen-clean fitting | Empty oxygen cylinder, then the same filled `oxygen-cylinder`; kept apart until the chapter-20 ascent transfer. |
+| **15 — Fuel from air and water** | Iron + carbon-dioxide fitting | Empty CO₂ cylinder, filled from the existing air service's atmospheric branch, then installed as the CO₂ feed. |
+| **15** | Iron installed in the central `fuel-assembly` slot | Plain reaction chamber, with the gas analyzer's retired carbon-analysis channel supplying its nickel methanizer, heater/sensor and sample-drying fittings. This is the actual chamber, not a frame or supplied processor core. |
+| **15** | Iron + methane-service fitting | Empty methane cylinder, then `methane-cylinder` filled at the fully connected plant; the same cylinder feeds the chapter-20 ascent transfer. |
+| **19 — The leg that stays** | Iron at the clear support gap, after ceramic blocking and stone removal | Short substantial permanent strut with saddle and broad foot (`level-launch-platform`), left with the lower stage on Mars. |
+
+The two final delivered gases stay separate. The cylinders hold ambient-temperature gases; the already-present lander equipment accepts and liquefies each gas in its own flight tank. Repeated production and deliveries with those same cylinders are abstracted. Two hand-sized bottles do not hold the whole ascent requirement.
+
+Every canister is plain matte Iron with rounded ends, simple formed seams, one short grey reused valve and a hand-marked gas identity. No handles, brass, individual gauges, riveted label plates, decorative fasteners or foot rings are allocated. Necessary service seals and joints remain bundled. One shared repair controller and temperature/pressure readout moves between scheduled metal, water and fuel batches; its gas-contact connections remain dedicated. The cell uses cleared ground, a flat rock or its packed laboratory tray, and the hot methane chamber uses small ceramic pieces or found-rock rests. No manufactured outdoor table or elaborate frame is fabricated.
+
+## Chapter-by-chapter provenance
+
+| Chapter | Metal or metal-containing objects in play | Source and distinction |
+|---|---|---|
+| **1 — Crash landing** | Original lander frame/tanks/legs and stored-air fittings | Delivered equipment. A local rock is the unloaded catch; no bulk metal is fabricated or supplied. |
+| **2 — Air** | Panel hardware, electrical cables, battery, scrubber and antenna | Delivered station services and compatible cable lengths. Panels retain their supplied deployment support. |
+| **3 — Water** | Small heater/pot, filter cartridge, tap fitting; saved steel pin | Existing galley/drinking-water hardware and the tiny restraint pin. The tank is a collapsible bag, not a fabricated metal vessel. |
+| **4 — Fire** | Reflector petals, receiver, base and sieve | Delivered furnace/screening hardware. Its outputs are ceramic bricks and separate fired granules, not metal. |
+| **5 — Earth** | Pressure-envelope service fittings and grow-light rails | Carried precision equipment. Local ceramic covers only the tent footprint; no entrance baffle, exterior apron, metal frame or underlay fabrication. Lights fit directly after inflation. |
+| **6 — A bed under the hill** | Reflective foil, mattress/service hardware | General light supplies; the berth deck/support is ceramic. No Iron is required. |
+| **7 — One room for roots** | Drip/control fittings and reflective cover laminate | Existing cultivation supplies. Bed walls are ceramic, liners are generic Sheet, substrate is fired/rinsed granules. |
+| **8 — Under the leaves** | Existing drip/light hardware and hab attachment tabs | Cargo net is explicitly synthetic restraint packing, not metal. One section supports soybeans from original tabs; another folds and ties into the cloth-lined sling basket. Direct hilling uses headroom in the original bed, with no collar or new supporting hardware. |
+| **9 — What the water carries** | Same filter, membrane holder and microscope | Existing water/laboratory equipment; residue collection creates no metal hardware. |
+| **10 — The ground we know** | Corer, liner and laboratory freezer | Delivered sampling/cooling equipment. Source-core collection does not repurpose its metal. |
+| **11 — Across the gully** | Rover, winch, corer and cold cradle | Delivered expedition equipment. No traction-panel metalwork or new refrigerator shell. |
+| **12 — Something whole** | Cold sectioning fixture, slab holder and microscope | Delivered compact laboratory equipment. Output is the slab alone. |
+| **13 — Metal from the red ground** | Saved pin/cable magnet; mineral experiment's high-temperature insert; existing solar furnace and shared repair controller | Local oxide minerals are reduced electrically to the new Iron supply. The pin remains a distinct salvaged steel origin. The receiver is plain refractory containment. |
+| **14 — Two gases from water** | New cell body and two cylinders; unused water-cell insert and allocated gas fittings | Three Iron construction jobs. The regenerative-power experiment's spare is distinct from the oxide-cell electrodes. The controller and service readout are moved here for batches. |
+| **15 — Fuel from air and water** | Central reaction chamber, CO₂ cylinder and methane cylinder; existing H₂ cylinder | Three more Iron jobs. The gas analyzer's nonessential carbon channel is retired for its catalyst/heater/sensor/drying parts; the shared controller moves here. The isolated atmospheric branch supplies separated pressurized CO₂. Existing power and plain rests replace extra panels, tables and platforms. Oxygen is absent. |
+| **16 — Amber noon** | Reusable service key and compact selectors | Existing station controls, reserve and heaters. The fuel selector is a repurposed general spare with a new hand-marked symbol, not a delivered fuel-plant panel. No new heat-buffer tank or cryogenic surface stores. |
+| **17 — Keep the roots alive** | Existing lamp, drip and pressure-envelope attachment tabs | Fabric canopy and entrance screen use original tabs. No rods, rails, rings, wooden frames, metal reservoir cover or padded bed-wall fabrication. |
+| **18 — Sun on the floor** | Original array and connected cabling | Clean with Fabric and resume the existing supply. No added array or new brush handle. |
+| **19 — The leg that stays** | New short iron support; original lander frame/legs | Seventh Iron job, after ceramic side blocking/footer and rock removal. Nothing lifts the cabin. |
+| **20 — Two tanks, two liquids** | Same oxygen/methane cylinders, dedicated transfer hoses, original flight tanks/cooling | Cylinders are carried from their production chains; gas is liquefied in the lander. No reactor, industrial array or new cylinders are fabricated here. |
+| **21 — Supper from the garden** | Existing galley heater/pot, sink, basket and lighting | Reuse the cleaned chapter-3 cooking hardware; no cooker jacket, furnace or new pressure-vessel construction. |
+| **22 — The things we take** | Existing flight cooling cradles and specimen locker | Three separate physical specimens are secured. No carrier or core-plus-section package fabrication. |
+| **23 — My hand on the switch** | Original flight console and removable arming plug | Supplied flight hardware. One operation fits the plug, confirms arming and starts ascent. |
+| **24 — The End** | Original ascending cabin; lower stage and iron support below | Departure shows the completed base. No orbital equipment or new metalwork is introduced. |
+
+## Other material supplies
+
+**Power cable** is a finite allocation of compatible service lengths; one winding-compatible conductor and current-limited connection also make the separator. **Packing foil** is reflective cargo laminate, not structural plate or a pressure boundary. **Cargo net** (`cargo-mesh`) is strong light synthetic restraint net, with salvaged packing allocated to soybean support and the single reusable sling basket. **Hose** represents dedicated compatible lengths; oxygen-clean service remains separate from methane. Four small gas-valve/connector sets and their seals come from allocated repair spares, not active breathing regulators, emergency oxygen or live safety valves. Existing spacecraft, instruments and motors contain metal but are not unrestricted material caches. The [donor table](../production/v12/emergency-revision/science-metal-fuel.md#finite-precision-parts-explicit-donor-assignments) identifies each precision source and its cost; the microscope and specimen cooling remain intact.
+
+Quantity abstraction remains the [format specification's](../../../docs/story-format-spec.md#principles) model: consuming an identity determines its useful visibility, not kilograms removed. The local source now explains repeatable stock production. This survey is a narrative/material provenance account, not a mass, power or mission-safety calculation. The [revision README](../production/v12/emergency-revision/README.md) records the current scoped semantic checks separately from artwork work.
+
+## Preserved historical survey
+
+**Everything below this boundary is the earlier pre-revision survey, retained as historical rationale.** Its references to “current”, steel production, hydrogen reduction, imported cryogenic stores, old chapter numbers and older director recommendations are statements about that earlier manuscript. They are superseded by the current survey above and the design brief. The original text follows unchanged.
+
+---
+
+# Metal in Mars v12: pre-revision survey and design rationale
+
+This requested survey records the material chain **before** the ceramic/local-steel revision and the subsequent survival simplification. Its chapter numbers, counts, recipes and present-tense findings describe that earlier fixed-item manuscript, not the current route. The proposals and attributed director findings below retain their original context; they are supporting rationale, not competing current rules. Dated provenance belongs in [notes](../../../notes.md).
+
+The current [manuscript](mars.md) and [design brief](design-brief.md#opening-and-material-progression) retain the small rock, saved steel pin, ceramic-first farm and local steel, while reducing the later metal jobs to a modest open water buffer and short grounded lander support. One supplied solar furnace performs hydrogen reduction and subsequent melting/refining with declared atmosphere, temperature, handling, finishing and grade-checking capabilities. There is no separate press/roller, electric refiner, traction-panel chain, field-case fabrication, local reactor frame or cooker construction. The reactor and complete cryogenic stores are factory equipment. The [current consultant review](../production/v12/survival/science-and-story-review.md) records supporting sources and limits; [survival production](../production/v12/survival/README.md) records the pending artwork and verification pass.
 
 ## Finding
 
@@ -123,7 +197,7 @@ An electromagnet needs suitable insulated winding conductor, a circuit/power sou
 
 Specify a winding-compatible conductor in the electrical supplies, a bobbin/insulation and the existing current-limited low-voltage supply. A completed power cable with matching plugs is not, by itself, an explanation of the winding. Routine assembly can remain one combination. [NASA's electromagnet explanation](https://pwg.gsfc.nasa.gov/Electric/-E22-Fields.htm) describes the relevant insulated coil, iron core and electrical circuit. The separator then concentrates the surveyed magnetic fraction; it does not extract pure metal merely because dust is red. [Rover magnetic-properties research](https://www.usgs.gov/publications/overview-magnetic-properties-experiments-mars-exploration-rovers) found mixed mineral phases, not pure collected ore. The required mineralogy, recovery and useful throughput remain site/equipment assumptions.
 
-A permanent-magnet pickup would avoid wiring, but an electromagnet has a clear educational payoff: current on collects the grains; current off releases them. Either still needs an explicit small imported magnetic part.
+The selected electromagnet has a clear educational payoff: current on collects the grains; current off releases them. The small pin found earlier is now useful without having supplied an entire station's construction material.
 
 ### 3. Make ceramics first, then metal where it earns its cost
 
@@ -189,6 +263,8 @@ If the compact steelworks is too large a fictional allowance, keep the existing 
 That is a viable smaller industrial story, but it is a more extensive redesign of the present construction catalogue. The preferred steelmaking route better preserves the user's aim that Mars supply the material for substantial building. Neither route proves a launch-mass saving without machinery mass, consumables, output and energy budgets; the recommendation concerns a coherent near-future story, not a demonstrated mission optimum.
 
 ## Director review and synthesis
+
+These findings concern the original proposal. The user's subsequent opening choices and interest in making ceramic before metal are incorporated in the current proposal above and owned by the design brief.
 
 The fresh **story director** recommends a compact early ironmaking passage whose first payoff is the farm. The director warns that moving hydrogen and its services forward can delay planting; if those prerequisites become a lengthy industrial tutorial, build more of the farm from ceramics and defer metallurgy. The late conversion of familiar workshop equipment into the fuel plant is the stronger narrative than an isolated second metal supply.
 

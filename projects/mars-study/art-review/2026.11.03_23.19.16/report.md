@@ -1,0 +1,11 @@
+# Material artwork — focused final review
+
+Review began 3 November 2026, 23:19:16 America/Los_Angeles. Reviewer: a fresh ephemeral Codex session without previous critiques, answers or conversation history. It received intended physical relationships and selected images only. Instructions required source-specific keep/change decisions, complete silhouettes/connections, registration and independent state changes; no file edits, human-preference claims or engineering validation.
+
+Inputs: selected sources `10-continuous-farm-feed.png`, `12-continuous-farm-feed.png` and `23-retort-gas-route.png`; corresponding chapter 10, 11, 12 and 23 export proofs at 390 reference pixels per panel. Chapter 23 used the widened crop beginning at normalized x=0.71, retaining the complete control box and tubing. Background, individual appearance and all-declarations stress panels were explicitly distinguished. Sources and geometry are retained in [production](../../production/v12/materials/README.md); temporary proofs are not.
+
+**Outcome: no blocking defect in the supplied panels.** Keep the distinct freshwater feed and shared return, complete reservoir/pump, independent crop preparations, visibly raised potato collar, hilling and trellis. Registration was convincing at the supplied scale. Keep the reactor relocation, empty solar seat, incoming left-side gas hose and separate electric refining furnace.
+
+A minor improvement remains possible: the reactor controls/frame overlap the press in perspective and can appear partly combined at 390 pixels. Retain this source for the present art pass: the machines have distinct silhouettes, the press is inactive in this chapter, and the receiver's entire control assembly is visible. This is an accepted composition limitation, not a claim that the reviewer endorsed perfect separation.
+
+Chapter 11's transparent declarations demonstrate placement over an unchanged painting, not an apparent transformation. All-declarations composites include impossible simultaneous states and were not treated as gameplay defects. Actual UI, narrow crop, dragging and reload coverage is recorded in the [verification outcome](../../production/v12/materials/verification.md). This remains informed AI review, not engineering or human-use evidence.
