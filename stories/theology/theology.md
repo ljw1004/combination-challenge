@@ -4,213 +4,413 @@ A manuscript desk, not a test of faith. Follow a wound, a failed promise, bread,
 
 > NOTE: Converted from `divinity-final-reading-scenes-v7`, the composed current scenario at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The conversion predates the current Markdown runtime. The active manuscript now runs through the shared parser and engine; subsequent authenticity revisions are recorded in the repository review history. All combinations are global. Completed goals remain satisfied.
 
-> NOTE: Reconstructing an attributed religious argument is not endorsement, demonstration of a miracle, or authentication of an object. These desks compare texts; they do not claim that the writers met. The Book of Two Principles and the Lyon ritual are distinct witnesses, not a single creed for everyone called Cathar. Invented cases remain labelled as cases.
+> NOTE: Reconstructing an attributed religious argument is not endorsement, demonstration of a miracle, or authentication of an object. These desks compare texts; they do not claim that the writers met. The Book of Two Principles and the Lyon ritual are distinct witnesses, not a single creed for everyone called Cathar. Examples use Eg.; invented situations remain identified in their prose or author notes. The desk voice is a modern educational reconstruction, not a quotation or evidence that a writer read a particular other manuscript. Claims are stated directly; first person belongs mainly to hypothetical examples and attributed quotations. The voice and italic conclusion stay with the original desk when later board labels gain attribution.
 
-## A wound and a stolen meal
+> NOTE: Dating and setting: [CUHK’s primary-text introduction](https://www.cuhk.edu.hk/crs/tobias/primary_docs_ch11.html) identifies an anonymous Cathar author in northern Italy; [David d’Avray’s source study](https://discovery.ucl.ac.uk/id/eprint/1476999/1/Cathars%20from%20non-Catholic%20Sources%20DISCOVERY%20VERSION.pdf) reports Thouzellier’s c. 1250 dating. The Book of Two Principles represents a particular position within disputed Cathar traditions. [The Lyon library’s contributed manuscript record](https://www.occitanica.eu/items/show/11763) gives 1280–1330, while [IRHT’s catalogue](https://initiale.irht.cnrs.fr/codex/2627) gives the mid-thirteenth century and a tentative origin; the ritual desk’s c. 1300 follows the former range without asserting a precise year or place. “Lyon” names its present repository, not a documented performance there. [The Aquinas works catalogue](https://www.thomas-von-aquin.de/thomas-von-aquin/schriften/index.html) places Summa I in Rome by 1268 and III in Paris/Naples, 1271/2–1273. These are approximate source settings; the comparisons are editorial. The fire/water example follows medieval accounts of natural forms, not modern chemistry.
+
+## `wound-meal` Augustine, Hippo, c. 421 — A wound and a stolen meal
 
 ![Augustine’s study](assets/theology-augustine-study.webp)
 
-*St Augustine, Hippo, 421 AD*
+*Augustine, Hippo, c. 421*
 
-Augustine explains evil as damage to, or loss of, something good. Compare a wound with stealing a meal: suffering harm is not the same as choosing to harm someone.
+Augustine is a Christian bishop in Roman North Africa, writing a short handbook on faith, hope and love. If a good God made the world, where does evil come from? A wound and a stolen meal offer different ways into the question.
 
 > NOTE: Source context: Augustine’s handbook · North Africa, c. 421.
 
 **Goals**
-- Is being hurt the same as doing wrong? -- Being hurt is not the same as doing wrong
+- Is being hurt the same as doing wrong? -- `being-hurt-is-not-the-same-as-doing-wrong`
 - What is the nature of evil? -- `augustine-loss`
 
 **Items**
-- Case: a cut body has lost its health
 
-  Imagine an injured person. The body remains, but it is not as sound as it should be. Nothing here says that the injured person deserves the injury.
+- `case-a-cut-body-has-lost-its-health` Eg. a wounded body has lost some health
+  - from chapter `world-that-harms`: Augustine example: a wounded body has lost some health
+  - from chapter `trinity`: Eg. a wounded body has lost some health
+  - from chapter `cathar-rite`: Augustine example: a wounded body has lost some health
 
-- `healed-body` Case: the wound heals; no evil thing escapes
+  What is a wound?
 
-  The injury disappears as the body heals. This is Augustine’s kind of example: the loss is repaired, rather than a second material being removed.
+  Imagine a body cut and bleeding. It remains alive but has lost some health. The wound is damage to something good; calling it a loss does not make its pain imaginary.
 
-- Case: I take the meal my neighbour needs
+  *Eg. a wounded body has lost some health*
 
-  Imagine taking another person’s share for your own comfort, knowing whose share it is. This is a deliberate action, unlike merely suffering a wound.
+- `healed-body` Eg. the wound heals without a separate evil thing escaping
+  - from chapter `world-that-harms`: Augustine example: the wound heals without a separate evil thing escaping
+  - from chapter `trinity`: Eg. the wound heals without a separate evil thing escaping
+  - from chapter `cathar-rite`: Augustine example: the wound heals without a separate evil thing escaping
 
-- `fair-share` Comfort is good; my neighbour is still owed food
+  What disappears when a wound heals?
 
-  Enjoying food is good, but the neighbour is still owed their share. The wrong is taking that food, not enjoying a meal.
+  The body becomes healthy again. No separate evil substance escapes: the damage is repaired.
 
-- Genesis: creation was “very good”
+  *Eg. the wound heals without a separate evil thing escaping*
 
-  Augustine accepts the goodness of creation as a religious starting point. The wound example does not establish that starting point.
+- `case-i-take-the-meal-my-neighbour-needs` Eg. I take the meal my neighbour needs
+  - from chapter `world-that-harms`: Augustine example: I take the meal my neighbour needs
+  - from chapter `trinity`: Eg. I take the meal my neighbour needs
+  - from chapter `cathar-rite`: Augustine example: I take the meal my neighbour needs
 
-- `health-lost` A wound is missing health, not an extra substance
+  What makes taking food wrong?
 
-  The body is still there, but its health has been damaged. Calling the wound a loss does not make its pain unreal.
+  Suppose I take the meal my neighbour needs for my own comfort, knowing it is theirs. This is a choice to deprive someone, not an injury suffered.
 
-- The wrong is taking what another is owed
+  *Eg. I take the meal my neighbour needs*
 
-  Eating and enjoying comfort can be good. Taking the meal a neighbour needs is wrong because it puts personal comfort above what the neighbour is owed. The fault is in the choice, not in food itself.
+- `fair-share` Enjoying food is good; my neighbour is still owed a share
+  - from chapter `world-that-harms`: Augustine: Enjoying food is good; my neighbour is still owed a share
+  - from chapter `trinity`: Enjoying food is good; my neighbour is still owed a share
+  - from chapter `cathar-rite`: Augustine: Enjoying food is good; my neighbour is still owed a share
 
-- Being hurt is not the same as doing wrong
+  Is enjoying food itself the problem when I steal a meal?
 
-  A wound is harm suffered; stealing the meal is a wrong deliberately chosen. Comparing them as losses must not turn suffering into evidence of guilt.
+  Food and comfort are good, but my neighbour is still owed their share. Taking it puts my comfort before what I owe them.
 
-- `augustine-loss` evil is good damaged or missing, not separate stuff
-  - from chapter `world-that-harms`: Augustine: evil is good damaged or missing, not separate stuff
+  *Enjoying food is good; my neighbour is still owed a share*
 
-  With creation's goodness as his starting point, Augustine treats evil as good damaged or missing. The healing wound illustrates what he means by a loss; it does not establish the scriptural starting point.
+- `genesis-creation-was-very-good` Genesis: creation was “very good”
+
+  Can creation be good if things in it suffer harm?
+
+  Genesis says God saw creation was “very good.” This gives the question its starting point: how can evil exist within a good creation?
+
+  *Genesis: creation was “very good”*
+
+- `health-lost` A wound is damage to a body, not a separate evil thing
+  - from chapter `world-that-harms`: Augustine: A wound is damage to a body, not a separate evil thing
+  - from chapter `trinity`: A wound is damage to a body, not a separate evil thing
+  - from chapter `cathar-rite`: Augustine: A wound is damage to a body, not a separate evil thing
+
+  How can a wound be real without being a separate thing?
+
+  A cut body has lost health. When it heals, health returns without any evil substance escaping.
+
+  The wound is damage to a good body, not an extra thing inside it. Its pain is still real.
+
+  *A wound is damage to a body, not a separate evil thing*
+
+- `the-wrong-is-taking-what-another-is-owed` Stealing food puts my comfort before my neighbour’s need
+  - from chapter `world-that-harms`: Augustine: Stealing food puts my comfort before my neighbour’s need
+  - from chapter `trinity`: Stealing food puts my comfort before my neighbour’s need
+  - from chapter `cathar-rite`: Augustine: Stealing food puts my comfort before my neighbour’s need
+
+  If food and comfort are good, why is stealing a meal wrong?
+
+  Suppose I take the meal my neighbour needs. Enjoying food is good, but that share belongs to them.
+
+  The wrong is choosing my comfort over what I owe them.
+
+  *Stealing food puts my comfort before my neighbour’s need*
+
+- `being-hurt-is-not-the-same-as-doing-wrong` Being hurt is not the same as doing wrong
+
+  Does being harmed mean doing something wrong?
+
+  A wound damages health. Stealing a neighbour’s meal puts personal comfort before what another person is owed.
+
+  Both involve a loss of goodness, but one is harm suffered and the other a wrongful choice. Suffering does not make the injured person guilty.
+
+  *Being hurt is not the same as doing wrong*
+
+- `augustine-loss` Evil is goodness damaged or missing, not a separate thing
+  - from chapter `world-that-harms`: Augustine: Evil is goodness damaged or missing, not a separate thing
+  - from chapter `trinity`: Evil is goodness damaged or missing, not a separate thing
+  - from chapter `cathar-rite`: Augustine: Evil is goodness damaged or missing, not a separate thing
+
+  How can evil exist in a good creation?
+
+  Genesis calls creation “very good.” A wound damages a good body; healing restores health without any separate evil substance escaping.
+
+  Evil can likewise be damage to, or loss of, something good. The wound illustrates this account; it does not prove that creation is good.
+
+  *Evil is goodness damaged or missing, not a separate thing*
 
 **Combinations**
-- Case: a cut body has lost its health [transform] + `healed-body` [preserve] -> `health-lost` (tutorial)
-- Case: I take the meal my neighbour needs [transform] + `fair-share` [preserve] -> The wrong is taking what another is owed
-- `health-lost` + The wrong is taking what another is owed [preserve] -> Being hurt is not the same as doing wrong
-- `health-lost` + Genesis: creation was “very good” [preserve] -> `augustine-loss`
+- `case-a-cut-body-has-lost-its-health` [transform] + `healed-body` [preserve] -> `health-lost` (tutorial)
+- `case-i-take-the-meal-my-neighbour-needs` [transform] + `fair-share` [preserve] -> `the-wrong-is-taking-what-another-is-owed`
+- `health-lost` + `the-wrong-is-taking-what-another-is-owed` [preserve] -> `being-hurt-is-not-the-same-as-doing-wrong`
+- `health-lost` + `genesis-creation-was-very-good` [preserve] -> `augustine-loss`
 
-> NOTE: Source `aug-evil`: [Augustine, Enchiridion §§9–15, 23–27, 42–52](https://www.newadvent.org/fathers/1302.htm). Created goodness, evil as privation, and the fallen will.
+> NOTE: Source `aug-evil`: [Augustine, Enchiridion §§9–15, 23–27, 42–52](https://www.newadvent.org/fathers/1302.htm). Created goodness, evil as privation, and the fallen will. §§26–27 and 42–48 describe inherited corruption and condemnation, distinct from an infant’s own acts; “inherited condition” must not be reduced to a learned habit or only bodily illness.
 
 > NOTE: Source `genesis`: [Genesis 1:31, King James Version](https://www.biblegateway.com/passage/?search=Genesis%201%3A31&version=KJV). Brief excerpt from the creation account; not an independent demonstration of the theological claim.
 
-## Why can’t I simply do better?
+## `willing-doing` Augustine, Hippo, c. 421 — Why can’t I simply do better?
 
 ![Augustine’s study — evening](assets/theology-grace-alcove.webp)
 
+*Augustine, Hippo, c. 421*
+
 The meal has not been returned: the person who took it promised fairness, then chose comfort again. Use Augustine's account of grace to examine that failure; then ask why his church baptizes infants who have made no such choice.
 
-> NOTE: Source context: Augustine’s grace controversy · early fifth century texts.
+> NOTE: Source context: Augustine’s grace controversy · a c. 421 reading setting reopening his earlier grace writings, including the 418 treatise.
 
 **Goals**
 - Why do we fail to do what we know is right? -- `aided-choice`
 - Why would an infant need forgiveness? -- `condition-not-act`
 
 **Items**
-- Case: I know I should return the stolen meal
 
-  The person understands the duty. More information about who owns the meal would not address every part of the problem.
+- `case-i-know-i-should-return-the-stolen-meal` Eg. I know I should return the stolen meal
+  - from chapter `world-that-harms`: Augustine example: I know I should return the stolen meal
+  - from chapter `trinity`: Eg. I know I should return the stolen meal
+  - from chapter `cathar-rite`: Augustine example: I know I should return the stolen meal
 
-- `failed-promise` Case: I promise fairness, then choose comfort again
+  Is knowing what is right enough?
 
-  The person knows they should return the food and promises to do so, then chooses comfort again. Understanding and promising have not yet produced the right action.
+  Suppose I know I should return my neighbour’s stolen meal. Another lesson about whose food it is may not make me return it.
 
-- Paul: “The good that I would I do not”
+  *Eg. I know I should return the stolen meal*
 
-  Here “would” means “want to”. The passage frames the willing-and-doing problem that we are comparing with Augustine's account of grace.
+- `failed-promise` Eg. I promise to return the meal, then keep it for myself
+  - from chapter `world-that-harms`: Augustine example: I promise to return the meal, then keep it for myself
+  - from chapter `trinity`: Eg. I promise to return the meal, then keep it for myself
+  - from chapter `cathar-rite`: Augustine example: I promise to return the meal, then keep it for myself
 
-- `love-help` God can stir love, not merely teach
-  - from chapter `world-that-harms`: Augustine: God can stir love, not merely teach
+  Is a promise enough to change a choice?
 
-  Augustine distinguishes knowing what is right from wanting and choosing it. He calls God's inward help with that choice grace.
+  Suppose I promise to return my neighbour’s stolen meal, then keep it for my own comfort. Knowing and promising have not led to action.
 
-- Augustine’s church baptizes infants for forgiveness
+  *Eg. I promise to return the meal, then keep it for myself*
 
-  Augustine appeals to his church's practice of baptizing infants for forgiveness. What the practice presupposes still needs an explanation.
+- `paul-the-good-that-i-would-i-do-not` Paul: I do not do the good I want to do
 
-- `adam-condition` we inherit a sinful condition from the first human, Adam
-  - from chapter `world-that-harms`: Augustine: we inherit a sinful condition from the first human, Adam
+  Why do I sometimes fail to do what I want to do?
 
-  Adam is the first human in the biblical story. Augustine says Adam's disobedience leaves later humans needing forgiveness even before choosing a wrong act.
+  Paul writes, “The good that I would I do not”: “would” here means “want to.” Wanting to do good does not always lead to doing it.
+
+  *Paul: I do not do the good I want to do*
+
+- `love-help` God can help us want what is right, not just teach it
+  - from chapter `world-that-harms`: Augustine: God can help us want what is right, not just teach it
+  - from chapter `trinity`: God can help us want what is right, not just teach it
+  - from chapter `cathar-rite`: Augustine: God can help us want what is right, not just teach it
+
+  What help is needed beyond knowing what is right?
+
+  God’s grace can stir love and help people want and do what is right. It works within the will, beyond merely teaching a duty.
+
+  *God can help us want what is right, not just teach it*
+
+- `augustines-church-baptizes-infants-for-forgiveness` The church baptizes infants for the forgiveness of sins
+  - from chapter `world-that-harms`: Augustine’s church baptizes infants for the forgiveness of their sins
+  - from chapter `trinity`: The church baptizes infants for the forgiveness of sins
+  - from chapter `cathar-rite`: Augustine’s church baptizes infants for the forgiveness of their sins
+
+  Why baptize infants for forgiveness?
+
+  The church baptizes infants for the forgiveness of sins. Yet they have chosen no wrongful act. What could need forgiving?
+
+  *The church baptizes infants for the forgiveness of sins*
+
+- `adam-condition` We inherit a sinful condition from Adam, the first human
+  - from chapter `world-that-harms`: Augustine: We inherit a sinful condition from Adam, the first human
+  - from chapter `trinity`: We inherit a sinful condition from Adam, the first human
+  - from chapter `cathar-rite`: Augustine: We inherit a sinful condition from Adam, the first human
+
+  What could forgiveness mean before a child has chosen wrong?
+
+  Adam, the first human in the biblical story, disobeyed God. His descendants share in that original sin: they are born with a damaged nature and share the guilt of his disobedience.
+
+  This inherited condition needs forgiveness before any wrongful choice of their own.
+
+  *We inherit a sinful condition from Adam, the first human*
 
 - `knowing-doing-gap` I know what is right, but still choose otherwise
+  - from chapter `world-that-harms`: Augustine: I know what is right, but still choose otherwise
+  - from chapter `trinity`: I know what is right, but still choose otherwise
+  - from chapter `cathar-rite`: Augustine: I know what is right, but still choose otherwise
 
-  Knowing what is right has not been enough to make the person do it. Augustine argues that God's help must address willing and acting as well as ignorance.
+  Why might I fail to do what I know is right?
 
-- `aided-choice` God helps the person want and act
-  - from chapter `world-that-harms`: Augustine: God helps the person want and act
+  Suppose I know I should return a stolen meal, promise to do so, then keep it. Paul also describes a gap between wanting and doing: “The good that I would I do not”—I do not do the good I want to do.
 
-  Augustine says God can help a person want and do what is right. The person still chooses and acts; help does not make the human actor disappear.
+  Knowing and intending the good have not secured the action.
 
-- Why forgive an infant who has not chosen wrong?
+  *I know what is right, but still choose otherwise*
 
-  Augustine's church baptizes both infants, although neither has chosen a wrong act. What could forgiveness address in both cases? The practice poses that question; it does not prove the account Augustine gives of inherited sin.
+- `aided-choice` God helps us want and do what is right
+  - from chapter `world-that-harms`: Augustine: God helps us want and do what is right
+  - from chapter `trinity`: God helps us want and do what is right
+  - from chapter `cathar-rite`: Augustine: God helps us want and do what is right
 
-- `condition-not-act` both infants inherit sin; illness does not decide it
-  - from chapter `world-that-harms`: Augustine: both infants inherit sin; illness does not decide it
+  What helps when knowing and promising do not lead to action?
 
-  Apply Augustine's inherited-condition claim to both children: he says both need forgiveness through Adam, although neither chose a wrongful act. The healthy infant is not exempt, and the ill infant's suffering is not evidence of personal wrongdoing. Christians have disputed this teaching and its implications.
+  Suppose I promise to return a stolen meal, then keep it. God’s grace can stir love and help me want and do what is right.
 
-- `two-infants` Case: one infant ill, one well; neither chose wrong
+  This is inward help, beyond another lesson about duty. The choice and action remain mine.
 
-  One infant is ill and the other is well. Neither has chosen a wrongful act. Does either child's health determine a need for forgiveness?
+  *God helps us want and do what is right*
+
+- `why-forgive-an-infant-who-has-not-chosen-wrong` Why would an infant need forgiveness without choosing wrong?
+
+  Why would infants need forgiveness without choosing wrong?
+
+  Imagine two infants, one ill and another well. Neither has chosen wrong, yet the church baptizes both for forgiveness.
+
+  The same question arises for both: what needs forgiving before any wrongful choice? Health does not answer it.
+
+  *Why would an infant need forgiveness without choosing wrong?*
+
+- `condition-not-act` Infants inherit sin whether they are ill or well
+  - from chapter `world-that-harms`: Augustine: Infants inherit sin whether they are ill or well
+  - from chapter `trinity`: Infants inherit sin whether they are ill or well
+  - from chapter `cathar-rite`: Augustine: Infants inherit sin whether they are ill or well
+
+  Does an infant’s health determine a need for forgiveness?
+
+  Imagine two infants, one ill and another well. Neither has chosen wrong, yet both are baptized for forgiveness. Adam’s descendants inherit a damaged nature and share the guilt of his disobedience.
+
+  On that account, both need forgiveness for inherited sin. Health gives no exemption, and illness is no evidence of a wrongful choice.
+
+  *Infants inherit sin whether they are ill or well*
+
+- `two-infants` Eg. one infant is ill, one well; neither chose wrong
+  - from chapter `world-that-harms`: Augustine example: one infant is ill, one well; neither chose wrong
+  - from chapter `trinity`: Eg. one infant is ill, one well; neither chose wrong
+  - from chapter `cathar-rite`: Augustine example: one infant is ill, one well; neither chose wrong
+
+  Does an infant’s illness show personal wrongdoing?
+
+  Imagine two infants, one ill and one well. Neither has chosen a wrongful act. Their different health cannot explain what either needs forgiven.
+
+  *Eg. one infant is ill, one well; neither chose wrong*
 
 **Combinations**
-- Case: I know I should return the stolen meal [transform] + `failed-promise` -> `knowing-doing-gap`
-- Paul: “The good that I would I do not” [preserve] + `failed-promise` -> `knowing-doing-gap`
+- `case-i-know-i-should-return-the-stolen-meal` [transform] + `failed-promise` -> `knowing-doing-gap`
+- `paul-the-good-that-i-would-i-do-not` [preserve] + `failed-promise` -> `knowing-doing-gap`
 - `knowing-doing-gap` [preserve] + `love-help` [preserve] -> `aided-choice`
-- `two-infants` [preserve] + Augustine’s church baptizes infants for forgiveness [preserve] -> Why forgive an infant who has not chosen wrong?
-- Why forgive an infant who has not chosen wrong? [preserve] + `adam-condition` [preserve] -> `condition-not-act`
+- `two-infants` [preserve] + `augustines-church-baptizes-infants-for-forgiveness` [preserve] -> `why-forgive-an-infant-who-has-not-chosen-wrong`
+- `why-forgive-an-infant-who-has-not-chosen-wrong` [preserve] + `adam-condition` [preserve] -> `condition-not-act`
 
 > NOTE: Source `aug-grace`: [Augustine, On the Grace of Christ I](https://www.newadvent.org/fathers/15061.htm). Grace as inward help for willing and acting, beyond nature and instruction alone.
 
 > NOTE: Source `romans`: [Romans 7:19, King James Version](https://www.biblegateway.com/passage/?search=Romans%207%3A19&version=KJV). Short excerpt about willing and doing. Pairing this verse with Augustine's grace argument is an editorial comparison; the linked On the Grace of Christ I supports inward help beyond teaching without supplying a specific reading of this verse.
 
-## `world-that-harms` Who made a world that harms?
+## `world-that-harms` An anonymous Cathar author, northern Italy, c. 1250 — Who made a world that harms?
 
 ![Medieval manuscript study](assets/theology-medieval-disputation-desk.webp)
 
-*Northern Italy, thirteenth century*
+*An anonymous Cathar author, northern Italy, c. 1250*
 
-The Book of Two Principles argues that good and evil have opposed sources. Reconstruct its reasoning and compare it with Augustine's account. Its central claim conflicts with Augustine’s explanation of evil.
+The unnamed author of the Book of Two Principles belongs to the Christian movement commonly called Cathar. He wants to defend a wholly good God without making God the source of evil. What if the harm in this world cannot come from goodness at all?
 
 [If skipped] Augustine describes evil as damage within a good creation. The Book of Two Principles gives evil an opposed source. The creator's responsibility remains in question.
 
 > NOTE: Source context: Book of Two Principles · northern Italy, thirteenth century.
 
 **Goals**
-- Does foreseeing harm make you responsible? -- A knowing maker is not merely a knowing spectator
+- Does foreseeing harm make you responsible? -- `a-knowing-maker-is-not-merely-a-knowing-spectator`
 - Does evil have a source of its own? -- `origins-dispute`
 
 **Items**
-- Matthew: “A good tree cannot bring forth evil fruit”
 
-  The verse concerns trees and fruit in a warning about false prophets. The medieval writer extends it into an argument about the sources of good and evil.
+- `matthew-a-good-tree-cannot-bring-forth-evil-fruit` Matthew: “A good tree cannot bring forth evil fruit”
 
-- Two Principles: no evil can come from a wholly good cause
+  What can fruit reveal about its source?
 
-  The Book of Two Principles claims that a wholly good source cannot produce evil. That rule is an extra premise in its argument, not something proved merely by noticing suffering.
+  Matthew warns against false prophets: “A good tree cannot bring forth evil fruit.” The saying judges a source by what it produces.
 
-- Case: the same world feeds people and destroys them
+  *Matthew: “A good tree cannot bring forth evil fruit”*
 
-  Imagine fertile land and a destructive storm. The case asks what a good creator could be responsible for. It is not offered as evidence that any one disaster punishes its victims.
+- `two-principles-no-evil-can-come-from-a-wholly` A wholly good cause cannot produce evil
+  - from chapter `fire-and-harm`: Cathar author: A wholly good cause cannot produce evil
 
-- Two Principles: a maker knowingly chose this harmful world
+  Can a wholly good cause produce evil?
 
-  The text presses a responsibility question: if the maker knew the result and made its conditions, why treat that maker as only an observer?
+  An ultimate source must be good or evil, producing its own kind. A wholly good source therefore cannot produce evil. This is the argument’s starting point, not something suffering alone proves.
 
-- An observer can foresee harm without making its cause
+  *A wholly good cause cannot produce evil*
 
-  Foreknowledge alone need not cause an event. This is the kind of reply examined in the text. A creator’s additional role still needs attention.
+- `case-the-same-world-feeds-people-and-destroys-them` Eg. the same world feeds people and destroys them
+  - from chapter `fire-and-harm`: Cathar author example: the same world feeds people and destroys them
 
-- The writer turns the tree saying into a rule about causes
+  Who is responsible for a world that both nourishes and harms?
 
-  The writer reads the tree-and-fruit saying as a rule about the sources of good and evil. Accepting the verse does not require accepting that particular interpretation.
+  Fertile land feeds a household; a storm destroys its home. The same world sustains life and takes it away. The disaster does not show that its victims deserved it.
 
-- Two Principles: good and evil must have opposed sources
+  *Eg. the same world feeds people and destroys them*
 
-  Start with the writer's wholly good source. The world contains harm as well as benefit, but assigning that harm to the same source would violate his rule that no evil can come from a wholly good cause. To retain both that source and that rule, he assigns evil an opposed source. The extra source is the writer's solution to the conflict between his premise and the mixed world; noticing suffering alone has not established it. Augustine contests this account by treating evil as damaged goodness.
+- `two-principles-a-maker-knowingly-chose-this-harmful-world` The creator knew this world would cause harm
+  - from chapter `fire-and-harm`: Cathar author: The creator knew this world would cause harm
 
-- A knowing maker is not merely a knowing spectator
+  Is a maker responsible for foreseeable harm?
 
-  Knowing that harm will happen is different from making the conditions that cause it. A reply about a passive observer does not fully answer the question about a knowing creator.
+  Consider a creator who knew the world would harm its inhabitants, yet made it. This creator did more than watch: the conditions for harm were part of what was made.
 
-- `origins-dispute` Is evil damaged goodness, or does it have its own source?
+  *The creator knew this world would cause harm*
 
-  For Augustine, the question is how goodness becomes damaged within a good creation. The Book of Two Principles instead assigns evil to an opposed source, refusing to make a wholly good cause responsible for it. Moving evil to another source changes the account of creation itself; it does not merely give the same harm another name. The knowing maker's responsibility is what makes this disagreement matter.
+- `an-observer-can-foresee-harm-without-making-its-cause` An observer can foresee harm without causing it
+
+  Does foreseeing harm mean causing it?
+
+  A spectator may foresee a disaster without bringing it about. Knowing what will happen is different from making it happen.
+
+  *An observer can foresee harm without causing it*
+
+- `the-writer-turns-the-tree-saying-into-a-rule` A good tree cannot bear evil fruit—nor a good cause produce evil
+  - from chapter `fire-and-harm`: Cathar author: A good tree cannot bear evil fruit—nor a good cause produce evil
+
+  Does the good tree’s fruit tell us about the source of evil?
+
+  Matthew warns against false prophets: “A good tree cannot bring forth evil fruit.” But what about the principle that no evil can come from a wholly good cause?
+
+  The image extends from false prophets to the sources of good and evil: evil cannot be the fruit of a wholly good cause.
+
+  *A good tree cannot bear evil fruit—nor a good cause produce evil*
+
+- `two-principles-good-and-evil-must-have-opposed-sources` Good and evil must come from opposing sources
+  - from chapter `fire-and-harm`: Cathar author: Good and evil must come from opposing sources
+
+  Why would evil need a source of its own?
+
+  An ultimate source is taken to be good or evil, producing its own kind—like Matthew’s good tree that cannot bear evil fruit. Yet the same world feeds a household and destroys its home in a storm.
+
+  Neither a good source nor an evil one can then explain both. Good and evil must come from opposing sources. That conclusion preserves a wholly good God, but gives up one creator of everything; it depends on the starting premise.
+
+  *Good and evil must come from opposing sources*
+
+- `a-knowing-maker-is-not-merely-a-knowing-spectator` A creator who foresees harm is more than a bystander
+  - from chapter `fire-and-harm`: Cathar author: A creator who foresees harm is more than a bystander
+
+  Does foreseeing harm make a creator responsible?
+
+  A spectator may foresee a disaster without causing it. A creator who knowingly made a harmful world also made the conditions for its harm.
+
+  The spectator’s innocence does not answer the charge against a maker who did more than watch.
+
+  *A creator who foresees harm is more than a bystander*
+
+- `origins-dispute` Augustine: evil is damaged goodness. Cathar author: evil has a separate source
+
+  Does evil have its own source, or is it damage to something good?
+
+  Augustine calls evil a loss within a good creation, as a wound is lost health. But if an ultimate source must be good or evil and produce only its own kind, the world’s good and evil require opposing sources.
+
+  The dispute concerns how evil arises and what a good creator can be responsible for, not simply what to call it.
+
+  *Augustine: evil is damaged goodness. Cathar author: evil has a separate source*
 
 **Combinations**
-- Matthew: “A good tree cannot bring forth evil fruit” [preserve] + Two Principles: no evil can come from a wholly good cause -> The writer turns the tree saying into a rule about causes
-- The writer turns the tree saying into a rule about causes [preserve] + Case: the same world feeds people and destroys them -> Two Principles: good and evil must have opposed sources
-- Two Principles: a maker knowingly chose this harmful world [preserve] + An observer can foresee harm without making its cause [preserve] -> A knowing maker is not merely a knowing spectator
-- Two Principles: good and evil must have opposed sources + `augustine-loss` [preserve] -> `origins-dispute`
-- Two Principles: no evil can come from a wholly good cause + Case: the same world feeds people and destroys them -> Two Principles: good and evil must have opposed sources
+- `matthew-a-good-tree-cannot-bring-forth-evil-fruit` [preserve] + `two-principles-no-evil-can-come-from-a-wholly` -> `the-writer-turns-the-tree-saying-into-a-rule`
+- `the-writer-turns-the-tree-saying-into-a-rule` [preserve] + `case-the-same-world-feeds-people-and-destroys-them` -> `two-principles-good-and-evil-must-have-opposed-sources`
+- `two-principles-a-maker-knowingly-chose-this-harmful-world` [preserve] + `an-observer-can-foresee-harm-without-making-its-cause` [preserve] -> `a-knowing-maker-is-not-merely-a-knowing-spectator`
+- `two-principles-good-and-evil-must-have-opposed-sources` + `augustine-loss` [preserve] -> `origins-dispute`
+- `two-principles-no-evil-can-come-from-a-wholly` + `case-the-same-world-feeds-people-and-destroys-them` -> `two-principles-good-and-evil-must-have-opposed-sources`
 
-> NOTE: Source `two-principles`: [Book of Two Principles, translated selections](https://www.cuhk.edu.hk/crs/tobias/primary_docs_ch11.html). A surviving radical-dualist argument from thirteenth-century Italy; use the translated primary text, not the page’s unqualified proposed Manichaean genealogy.
+> NOTE: Source `two-principles`: [Book of Two Principles, translated selections](https://www.cuhk.edu.hk/crs/tobias/primary_docs_ch11.html). A surviving radical-dualist argument from thirteenth-century Italy; use the translated primary text, not the page’s unqualified proposed Manichaean genealogy. Part I.2 assumes a first principle must be good or evil and produce its own kind; this extra premise is needed for the opposed-sources inference.
 
 > NOTE: Source `matthew-tree`: [Matthew 7:18, King James Version](https://www.biblegateway.com/passage/?search=Matthew%207%3A18&version=KJV). Public-domain translation supplies the visible biblical quotation; the medieval treatise’s interpretation is separately attributed.
 
 > NOTE: Source `two-principles-full`: [Book of Two Principles I.8–10, III.1–2 and V.1–6, translated primary text](https://gnosis.org/library/cathar-two-principles.htm). Online transcription based on Wakefield and Evans, with editor changes; primary text located through the search index because direct fetch failed. Use the actual argument, not the archive’s triumphalist introduction. I.9 gives the watcher analogy and I.10 its reply; V exposes disagreement among dualist groups.
 
-## What has the fire example answered?
+## `fire-and-harm` Thomas Aquinas, Rome, c. 1267 — What has the fire example answered?
 
-![Manuscript study — next morning](assets/theology-cause-comparison-bench.webp)
+![Aquinas’s manuscript study](assets/theology-cause-comparison-bench.webp)
 
-Could the same fire work as fire and destroy something else? Apply Aquinas's example to the opposed-sources argument, then return to the knowing maker's responsibility.
+*Thomas Aquinas, Rome, c. 1267*
+
+Thomas Aquinas is a Dominican friar and theologian working on his Summa in Rome. He asks how something acting well according to its nature could harm something else. Can fire expose a weakness in the argument for opposed sources of good and evil?
 
 > NOTE: Source context: Aquinas · thirteenth century; an editorial comparison of texts.
 
@@ -218,86 +418,172 @@ Could the same fire work as fire and destroy something else? Apply Aquinas's exa
 - Does this answer the knowing maker’s responsibility? -- `limited-answer`
 
 **Items**
-- Aquinas: fire does what fire does—it heats and burns
 
-  For Aquinas, fire functions well as fire when it heats and burns. That does not make it morally good or mean that every effect is good for everything nearby.
+- `aquinas-fire-does-what-fire-doesit-heats-and-burns` Fire acts as fire should when it heats and burns
+  - from chapter `trinity`: Aquinas: Fire acts as fire should when it heats and burns
+  - from chapter `baptism-water`: Fire acts as fire should when it heats and burns
+  - from chapter `coin-or-supper`: Aquinas: Fire acts as fire should when it heats and burns
 
-- `water-lost` Aquinas’s example: water is destroyed by the fire
+  Can something work well and still cause harm?
 
-  Consider the effect on the water: in Aquinas's example it loses what makes it water. This is his medieval account of one thing's destruction, not a modern chemistry explanation. What does that loss tell us about the fire causing it?
+  Fire heats and burns according to its nature. Being good at being fire does not mean being morally good or benefiting everything nearby.
 
-- Fire can work well as fire while harming something else
+  *Fire acts as fire should when it heats and burns*
 
-  Fire can function well as fire while harming something else. This challenges a rule that treats good functioning and harmless effects as the same thing.
+- `water-lost` Eg. in this account of nature, fire changes water into something else
+  - from chapter `trinity`: Aquinas example: in his account of nature, fire changes water into something else
+  - from chapter `baptism-water`: Eg. in this account of nature, fire changes water into something else
+  - from chapter `coin-or-supper`: Aquinas example: in his account of nature, fire changes water into something else
 
-- Aquinas: harmful effects do not require a separate evil source
+  What if fire changes water into something else?
 
-  Aquinas's example offers a way for harmful effects to come from something functioning well. It challenges the need for a separate evil source without answering every question about suffering.
+  In this account of nature, fire can turn water into fire. Water then loses its “form”: what makes it water. The example concerns one kind of thing being destroyed as another takes its place.
 
-- `limited-answer` The fire example challenges two sources, but leaves the maker’s responsibility open
+  *Eg. in this account of nature, fire changes water into something else*
 
-  Aquinas argues that fire can work well as fire by heating and burning while harming something else. This challenges the claim that every harmful effect needs a wholly evil source. It still leaves the question of why a knowing creator would make such a world.
+- `fire-can-work-well-as-fire-while-harming-something` Fire can work as it should while harming something else
+  - from chapter `trinity`: Aquinas: Fire can work as it should while harming something else
+  - from chapter `baptism-water`: Fire can work as it should while harming something else
+  - from chapter `coin-or-supper`: Aquinas: Fire can work as it should while harming something else
+
+  Can fire work as it should and still destroy something?
+
+  Fire naturally heats and burns. In this account of nature, it can turn water into fire: the water ceases to be water.
+
+  The fire fulfils its nature while destroying something else. Being good as fire does not mean being morally good or harmless.
+
+  *Fire can work as it should while harming something else*
+
+- `aquinas-harmful-effects-do-not-require-a-separate-evil` Harmful effects do not require a separate evil source
+  - from chapter `trinity`: Aquinas: Harmful effects do not require a separate evil source
+  - from chapter `baptism-water`: Harmful effects do not require a separate evil source
+  - from chapter `coin-or-supper`: Aquinas: Harmful effects do not require a separate evil source
+
+  Must harm come from a separate evil source?
+
+  The Cathar Book of Two Principles gives evil an opposing source: a wholly good cause cannot produce it. But in this account of nature, fire can turn water into fire, destroying the water while working well as fire.
+
+  This concerns natural functioning, not moral goodness. It shows how harm can follow from something working well, challenging the need for a separate evil source.
+
+  *Harmful effects do not require a separate evil source*
+
+- `limited-answer` The fire example explains harm, but leaves the creator’s responsibility open
+
+  Does the fire example settle a creator’s responsibility?
+
+  In this account of nature, fire can turn water into fire. It works well as fire while destroying the water, explaining harm without a separate evil source. But the Cathar author asks about a creator who knowingly made the conditions for harm, rather than merely watching.
+
+  The example concerns natural functioning. By itself, it does not settle the creator’s responsibility.
+
+  *The fire example explains harm, but leaves the creator’s responsibility open*
 
 **Combinations**
-- Aquinas: fire does what fire does—it heats and burns [preserve] + `water-lost` [preserve] -> Fire can work well as fire while harming something else
-- Fire can work well as fire while harming something else [preserve] + Two Principles: good and evil must have opposed sources -> Aquinas: harmful effects do not require a separate evil source
-- Aquinas: harmful effects do not require a separate evil source [preserve] + A knowing maker is not merely a knowing spectator [preserve] -> `limited-answer`
+- `aquinas-fire-does-what-fire-doesit-heats-and-burns` [preserve] + `water-lost` [preserve] -> `fire-can-work-well-as-fire-while-harming-something`
+- `fire-can-work-well-as-fire-while-harming-something` [preserve] + `two-principles-good-and-evil-must-have-opposed-sources` -> `aquinas-harmful-effects-do-not-require-a-separate-evil`
+- `aquinas-harmful-effects-do-not-require-a-separate-evil` [preserve] + `a-knowing-maker-is-not-merely-a-knowing-spectator` [preserve] -> `limited-answer`
 
-> NOTE: Source `summa-evil`: [Aquinas, Summa I q.49 aa.1–3](https://www.newadvent.org/summa/1049.htm). Actual objections, Augustine citations, two principles, good nature and defective agency. No evidence here that Aquinas was answering this surviving Italian treatise.
+> NOTE: Source `summa-evil`: [Aquinas, Summa I q.49 aa.1–3](https://www.newadvent.org/summa/1049.htm). Actual objections, Augustine citations, two principles, good nature and defective agency. No evidence here that Aquinas was answering this surviving Italian treatise. Article 1 describes fire impressing its own form while destroying the form of water or air; the reading’s “turn water into fire” makes that medieval elemental transformation explicit, rather than describing modern evaporation.
 
 > NOTE: Source `aquinas-reason-limit`: [Aquinas, Summa I q.32 a.1](https://www.newadvent.org/summa/1032.htm). Natural reason does not demonstrate the Trinity; an explanation of a received belief is not its proof.
 
-## Three—and not three gods?
+## `trinity` Augustine, Hippo, c. 420 — Three, and not three gods?
 
 ![Manuscript study — evening](assets/theology-trinity-lectern.webp)
 
-The rites ahead claim to give God's Spirit: who do Christians mean by Father, Son and Spirit? Aquinas says reasoning from the world cannot prove the Trinity, so turn to Augustine for a different task: explaining the claim of one God without treating human examples as its proof.
+*Augustine, Hippo, c. 420*
+
+Return to Augustine, bishop of Hippo, for his earlier account of the Trinity. Christians name Father, Son and Holy Spirit: how can they still mean one God? The rites ahead promise the Spirit, making this more than a question about names.
 
 [If skipped] Augustine distinguishes Father, Son and Holy Spirit while affirming one God. Aquinas says observation of created things cannot prove this belief.
 
-> NOTE: Source context: Aquinas reopens Augustine · a medieval reading of an earlier text.
+> NOTE: Source context: Augustine’s On the Trinity · a return to an earlier voice; Aquinas’s reason/revelation limit frames the comparison.
 
 **Goals**
-- Does being Son mean being less divine? -- Augustine: the name Son does not mean a lesser God
+- Does being Son mean being less divine? -- `augustine-the-name-son-does-not-mean-a-lesser`
 - Which explanations of the Trinity does Augustine rule out? -- `trinity-bounded`
 
 **Items**
-- `teacher-pupil` Case: a teacher instructs a pupil; both are human
 
-  One gives the lesson and the other receives it. Test what this difference of role establishes about the kind of being each is.
+- `teacher-pupil` Eg. a teacher instructs a pupil; both are human
+  - from chapter `cathar-rite`: Augustine example: a teacher instructs a pupil; both are human
 
-- Does being Son mean being a lesser kind of God?
+  Do different roles mean different natures?
 
-  This is a question about an inference from the titles. Being related differently does not, just by itself, decide whether two are unequal in nature.
+  A teacher gives a lesson; a pupil receives it. Both are human. The pupil’s different role does not make them less human.
 
-- `three-humans` Case: three humans share a kind, but remain three beings
+  *Eg. a teacher instructs a pupil; both are human*
 
-  Calling three people “human” does not turn them into a single human being. This comparison exposes a tempting but misleading way to explain divine unity.
+- `does-being-son-mean-being-a-lesser-kind-of` Does being God’s Son mean being less divine?
 
-- `one-divine-being` Augustine: Father, Son and Spirit are one divine being
+  Does being God’s Son mean being less divine?
 
-  Augustine says Father, Son and Holy Spirit are one divine being. He also distinguishes them: the names do not all refer to the same relationship.
+  Father and Son name a relationship. Different relationships need not mean different natures, with one greater and the other lesser.
 
-- Jesus: “Father … glorify thy Son”
+  *Does being God’s Son mean being less divine?*
 
-  The Son addresses the Father. Augustine must explain how this real relationship belongs within his belief in one God.
+- `three-humans` Eg. three people are all human, but remain three separate beings
+  - from chapter `cathar-rite`: Augustine example: three people are all human, but remain three separate beings
 
-- Augustine: the name Son does not mean a lesser God
+  Does sharing a nature make three people one being?
 
-  Being the pupil does not make someone less human than the teacher. The example defeats an automatic inference from different roles to different kinds of being. Augustine makes his own claim about Father and Son: the names express their relationship, not greater and lesser kinds of God. The classroom comparison does not establish divine unity.
+  Three people share human nature, yet remain three separate beings. Sharing a kind does not make them one.
 
-- Augustine: one God—not three gods sharing a kind
+  *Eg. three people are all human, but remain three separate beings*
 
-  Three humans share a kind but remain three separate beings. Augustine's claim is different: Father, Son and Spirit are one divine being with real distinctions, not three similar gods.
+- `one-divine-being` Father, Son and Holy Spirit are one divine being
+  - from chapter `cathar-rite`: Augustine: Father, Son and Holy Spirit are one divine being
 
-- `trinity-bounded` Trinity: one God as Father, Son and Holy Spirit
+  How can Father, Son and Holy Spirit be one God?
 
-  Augustine's three-person claim already includes Father, Son and Holy Spirit. The Son's address to the Father tests one relationship within that claim: their distinction must be real, not one person taking turns in different roles. The verse is not being used to derive the Holy Spirit. Together with the three-humans comparison, it clarifies what Augustine excludes: neither three separate gods nor one actor changing roles. These tests explain his doctrine without proving it.
+  Father, Son and Holy Spirit are one divine being, with real differences of relationship. They are not three separate gods of the same kind.
+
+  *Father, Son and Holy Spirit are one divine being*
+
+- `jesus-father-glorify-thy-son` Jesus asks the Father to reveal the Son’s glory
+
+  What does the Son’s prayer reveal about his relation to the Father?
+
+  In John’s Gospel Jesus says, “Father … glorify thy Son”: he asks the Father to reveal the Son’s glory. One addresses the other; there is a real relationship.
+
+  *Jesus asks the Father to reveal the Son’s glory*
+
+- `augustine-the-name-son-does-not-mean-a-lesser` Being God’s Son does not mean being less divine
+  - from chapter `cathar-rite`: Augustine: Being God’s Son does not mean being less divine
+
+  Does the name Son mean less divine than the Father?
+
+  A teacher and pupil have different roles but are equally human. Likewise, Father and Son name a relationship, not necessarily unequal natures.
+
+  Being Son does not mean being a lesser kind of God. The classroom example challenges that inference; it does not prove divine unity.
+
+  *Being God’s Son does not mean being less divine*
+
+- `augustine-one-godnot-three-gods-sharing-a-kind` Father, Son and Spirit are one God, not three similar gods
+  - from chapter `cathar-rite`: Augustine: Father, Son and Spirit are one God, not three similar gods
+
+  Are Father, Son and Spirit three gods of the same kind?
+
+  Three humans share a nature but remain separate beings. Father, Son and Holy Spirit are one divine being, with distinct relationships.
+
+  Sharing a kind is therefore an inadequate comparison. It describes three similar beings, not one God.
+
+  *Father, Son and Spirit are one God, not three similar gods*
+
+- `trinity-bounded` One God as Father, Son and Holy Spirit
+  - from chapter `cathar-rite`: Augustine: One God as Father, Son and Holy Spirit
+
+  How can Father, Son and Holy Spirit be distinct while God is one?
+
+  Father, Son and Holy Spirit are one divine being, not three gods sharing a kind. Yet in John’s Gospel the Son addresses the Father: “Father … glorify thy Son.”
+
+  Unity must allow a real relationship, not one person changing roles. The belief also includes the Holy Spirit, though this verse alone does not establish that. These comparisons clarify the doctrine without proving it.
+
+  *One God as Father, Son and Holy Spirit*
 
 **Combinations**
-- `teacher-pupil` [preserve] + Does being Son mean being a lesser kind of God? [transform] -> Augustine: the name Son does not mean a lesser God
-- `three-humans` [preserve] + `one-divine-being` [preserve] -> Augustine: one God—not three gods sharing a kind
-- Jesus: “Father … glorify thy Son” [preserve] + Augustine: one God—not three gods sharing a kind [preserve] -> `trinity-bounded`
+- `teacher-pupil` [preserve] + `does-being-son-mean-being-a-lesser-kind-of` [transform] -> `augustine-the-name-son-does-not-mean-a-lesser`
+- `three-humans` [preserve] + `one-divine-being` [preserve] -> `augustine-one-godnot-three-gods-sharing-a-kind`
+- `jesus-father-glorify-thy-son` [preserve] + `augustine-one-godnot-three-gods-sharing-a-kind` [preserve] -> `trinity-bounded`
 
 > NOTE: Source `aug-trinity`: [Augustine, On the Trinity V.1,5–9](https://www.newadvent.org/fathers/130105.htm). Primary text, public-domain translation. Relative names, one divine being, and limits of creaturely comparison.
 
@@ -305,42 +591,54 @@ The rites ahead claim to give God's Spirit: who do Christians mean by Father, So
 
 > NOTE: Source `john17-kjv`: [John 17:1, King James Version](https://www.biblegateway.com/passage/?search=John%2017%3A1&version=KJV). Brief public-domain quotation. Its Trinitarian interpretation is separately attributed.
 
-## Can a spiritual rite be bodily?
+## `cathar-rite` A Cathar minister, place uncertain, c. 1300 — Can a spiritual rite be bodily?
 
 ![Ritual study](assets/theology-ritual-comparison-room.webp)
 
-The Lyon ritual records a ceremony with hands and a Gospel book, promising forgiveness and God's Spirit. Compare this separate medieval witness with the accounts of creation: what can a bodily ceremony tell us about who made bodies?
+*A Cathar minister, place uncertain, c. 1300*
 
-> NOTE: Source context: The Lyon ritual · a separate medieval manuscript witness.
+This voice belongs to the minister described in a Cathar ritual preserved in an Occitan manuscript now at Lyon. The ceremony promises forgiveness and God’s Spirit through hands and a Gospel book. What can using bodies in worship tell us about who made them?
+
+> NOTE: Source context: The Lyon ritual · a separate medieval manuscript witness. The approximate date describes the surviving manuscript, not the origin of the rite; its place of production is uncertain.
 
 **Goals**
-- What does this bodily rite tell us about creation? -- Using bodies in a rite does not prove belief in one good creator
+- What does this bodily rite tell us about creation? -- `using-bodies-in-a-rite-does-not-prove-belief`
 
 **Items**
-- The rite claims a spiritual gift through hands and a book
 
-  The Lyon ritual places ministers' hands and a Gospel book—an account of Jesus's life and teaching—on the candidate. It calls this spiritual baptism, promising forgiveness and the Holy Spirit dwelling within the believer.
+- `the-rite-claims-a-spiritual-gift-through-hands-and` Hands and a Gospel book are laid on a believer to give God’s Spirit
+  - from chapter `baptism-water`: Lyon ritual: hands and a Gospel book are laid on a believer to give God’s Spirit
 
-  It appeals to Acts, where Peter and John lay hands on believers who receive the Spirit. The candidate also promises to renounce worldly desires, love enemies, and pray for persecutors. These are the documented actions and claims to compare with an account of creation.
+  Can a bodily ceremony give a spiritual gift?
 
-- Using bodies in a rite does not prove belief in one good creator
+  In spiritual baptism, hands and a Gospel book are placed on the candidate, with a promise of forgiveness and the Holy Spirit within the believer. The rite appeals to the laying on of hands in Acts. The candidate renounces worldly desires and pledges to love enemies and pray for persecutors.
 
-  Hands and a book take part in a claimed spiritual gift. The rite appeals to the apostolic laying on of hands in Acts for authority; that appeal is not independent verification of its promise. Its pledge joins renouncing worldly desires with prayer for persecutors, so it does not mean abandoning other people.
+  *Hands and a Gospel book are laid on a believer to give God’s Spirit*
 
-  Neither bodily action nor that pledge supplies an account of who created matter. The Book of Two Principles argues for opposed sources; this separate ritual witness does not state that account. Using a body in worship cannot by itself establish belief in one good creator.
+- `using-bodies-in-a-rite-does-not-prove-belief` Using bodies in worship does not tell us who created them
+
+  Does using hands and a book in worship settle who made matter?
+
+  In spiritual baptism, hands and a Gospel book are placed on the candidate with a promise of forgiveness and the Holy Spirit.
+
+  Augustine calls evil damage within a good creation; the separate Cathar text, the Book of Two Principles, gives evil an opposed source. Using bodies in the rite does not by itself settle which account is right.
+
+  *Using bodies in worship does not tell us who created them*
 
 **Combinations**
-- The rite claims a spiritual gift through hands and a book + `origins-dispute` [preserve] -> Using bodies in a rite does not prove belief in one good creator
+- `the-rite-claims-a-spiritual-gift-through-hands-and` + `origins-dispute` [preserve] -> `using-bodies-in-a-rite-does-not-prove-belief`
 
 > NOTE: Source `ritual`: [Occitan ritual, Lyon PA 36, Marvyn Roy Harris critical edition (Rialto)](https://www.rialto.unina.it/archivio/prorel/CatharRitual/CathRit.txt.htm). Critical text IV.15–18 cites Acts 8:14–17 (not Acts 19). III.22–31 and IV.49–53 support indwelling Spirit, forgiveness and bodily enactment. Distinct witness from Two Principles.
 
 > NOTE: Source `matthew-enemies-kjv`: [Matthew 5:44, King James Version](https://www.biblegateway.com/passage/?search=Matthew%205%3A44&version=KJV). Biblical enemy-love command, provided here for comparison. The ritual includes enemy-love and prayer/blessing for persecutors in IV.32; the pledge does not imply the manuscript used KJV.
 
-## Can water do more than wash?
+## `baptism-water` Thomas Aquinas, Naples, c. 1273 — Can water do more than wash?
 
-![Ritual study — next morning](assets/theology-baptism-bench.webp)
+![Aquinas’s baptism study](assets/theology-baptism-bench.webp)
 
-The Lyon rite has shown that a bodily action can claim a spiritual gift. Aquinas offers a different account of baptism with water: try his craftsperson-and-axe comparison, then ask what would authorize this particular use of water.
+*Thomas Aquinas, Naples, c. 1273*
+
+Return to Aquinas, now writing about sacraments in Naples. He says God appointed baptism with water to give inward grace. How could water do more than wash—and what would authorize this particular use of it?
 
 > NOTE: Source context: Back to Aquinas · Summa III q.62.
 
@@ -349,36 +647,70 @@ The Lyon rite has shown that a bodily action can claim a spiritual gift. Aquinas
 - next: Are these two rites saying the same thing? -- `rites-different`
 
 **Items**
-- Aquinas’s example: the axe cuts the wood
 
-  The edge explains the tool’s ordinary cutting. It does not explain by itself why a particular piece of furniture takes shape.
+- `aquinass-example-the-axe-cuts-the-wood` Eg. the axe cuts the wood
+  - from chapter `coin-or-supper`: Aquinas example: the axe cuts the wood
 
-- The craftsperson uses the axe to make a bed
+  How does an axe work?
 
-  The craftsperson and the tool act in different, connected ways. Calling the axe effective does not install a second independent designer.
+  An axe cuts wood with its edge. Cutting alone does not explain why the wood takes the shape of a bed.
 
-- `instituted-baptism` Aquinas: God appointed baptism with water to give grace—new life within the soul
+  *Eg. the axe cuts the wood*
 
-  Aquinas says God chose baptism as a way to give grace: a new life within the soul. That is why its water has a role beyond ordinary washing.
+- `the-craftsperson-uses-the-axe-to-make-a-bed` Eg. the craftsperson uses the axe to make a bed
+  - from chapter `coin-or-supper`: Aquinas example: the craftsperson uses the axe to make a bed
 
-  A sacrament is such a God-appointed bodily sign or rite. The axe comparison cannot prove that God appointed any particular rite.
+  How does a craftsperson make a bed with an axe?
 
-- `dependent-tool` The axe cuts; the craftsperson works through it
+  The craftsperson directs the work, and the axe cuts the wood. Both act, but the axe is not an independent designer.
 
-  The axe's edge explains cutting; the craftsperson's work explains why those cuts become a bed. The tool contributes a real action without becoming an independent designer. This is the pattern Aquinas brings to the question about a rite.
+  *Eg. the craftsperson uses the axe to make a bed*
 
-- `instrumental-baptism` Aquinas: in baptism, God works through water to give inward grace
+- `instituted-baptism` God chose water baptism to give grace: new life within the soul
+  - from chapter `coin-or-supper`: Aquinas: God chose water baptism to give grace: new life within the soul
 
-  In Aquinas's account, baptism's water washes the body while God works through it to give grace, a new life within the soul. As with the axe, instrumental action need not rival the principal actor. But cutting wood never establishes that God appointed baptism: that further claim supplies the water's sacramental role. Ordinary washing does not automatically acquire it.
+  Why would baptismal water do more than wash?
 
-- `rites-different` Both rites use bodies; that does not settle their authority claims
+  God appointed baptism with water to give grace: new life within the soul. A sacrament is a bodily sign or rite appointed by God. An instrument can help explain how it acts, but the comparison cannot prove God appointed it.
 
-  Lyon appeals to apostolic laying on of hands; Aquinas says God appointed baptism with water. Bodily action alone cannot decide which claim to accept. Comparing these texts does not establish a direct debate between them.
+  *God chose water baptism to give grace: new life within the soul*
+
+- `dependent-tool` Eg. the axe cuts; the craftsperson works through the axe
+  - from chapter `coin-or-supper`: Aquinas example: the axe cuts; the craftsperson works through the axe
+
+  How can both an axe and a craftsperson act?
+
+  The axe cuts the wood; the craftsperson directs it to make a bed.
+
+  The axe makes a real contribution as an instrument, without becoming an independent designer.
+
+  *Eg. the axe cuts; the craftsperson works through the axe*
+
+- `instrumental-baptism` In baptism, God works through water to give new life within the soul
+  - from chapter `coin-or-supper`: Aquinas: In baptism, God works through water to give new life within the soul
+
+  How could water give an inward gift?
+
+  An axe cuts wood while a craftsperson directs it to make a bed. God appointed baptism with water to give grace: new life within the soul.
+
+  Water washes the body, and God works through it as an instrument to give that inward gift. The analogy does not prove that God appointed baptism or make ordinary washing a sacrament.
+
+  *In baptism, God works through water to give new life within the soul*
+
+- `rites-different` Using water or hands does not prove that a rite comes from God
+
+  Does using material things make two rites equally authoritative?
+
+  God appointed water baptism and works through it to give inward grace. The Cathar rite places hands and a Gospel book on a candidate, promises forgiveness and the Holy Spirit, and appeals to the laying on of hands in Acts.
+
+  Both use material things, but that resemblance alone does not settle their claims to authority.
+
+  *Using water or hands does not prove that a rite comes from God*
 
 **Combinations**
-- Aquinas’s example: the axe cuts the wood [preserve] + The craftsperson uses the axe to make a bed [preserve] -> `dependent-tool`
+- `aquinass-example-the-axe-cuts-the-wood` [preserve] + `the-craftsperson-uses-the-axe-to-make-a-bed` [preserve] -> `dependent-tool`
 - `dependent-tool` [preserve] + `instituted-baptism` [preserve] -> `instrumental-baptism`
-- `instrumental-baptism` + The rite claims a spiritual gift through hands and a book -> `rites-different`
+- `instrumental-baptism` + `the-rite-claims-a-spiritual-gift-through-hands-and` -> `rites-different`
 
 > NOTE: Source `summa-doctrine`: [Aquinas, Summa I q.1 aa.1,8](https://www.newadvent.org/summa/1001.htm). Reason and revelation; grace perfects nature. Augustine is an explicit authority in this question.
 
@@ -386,9 +718,11 @@ The Lyon rite has shown that a bodily action can claim a spiritual gift. Aquinas
 
 > NOTE: Source `summa-grace`: [Aquinas, Summa III q.62 a.1](https://www.newadvent.org/summa/4062.htm). God as principal cause and the sacrament as instrument; no independent magic in matter.
 
-## What changed if it still tastes like bread?
+## `communion-bread` Thomas Aquinas, Naples, c. 1273 — What changed if it still tastes like bread?
 
 ![Ritual study — evening](assets/theology-eucharist-table.webp)
+
+*Thomas Aquinas, Naples, c. 1273*
 
 Does Communion give bread the same role that baptism gives water? Aquinas claims a change in what the bread is, even when a guest notices no change in its taste.
 
@@ -401,113 +735,203 @@ Does Communion give bread the same role that baptism gives water? Aquinas claims
 - Do water and bread have the same religious role? -- `two-material-roles`
 
 **Items**
-- `bread-taste` Case: after the church’s blessing, it still looks and tastes like bread
 
-  After the blessing, the bread looks and tastes the same. Aquinas's account must explain why he still says that what it is has changed.
+- `bread-taste` Eg. after the blessing, the bread still looks and tastes like bread
+  - from chapter `coin-or-supper`: Aquinas example: after the blessing, the bread still looks and tastes like bread
 
-- Jesus: “This is my body”
+  What can a guest tell by tasting Communion bread?
 
-  Christians dispute what these supper words mean. Aquinas reads them as affirming the real presence of Christ’s body, not only a reminder.
+  At Communion, the Christian meal of bread and wine, the blessed bread still looks and tastes as before. Whether what it is has changed is another question.
 
-- Aquinas: what was bread becomes Christ’s body
+  *Eg. after the blessing, the bread still looks and tastes like bread*
 
-  Aquinas says the bread becomes Christ’s body, although its taste, colour and shape remain. He is not saying that it starts to look or taste like flesh.
+- `jesus-this-is-my-body` Jesus: “This is my body”
 
-  This claim is called transubstantiation: a change in what the thing is, while its appearances remain. Other Christians dispute the claim.
+  What did Jesus mean by “This is my body”?
 
-- Aquinas reads Christ’s words as changing bread into his body
+  At supper with his disciples, Jesus said these words over bread. They affirm that his body is truly present in Communion; how bread can be his body calls for explanation.
 
-  Aquinas reads Christ's supper words as saying that bread becomes Christ's body. This is a particular interpretation, not the only possible reading established by the words alone.
+  *Jesus: “This is my body”*
 
-- `eucharist-account` Aquinas: it becomes Christ’s body but keeps bread’s look and taste
+- `aquinas-what-was-bread-becomes-christs-body` What was bread becomes Christ’s body
+  - from chapter `coin-or-supper`: Aquinas: What was bread becomes Christ’s body
 
-  The guest tastes bread, while Aquinas reads Christ's words as establishing a change in substance—what the thing is. He distinguishes that from the remaining qualities, such as taste, colour and shape, which he calls accidents. The substance becomes Christ's body while those qualities remain: transubstantiation. Unchanged taste fits this account but does not verify that the change occurred; Aquinas relies on divine authority for that claim.
+  What happens to the bread at Communion?
 
-- `two-material-roles` Aquinas: baptism’s water is God’s tool; Communion’s bread becomes Christ’s body
+  What was bread becomes Christ’s body, though its appearance and taste remain. This change is called transubstantiation.
 
-  For Aquinas, baptism's water is a tool through which God acts. In Communion, what was bread becomes Christ's body while appearances remain. These give physical things different roles.
+  *What was bread becomes Christ’s body*
+
+- `aquinas-reads-christs-words-as-changing-bread-into-his` “This is my body” means the bread becomes Christ’s body
+  - from chapter `coin-or-supper`: Aquinas: “This is my body” means the bread becomes Christ’s body
+
+  What do Christ’s words mean for the bread?
+
+  At supper Jesus said over bread, “This is my body.” What was bread becomes Christ’s body, though its familiar qualities remain.
+
+  His words affirm this change in what the bread is.
+
+  *“This is my body” means the bread becomes Christ’s body*
+
+- `eucharist-account` What was bread becomes Christ’s body; bread’s look and taste remain
+  - from chapter `coin-or-supper`: Aquinas: What was bread becomes Christ’s body; bread’s look and taste remain
+
+  What can tasting Communion bread establish?
+
+  After the blessing, the bread still looks and tastes like bread. Jesus said over bread, “This is my body”: what was bread becomes his body.
+
+  In transubstantiation, the substance—what the bread is—becomes Christ’s body, while its accidents—qualities such as taste and colour—remain. Unchanged taste fits this account but cannot prove the change, which rests on divine authority.
+
+  *What was bread becomes Christ’s body; bread’s look and taste remain*
+
+- `two-material-roles` Baptism’s water is God’s tool; bread in Communion becomes Christ’s body
+  - from chapter `coin-or-supper`: Aquinas: Baptism’s water is God’s tool; bread in Communion becomes Christ’s body
+
+  Do water and bread play the same part?
+
+  In baptism, God works through water to give grace, new life within the soul. In Communion, what was bread becomes Christ’s body while its appearance and taste remain.
+
+  Both rites begin with material things, but water is an instrument of God’s action, whereas the bread’s substance becomes Christ’s body.
+
+  *Baptism’s water is God’s tool; bread in Communion becomes Christ’s body*
 
 **Combinations**
-- Jesus: “This is my body” [preserve] + Aquinas: what was bread becomes Christ’s body [preserve] -> Aquinas reads Christ’s words as changing bread into his body
-- `bread-taste` [preserve] + Aquinas reads Christ’s words as changing bread into his body [preserve] -> `eucharist-account`
+- `jesus-this-is-my-body` [preserve] + `aquinas-what-was-bread-becomes-christs-body` [preserve] -> `aquinas-reads-christs-words-as-changing-bread-into-his`
+- `bread-taste` [preserve] + `aquinas-reads-christs-words-as-changing-bread-into-his` [preserve] -> `eucharist-account`
 - `eucharist-account` + `instrumental-baptism` -> `two-material-roles`
 
 > NOTE: Source `summa-eucharist`: [Aquinas, Summa III q.75 aa.2,4,5](https://www.newadvent.org/summa/4075.htm). Change of substance with sensible appearances remaining.
 
 > NOTE: Source `luke22-kjv`: [Luke 22:19, King James Version](https://www.biblegateway.com/passage/?search=Luke%2022%3A19&version=KJV). Brief public-domain quotation; rival readings do not become the words of the verse.
 
-## One coin: a letter or supper?
+## `coin-or-supper` Martin Luther, Wittenberg, 1517 — One coin: a letter or supper?
 
 ![Wittenberg printshop](assets/theology-reformation-print-table.webp)
 
-*Wittenberg, 1517*
+*Martin Luther, Wittenberg, 1517*
 
-A household has one coin and no supper. Compare Luther's priority for helping people with the seller's promise that payment can release a dead soul from punishment. The seller's claim is not the same as official teaching.
+Martin Luther is a friar and university teacher in Wittenberg, challenging indulgence preaching. An indulgence concerns penalties remaining after sins have been forgiven; a seller’s promise may go further than church teaching. A household has one coin and no supper: which duty should claim its money?
 
 > NOTE: Source context: Luther · Wittenberg, 1517.
 
 **Goals**
 - (three goals are a lot but okay here because the household payment case compares care, control of gifts, and repentance; the review found these distinctions concrete and did not establish a benefit from hiding one question)
 - What should the household's coin pay for? -- `feed-before-letter`
-- Does serving God mean controlling God's gifts? -- Working for God does not mean controlling God’s gifts
-- Can a payment replace repentance? -- Luther: a paid guarantee cannot replace a changed life
+- Does serving God mean controlling God's gifts? -- `working-for-god-does-not-mean-controlling-gods-gifts`
+- Can a payment replace repentance? -- `luther-a-paid-guarantee-cannot-replace-a-changed-life`
 
 **Items**
-- Case: the household has one coin and no supper
 
-  The household has one coin and no supper. Spending it on an indulgence would leave the family's immediate need for food unmet.
+- `case-the-household-has-one-coin-and-no-supper` Eg. the household has one coin and no supper
+  - from chapter `marburg`: Luther example: the household has one coin and no supper
 
-- Seller’s claim reported by Luther: a coin frees a dead soul
+  What should a household do with its last coin?
 
-  Luther reports sellers promising that payment releases a dead person from punishment. He attacks the claim that a coin can guarantee that result.
+  Suppose a household has one coin and no supper. Spending it on an indulgence letter, offering relief from penalties for sins already forgiven, would leave the family hungry.
 
-  The punishment in question is purgatory: purification after death for people ultimately saved, not hell. A reported sales pitch is not the same as official doctrine.
+  *Eg. the household has one coin and no supper*
 
-- Luther: household necessities and poor neighbours come first
+- `sellers-claim-reported-by-luther-a-coin-frees-a` Seller’s claim: a coin frees a dead soul from punishment
+  - from chapter `marburg`: Seller’s claim reported by Luther: a coin frees a dead soul from punishment
 
-  Luther gives care a positive priority, rather than treating the purchase as the only religious use for money.
+  Can a coin free a dead soul?
 
-- `declare-forgiveness` Luther: the pope announces forgiveness; God is the one who forgives
+  Some sellers claim that a coin releases a soul from purgatory: purification after death for those ultimately saved. Their promise concerns punishment, not escape from hell; a seller’s claim is not itself church teaching.
 
-  In 1517 Luther still allows a ministerial role. Declaring God’s forgiveness is not an independent power to make God forgive on receipt of money.
+  *Seller’s claim: a coin frees a dead soul from punishment*
 
-- Luther: repentance means a lifetime of turning away from wrong
+- `luther-household-necessities-and-poor-neighbours-come-first` Food for family and poor neighbours comes before letters reducing church penalties
+  - from chapter `marburg`: Luther: Food for family and poor neighbours comes before letters reducing church penalties
 
-  Repentance is turning from wrong, not a transaction completed once and forgotten. This claim helps explain why a guarantee based on payment troubles Luther.
+  Which need should come first?
 
-- `coin-not-control` For Luther, a seller cannot guarantee God’s mercy for a coin
+  Provide for household necessities and help poor neighbours before buying an indulgence letter, which offers relief from penalties for sins already forgiven. The money needed to feed people should meet their present need.
 
-  An indulgence concerns penalties remaining after forgiveness. Luther's proposed limit is narrower still: the pope can remove penalties imposed by church authority, but cannot by his own power command the release of a dead soul. The seller's guaranteed result goes beyond that limited role. A reported sales pitch is not the definition of official teaching.
+  *Food for family and poor neighbours comes before letters reducing church penalties*
 
-- `feed-before-letter` Luther: buy the hungry household supper before an indulgence letter
+- `declare-forgiveness` The pope announces forgiveness; God is the one who forgives
+  - from chapter `marburg`: Luther: The pope announces forgiveness; God is the one who forgives
 
-  Luther says a household with one coin and no supper should buy food before an indulgence letter—a grant of relief from penalties for sins already forgiven. Feeding the family and helping poor neighbours come first.
+  Who forgives?
 
-- Working for God does not mean controlling God’s gifts
+  The pope announces forgiveness, but God forgives. A minister’s announcement does not compel God to forgive.
 
-  Luther says church ministers can announce God’s forgiveness but cannot make God forgive for money. Aquinas says baptism’s water acts through God’s power, not its own. Both distinguish serving God from independently controlling God’s gifts, although they address different practices.
+  *The pope announces forgiveness; God is the one who forgives*
 
-- Luther: a paid guarantee cannot replace a changed life
+- `luther-repentance-means-a-lifetime-of-turning-away-from` Repentance means a lifetime of turning away from wrong
+  - from chapter `marburg`: Luther: Repentance means a lifetime of turning away from wrong
 
-  Luther separates two matters: the dead person's release and the living buyer's repentance. He denies that a coin guarantees the first; buying such a promise cannot replace the buyer's lifetime of turning away from wrong. The reported sales promise is not official teaching, and his criticism does not reject every rite or payment.
+  What does it mean to repent?
 
-- `papal-penalty-limit` Luther: the pope can release penalties imposed by church authority
+  Repentance is a lifetime of turning away from wrong, not a transaction completed once and forgotten.
 
-  Indulgences concern penalties remaining after sins have been forgiven, rather than buying forgiveness itself. In 1517 Luther challenges the extent of the pope's power over those penalties. His proposed limit is part of the dispute.
+  *Repentance means a lifetime of turning away from wrong*
+
+- `coin-not-control` A seller cannot guarantee God’s mercy for a coin
+  - from chapter `marburg`: Luther: A seller cannot guarantee God’s mercy for a coin
+
+  Can a seller guarantee a dead soul’s release for a coin?
+
+  Sellers promise that a coin frees a soul from purgatory, purification after death for those ultimately saved. An indulgence concerns penalties after forgiveness, and the pope can release penalties imposed by church authority.
+
+  That authority does not give him command over a dead soul’s release. A seller cannot guarantee God’s mercy for payment.
+
+  *A seller cannot guarantee God’s mercy for a coin*
+
+- `feed-before-letter` Buy supper before paying to reduce penalties imposed by the church
+  - from chapter `marburg`: Luther: Buy supper before paying to reduce penalties imposed by the church
+
+  What should the hungry household buy?
+
+  The household has one coin and no supper. Household necessities and care for poor neighbours come before an indulgence letter offering relief from penalties for forgiven sins.
+
+  The coin should buy supper, answering the family’s present need.
+
+  *Buy supper before paying to reduce penalties imposed by the church*
+
+- `working-for-god-does-not-mean-controlling-gods-gifts` Luther and Aquinas: serving God does not mean controlling God’s gifts
+
+  Does serving God mean controlling God’s gift?
+
+  The pope announces forgiveness, but God forgives. Aquinas describes baptismal water as an instrument through which God gives inward grace, not an independent source of grace.
+
+  These different practices both distinguish serving God from controlling a divine gift.
+
+  *Luther and Aquinas: serving God does not mean controlling God’s gifts*
+
+- `luther-a-paid-guarantee-cannot-replace-a-changed-life` Buying promised release from punishment cannot replace your own repentance
+  - from chapter `marburg`: Luther: Buying promised release from punishment cannot replace your own repentance
+
+  Can buying a promise of release replace repentance?
+
+  Sellers cannot guarantee that payment frees a dead soul from purgatory, purification after death for those ultimately saved. Repentance means a lifetime of turning away from wrong.
+
+  The dead person’s release and the buyer’s repentance are different matters. Buying a promise guarantees neither release nor a changed life.
+
+  *Buying promised release from punishment cannot replace your own repentance*
+
+- `papal-penalty-limit` The pope can cancel penalties imposed by church authority
+  - from chapter `marburg`: Luther: The pope can cancel penalties imposed by church authority
+
+  What can the pope release?
+
+  An indulgence concerns penalties remaining after sins have been forgiven. The pope can release penalties imposed by church authority; a wider power over punishment after death needs scrutiny.
+
+  *The pope can cancel penalties imposed by church authority*
 
 **Combinations**
-- Case: the household has one coin and no supper [transform] + Luther: household necessities and poor neighbours come first [preserve] -> `feed-before-letter`
-- `declare-forgiveness` [preserve] + `instrumental-baptism` -> Working for God does not mean controlling God’s gifts
-- `coin-not-control` [preserve] + Luther: repentance means a lifetime of turning away from wrong [preserve] -> Luther: a paid guarantee cannot replace a changed life
-- Seller’s claim reported by Luther: a coin frees a dead soul [preserve] + `papal-penalty-limit` [preserve] -> `coin-not-control`
+- `case-the-household-has-one-coin-and-no-supper` [transform] + `luther-household-necessities-and-poor-neighbours-come-first` [preserve] -> `feed-before-letter`
+- `declare-forgiveness` [preserve] + `instrumental-baptism` -> `working-for-god-does-not-mean-controlling-gods-gifts`
+- `coin-not-control` [preserve] + `luther-repentance-means-a-lifetime-of-turning-away-from` [preserve] -> `luther-a-paid-guarantee-cannot-replace-a-changed-life`
+- `sellers-claim-reported-by-luther-a-coin-frees-a` [preserve] + `papal-penalty-limit` [preserve] -> `coin-not-control`
 
 > NOTE: Source `theses`: [Luther, Ninety-Five Theses (1517), Taylor edition](https://editions.mml.ox.ac.uk/editions/luther-95-theses/luther-95-theses-eng.shtml). Especially theses 1, 27–28, 35–36, 43 and 62; indulgences concern penalties, not a legitimate purchase of guilt’s forgiveness.
 
-## If it is a gift, why do anything?
+## `free-service` Martin Luther, Wittenberg, 1520 — If it is a gift, why do anything?
 
 ![Wittenberg study — later session](assets/theology-liberty-bench.webp)
 
-*Wittenberg, 1520*
+*Martin Luther, Wittenberg, 1520*
 
 The household still needs the supper you put before the indulgence letter. Luther now says that good deeds do not earn God's acceptance: apply his account to supplying the meal, then test an alternative case in which someone keeps a fast but leaves supper unprepared.
 
@@ -521,31 +945,65 @@ The household still needs the supper you put before the indulgence letter. Luthe
 - Are these writers asking the same question about grace? -- `two-grace-questions`
 
 **Items**
-- `gift-acceptance` Luther: faith (trust in Christ), not good deeds, makes us right with God
 
-  Luther says faith, or trust in Christ and his promise, makes a person right with God. This is called justification. Helping a neighbour meets a real need, but does not earn God's acceptance.
+- `gift-acceptance` Faith (trust in Christ), not good deeds, makes us right with God
+  - from chapter `marburg`: Luther: Faith (trust in Christ), not good deeds, makes us right with God
 
-- `christ-serves` Luther: Christ served me freely; I can freely serve my neighbour
+  What makes a person right with God?
 
-  Luther says Christians should serve their neighbours freely, as Christ served them. They help because the neighbour needs it, not to earn God's acceptance.
+  Faith means trust in Christ and his promise. Faith, not good deeds, makes a person right with God. Helping a neighbour meets a real need; it does not earn God’s acceptance.
 
-- `body-practice` Alternative case: I fast but leave the household’s supper unprepared
+  *Faith (trust in Christ), not good deeds, makes us right with God*
 
-  In this imagined variation, the person disciplines their own appetite but leaves the household's meal unprepared. What has the fast accomplished, and whose need remains?
+- `christ-serves` Christ served freely; serve neighbours freely
+  - from chapter `marburg`: Luther: Christ served freely; serve neighbours freely
 
-- `care-not-purchase` Supper reaches the household; service does not buy God’s acceptance
+  Why serve a neighbour freely?
 
-  In the household case, the coin buys food and the meal reaches those who need it. Luther gives the deed its purpose in their hunger and in Christ's freely given service. Feeding them matters without becoming a price paid for God's acceptance.
+  Christ served freely, so a person can serve a neighbour freely in turn. The neighbour’s need gives the work its purpose; it is not a price for God’s acceptance.
 
-- `two-grace-questions` Augustine: what helps me act? Luther: what makes me right with God?
+  *Christ served freely; serve neighbours freely*
 
-  Consider someone who knows the household needs food but is tempted to keep it. Augustine's account asks what helps them move from knowing the duty to wanting and doing it: grace can help willing and acting, while the person really acts. Luther's account asks whether delivering the meal earns acceptance by God: he answers that faith in Christ, not the deed, makes the person right with God.
+- `body-practice` Eg. a person fasts for discipline but leaves supper unprepared
+  - from chapter `marburg`: Luther example: a person fasts for discipline but leaves supper unprepared
 
-  The same meal can therefore raise both questions. Explaining how someone comes to serve does not establish what makes them right with God; denying that service earns acceptance does not make its performance unimportant. This comparison separates the questions without making the writers' full accounts identical.
+  Has going without food fed the household?
 
-- `practice-not-price` Luther: fasting can discipline me; the household still needs its meal
+  Suppose someone fasts—goes without food—to discipline their appetite, but leaves supper unprepared. The fast may train them, while the family still needs a meal.
 
-  Luther gives fasting and other bodily disciplines a purpose in governing one's own conduct. Serving the neighbour addresses another person's need. In this case, keeping a fast has not prepared the family's supper: discipline must support a life of service, not excuse leaving that work undone. Neither kind of work buys God's acceptance.
+  *Eg. a person fasts for discipline but leaves supper unprepared*
+
+- `care-not-purchase` Feeding the household serves others; it does not buy God’s acceptance
+  - from chapter `marburg`: Luther: Feeding the household serves others; it does not buy God’s acceptance
+
+  Why feed a hungry household if good deeds do not buy God’s acceptance?
+
+  A household has one coin and no supper; food comes before an indulgence letter offering relief from penalties for forgiven sins. Christ served freely, giving reason to serve neighbours freely.
+
+  Feeding the household answers its hunger, without becoming a price for God’s acceptance.
+
+  *Feeding the household serves others; it does not buy God’s acceptance*
+
+- `two-grace-questions` Augustine: what helps me do right? Luther: what makes me right with God?
+
+  Are these the same question about grace?
+
+  Augustine asks how someone who knows what is right can come to want and do it: God stirs love and action, while the person really acts. Faith in Christ, not good deeds, makes a person right with God.
+
+  A meal for a hungry household can raise both questions. Explaining how someone comes to serve does not settle what makes them right with God; faith does not make service unimportant.
+
+  *Augustine: what helps me do right? Luther: what makes me right with God?*
+
+- `practice-not-price` Going without food can train a person; the household still needs its meal
+  - from chapter `marburg`: Luther: Going without food can train a person; the household still needs its meal
+
+  Has a fast fed the family?
+
+  Suppose someone fasts to discipline their appetite but leaves supper unprepared. Feeding the household answers its hunger, and Christ’s free service gives reason to serve freely.
+
+  Fasting may train a person, but it does not feed a neighbour. Discipline should support service; neither fasting nor feeding the family purchases God’s acceptance.
+
+  *Going without food can train a person; the household still needs its meal*
 
 **Combinations**
 - `feed-before-letter` [preserve] + `christ-serves` [preserve] -> `care-not-purchase`
@@ -554,13 +1012,13 @@ The household still needs the supper you put before the indulgence letter. Luthe
 
 > NOTE: Source `liberty-public-domain`: [Luther, Concerning Christian Liberty (1520), Project Gutenberg primary text](https://www.gutenberg.org/cache/epub/1911/pg1911-images.html). Public-domain English text checked for gift, faith, service and bodily discipline. The discipline discussion excludes works as righteousness before God; the bishop comparison denies their making the Christian more holy. Original paraphrases, not quotations from the separate modern Hanover translation.
 
-## What can these opponents sign together?
+## `marburg` Luther and Zwingli, Marburg, 1529 — What can these opponents sign together?
 
 ![Marburg records](assets/theology-confessions-table.webp)
 
-*Marburg, 1529*
+*Luther and Zwingli, Marburg, 1529*
 
-Compare texts from the years before Marburg with its signed articles. The writers agree on some beliefs while disagreeing about Christ's bodily presence in Communion.
+Huldrych Zwingli, the reformer of Zürich, has come to Marburg to meet Luther and other reformers. They seek common ground, but disagree about Christ’s bodily presence in Communion, the Christian meal of bread and wine. What can these opponents sign together?
 
 > NOTE: Source context: Marburg · 1526–1529 texts beside the signed articles.
 
@@ -568,82 +1026,158 @@ Compare texts from the years before Marburg with its signed articles. The writer
 - (three goals are a lot but okay here because the Communion positions, the unbelieving guest, and shared agreement are distinct comparisons; the review found the three simultaneous questions intelligible)
 - What is received in Communion? -- `three-supper-accounts`
 - Does receiving the gift guarantee its benefit? -- `received-not-benefited`
-- What can these opponents agree on? -- Shared belief in the Trinity leaves their Communion dispute open
+- What can these opponents agree on? -- `shared-belief-in-the-trinity-leaves-their-communion-dispute`
 
 **Items**
-- Zwingli: a ring recalls a beloved without containing their body
 
-  A ring can bring a loved person to mind without containing their body. Zwingli uses this example to explain how Communion's bread can point to Christ without containing his body.
+- `zwingli-a-ring-recalls-a-beloved-without-containing-their` Zwingli: a ring recalls a loved one without containing their body
 
-- Zwingli: Christ’s human body is in heaven
+  How can an object recall someone absent?
 
-  Zwingli argues that Christ's human body is in heaven after the Ascension. He therefore reads the Communion bread as a sign of that body, not a place where the body is located.
+  Zwingli compares Communion bread to a ring that recalls a loved person without containing their body. The bread likewise points to Christ in the Christian meal of bread and wine.
 
-- Luther: Christ’s words give his body with the bread
+  *Zwingli: a ring recalls a loved one without containing their body*
 
-  In the 1529 catechism, the sacrament depends on Christ’s words, not the participant’s ability to create it by believing. This is not Aquinas’s account of changed bread.
+- `zwingli-christs-human-body-is-in-heaven` Zwingli: Christ’s human body is in heaven
 
-- `unbelieving-guest` Case: a Communion guest eats the bread without trusting Christ’s promise
+  Where is Christ’s human body?
 
-  The guest tests two questions: what is received, and whether receiving it brings the promised benefit. The two need not have the same answer in Luther’s account.
+  Zwingli holds that Christ’s human body is in heaven after the Ascension, his rising to heaven. Communion bread points to that body without containing it.
 
-- `faith-benefit` Luther: Communion’s promised forgiveness is received only through faith—trust in Christ’s promise
+  *Zwingli: Christ’s human body is in heaven*
 
-  For Luther, the promised forgiveness in Communion is received through faith: trusting Christ's promise that the gift is for you. Merely eating does not supply that trust. He distinguishes receiving Christ's body from receiving the forgiveness that also strengthens faith.
+- `luther-christs-words-give-his-body-with-the-bread` Luther: in Communion, Christ’s words give his body with the bread
 
-- Marburg’s signers affirm one God in three persons
+  What does Luther say is received in Communion?
 
-  The jointly signed first article affirms the Trinity. Agreement on this matter does not remove their dispute about the supper.
+  Luther takes Christ’s words over bread, “This is my body,” to give his body with the bread. The gift rests on Christ’s words, not the guest’s belief.
 
-- `signed-supper` Marburg: Christ is received through faith; his bodily presence stays disputed
+  *Luther: in Communion, Christ’s words give his body with the bread*
 
-  The signers affirm receiving Christ through faith and the supper's strengthening of faith. They still disagree about Christ's bodily presence in bread and wine; they do not share one account of how that presence works.
+- `unbelieving-guest` Eg. a guest eats the Communion bread without trusting Christ’s promise
+  - from chapter `trent-justification`: Marburg example: a guest eats the Communion bread without trusting Christ’s promise
 
-- `zwingli-reading` Zwingli: bread points to Christ’s body; it does not contain it
+  What if a Communion guest does not trust Christ’s promise?
 
-  Zwingli's ring recalls someone without containing their body. Together with his belief that Christ's human body is in heaven, this supports his reading of Communion bread as a sign. Aquinas and Luther give different accounts of the same supper words.
+  Imagine a guest eating the bread in the Christian Communion meal without trusting Christ’s promise of a gift for them.
 
-- `two-presence-accounts` Aquinas: bread becomes Christ’s body. Luther: Christ’s body comes with bread
+  *Eg. a guest eats the Communion bread without trusting Christ’s promise*
 
-  Both affirm bodily presence, but the material accounts differ. Aquinas describes a change in what was bread; Luther’s catechism calls it bread with Christ’s body.
+- `faith-benefit` Luther: the Communion meal gives forgiveness through trust in Christ’s promise
 
-- `three-supper-accounts` Aquinas: bread becomes the body. Luther: body with bread. Zwingli: bread signifies body
+  How is Communion’s promised forgiveness received?
 
-  The third account separates two questions: is Christ's body present, and does the bread remain? Aquinas and Luther affirm bodily presence but differ about what happens to the bread. Zwingli leaves bread as a sign of the body in heaven. Agreement on bodily presence would therefore still leave a question about transformation; rejecting transformation need not imply Zwingli's answer.
+  Luther says forgiveness comes through faith: trust that Christ’s promise is for the receiver. This benefit is distinct from receiving Christ’s body with the bread.
+
+  *Luther: the Communion meal gives forgiveness through trust in Christ’s promise*
+
+- `marburgs-signers-affirm-one-god-in-three-persons` The Marburg agreement affirms one God as Father, Son and Holy Spirit
+
+  What can be agreed about God at Marburg?
+
+  God is one in three persons: Father, Son and Holy Spirit.
+
+  *The Marburg agreement affirms one God as Father, Son and Holy Spirit*
+
+- `signed-supper` Marburg: Christ is received through faith, but his bodily presence in Communion is disputed
+
+  What can be agreed about Communion at Marburg?
+
+  Christ is received spiritually through faith, trust in him, and the meal of bread and wine strengthens faith. His bodily presence in the meal remains disputed.
+
+  *Marburg: Christ is received through faith, but his bodily presence in Communion is disputed*
+
+- `zwingli-reading` Zwingli: Communion bread points to Christ’s body without containing it
+
+  Why does Zwingli call Communion bread a sign?
+
+  A ring recalls a loved person without containing their body. Zwingli also holds that Christ’s human body is in heaven after his Ascension.
+
+  The bread likewise points to Christ’s body without containing it.
+
+  *Zwingli: Communion bread points to Christ’s body without containing it*
+
+- `two-presence-accounts` Aquinas: Communion bread becomes Christ’s body. Luther: his body comes with bread
+
+  If Christ’s body is present in Communion, what happens to the bread?
+
+  Aquinas says the bread becomes Christ’s body while its look and taste remain. Luther says Christ’s words give his body with the bread.
+
+  Both affirm bodily presence, but differ over whether the bread remains.
+
+  *Aquinas: Communion bread becomes Christ’s body. Luther: his body comes with bread*
+
+- `three-supper-accounts` Aquinas: bread becomes Christ’s body; Luther: his body comes with bread; Zwingli: bread points to his body
+
+  What happens to the bread and Christ’s body in Communion?
+
+  Aquinas says bread becomes Christ’s body while its look and taste remain. Luther says Christ’s body is given with the bread. Zwingli says bread points to Christ’s body in heaven without containing it.
+
+  Aquinas and Luther affirm bodily presence but differ over the bread; Zwingli understands the bread as a sign.
+
+  *Aquinas: bread becomes Christ’s body; Luther: his body comes with bread; Zwingli: bread points to his body*
 
 - `guest-not-maker` Luther: even an unbelieving Communion guest receives Christ’s body with the bread
 
-  In Luther’s account of Communion, even the guest who does not believe receives Christ’s body with the bread. Christ’s words establish what is given; the guest’s disbelief does not undo it.
+  Can disbelief prevent Christ’s body from being given in Communion?
 
-  This answers what is received. Whether receiving it brings the promised forgiveness is a separate question.
+  A guest eats the bread without trusting Christ’s promise. Luther says Christ’s words give his body with the bread.
+
+  Even this guest receives the body; belief does not make it present.
+
+  *Luther: even an unbelieving Communion guest receives Christ’s body with the bread*
 
 - `received-not-benefited` Luther: the unbelieving Communion guest receives Christ’s body, not the promised forgiveness
 
-  Luther says an unbelieving Communion guest still receives Christ's body with the bread, because Christ's words establish the gift. Without trusting the promise, the guest does not receive its promised forgiveness. What is given and its benefit to the receiver are separate questions.
+  Does receiving Christ’s body in Communion guarantee forgiveness?
 
-- `shared-trinity` They agree about one God in three persons—not every claim about Communion
+  Luther says even an unbelieving guest receives Christ’s body with the bread. He also says the promised forgiveness is received through faith, trusting that the promise is for the receiver.
 
-  The writers can share belief in one God as Father, Son and Spirit while disagreeing about Communion. Real agreement does not require agreement on every question.
+  The guest receives the body without receiving the promised forgiveness.
 
-- Shared belief in the Trinity leaves their Communion dispute open
+  *Luther: the unbelieving Communion guest receives Christ’s body, not the promised forgiveness*
 
-  At Marburg, the signers affirm one God as Father, Son and Spirit and receiving Christ through faith. They still disagree about his bodily presence in bread and wine. A shared signature records real agreement without erasing its limit.
+- `shared-trinity` The Marburg signers agree: Father, Son and Holy Spirit are one God
 
-- `luther-zwingli-contrast` Luther: Christ’s body comes with bread. Zwingli: bread points to the body
+  Does agreement about the Trinity settle the Communion dispute?
 
-  These two accounts differ about bodily presence. That does not yet locate Aquinas: his earlier changed-bread account is a third position to compare.
+  The Marburg signers affirm one God as Father, Son and Holy Spirit. Augustine likewise describes them as one divine being, not three gods sharing a kind.
+
+  This shared belief does not settle what happens to Communion bread.
+
+  *The Marburg signers agree: Father, Son and Holy Spirit are one God*
+
+- `shared-belief-in-the-trinity-leaves-their-communion-dispute` The Marburg signers agree on one God, but dispute Christ’s body in the Communion meal
+
+  What can be agreed at Marburg while disagreement remains?
+
+  God is one as Father, Son and Holy Spirit. In Communion, Christ is received spiritually through faith—trust in him—and the meal of bread and wine strengthens faith.
+
+  His bodily presence in the meal remains disputed.
+
+  *The Marburg signers agree on one God, but dispute Christ’s body in the Communion meal*
+
+- `luther-zwingli-contrast` Luther: Christ’s body comes with Communion bread. Zwingli: bread points to his body
+
+  How do Luther and Zwingli differ about Communion bread?
+
+  Luther says Christ’s words give his body with the bread. Zwingli says the bread points to Christ’s body in heaven, like a ring recalling a loved person.
+
+  They disagree about whether Christ’s body is present in the meal.
+
+  *Luther: Christ’s body comes with Communion bread. Zwingli: bread points to his body*
 
 **Combinations**
-- Zwingli: a ring recalls a beloved without containing their body [preserve] + Zwingli: Christ’s human body is in heaven [preserve] -> `zwingli-reading`
-- `eucharist-account` + Luther: Christ’s words give his body with the bread -> `two-presence-accounts`
+- `zwingli-a-ring-recalls-a-beloved-without-containing-their` [preserve] + `zwingli-christs-human-body-is-in-heaven` [preserve] -> `zwingli-reading`
+- `eucharist-account` + `luther-christs-words-give-his-body-with-the-bread` -> `two-presence-accounts`
 - `two-presence-accounts` [preserve] + `zwingli-reading` -> `three-supper-accounts`
-- `unbelieving-guest` [transform] + Luther: Christ’s words give his body with the bread -> `guest-not-maker`
+- `unbelieving-guest` [transform] + `luther-christs-words-give-his-body-with-the-bread` -> `guest-not-maker`
 - `guest-not-maker` [preserve] + `faith-benefit` [preserve] -> `received-not-benefited`
-- Marburg’s signers affirm one God in three persons + `trinity-bounded` [preserve] -> `shared-trinity`
-- `shared-trinity` [preserve] + `signed-supper` -> Shared belief in the Trinity leaves their Communion dispute open
-- `zwingli-reading` + Luther: Christ’s words give his body with the bread -> `luther-zwingli-contrast`
+- `marburgs-signers-affirm-one-god-in-three-persons` + `trinity-bounded` [preserve] -> `shared-trinity`
+- `shared-trinity` [preserve] + `signed-supper` -> `shared-belief-in-the-trinity-leaves-their-communion-dispute`
+- `zwingli-reading` + `luther-christs-words-give-his-body-with-the-bread` -> `luther-zwingli-contrast`
 - `luther-zwingli-contrast` [preserve] + `eucharist-account` -> `three-supper-accounts`
-- Marburg’s signers affirm one God in three persons + `signed-supper` -> Shared belief in the Trinity leaves their Communion dispute open
+- `marburgs-signers-affirm-one-god-in-three-persons` + `signed-supper` -> `shared-belief-in-the-trinity-leaves-their-communion-dispute`
 
 > NOTE: Source `later-zwingli-1526`: [Zwingli, On the Lord’s Supper (1526), Second and Third Articles](https://www.uecf.net/books/zwingli-and-bullinger/chapter5.html). Primary text after THE TEXT; G. W. Bromiley, Zwingli and Bullinger (1953), pp.185–238. Original paraphrases only; the editorial introduction is not Zwingli. Ring at Third Article; ascension at Second Article. The brief supper quotation is separately attributed to KJV Luke 22:19.
 
@@ -651,13 +1185,13 @@ Compare texts from the years before Marburg with its signed articles. The writer
 
 > NOTE: Source `later-marburg-1529`: [The Marburg Articles, 3 October 1529, Articles 1, 5–8 and 15](https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/ghdi:document-4311). Primary joint statement, translated by Ellen Yutzy Glebe; original paraphrases only. Article 15 affirms spiritual reception, records corporal-presence disagreement, and qualifies mutual love by conscience. A signature is not doctrinal convergence.
 
-## Does accepting a gift make it wages?
+## `trent-justification` Catholic bishops, Trent, 1547 — Does accepting a gift make it wages?
 
 ![Trent records — later session](assets/theology-trent-decree-desk.webp)
 
-*Trent, 1547*
+*Catholic bishops, Trent, 1547*
 
-The household meal now poses a question across a lifetime: does feeding someone earn the first gift of being made right with God, and what can the same deed change afterward? Trent's decree distinguishes those moments; compare them with Luther's account of free service.
+Catholic bishops have gathered at Trent to set out their church’s teaching amid the Reformation. Their decree asks how a person is made right with God. If God’s help comes first, can our response still be real—and what can later good deeds change?
 
 > NOTE: Source context: Council of Trent · Catholic bishops, 1547; earlier texts reopened.
 
@@ -667,39 +1201,80 @@ The household meal now poses a question across a lifetime: does feeding someone 
 - What do later good deeds change? -- `works-dispute`
 
 **Items**
-- `trent-first-help` Council of Trent: an adult can accept or refuse God’s prior help
 
-  Trent gives the adult a real response to God's help: consenting or resisting. God initiates that help; the person does not begin the process unaided.
+- `trent-first-help` God offers help first; an adult can accept or refuse it
+  - from chapter `prayer-and-relics`: Trent: God offers help first; an adult can accept or refuse it
+  - from chapter `trent-reply`: God offers help first; an adult can accept or refuse it
+  - from chapter `ending`: Trent: God offers help first; an adult can accept or refuse it
 
-- `trent-no-price` Council of Trent: being made right with God for the first time is not earned by faith or deeds
+  Can someone respond when God acts first?
 
-  The Council of Trent says that nothing before our first being made right with God—neither faith nor deeds—earns that gift. It begins with God’s help.
+  God’s help comes first. An adult can consent to or resist it, but cannot begin being made right with God unaided.
 
-  This is initial justification. Keeping that limit visible prevents the false contrast “Luther teaches a gift; Trent teaches buying it”.
+  *God offers help first; an adult can accept or refuse it*
 
-- `trent-growth` Trent council: later deeds, helped by God, deepen received righteousness—our renewed inner life with God
+- `trent-no-price` Neither faith nor deeds earn being made right with God for the first time
+  - from chapter `prayer-and-relics`: Trent: Neither faith nor deeds earn being made right with God for the first time
+  - from chapter `trent-reply`: Neither faith nor deeds earn being made right with God for the first time
+  - from chapter `ending`: Trent: Neither faith nor deeds earn being made right with God for the first time
 
-  For Trent, righteousness includes God renewing the person within, not merely a change in reputation. After the initial gift, good deeds made possible by God’s help increase this received righteousness.
+  Can faith or deeds earn the first gift?
 
-  This is the council’s account of growth in justification. It is not just the observation that repeated practice can improve someone’s outward behaviour, and it does not say people begin by earning salvation.
+  Nothing preceding a person’s first being made right with God earns it, neither faith nor deeds. It is God’s gift.
+
+  *Neither faith nor deeds earn being made right with God for the first time*
+
+- `trent-growth` After God makes us right with him, deeds done with his help deepen our inner renewal
+  - from chapter `prayer-and-relics`: Trent: After God makes us right with him, deeds done with his help deepen our inner renewal
+  - from chapter `trent-reply`: After God makes us right with him, deeds done with his help deepen our inner renewal
+  - from chapter `ending`: Trent: After God makes us right with him, deeds done with his help deepen our inner renewal
+
+  What can good deeds change after God makes a person right with him?
+
+  The first gift includes inner renewal. Good deeds made possible by God’s help deepen this received righteousness: a person’s renewed inner life with God.
+
+  *After God makes us right with him, deeds done with his help deepen our inner renewal*
 
 - `luther-fruit` Luther: deeds can train us, but do not make a Christian more holy before God
 
-  In Christian Liberty, Luther gives deeds a role in training the body and serving others, but denies that those deeds make an already-Christian person more holy before God.
+  Can deeds make a Christian more holy before God?
 
-  His bishop comparison makes the distinction: doing the bishop’s work does not make the bishop more consecrated. The text allows growth of faith and love, so this is not a denial of all growth or better conduct.
+  Luther values deeds for training the body and serving others. He allows growth in faith and love, but says deeds do not make an already-Christian person more holy before God.
 
-- `response-not-price` Trent council: an adult’s response does not earn being made right with God for the first time
+  *Luther: deeds can train us, but do not make a Christian more holy before God*
 
-  Accepting and earning are different claims. Trent says an adult can really consent to God's prior help, while denying that anything preceding initial justification—faith or deeds—merits that gift. A real response does not make the gift wages. This does not yet answer what deeds can change after the gift is received.
+- `response-not-price` Accepting God’s help does not earn the first gift of being made right with God
+  - from chapter `prayer-and-relics`: Trent: Accepting God’s help does not earn the first gift of being made right with God
+  - from chapter `trent-reply`: Accepting God’s help does not earn the first gift of being made right with God
+  - from chapter `ending`: Trent: Accepting God’s help does not earn the first gift of being made right with God
+
+  Does accepting help mean earning it?
+
+  God’s help comes first, and an adult can consent to or resist it. Neither faith nor deeds preceding the first gift of being made right with God earn it.
+
+  Consent is a real response, but it does not earn the gift.
+
+  *Accepting God’s help does not earn the first gift of being made right with God*
 
 - `gift-common-ground` Luther and Trent: feeding someone does not earn our first acceptance by God
 
-  Luther and the Council of Trent both deny, in this household comparison, that feeding someone buys the initial gift of being made right with God. This limited agreement does not make their accounts of faith, inward renewal or later good deeds the same.
+  Can feeding a household earn the first gift?
 
-- `works-dispute` Trent and Luther dispute how deeds affect holiness before God—not whether conduct can improve
+  Luther says feeding a hungry household serves a neighbour without buying God’s acceptance. An adult can consent to God’s prior help, but neither faith nor deeds earn the first gift of being made right with God.
 
-  Consider the already-Christian person continuing to feed the household. Trent says deeds made possible by God's help increase righteousness already received, including inward renewal. Luther's text values the service and training but denies that such deeds make the Christian more holy before God. Both can value the meal while disagreeing about this further effect; better outward conduct is not the whole issue.
+  Both accounts hold that the meal does not buy that first gift. Their wider accounts of faith and renewal still differ.
+
+  *Luther and Trent: feeding someone does not earn our first acceptance by God*
+
+- `works-dispute` Trent and Luther dispute how deeds affect holiness before God, not whether conduct can improve
+
+  What can later good deeds change in someone already made right with God?
+
+  Deeds made possible by God’s help deepen received righteousness: the person’s renewed inner life with God. Luther allows growth in faith and love, but denies that deeds make a Christian more holy before God.
+
+  The dispute is about deeds increasing holiness before God. It is not about whether faith, love or conduct can improve.
+
+  *Trent and Luther dispute how deeds affect holiness before God, not whether conduct can improve*
 
 **Combinations**
 - `trent-first-help` [preserve] + `trent-no-price` [preserve] -> `response-not-price`
@@ -708,11 +1283,13 @@ The household meal now poses a question across a lifetime: does feeding someone 
 
 > NOTE: Source `later-trent-1547`: [Council of Trent, Session VI, Decree on Justification, 13 January 1547](https://history.hanover.edu/texts/trent/ct06.html). Session VI V–VIII: prior help, consent, unearned initial gift and inward renewal; X and canon24: growth in received justice. Compare Luther’s explicit more-sacred-person exclusion, not only temporal order.
 
-## May I ask a saint as I ask a friend?
+## `prayer-and-relics` John Calvin, Geneva, 1559 — May I ask a saint as I ask a friend?
 
 ![Reformation study](assets/theology-prayer-and-provenance-bench.webp)
 
-The parent keeps the words “pray for my child” but changes the listener from a living friend to the departed Stephen. Compare Calvin's response with the earlier account of God's instruments; the proposed painting and the bone labelled “Stephen” pose different questions about honour and identity.
+*John Calvin, Geneva, 1559*
+
+John Calvin is a reformer based in Geneva, revising his Institutes of the Christian Religion. He permits asking a living friend to pray, but objects to addressing departed saints. A parent changes the listener from a friend to Stephen: do the same words still make the same request?
 
 > NOTE: Source context: Calvin · Institutes, 1559; his 1543 relic treatise reopened.
 
@@ -724,55 +1301,125 @@ The parent keeps the words “pray for my child” but changes the listener from
 - (three goals are a lot but okay here because the changed prayer recipient and instrument comparison form one sequence, while the painting and fragment pose separate questions)
 
 **Items**
-- `friend-request` Calvin permits asking a living friend to pray for the child
 
-  In the case, the parent tells a living friend about the child's need. Calvin allows this mutual prayer among living believers, dependent on Christ's unique role between people and God.
+- `friend-request` I may ask a living friend to pray for my child
+  - from chapter `trent-reply`: Calvin: I may ask a living friend to pray for my child
 
-- `saint-request` Case: to a dead saint, “Stephen, pray for my child”
+  May a parent ask a living friend to pray for a child?
 
-  The parent now addresses the same request to Stephen, who has died. The words still ask someone to pray to God for the child, rather than to supply salvation independently. Does permission for the first request carry over to this one?
+  A living friend can be told what the child needs. Scripture supports prayer among living believers. Christ alone opens the way to God; the friend prays through him, without becoming another saviour.
 
-- `stephen-panel` Case: a painting of Stephen, proposed for prayerful honour in a chapel
+  *I may ask a living friend to pray for my child*
 
-  The proposed chapel painting shows Stephen remaining faithful. The question is whether people should direct religious honour through it, not whether all paintings should be forbidden.
+- `saint-request` Eg. to a dead saint: “Stephen, pray for my child”
+  - from chapter `trent-reply`: Calvin example: to a dead saint: “Stephen, pray for my child”
 
-- `calvin-pictures` Calvin allows some pictures, but not honouring them in worship
+  Does the request change when the listener has died?
 
-  Calvin is not simply against all art. His distinction concerns the use made of pictures in worship, including whether honour can safely be directed through them.
+  A parent says to the departed saint, “Stephen, pray for my child.” The request is for prayer to God, not for Stephen to provide salvation.
 
-- `stephen-fragment` Case: a bone labelled “Stephen” in casket C17
+  *Eg. to a dead saint: “Stephen, pray for my child”*
 
-  The unsigned label claims the bone belongs to Stephen. No history has arrived with the casket, so the label begins an inquiry rather than settling it.
+- `stephen-panel` Eg. a painting of Stephen is proposed for honour during prayer
+  - from chapter `trent-reply`: Calvin example: a painting of Stephen is proposed for honour during prayer
 
-- `fragment-inspection` Inspection: the inner packet is marked P4; the label has no date
+  What use is proposed for the painting of Stephen?
 
-  Inside the casket, the bone has its own wrapping marked P4. The packet and casket carry different identifying marks. The undated label does not say when they came together.
+  A chapel painting shows Stephen, a departed saint, remaining faithful. Someone proposes honouring him through the picture during prayer.
 
-  > NOTE: The fragment, casket C17 and packet P4 are an invented case. Their marks are clues for a custody inquiry, not real archaeological findings.
+  *Eg. a painting of Stephen is proposed for honour during prayer*
 
-- `calvin-even-genuine` Calvin: even a real saint’s bone should not receive religious honour
+- `calvin-pictures` Pictures are allowed, but not devotional honour before them
+  - from chapter `trent-reply`: Calvin: Pictures are allowed, but not devotional honour before them
 
-  Calvin objects both to doubtful relic claims and to giving relics religious honour. Establishing a bone's identity would not answer his objection to the practice.
+  Must every picture be rejected?
 
-- `saint-warrant-question` Calvin asks what permits the request to Stephen—and how he knows it
+  Painting and sculpture are allowed within limits. But devotional honour before a picture is forbidden even when directed to the person it depicts.
 
-  The friend can be told the child's need, and Calvin finds biblical authorization for prayer among the living. Changing the listener to Stephen adds claims that the familiar wording does not establish: that people may address departed saints, and that Stephen can know this particular request. Calvin challenges both. He also argues that invoking saints obscures Christ's unique mediation—his role between people and God. Asking only for prayer does not make the two cases equivalent in Calvin's account.
+  *Pictures are allowed, but not devotional honour before them*
 
-- `agency-not-permission` Baptism’s water is an instrument; Stephen would be a person asked to pray
+- `stephen-fragment` Eg. a bone labelled “Stephen” lies in box C17
+  - from chapter `trent-reply`: Calvin example: a bone labelled “Stephen” lies in box C17
 
-  Aquinas's water need not know anyone's request in order to be an instrument through which God acts. Stephen, in the parent's proposal, is a person being addressed and asked to pray. Instrumental action therefore does not supply the missing permission to address him or establish how he knows the child's need. Calvin's objections remain, including his concern that this request obscures Christ's unique role.
+  What does a label establish about a supposed relic?
 
-- `calvin-panel-answer` Calvin rejects honouring this painting in worship, not all paintings
+  An unsigned label on box C17 claims the bone inside belonged to Stephen, the biblical saint. A saint’s remains may be treated as a relic, an object of religious reverence. No history accompanies the box.
 
-  Showing Stephen's faithfulness makes the picture a depiction of a human life; it does not settle the proposed use in prayerful honour. Calvin allows painting and sculpture within limits, but rejects this devotional use. The subject and the use are separate questions.
+  *Eg. a bone labelled “Stephen” lies in box C17*
 
-- `fragment-gap` No record yet connects packet P4 to casket C17
+- `fragment-inspection` Eg. the bone’s wrapping is marked P4; its label has no date
+  - from chapter `trent-reply`: Calvin example: the bone’s wrapping is marked P4; its label has no date
 
-  The wrapping and casket cannot yet be given one documented history. We need a record connecting P4 to C17 and an account of where the bone came from before that transfer. The label supplies neither. An archivist can now look for those specific links.
+  What does inspecting the supposed bone of Stephen reveal?
 
-- `authenticity-not-permission` Even if it is Stephen’s bone, Calvin still rejects honouring it
+  In box C17, the bone is wrapped in packet P4. The label naming Stephen has no date. Neither mark says when the packet entered the box or where the bone came from.
 
-  The bone's identity remains unresolved, but Calvin's objection to honouring it does not depend on that uncertainty. A genuine object can still be disputed as a religious practice.
+  *Eg. the bone’s wrapping is marked P4; its label has no date*
+
+  > NOTE: The fragment, box C17 and packet P4 are an invented case. Their marks are clues for a custody inquiry, not real archaeological findings.
+
+- `calvin-even-genuine` Even a real saint’s bone should not receive religious honour
+  - from chapter `trent-reply`: Calvin: Even a real saint’s bone should not receive religious honour
+
+  Would a genuine saint’s bone settle the question of honour?
+
+  Relics are saints’ remains or possessions treated with religious reverence. Even a genuine saint’s bone should not receive that devotional honour.
+
+  *Even a real saint’s bone should not receive religious honour*
+
+- `saint-warrant-question` May we ask a dead saint to pray, and how could he hear us?
+  - from chapter `trent-reply`: Calvin: May we ask a dead saint to pray, and how could he hear us?
+
+  Is asking the departed Stephen to pray the same as asking a living friend?
+
+  A living friend can be told a child’s need, and Scripture supports prayer among living believers. A parent now asks the departed Stephen to pray for the child.
+
+  What permits addressing him, and how would he know the need? Invoking saints also obscures Christ’s unique role between people and God.
+
+  *May we ask a dead saint to pray, and how could he hear us?*
+
+- `agency-not-permission` God’s use of water does not show he permits prayers to saints
+  - from chapter `trent-reply`: Calvin: God’s use of water does not show he permits prayers to saints
+
+  Can God’s action through water justify asking a departed saint to pray?
+
+  Aquinas says God uses baptismal water to give grace, new life in the soul. A parent asks the departed Stephen to pray for a child.
+
+  Water need not know a request. Its use establishes neither permission to address Stephen nor how he hears. Christ opens the way to God; invoking saints obscures his unique role.
+
+  *God’s use of water does not show he permits prayers to saints*
+
+- `calvin-panel-answer` A painting may show Stephen, but should not be used to honour him in worship
+  - from chapter `trent-reply`: Calvin: A painting may show Stephen, but should not be used to honour him in worship
+
+  Should Stephen be honoured through his painting during prayer?
+
+  A painting shows the departed Stephen remaining faithful. Someone proposes honouring him through it. Pictures are allowed within limits, but devotional honour before them is rejected, whoever the honour is meant for.
+
+  The painting may show Stephen’s life; it should not be used to honour him in worship.
+
+  *A painting may show Stephen, but should not be used to honour him in worship*
+
+- `fragment-gap` No record yet says when packet P4 entered box C17
+
+  What history is missing from the supposed relic of Stephen?
+
+  Box C17 holds a bone wrapped in packet P4. An unsigned, undated label claims the bone is Stephen’s.
+
+  No record says when or how the packet entered the box, or where the bone came from. Its earlier custody and identity remain unproved.
+
+  *No record yet says when packet P4 entered box C17*
+
+- `authenticity-not-permission` Even if the bone is Stephen’s, it should not receive religious honour
+  - from chapter `trent-reply`: Calvin: Even if the bone is Stephen’s, it should not receive religious honour
+
+  Would proving whose bone it is settle whether to honour it?
+
+  A label names Stephen, but no record says how packet P4 entered box C17 or where its bone came from. Devotional honour to saints’ remains is objectionable even when they are genuine.
+
+  Proof of identity would answer a historical question, leaving the objection to religious honour.
+
+  *Even if the bone is Stephen’s, it should not receive religious honour*
 
 **Combinations**
 - `friend-request` [preserve] + `saint-request` [preserve] -> `saint-warrant-question`
@@ -787,17 +1434,15 @@ The parent keeps the words “pray for my child” but changes the listener from
 
 > NOTE: Source `calvin-prayer`: [Calvin, Institutes III.20 §§19–27](https://www.ccel.org/ccel/calvin/institutes.v.xxi.html). Primary text, Beveridge translation. Distinguishes mutual prayer among the living from invoking departed saints; challenges scriptural warrant and knowledge of particular prayers.
 
-## What would new evidence actually change?
+## `trent-reply` Catholic bishops, Trent, 1563 — What would new evidence actually change?
 
 ![Reformation study — next day](assets/theology-reply-records-desk.webp)
 
-*Trent, 1563*
+*Catholic bishops, Trent, 1563*
 
-Trent's decree offers a different account of the parent's request and the proposed painting. Apply it to a prayer through Christ and a bow intended to honour Stephen, then examine the archivist's new record: what does each addition actually answer?
+Back with the bishops at Trent, the council’s 1563 decree defends asking saints for prayer and honouring images and relics. The same parent, painting and bone now meet a different account. What does that reply answer, and what would a new custody record actually change?
 
-*Fictional archivist; newly recovered record in the invented fragment case.*
-
-The record names the fragment's packet and casket. For the first time, there is a transfer to check.
+A fictional archivist brings a record naming the fragment’s packet and box. For the first time, there is a transfer to check.
 
 [If skipped] The record improves our knowledge of the bone's history. It does not settle whose bone it is, obtain a bishop's recognition or resolve the disagreement about honouring relics.
 
@@ -807,52 +1452,93 @@ The record names the fragment's packet and casket. For the first time, there is 
 - (three goals are a lot but okay here because the same prayer, painting and fragment each receive a different kind of new evidence or argument)
 - What does “through Christ” answer about this request? -- `prayer-disagreement`
 - Does the bow cease to be devotional if the paint has no power? -- `panel-still-disputed`
-- Would proving the bone's identity settle the dispute? -- A better history for the bone would not remove Calvin’s objection
+- Would proving the bone's identity settle the dispute? -- `a-better-history-for-the-bone-would-not-remove`
 
 **Items**
-- `saints-not-saviours` Trent: ask saints to pray for particular needs through Christ, the sole saviour
 
-  Trent recommends asking saints with Christ for their prayers and help, including prayers for particular people. It places that aid through Christ, the sole redeemer and saviour. Applied to the imagined request for the child, this explains why the parent does not intend to give Stephen Christ's place.
+- `saints-not-saviours` Ask saints in heaven to pray for our needs through Christ, the only saviour
+  - from chapter `ending`: Trent: Ask saints in heaven to pray for our needs through Christ, the only saviour
 
-- `trent-image-honour` Case reply: bow before the painting, with honour intended for Stephen
+  Why ask saints to pray if Christ alone is the saviour?
 
-  The proposer adds a gesture to the same painting case: bowing before it while denying that any divinity or power lives in the paint. This applies Trent's account of honour referred to the person shown. The council includes bodily gestures before images, as well as their roles in remembrance and instruction.
+  Ask saints in heaven to pray and help with particular needs through Christ, the sole redeemer and saviour. A parent asking Stephen to pray for a child asks for prayer, not another saviour.
+
+  *Ask saints in heaven to pray for our needs through Christ, the only saviour*
+
+- `trent-image-honour` Eg. I bow before Stephen’s picture to honour him, not the paint
+  - from chapter `ending`: Trent example: I bow before Stephen’s picture to honour him, not the paint
+
+  Whom is a bow before a picture intended to honour?
+
+  Suppose someone bows before a painting of the departed Stephen, denying divinity or power in the paint. The devotional honour is intended for Stephen, the person represented.
+
+  *Eg. I bow before Stephen’s picture to honour him, not the paint*
 
   > NOTE: The bow is a proposed application in the existing invented painting case, not a recorded historical event or a ruling approving this particular image. Trent XXV discusses kissing images, uncovering the head and prostration; Calvin I.11.9–11 rejects devotional honour before images and the defence that honour passes beyond the material object.
 
-- Case update: a 1532 transfer names packet P4 and casket C17
+- `case-update-a-1532-transfer-names-packet-p4-and` Eg. a 1532 record places packet P4 in box C17
+  - from chapter `ending`: Trent example: a 1532 record places packet P4 in box C17
 
-  The invented record has two entries: in 1532, sexton Martin received packet P4 from Agnes's chest and sealed it in casket C17; in 1551, keeper Anne received C17 with its seal intact. The first entry calls the contents “Stephen's bone” but gives no account of how Agnes acquired it. No bishop's decision accompanies the record.
+  What could a new record establish about the supposed bone of Stephen?
+
+  Suppose an entry records sexton Martin placing packet P4 from Agnes’s chest into box C17 in 1532. It calls the contents “Stephen’s bone”. A second entry records keeper Anne receiving the sealed box in 1551.
+
+  Neither shows how Agnes obtained the bone. Recognizing the bone as a saint’s relic requires examination and a bishop’s approval; these entries supply evidence, not approval.
+
+  *Eg. a 1532 record places packet P4 in box C17*
 
   > NOTE: These people, marks, dates and custody entries are fictional evidence for this case, not an actual relic history. The record supports only the stated transfers, not identification with the biblical Stephen.
 
-- `prayer-disagreement` Prayer through Christ still leaves Calvin’s questions about Stephen’s hearing and authority
+- `prayer-disagreement` Calvin still asks whether we may address saints and how they could know our prayers
 
-  The parent's reply explains that Stephen is not intended as another saviour. It does not by itself establish what authorizes addressing him or how he knows this child's need. Trent affirms particular requests, appealing to received church teaching; this decree does not explain how saints learn those requests. Calvin disputes their biblical warrant and thinks invocation obscures Christ's mediation even when Christ is named. The disagreement now concerns authority and knowledge as well as the intended place of Christ.
+  Does saying “through Christ” answer Calvin’s objections to asking saints for prayer?
 
-- `panel-still-disputed` Denying power in the paint leaves the devotional bow in place
+  Saints in heaven may be asked to help with particular needs through Christ, the sole saviour. Calvin objects that God’s use of baptismal water gives no permission to address saints and does not explain how they hear prayers.
 
-  The proposed bow remains an act of religious honour before the image, even though the proposer denies power in the paint. Trent understands the honour as directed to Stephen, the person represented. Calvin objects to devotional honour before an image even when its defenders say they look beyond the material object. Removing a claim about the paint's power therefore leaves the disputed gesture intact. The same painting can teach about Stephen's life while its proposed use still divides these accounts.
+  The council’s decree affirms such requests without explaining how saints learn them. Appealing to Christ leaves Calvin’s questions of permission and hearing unanswered. He also objects that seeking other heavenly helpers obscures the way to God opened by Christ.
 
-- `record-not-ruling` P4 entered C17 in 1532; the bone’s earlier identity remains unproved
+  *Calvin still asks whether we may address saints and how they could know our prayers*
 
-  The marks now connect: packet P4 was placed in casket C17, and the sealed casket passed to another named keeper. That supports a stretch of custody from 1532 to 1551. It does not tell us how the bone reached Agnes's chest or establish that it belonged to Stephen.
+- `panel-still-disputed` Trent and Calvin dispute bowing before pictures, even without power in the paint
 
-  Trent requires examination and a bishop's approval before recognizing a newly claimed relic. This custody record supplies evidence for examination, not that recognition. The investigation has gained a link without gaining an identity or a ruling.
+  Does denying power in the paint settle whether to bow before a picture?
 
-- A better history for the bone would not remove Calvin’s objection
+  A bow before Stephen’s picture is intended to honour him, not the paint. Calvin allows pictures within limits but rejects devotional honour before images, including honour directed through them.
 
-  We can now trace a transfer of the fragment, although its claimed identity remains unproved. Suppose the missing history were found and the identity established: Calvin would still reject giving it religious honour. Trent permits honour to saints' bodies because they belong to Christ and await resurrection. The disagreement about honour survives even the stronger evidence we have imagined.
+  The picture may teach about Stephen’s life, yet bowing before it remains disputed.
+
+  *Trent and Calvin dispute bowing before pictures, even without power in the paint*
+
+- `record-not-ruling` Packet P4 entered box C17 in 1532; whose bone it held is still unproved
+
+  What does the new record establish about the supposed relic of Stephen?
+
+  When did packet P4 enter box C17? A new entry records that transfer from Agnes’s chest in 1532. Another records the sealed box reaching a keeper in 1551.
+
+  The earlier history and the bone’s identity remain unproved. Recognizing the bone as a saint’s relic requires examination and a bishop’s approval; the record supplies evidence, not approval.
+
+  *Packet P4 entered box C17 in 1532; whose bone it held is still unproved*
+
+- `a-better-history-for-the-bone-would-not-remove` Proving whose bone it is would not resolve Calvin’s objection to honouring it
+
+  Would proving whose bone it is settle the disagreement about honouring it?
+
+  Records link packet P4 to box C17 in 1532 and the sealed box to another keeper in 1551. They do not prove the bone is Stephen’s. Calvin rejects religious honour to saints’ remains even when genuine.
+
+  Yet saints’ bodies belong to Christ and await resurrection: this gives reason to honour them. Proof of identity would leave that disagreement about religious honour unresolved.
+
+  *Proving whose bone it is would not resolve Calvin’s objection to honouring it*
 
 **Combinations**
 - `saints-not-saviours` [preserve] + `agency-not-permission` [preserve] -> `prayer-disagreement`
 - `calvin-panel-answer` [preserve] + `trent-image-honour` [preserve] -> `panel-still-disputed`
-- `fragment-gap` + Case update: a 1532 transfer names packet P4 and casket C17 [preserve] -> `record-not-ruling`
-- `record-not-ruling` + `calvin-even-genuine` -> A better history for the bone would not remove Calvin’s objection
-- `record-not-ruling` + `authenticity-not-permission` [preserve] -> A better history for the bone would not remove Calvin’s objection
+- `fragment-gap` + `case-update-a-1532-transfer-names-packet-p4-and` [preserve] -> `record-not-ruling`
+- `record-not-ruling` + `calvin-even-genuine` -> `a-better-history-for-the-bone-would-not-remove`
+- `record-not-ruling` + `authenticity-not-permission` [preserve] -> `a-better-history-for-the-bone-would-not-remove`
 
 > NOTE: Source `images-trent-1563`: [Council of Trent, Session XXV (3–4 December 1563), Waterworth 1848, pp.233–236](https://history.hanover.edu/texts/trent/ct25.html). Decree on invocation, relics and images. Distinguish image-honour, holy bodies, new-relic recognition and episcopal approval of unusual images. The fictional case receives no invented real ruling.
 
-## The End
+## `ending` You, your reading desk, 2026 — What remains open?
+*You, your reading desk, 2026*
 
-The packet and casket now have a shared history. Whose bone they held remains unresolved; whether a genuine relic should receive religious honour remains disputed. Across these desks, better evidence has sometimes changed an answer and sometimes shown more precisely why the writers disagree.
+The packet and box now have a shared history. Whose bone they held remains unresolved; whether a genuine relic should receive religious honour remains disputed. Across these desks, better evidence has sometimes changed an answer and sometimes shown more precisely why the writers disagree.
