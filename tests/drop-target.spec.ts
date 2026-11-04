@@ -40,9 +40,9 @@ for(const icons of [false,true])for(const mode of ['overlap','cursor','stacking'
   await place(page,a,20,650);
   await place(page,b,100,400);
   const width=(await b.boundingBox())!.width;
-  await place(page,c,100+width/2,400);
+  await place(page,c,100+width/4,400);
   await place(page,blocker,65,400); // The frontmost incompatible target must not block either recipe.
-  const pointerX=mode==='overlap'?90:mode==='cursor'?110:105+width/2;
+  const pointerX=mode==='overlap'?99:mode==='cursor'?105:105+width/4;
   await pickup(page,a);await page.mouse.move(pointerX,415);
   const winner=mode==='cursor'?b:c,other=mode==='cursor'?c:b;
   await expect(winner).toHaveClass(/will-create/);await expect(other).not.toHaveClass(/will-create/);
@@ -52,18 +52,45 @@ for(const icons of [false,true])for(const mode of ['overlap','cursor','stacking'
   await expect(item(page,mode==='cursor'?'Y':'X')).toHaveCount(0);
 });
 
+for(const icons of [false,true])for(const region of ['point','horizontal','vertical'] as const)test(`${icons?'icon':'text'} ${region} targeting ignores outer-edge overlap and matches release`,async({page})=>{
+  await openFixture(page,icons);
+  const a=item(page,'A'),b=item(page,'B');
+  await place(page,a,20,650);await place(page,b,160,400);
+  const source=(await a.boundingBox())!,target=(await b.boundingBox())!;
+  const grab={x:region==='horizontal'?7:source.width/2,y:region==='vertical'?7:source.height/2};
+  const centreOffset={x:source.width/2-grab.x,y:source.height/2-grab.y};
+  const miss=region==='vertical'
+    ? {x:target.x+target.width/2,y:target.y-centreOffset.y-5}
+    : {x:target.x-centreOffset.x-5,y:target.y+target.height/2};
+  const hit=region==='vertical'?{x:miss.x,y:miss.y+10}:{x:miss.x+10,y:miss.y};
+  const pick=async()=>{
+    const box=(await a.boundingBox())!;
+    await page.mouse.move(box.x+grab.x,box.y+grab.y);await page.mouse.down();
+  };
+  await pick();await page.mouse.move(miss.x,miss.y);
+  await expect(b).not.toHaveClass(/will-create/);
+  const preview=(await a.boundingBox())!;
+  expect(preview.x+preview.width).toBeGreaterThan(target.x);
+  expect(preview.y+preview.height).toBeGreaterThan(target.y);
+  await page.mouse.up();
+  await expect(item(page,'X')).toHaveCount(0);expect(await a.boundingBox()).toEqual(preview);
+  await pick();await page.mouse.move(hit.x,hit.y);
+  await expect(b).toHaveClass(/will-create/);
+  await page.mouse.up();await expect(item(page,'X')).toBeVisible();
+});
+
 for(const circular of [false,true])test(`station overlap respects its ${circular?'circle':'rectangle'} and matches release`,async({page})=>{
   await openFixture(page,true,true,circular);
   const a=item(page,'A'),oven=page.locator('[data-hotspot="name:Oven"]');
   const target=(await oven.boundingBox())!,source=(await a.boundingBox())!;
-  // Only a 4px square in the station's bounding corner overlaps A.
-  await pickup(page,a);
-  await page.mouse.move(target.x+4-source.width+7,target.y+4-source.height+11);
+  // The cursor-to-centre rectangle reaches only 4px into the bounding corner.
+  await page.mouse.move(source.x+source.width-7,source.y+source.height-11);await page.mouse.down();
+  await page.mouse.move(target.x+4,target.y+4);
   if(circular)await expect(oven).not.toHaveClass(/will-create/);else await expect(oven).toHaveClass(/will-create/);
   const preview=await a.boundingBox();await page.mouse.up();
   if(circular){
     expect(await a.boundingBox()).toEqual(preview);await expect(item(page,'X')).toHaveCount(0);
-    await pickup(page,a);await page.mouse.move(target.x-source.width+15,target.y+target.height/2);
+    await pickup(page,a);await page.mouse.move(target.x-source.width/2+12,target.y+target.height/2);
     await expect(oven).toHaveClass(/will-create/);await page.mouse.up();
   }
   await expect(item(page,'X')).toBeVisible();
