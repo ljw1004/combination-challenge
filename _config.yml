@@ -1,0 +1,36 @@
+# GitHub Pages publishes main / (root), but serves only the committed build.
+# Keep every other root entry excluded when adding files or directories.
+# Jekyll 3's include option does not recursively override exclude: ["*"].
+exclude:
+  - AGENTS.md
+  - LICENSE
+  - README.md
+  - archive
+  - combinations.html
+  - docs
+  - index.html
+  - node_modules
+  - notes.md
+  - package-lock.json
+  - package.json
+  - playwright.config.ts
+  - projects
+  - references
+  - runs
+  - src
+  - stories
+  - tests
+  - tsconfig.json
+  - vite.config.ts
+  - "dist-*"
+  - test-results
+  - playwright-report
+  - blob-report
+  - coverage
+
+# Vite has already built the site. Keep story Markdown and assets unchanged.
+theme: null
+optional_front_matter:
+  enabled: false
+readme_index:
+  enabled: false

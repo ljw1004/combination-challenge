@@ -48,7 +48,15 @@ The shared development server also loads repository drafts: `/combinations.html?
 
 Chromium supports the browser tests and measures actual hotspot hit areas for `place:` lint. Only manuscripts containing `place:` entries launch it during lint/build. The [specification](docs/story-format-spec.md) owns placement syntax and validation.
 
-The build produces `dist/` with separate bundled JavaScript/CSS, ordinary story Markdown/artwork files, a catalogue, and a copy of `combinations.html` in each manuscript directory. Deploy the whole directory to a static web server. The HTML currently depends on the shared `assets/` bundles; it is not a standalone file. Editing a deployed Markdown file or its artwork does not require rebuilding JavaScript. The catalogue's entries, titles and descriptions are generated at build time.
+The build produces `dist/` with separate bundled JavaScript/CSS, ordinary story Markdown/artwork files, a catalogue, and a copy of `combinations.html` in each manuscript directory. Deploy the whole directory to a static web server; see [GitHub Pages publication](#github-pages-publication) for this repository's setup. The HTML currently depends on the shared `assets/` bundles; it is not a standalone file. Editing a deployed Markdown file or its artwork does not require rebuilding JavaScript. The catalogue's entries, titles and descriptions are generated at build time.
+
+### GitHub Pages publication
+
+Keep `dist/` in Git alongside the source. Configure GitHub **Settings → Pages → Build and deployment → Deploy from a branch**, selecting **main** and **/(root)**. Once published, the game is served at `https://ljw1004.github.io/combination-challenge/dist/`.
+
+The root [`_config.yml`](_config.yml) excludes everything except `dist/`, including documentation, source, tests, archives and project artwork. Add any new root files or directories to its exclusion list. It also disables Jekyll's theme and automatic Markdown-page generation, preserving the raw stories. Do not add a root `.nojekyll`: that would bypass the exclusions and publish the rest of the repository. The website root has no landing page; use the `/dist/` address.
+
+Before publishing an update, run `npm run build`, then commit the matching source changes and all `dist/` changes (including removed bundles), and push to `main`. The build runs lint and type checking before bundling. GitHub handles publication of the committed output; there is no custom Actions workflow or separate publishing branch. Treat `dist/` as generated output: edit the source and rebuild instead of editing it directly.
 
 ## Edit a story live
 
