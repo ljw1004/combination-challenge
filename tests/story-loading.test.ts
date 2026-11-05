@@ -12,8 +12,8 @@ test('discovery and CLI loading support shared artwork and ambiguous short names
     mkdirSync(join(root, 'shared/assets'), {recursive: true});
     mkdirSync(join(root, 'other'));
     writeFileSync(join(root, 'shared/assets/bg.svg'), '<svg xmlns="http://www.w3.org/2000/svg"/>');
-    writeFileSync(join(root, 'shared/first.md'), '# First\n\n## Opening\n![scene](assets/bg.svg)');
-    writeFileSync(join(root, 'shared/second.md'), '# Second\n\n## Opening\n![scene](assets/bg.svg)');
+    writeFileSync(join(root, 'shared/first.md'), '# First\n\n## Opening\nbackground: ![scene](assets/bg.svg)');
+    writeFileSync(join(root, 'shared/second.md'), '# Second\n\n## Opening\nbackground: ![scene](assets/bg.svg)');
     writeFileSync(join(root, 'shared/design-brief.md'), '# Design brief\n\nAuthor guidance, not a playable story.');
     assert.deepEqual(storyIds(root), ['shared/first.md', 'shared/second.md']);
     assert.throws(() => loadStory('shared/design-brief.md', root), /Unknown story/);

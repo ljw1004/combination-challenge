@@ -8,7 +8,7 @@ import {evaluate} from '../src/playtest/evaluate.ts';
 import {loadStory,storyIds} from '../src/story/load.ts';
 import {checkpoint} from '../src/debug/checkpoint.ts';
 import type {Story} from '../src/story/types.ts';
-const fixture=(content:string)=>parseStory(`# Test\n\n## Start\n\n![room](room.webp)\n\n${content}`,{id:'test'});
+const fixture=(content:string)=>parseStory(`# Test\n\n## Start\n\nbackground: ![room](room.webp)\n\n${content}`,{id:'test'});
 const combine=(s:Story,state:ReturnType<typeof newGame>,a:string,b:string)=>act(s,state,{type:'combine',a:`name:${a}`,b:`name:${b}`});
 
 test('Markdown shorthands compile with source locations, scoped hotspots and hidden author notes',()=>{
@@ -25,11 +25,11 @@ test('lint catches malformed goal composition, asymmetric exclusions and explici
   const codes=new Set(lintStory(s).map(d=>d.code));for(const code of ['first-next','mixed-goal-form','asymmetric-exclusion','single-use-fate'])assert(codes.has(code),code);
 });
 test('single event protection considers simultaneous removal of two alternative witnesses',()=>{
-  const s=fixture('**Goals**\n- Make C -- C\n**Combinations**\n- A [consume] + B [consume] -> C\n\n## Later\n\n![room](room.webp)\n\n**Goals**\n- Keep a witness\n  - either: A\n  - or: B');
+  const s=fixture('**Goals**\n- Make C -- C\n**Combinations**\n- A [consume] + B [consume] -> C\n\n## Later\n\nbackground: ![room](room.webp)\n\n**Goals**\n- Keep a witness\n  - either: A\n  - or: B');
   let state=newGame(s);state=combine(s,state,'A','B');
   // Future goals latch as soon as the visible witness exists, so test a future
   // downstream operation whose alternative reagents are both still needed.
-  const t=fixture('**Goals**\n- Make C -- C\n**Combinations**\n- A [consume] + B [consume] -> C\n- A [preserve] + X [preserve] -> D\n- B [preserve] + X [preserve] -> D\n\n## Later\n\n![room](room.webp)\n\n**Goals**\n- Make D -- D');
+  const t=fixture('**Goals**\n- Make C -- C\n**Combinations**\n- A [consume] + B [consume] -> C\n- A [preserve] + X [preserve] -> D\n- B [preserve] + X [preserve] -> D\n\n## Later\n\nbackground: ![room](room.webp)\n\n**Goals**\n- Make D -- D');
   const after=combine(t,newGame(t),'A','B');assert(['A','B'].some(n=>after.tokens[`name:${n}`].status==='available'));assert(['A','B'].some(n=>after.tokens[`name:${n}`].status==='consume'));
 });
 test('permanent exclusive choices survive transformation; no reverse branch is offered',()=>{
@@ -41,7 +41,7 @@ test('slots install in either order, retain other slots, and transformation wrap
   for(const parts of [['Motor','Battery'],['Battery','Motor']]){let state=combine(s,newGame(s),'Frame','Wheel');for(const part of parts)state=combine(s,state,part,'Box');assert.deepEqual([...state.tokens['name:Box'].slots].sort(),['name:Battery','name:Motor']);state=combine(s,state,'Box','Cover');assert.deepEqual(state.tokens['name:Final'].slots,[]);}
 });
 test('future intermediate goals protect a reagent even when final goal has a shortcut',()=>{
-  const s=fixture('**Goals**\n- Make flour -- Flour\n**Combinations**\n- Grain [transform] + Stone [preserve] -> Flour\n- Grain [transform] + Pot [preserve] -> Porridge\n- Porridge [consume] + Fruit [preserve] -> Feast\n- Bread [consume] + Fruit [preserve] -> Feast\n\n## Dinner\n\n![room](room.webp)\n\n**Goals**\n- Cook -- Porridge\n- next: Eat -- Feast');
+  const s=fixture('**Goals**\n- Make flour -- Flour\n**Combinations**\n- Grain [transform] + Stone [preserve] -> Flour\n- Grain [transform] + Pot [preserve] -> Porridge\n- Porridge [consume] + Fruit [preserve] -> Feast\n- Bread [consume] + Fruit [preserve] -> Feast\n\n## Dinner\n\nbackground: ![room](room.webp)\n\n**Goals**\n- Cook -- Porridge\n- next: Eat -- Feast');
   const state=combine(s,newGame(s),'Grain','Stone');assert.equal(state.tokens['name:Grain'].status,'available');
 });
 test('placement achievement latches; old copy stays where dragged from on combination',()=>{
@@ -53,7 +53,7 @@ test('fresh observations have partners but no future recipe output or author not
   const text=JSON.stringify(observe(s,newGame(s)));assert(!text.includes('Secret invention'));assert(!text.includes('secret note'));assert(text.includes('name:A'));
 });
 test('a hotspot operand creates its result at the receiving chapter, even when its source came from scrollback',()=>{
-  const s=fixture('**Goals**\n- First -- C\n**Combinations**\n- A [consume] + B [consume] -> C\n\n## Workshop\n\n![room](room.webp)\n\n**Goals**\n- Finish -- D\n**Hotspots**\n- Bench\n**Combinations**\n- Raw [transform] @ Bench -> D\n**Items**\n- Bench\n\n');
+  const s=fixture('**Goals**\n- First -- C\n**Combinations**\n- A [consume] + B [consume] -> C\n\n## Workshop\n\nbackground: ![room](room.webp)\n\n**Goals**\n- Finish -- D\n**Hotspots**\n- Bench\n**Combinations**\n- Raw [transform] @ Bench -> D\n**Items**\n- Bench\n\n');
   let state=combine(s,newGame(s),'A','B');while(state.pending.length)state=act(s,state,{type:'dismiss'});state=act(s,state,{type:'advance'});state=act(s,state,{type:'move',item:'name:Raw',chapter:0,x:20,y:100});state=act(s,state,{type:'combine',a:'name:Raw',hotspot:'name:Bench',chapter:1});assert.equal(state.tokens['name:D'].chapter,1);assert.equal(state.tokens['name:D'].hotspot,'name:Bench');assert.equal(state.tokens['name:Raw'].status,'transform');
 });
 test('all manuscripts pass structural/continuation lint and have legal complete replay witnesses',()=>{

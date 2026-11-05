@@ -7,7 +7,7 @@ import {hotspotCentre, hotspotHTML, hotspotRect} from '../src/web/hotspot-view.t
 
 const source = `# Receiving geometry
 ## Work
-![room](room.svg)
+background: ![room](room.svg)
 **Goals**
 - Charge -- Charged
 **Hotspots**
@@ -70,7 +70,7 @@ test('receiving rectangle governs placements, minimum touch size and invalid-pre
 test('circular compatibility uses effective artwork from the receiver chapter onward',()=>{
   const inherited=`# Evolving artwork
 ## Work
-![room](room.svg)
+background: ![room](room.svg)
 **Goals**
 - Charge -- Charged
 **Hotspots**

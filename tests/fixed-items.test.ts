@@ -9,7 +9,7 @@ import {observe} from '../src/playtest/observe.ts';
 import {detailedObjects} from '../src/playtest/detailed.ts';
 import {startAdventure, renderFrame, choices} from '../src/playtest/adventure.ts';
 
-const parse = (text:string) => parseStory(`# Fixed items\n## Opening\n![scene](scene.png)\n${text}`);
+const parse = (text:string) => parseStory(`# Fixed items\n## Opening\nbackground: ![scene](scene.png)\n${text}`);
 const errors = (text:string) => lintStory(parse(text),{analysis:false}).filter(d=>d.severity==='error');
 const advance = (story:ReturnType<typeof parse>, state:ReturnType<typeof newGame>) => {
   while(state.pending.length) state=act(story,state,{type:'dismiss'});
@@ -23,7 +23,7 @@ test('a hotspot annotation requires a separate item declaration',()=>{
 });
 
 test('global @ recipes wait for a chapter that fixes the same movable item',()=>{
-  const story=parse('**Items**\n- A\n- H\n- X\n- Y\n- Ready\n- C\n**Goals**\n- Prepare -- Ready\n**Combinations**\n- X [consume] + Y [consume] -> Ready (tutorial)\n- A [consume] @ H -> C\n## Installed\n![scene](scene.png)\n**Hotspots**\n- H\n**Goals**\n- Finish -- C');
+  const story=parse('**Items**\n- A\n- H\n- X\n- Y\n- Ready\n- C\n**Goals**\n- Prepare -- Ready\n**Combinations**\n- X [consume] + Y [consume] -> Ready (tutorial)\n- A [consume] @ H -> C\n## Installed\nbackground: ![scene](scene.png)\n**Hotspots**\n- H\n**Goals**\n- Finish -- C');
   let state=newGame(story);
   assert.equal(state.tokens['name:H'].chapter,0);
   assert(!legalActions(story,state).some(a=>a.hotspot==='name:H'));
@@ -53,11 +53,11 @@ test('derived fixed items only become targets after construction',()=>{
 });
 
 test('later goals cannot rely on optional earlier work with a fixed item',()=>{
-  const text='**Items**\n- X\n- Y\n- Ready\n- H\n- A\n- C\n**Hotspots**\n- H\n**Goals**\n- Prepare -- Ready\n**Combinations**\n- X [consume] + Y [consume] -> Ready (tutorial)\n- A [preserve] @ H -> C\n## Later\n![scene](scene.png)\n**Goals**\n- Finish -- C';
+  const text='**Items**\n- X\n- Y\n- Ready\n- H\n- A\n- C\n**Hotspots**\n- H\n**Goals**\n- Prepare -- Ready\n**Combinations**\n- X [consume] + Y [consume] -> Ready (tutorial)\n- A [preserve] @ H -> C\n## Later\nbackground: ![scene](scene.png)\n**Goals**\n- Finish -- C';
   assert(lintStory(parse(text)).some(d=>d.code==='fixed-carry'));
   const required=text.replace('- Prepare -- Ready','- Prepare -- Ready\n- Prepare C -- C');
   assert(!lintStory(parse(required)).some(d=>d.severity==='error'));
-  const relisted=text.replace('## Later\n![scene](scene.png)','## Later\n![scene](scene.png)\n**Hotspots**\n- H');
+  const relisted=text.replace('## Later\nbackground: ![scene](scene.png)','## Later\nbackground: ![scene](scene.png)\n**Hotspots**\n- H');
   assert(!lintStory(parse(relisted)).some(d=>d.severity==='error'));
 });
 
@@ -85,9 +85,9 @@ test('retiring a fixed receiver replaces it in place and releases parked occupan
 });
 
 test('fixed items are not inferred carry but an explicit later hotspot can present them again',()=>{
-  const text='**Items**\n- X\n- Y\n- Ready\n- H\n- A\n- C\n**Hotspots**\n- H\n**Goals**\n- Prepare -- Ready\n**Combinations**\n- X [consume] + Y [consume] -> Ready (tutorial)\n- A [consume] + H [preserve] -> C\n- Seed [consume] @ J -> A\n## Later\n![scene](scene.png)\n**Items**\n- Seed\n- J\n**Hotspots**\n- J\n**Goals**\n- Finish -- C';
+  const text='**Items**\n- X\n- Y\n- Ready\n- H\n- A\n- C\n**Hotspots**\n- H\n**Goals**\n- Prepare -- Ready\n**Combinations**\n- X [consume] + Y [consume] -> Ready (tutorial)\n- A [consume] + H [preserve] -> C\n- Seed [consume] @ J -> A\n## Later\nbackground: ![scene](scene.png)\n**Items**\n- Seed\n- J\n**Hotspots**\n- J\n**Goals**\n- Finish -- C';
   for(const revisit of [false,true]){
-    const story=parse(revisit?text.replace('## Later\n![scene](scene.png)','## Later\n![scene](scene.png)\n**Hotspots**\n- H'):text);
+    const story=parse(revisit?text.replace('## Later\nbackground: ![scene](scene.png)','## Later\nbackground: ![scene](scene.png)\n**Hotspots**\n- H'):text);
     let state=newGame(story);
     assert.equal(chapterNeeds(story,state,1).has('name:H'),revisit);
     assert.equal(lintStory(story,{opportunities:false}).some(d=>d.code==='no-continuation'),!revisit);
@@ -127,7 +127,7 @@ test('lint catches a fixed retirement that depends on the player choosing the ri
 });
 
 test('fixed retirement checks include later supplies dragged back to an earlier board',()=>{
-  const story=parse('**Items**\n- X\n- Y\n- Ready\n- H\n- C\n**Hotspots**\n- H\n**Goals**\n- Prepare -- Ready\n**Combinations**\n- X [consume] + Y [consume] -> Ready (tutorial)\n- A [consume] @ H [consume] -> C\n## Repair\n![scene](scene.png)\n**Items**\n- A\n**Goals**\n- Repair -- C\n## Revisit\n![scene](scene.png)\n**Items**\n- T\n**Hotspots**\n- H\n**Goals**\n- Park -- T @ H');
+  const story=parse('**Items**\n- X\n- Y\n- Ready\n- H\n- C\n**Hotspots**\n- H\n**Goals**\n- Prepare -- Ready\n**Combinations**\n- X [consume] + Y [consume] -> Ready (tutorial)\n- A [consume] @ H [consume] -> C\n## Repair\nbackground: ![scene](scene.png)\n**Items**\n- A\n**Goals**\n- Repair -- C\n## Revisit\nbackground: ![scene](scene.png)\n**Items**\n- T\n**Hotspots**\n- H\n**Goals**\n- Park -- T @ H');
   assert(lintStory(story,{opportunities:false}).some(d=>d.code==='fixed-retirement'));
 });
 
@@ -137,7 +137,7 @@ test('a goal cannot require dragging one fixed item onto another',()=>{
 });
 
 test('repeated fixed annotations share an item and allow different chapter presentations',()=>{
-  const story=parse('**Items**\n- H\n**Hotspots**\n- H (at 20%, 30%)\n- H (at 20%, 30%)\n## Revisit\n![scene](scene.png)\n**Hotspots**\n- H (at 70%, 80%)');
+  const story=parse('**Items**\n- H\n**Hotspots**\n- H (at 20%, 30%)\n- H (at 20%, 30%)\n## Revisit\nbackground: ![scene](scene.png)\n**Hotspots**\n- H (at 70%, 80%)');
   let state=newGame(story);
   assert.deepEqual(presentHotspots(story,state,0),['name:H']);
   assert.deepEqual(fixedCentre(story,state.tokens['name:H']),{x:.2,y:.3});
@@ -153,7 +153,7 @@ test('successive fixed states count as one simultaneous hotspot',()=>{
 });
 
 test('recipe opportunity lint checks alternatives individually even when their shared result is reachable',()=>{
-  const story=parse('**Items**\n- A\n- H\n- X\n- Y\n- C\n- D\n**Goals**\n- Make C -- C\n**Combinations**\n- X [preserve] + Y [preserve] -> C (tutorial)\n- A [preserve] @ H -> C\n- C [preserve] + X [preserve] -> D\n## Later\n![scene](scene.png)\n**Hotspots**\n- H\n**Goals**\n- Finish -- D');
+  const story=parse('**Items**\n- A\n- H\n- X\n- Y\n- C\n- D\n**Goals**\n- Make C -- C\n**Combinations**\n- X [preserve] + Y [preserve] -> C (tutorial)\n- A [preserve] @ H -> C\n- C [preserve] + X [preserve] -> D\n## Later\nbackground: ![scene](scene.png)\n**Hotspots**\n- H\n**Goals**\n- Finish -- D');
   const diagnostics=lintStory(story);
   assert(!diagnostics.some(d=>d.severity==='error'),JSON.stringify(diagnostics));
   assert(diagnostics.some(d=>d.code==='no-recipe-opportunity'&&d.source.line===story.recipes[1].source.line));

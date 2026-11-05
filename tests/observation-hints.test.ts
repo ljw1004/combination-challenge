@@ -7,7 +7,7 @@ import {partnerHints} from '../src/web/partner-hints.ts';
 
 const context = parseStory(`# A workshop
 ## Work
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Discover something -- Secret parcel
 **Hotspots**
@@ -21,7 +21,7 @@ const context = parseStory(`# A workshop
 - A [consume] + B [preserve] @ Bench -> Secret parcel
 > NOTE: An author-only explanation.
 ## Later
-![room](later.webp)
+background: ![room](later.webp)
 **Hotspots**
 - Unvisited kiln
 

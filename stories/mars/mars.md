@@ -1,6 +1,6 @@
 # Mission to Mars
 
-![The delivered habitat before arrival](assets/live-feedback/cover-before-crash.webp)
+background: ![The delivered habitat before arrival](assets/live-feedback/cover-before-crash.webp)
 
 Your lander crashes badly onto the surface. Can you patch things up and complete your science mission?
 
@@ -10,7 +10,7 @@ Your lander crashes badly onto the surface. Can you patch things up and complete
 
 ## Crash landing
 
-![Crash landing](assets/live-feedback/lander-support-fit/crash-landing.webp)
+background: ![Crash landing](assets/live-feedback/lander-support-fit/crash-landing.webp)
 
 *Emergency*
 
@@ -76,7 +76,7 @@ The stabilizer fin broke. I can't steer. We're coming in hot.
 
 ## Air
 
-![Air](assets/survival/scenes/air.webp)
+background: ![Air](assets/survival/scenes/air.webp)
 
 I need to power the hab’s air scrubber before the air runs out.
 
@@ -155,7 +155,7 @@ I need to power the hab’s air scrubber before the air runs out.
 
 ## Water
 
-![Water](assets/survival/scenes/water.webp)
+background: ![Water](assets/survival/scenes/water.webp)
 
 After air, water. Pale ice shows beneath a dusty bank a short walk from the hab. The little battery heater is ready beside the path.
 
@@ -242,7 +242,7 @@ After air, water. Pale ice shows beneath a dusty bank a short walk from the hab.
 
 ## `cave-shelter` Earth
 
-![`cave-shelter` Earth](assets/live-feedback/earth.webp)
+background: ![`cave-shelter` Earth](assets/live-feedback/earth.webp)
 
 The rock offers shelter, but no air. I can build a small room inside it.
 
@@ -310,7 +310,7 @@ The rock offers shelter, but no air. I can build a small room inside it.
 
 ## Fire
 
-![Fire](assets/live-feedback/fire.webp)
+background: ![Fire](assets/live-feedback/fire.webp)
 
 The sheltered room is up. Now I need ceramic blocks for the berth and crop beds, and porous granules for their roots.
 
@@ -386,7 +386,7 @@ The sheltered room is up. Now I need ceramic blocks for the berth and crop beds,
 
 ## A bed under the hill
 
-![A bed under the hill](assets/survival/scenes/a-bed-under-the-hill.webp)
+background: ![A bed under the hill](assets/survival/scenes/a-bed-under-the-hill.webp)
 
 I can sleep beneath the rock. The laboratory can stay in the repaired starter habitat.
 
@@ -444,7 +444,7 @@ I can sleep beneath the rock. The laboratory can stay in the repaired starter ha
 
 ## One room for roots
 
-![One room for roots](assets/live-feedback/garden/construction-with-service-header.webp)
+background: ![One room for roots](assets/live-feedback/garden/construction-with-service-header.webp)
 
 Potatoes on the left, soybeans against the far wall, lettuce on the right. Three small beds can turn this room into a place that grows food.
 
@@ -607,7 +607,7 @@ Potatoes on the left, soybeans against the far wall, lettuce on the right. Three
 
 ## `first-harvest` Under the leaves
 
-![Under the leaves](assets/survival/scenes/under-the-leaves.webp)
+background: ![Under the leaves](assets/survival/scenes/under-the-leaves.webp)
 
 The stems have grown. More medium will keep new potatoes out of the light; the filling soybean pods need support. The lettuce is ready for its first picking.
 
@@ -689,7 +689,7 @@ The stems have grown. More medium will keep new potatoes out of the light; the f
 
 ## `water-problem` What the water carries
 
-![What the water carries](assets/live-feedback/shared-laboratory.webp)
+background: ![What the water carries](assets/live-feedback/shared-laboratory.webp)
 
 After the first harvest, I bring in another pot of meltwater. Brown sludge has clogged the cloth in the filter. A clean microscope slide will take just a trace of it.
 
@@ -737,7 +737,7 @@ After the first harvest, I bring in another pot of meltwater. Brown sludge has c
 
 ## The ground we know
 
-![The ground we know](assets/live-feedback/local-core-laboratory.webp)
+background: ![The ground we know](assets/live-feedback/local-core-laboratory.webp)
 
 *Mara, NASA surface support — recorded message:*
 
@@ -782,7 +782,7 @@ After the first harvest, I bring in another pot of meltwater. Brown sludge has c
 
 ## Across the gully
 
-![Across the gully](assets/live-feedback/gully-revision/central-gully.webp)
+background: ![Across the gully](assets/live-feedback/gully-revision/central-gully.webp)
 
 Broken ledges and loose rubble block the rover’s climb. I can scramble to sound rock above the central route and rig the winch. Beyond that ledge, the ice band is still a long drive away.
 
@@ -842,7 +842,7 @@ Broken ledges and loose rubble block the rover’s climb. I can scramble to soun
 
 ## Something whole
 
-![Something whole](assets/live-feedback/shared-laboratory.webp)
+background: ![Something whole](assets/live-feedback/shared-laboratory.webp)
 
 The remote core is back in laboratory cooling. A small shaving on a glass slide will let light pass through the ice.
 
@@ -886,7 +886,7 @@ The remote core is back in laboratory cooling. A small shaving on a glass slide 
 
 ## Metal from the red ground
 
-![Metal from the red ground](assets/live-feedback/metal-from-the-red-ground.webp)
+background: ![Metal from the red ground](assets/live-feedback/metal-from-the-red-ground.webp)
 
 *Mara, Earth — recorded message:*
 
@@ -965,7 +965,7 @@ I need vessels for making fuel, and a new support for the lander. The red ground
 
 ## Two gases from water
 
-![Two gases from water](assets/live-feedback/fuel/water-scene.webp)
+background: ![Two gases from water](assets/live-feedback/fuel/water-scene.webp)
 
 The iron gives me something to build with. A divided cell will supply hydrogen for methane, and oxygen to keep separate for the engine.
 
@@ -1043,7 +1043,7 @@ The iron gives me something to build with. A divided cell will supply hydrogen f
 
 ## Fuel from air and water
 
-![Fuel from air and water](assets/live-feedback/fuel/fuel-scene.webp)
+background: ![Fuel from air and water](assets/live-feedback/fuel/fuel-scene.webp)
 
 *Mara, Earth — recorded message:*
 
@@ -1097,7 +1097,7 @@ One of the iron tanks makes the reaction chamber. Now it needs both gases and po
 
 ## Amber noon
 
-![Amber noon](assets/live-feedback/storm-controls/amber-noon.webp)
+background: ![Amber noon](assets/live-feedback/storm-controls/amber-noon.webp)
 
 Back in the starter hab, the sky has turned amber.
 
@@ -1156,7 +1156,7 @@ Back in the starter hab, the sky has turned amber.
 
 ## Keep the roots alive
 
-![Keep the roots alive](assets/survival/scenes/keep-the-roots-alive.webp)
+background: ![Keep the roots alive](assets/survival/scenes/keep-the-roots-alive.webp)
 
 Enough warmth, light and water to keep the roots alive. Productive growth can resume when the solar supply recovers.
 
@@ -1211,7 +1211,7 @@ Enough warmth, light and water to keep the roots alive. Productive growth can re
 
 ## Sun on the floor
 
-![Sun on the floor](assets/survival/scenes/sun-on-the-floor.webp)
+background: ![Sun on the floor](assets/survival/scenes/sun-on-the-floor.webp)
 
 A pale edge of sunlight returns. Under the dust, the panels are still connected.
 
@@ -1238,7 +1238,7 @@ A pale edge of sunlight returns. Under the dust, the panels are still connected.
 
 ## `lander-repair` The leg that stays
 
-![`lander-repair` The leg that stays](assets/live-feedback/lander-support-fit/lander-repair-scene.webp)
+background: ![`lander-repair` The leg that stays](assets/live-feedback/lander-support-fit/lander-repair-scene.webp)
 
 The plant is working again. Now I can finish the repair that will let this cabin leave.
 
@@ -1295,7 +1295,7 @@ The plant is working again. Now I can finish the repair that will let this cabin
 
 ## Fuel for the return
 
-![Fuel for the return](assets/live-feedback/lander-support-fit/lander-ports-scene.webp)
+background: ![Fuel for the return](assets/live-feedback/lander-support-fit/lander-ports-scene.webp)
 
 I bring over oxygen and methane in their separate cylinders. The lander’s cooling system collects each in its own flight tank.
 
@@ -1345,7 +1345,7 @@ I bring over oxygen and methane in their separate cylinders. The lander’s cool
 
 ## Supper from the garden
 
-![The harvest](assets/survival/scenes/supper-from-the-garden.webp)
+background: ![The harvest](assets/survival/scenes/supper-from-the-garden.webp)
 
 Mara confirms a hold for rendezvous alignment. The spacecraft is ready, the specimens are safe, and the farm has survived. I can gather supper.
 
@@ -1430,7 +1430,7 @@ Mara confirms a hold for rendezvous alignment. The spacecraft is ready, the spec
 
 ## `specimen-stow` The things we take
 
-![The things we take](assets/live-feedback/compact-sample-rack/the-things-we-take.webp)
+background: ![The things we take](assets/live-feedback/compact-sample-rack/the-things-we-take.webp)
 
 Rendezvous clearance. The mission’s sample rack has room for four cores. I secure just two: one from home, one from across the gully. The other two places will go home empty.
 
@@ -1456,7 +1456,7 @@ Rendezvous clearance. The mission’s sample rack has room for four cores. I sec
 
 ## My hand on the switch
 
-![My hand on the switch](assets/survival/scenes/my-hand-on-the-switch.webp)
+background: ![My hand on the switch](assets/survival/scenes/my-hand-on-the-switch.webp)
 
 I take the pilot’s seat and close the hatch. The last command is mine.
 
@@ -1490,7 +1490,7 @@ I take the pilot’s seat and close the hatch. The last command is mine.
 
 ## The End
 
-![The End](assets/live-feedback/lander-support-fit/the-end.webp)
+background: ![The End](assets/live-feedback/lander-support-fit/the-end.webp)
 
 The cabin climbs above the base. The lower stage, its new leg and the small cave mouth draw together below me. Light still glows where the garden is.
 

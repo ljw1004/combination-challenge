@@ -17,7 +17,7 @@ class WorkerStub implements DiagnosticWorker {
     this.onmessage?.({data: {revision, phase, diagnostics}} as MessageEvent<LintWorkerResponse>);
   }
 }
-const text = '# Test\n## Start\n![room](room.webp)\n**Goals**\n- Make C -- C\n**Combinations**\n- A [preserve] + B [preserve] -> C';
+const text = '# Test\n## Start\nbackground: ![room](room.webp)\n**Goals**\n- Make C -- C\n**Combinations**\n- A [preserve] + B [preserve] -> C';
 const story = parseStory(text, {id: 'test'});
 const deep: Diagnostic = {severity: 'error', code: 'no-continuation', message: 'Old analysis', source: story.source, span: story.source.span!, stage: 'deep'};
 

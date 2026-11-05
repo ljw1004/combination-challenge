@@ -2,10 +2,10 @@ import {test, expect, type Page} from '@playwright/test';
 import {openDebugPanel} from './debug-helpers.ts';
 
 const manuscript = `# Incremental artwork
-![cover](art/cover.svg)
+background: ![cover](art/cover.svg)
 
 ## Workshop
-![workshop](art/workshop.svg)
+background: ![workshop](art/workshop.svg)
 
 Build things.
 **Goals**
@@ -23,7 +23,7 @@ Build things.
 - A [preserve] + B [preserve] -> C
 - C [preserve] + B [preserve] -> D
 ## Field
-![field](art/field.svg)
+background: ![field](art/field.svg)
 
 Finish outside.
 **Goals**
@@ -40,7 +40,7 @@ Finish outside.
 **Combinations**
 - D [preserve] + P [preserve] -> R
 ## Later
-![later](art/later.svg)
+background: ![later](art/later.svg)
 
 **Goals**
 - Keep Q -- Q

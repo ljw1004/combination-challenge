@@ -50,11 +50,6 @@ function bullets(lines: Line[]): Bullet[] {
   return roots;
 }
 
-/** Backgrounds use a whole image paragraph, never an image embedded in prose. */
-function paragraphImage(paragraph: string): string | undefined {
-  return /^!\[[^\]]*\]\(([^)]+)\)$/.exec(paragraph.trim())?.[1];
-}
-
 export function parseStory(markdown: string, options: { id?: string; file?: string; onReference?: (reference: SourceReference) => void; onComment?: (source: Source) => void } = {}): Story {
   const file = options.file ?? 'story.md', locations = sourceMap(markdown, file), source = locations.line;
   const story: Story = { id: options.id ?? 'story', title: '', description: '', chapters: [], items: {}, hotspots: {}, recipes: [], diagnostics: [], source: source(1), fateSites: [], sourceReferences: [] };
@@ -351,7 +346,23 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (parts.length > 2 || (parts.length === 2 && !parts[1].text)) error('goal-syntax', 'A placement condition needs one item and one hotspot separated by @.', line, raw);
     return { item: ref(parts[0].text, line, 'item', 'reference', 'goal', from + parts[0].from), ...(parts[1]?.text ? { hotspot: ref(parts[1].text, line, 'hotspot', 'reference', 'goal', from + parts[1].from).id } : {}), source: source(line) };
   }
-  const chapterLines: { heading: Line; lines: Line[] }[] = []; let preamble: Line[] = [];
+  function extractBackground(body: Line[], heading?: Line): {image?: string; content: Line[]} {
+    // Placement uses authored lines, so only blank lines may precede the declaration.
+    const firstLine = heading ? originalLines.findIndex((text, index) => index >= heading.line && text.trim()) + 1 : 0;
+    let image: string | undefined;
+    const content = body.filter(line => {
+      if (!/^[\t ]*background\s*:/.test(line.text)) return true;
+      const first = line.line === firstLine;
+      if (!first) error('background-position', 'background: must be the first nonblank line after the story or chapter heading; only one background is allowed.', line.line);
+      const match = /^[\t ]*background:[\t ]+!\[[^\]]*\]\(([^)]+)\)[\t ]*$/.exec(line.text);
+      if (!match?.[1].trim()) error('background-syntax', 'Use background: ![alt](nonempty-path) on a line of its own.', line.line);
+      else if (first) image = match[1].trim();
+      // Even invalid metadata is not player-facing prose in a best-effort preview.
+      return false;
+    });
+    return {image, content};
+  }
+  const chapterLines: { heading: Line; lines: Line[] }[] = []; const preamble: Line[] = [];
   for (const line of lines) {
     if (/^## /.test(line.text)) chapterLines.push({ heading: line, lines: [] });
     else if (chapterLines.length) chapterLines.at(-1)!.lines.push(line);
@@ -359,9 +370,9 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   }
   const title = preamble.find(l => /^# /.test(l.text)); story.title = title?.text.slice(2).trim() ?? options.id ?? 'Untitled story';
   if (!title) error('missing-title', 'A story needs a # title.', 1);
-  story.description = preamble.filter(l => l !== title).map(l => l.text).join('\n').trim();
-  const cover = paragraphImage(story.description.split(/\n\s*\n/)[0] ?? '');
-  if (cover) story.cover = cover;
+  const cover = extractBackground(preamble.filter(l => l !== title), title);
+  story.description = cover.content.map(l => l.text).join('\n').trim();
+  if (cover.image) story.cover = cover.image;
   for (const block of chapterLines) {
     const heading = chapterHeading(block.heading.text.slice(3));
     if (!heading.valid) error('chapter-heading', 'Use ## Title or ## `unique-id` Title, with a nonempty identifier and title.', block.heading.line);
@@ -369,7 +380,9 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const headingText = block.heading.text.slice(3).trim(), headingStart = startOf(headingText, block.heading.line);
     record(chapterSymbolID(chapter), 'chapter', 'declaration', headingStart, headingStart + headingText.length, true);
     const sections = new Map<string, Line[]>(); let current = 'intro'; sections.set(current, []);
-    for (const line of block.lines) {
+    const background = extractBackground(block.lines, block.heading);
+    if (background.image) chapter.image = background.image;
+    for (const line of background.content) {
       const section = /^\*\*(Goals|Hotspots|Items|Combinations)\*\*\s*$/.exec(line.text);
       if (section) {
         current = section[1];
@@ -388,8 +401,6 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       else sections.get(current)!.push(line);
     }
     const intro = sections.get('intro')!.map(l => l.text).join('\n').trim().split(/\n\s*\n/);
-    const background = paragraphImage(intro[0] ?? '');
-    if (background) { chapter.image = background; intro.shift(); }
     chapter.intro = intro.filter(p => !p.startsWith('[If skipped]')).join('\n\n').trim();
     chapter.skipped = intro.filter(p => p.startsWith('[If skipped]')).map(p => p.replace(/^\[If skipped\]\s*/, '')).join('\n\n');
     const goalOps = new Set<string>();

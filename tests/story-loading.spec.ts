@@ -4,7 +4,7 @@ import {resolve,relative,join} from 'node:path';
 
 const manuscript = `# Shared artwork
 ## Workshop
-![scene](assets/bg.svg)
+background: ![scene](assets/bg.svg)
 
 Build a kit.
 

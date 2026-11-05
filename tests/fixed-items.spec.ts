@@ -9,7 +9,7 @@ async function drag(page:Page,source:Locator,target:Locator){
 for(const notation of ['@','+'])test(`constructed fixed items accept ${notation} recipes, replace in place and release occupants`,async({page})=>{
   const text=`# Fixed constructions
 ## Workshop
-![room](room.svg)
+background: ![room](room.svg)
 Build and repair the station.
 **Items**
 - Frame
@@ -61,7 +61,7 @@ Finished.`;
 for(const notation of ['+','@'])test(`fixed compounds accept fittings and produce movable results with ${notation}`,async({page})=>{
   const text=`# Fixed fittings
 ## Workshop
-![room](room.svg)
+background: ![room](room.svg)
 Fit and use the machine.
 **Items**
 - A

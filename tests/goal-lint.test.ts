@@ -6,7 +6,7 @@ import {newGame, visibleGoals} from '../src/engine/game.ts';
 import type {DiagnosticFix} from '../src/story/types.ts';
 
 const acknowledgment = '- (three goals are a lot but okay here because the three observations share one instrument)';
-const manuscript = (count: number, extra = '') => '# 🪴 Test\n## Workshop\n![room](room.webp)\n**Goals**\n'
+const manuscript = (count: number, extra = '') => '# 🪴 Test\n## Workshop\nbackground: ![room](room.webp)\n**Goals**\n'
   + Array.from({length: count}, (_, i) => `- Make ${i} -- Item ${i}\n`).join('') + extra;
 const lint = (text: string) => lintStory(parseStory(text), {analysis: false});
 function apply(text: string, fix: DiagnosticFix) {
@@ -55,7 +55,7 @@ test('suppression inserts and selects the required placeholder, preserving origi
 
 test('acknowledgments require verbatim text and a real reason, with ordinary Markdown bullet whitespace', () => {
   const inline = '- Finish -- A\n- Other -- B\n- Last -- C\n';
-  const base = '# Test\n## Workshop\n![room](room.webp)\n**Items**\n- A\n- B\n- C\n- X\n- Y\n- Z\n**Combinations**\n- X [preserve] + Y [preserve] -> Z (tutorial)\n**Goals**\n';
+  const base = '# Test\n## Workshop\nbackground: ![room](room.webp)\n**Items**\n- A\n- B\n- C\n- X\n- Y\n- Z\n**Combinations**\n- X [preserve] + Y [preserve] -> Z (tutorial)\n**Goals**\n';
   for (const bullet of ['- ', '-  ', '-\t', '  -\t ']) {
     const indent = bullet.match(/^ */)![0];
     const text = base + bullet + acknowledgment.slice(2) + '\n' + inline.split('\n').filter(Boolean).map(line => indent + line).join('\n');

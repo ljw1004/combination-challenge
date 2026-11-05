@@ -3,7 +3,7 @@ import {jumpToChapter} from './debug-helpers.ts';
 
 const story = `# Tutorial fixture
 ## First
-![room](data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='390' height='844'%3E%3Crect width='390' height='844' fill='%23eee2cb'/%3E%3C/svg%3E)
+background: ![room](data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='390' height='844'%3E%3Crect width='390' height='844' fill='%23eee2cb'/%3E%3C/svg%3E)
 Try making things.
 **Goals**
 - Make C -- C

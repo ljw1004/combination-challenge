@@ -4,7 +4,7 @@ import { openDebugPanel, jumpToChapter } from './debug-helpers.ts';
 
 const manuscript = `# Landing fixture
 ## Workshop
-![workshop](assets/bg.svg)
+background: ![workshop](assets/bg.svg)
 
 Workshop introduction.
 
@@ -18,7 +18,7 @@ Workshop introduction.
 - Frame [preserve] + Tool [preserve] -> Kit
 
 ## Field
-![field](assets/field.svg)
+background: ![field](assets/field.svg)
 
 Field introduction.
 
@@ -115,15 +115,18 @@ test('chapter reset starts its ordinary intro; confirmed story restart clears pr
   await page.reload(); await expectLanding(page);
 });
 
-test('only a leading standalone description image supplies the cover; Start switches to the chapter background', async ({ page }) => {
-  await openFixture(page, manuscript.replace('# Landing fixture\n', '# Landing fixture\n\n![cover](assets/cover.svg)\n\nStory description.\n\n'));
+test('explicit cover and chapter backgrounds stay separate from leading reading images', async ({ page }) => {
+  const illustrated = manuscript.replace('Workshop introduction.', '![Reading illustration](assets/reading.svg)\n\nWorkshop introduction.');
+  await openFixture(page, illustrated.replace('# Landing fixture\n', '# Landing fixture\n\nbackground: ![cover](assets/cover.svg)\n\n![Catalogue](assets/catalogue.svg)\n\nStory description.\n\n'));
   await expectLanding(page);
   await expect(page.locator('.scene-art')).toHaveAttribute('src', /\/landing-fixture\/assets\/cover\.svg$/);
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Begin', exact: true })).toBeVisible();
   await expect(page.locator('.scene-art')).toHaveAttribute('src', /\/landing-fixture\/assets\/bg\.svg$/);
+  await expect(page.locator('.reading-text img')).toHaveAttribute('src', /\/landing-fixture\/assets\/reading\.svg$/);
+  await expect(page.locator('.reading-text')).not.toContainText('background:');
   await page.evaluate(() => localStorage.clear());
-  await openFixture(page, manuscript.replace('# Landing fixture\n', '# Landing fixture\n\nStory description first.\n\n![later illustration](assets/later.svg)\n\n'));
+  await openFixture(page, manuscript.replace('# Landing fixture\n', '# Landing fixture\n\n![Catalogue](assets/catalogue.svg)\n\nStory description.\n\n'));
   await expectLanding(page);
   await expect(page.locator('.scene-art')).toHaveAttribute('src', /\/landing-fixture\/assets\/bg\.svg$/);
 });

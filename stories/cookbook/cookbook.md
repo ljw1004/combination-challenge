@@ -10,7 +10,7 @@ Write a cookbook. Make doughs, sauces, fillings, pastries and cakes.
 
 
 ## Breakfast
-![Begin with breakfast](assets/rework/backgrounds/breakfast.webp)
+background: ![Begin with breakfast](assets/rework/backgrounds/breakfast.webp)
 
 *Breakfast from scratch*
 
@@ -54,7 +54,7 @@ Juice, porridge, bread.
 - Soaked grain [transform] @ Cookstove -> Porridge
 
 ## Dairy
-![Milk, two ways](assets/rework/backgrounds/dairy.webp)
+background: ![Milk, two ways](assets/rework/backgrounds/dairy.webp)
 
 *Dairy*
 
@@ -93,7 +93,7 @@ Juice, porridge, bread.
 > NOTE: [OpenStax: What Our Ancestors Knew](https://openstax.org/books/microbiology/pages/1-1-what-our-ancestors-knew). Fermentation history; not exact recipe ratios or a universal chronology.
 
 ## Home-made bread
-![A loaf worth buttering](assets/cooks-pen/backgrounds/the-open-crumb.webp)
+background: ![A loaf worth buttering](assets/cooks-pen/backgrounds/the-open-crumb.webp)
 
 *Home-made bread*
 
@@ -141,7 +141,7 @@ What could be nicer than freshly baked bread with butter?
 - Bread and butter [transform] + Sliced cucumber [consume] -> Cucumber finger sandwiches
 
 ## Yoghurt
-![Yoghurt, thick and fresh](assets/cooks-pen/backgrounds/cucumber-dill-and-yogurt.webp)
+background: ![Yoghurt, thick and fresh](assets/cooks-pen/backgrounds/cucumber-dill-and-yogurt.webp)
 
 *Yoghurt*
 
@@ -175,7 +175,7 @@ What could be nicer than freshly baked bread with butter?
 - Yoghurt + Sliced cucumber [preserve] -> Cucumber yoghurt
 
 ## Vinegar and salad dressing
-![A little sharpness](assets/cooks-pen/backgrounds/apples-into-sharpness.webp)
+background: ![A little sharpness](assets/cooks-pen/backgrounds/apples-into-sharpness.webp)
 
 *Vinegar and dressing*
 
@@ -212,7 +212,7 @@ Acidity balances richness.
 > NOTE: [Aspall: Vinegar Production](https://www.aspall.co.uk/blogs/our-story/vinegar-production). Producer account of alcohol-to-acid conversion and oxygen supply; no home-preservation guarantee.
 
 ## Herb toast and apple compote
-![Toast and warm apples](assets/cooks-pen/backgrounds/warm-apples-cool-yogurt.webp)
+background: ![Toast and warm apples](assets/cooks-pen/backgrounds/warm-apples-cool-yogurt.webp)
 
 *Toast and compote*
 
@@ -252,7 +252,7 @@ Acidity balances richness.
 - Unstrained yoghurt + Apple compote -> Compote yoghurt
 
 ## Vegetable broth and onion soup
-![A pot of broth](assets/cooks-pen/backgrounds/onions-and-a-bowl-of-broth.webp)
+background: ![A pot of broth](assets/cooks-pen/backgrounds/onions-and-a-bowl-of-broth.webp)
 
 *Onion soup*
 
@@ -297,7 +297,7 @@ Acidity balances richness.
 - Onion soup [transform] + Herb toast [preserve] -> Onion soup with herb toast
 
 ## Roast vegetables and beans
-![Roots, beans and crisp edges](assets/cooks-pen/backgrounds/roasted-roots-and-beans.webp)
+background: ![Roots, beans and crisp edges](assets/cooks-pen/backgrounds/roasted-roots-and-beans.webp)
 
 *Roast vegetables and beans*
 
@@ -335,7 +335,7 @@ Acidity balances richness.
 - Bread @ `roasting-oven-roast` -> Croutons
 
 ## Salads and mustard dressing
-![A salad wants contrast](assets/cooks-pen/backgrounds/leaves-mustard-and-crunch.webp)
+background: ![A salad wants contrast](assets/cooks-pen/backgrounds/leaves-mustard-and-crunch.webp)
 
 *Salads*
 
@@ -376,7 +376,7 @@ Add variety through texture
 > NOTE: [Colman’s Mustard: Foodservice](https://colmansusa.com/foodservice). Producer guidance lists mustard powder for vinaigrettes. It does not specify this game’s exact quantity or mixing order.
 
 ## Jam, syrup and marmalade
-![Fruit, sugar and time](assets/cooks-pen/backgrounds/citrus-peel-and-marmalade.webp)
+background: ![Fruit, sugar and time](assets/cooks-pen/backgrounds/citrus-peel-and-marmalade.webp)
 
 *Preserves*
 
@@ -423,7 +423,7 @@ Add variety through texture
 > NOTE: [Richard Ligon: A True & Exact History of the Island of Barbados (1657), pp. 22–23, 113–116](https://www.gutenberg.org/cache/epub/70489/pg70489-images.html). Primary colonial account, consulted directly. Supports this optional, geographically and temporally bounded game-author paraphrase; not a modern recipe method or enslaved people’s own testimony.
 
 ## Sponge cake
-![Cake lightened with air](assets/cooks-pen/backgrounds/air-in-the-sponge.webp)
+background: ![Cake lightened with air](assets/cooks-pen/backgrounds/air-in-the-sponge.webp)
 
 *Sponge cakes*
 
@@ -467,7 +467,7 @@ Add variety through texture
 - Sponge cake + Soft-set fruit jam -> Jam roll
 
 ## Scones and brown-butter biscuits
-![Scones for tea](assets/cooks-pen/backgrounds/scones-jam-and-cream.webp)
+background: ![Scones for tea](assets/cooks-pen/backgrounds/scones-jam-and-cream.webp)
 
 *Baking for tea*
 
@@ -524,7 +524,7 @@ Add variety through texture
 > NOTE: [British Dietetic Association: Basic Scones](https://www.bda.uk.com/resource/basic-scones.html) distinguishes rubbing fat into flour from adding milk to form dough and then baking. [King Arthur: Shortbread Cookies](https://www.kingarthurbaking.com/recipes/shortbread-cookies-recipe) and [Brown butter](https://www.kingarthurbaking.com/blog/2020/01/08/brown-butter) support the simplified biscuit preparation. Proportions, salt, shaping and cooling remain compressed. Assembly and tea-making belong to the next chapter.
 
 ## Afternoon tea
-![Afternoon tea](assets/rework/backgrounds/afternoon-parlour.webp)
+background: ![Afternoon tea](assets/rework/backgrounds/afternoon-parlour.webp)
 
 *Afternoon tea*
 
@@ -567,7 +567,7 @@ Add variety through texture
 > NOTE: The [Ritz afternoon tea](https://www.theritzlondon.com/dine-with-us/afternoon-tea/) and [Orangery](https://www.hrp.org.uk/kensington-palace/visit/the-orangery-restaurant/) provide the serving reference. The game uses its existing breads and cakes rather than reproducing either menu. Tea is a separate preparation, not a fitted part of the stand; no delivery location is required.
 
 ## Fresh pasta and mushroom filling
-![One sheet, two pastas](assets/cooks-pen/backgrounds/ribbons-and-ravioli.webp)
+background: ![One sheet, two pastas](assets/cooks-pen/backgrounds/ribbons-and-ravioli.webp)
 
 *Fresh pasta*
 
@@ -618,7 +618,7 @@ Add variety through texture
 > NOTE: [A. Escoffier: A Guide to Modern Cookery](https://www.gutenberg.org/cache/epub/71395/pg71395-images.html). Primary culinary source for sauces, pastry, puddings and desserts; not invention dates. Common game preparations are simplified, not exact reproductions.
 
 ## Pasta with butter and toasted crumbs
-![Pasta at the table](assets/cooks-pen/backgrounds/herb-butter-and-pasta.webp)
+background: ![Pasta at the table](assets/cooks-pen/backgrounds/herb-butter-and-pasta.webp)
 
 *Two pastas*
 
@@ -672,7 +672,7 @@ Add variety through texture
 > NOTE: [King Arthur: Brown butter](https://www.kingarthurbaking.com/blog/2020/01/08/brown-butter). Browning the milk solids changes flavour; heating and cooling are compressed.
 
 ## Shortcrust and puff pastry
-![Two ways with butter](assets/cooks-pen/backgrounds/butter-between-the-layers.webp)
+background: ![Two ways with butter](assets/cooks-pen/backgrounds/butter-between-the-layers.webp)
 
 *Pastry*
 
@@ -703,7 +703,7 @@ Add variety through texture
 > NOTE: [King Arthur: Classic Puff Pastry](https://www.kingarthurbaking.com/recipes/classic-puff-pastry-pate-feuilletee-recipe). Distinct folded butter layers; preparation is compressed.
 
 ## Pies, tarts and cheese straws
-![What pastry can hold](assets/cooks-pen/backgrounds/pastry-shells-and-twists.webp)
+background: ![What pastry can hold](assets/cooks-pen/backgrounds/pastry-shells-and-twists.webp)
 
 *Pies and tarts*
 
@@ -753,7 +753,7 @@ Add variety through texture
 - Cheese-straw twists [transform] @ `pastry-oven-pastry` -> Cheese straws
 
 ## Béchamel and cheese sauce
-![The sauce page](assets/cooks-pen/backgrounds/the-ribbon-of-white-sauce.webp)
+background: ![The sauce page](assets/cooks-pen/backgrounds/the-ribbon-of-white-sauce.webp)
 
 *Sauces*
 
@@ -783,7 +783,7 @@ Add variety through texture
 > NOTE: Le Cordon Bleu, Kitchen Essentials (2001), p. 119: roux, gradual milk addition and heating. [BDA: White Sauce](https://www.bda.uk.com/asset/255D726C-811E-4FFD-A8E1A57D396768BF/) supports adding cheese after removing from the heat.
 
 ## Cauliflower cheese and baked noodles
-![A vegetable supper](assets/cooks-pen/backgrounds/cauliflower-to-gratin.webp)
+background: ![A vegetable supper](assets/cooks-pen/backgrounds/cauliflower-to-gratin.webp)
 
 *Baked dishes*
 
@@ -833,7 +833,7 @@ Add variety through texture
 - Steamed cauliflower + Butter -> Buttered cauliflower
 
 ## Bottling and canning
-![What keeping really means](assets/cooks-pen/backgrounds/fruit-kept-for-another-day.webp)
+background: ![What keeping really means](assets/cooks-pen/backgrounds/fruit-kept-for-another-day.webp)
 
 *Bottling and canning*
 
@@ -880,7 +880,7 @@ Add variety through texture
 > NOTE: [NCHFP: Ensuring Safe Canned Foods](https://nchfp.uga.edu/how/can/general-information/ensuring-safe-canned-foods/). Specific validated processes matter; game does not teach canning or certify safety.
 
 ## Jam tart and breadcrumb crumble
-![Tarts from earlier pages](assets/cooks-pen/backgrounds/jam-tart-and-apple-crumble.webp)
+background: ![Tarts from earlier pages](assets/cooks-pen/backgrounds/jam-tart-and-apple-crumble.webp)
 
 *Jam tart and crumble*
 
@@ -926,7 +926,7 @@ Add variety through texture
 - Unbaked fruit crumble [transform] @ `supper-oven-fruit-baking` -> Fruit crumble
 
 ## Marzipan
-![Almonds ground fine](assets/cooks-pen/backgrounds/almonds-dates-and-marzipan.webp)
+background: ![Almonds ground fine](assets/cooks-pen/backgrounds/almonds-dates-and-marzipan.webp)
 
 *Marzipan*
 
@@ -963,7 +963,7 @@ Add variety through texture
 > NOTE: [Goethe-Institut: Marzipan](https://www.goethe.de/resources/files/pdf341/marzipan_englisch.pdf). First-party cultural recipe explicitly blends icing sugar with finely ground almonds before adding water; proportions and kneading are compressed in the game.
 
 ## Caramel
-![Sugar taken further](assets/cooks-pen/backgrounds/amber-sugar-and-brittle.webp)
+background: ![Sugar taken further](assets/cooks-pen/backgrounds/amber-sugar-and-brittle.webp)
 
 *Caramel*
 
@@ -996,7 +996,7 @@ Add variety through texture
 - Sugar @ `sugar-pan-caramel` -> Caramel
 
 ## Custard and pastry cream
-![A sauce and a filling](assets/cooks-pen/backgrounds/vanilla-yolks-and-custard.webp)
+background: ![A sauce and a filling](assets/cooks-pen/backgrounds/vanilla-yolks-and-custard.webp)
 
 *Custard*
 
@@ -1042,7 +1042,7 @@ A pouring sauce and a pastry filling.
 > NOTE: [King Arthur: Pastry Cream](https://www.kingarthurbaking.com/recipes/pastry-cream-creme-patissiere-recipe). Egg yolks, milk, sugar and starch cooked into pastry filling; game separates pouring custard from starch-thickened cream.
 
 ## Bread pudding and fruit tarts
-![Bread soaked, pastry filled](assets/cooks-pen/backgrounds/bread-pudding-and-fruit-tart.webp)
+background: ![Bread soaked, pastry filled](assets/cooks-pen/backgrounds/bread-pudding-and-fruit-tart.webp)
 
 *Bread pudding and fruit tarts*
 
@@ -1102,7 +1102,7 @@ A pouring sauce and a pastry filling.
 - Opened bottled fruit [transform] + Vanilla custard -> Bottled fruit with custard
 
 ## Choux pastry
-![Steam does the lifting](assets/cooks-pen/backgrounds/the-hollow-choux-shell.webp)
+background: ![Steam does the lifting](assets/cooks-pen/backgrounds/the-hollow-choux-shell.webp)
 
 *Choux pastry*
 
@@ -1148,7 +1148,7 @@ A pouring sauce and a pastry filling.
 > NOTE: [King Arthur: Pâte à Choux](https://www.kingarthurbaking.com/recipes/pate-a-choux-recipe). Cooked flour paste and egg enrichment; shaping and baking compressed.
 
 ## Cream puffs
-![Inside a choux bun](assets/cooks-pen/backgrounds/cream-in-the-hollow.webp)
+background: ![Inside a choux bun](assets/cooks-pen/backgrounds/cream-in-the-hollow.webp)
 
 *Cream puffs*
 
@@ -1173,7 +1173,7 @@ A pouring sauce and a pastry filling.
 - Custard-filled choux [transform] + Caramel sauce -> Caramel choux
 
 ## Swiss roll and trifle
-![A roll and a spoonful](assets/cooks-pen/backgrounds/jam-spirals-and-trifle.webp)
+background: ![A roll and a spoonful](assets/cooks-pen/backgrounds/jam-spirals-and-trifle.webp)
 
 *Swiss roll and trifle*
 
@@ -1206,7 +1206,7 @@ A pouring sauce and a pastry filling.
 - Fruit trifle [transform] + Whipped cream -> Cream-topped trifle
 
 ## Chocolate, ganache and glaze
-![Begin with chocolate](assets/cooks-pen/backgrounds/cacao-to-chocolate.webp)
+background: ![Begin with chocolate](assets/cooks-pen/backgrounds/cacao-to-chocolate.webp)
 
 *Chocolate*
 
@@ -1240,7 +1240,7 @@ A pouring sauce and a pastry filling.
 > NOTE: [European Cocoa Association: Processing](https://www.eurococoa.com/cocoa-story/cocoa-story-the-production-process-from-cocoa-beans-to-semi-finished-products/). Industry association process account for nibs, paste, cocoa butter, refining and conching; not a homemade chocolate recipe.
 
 ## Chocolate cakes and profiteroles
-![Chocolate, three finishes](assets/cooks-pen/backgrounds/three-chocolate-centres.webp)
+background: ![Chocolate, three finishes](assets/cooks-pen/backgrounds/three-chocolate-centres.webp)
 
 *Chocolate desserts*
 
@@ -1286,7 +1286,7 @@ A pouring sauce and a pastry filling.
 - Cream puffs [transform] + Chocolate ganache -> Chocolate profiteroles
 
 ## Muffins and soda bread
-![Bread without waiting](assets/cooks-pen/backgrounds/soda-bread-and-fruit-muffins.webp)
+background: ![Bread without waiting](assets/cooks-pen/backgrounds/soda-bread-and-fruit-muffins.webp)
 
 *Muffins and soda bread*
 
@@ -1340,7 +1340,7 @@ A pouring sauce and a pastry filling.
 - Soda bread dough [transform] @ `tea-oven-crew-baking` -> Soda bread
 
 ## Ice cream and sorbet
-![Cold changes things](assets/cooks-pen/backgrounds/three-kinds-of-frozen.webp)
+background: ![Cold changes things](assets/cooks-pen/backgrounds/three-kinds-of-frozen.webp)
 
 *Ice cream and sorbet*
 
@@ -1380,7 +1380,7 @@ A pouring sauce and a pastry filling.
 - Sweetened cream base [transform] @ Freezing churn -> Milk ice cream
 
 ## Meringues and macarons
-![The egg-white pages](assets/cooks-pen/backgrounds/egg-whites-almonds-and-air.webp)
+background: ![The egg-white pages](assets/cooks-pen/backgrounds/egg-whites-almonds-and-air.webp)
 
 *Meringues and macarons*
 
@@ -1433,7 +1433,7 @@ A pouring sauce and a pastry filling.
 > NOTE: [King Arthur Baking School: French Macaron](https://shop.kingarthurbaking.com/content/class-pdfs/FrenchMacaron_August2025.pdf). First-party teaching recipe for almond-sugar mixture folded into meringue; exact formula is not reproduced.
 
 ## Sundaes and Baked Alaska
-![Ice cream dressed for dinner](assets/cooks-pen/backgrounds/baked-alaska-and-a-sundae.webp)
+background: ![Ice cream dressed for dinner](assets/cooks-pen/backgrounds/baked-alaska-and-a-sundae.webp)
 
 *Sundaes and Baked Alaska*
 
@@ -1479,7 +1479,7 @@ A pouring sauce and a pastry filling.
 - Milk ice cream [transform] + Caramel sauce -> Caramel sundae
 
 ## Beef Wellington
-![Beef Wellington](assets/rework/backgrounds/beef-wellington.webp)
+background: ![Beef Wellington](assets/rework/backgrounds/beef-wellington.webp)
 
 *Beef Wellington*
 
@@ -1524,7 +1524,7 @@ Beef and mushrooms in puff pastry.
 > NOTE: [Gordon Ramsay: Beef Wellington](https://www.gordonramsay.com/gr/recipes/beef-wellington/). Supports searing, dry mushroom filling, cooling and wrapping in unbaked pastry. This is a simplified version, not that exact recipe; trimming, seasoning, chilling, egg wash, doneness and resting are compressed. Le Cordon Bleu, Kitchen Essentials (2001), p. 199, describes duxelles as finely chopped mushrooms and shallots or onions cooked in butter until dry.
 
 ## Celebration cakes
-![Celebration cakes](assets/cooks-pen/backgrounds/a-supper-built-from-pages.webp)
+background: ![Celebration cakes](assets/cooks-pen/backgrounds/a-supper-built-from-pages.webp)
 
 *Buttercream cake*
 
@@ -1550,7 +1550,7 @@ Beef and mushrooms in puff pastry.
 - Sponge cake + Vanilla buttercream [consume] -> Vanilla sandwich cake
 
 ## Dinner
-![Dinner](assets/rework/backgrounds/dining-room.webp)
+background: ![Dinner](assets/rework/backgrounds/dining-room.webp)
 
 *Dinner*
 

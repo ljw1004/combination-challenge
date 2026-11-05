@@ -8,7 +8,7 @@ import {checkpoint} from '../src/debug/checkpoint.ts';
 
 const story=parseStory(`# Cellar
 ## Bread
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Let the dough rise -- Risen dough
 **Hotspots**
@@ -19,7 +19,7 @@ const story=parseStory(`# Cellar
 **Combinations**
 - Wild starter [preserve] + Dough [transform] @ Warm cellar -> Risen dough
 ## Later
-![room](other.webp)
+background: ![room](other.webp)
 **Goals**
 - Make a loaf -- Loaf
 **Hotspots**

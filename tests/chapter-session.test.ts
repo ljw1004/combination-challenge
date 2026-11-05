@@ -6,7 +6,7 @@ import {newGame,act} from '../src/engine/game.ts';
 import {captureChapter,chapterEntry,restorePresentation,restoreChapterSession,isNoopMove,noteChapterAction,chapterRecovery,displayedGoals} from '../src/web/chapter-session.ts';
 const story=parseStory(`# Session
 ## First
-![room](room.webp)
+background: ![room](room.webp)
 Start here.
 **Goals**
 - Make C -- C
@@ -20,11 +20,11 @@ Start here.
 - Bench
 
 ## Already done
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Have C -- C
 ## Later
-![room](room.webp)
+background: ![room](room.webp)
 Keep going.
 **Goals**
 - Make D -- D

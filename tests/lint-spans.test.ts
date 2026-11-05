@@ -5,7 +5,7 @@ import {sourceMap} from '../src/story/source-map.ts';
 import {lintStory, lintStoryAnalysis} from '../src/lint/lint.ts';
 
 test('diagnostic spans address original UTF-16 text across CRLF and source comments', () => {
-  const markdown = '# 🪴 Garden\r\n> NOTE: hidden author comment\r\n## Workshop\r\n![room](room.webp)\r\n**Goals**\r\n- next: Finish -- C\r\n**Combinations**\r\n- A + B -> C';
+  const markdown = '# 🪴 Garden\r\n> NOTE: hidden author comment\r\n## Workshop\r\nbackground: ![room](room.webp)\r\n**Goals**\r\n- next: Finish -- C\r\n**Combinations**\r\n- A + B -> C';
   const story = parseStory(markdown, {file: 'garden/story.md'});
   const diagnostics = lintStory(story, {analysis: false});
   const next = diagnostics.find(diagnostic => diagnostic.code === 'first-next')!;
@@ -22,7 +22,7 @@ test('diagnostic spans address original UTF-16 text across CRLF and source comme
 });
 
 test('fast lint omits global reachability and deep analysis adds separately attributed diagnostics', () => {
-  const story = parseStory('# Cycle\n## Workshop\n![room](room.webp)\n**Goals**\n- Make A -- A\n**Items**\n- Seed\n- Brush\n- A\n- B\n- Tool\n- Paint\n**Combinations**\n- Seed [preserve] + Brush [preserve] -> Paint (tutorial)\n- A [preserve] + Tool [preserve] -> B\n- B [preserve] + Tool [preserve] -> A');
+  const story = parseStory('# Cycle\n## Workshop\nbackground: ![room](room.webp)\n**Goals**\n- Make A -- A\n**Items**\n- Seed\n- Brush\n- A\n- B\n- Tool\n- Paint\n**Combinations**\n- Seed [preserve] + Brush [preserve] -> Paint (tutorial)\n- A [preserve] + Tool [preserve] -> B\n- B [preserve] + Tool [preserve] -> A');
   const fast = lintStory(story, {analysis: false});
   assert(!fast.some(diagnostic => diagnostic.code === 'no-continuation'));
   const deep = lintStoryAnalysis(story, fast);
@@ -68,7 +68,7 @@ test('mixed fates explain every use, including defaults and implicit slot behavi
 });
 
 test('many visible goals point at their first Goals heading with original CRLF offsets', () => {
-  const markdown = '# 🪴 Garden\r\n## Workshop\r\n![room](room.webp)\r\n\r\n**Goals**\r\n- First -- A\r\n- Second -- B\r\n**Goals**\r\n- Third -- C';
+  const markdown = '# 🪴 Garden\r\n## Workshop\r\nbackground: ![room](room.webp)\r\n\r\n**Goals**\r\n- First -- A\r\n- Second -- B\r\n**Goals**\r\n- Third -- C';
   const story = parseStory(markdown);
   const diagnostic = lintStory(story, {analysis: false}).find(d => d.code === 'many-visible-goals')!;
   assert.match(diagnostic.message, /3 goal chains/);
@@ -84,7 +84,7 @@ test('many visible goals point at their first Goals heading with original CRLF o
 test('incompatible goals point at their requirements while a legal alternative avoids errors', () => {
   const text = `# Branches
 ## Workshop
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Make A -- A
 - Make B -- B

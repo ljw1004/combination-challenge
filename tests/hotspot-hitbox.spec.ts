@@ -2,7 +2,7 @@ import {test,expect,type Page} from '@playwright/test';
 
 const manuscript=`# A visible connection
 ## Power
-![room](room.svg)
+background: ![room](room.svg)
 Fit the lead, then charge at the panels.
 **Goals**
 - Charge the battery -- Charged

@@ -8,7 +8,7 @@ for (const width of [390, 320]) {
     await page.setViewportSize({width, height: 844});
     await page.route('**/scene-continuity/story.md', route => route.fulfill({contentType: 'text/markdown', body: `# A changing place
 ## Ground
-![ground](ground.svg)
+background: ![ground](ground.svg)
 
 **Goals**
 - Build here -- Built

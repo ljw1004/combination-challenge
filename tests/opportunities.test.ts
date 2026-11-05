@@ -6,8 +6,8 @@ import {analyzeOpportunities} from '../src/lint/opportunities.ts';
 import {lintStory} from '../src/lint/lint.ts';
 import {historyRetirementCheck, inventoryGroupKey, OptionalHistory} from '../src/lint/optional-history.ts';
 
-const parse = (body: string) => parseStory(`# Opportunities\n## Start\n![room](room.webp)\n${body}`, {id: 'opportunities'});
-const later = (name: string) => `\n## ${name}\n![room](room.webp)\n`;
+const parse = (body: string) => parseStory(`# Opportunities\n## Start\nbackground: ![room](room.webp)\n${body}`, {id: 'opportunities'});
+const later = (name: string) => `\n## ${name}\nbackground: ![room](room.webp)\n`;
 const names = (story: ReturnType<typeof parse>, ids: Iterable<string>) => [...ids].map(id => story.items[id].name);
 
 test('derived declarations neither supply ingredients nor prevent future cleanup', () => {

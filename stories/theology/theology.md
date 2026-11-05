@@ -10,7 +10,7 @@ A manuscript desk, not a test of faith. Follow a wound, a failed promise, bread,
 
 ## `wound-meal` Augustine, Hippo, c. 421 — A wound and a stolen meal
 
-![Augustine’s study](assets/theology-augustine-study.webp)
+background: ![Augustine’s study](assets/theology-augustine-study.webp)
 
 *Augustine, Hippo, c. 421*
 
@@ -137,7 +137,7 @@ Augustine is a Christian bishop in Roman North Africa, writing a short handbook 
 
 ## `willing-doing` Augustine, Hippo, c. 421 — Why can’t I simply do better?
 
-![Augustine’s study — evening](assets/theology-grace-alcove.webp)
+background: ![Augustine’s study — evening](assets/theology-grace-alcove.webp)
 
 *Augustine, Hippo, c. 421*
 
@@ -289,7 +289,7 @@ The meal has not been returned: the person who took it promised fairness, then c
 
 ## `world-that-harms` An anonymous Cathar author, northern Italy, c. 1250 — Who made a world that harms?
 
-![Medieval manuscript study](assets/theology-medieval-disputation-desk.webp)
+background: ![Medieval manuscript study](assets/theology-medieval-disputation-desk.webp)
 
 *An anonymous Cathar author, northern Italy, c. 1250*
 
@@ -406,7 +406,7 @@ The unnamed author of the Book of Two Principles belongs to the Christian moveme
 
 ## `fire-and-harm` Thomas Aquinas, Rome, c. 1267 — What has the fire example answered?
 
-![Aquinas’s manuscript study](assets/theology-cause-comparison-bench.webp)
+background: ![Aquinas’s manuscript study](assets/theology-cause-comparison-bench.webp)
 
 *Thomas Aquinas, Rome, c. 1267*
 
@@ -488,7 +488,7 @@ Thomas Aquinas is a Dominican friar and theologian working on his Summa in Rome.
 
 ## `trinity` Augustine, Hippo, c. 420 — Three, and not three gods?
 
-![Manuscript study — evening](assets/theology-trinity-lectern.webp)
+background: ![Manuscript study — evening](assets/theology-trinity-lectern.webp)
 
 *Augustine, Hippo, c. 420*
 
@@ -593,7 +593,7 @@ Return to Augustine, bishop of Hippo, for his earlier account of the Trinity. Ch
 
 ## `cathar-rite` A Cathar minister, place uncertain, c. 1300 — Can a spiritual rite be bodily?
 
-![Ritual study](assets/theology-ritual-comparison-room.webp)
+background: ![Ritual study](assets/theology-ritual-comparison-room.webp)
 
 *A Cathar minister, place uncertain, c. 1300*
 
@@ -634,7 +634,7 @@ This voice belongs to the minister described in a Cathar ritual preserved in an 
 
 ## `baptism-water` Thomas Aquinas, Naples, c. 1273 — Can water do more than wash?
 
-![Aquinas’s baptism study](assets/theology-baptism-bench.webp)
+background: ![Aquinas’s baptism study](assets/theology-baptism-bench.webp)
 
 *Thomas Aquinas, Naples, c. 1273*
 
@@ -720,7 +720,7 @@ Return to Aquinas, now writing about sacraments in Naples. He says God appointed
 
 ## `communion-bread` Thomas Aquinas, Naples, c. 1273 — What changed if it still tastes like bread?
 
-![Ritual study — evening](assets/theology-eucharist-table.webp)
+background: ![Ritual study — evening](assets/theology-eucharist-table.webp)
 
 *Thomas Aquinas, Naples, c. 1273*
 
@@ -806,7 +806,7 @@ Does Communion give bread the same role that baptism gives water? Aquinas claims
 
 ## `coin-or-supper` Martin Luther, Wittenberg, 1517 — One coin: a letter or supper?
 
-![Wittenberg printshop](assets/theology-reformation-print-table.webp)
+background: ![Wittenberg printshop](assets/theology-reformation-print-table.webp)
 
 *Martin Luther, Wittenberg, 1517*
 
@@ -929,7 +929,7 @@ Martin Luther is a friar and university teacher in Wittenberg, challenging indul
 
 ## `free-service` Martin Luther, Wittenberg, 1520 — If it is a gift, why do anything?
 
-![Wittenberg study — later session](assets/theology-liberty-bench.webp)
+background: ![Wittenberg study — later session](assets/theology-liberty-bench.webp)
 
 *Martin Luther, Wittenberg, 1520*
 
@@ -1014,7 +1014,7 @@ The household still needs the supper you put before the indulgence letter. Luthe
 
 ## `marburg` Luther and Zwingli, Marburg, 1529 — What can these opponents sign together?
 
-![Marburg records](assets/theology-confessions-table.webp)
+background: ![Marburg records](assets/theology-confessions-table.webp)
 
 *Luther and Zwingli, Marburg, 1529*
 
@@ -1187,7 +1187,7 @@ Huldrych Zwingli, the reformer of Zürich, has come to Marburg to meet Luther an
 
 ## `trent-justification` Catholic bishops, Trent, 1547 — Does accepting a gift make it wages?
 
-![Trent records — later session](assets/theology-trent-decree-desk.webp)
+background: ![Trent records — later session](assets/theology-trent-decree-desk.webp)
 
 *Catholic bishops, Trent, 1547*
 
@@ -1285,7 +1285,7 @@ Catholic bishops have gathered at Trent to set out their church’s teaching ami
 
 ## `prayer-and-relics` John Calvin, Geneva, 1559 — May I ask a saint as I ask a friend?
 
-![Reformation study](assets/theology-prayer-and-provenance-bench.webp)
+background: ![Reformation study](assets/theology-prayer-and-provenance-bench.webp)
 
 *John Calvin, Geneva, 1559*
 
@@ -1436,7 +1436,7 @@ John Calvin is a reformer based in Geneva, revising his Institutes of the Christ
 
 ## `trent-reply` Catholic bishops, Trent, 1563 — What would new evidence actually change?
 
-![Reformation study — next day](assets/theology-reply-records-desk.webp)
+background: ![Reformation study — next day](assets/theology-reply-records-desk.webp)
 
 *Catholic bishops, Trent, 1563*
 

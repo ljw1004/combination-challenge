@@ -8,7 +8,7 @@ import {lintStory} from '../src/lint/lint.ts';
 import {lintStoryImages} from '../src/lint/images.ts';
 import {newGame} from '../src/engine/game.ts';
 
-const manuscript = (body: string) => `# Icon workshop\n## Start\n![room](https://example.com/room.webp)\n\n${body}`;
+const manuscript = (body: string) => `# Icon workshop\n## Start\nbackground: ![room](https://example.com/room.webp)\n\n${body}`;
 const iconErrors = (text: string) => lintStory(parseStory(text), {analysis: false}).filter(diagnostic => diagnostic.code.includes('icon'));
 
 test('item icons and aligned slot overlays retain source spans without creating references or wonders', () => {
@@ -131,7 +131,7 @@ test('hotspot artwork retains coordinates and contextual recipes without introdu
 - Clay
 - Fire
 ## Return
-![yard](https://example.com/yard.webp)
+background: ![yard](https://example.com/yard.webp)
 **Hotspots**
 - Kiln yard (at 78%, 65%)
   - icon: ![same yard](yard.png)
@@ -179,7 +179,7 @@ test('icon starting positions reject derived identities even when their producer
 - Fire
   - icon: ![fire](fire.png)
 ## Later
-![place](https://example.com/room.webp)
+background: ![place](https://example.com/room.webp)
 **Combinations**
 - Water [preserve] + Fire [preserve] -> Steam
 `);

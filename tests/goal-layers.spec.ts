@@ -17,7 +17,7 @@ async function openFixture(page: Page, icons = false, obstructDebug = false) {
   await page.emulateMedia({reducedMotion: 'reduce'});
   const manuscript = `# Goal layers
 ## Workshop
-![room](room.svg)
+background: ![room](room.svg)
 
 Arrange the pieces.
 **Goals**

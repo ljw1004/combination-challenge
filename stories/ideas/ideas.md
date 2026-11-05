@@ -8,7 +8,7 @@ Follow questions across centuries: what explains an eclipse, what makes a life g
 
 ## Calendar and portent
 
-![Calendar and portent](assets/atlas-mesopotamian-watch-archive.webp)
+background: ![Calendar and portent](assets/atlas-mesopotamian-watch-archive.webp)
 
 *Sky watchers and scribes, Mesopotamia, c. 700–500 BCE*
 
@@ -74,7 +74,7 @@ The palace wants to know when to watch for an eclipse. The archive records both 
 
 ## Causes and counterexamples
 
-![Causes and counterexamples](assets/atlas-athens-argument-courtyard.webp)
+background: ![Causes and counterexamples](assets/atlas-athens-argument-courtyard.webp)
 
 *Greek natural philosophers and Socratic inquiry, eastern Mediterranean, c. 500–320 BCE*
 
@@ -136,7 +136,7 @@ A shadow can explain the eclipse without answering the omen reader. At the argum
 
 ## Forms and education
 
-![Forms and education](assets/atlas-lyceum-classification-bench.webp)
+background: ![Forms and education](assets/atlas-lyceum-classification-bench.webp)
 
 *Plato and Aristotle, Athens, c. 380–320 BCE*
 
@@ -183,7 +183,7 @@ Plato seeks stable objects of knowledge; Aristotle, his former student, develops
 
 ## Bodies and explanations
 
-![Bodies and explanations](assets/atlas-lyceum-classification-bench.webp)
+background: ![Bodies and explanations](assets/atlas-lyceum-classification-bench.webp)
 
 *Aristotle’s inquiry, Athens, c. 335–323 BCE*
 
@@ -230,7 +230,7 @@ A bird’s wing has material, structure and a job in the animal. Compare those q
 
 ## Logic and conduct
 
-![Logic and conduct](assets/atlas-lyceum-classification-bench.webp)
+background: ![Logic and conduct](assets/atlas-lyceum-classification-bench.webp)
 
 *Aristotle’s inquiry, Athens, c. 335–323 BCE*
 
@@ -292,7 +292,7 @@ A conclusion can follow even when a premise is false. Acting well raises another
 
 ## Who belongs in the city?
 
-![Who belongs in the city?](assets/atlas-civilization-civic-rule.webp)
+background: ![Who belongs in the city?](assets/atlas-civilization-civic-rule.webp)
 
 *Aristotle and Plato on civic life, Athens, fourth century BCE*
 
@@ -339,7 +339,7 @@ A city claims to pursue a common good. Test that claim against who governs, whos
 
 ## Freedom and a sufficient life
 
-![Freedom and a sufficient life](assets/atlas-schools-garden.webp)
+background: ![Freedom and a sufficient life](assets/atlas-schools-garden.webp)
 
 *Cynic, Stoic and Epicurean perspectives, Greek and Roman world, c. 330 BCE–180 CE*
 
@@ -426,7 +426,7 @@ Cynics, Stoics and Epicureans offer different accounts of living well. Would few
 
 ## Geometry and Earth
 
-![Geometry and Earth](assets/atlas-hellenistic-library.webp)
+background: ![Geometry and Earth](assets/atlas-hellenistic-library.webp)
 
 *Euclidean proof and Earth measurement, Alexandria, third century BCE*
 
@@ -473,7 +473,7 @@ A geometrical proof can establish what a construction must be like. An Earth mea
 
 ## A predictive sky
 
-![A predictive sky](assets/atlas-hellenistic-library.webp)
+background: ![A predictive sky](assets/atlas-hellenistic-library.webp)
 
 *Astronomers and instrument makers, Mediterranean world, c. 200 BCE–200 CE*
 
@@ -535,7 +535,7 @@ Planet sightings give a model something to answer to. Circles and linked gears c
 
 ## Copies and legal authority
 
-![Copies and legal authority](assets/atlas-civilization-law-status.webp)
+background: ![Copies and legal authority](assets/atlas-civilization-law-status.webp)
 
 *Ancient Mediterranean editors; Justinian’s law, Constantinople, 529–534 CE*
 
@@ -602,7 +602,7 @@ An editor can display rival readings; an imperial lawbook must also say what has
 
 ## Translation and new questions
 
-![Translation and new questions](assets/atlas-arabic-translation-house.webp)
+background: ![Translation and new questions](assets/atlas-arabic-translation-house.webp)
 
 *Translators and philosophers, Arabic-speaking scholarly centres, c. 800–1100 CE*
 
@@ -683,7 +683,7 @@ Greek and Syriac arguments enter Arabic-speaking scholarly communities, where tr
 
 ## Calculation and model criticism
 
-![Calculation and model criticism](assets/atlas-arabic-translation-house.webp)
+background: ![Calculation and model criticism](assets/atlas-arabic-translation-house.webp)
 
 *Arabic-language mathematics and astronomy, Baghdad and Cairo, c. 800–1050 CE*
 
@@ -734,7 +734,7 @@ Arabic-language mathematics develops methods for finding unknown quantities; Ibn
 
 ## Light enters the room
 
-![Light enters the room](assets/atlas-optical-workroom.webp)
+background: ![Light enters the room](assets/atlas-optical-workroom.webp)
 
 *Ibn al-Haytham’s optical inquiry, Cairo, early eleventh century*
 
@@ -796,7 +796,7 @@ Ibn al-Haytham investigates vision through light entering the eye. A lamp shines
 
 ## Images and magnification
 
-![Images and magnification](assets/atlas-optical-workroom.webp)
+background: ![Images and magnification](assets/atlas-optical-workroom.webp)
 
 *Optical inquiry and lens craft, Mediterranean and European workshops, c. 1200–1300 CE*
 
@@ -861,7 +861,7 @@ The same room now holds the image box and a lens blank. Compare a projection on 
 
 ## Objections, nature and law
 
-![Objections, nature and law](assets/atlas-latin-disputation-hall.webp)
+background: ![Objections, nature and law](assets/atlas-latin-disputation-hall.webp)
 
 *Aquinas and university scholars, Paris and Bologna, c. 1150–1350 CE*
 
@@ -940,7 +940,7 @@ Translated arguments reach the universities. Aquinas tests general rules against
 
 ## One word, many things
 
-![One word, many things](assets/atlas-latin-disputation-hall.webp)
+background: ![One word, many things](assets/atlas-latin-disputation-hall.webp)
 
 *Medieval debates over universals, Oxford and Paris, early fourteenth century*
 
@@ -990,7 +990,7 @@ Medieval philosophers disagree about why one word can apply to many things. Two 
 
 ## Print and permission
 
-![Print and permission](assets/atlas-renaissance-print-workshop.webp)
+background: ![Print and permission](assets/atlas-renaissance-print-workshop.webp)
 
 *Printers, editors and authorities, Europe, c. 1450–1600 CE*
 
@@ -1052,7 +1052,7 @@ The disputed reading can now reach many readers in matching copies. That opportu
 
 ## Testing a text’s authority
 
-![Testing a text’s authority](assets/atlas-renaissance-print-workshop.webp)
+background: ![Testing a text’s authority](assets/atlas-renaissance-print-workshop.webp)
 
 *Renaissance textual scholars, European libraries, c. 1450–1614 CE*
 
@@ -1103,7 +1103,7 @@ A fresh Greek witness can expose a translator’s choice; a text’s language ca
 
 ## Views and navigation
 
-![Views and navigation](assets/atlas-renaissance-drawing-desk.webp)
+background: ![Views and navigation](assets/atlas-renaissance-drawing-desk.webp)
 
 *Artists and navigators, European workshops and chart rooms, c. 1480–1600 CE*
 
@@ -1180,7 +1180,7 @@ A drawing and a chart each serve a particular viewer. Examine what their useful 
 
 ## Telescope records
 
-![Telescope records](assets/atlas-astronomical-correspondence-room.webp)
+background: ![Telescope records](assets/atlas-astronomical-correspondence-room.webp)
 
 *Galileo’s telescopic inquiry, Padua and Florence, 1609–1610 CE*
 
@@ -1263,7 +1263,7 @@ A telescope brings the old sky models within reach of new tests: the Moon has sh
 
 ## Rival sky models
 
-![Rival sky models](assets/atlas-astronomical-correspondence-room.webp)
+background: ![Rival sky models](assets/atlas-astronomical-correspondence-room.webp)
 
 *Copernicus, Tycho and Kepler compared, European astronomy, c. 1543–1619 CE*
 
@@ -1325,7 +1325,7 @@ Venus can appear nearly full. Decide which arrangement fails that test; then exa
 
 ## Cases and observers
 
-![Cases and observers](assets/atlas-natural-philosophy-workshop.webp)
+background: ![Cases and observers](assets/atlas-natural-philosophy-workshop.webp)
 
 *Bacon and Burton, England, c. 1620–1621 CE*
 
@@ -1380,7 +1380,7 @@ Bacon looks for cases that resist a favoured explanation; Burton gathers medicin
 
 ## Heat trials across workshops
 
-![Heat trials across workshops](assets/atlas-natural-philosophy-workshop.webp)
+background: ![Heat trials across workshops](assets/atlas-natural-philosophy-workshop.webp)
 
 *Imagined workshops in early seventeenth-century Europe, following Bacon’s heat inquiry of 1620*
 
@@ -1446,7 +1446,7 @@ Sun and flame suggest that heat belongs to luminous bodies. Test that proposal, 
 
 ## Mechanisms and living bodies
 
-![Mechanisms and living bodies](assets/atlas-mechanical-demonstration-bench.webp)
+background: ![Mechanisms and living bodies](assets/atlas-mechanical-demonstration-bench.webp)
 
 *Harvey and Descartes compared, European inquiry, c. 1628–1637 CE*
 
@@ -1515,7 +1515,7 @@ Gears can explain a moving figure’s arm. A living body raises a harder questio
 
 ## Motion and gravity
 
-![Motion and gravity](assets/atlas-mechanical-demonstration-bench.webp)
+background: ![Motion and gravity](assets/atlas-mechanical-demonstration-bench.webp)
 
 *Newton, England, 1687 CE*
 
@@ -1563,7 +1563,7 @@ Newton brings terrestrial and celestial motion into one mathematical inquiry. A 
 
 ## Protection, consent and resistance
 
-![Protection, consent and resistance](assets/atlas-civilization-consent-rule.webp)
+background: ![Protection, consent and resistance](assets/atlas-civilization-consent-rule.webp)
 
 *Hobbes and Locke, England, 1651–1690 CE*
 
@@ -1646,7 +1646,7 @@ Who can claim obedience, and when may it end? Compare a subject left without pro
 
 ## Time and lunar records
 
-![Time and lunar records](assets/atlas-longitude-chart-room.webp)
+background: ![Time and lunar records](assets/atlas-longitude-chart-room.webp)
 
 *Navigators, astronomers and Harrison, Atlantic navigation, c. 1714–1770 CE*
 
@@ -1727,7 +1727,7 @@ A ship needs the time at a known meridian as well as its own local time. Compare
 
 ## The Jaipur observatory
 
-![The Jaipur observatory](assets/atlas-longitude-chart-room.webp)
+background: ![The Jaipur observatory](assets/atlas-longitude-chart-room.webp)
 
 *Jai Singh’s astronomical enterprise, Jaipur, early eighteenth century*
 
@@ -1762,7 +1762,7 @@ Jaipur brings Indian and Islamic astronomical traditions into work with large ma
 
 ## Public knowledge table
 
-![Public knowledge table](assets/atlas-public-reading-room.webp)
+background: ![Public knowledge table](assets/atlas-public-reading-room.webp)
 
 *Enlightenment editors, artisans and readers, Europe, c. 1750–1792 CE*
 
@@ -1817,7 +1817,7 @@ A loom engraving explains a craft; its references lead into mechanics. A publish
 
 ## Experience and expectation
 
-![Experience and expectation](assets/atlas-public-reading-room.webp)
+background: ![Experience and expectation](assets/atlas-public-reading-room.webp)
 
 *Hume and Kant compared, Scotland and Prussia, c. 1748–1783 CE*
 
@@ -1864,7 +1864,7 @@ Hume asks why the future should resemble the past; Kant asks how experience can 
 
 ## Rights declarations
 
-![Rights declarations](assets/atlas-public-reading-room.webp)
+background: ![Rights declarations](assets/atlas-public-reading-room.webp)
 
 *Rights advocates and those excluded, Atlantic world, late eighteenth century*
 
@@ -1925,7 +1925,7 @@ A claim of universal rights reaches women denied education and enslaved people d
 
 ## Prosperity and the maker
 
-![Prosperity and the maker](assets/atlas-political-economy-alcove.webp)
+background: ![Prosperity and the maker](assets/atlas-political-economy-alcove.webp)
 
 *Mandeville and Smith, Britain, c. 1714–1776 CE*
 
@@ -2000,7 +2000,7 @@ Mandeville provokes readers by connecting condemned motives with prosperous trad
 
 ## Trade and scarcity
 
-![Trade and scarcity](assets/atlas-political-economy-alcove.webp)
+background: ![Trade and scarcity](assets/atlas-political-economy-alcove.webp)
 
 *Atlantic commerce and Malthus’s population argument, eighteenth and nineteenth centuries*
 
@@ -2051,7 +2051,7 @@ Improved navigation carries goods across oceans, but a route chart cannot tell w
 
 ## Emancipation and work
 
-![Emancipation and work](assets/atlas-civilization-freedom-empire.webp)
+background: ![Emancipation and work](assets/atlas-civilization-freedom-empire.webp)
 
 *Insurgents, legislators and workers, Saint-Domingue and Haiti, 1791–1804 CE*
 
@@ -2137,7 +2137,7 @@ Enslaved people’s uprising makes freedom a political demand. Follow abolition 
 
 ## Rock histories
 
-![Rock histories](assets/atlas-natural-history-cabinet.webp)
+background: ![Rock histories](assets/atlas-natural-history-cabinet.webp)
 
 *Hutton and stratigraphers, Britain, late eighteenth and early nineteenth centuries*
 
@@ -2192,7 +2192,7 @@ Two outcrops repeat a fossil sequence. At another site, steep old beds end benea
 
 ## Naturalists’ notebooks
 
-![Naturalists’ notebooks](assets/atlas-naturalists-comparison-bench.webp)
+background: ![Naturalists’ notebooks](assets/atlas-naturalists-comparison-bench.webp)
 
 *Linnaeus, Humboldt and Lamarck; Sweden, the Andes and France; c. 1735–1809 CE*
 
@@ -2267,7 +2267,7 @@ Linnaeus makes names comparable; Humboldt connects plants with their surrounding
 
 ## `descent-inheritance` Selection and inheritance
 
-![descent-inheritance Selection and inheritance](assets/atlas-naturalists-comparison-bench.webp)
+background: ![descent-inheritance Selection and inheritance](assets/atlas-naturalists-comparison-bench.webp)
 
 *Darwin and Wallace, Britain and the Malay Archipelago, 1858–1859 CE*
 
@@ -2352,7 +2352,7 @@ Resource pressure is not enough: inherited differences must affect descendants. 
 
 ## Industry, cooperation and control
 
-![Industry, cooperation and control](assets/atlas-industrial-workshop.webp)
+background: ![Industry, cooperation and control](assets/atlas-industrial-workshop.webp)
 
 *Marx, Morris and Kropotkin compared, Europe, c. 1844–1902 CE*
 
@@ -2450,7 +2450,7 @@ Marx examines power over work, Kropotkin investigates cooperation, and Morris as
 
 ## Water and disease records
 
-![Water and disease records](assets/atlas-water-and-microscope-bench.webp)
+background: ![Water and disease records](assets/atlas-water-and-microscope-bench.webp)
 
 *John Snow, London, 1854–1855 CE*
 
@@ -2501,7 +2501,7 @@ Snow investigates cholera through a comparison of water suppliers. Neighbouring 
 
 ## Microscope and culture bench
 
-![Microscope and culture bench](assets/atlas-water-and-microscope-bench.webp)
+background: ![Microscope and culture bench](assets/atlas-water-and-microscope-bench.webp)
 
 *Pasteur, Buchner and laboratory comparisons, France and Germany, c. 1860–1897 CE*
 
@@ -2563,7 +2563,7 @@ Magnification reveals organisms; controlled comparisons ask what they do. Three 
 
 ## Electromagnetic bench
 
-![Electromagnetic bench](assets/atlas-electrical-darkroom.webp)
+background: ![Electromagnetic bench](assets/atlas-electrical-darkroom.webp)
 
 *Ørsted, Faraday and Maxwell, European laboratories, 1820–1865 CE*
 
@@ -2625,7 +2625,7 @@ Magnification reveals organisms; controlled comparisons ask what they do. Three 
 
 ## Clocks and lived time
 
-![Clocks and lived time](assets/atlas-duration-and-dream-studio.webp)
+background: ![Clocks and lived time](assets/atlas-duration-and-dream-studio.webp)
 
 *Railway coordination, Bergson and James; Europe and the United States; c. 1840–1890 CE*
 
@@ -2672,7 +2672,7 @@ The reference clock once carried on a voyage can now send a signal to railway st
 
 ## Photographs and associations
 
-![Photographs and associations](assets/atlas-electrical-darkroom.webp)
+background: ![Photographs and associations](assets/atlas-electrical-darkroom.webp)
 
 *Photography and Surrealist experiment, Britain and France, nineteenth and early twentieth centuries*
 
@@ -2735,7 +2735,7 @@ The image box gains a surface that retains what light projects. Once the resulti
 
 ## Moving clocks and falling rooms
 
-![Moving clocks and falling rooms](assets/atlas-light-clock-laboratory.webp)
+background: ![Moving clocks and falling rooms](assets/atlas-light-clock-laboratory.webp)
 
 *Einstein and astronomical testers, Europe and the eclipse expeditions, 1905–1919 CE*
 
@@ -2801,7 +2801,7 @@ Einstein re-examines the time and gravity assumed by Newton’s successful mecha
 
 ## Continental comparisons
 
-![Continental comparisons](assets/atlas-earth-science-map-room.webp)
+background: ![Continental comparisons](assets/atlas-earth-science-map-room.webp)
 
 *Wegener and geologists, Europe, c. 1912–1930 CE*
 
@@ -2847,7 +2847,7 @@ The map that served navigation becomes a record to rearrange. In the early twent
 
 ## Isotopes and contamination
 
-![Isotopes and contamination](assets/atlas-earth-science-map-room.webp)
+background: ![Isotopes and contamination](assets/atlas-earth-science-map-room.webp)
 
 *Patterson and isotope researchers, United States, c. 1950–1970 CE*
 
@@ -2924,7 +2924,7 @@ Layer order cannot tell us the elapsed years. Radioactive clocks can—but measu
 
 ## Ocean-floor records
 
-![Ocean-floor records](assets/atlas-earth-science-map-room.webp)
+background: ![Ocean-floor records](assets/atlas-earth-science-map-room.webp)
 
 *Marine geophysicists, worldwide, c. 1960–1970 CE*
 
@@ -2982,7 +2982,7 @@ Magnetic stripes supply the missing record of motion beneath the oceans. If new 
 
 ## Logic, programs and limits
 
-![Logic, programs and limits](assets/atlas-code-and-feedback-laboratory.webp)
+background: ![Logic, programs and limits](assets/atlas-code-and-feedback-laboratory.webp)
 
 *Boole, Turing and Shannon compared, Britain and the United States, c. 1854–1938 CE*
 
@@ -3061,7 +3061,7 @@ Switches and rules for handling symbols can perform logical operations. A machin
 
 ## Communication records
 
-![Communication records](assets/atlas-code-and-feedback-laboratory.webp)
+background: ![Communication records](assets/atlas-code-and-feedback-laboratory.webp)
 
 *Communication and coding theory, United States and beyond, 1948 onward*
 
@@ -3096,7 +3096,7 @@ A distant clock can receive a signal perfectly and still be told the wrong time.
 
 ## Words, copies and authority
 
-![Words, copies and authority](assets/atlas-library-of-copies.webp)
+background: ![Words, copies and authority](assets/atlas-library-of-copies.webp)
 
 *Borges and Benjamin compared, Argentina and Europe, 1930s–1940s*
 
@@ -3164,7 +3164,7 @@ Borges’s fiction plays with authorship and invented scholarship; Benjamin exam
 
 ## Categories and a clinic door
 
-![Categories and a clinic door](assets/atlas-classification-desk.webp)
+background: ![Categories and a clinic door](assets/atlas-classification-desk.webp)
 
 *An imagined clinic, present day; questions from twentieth-century social thought*
 
@@ -3226,7 +3226,7 @@ Who counts as a responsible carer? This imagined clinic promises to serve every 
 
 ## Inheritance bench
 
-![Inheritance bench](assets/atlas-planetary-evidence-laboratory.webp)
+background: ![Inheritance bench](assets/atlas-planetary-evidence-laboratory.webp)
 
 *Mendel’s peas, Brno, 1865; molecular genetics and PKU research, twentieth century*
 
@@ -3288,7 +3288,7 @@ Mendel’s pea experiments offer an answer to the blending problem left by the s
 
 ## Climate and old air
 
-![Climate and old air](assets/atlas-planetary-evidence-laboratory.webp)
+background: ![Climate and old air](assets/atlas-planetary-evidence-laboratory.webp)
 
 *Climate researchers, worldwide, nineteenth–twenty-first centuries*
 
@@ -3350,7 +3350,7 @@ Industry changes the air through which Earth's heat escapes. Distinguish a warmi
 
 ## Model and trial desk
 
-![Model and trial desk](assets/atlas-future-remote-observatory.webp)
+background: ![Model and trial desk](assets/atlas-future-remote-observatory.webp)
 
 *An imagined observatory team, a distant site, a possible future*
 
@@ -3416,7 +3416,7 @@ Imagine a distant observatory: its archive-trained model predicts that a candida
 
 ## Remote-observation desk
 
-![Remote-observation desk](assets/atlas-future-remote-observatory.webp)
+background: ![Remote-observation desk](assets/atlas-future-remote-observatory.webp)
 
 *The imagined observatory team, the same distant site, a possible future*
 
@@ -3478,7 +3478,7 @@ Earth cannot always reply in time. The imagined observatory must decide what it 
 
 ## Workshop proposals
 
-![Workshop proposals](assets/atlas-future-common-workshop.webp)
+background: ![Workshop proposals](assets/atlas-future-common-workshop.webp)
 
 *Makers and carers, an imagined community workshop, a possible future*
 
@@ -3540,7 +3540,7 @@ An imagined workshop wants enjoyable making and reliable care. Its draft charter
 
 ## City and common-rule proposals
 
-![City and common-rule proposals](assets/atlas-future-common-workshop.webp)
+background: ![City and common-rule proposals](assets/atlas-future-common-workshop.webp)
 
 *Residents, carers and bridge stewards, the imagined community, a possible future*
 

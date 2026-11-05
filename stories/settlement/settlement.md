@@ -11,7 +11,7 @@ Starting from four storybook elements, travel from an orchard to a coastal gathe
 
 ## Four beginnings
 
-![Four beginnings](assets/backgrounds/01.webp)
+background: ![Four beginnings](assets/backgrounds/01.webp)
 
 > NOTE: Scene continuity: Opening river clearing. Orchard trees hug the near RIGHT edge; a rudimentary stick-and-thatch lean-to stands above the clearing on this same bank. Far bank has only fields and twin poplars. No house or bridge.
 
@@ -45,7 +45,7 @@ Begin beside the river with earth, water, air and fire. Combine them to make use
 
 ## The first supper
 
-![The first supper](assets/backgrounds/02.webp)
+background: ![The first supper](assets/backgrounds/02.webp)
 
 > NOTE: Scene continuity: A little closer to the near-bank orchard cooking clearing, same viewpoint and right-to-left river visible above it. Apple trees at the far right margin, same rough lean-to upper right, forked willow left. Empty broad earth clearing. No house, bridge or built oven.
 
@@ -99,7 +99,7 @@ There is a place to cook at the orchard's edge. Harvest and thresh ripe grain, t
 
 ## A place to wake up
 
-![A place to wake up](assets/backgrounds/03.webp)
+background: ![A place to wake up](assets/backgrounds/03.webp)
 
 > NOTE: Scene continuity: Home construction site on our near bank, a few steps from the orchard. The same crude lean-to occupies the upper right margin. Bare level earth where the cottage will be made; a few timber posts at the extreme edge. River still beyond our home site, orchard on our side. NO finished house or bridge yet.
 
@@ -162,7 +162,7 @@ The path reaches a sheltered site without a home. Build a house and fit a window
 
 ## Across the brook
 
-![Across the brook](assets/backgrounds/04.webp)
+background: ![Across the brook](assets/backgrounds/04.webp)
 
 > NOTE: Scene continuity: Approaching the unbridged brook from our home bank. The cottage we just built stands upper RIGHT on our NEAR bank: cream plaster, rough dark timber, ochre thatch, square window on left and doorway on right. Orchard beside it on same bank. Water crosses upper third from right to left. A path on the opposite bank leads to a distant red-roof mill barn. No bridge yet; broad open earth on our bank.
 
@@ -201,7 +201,7 @@ A brook blocks the path. Build a footbridge to cross it and a handcart to move s
 
 ## The mill bend
 
-![The mill bend](assets/backgrounds/05.webp)
+background: ![The mill bend](assets/backgrounds/05.webp)
 
 > NOTE: Scene continuity: Mill bend after crossing the brook. A low timber barn with rusty red pitched roof stands upper right beside the race. Empty wheel bearing, no finished waterwheel or grain mill machinery yet. A little bakehouse adjacent. River flows right to left across upper third; large pale empty mill yard foreground. No cottage on this bank.
 
@@ -267,7 +267,7 @@ The moving stream can power a mill. Grind grain for the village and press the ga
 
 ## Bread for the journey
 
-![Bread for the journey](assets/backgrounds/06.webp)
+background: ![Bread for the journey](assets/backgrounds/06.webp)
 
 > NOTE: Scene continuity: Mill bakehouse yard, rusty red roof upper left, rough bread oven built into the wall at far upper left. The mill now has a wooden working waterwheel visible in the upper background. Water runs right to left. Pale open yard, earth bank at far right with a stone-framed cellar doorway cut into it. The cellar is painted into the bank; its transparent hit area follows the doorway.
 
@@ -314,7 +314,7 @@ At the bakehouse, mix flour with water and tend a wild starter over time. There 
 
 ## Keep the summer
 
-![Keep the summer](assets/backgrounds/07.webp)
+background: ![Keep the summer](assets/backgrounds/07.webp)
 
 > NOTE: Scene continuity: Back in our starting-bank orchard for preserving fruit. Apple trees and low stone wall frame upper third, completed cream-and-timber thatched cottage upper right. Large empty earth courtyard foreground, no greenhouse, trellis or irrigation yet. Small glimpse of river beyond, flowing right to left.
 
@@ -387,7 +387,7 @@ Prepare a glaze mixture suited to the clay, then coat and fire the jars before f
 
 ## The potter's yard
 
-![The potter's yard](assets/backgrounds/08.webp)
+background: ![The potter's yard](assets/backgrounds/08.webp)
 
 > NOTE: Scene continuity: An earnest rural potter’s yard. Rough timber shed and clay-red brick wall across top third, stacked unfired pots only at extreme upper left. Bare broad ochre courtyard. A full-sized brick firing kiln stands beside the shed against the right-hand wall, painted into the scene.
 
@@ -424,7 +424,7 @@ The potter's yard has space for firing and glazing. Finish a bowl that can hold 
 
 ## Tools to lend
 
-![Tools to lend](assets/backgrounds/09.webp)
+background: ![Tools to lend](assets/backgrounds/09.webp)
 
 > NOTE: Scene continuity: Small quarry workshop. Russet and grey broken rock face across top and right edge, rough open timber shelter upper left. No completed forge, kiln or tool chest yet. Broad pale sandy working floor; the hotspot follows the iron-red seam in the actual right-hand quarry face.
 
@@ -506,7 +506,7 @@ At the quarry workshop, make a tool for breaking hard ground and a chest for sto
 
 ## A river wide enough
 
-![A river wide enough](assets/backgrounds/10.webp)
+background: ![A river wide enough](assets/backgrounds/10.webp)
 
 > NOTE: Scene continuity: First visit to the wider river landing. Unbuilt bare sandy bank, broad water upper third flowing right to left toward sea. Crooked willow left, low opposite reed bank, no dock or boat yet. Empty broad ochre shore foreground, small sheltered inlet at far right.
 
@@ -542,7 +542,7 @@ The river is wider here. Build a landing and a sailboat to reach the other bank.
 
 ## A light to come home to
 
-![A light to come home to](assets/backgrounds/11.webp)
+background: ![A light to come home to](assets/backgrounds/11.webp)
 
 > NOTE: Scene continuity: Bare harbour headland before a lighthouse is made. Rocky cape upper right and slate blue sea across upper third, distant curved harbour coast on left. NO tower, lighthouse or mooring buoy. Broad open pale grassy-earth foreground. The hotspot covers the actual grassy cape and cliff at upper right, continuous with the shore.
 
@@ -592,7 +592,7 @@ Visitors need to find the harbour after dark and secure their boats. Build a lig
 
 ## The walled garden
 
-![The walled garden](assets/backgrounds/12.webp)
+background: ![The walled garden](assets/backgrounds/12.webp)
 
 > NOTE: Scene continuity: Walled garden on our home bank. Same apple trees, low stone wall and cream plaster ochre-thatch cottage at upper right. Bare beds along far upper edge; no supported trellis, greenhouse or irrigation system yet. Wide open earth courtyard.
 
@@ -620,7 +620,7 @@ On a later morning, return to the orchard for planting. The preserving work stay
 
 ## Water without the climb
 
-![Water without the climb](assets/backgrounds/13.webp)
+background: ![Water without the climb](assets/backgrounds/13.webp)
 
 > NOTE: Scene continuity: Garden water bank after the trellis and greenhouse were built. Same home-bank orchard and cottage upper right, low stone wall. Modest wooden trellis and small glass greenhouse now visible along top edge. River runs right to left at upper left. No jar wheel, aqueduct channel or reservoir yet. Large clear ochre earth foreground.
 
@@ -663,7 +663,7 @@ The stream is below the growing beds. Use the current to lift water into a raise
 
 ## A welcome in colour
 
-![A welcome in colour](assets/backgrounds/14.webp)
+background: ![A welcome in colour](assets/backgrounds/14.webp)
 
 > NOTE: Scene continuity: Village square before festival preparations. Crooked elm upper left, low communal hall with red tiled roof upper centre, stone wall and empty washing corner at far right. Worn pale ochre paving is open across foreground. No canopy, banner, bandstand or puppet theatre yet.
 
@@ -711,7 +711,7 @@ Neighbours are coming to the village square for music and a shared meal. Make a 
 
 ## Charcoal for the messages
 
-![Charcoal for the messages](assets/backgrounds/15.webp)
+background: ![Charcoal for the messages](assets/backgrounds/15.webp)
 
 > NOTE: Scene continuity: Return to the SAME russet-grey quarry and timber shelter. Now a small clay kiln and brick forge have been built at upper left under shelter, with an anvil. No large finished heap of charcoal. Same broad pale working floor; the hotspot follows the same iron-red seam in the right-hand quarry face.
 
@@ -737,7 +737,7 @@ We stop at the quarry kiln for charcoal. At the landing, we can grind it into in
 
 ## News before the boats
 
-![News before the boats](assets/backgrounds/16.webp)
+background: ![News before the boats](assets/backgrounds/16.webp)
 
 > NOTE: Scene continuity: Return to the wider river landing. A modest rough plank dock now projects into water at upper left, one simple small sailboat moored there. River runs right to left, opposite reed bank, same crooked willow left, large empty pale shore. No mailboat or printed invitations yet.
 
@@ -785,7 +785,7 @@ We need to invite our neighbours to the meal and music. Back at the landing, pre
 
 ## A tune in the square
 
-![A tune in the square](assets/backgrounds/17.webp)
+background: ![A tune in the square](assets/backgrounds/17.webp)
 
 > NOTE: Scene continuity: Same village square: crooked elm left, red-tile communal hall upper centre, washing corner right. A rustic cloth canopy and simple coloured festival bunting now span only the upper edge. No stage or bandstand, no instruments yet. Broad empty pale paving.
 
@@ -818,7 +818,7 @@ The following afternoon, the square is ready for music. Make instruments and a r
 
 ## A story to pass on
 
-![A story to pass on](assets/backgrounds/18.webp)
+background: ![A story to pass on](assets/backgrounds/18.webp)
 
 > NOTE: Scene continuity: Same festival square and canopy. A low simple timber bandstand now sits along the upper left edge beneath crooked elm. Communal hall red roof upper centre. No puppet booth, picture book or exhibition yet. Clear pale paving foreground.
 
@@ -862,7 +862,7 @@ Later, children gather in the square. Prepare a puppet theatre and a picture boo
 
 ## What the water hides
 
-![What the water hides](assets/backgrounds/19.webp)
+background: ![What the water hides](assets/backgrounds/19.webp)
 
 > NOTE: Scene continuity: Quiet close view of the mill pond. The SAME rust-red timber mill and now working wooden waterwheel stand far upper left, pond water across upper third runs right to left, rushes at far right. Wide pale dry earth foreground. The hotspot follows real pond water beside the right-hand rushes; no microscope or study instruments.
 
@@ -924,7 +924,7 @@ At the millpond, examine a water sample more closely. A microscope can reveal th
 
 ## Names for the green world
 
-![Names for the green world](assets/backgrounds/20.webp)
+background: ![Names for the green world](assets/backgrounds/20.webp)
 
 > NOTE: Scene continuity: Botanical visit to our home-bank orchard. Same cottage, stone wall, apple trees, supported trellis and small greenhouse persist across top. A simple wooden irrigation trough and jar-lifting wheel now work at upper left by right-to-left river. Open earth clearing foreground; no botanical books pre-placed.
 
@@ -959,7 +959,7 @@ On another orchard morning, visitors want to identify the plants. Make illustrat
 
 ## A promise to the sky
 
-![A promise to the sky](assets/backgrounds/21.webp)
+background: ![A promise to the sky](assets/backgrounds/21.webp)
 
 > NOTE: Scene continuity: Return to same harbour headland on a breezy clear morning. A modest pale stone lighthouse with ochre lantern roof now stands on upper-right cape; harbour coast remains left. Low dry-stone wall at edges. No weather vane or measuring instruments yet. Huge open pale forecourt.
 
@@ -1017,7 +1017,7 @@ Back at the headland, boat crews want a record of changing weather. Prepare obse
 
 ## Food for the crossing
 
-![Food for the crossing](assets/backgrounds/22.webp)
+background: ![Food for the crossing](assets/backgrounds/22.webp)
 
 > NOTE: Scene continuity: Tidal shore below our harbour. Slate blue sea across top third, distant same pale lighthouse at upper right and harbour curve to left. Low rocks at outer margins, broad empty warm sandy foreground. The hotspot follows the actual shallow tideline at the right edge. No caught fish, salt piles or preserves.
 
@@ -1070,7 +1070,7 @@ At the tidal shore, boats are preparing for a crossing without a cooking hearth.
 
 ## The first boats are here
 
-![The first boats are here](assets/backgrounds/23.webp)
+background: ![The first boats are here](assets/backgrounds/23.webp)
 
 > NOTE: Scene continuity: The festival square ready for arrivals: same elm, red-roof hall, canopy and low timber stage across upper third. Right-hand washing corner still empty, no washstand or large water jar yet. Broad empty pale paving, no foreground people.
 
@@ -1134,7 +1134,7 @@ Our visitors have arrived. Prepare a place to wash and a covered jar of water fo
 
 ## The cooks join in
 
-![The cooks join in](assets/backgrounds/24.webp)
+background: ![The cooks join in](assets/backgrounds/24.webp)
 
 > NOTE: Scene continuity: Closer view of the same square’s washing corner. At extreme upper right a simple wooden washstand supports a cream basin, with a large ochre water jar beside it. Red hall roof and festival canopy visible across top. No finished soap or feast. Wide open worn paving foreground.
 
@@ -1168,7 +1168,7 @@ The visiting cooks want to help. Finish the washing station around the corner be
 
 ## Come and eat with us
 
-![Come and eat with us](assets/backgrounds/25.webp)
+background: ![Come and eat with us](assets/backgrounds/25.webp)
 
 > NOTE: Scene continuity: Inside the communal kitchen. Rough plaster walls and dark timber beams only across top and far edges; daylight from a high left window. Bare wooden bench upper left. Broad empty pale worn stone floor foreground. The kitchen hearth is built into the existing right-hand wall niche, with a soot-dark firebox, small banked fire and empty iron hook. No prepared feast.
 
@@ -1220,7 +1220,7 @@ The cooks and guests are here, with water at hand for cooking. Prepare porridge 
 
 ## A gift for winter
 
-![A gift for winter](assets/backgrounds/26.webp)
+background: ![A gift for winter](assets/backgrounds/26.webp)
 
 > NOTE: Scene continuity: Communal dry store: rough plaster and timber rafters, empty wooden shelves against upper wall, earthen ochre floor wide and clear. Small blue daylight window upper left. No finished grain bin or preserve crock yet; furnishings remain at edges.
 
@@ -1248,7 +1248,7 @@ After preparing the meal, put food aside in the village's dry store. Leave grain
 
 ## Lights beside the gathering
 
-![Lights beside the gathering](assets/backgrounds/27.webp)
+background: ![Lights beside the gathering](assets/backgrounds/27.webp)
 
 > NOTE: Scene continuity: Same river landing at early dusk. Rough plank dock upper left, familiar sailboat and a small mailboat now moored. Opposite reed bank, crooked willow left, water flows right to left. No hung lanterns or lamps yet. Keep broad empty shore foreground warm pale ochre and readable, rich indigo only at upper sky and edges.
 
@@ -1279,7 +1279,7 @@ At dusk, return to the landing to prepare lights. The evening boats need a visib
 
 ## The boats home
 
-![The boats home](assets/backgrounds/28.webp)
+background: ![The boats home](assets/backgrounds/28.webp)
 
 > NOTE: Scene continuity: Same landing the next morning. Dock upper left, sailboat and mailboat, rustic lamps now hang only along upper dock edge. Water right to left, willow left, open pale shore foreground. No clock or timetable pre-painted.
 
@@ -1320,7 +1320,7 @@ The next morning, guests need to know when their boats leave. Use the landing cl
 
 ## A steady view of the stars
 
-![A steady view of the stars](assets/backgrounds/29.webp)
+background: ![A steady view of the stars](assets/backgrounds/29.webp)
 
 > NOTE: Scene continuity: Same lighthouse headland on the following starry evening. Familiar pale stone lighthouse with ochre roof at upper right, harbour curve left. Rich slate-indigo sky with many simple star cuts across top third, no constellations drawn. Broad pale moonlit ochre forecourt remains spacious and readable. No telescope or tripod yet.
 
@@ -1348,7 +1348,7 @@ The following evening, some visitors stay to observe the stars. Return to the he
 
 ## Look what we made together
 
-![Look what we made together](assets/backgrounds/30.webp)
+background: ![Look what we made together](assets/backgrounds/30.webp)
 
 > NOTE: Scene continuity: Same festival square next day. Crooked elm left, red tile hall upper centre, canopy, bunting and low stage remain along upper edge; washstand at far right. A simple empty display rail by the hall, but no gallery pictures or mosaic already made. Broad open pale paving foreground.
 
@@ -1382,7 +1382,7 @@ The next day, display the pictures and records in the square. Make a catalogue a
 
 ## A river worth returning to
 
-![A river worth returning to](assets/backgrounds/31.webp)
+background: ![A river worth returning to](assets/backgrounds/31.webp)
 
 > NOTE: Scene continuity: Final evening gathering at the same river landing. Plank dock upper left, familiar small boats, a few warm lamps only along upper edge. Right-to-left river, willow left, opposite reeds. Broad empty warm ochre shore foreground. The sheltered inlet at RIGHT is EMPTY WATER: no floating lantern, boat, flowers or candles there. The transparent Gathering landing hit area covers the real sheltered inlet where the player will place a floating lantern.
 

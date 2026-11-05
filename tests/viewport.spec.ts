@@ -2,7 +2,7 @@ import {test, expect, type Page} from '@playwright/test';
 
 const manuscript = `# Viewport
 ## Workshop
-![room](room.svg)
+background: ![room](room.svg)
 
 An opening reading.
 **Goals**
@@ -13,7 +13,7 @@ An opening reading.
 **Combinations**
 - Frame [preserve] + Tool [preserve] -> Kit
 ## Field
-![field](field.svg)
+background: ![field](field.svg)
 
 A second reading.
 **Goals**

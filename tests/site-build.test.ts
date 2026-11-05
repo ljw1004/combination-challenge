@@ -23,7 +23,7 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
   try {
     mkdirSync(join(root, 'stories/shared/assets'), {recursive: true});
     mkdirSync(join(root, 'assets'));
-    write('stories/shared/story.md', '# First title\n\n![cover](assets/cover.svg)\n\n## Workshop\n');
+    write('stories/shared/story.md', '# First title\n\nbackground: ![start](assets/start.svg)\n\n![cover](assets/cover.svg)\n\n## Workshop\n');
     write('stories/shared/design-brief.md', '# Excluded brief\n');
     write('stories/shared/assets/cover.svg', '<svg xmlns="http://www.w3.org/2000/svg"/>');
     const index = '<!doctype html><div id="app"><!-- story-catalogue --></div><script type="module" src="/catalogue.js"></script>';
@@ -36,6 +36,7 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     assert.match(read('index.html'), /First title/);
     assert.match(read('index.html'), /href="combinations.html\?story=stories\/shared\/story.md"/);
     assert.match(read('index.html'), /src="stories\/shared\/assets\/cover.svg"/);
+    assert.doesNotMatch(read('index.html'), /background:|start\.svg/);
     assert.doesNotMatch(read('index.html'), /Excluded brief|stories.json|\/catalogue.js|story-catalogue/);
     assert.doesNotMatch(read('combinations.html'), /\/player.js/);
     assert.equal(existsSync(join(root, 'dist')), false);

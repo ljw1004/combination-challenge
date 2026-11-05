@@ -8,7 +8,7 @@ import {chapterSupplies} from '../src/engine/analysis.ts';
 
 const fixture = `# 📻 Radio
 ## Workshop
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Repair -- Radio
 **Items**
@@ -122,7 +122,7 @@ test('unused declarations warn once per identity; metadata, repeated declaration
 test('declaration validation preserves primitive introduction chapters and derived metadata does not supply dependencies', () => {
   const text = fixture + `
 ## Later
-![later](later.webp)
+background: ![later](later.webp)
 **Items**
 - Fresh material
 - Optional result

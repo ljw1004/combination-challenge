@@ -3,7 +3,7 @@ import {test, expect, type Page, type Locator} from '@playwright/test';
 async function openFixture(page:Page,icons=true,station=false,circular=false) {
   const text=`# Drop workshop
 ## Work
-![room](room.svg)
+background: ![room](room.svg)
 Arrange and combine.
 **Goals**
 - Make X -- X

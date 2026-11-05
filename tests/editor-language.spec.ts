@@ -105,7 +105,7 @@ test('reference lists refresh source positions after edits and remain separate f
 });
 
 test('undeclared references and unused declarations update live without blocking draft saves', async ({page}) => {
-  const source = '# Names\n## Workshop\n![room](assets/room.svg)\n**Goals**\n- Repair -- Radio\n**Items**\n- Wire\n- Battery\n- Radio\n- Relic\n**Combinations**\n- Wire [preserve] + Battery [preserve] -> Radio (tutorial)\n';
+  const source = '# Names\n## Workshop\nbackground: ![room](assets/room.svg)\n**Goals**\n- Repair -- Radio\n**Items**\n- Wire\n- Battery\n- Radio\n- Relic\n**Combinations**\n- Wire [preserve] + Battery [preserve] -> Radio (tutorial)\n';
   await page.route('**/language/assets/room.svg', route => route.fulfill({contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844"/>'}));
   await open(page, source);
   const editor = page.getByRole('textbox', {name: 'Story Markdown'});
@@ -181,8 +181,8 @@ test('image hover resolves story-relative artwork and handles unavailable previe
   await expect(preview.locator('img')).toHaveCount(0);
   const editor = page.getByRole('textbox', {name: 'Story Markdown'});
   await editor.focus(); await page.keyboard.press('ControlOrMeta+A');
-  await page.keyboard.insertText('# Story\n## Room\n![Bad](javascript:alert)\n');
-  const bad = await point(page.locator('.cm-line').filter({hasText: /^!\[Bad\]/}), 'javascript:alert');
+  await page.keyboard.insertText('# Story\n## Room\nbackground: ![Bad](javascript:alert)\n');
+  const bad = await point(page.locator('.cm-line').filter({hasText: /^background: !\[Bad\]/}), 'javascript:alert');
   await page.mouse.move(bad.x, bad.y);
   await expect(preview.getByRole('status')).toHaveText('Image preview unavailable.');
   await expect(preview.locator('img')).toHaveCount(0);

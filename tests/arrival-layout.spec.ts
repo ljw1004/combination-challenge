@@ -3,7 +3,7 @@ import {jumpToChapter} from './debug-helpers.ts';
 
 const manuscript=`# Arrival workshop
 ## First
-![room](room.svg)
+background: ![room](room.svg)
 
 Put the bowl at the station.
 **Goals**
@@ -23,7 +23,7 @@ Use the same station.
 - Mixture
 - Bowl [preserve] + Spoon [preserve] -> Mixture
 ## New room
-![room](room.svg)
+background: ![room](room.svg)
 
 A new setting.
 **Hotspots**
@@ -94,7 +94,7 @@ test('short viewport arrivals keep measured text cards above multi-line goals an
 test('debug checkpoint jumps centre measured cards and icons and save their arrangement',async({page})=>{
   const story=`# Centred workshop
 ## First
-![room](room.svg)
+background: ![room](room.svg)
 **Goals**
 - Prepare -- Mixture
 **Items**
@@ -105,7 +105,7 @@ test('debug checkpoint jumps centre measured cards and icons and save their arra
 - Mixture
 - Bowl [preserve] + Spoon [preserve] -> Mixture
 ## Second
-![room](room.svg)
+background: ![room](room.svg)
 
 Finish the preparation.
 **Hotspots**
@@ -154,7 +154,7 @@ test('wrapped icon badges fit a narrow checkpoint and edge badges stay inside th
   const sizes=[[144,114],[183,192],[230,167],[177,182]];
   const manuscript=`# Badge clearances
 ## Supplies
-![room](room.svg)
+background: ![room](room.svg)
 Equipment is ready.
 **Hotspots**
 - Separate propellant service connections (at 82.5%, 27%)
@@ -167,7 +167,7 @@ ${names.slice(0,3).map((name,index)=>`- ${name}\n  - icon: ![equipment](${index}
 **Combinations**
 - ${names[0]} [preserve] @ Separate propellant service connections -> Commissioned process enclosure
 ## Controls
-![room](room.svg)
+background: ![room](room.svg)
 Select the systems.
 **Goals**
 - Select emergency operation -- ${names[3]}[${names.slice(0,3).join(', ')}]

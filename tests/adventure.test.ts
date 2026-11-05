@@ -187,7 +187,7 @@ test('history preserves skip bridges once and does not turn receiving locations 
 });
 
 test('the active board and menu exclude earlier rooms while preserving current hotspot recipes',()=>{
-  const s=parseStory(`# Rooms\n## Old room\n![room](old.webp)\n**Goals**\n- Make a piece -- C\n**Hotspots**\n- Old bench\n**Items**\n- Old bench\n- A\n- B\n- Spare\n- C\n- Unmade old result\n**Combinations**\n- A [preserve] + B [preserve] @ Old bench -> C\n- A [preserve] + Spare [preserve] -> Unmade old result\n## New room\n![room](new.webp)\n**Goals**\n- Finish -- D\n**Hotspots**\n- New bench\n**Items**\n- New bench\n- Tool\n- D\n**Combinations**\n- C [transform] + Tool [preserve] @ New bench -> D\n## End\nDone.\n`);
+  const s=parseStory(`# Rooms\n## Old room\nbackground: ![room](old.webp)\n**Goals**\n- Make a piece -- C\n**Hotspots**\n- Old bench\n**Items**\n- Old bench\n- A\n- B\n- Spare\n- C\n- Unmade old result\n**Combinations**\n- A [preserve] + B [preserve] @ Old bench -> C\n- A [preserve] + Spare [preserve] -> Unmade old result\n## New room\nbackground: ![room](new.webp)\n**Goals**\n- Finish -- D\n**Hotspots**\n- New bench\n**Items**\n- New bench\n- Tool\n- D\n**Combinations**\n- C [transform] + Tool [preserve] @ New bench -> D\n## End\nDone.\n`);
   let a=startAdventure(s,{chapter:2,mode:'chapter'});
   const text=a.frame.messages.filter(m=>m.kind==='board').at(-1)!.text;
   assert.match(text,/Hotspots:\n- New bench/);assert.doesNotMatch(text,/Old bench|Spare|Unmade old result|\n- A\b|\n- B\b/);

@@ -6,13 +6,13 @@ import {act, newGame} from '../src/engine/game.ts';
 test('primitive caches protect future supplies and introduce optional worldbuilding materials', () => {
   const markdown = `# Supply caches
 ## Timber
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Saw planks -- Planks
 **Combinations**
 - Wood [transform] + Saw [preserve] -> Planks
 ## Painting supplies
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Raise a flag -- Flag
 **Items**
@@ -40,7 +40,7 @@ test('primitive caches protect future supplies and introduce optional worldbuild
 test('needs carry a primitive compound and supply missing goal components through global recipes', () => {
   const story = parseStory(`# Packing
 ## Prepare
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Get ready -- Ready
 **Items**
@@ -51,7 +51,7 @@ test('needs carry a primitive compound and supply missing goal components throug
 - Seed [consume] + Tool [preserve] -> Ready
 - Pigment [consume] + Tool [preserve] -> Badge
 ## Pack
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Install the part -- Box[Part]
 - next: Wrap the box -- Wrapped box

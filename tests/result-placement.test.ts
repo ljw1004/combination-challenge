@@ -9,7 +9,7 @@ test('all nine dispositions follow the drop receiver across chapters and recipe 
     const operands=[`A [${a}]`,`B [${b}]`];if(reverse)operands.reverse();
     const story=parseStory(`# Placement
 ## Earlier
-![room](first.webp)
+background: ![room](first.webp)
 **Goals**
 - Begin -- Signal
 **Hotspots**
@@ -21,7 +21,7 @@ test('all nine dispositions follow the drop receiver across chapters and recipe 
 **Combinations**
 - Switch [preserve] + Hand [preserve] -> Signal
 ## Work
-![room](second.webp)
+background: ![room](second.webp)
 **Goals**
 - Make C -- C
 **Hotspots**

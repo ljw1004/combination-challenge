@@ -13,7 +13,7 @@ import {summarize} from '../src/analysis/statistics.ts';
 import {markdownTable} from '../src/analysis/report.ts';
 import type {Action} from '../src/engine/types.ts';
 
-const fixture = (body: string) => parseStory(`# Test\n\n## Start\n\n![room](room.webp)\n\n${body}`, {id: 'test'});
+const fixture = (body: string) => parseStory(`# Test\n\n## Start\n\nbackground: ![room](room.webp)\n\n${body}`, {id: 'test'});
 const item = (story: ReturnType<typeof parseStory>, name: string) => constructionMetrics(story).find(i => i.name === name)!;
 const combine = (a: string, b: string): Action => ({type: 'combine', a: `name:${a}`, b: `name:${b}`});
 const cliManuscript = '# Draft\n\n## Start\n\n**Goals**\n- Finish -- C\n\n**Items**\n- A\n- B\n- C\n\n**Combinations**\n- A [consume] + B [consume] -> C\n';

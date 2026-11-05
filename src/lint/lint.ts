@@ -118,7 +118,7 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
   for (let i=0;i<story.chapters.length;i++) {
     const c=story.chapters[i];
     if (c.hotspots.length && !c.image) error('hotspots-without-image',`${c.name} declares hotspots without an explicit chapter image.`,c.source);
-    if (!i && !c.image) error('missing-opening-image','The opening chapter needs a background image.',c.source);
+    if (!i && !c.image) error('missing-opening-image','The opening chapter needs background: ![alt](path) as its first nonblank line after the heading.',c.source);
     const earlier = new Set(story.chapters.slice(0,i).flatMap(c=>c.items.map(r=>r.id)));
     if (i && !c.image && c.items.some(r=>index.primitives.has(r.id) && !earlier.has(r.id))) warning('new-primitives-without-image',`${c.name} introduces primitive items without a new setting image.`,c.source);
     diagnostics.push(...goalCountDiagnostics(c));

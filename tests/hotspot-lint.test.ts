@@ -6,7 +6,7 @@ import {activeHotspots} from '../src/engine/analysis.ts';
 import type {DiagnosticFix} from '../src/story/types.ts';
 
 const acknowledgment = '- (three hotspots are a lot but okay here because the oven, hob and sink perform distinct work)';
-const manuscript = (count:number,extra='') => '# Kitchen\n## Prepare\n![room](room.webp)\n\nPrepare supper.\n\n**Hotspots**\n'
+const manuscript = (count:number,extra='') => '# Kitchen\n## Prepare\nbackground: ![room](room.webp)\n\nPrepare supper.\n\n**Hotspots**\n'
   + Array.from({length:count},(_,i)=>`- Station ${i}\n`).join('')+extra;
 const lint = (text:string) => lintStory(parseStory(text),{analysis:false});
 function apply(text:string,fix:DiagnosticFix) {
@@ -49,7 +49,7 @@ test('hotspot suppression selects a real explanation and preserves whitespace an
 
 test('inherited hotspot counts have chapter-local suppressions without changing the scene',()=>{
   for(const newline of ['\n','\r\n']) {
-    const text=(manuscript(3,acknowledgment)+'\n## Serve\nServe supper.\n\n## Clear\n![room](room.webp)\n\nDone.').replaceAll('\n',newline);
+    const text=(manuscript(3,acknowledgment)+'\n## Serve\nServe supper.\n\n## Clear\nbackground: ![room](room.webp)\n\nDone.').replaceAll('\n',newline);
     const original=parseStory(text),warnings=lint(text).filter(d=>d.code==='many-hotspots');
     assert.equal(warnings.length,1);assert.equal(text.slice(warnings[0].span.from,warnings[0].span.to),'## Serve');
     const fixed=apply(text,warnings[0].fixes![0]).replace('<REASON>','the same three appliances are still needed');

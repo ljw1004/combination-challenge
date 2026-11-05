@@ -10,7 +10,7 @@ A small story for live editing.
 
 ## Workshop
 
-![workshop](assets/bg.svg)
+background: ![workshop](assets/bg.svg)
 
 Workshop introduction.
 
@@ -30,7 +30,7 @@ Workshop introduction.
 
 ## Field
 
-![field](assets/field.svg)
+background: ![field](assets/field.svg)
 
 Field introduction.
 
@@ -945,7 +945,7 @@ test('successive renames keep readers live and edited play retains its reset bas
 
 ## Workshop
 
-![workshop](assets/bg.svg)
+background: ![workshop](assets/bg.svg)
 
 Build a two-stage construction.
 

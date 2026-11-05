@@ -16,7 +16,7 @@ const fixture = `# Test
 
 ## Workshop
 
-![workshop](old.webp)
+background: ![workshop](old.webp)
 
 An old introduction.
 
@@ -60,7 +60,7 @@ test('live text, image and heading edits retain cards and refresh pending/seen e
 test('changed conditions are re-evaluated while unchanged historical placement remains achieved', () => {
   const text = `# Test
 ## Workshop
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Place wood -- Wood @ Bench
 - Build result -- Result
@@ -110,14 +110,14 @@ test('recipe changes preserve existing constructions and introduce only newly ne
 test('temporary deletion and restoration use the original anchor rather than a transient fallback', () => {
   const text = `# Test
 ## First
-![first](first.webp)
+background: ![first](first.webp)
 **Goals**
 - Ready -- A
 **Items**
 - A
 
 ## Second
-![second](second.webp)
+background: ![second](second.webp)
 
 Second introduction.
 **Goals**
@@ -126,7 +126,7 @@ Second introduction.
 - A [preserve] + Tool [preserve] -> Result
 
 ## Third
-![third](third.webp)
+background: ![third](third.webp)
 
 Third introduction.
 `;
@@ -152,7 +152,7 @@ Third introduction.
 });
 
 test('partial buffers recover available structure and declarations renamed in place keep position', () => {
-  const text = '# Test\n## Room\n![room](room.webp)\n**Items**\n- Wood\n- Tool\n**Goals**\n- Finish -- Done\n**Combinations**\n- Wood [preserve] + Tool [preserve] -> Done';
+  const text = '# Test\n## Room\nbackground: ![room](room.webp)\n**Items**\n- Wood\n- Tool\n**Goals**\n- Finish -- Done\n**Combinations**\n- Wood [preserve] + Tool [preserve] -> Done';
   const before = parse(text), original = newGame(before);
   original.tokens['name:Wood'].x = 91;
   const renamed = parse(text.replaceAll('Wood', 'Timber'));
@@ -168,7 +168,7 @@ test('partial buffers recover available structure and declarations renamed in pl
 });
 
 test('changing a goal-only ingredient does not rename its old witness into a new satisfied condition', () => {
-  const text = '# Test\n## Room\n![room](room.webp)\n\n**Goals**\n- Place the resource -- Wood @ Bench\n**Hotspots**\n- Bench\n**Items**\n- Bench\n\n';
+  const text = '# Test\n## Room\nbackground: ![room](room.webp)\n\n**Goals**\n- Place the resource -- Wood @ Bench\n**Hotspots**\n- Bench\n**Items**\n- Bench\n\n';
   const before = parse(text);
   const original = act(before, newGame(before), { type: 'move', item: 'name:Wood', chapter: 0, x: 120, y: 410, hotspot: 'name:Bench' });
   assert(original.achieved.includes(before.chapters[0].goals[0].id));

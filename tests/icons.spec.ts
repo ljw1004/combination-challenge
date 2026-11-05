@@ -3,7 +3,7 @@ import {openDebugPanel} from './debug-helpers.ts';
 
 const manuscript = `# Icon workshop
 ## Shelter
-![room](assets/background.svg)
+background: ![room](assets/background.svg)
 
 A small shelter.
 
@@ -170,7 +170,7 @@ for(const icons of [true,false])test(`creation placement uses measured ${icons?'
   for(const kind of ['preserve','transform','consume','protected'] as const){
     const manuscript=`# Result placement
 ## Work
-![room](assets/background.svg)
+background: ![room](assets/background.svg)
 Make the construction.
 **Goals**
 - Make it -- ${resultName}
@@ -184,7 +184,7 @@ Make the construction.
 **Combinations**
 - Input [${kind==='preserve'?'preserve':'transform'}] + Receiver [${kind==='protected'?'transform':kind}] -> ${resultName}
 ${kind==='protected'?`## Later
-![room](assets/background.svg)
+background: ![room](assets/background.svg)
 **Goals**
 - Keep working -- Further work
 **Items**
@@ -296,7 +296,7 @@ test('live icon edits replace artwork sizes without replacing the image node or 
 
 const hotspotManuscript = `# Fixed location
 ## Shore
-![shore](assets/background.svg)
+background: ![shore](assets/background.svg)
 
 Prepare the stone, then bring it to the landing.
 
@@ -351,7 +351,7 @@ test('missing hotspot artwork keeps a named usable fixed target', async ({page})
 
 const cellarManuscript=`# Baking
 ## Cellar
-![room](assets/background.svg)
+background: ![room](assets/background.svg)
 Let the dough rise in the warm cellar.
 **Goals**
 - Let the dough rise -- Risen dough
@@ -437,7 +437,7 @@ test('touching a hotspot shows ingredient hints through release and clears them 
 
 const positionedManuscript = `# Positioned workshop
 ## First
-![room](assets/background.svg)
+background: ![room](assets/background.svg)
 
 Make steam.
 
@@ -455,7 +455,7 @@ Make steam.
 **Combinations**
 - Water [preserve] + Fire [preserve] -> Steam
 ## Later
-![room](assets/background.svg)
+background: ![room](assets/background.svg)
 
 Make a cloud.
 
@@ -609,7 +609,7 @@ test('an occupied destination falls back, an unrelated card does not mask the ho
 test('ambiguous hotspot drops leave the incoming item in place until an occupant is targeted', async ({page}) => {
   const text = `# Ambiguous bench
 ## Work
-![room](assets/background.svg)
+background: ![room](assets/background.svg)
 Choose an ingredient.
 **Goals**
 - Make C -- C

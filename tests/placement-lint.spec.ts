@@ -13,7 +13,7 @@ test('CLI placement lint measures transparent, fractional, small, and text hotsp
     writeFileSync(join(directory,'tiny.svg'),'<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"></svg>');
     const story = (icon: string, x: number) => parseStory(`# Hit area
 ## Work
-![room](room.svg)
+background: ![room](room.svg)
 **Goals**
 - Put A here -- A @ H
 **Hotspots**
@@ -30,7 +30,7 @@ ${icon ? `  - icon: ![area](${icon})\n` : ''}  - place: A (at ${x}%, 50%)
     expect((await checker.lint(story('tiny.svg',56))).map(d => d.code)).toEqual(['place-outside-hotspot']);
     expect(await checker.lint(story('',60))).toEqual([]);
     expect((await checker.lint(story('',70))).map(d => d.code)).toEqual(['place-outside-hotspot']);
-    const repeated=parseStory('# Local art\n## First\n![room](room.svg)\n**Items**\n- H\n  - icon: ![default](hit.svg)\n- A\n**Hotspots**\n- H (at 50%, 50%)\n  - place: A (at 60%, 50%)\n## Second\n![room](room.svg)\n**Hotspots**\n- H (at 50%, 50%)\n  - icon: ![small](tiny.svg)\n  - place: A (at 60%, 50%)',{file:join(directory,'story.md')});
+    const repeated=parseStory('# Local art\n## First\nbackground: ![room](room.svg)\n**Items**\n- H\n  - icon: ![default](hit.svg)\n- A\n**Hotspots**\n- H (at 50%, 50%)\n  - place: A (at 60%, 50%)\n## Second\nbackground: ![room](room.svg)\n**Hotspots**\n- H (at 50%, 50%)\n  - icon: ![small](tiny.svg)\n  - place: A (at 60%, 50%)',{file:join(directory,'story.md')});
     const diagnostics=await checker.lint(repeated);
     expect(diagnostics.map(d=>d.code)).toEqual(['place-outside-hotspot']);
     expect(diagnostics[0].message).toContain('Second');

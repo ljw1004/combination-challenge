@@ -5,10 +5,10 @@ import {act, newGame} from '../src/engine/game.ts';
 import {coverArtwork, currentArtwork, lookaheadArtwork, placementArtwork} from '../src/web/artwork-plan.ts';
 
 const text = `# Loading frontier
-![cover](cover.svg)
+background: ![cover](cover.svg)
 
 ## First
-![first](first.svg)
+background: ![first](first.svg)
 
 **Goals**
 - Build D -- D
@@ -25,7 +25,7 @@ const text = `# Loading frontier
 - A [preserve] + B [preserve] -> C
 - C [preserve] + B [preserve] -> D
 ## Second
-![second](second.svg)
+background: ![second](second.svg)
 
 **Goals**
 - Build R -- R
@@ -41,7 +41,7 @@ const text = `# Loading frontier
 **Combinations**
 - C [preserve] + P [preserve] -> R
 ## Third
-![third](third.svg)
+background: ![third](third.svg)
 
 **Goals**
 - Build S -- S
@@ -69,7 +69,7 @@ test('cover, one-combination frontier and next-chapter primitives remain separat
 });
 
 test('fixed result artwork is prefetched and placement probes use fallback item artwork',()=>{
-  const story=parseStory('# Fixed art\n## Work\n![scene](room.svg)\n**Items**\n- A\n- B\n- H\n  - icon: ![default](default.svg)\n**Hotspots**\n- H\n  - icon: ![fixed](fixed.svg)\n  - place: A (at 50%, 50%)\n**Goals**\n- Build -- H\n**Combinations**\n- A + B -> H\n## Revisit\n![scene](room.svg)\n**Hotspots**\n- H\n  - place: A (at 50%, 50%)');
+  const story=parseStory('# Fixed art\n## Work\nbackground: ![scene](room.svg)\n**Items**\n- A\n- B\n- H\n  - icon: ![default](default.svg)\n**Hotspots**\n- H\n  - icon: ![fixed](fixed.svg)\n  - place: A (at 50%, 50%)\n**Goals**\n- Build -- H\n**Combinations**\n- A + B -> H\n## Revisit\nbackground: ![scene](room.svg)\n**Hotspots**\n- H\n  - place: A (at 50%, 50%)');
   assert(lookaheadArtwork(story,newGame(story),true).includes('fixed.svg'));
   assert.deepEqual(placementArtwork(story),['fixed.svg','default.svg']);
 });

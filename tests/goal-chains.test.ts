@@ -10,7 +10,7 @@ import { checkpoint } from '../src/debug/checkpoint.ts';
 import type { Story } from '../src/story/types.ts';
 import type { State } from '../src/engine/types.ts';
 
-const parse = (text: string) => parseStory(`# Test\n\n## Start\n\n![room](room.webp)\n\n${text}`, { id: 'chains' });
+const parse = (text: string) => parseStory(`# Test\n\n## Start\n\nbackground: ![room](room.webp)\n\n${text}`, { id: 'chains' });
 const move = (s: Story, state: State, item: string, hotspot: string) => act(s, state, { type: 'move', item: `name:${item}`, chapter: state.chapter, x: 50, y: 500, hotspot: `name:${hotspot}` });
 const combine = (s: Story, state: State, a: string, b: string) => act(s, state, { type: 'combine', a: `name:${a}`, b: `name:${b}` });
 const dismiss = (s: Story, initial: State) => { let state = initial; while (state.pending.length) state = act(s, state, { type: 'dismiss' }); return state; };
@@ -36,7 +36,7 @@ test('early final achievement neither hides its predecessor nor completes a next
 });
 
 test('future chains retain unfinished predecessor reagents and are skipped only after every stage latches', () => {
-  const s = parse('**Goals**\n- Prepare -- Flour\n**Items**\n- Pot\n**Combinations**\n- Grain [transform] + Stone [preserve] -> Flour\n- Grain [transform] + Pot [preserve] -> Porridge\n\n## Dinner\n\n![room](room.webp)\n\n**Goals**\n- Cook -- Porridge\n- next: Ready -- Flour\n\n## End\n\nDone.');
+  const s = parse('**Goals**\n- Prepare -- Flour\n**Items**\n- Pot\n**Combinations**\n- Grain [transform] + Stone [preserve] -> Flour\n- Grain [transform] + Pot [preserve] -> Porridge\n\n## Dinner\n\nbackground: ![room](room.webp)\n\n**Goals**\n- Cook -- Porridge\n- next: Ready -- Flour\n\n## End\n\nDone.');
   let state = combine(s, newGame(s), 'Grain', 'Stone');
   assert(state.achieved.includes(s.chapters[1].goals[1].id));
   assert.equal(state.tokens['name:Grain'].status, 'available', 'future predecessor prevents hiding Grain');

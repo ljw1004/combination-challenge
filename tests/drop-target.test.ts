@@ -6,7 +6,7 @@ import {createDropResolver, type DropTarget} from '../src/web/drop-target.ts';
 
 const story = parseStory(`# Drops
 ## Work
-![room](room.svg)
+background: ![room](room.svg)
 **Goals**
 - Make X -- X
 **Hotspots**
@@ -84,7 +84,7 @@ test('circular station corners do not count, but overlap with the circle does',(
 test('useful preparatory placements compete with combinations using the same cursor priority',()=>{
   const contextual=parseStory(`# Preparation
 ## Work
-![room](room.svg)
+background: ![room](room.svg)
 **Goals**
 - Make X -- X
 **Hotspots**
@@ -106,7 +106,7 @@ test('useful preparatory placements compete with combinations using the same cur
 test('an ambiguous station requires a geometrically targeted occupant and uses its receiving surface',()=>{
   const contextual=parseStory(`# Context
 ## Work
-![room](room.svg)
+background: ![room](room.svg)
 **Goals**
 - Make X -- X
 **Hotspots**

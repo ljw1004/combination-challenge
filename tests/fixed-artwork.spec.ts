@@ -3,7 +3,7 @@ import {test, expect} from '@playwright/test';
 test('fixed scene artwork keeps its registered scale and declaration order after construction and reload', async ({page}) => {
   const story=`# Registered scenery
 ## Work
-![room](room.svg)
+background: ![room](room.svg)
 Build the assembly.
 **Items**
 - Parts

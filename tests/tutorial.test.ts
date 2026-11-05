@@ -7,7 +7,7 @@ import {tutorialAction, hotspotTutorials, completesHotspotTutorial} from '../src
 import {TutorialProgress} from '../src/web/tutorial-progress.ts';
 
 const recipe = 'A [preserve] + B [preserve] -> C';
-const fixture = (rules: string) => `# Tutorial\n## First\n![room](room.webp)\n**Goals**\n- Make C -- C\n**Items**\n- A\n- B\n- C\n**Combinations**\n${rules}`;
+const fixture = (rules: string) => `# Tutorial\n## First\nbackground: ![room](room.webp)\n**Goals**\n- Make C -- C\n**Items**\n- A\n- B\n- C\n**Combinations**\n${rules}`;
 const errors = (text: string) => lintStory(parseStory(text), {opportunities: false}).filter(d => d.code.startsWith('tutorial-'));
 
 test('tutorial markers preserve identities, source spans and authored occurrences through recipe deduplication', () => {
@@ -77,7 +77,7 @@ test('tutorial accomplishments persist independently per manuscript and reset wi
 
 const hotspotFixture = (extra = '') => parseStory(`# Hotspot lesson
 ## First
-![room](room.webp)
+background: ![room](room.webp)
 **Goals**
 - Make C -- C
 - Make F -- F

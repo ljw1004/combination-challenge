@@ -1,6 +1,6 @@
 export const changingArray = `# Changing array
 ## Landing
-![room](assets/room.svg)
+background: ![room](assets/room.svg)
 
 A quiet landing.
 
@@ -26,7 +26,7 @@ A quiet landing.
 **Combinations**
 - \`array\` [preserve] + Switch [preserve] -> Started (tutorial)
 ## \`storm\` Amber: Dawn
-![room](assets/room.svg)
+background: ![room](assets/room.svg)
 
 Dust settles on the array.
 
@@ -39,7 +39,7 @@ Dust settles on the array.
 - Storm bench
 
 ## Aftermath
-![room](assets/room.svg)
+background: ![room](assets/room.svg)
 **Goals**
 - Inspect again -- \`array\` @ Later bench
 **Hotspots**
@@ -49,7 +49,7 @@ Dust settles on the array.
 - Later bench
 
 ## \`clear\` Clear skies
-![room](assets/room.svg)
+background: ![room](assets/room.svg)
 **Goals**
 - Finish -- \`array\` @ Final bench
 **Hotspots**

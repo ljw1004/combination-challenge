@@ -9,7 +9,7 @@ import {placeAtCentre} from '../src/web/board-geometry.ts';
 
 const source = `# Placement
 ## Work
-![room](room.svg)
+background: ![room](room.svg)
 **Goals**
 - Make C -- C @ H
 **Hotspots**
