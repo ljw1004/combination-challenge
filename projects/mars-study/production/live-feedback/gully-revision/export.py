@@ -1,4 +1,4 @@
-"""Extract generated silhouettes and register them on one unchanged landscape.
+"""Extract generated silhouettes and register them on one shared landscape.
 Pillow only. Generated pixel crops, extraction masks and resizing; no painting.
 Run from any working directory. Disposable proof images go under runs/.
 """
@@ -19,6 +19,15 @@ def cut(im,poly,holes=(),soften=.4):
  if soften:m=m.filter(ImageFilter.GaussianBlur(soften))
  out=im.copy();out.putalpha(m);return out
 base=source('central'); rig=source('rigged'); arr=source('reached')
+# Retain every original pixel in the upper half, including all changing
+# equipment. Blend the selected painted foreground only below the midpoint.
+foreground=source('foreground')
+transition=(844,960)
+mask=Image.new('L',SIZE)
+for y in range(SIZE[1]):
+ t=max(0,min(1,(y-transition[0])/(transition[1]-transition[0])))
+ mask.paste(round(255*t*t*(3-2*t)),(0,y,SIZE[0],y+1))
+base=Image.composite(foreground,base,mask)
 winch_poly=[(352,325),(354,316),(360,313),(361,292),(365,287),(377,286),(386,288),(390,286),(400,287),(407,289),(417,292),(419,314),(427,315),(429,326),(417,331),(399,333),(355,330)]
 sling_poly=[(417,294),(439,292),(457,288),(470,283),(478,279),(481,281),(483,290),(481,299),(473,306),(458,311),(441,315),(419,317)]
 winch=Image.new('RGBA',SIZE);winch.alpha_composite(cut(rig,winch_poly));winch.alpha_composite(cut(rig,sling_poly))

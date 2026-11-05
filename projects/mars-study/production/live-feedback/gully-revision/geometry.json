@@ -34,8 +34,8 @@
         16.76540284
       ],
       "size": [
-        15.38461538,
-        5.33175355
+        30.76923077,
+        10.66350711
       ]
     },
     "anchored-winch": {
@@ -67,5 +67,21 @@
   "extraction": "The export.py polygons/cable corridor select generated winch, sling, slack cable, rear-facing rover and contact shadows. Both output states use the identical common source rectangle; all remaining pixels come from one background.",
   "reachedCable": "The completion operation includes unhooking and reeling. The long snaking foreground cable is removed while the same winch/sling remains.",
   "depth": "Winch at central far ledge about50%,18%; rover near distant ice about66%,12%, visibly beyond winch; brown-layer ice about67%,8%.",
-  "limits": "Producer inspected390/320 source composites; root inspected390 composites. Actual browser integration and independent review remain with parent."
+  "limits": "Geometry and extraction metadata; informed source and browser review outcomes are recorded separately in README.md.",
+  "foreground": {
+    "source": "sources/foreground-gully.png",
+    "originalSource": "sources/central-gully.png",
+    "originalRowsPreserved": [
+      0,
+      844
+    ],
+    "smoothstepTransitionRows": [
+      844,
+      960
+    ],
+    "generatedRows": [
+      960,
+      1688
+    ]
+  }
 }

@@ -796,6 +796,7 @@ Broken ledges and loose rubble block the rover’s climb. I can scramble to soun
 **Hotspots**
 - `bedrock-anchor` (at 56.53846154%, 16.76540284%)
   - icon: ![Bedrock anchor](assets/live-feedback/gully-revision/central-bedrock-hit.png)
+  - hitbox: (at 56.53846154%, 16.76540284%) (size 30.76923077%, 10.66350711%)
 - `anchored-winch` (at 60.25641026%, 26.06635071%)
   - icon: ![Winch with extended cable](assets/live-feedback/gully-revision/rigged-winch.png)
   - hitbox: (at 48.07692308%, 30.65758294%) (size 29.48717949%, 28.73222749%)
