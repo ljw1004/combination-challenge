@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "A blank backup cartridge is the natural destination for a copy of Moth’s settings.",
+    "choice": {
+      "combine": "Blank backup cartridge",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "Moth’s local settings will be copied to the cartridge, possibly requiring a later recovery test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cartridge now holds Moth’s selected software, settings and corrections; the copy still needs testing.",
+    "reaction": "The distinction between a recovery copy and Moth’s identity is thought-provoking.",
+    "step": 2,
+    "reason": "The cradle’s empty recovery port looks like the intended place to test the copy.",
+    "choice": {
+      "combine": "Moth's recovery copy",
+      "with": "Cooling cradle with empty recovery port"
+    },
+    "expectation": "The copy will fit into the recovery port, allowing its recovery to be tested.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The isolated reader verified that the cartridge restores the selected settings and map correction; the backup goal is complete.",
+    "reaction": "The recovery test was reassuring, though it leaves Moth’s question about identity open.",
+    "step": 3,
+    "reason": "The cooling cradle appears intended to house Moth’s terminal and address its scraping fan.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Cooling cradle with empty recovery port"
+    },
+    "expectation": "Moth’s terminal will fit into the cradle for cooling, leaving the off switch to be repaired.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth’s terminal has no currently available combination, so the cradle likely needs preparation first.",
+    "reaction": "The failed fit was unexpected.",
+    "step": 4,
+    "reason": "Inspecting the cradle should reveal what can prepare it for Moth.",
+    "choice": {
+      "inspect": "Cooling cradle with empty recovery port"
+    },
+    "expectation": "The cradle will list an available fitting or preparation step.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Replacement terminal off switch"
+        },
+        "reason": "The switch may also reveal the required repair sequence."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested cartridge is attached to the cradle, putting the recovery copy at hand before Moth’s case is opened.",
+    "reaction": "The earlier failed fit makes sense now: the copy needed testing before attachment.",
+    "step": 5,
+    "reason": "The cradle is prepared, so I’ll try fitting Moth’s terminal again.",
+    "choice": {
+      "combine": "Cooling cradle with recovery cartridge attached",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "The terminal will fit into the prepared cradle, allowing the cooling repair to proceed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The prepared cradle replaced Moth’s rear module, quieting the fan; the off switch still needs attention.",
+    "reaction": "The quieter fan is a satisfying repair.",
+    "step": 6,
+    "reason": "The replacement off switch directly addresses the remaining part of the goal.",
+    "choice": {
+      "combine": "Replacement terminal off switch",
+      "with": "Moth with a quiet fan"
+    },
+    "expectation": "The replacement switch will give Moth a working off control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch was fitted and tested with Moth’s agreement, completing the chapter; Moth returned with its saved local settings.",
+    "reaction": "The test was reassuring, and leaving the switch within reach felt like a meaningful detail.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the recovery copy on the isolated reader was most worthwhile: it checked that a specific map correction could be restored without pretending to answer Moth’s question about identity.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to fit Moth into the cradle before preparing it was confusing; the terminal had no available combination, so I needed another decision to find the prerequisite.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected the recovery copy to fit the cradle immediately, but it first had to be tested on the isolated reader.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring the tested cartridge to be attached to the cradle before opening Moth’s case initially felt arbitrary, though the result explained that it kept the recovery copy physically at hand.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I’d be interested to see how Moth and the neighborhood develop; the repair was satisfying, and the unanswered identity question gave it more weight than a routine part replacement.",
+        "steps": [
+          2,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

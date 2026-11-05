@@ -1,0 +1,172 @@
+[
+  {
+    "step": 1,
+    "reason": "The sponsor-loaded tablet is central to the private request desk, but its needed changes aren't yet clear.",
+    "choice": {
+      "inspect": "Sponsor-loaded request tablet"
+    },
+    "expectation": "Inspection should reveal what can be used to remove or bypass the sponsor's listening app.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Service screwdriver",
+          "with": "Sponsor-loaded request tablet"
+        },
+        "reason": "The screwdriver might open the tablet, but the problem appears to involve software."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sponsor app is removed and the microphone disconnected, giving the request desk a private foundation.",
+    "reaction": "The physical disconnect makes the privacy change satisfyingly concrete.",
+    "step": 2,
+    "reason": "A large request button appears to be a useful input for the tablet's request form.",
+    "choice": {
+      "combine": "Large request button",
+      "with": "Tablet with microphone disconnected"
+    },
+    "expectation": "The button should be fitted to the tablet for making requests.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet now has an accessible physical Send button, while its microphone remains disconnected.",
+    "reaction": "The button's connection to the form is a clear, practical improvement.",
+    "step": 3,
+    "reason": "The screen hood should help keep requests private from nearby observers.",
+    "choice": {
+      "combine": "Folded screen hood",
+      "with": "Request tablet with large button"
+    },
+    "expectation": "The hood will fit around the tablet screen to limit viewing from the sides.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet now shields the form from the queue while retaining the large Send button.",
+    "reaction": "The distinction between physical access and visual privacy is useful.",
+    "step": 4,
+    "reason": "The portable controller can likely connect the private tablet to the local request network.",
+    "choice": {
+      "combine": "Hooded tablet with large button",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The tablet will join the local network without relying on the corporate uplink.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Old receipt printer",
+          "with": "Hooded tablet with large button"
+        },
+        "reason": "The printer may provide a paper record, but connecting the desk locally seems more fundamental."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet now sends requests through the local controller with its outside route blocked.",
+    "reaction": "The local-only connection makes the privacy setup more concrete.",
+    "step": 5,
+    "reason": "Moth may provide the optional AI help called for by the goal without changing the tablet's private input setup.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Screen-shielded request tablet"
+    },
+    "expectation": "Moth will be connected as an optional source of assistance for the request desk.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Old receipt printer",
+          "with": "Screen-shielded request tablet"
+        },
+        "reason": "The printer may also be needed for the desk, but the goal explicitly calls for optional AI help."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth currently has no available combination, so the desk may need another component before AI assistance can be added.",
+    "reaction": "I was surprised the apparent AI connection was not available yet.",
+    "step": 6,
+    "reason": "The old receipt printer is the remaining desk component and may connect to the prepared tablet.",
+    "choice": {
+      "combine": "Old receipt printer",
+      "with": "Screen-shielded request tablet"
+    },
+    "expectation": "The printer will provide a paper record for requests, possibly preparing the desk for optional AI help.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer and tablet now form a desk, but the printer still needs to be assigned to the local controller.",
+    "reaction": "The remaining setup step is clear.",
+    "step": 7,
+    "reason": "The printer needs assignment to the controller, so connecting the desk to it is the direct next step.",
+    "choice": {
+      "combine": "Request desk awaiting printer setup",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The controller will be configured to use the desk's printer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The desk now has local printing, private return details and a pencil alternative; optional AI assistance remains to be addressed.",
+    "reaction": "The paper option is a useful alternative to using the tablet.",
+    "step": 8,
+    "reason": "The completed desk may now be ready to connect to Moth for optional assistance.",
+    "choice": {
+      "combine": "Private request desk",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "Moth will be made available as optional help without requiring people to use it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth is now available only when the sender selects Help, and its proposed wording can be reviewed before sending. The desk goal is complete.",
+    "reaction": "Sal keeping her original wording makes the optional help feel genuinely optional.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting Moth to the completed desk was most worthwhile: the sender chooses whether to use it and reviews its suggestion before sending.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The premature attempt to connect Moth was unproductive; it returned only that Moth could not be combined with anything.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected Moth to connect to the prepared tablet, but the printer and desk setup had to come first.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to finish printer setup before adding Moth felt somewhat arbitrary; the result did not explain why the AI connection depended on it.",
+        "steps": [
+          5,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the concrete privacy choices and the sender's control over AI assistance made me curious about how the neighborhood uses its local infrastructure.",
+        "steps": [
+          1,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

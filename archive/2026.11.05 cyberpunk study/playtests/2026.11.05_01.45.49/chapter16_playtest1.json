@@ -1,0 +1,190 @@
+[
+  {
+    "step": 1,
+    "reason": "The sightline scope should help establish whether the rooftop radio link can reach its other end.",
+    "choice": {
+      "combine": "Rooftop sightline scope",
+      "with": "Matched rooftop radio kit"
+    },
+    "expectation": "I expect to check or align the radio link between the market and clinic.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Low-voltage load meter",
+          "with": "Matched rooftop radio kit"
+        },
+        "reason": "Measuring the radios' load could help plan independent power."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios are aligned on a clear sightline; the link still needs independent power.",
+    "reaction": "The passing train makes the sightline check feel useful.",
+    "step": 2,
+    "reason": "Measuring the radios' load should help plan their independent power supply.",
+    "choice": {
+      "combine": "Low-voltage load meter",
+      "with": "Aligned rooftop radios"
+    },
+    "expectation": "The meter will establish the radios' power demand.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meter tested the battery packs rather than measuring the radios; their measured behavior can inform the power plan.",
+    "reaction": "I was surprised the meter paired with the batteries instead.",
+    "step": 3,
+    "reason": "The matched power boxes seem like the appropriate interface between the tested batteries and radios.",
+    "choice": {
+      "combine": "Tested radio battery pair",
+      "with": "Matched radio power boxes"
+    },
+    "expectation": "The tested batteries will connect to the matched radio power boxes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested batteries now have matched fuse protection and are ready to supply the rooftop radios.",
+    "reaction": "The local fault protection makes the power setup clearer.",
+    "step": 4,
+    "reason": "The protected reserves should power the aligned radios independently of the corporate uplink.",
+    "choice": {
+      "combine": "Protected rooftop reserves",
+      "with": "Aligned rooftop radios"
+    },
+    "expectation": "The radios will connect to the protected battery supplies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protected reserves cannot currently be combined with anything, so I need another preparation step before powering the radios.",
+    "reaction": "The failed connection was unexpected.",
+    "step": 5,
+    "reason": "Inspecting the aligned radios should reveal what they need next.",
+    "choice": {
+      "inspect": "Aligned rooftop radios"
+    },
+    "expectation": "The compatibility report will identify the next available step for the radios.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Matched solar charging pair"
+        },
+        "reason": "The solar chargers may need fitting before the reserves can be used."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller established the market-to-clinic radio link; independent power remains to be completed.",
+    "reaction": "I had overlooked the controller as the next connection.",
+    "step": 6,
+    "reason": "The solar charging pair may complete the protected reserves before they can power the link.",
+    "choice": {
+      "combine": "Matched solar charging pair",
+      "with": "Protected rooftop reserves"
+    },
+    "expectation": "The solar chargers will connect to the protected battery supplies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The solar chargers cannot be combined yet, so the power sequence remains unclear.",
+    "reaction": "I’m uncertain what preparation is missing.",
+    "step": 7,
+    "reason": "Inspecting the established radio link should reveal its next available connection.",
+    "choice": {
+      "inspect": "Market-to-clinic radio link"
+    },
+    "expectation": "The report will show what can be connected to the link next.",
+    "alternatives": [
+      {
+        "choice": {
+          "look": true
+        },
+        "reason": "A refreshed board could help confirm what remains available."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The established link now runs on both protected reserves, with the old wall adapter disconnected.",
+    "reaction": "It is satisfying to see the overlooked power dependency removed.",
+    "step": 8,
+    "reason": "The matched solar chargers may now connect to the battery-powered link to support its independent supply.",
+    "choice": {
+      "combine": "Matched solar charging pair",
+      "with": "Battery-powered local link"
+    },
+    "expectation": "The solar chargers will be added to the link's reserve power setup.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The solar kits are connected to the reserves; they can replenish some energy after sunrise but add none tonight.",
+    "reaction": "The distinction between connected charging and actual energy is useful.",
+    "step": 9,
+    "reason": "The link is ready for sunrise, but the power goal has not yet been reported complete. Inspecting it should reveal the next operation.",
+    "choice": {
+      "inspect": "Local link ready for sunrise"
+    },
+    "expectation": "The report will show what can be combined with the prepared link next.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The operating radios were load-tested against their reserves, completing the independent-power goal and revealing the need to reach Eli.",
+    "reaction": "The measured overnight margin makes the link's readiness more convincing.",
+    "step": 10,
+    "reason": "Moth's terminal may provide a way to contact Eli over the tested local link.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Load-tested independent link"
+    },
+    "expectation": "Moth will use the independent link to reach the clinic or help establish contact with Eli.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's reply confirms that the independent local link works, while Tin Row's call suggests a further interoperability problem.",
+    "reaction": "Eli's noodle message made the successful test feel personal; Tin Row's call left me curious.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Load-testing the operating radios was most worthwhile: it turned a plausible power setup into a measured overnight plan with a margin and a check time.",
+        "steps": [
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the solar chargers too early was the least useful passage; the failure did not explain what preparation was missing.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I expected the meter to measure the radios first, but it tested the battery packs instead. The operating radio loads were measured later.",
+        "steps": [
+          2,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order felt somewhat opaque when the protected reserves could not connect to the aligned radios until the controller had established the link.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how Tin Row's network exchanges service notes with Latch's, especially after the satisfying local link test.",
+        "steps": [
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

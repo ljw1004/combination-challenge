@@ -42,3 +42,7 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 ### Cosmic study
 
 [`2026.11.05 cosmic study/`](<2026.11.05 cosmic study/README.md>) preserves the supplied brainstorming, scientific research, successive fast and detailed playtest deliverables, concise editorial and artwork review outcomes, selected production masters, exact generation requests and export geometry. The completed story has 198 combinations, 245 circular icons and 16 backgrounds. Its [live manuscript](../stories/cosmic/cosmic.md) and single active [design brief](../stories/cosmic/design-brief.md) live beside the runtime artwork. Historical playtest source paths/hashes remain unchanged; retained reports are not replayable sessions. All artwork used the built-in image tool.
+
+### Cyberpunk study
+
+[`2026.11.05 cyberpunk study/`](<2026.11.05 cyberpunk study/README.md>) preserves the premise and technical research for **No Fixed Address**, six fast/detailed playtest campaigns, concise independent reviews, selected artwork sources, exact requests and export geometry. Its 219 combinations use 202 circular drawings and nine backgrounds. The [live manuscript](../stories/cyberpunk/cyberpunk.md) and single active [design brief](../stories/cyberpunk/design-brief.md) live beside the runtime artwork. Historical playtest source paths/hashes remain unchanged; the 216 chapter-player assignments are not continuous whole-story trials. All artwork used the built-in image tool.

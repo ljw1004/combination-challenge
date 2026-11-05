@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "A working trolley could help get the crate through the clinic door.",
+    "choice": 1,
+    "expectation": "I expect to loosen or remove the seized caster, perhaps preparing the trolley for its replacement.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cleaning the address plate might clarify the address problem, but moving the crate seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seized caster is free, so the replacement can now be fitted.",
+    "reaction": "The crumbling bearing makes the steering problem concrete.",
+    "step": 2,
+    "reason": "Fit the replacement caster to get the trolley working for the crate.",
+    "choice": 1,
+    "expectation": "I expect the replacement cartridge to restore the trolley's mobility.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The address plate might help investigate the rejected delivery, but I want to finish the trolley repair first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trolley is repaired and ready to carry the crate.",
+    "reaction": "The matching caster fitting neatly is satisfying.",
+    "step": 3,
+    "reason": "Use the working trolley to move the rejected crate toward the clinic.",
+    "choice": 1,
+    "expectation": "I expect to load the crate onto the trolley, possibly getting it through the door.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cleaning the address plate could help investigate the delivery rejection, but moving the crate comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is on the trolley, but the address problem remains unresolved.",
+    "reaction": "The distinction between handling and addressing is clear, though the crate hasn't reached the door yet.",
+    "step": 4,
+    "reason": "Clean the clinic's address plate to investigate why the courier's system refuses the address.",
+    "choice": 1,
+    "expectation": "I expect to reveal the address on the plate; whether that fixes the system is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A working bell might help at the clinic, but the address plate seems more directly relevant to the rejection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plate reveals the clinic's address, which can now be checked against the handset.",
+    "reaction": "Eli's potato-shaped eight is a funny detail.",
+    "step": 5,
+    "reason": "Check the revealed address against the courier's system to investigate the rejection.",
+    "choice": 1,
+    "expectation": "I expect the handset to show whether it recognizes 8B Latch Market, though it may still reject it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The bell might be useful, but checking the address directly addresses the current problem."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset reads the address correctly but rejects it because it is absent from the active service directory.",
+    "reaction": "It's striking that the problem is the directory, not the painted address.",
+    "step": 6,
+    "reason": "Power the bell; it's the only offered combination and may help get the crate through the door.",
+    "choice": 1,
+    "expectation": "I expect the battery to make the wireless bell work, though I'm unsure how that will help deliver the crate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bell works and can now be used with the loaded trolley.",
+    "reaction": "Eli's response is a reassuring contrast to the handset's rejection.",
+    "step": 7,
+    "reason": "Use the bell with the crate; it's the only offered combination and may help get it inside.",
+    "choice": 1,
+    "expectation": "I expect Eli to help receive the crate, though I'm unsure exactly how the bell enables delivery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli helped bring the crate inside and unload it; the trolley is ready for another trip.",
+    "reaction": "It's satisfying to see the physical delivery completed despite the directory rejection.",
+    "step": 8,
+    "reason": "Combine the trolley with the handset; it's the only offered action, though its purpose isn't clear yet.",
+    "choice": 1,
+    "expectation": "I expect the handset to register or respond to the delivery, but I'm unsure what will happen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's signed receipt records the completed delivery alongside the contradictory directory rejection; both goals are complete.",
+    "reaction": "The conflicting records make the infrastructure problem tangible.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Checking the address against the handset was most worthwhile: it clarified that the directory, not a spelling error, caused the rejection.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Powering the bell felt less engaging because it was the only offered action and its connection to the delivery was unclear at first.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The handset read the address correctly but still refused it because it was absent from the active service directory.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the unloaded trolley with the handset felt arbitrary beforehand; its purpose only became clear when Eli signed the receipt.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. The conflicting receipt and rejection make me curious how the neighbors might address the underlying directory problem, although the mostly forced final actions were less engaging.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

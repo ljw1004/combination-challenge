@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "The radio batteries need checking before they can support an independent link.",
+    "choice": {
+      "combine": "Battery load tester and inline meter",
+      "with": "Charged radio battery pair"
+    },
+    "expectation": "The tester should check the batteries' ability to supply the radios.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both battery packs have been checked under load, so they can inform the radio power setup.",
+    "reaction": "The distinction between labels and measured performance is useful.",
+    "step": 2,
+    "reason": "The matched power boxes should connect the tested batteries to the radio equipment.",
+    "choice": {
+      "combine": "Tested radio battery pair",
+      "with": "Matched radio power boxes"
+    },
+    "expectation": "The batteries and power boxes should form a suitable radio power supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested batteries now have matched local fault protection for the rooftop radios.",
+    "reaction": "The separate protection for each pack is a reassuring detail.",
+    "step": 3,
+    "reason": "The matched solar chargers should replenish the protected radio reserves independently.",
+    "choice": {
+      "combine": "Matched solar charging pair",
+      "with": "Protected rooftop reserves"
+    },
+    "expectation": "The chargers will connect to the protected battery reserves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protected reserves now have solar inputs, but the panels cannot charge them tonight.",
+    "reaction": "The daylight limitation is a useful clarification.",
+    "step": 4,
+    "reason": "The radio kit needs a checked sightline to establish the rooftop link.",
+    "choice": {
+      "combine": "Rooftop sightline scope",
+      "with": "Matched rooftop radio kit"
+    },
+    "expectation": "The scope should help align the radios between the market and clinic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The market and clinic radios are mounted and aligned along a clear sightline.",
+    "reaction": "The passing train makes the sightline check feel concrete.",
+    "step": 5,
+    "reason": "The aligned radios need the protected battery reserves to run independently.",
+    "choice": {
+      "combine": "Aligned rooftop radios",
+      "with": "Protected rooftop reserves with solar inputs"
+    },
+    "expectation": "The protected reserves should power the rooftop radio link.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both radios now have protected reserve power and solar inputs, but their local service route still needs configuration.",
+    "reaction": "Disconnecting the wall adapters makes the independent power setup clear.",
+    "step": 6,
+    "reason": "The result explicitly identifies the controller as the next requirement for configuring the local route.",
+    "choice": {
+      "combine": "Portable local network controller",
+      "with": "Reserve-powered radios with solar inputs"
+    },
+    "expectation": "The controller should configure the local service route over the powered radios.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios now have a configured local route and independent reserves, with solar charging available in daylight.",
+    "reaction": "The reminder to keep both panels clear makes the setup's ongoing maintenance tangible.",
+    "step": 7,
+    "reason": "The link is configured, but the goal has not yet been reported complete; inspecting it should show what remains.",
+    "choice": {
+      "inspect": "Local link ready for sunrise"
+    },
+    "expectation": "The inspection should reveal the link's available next operation.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Local link ready for sunrise",
+          "with": "Moth with source display and correction controls"
+        },
+        "reason": "Moth might be involved in checking the link, but its role is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The operating loads confirm both reserves can cover the night, and the next goal is to reach Eli across the link.",
+    "reaction": "The measured runtime and scheduled recheck make the power claim more convincing.",
+    "step": 8,
+    "reason": "The link is tested, so the local controller is a plausible way to reach Eli across it, though I am not sure what connection remains.",
+    "choice": {
+      "inspect": "Load-tested independent link"
+    },
+    "expectation": "The inspection should reveal how to use the tested link to reach Eli.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's test and Eli's reply confirm the clinic link works; Tin Row's call suggests that sharing between networks remains future work.",
+    "reaction": "Eli's reply gives the technical test a welcome human payoff.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing both operating loads against usable battery capacity made the overnight reliability claim convincing, rather than treating a powered link as proof it would last.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the batteries, chargers and radios was clear but somewhat predictable; the separate assembly steps were less engaging than testing the finished link.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The solar inputs were ready, but the panels would add no energy overnight; the link depended on the measured reserves instead.",
+        "steps": [
+          3,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. I did need to inspect the configured link to discover the final load test, but the test itself had a clear purpose.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical testing had a satisfying payoff in Eli's reply, and Tin Row's offer makes me curious how the networks will share information.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

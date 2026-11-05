@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The reserve-power plan needs a measurement of the cooler's load.",
+    "choice": {
+      "combine": "Clinic's enclosed load meter",
+      "with": "Clinic cooler under independent monitoring"
+    },
+    "expectation": "The meter will measure the cooler's power use for the reserve plan.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meter measured the essential-equipment panel rather than the cooler directly, revealing cycling peaks the reserve supply must support.",
+    "reaction": "The automatic correction was useful; the peak load is an important distinction.",
+    "step": 2,
+    "reason": "The reserve battery and enclosed switch look like parts of the protected backup connection.",
+    "choice": {
+      "combine": "Charged clinic reserve battery",
+      "with": "Enclosed clinic reserve switch"
+    },
+    "expectation": "The switch will connect to the battery as part of the reserve-power setup.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery and measured panel produced a reserve estimate with a margin; adding loads would change it.",
+    "reaction": "The load-specific estimate is reassuring, though my proposed switch connection was wrong.",
+    "step": 3,
+    "reason": "The insulating jacket appears designed to fit the clinic's transport crate.",
+    "choice": {
+      "combine": "Carrier's fitted insulating jacket",
+      "with": "Clinic's latching transport crate"
+    },
+    "expectation": "The jacket will insulate the crate for the cold carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is now insulated, including its lid; it still needs the prepared thermal packs.",
+    "reaction": "The lid detail makes the insulation feel practically considered.",
+    "step": 4,
+    "reason": "The prepared thermal packs belong in the insulated carrier for the next collection.",
+    "choice": {
+      "combine": "Prepared clinic thermal packs",
+      "with": "Insulated clinic transport carrier"
+    },
+    "expectation": "The packs will ready the insulated carrier to keep its contents cold.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier now has prepared thermal packs, completing the cold-carrier goal; its safe use remains bounded by clinic handling rules.",
+    "reaction": "The reminder that the buffer is not indefinite is useful.",
+    "step": 5,
+    "reason": "The reserve estimate is tied to the measured load, and the enclosed switch looks like the next part of connecting that load to backup power.",
+    "choice": {
+      "combine": "Reserve estimate tied to measured load",
+      "with": "Enclosed clinic reserve switch"
+    },
+    "expectation": "The switch will help establish a controlled reserve connection for the essential load.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The approved switch isolated the essential circuits for reserve use, leaving nonessential advertisements disconnected.",
+    "reaction": "The distinction between essential and nonessential loads is clear.",
+    "step": 6,
+    "reason": "The matched backup power unit appears to be the remaining equipment needed to supply the isolated circuits.",
+    "choice": {
+      "combine": "Matched clinic backup power unit",
+      "with": "Essential circuits isolated for reserve use"
+    },
+    "expectation": "The backup unit will connect reserve power to the isolated essential circuits.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The backup unit is connected to the essential circuits, but its battery connector is still empty.",
+    "reaction": "The distinction between a connected unit and an actual power source is clear.",
+    "step": 7,
+    "reason": "The battery was previously used to make the reserve estimate, so I need to check what can now connect to the backup unit.",
+    "choice": {
+      "inspect": "Reserve power unit connected to essential circuits"
+    },
+    "expectation": "The compatibility list will show how to supply the connected unit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically connected the charged battery, creating a reserve feed for the isolated essential circuit.",
+    "reaction": "It is satisfying to see the backup supply complete.",
+    "step": 8,
+    "reason": "The cooler still needs to be checked against the new reserve feed.",
+    "choice": {
+      "combine": "Clinic reserve power feed",
+      "with": "Clinic cooler under independent monitoring"
+    },
+    "expectation": "The cooler will run on the essential reserve supply under independent monitoring.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rae checked the logger after transferring the cooler to reserve power, completing the remaining goal.",
+    "reaction": "Seeing the cooling survive the transfer was a satisfying confirmation of the setup.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the battery and then checking the cooler on reserve made the difference between a completed circuit and a working, monitored supply concrete.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first two guesses were corrected automatically, so the early reserve setup felt somewhat guided rather than like a decision I understood.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The battery remained available after producing the reserve estimate; I had assumed it had been used up and inspected the unit to find the next connection.",
+        "steps": [
+          2,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "My attempted battery-to-switch connection lacked a clear basis beyond their apparent roles; the automatic measurement step made more sense afterward.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue: assembling the backup and verifying it under load made the repair feel consequential, though I would hope for more meaningful choices than the early automatic corrections.",
+        "steps": [
+          1,
+          2,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

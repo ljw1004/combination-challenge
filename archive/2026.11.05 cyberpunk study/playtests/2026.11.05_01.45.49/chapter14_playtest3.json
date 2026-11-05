@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The sponsor-loaded tablet is the centre of the request desk, but it is not clear whether the listening app needs removal or another change first.",
+    "choice": {
+      "inspect": "Sponsor-loaded request tablet"
+    },
+    "expectation": "Inspection should show which available item can help prepare the tablet.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Service screwdriver",
+          "with": "Sponsor-loaded request tablet"
+        },
+        "reason": "The screwdriver might open the tablet, but the problem described is an app rather than an obvious hardware fault."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The listening app is removed and the microphone disconnected, leaving the tablet ready to become a deliberate-use request desk.",
+    "reaction": "The physical disconnection makes the privacy change reassuringly visible.",
+    "step": 2,
+    "reason": "The large request button looks like a practical way to make the tablet's request form accessible.",
+    "choice": {
+      "combine": "Large request button",
+      "with": "Tablet with microphone disconnected"
+    },
+    "expectation": "The button will be fitted to the tablet as a way to initiate a request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The large request button currently has no available combination, so I need to prepare something else first.",
+    "reaction": "I was surprised the button could not yet be fitted.",
+    "step": 3,
+    "reason": "Inspecting the modified tablet should reveal its available next step without guessing among the remaining desk parts.",
+    "choice": {
+      "inspect": "Tablet with microphone disconnected"
+    },
+    "expectation": "The inspection will identify what can currently be combined with the tablet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet now uses the local controller and has its outside network route blocked; the remaining desk parts may now be usable.",
+    "reaction": "Keeping requests local makes the privacy change more concrete.",
+    "step": 4,
+    "reason": "Now that the request form is connected locally, the large button may be ready to provide deliberate access.",
+    "choice": {
+      "combine": "Large request button",
+      "with": "Local request tablet"
+    },
+    "expectation": "The button will be fitted to the local request tablet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The locally connected tablet now has a deliberate press-to-send button.",
+    "reaction": "The distinction between sending a request and listening to nearby conversation is satisfying.",
+    "step": 5,
+    "reason": "The screen hood should help give people privacy while they use the request desk.",
+    "choice": {
+      "combine": "Folded screen hood",
+      "with": "Press-to-send request tablet"
+    },
+    "expectation": "The hood will fit around the tablet screen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hood shields the request form from people waiting in the queue.",
+    "reaction": "A simple cardboard privacy screen is a satisfying fit.",
+    "step": 6,
+    "reason": "The old receipt printer may give requesters a record of what they submit.",
+    "choice": {
+      "combine": "Old receipt printer",
+      "with": "Screen-shielded request tablet"
+    },
+    "expectation": "The printer will connect to the request tablet to provide receipts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer connects to the local controller rather than the tablet, providing receipts while keeping return details off the shared queue.",
+    "reaction": "The compatibility feedback clarified the connection, and the privacy controls are useful.",
+    "step": 7,
+    "reason": "The local queue printer and shielded request tablet appear to be the two prepared parts of the request desk.",
+    "choice": {
+      "combine": "Local queue printer",
+      "with": "Screen-shielded request tablet"
+    },
+    "expectation": "The printer and tablet will form a usable local request desk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet and printer now form a private request desk, with a pencil and paper option.",
+    "reaction": "The non-digital option makes the desk feel more inclusive.",
+    "step": 8,
+    "reason": "Moth is the remaining relevant component, and its source and correction controls may help make the request desk usable.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Private request desk"
+    },
+    "expectation": "Moth will connect its correction controls to the request desk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's help is optional, and users can review its suggested wording or keep their own; the request desk goal is complete.",
+    "reaction": "Sal keeping her original wording was a nice demonstration of user control.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the printer to the local controller was worthwhile: it provided receipts while keeping return details off the shared queue and exposing deletion controls.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "My first button attempt was unproductive because the tablet had to be connected locally first; that dependency was not obvious to me.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I expected the printer to connect directly to the tablet, but it instead connected to the local controller automatically.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for fitting the button initially felt unclear, although connecting the form locally first made sense once revealed.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how the locally controlled infrastructure develops; the privacy choices and optional assistance were more engaging than simply assembling the desk.",
+        "steps": [
+          3,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

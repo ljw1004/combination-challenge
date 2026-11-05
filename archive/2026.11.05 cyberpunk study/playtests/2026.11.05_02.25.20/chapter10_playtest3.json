@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "The cargo bike's loose mount and matching rails suggest a direct repair for collecting the clinic order.",
+    "choice": {
+      "combine": "Matching cargo carrier rails",
+      "with": "Cargo bike with a loose carrier mount"
+    },
+    "expectation": "The rails should secure the bike's carrier mount.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rails fit, but the mount still needs tightening before the bike can carry anything.",
+    "reaction": "The remaining loose mount is a useful reminder not to load the rack yet.",
+    "step": 2,
+    "reason": "June's repair roll is the obvious tool for securing the loose mount.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Bike with fitted rails and loose mount"
+    },
+    "expectation": "The repair roll should let June secure the carrier mount.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bike's carrier mount is secure and ready for the clinic carrier.",
+    "reaction": "The fitted, rated mount feels like a sensible repair.",
+    "step": 3,
+    "reason": "The prepared carrier should fit the secured cargo bike for the collection.",
+    "choice": {
+      "combine": "Carrier with prepared thermal packs",
+      "with": "Cargo bike fitted for the clinic carrier"
+    },
+    "expectation": "The carrier will be fitted to the bike for the clinic order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The prepared carrier is secured to the bike, and Miro has the collection reference.",
+    "reaction": "The collection setup is ready without moving the clinic cabinet.",
+    "step": 4,
+    "reason": "The trolley-tested route slate should guide the cargo bike to the cold store.",
+    "choice": {
+      "combine": "Trolley-tested route slate",
+      "with": "Cargo bike with the prepared cold carrier"
+    },
+    "expectation": "The bike will use the tested local route to collect the clinic order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic order has been collected locally; the remaining goal is to explain the depot's refusal.",
+    "reaction": "The collection succeeded, though the idle van makes the refusal more curious.",
+    "step": 5,
+    "reason": "Comparing the authorized dispatch export with the published distribution policy may reveal the rule applied to the refusal.",
+    "choice": {
+      "combine": "Authorized depot dispatch export",
+      "with": "Meridian's published distribution policy"
+    },
+    "expectation": "The comparison should show how the published policy relates to the depot's dispatch decisions.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Authorized depot dispatch export",
+          "with": "Depot's published reserved-capacity log"
+        },
+        "reason": "The capacity log might instead explain why the van was unavailable."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The request reached the depot, but the clinic's address and low contracted revenue caused it to lose eligibility and priority under a commercial rule.",
+    "reaction": "The refusal is more specific than a simple missing-address error.",
+    "step": 6,
+    "reason": "Comparing the exposed ranking fields with Meridian's published policy should clarify the rule behind the refusal.",
+    "choice": {
+      "combine": "Depot refusal with its ranking fields exposed",
+      "with": "Meridian's published distribution policy"
+    },
+    "expectation": "The published policy will help explain how those fields produced the refusal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Depot refusal with its ranking fields exposed",
+          "with": "Depot's published reserved-capacity log"
+        },
+        "reason": "The capacity log might clarify the idle van's role instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The published policy confirms that contracted revenue, rather than clinical need, determined priority.",
+    "reaction": "The explicit match makes the commercial basis of the refusal clear.",
+    "step": 7,
+    "reason": "The reserved-capacity log may explain how the revenue rule relates to the idle van.",
+    "choice": {
+      "combine": "Published revenue rule matched to the refusal",
+      "with": "Depot's published reserved-capacity log"
+    },
+    "expectation": "The log should help clarify whether reserved capacity explains the van's availability despite the refusal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capacity log explains that the van was reserved for another customer, and that the depot's demand claim omitted both the clinic order and that reservation. Both goals are complete.",
+    "reaction": "The distinction between an idle van and available capacity was revealing, though knowing it doesn't solve the access problem.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Tracing the refusal from its ranking fields to the published policy and capacity log was most worthwhile: it showed how commercial priorities and reservations shaped the outcome, not just a technical error.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the rails and then separately tightening the mount was sensible, but the two repair steps felt a little routine.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The request reached the depot but lost eligibility and priority because of the clinic's address and contracted revenue; the empty van was also reserved for someone else.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "My first attempt to compare the dispatch export directly with the policy was a guess; the feedback redirected it to the clinic dispatch instead. The required pairing was not obvious to me beforehand.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd be curious to see whether the neighborhood can challenge the commercial rule, especially since understanding why the van is reserved doesn't provide access to it.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

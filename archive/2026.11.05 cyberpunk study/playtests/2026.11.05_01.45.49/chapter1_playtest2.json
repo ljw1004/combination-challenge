@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "The replacement cartridge looks like the part needed to repair the trolley's seized caster, which could help move the crate.",
+    "choice": {
+      "combine": "Trolley with a seized caster",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The cartridge should repair the trolley so it can carry the crate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair roll freed the seized caster assembly, revealing a failed bearing; the replacement cartridge may now fit.",
+    "reaction": "The automatic repair was helpful, and the failed bearing explains the trolley's problem.",
+    "step": 2,
+    "reason": "The freed assembly looks ready for its replacement cartridge.",
+    "choice": {
+      "combine": "Trolley with its caster freed",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The cartridge should replace the failed bearing and make the trolley usable.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement caster is installed, leaving a working trolley for moving the crate.",
+    "reaction": "The repair sequence was straightforward and satisfying.",
+    "step": 3,
+    "reason": "The working trolley should help get the rejected crate to the clinic door.",
+    "choice": {
+      "combine": "Straight-running trolley",
+      "with": "Rejected clinic crate"
+    },
+    "expectation": "The crate should go onto the trolley so it can be moved to the clinic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is inside the clinic, but the courier still needs a receiving signature and the system refusal remains unexplained.",
+    "reaction": "Getting the crate through the real door was satisfying, though the paperwork problem remains.",
+    "step": 4,
+    "reason": "The clinic address plate and courier's handset seem relevant to finding out why the system rejects the address.",
+    "choice": {
+      "combine": "Mud-covered clinic address plate",
+      "with": "Courier's handset"
+    },
+    "expectation": "The handset may compare or register the physical address and reveal why it is refused.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Courier's handset"
+        },
+        "reason": "I could check its available interactions first, but the address plate looks directly relevant."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cleaning the plate revealed the clinic's address, 8B Latch Market; I can now try it against the courier's handset.",
+    "reaction": "The automatic cleanup was useful, and Eli's potato-like eight was a funny detail.",
+    "step": 5,
+    "reason": "The readable address may let the handset show why the courier's system refuses it.",
+    "choice": {
+      "combine": "Clinic address plate: 8B Latch Market",
+      "with": "Courier's handset"
+    },
+    "expectation": "The handset will check the address and reveal the reason for its refusal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset reads the address correctly but rejects it because it is absent from the active service directory; the courier's signature still appears unresolved.",
+    "reaction": "The directory problem is more consequential than a misread address, and the impending migration is worrying.",
+    "step": 6,
+    "reason": "The crate is delivered, so I want to see how to finish the receiving process.",
+    "choice": {
+      "inspect": "Delivered clinic crate"
+    },
+    "expectation": "The inspection may reveal how to obtain or record the receiving signature.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's signature completed the delivery goal, leaving a receipt that contradicts the handset's address rejection.",
+    "reaction": "The conflicting records are a compelling way to show the directory problem.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Checking the cleaned address against the handset revealed that the system read it correctly but excluded it from the active directory. That made the problem more interesting than a simple delivery error.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Cleaning the address plate was a fairly predictable prerequisite, though the character detail made it less bland.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The handset correctly read the address yet refused it, with a directory migration approaching at dawn.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the repair and cleanup prerequisites made physical sense once revealed.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd be curious to see how the contradictory records and impending directory migration affect the neighborhood, though the opening's combinations were mostly straightforward.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

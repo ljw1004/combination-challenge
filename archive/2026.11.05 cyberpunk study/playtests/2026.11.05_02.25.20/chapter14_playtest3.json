@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "The sponsor app is the immediate obstacle, but its removal or replacement isn't clear from the available parts.",
+    "choice": {
+      "inspect": "Sponsor-loaded request tablet"
+    },
+    "expectation": "Inspection should show what can be done with the tablet and help identify the first repair or privacy step.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Service screwdriver",
+          "with": "Sponsor-loaded request tablet"
+        },
+        "reason": "The screwdriver might open the tablet, but the visible problem is an app rather than a known hardware fault."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The listening app is removed and the microphone disconnected, leaving the tablet ready to become a deliberate-use request desk.",
+    "reaction": "The physical disconnection makes the privacy change concrete.",
+    "step": 2,
+    "reason": "The large button is a plausible way to make submitting a request a deliberate action.",
+    "choice": {
+      "combine": "Large request button",
+      "with": "Tablet with microphone disconnected"
+    },
+    "expectation": "The button should give people an accessible way to initiate a request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The large button now operates Send, making the form easier to use without restoring the microphone.",
+    "reaction": "The direct connection between the button and the form is satisfying.",
+    "step": 3,
+    "reason": "The screen hood should help keep requests private from people nearby.",
+    "choice": {
+      "combine": "Folded screen hood",
+      "with": "Request tablet with large button"
+    },
+    "expectation": "The hood should shield the request screen from casual viewing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hood now shields the form from the queue while leaving the button accessible.",
+    "reaction": "The distinction between physical access and visual privacy is useful.",
+    "step": 4,
+    "reason": "The local controller is the likely way to connect the request tablet to the cooperative's network.",
+    "choice": {
+      "combine": "Hooded tablet with large button",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The tablet should connect to the local request service without relying on the corporate uplink.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Old receipt printer",
+          "with": "Hooded tablet with large button"
+        },
+        "reason": "The printer might provide a request receipt, but connecting the desk seems more immediate."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet now uses the local form, with requests staying local unless the sender asks otherwise.",
+    "reaction": "The separation between submitting locally and forwarding a request is reassuring.",
+    "step": 5,
+    "reason": "The receipt printer may give people a tangible record of their request.",
+    "choice": {
+      "combine": "Old receipt printer",
+      "with": "Screen-shielded request tablet"
+    },
+    "expectation": "The printer may connect to the request desk to provide a receipt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet and printer are assembled, but the printer still needs to be assigned to the local controller.",
+    "reaction": "The setup isn't complete yet, but the remaining step is clear.",
+    "step": 6,
+    "reason": "The printer needs to be assigned to the cooperative's controller.",
+    "choice": {
+      "combine": "Request desk awaiting printer setup",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The controller should configure the printer for the request desk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The desk now has a local printer, private return details, deletion controls and a paper option.",
+    "reaction": "The pencil offers a useful alternative to the tablet.",
+    "step": 7,
+    "reason": "Moth is the remaining available item that may help put the request desk into use.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Private request desk"
+    },
+    "expectation": "I expect Moth to help handle requests from the desk, though its exact role is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's role is now clear: help is optional, and the sender can review and keep their original wording. The request-desk goal is complete.",
+    "reaction": "Sal keeping her original wording is a satisfying demonstration of real choice.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Setting up the private request desk was most worthwhile: the receipt keeps return details off the shared queue, and the pencil offers a way to ask without using the tablet.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the printer took two separate actions, making the assembly feel slightly drawn out, though the remaining setup was clear.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the tablet automatically removed the listening app and disconnected its microphone; I hadn't expected the privacy fix to include a physical disconnection.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Moth's exact role at the desk was unclear when I combined it with the finished desk; I was following the remaining available item rather than a specific clue.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the practical privacy choices and Moth's optional, reviewable help made me curious how the neighborhood will use its local infrastructure.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The submitted requests belong at the request desk, where they can be prepared for a response.",
+    "choice": {
+      "combine": "Residents' submitted requests",
+      "with": "Request desk with optional help"
+    },
+    "expectation": "The desk will organize the requests for local dispatch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The requests now have local numbers and privacy-preserving receipts; they still need to be dispatched.",
+    "reaction": "The distinction between public queue information and volunteer details is useful.",
+    "step": 2,
+    "reason": "The dispatch handset is the natural next way to get the receipted requests to volunteers.",
+    "choice": {
+      "combine": "Receipted local requests",
+      "with": "Dispatch handset"
+    },
+    "expectation": "The handset will help route the requests to people who can answer them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset is not compatible yet; the requests can instead be combined with Moth or the migration notice.",
+    "reaction": "The dispatch step needs more preparation than I expected.",
+    "step": 3,
+    "reason": "Moth may help interpret the receipted requests before they are routed or used in an appeal.",
+    "choice": {
+      "combine": "Receipted local requests",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "Moth will help organize the requests while keeping their sources visible.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Receipted local requests",
+          "with": "Authenticated migration notice and affected-service list"
+        },
+        "reason": "The notice could connect the requests to the appeal, but I will try Moth first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth has proposed rounds but left urgency and carrying capacity for volunteers to resolve.",
+    "reaction": "It is useful that Moth flags what it cannot determine from distance.",
+    "step": 4,
+    "reason": "The neighbors' access notes may provide the practical details needed to review the proposed rounds.",
+    "choice": {
+      "combine": "Moth's proposed collection rounds",
+      "with": "Neighbors' access notes"
+    },
+    "expectation": "The access notes will help adapt the rounds to the residents' needs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The volunteers used the access notes to agree on a two-person carry and prioritize it in the rounds.",
+    "reaction": "It is satisfying to see the people doing the work decide the order.",
+    "step": 5,
+    "reason": "The agreed rounds are ready to communicate through the dispatch handset.",
+    "choice": {
+      "combine": "Neighbors' agreed collection rounds",
+      "with": "Dispatch handset"
+    },
+    "expectation": "The handset will communicate the agreed jobs to the volunteers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The agreed stops have been sent to volunteers, with readback confirming communication.",
+    "reaction": "The readback is a practical check, rather than assuming the message was understood.",
+    "step": 6,
+    "reason": "The requests can also be combined with the migration notice, which should connect residents' needs to the appeal.",
+    "choice": {
+      "combine": "Receipted local requests",
+      "with": "Authenticated migration notice and affected-service list"
+    },
+    "expectation": "The requests and notice will provide evidence for the residents' appeal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The appeal bundle now links the authenticated notice to residents' statements approved for sharing.",
+    "reaction": "The distinction between the notice and residents' evidence is clear and useful.",
+    "step": 7,
+    "reason": "The civic appeal connection is the natural place to lodge the completed bundle.",
+    "choice": {
+      "combine": "Residents' appeal bundle",
+      "with": "Civic appeal connection"
+    },
+    "expectation": "The residents' appeal will be submitted through the civic connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The appeal is lodged, but its three-working-day response will not resolve the dawn deadline.",
+    "reaction": "The receipt is useful, though the delay makes the local response more urgent.",
+    "step": 8,
+    "reason": "The working dispatch handset and window chalk may provide a way to communicate the local response without exposing private details.",
+    "choice": {
+      "combine": "Working dispatch handset",
+      "with": "Window chalk"
+    },
+    "expectation": "The chalk will help make dispatch information visible to neighbors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset combined automatically with the request desk, confirming that volunteers had answered the first requests while unfinished jobs remained visible. Both goals are complete.",
+    "reaction": "The concrete replies were satisfying, especially the distinction between a proposed solution and a completed job.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using neighbors' access notes to revise Moth's rounds was most worthwhile: volunteers identified the two-person carry and chose its priority themselves.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "My early attempt to dispatch the receipted requests was least worthwhile because it failed, though the compatibility feedback showed what preparation was available.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The appeal produced a case number, but the three-working-day response time meant it would not resolve the dawn deadline.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "My final attempt with window chalk was a guess; the actual result used the request desk instead, so the chalk had no demonstrated role.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see what happens at dawn and whether the local arrangements hold up; the volunteers' practical decisions made the story engaging.",
+        "steps": [
+          4,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

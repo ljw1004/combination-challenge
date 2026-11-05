@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The controller previously depended on a workshop socket; the charged power bank offers it a portable supply.",
+    "choice": {
+      "combine": "Charged controller power bank",
+      "with": "Portable controller with a verified local link"
+    },
+    "expectation": "The controller will run from the power bank while retaining its local network.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller now has portable power but needs Miro's owner key for setup.",
+    "reaction": "The explicit owner setup is a useful next step.",
+    "step": 2,
+    "reason": "The result identifies Miro's management key as necessary to configure the controller.",
+    "choice": {
+      "combine": "Miro's controller management key",
+      "with": "Battery-powered controller awaiting owner setup"
+    },
+    "expectation": "The key will complete the controller's owner setup.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Miro's owner settings are installed, and the controller can run independently for the trial.",
+    "reaction": "The reminder that battery power and local connectivity have limits is useful.",
+    "step": 3,
+    "reason": "The powered local controller is the likely way to demonstrate the shop latch's electronic entry method.",
+    "choice": {
+      "combine": "Portable controller on its own power",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The controller will connect to or operate the demonstration latch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller opened the demonstration latch over its local link, completing the electronic entry demonstration.",
+    "reaction": "The local demonstration is useful without implying the whole neighborhood is connected.",
+    "step": 4,
+    "reason": "The mechanical key should demonstrate the fallback entry method on the same latch.",
+    "choice": {
+      "combine": "Mechanical demonstration-door key",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The key will open the demonstration latch mechanically.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The key demonstrated mechanical entry independently of the controller; the remaining goal is an honest door status.",
+    "reaction": "The independent fallback is reassuring.",
+    "step": 5,
+    "reason": "The disconnected sensor should be attached to the demonstration door before its status can be reported.",
+    "choice": {
+      "combine": "Disconnected door-status sensor",
+      "with": "Demonstration door opened with its key"
+    },
+    "expectation": "The sensor will be connected to the demonstration door so its state can be reported.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disconnected sensor produces an honest unknown status on Moth's display, rather than attaching to the door as I expected.",
+    "reaction": "The distinction between unknown and closed is useful.",
+    "step": 6,
+    "reason": "The goal calls for publishing the honest status; the local network controller may carry Moth's display.",
+    "choice": {
+      "combine": "Moth's display: door state unknown",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The controller will publish the unknown door status locally.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Moth's display: door state unknown"
+        },
+        "reason": "I could check its available partners if publishing through the controller is not supported."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth now has June's manual observation that the door is open, while clearly identifying the sensor as disconnected; the attempted network publication was not the right combination.",
+    "reaction": "The distinction between a human observation and a working sensor is useful.",
+    "step": 7,
+    "reason": "The manually sourced status may now be ready to publish through the local controller.",
+    "choice": {
+      "combine": "Door state reported by June",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The controller will publish the manually reported door status locally, with its source identified.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Door state reported by June"
+        },
+        "reason": "I could check its available partners instead of guessing how to publish it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller published June's timed observation alongside the unavailable sensor status, completing the goal without presenting a manual check as a live reading.",
+    "reaction": "The source and time made the final status more meaningful than a simple open-or-closed display.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Publishing the sourced observation was most worthwhile: it brought the local network, manual fallback and honest status together in a concrete result.",
+        "steps": [
+          3,
+          4,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial controller power and owner-setup sequence felt straightforward and less engaging than the later status problem.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected to attach the disconnected sensor to the door; instead, Moth reported its state as unknown, then distinguished June's observation from a sensor reading.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the disconnected sensor with Moth rather than the door was not obvious to me, though the resulting unknown status had a clear purpose.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the distinction between local control, mechanical fallback and trustworthy status made me curious how the neighborhood will apply the network at a larger scale.",
+        "steps": [
+          3,
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

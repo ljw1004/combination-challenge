@@ -1,0 +1,176 @@
+[
+  {
+    "step": 1,
+    "reason": "The radio kit likely needs setting up before its power needs can be checked; inspection will show where to start.",
+    "choice": {
+      "inspect": "Packed rooftop radio kit"
+    },
+    "expectation": "I expect to find a compatible setup component or location.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios are mounted and aligned, so their power needs can now be checked.",
+    "reaction": "The sightline check was a satisfying practical setup.",
+    "step": 2,
+    "reason": "The inline load meter should measure the radios' draw for the overnight reserve check.",
+    "choice": {
+      "combine": "Inline radio load meter",
+      "with": "Mounted and aligned rooftop radios"
+    },
+    "expectation": "The meter will reveal the radios' power load.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The load meter has no available operation yet, so measuring the mounted radios directly was premature.",
+    "reaction": "That was unexpected; the power setup may need another step first.",
+    "step": 3,
+    "reason": "Inspecting the mounted radios should reveal what setup is available next.",
+    "choice": {
+      "inspect": "Mounted and aligned rooftop radios"
+    },
+    "expectation": "I expect to find a compatible power or network component.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios can connect to either the local controller or the checked reserves; the meter is not ready yet.",
+    "reaction": "The available power connection clarifies the next step.",
+    "step": 4,
+    "reason": "Connecting the checked reserves should power the radios and advance the overnight power check.",
+    "choice": {
+      "combine": "Mounted and aligned rooftop radios",
+      "with": "Checked rooftop reserve pair"
+    },
+    "expectation": "The radios will be connected to their reserve supplies.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mounted and aligned rooftop radios",
+          "with": "Portable local network controller"
+        },
+        "reason": "The local network also needs a radio link, but the current goal concerns reserve power."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both radios now run on independent reserves, but the controller still needs to configure their route.",
+    "reaction": "Disconnecting the wall adapters makes the independent setup tangible.",
+    "step": 5,
+    "reason": "The result explicitly says the controller is needed to configure the local route.",
+    "choice": {
+      "combine": "Portable local network controller",
+      "with": "Aligned radios on independent reserves"
+    },
+    "expectation": "The controller will configure the radio link for local services.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Inline radio load meter",
+          "with": "Aligned radios on independent reserves"
+        },
+        "reason": "I considered measuring the powered radios first, but their route still needs configuring."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller configured a working local link powered by both independent reserves; the overnight capacity still needs checking.",
+    "reaction": "The distinction between a working link and independent power is useful.",
+    "step": 6,
+    "reason": "The powered link should now be ready for the load measurement needed to assess the reserves.",
+    "choice": {
+      "combine": "Inline radio load meter",
+      "with": "Battery-powered local link"
+    },
+    "expectation": "The meter will measure the radios' load for the overnight reserve check.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The load meter still has no available operation, so the working link alone is not enough to enable measurement.",
+    "reaction": "I'm puzzled about what prerequisite is missing.",
+    "step": 7,
+    "reason": "Inspecting the battery-powered link should reveal the available next step toward checking the reserves.",
+    "choice": {
+      "inspect": "Battery-powered local link"
+    },
+    "expectation": "I expect to see a compatible component for the reserve check or the next stage of the link.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Matched solar charging pair"
+        },
+        "reason": "The charging pair may also reveal a necessary power-system step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both radios now have matched solar charging inputs, and the link is explicitly awaiting its load check.",
+    "reaction": "The reminder that solar panels add no energy tonight clarifies the reserve calculation.",
+    "step": 8,
+    "reason": "The load check is now the named next step, so the inline meter should be usable.",
+    "choice": {
+      "combine": "Inline radio load meter",
+      "with": "Independent radio link awaiting its load check"
+    },
+    "expectation": "The meter will measure the radio loads so their overnight reserves can be assessed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both reserves cover the remaining night with a margin, and the next goal is to reach Eli across the link.",
+    "reaction": "It is satisfying to have the reserve claim backed by measured loads and recorded charge.",
+    "step": 9,
+    "reason": "The new goal concerns the link, so inspecting it should reveal how to reach Eli.",
+    "choice": {
+      "inspect": "Load-tested independent link"
+    },
+    "expectation": "I expect to find a compatible device or component for contacting the clinic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's test phrase reached Eli, completing the clinic link; Tin Row's call suggests a future interoperability problem.",
+    "reaction": "Eli's reply was a warm, concrete confirmation that the link worked.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The load test was most worthwhile: measured draw, usable capacity and starting charge supported the overnight claim rather than relying on the solar panels.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two failed attempts to use the load meter felt repetitive, especially because the missing prerequisite was not initially apparent.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The link needed the solar charging pair installed before the load check, even though the panels would add no energy that night.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Making solar installation a prerequisite for measuring the already powered radios felt unclear; I could not infer that dependency from the goal.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the neighborhoods make their networks understand each other; Tin Row's call opens a concrete new problem after the satisfying clinic test.",
+        "steps": [
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

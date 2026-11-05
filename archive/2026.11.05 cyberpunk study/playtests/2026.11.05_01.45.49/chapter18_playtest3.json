@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "The isolation plug looks like the direct way to rehearse the rack without Meridian's uplink.",
+    "choice": {
+      "combine": "Uplink isolation plug",
+      "with": "Shared local controls"
+    },
+    "expectation": "The rack's external uplink will be isolated for the local-control test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The uplink is disconnected, but the green door indicator does not verify the other local services.",
+    "reaction": "The distinction between an indicator and a working path makes me curious about the test.",
+    "step": 2,
+    "reason": "The offline handset is intended to test whether the disconnected rack still serves local devices.",
+    "choice": {
+      "combine": "Offline test handset",
+      "with": "Rack with uplink disconnected"
+    },
+    "expectation": "The handset should check whether the rack remains reachable without the city feed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radio link works, but the handset relies on the company directory to find the clinic; the local address discovery needs fixing.",
+    "reaction": "The working link hiding a directory dependency is a useful surprise.",
+    "step": 3,
+    "reason": "The local controller may provide a replacement directory or address for the handset.",
+    "choice": {
+      "combine": "Handset that cannot find the clinic",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The controller will help the handset find the clinic locally without the company directory.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now carries the known local directory settings and can configure the rack through its service port.",
+    "reaction": "It is satisfying to have found a concrete fix for the hidden directory dependency.",
+    "step": 4,
+    "reason": "The handset can now configure the disconnected rack with the local directory.",
+    "choice": {
+      "combine": "Handset carrying local directory settings",
+      "with": "Rack with uplink disconnected"
+    },
+    "expectation": "The rack will receive the local settings needed to find services without Meridian.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rack now runs its own service directory without the uplink; the remaining goal is to verify water and clinic calls.",
+    "reaction": "The directory fix is satisfying, though the services still need testing.",
+    "step": 5,
+    "reason": "The handset previously failed to find the clinic, so testing it against the local directory should check whether calls can now get through.",
+    "choice": {
+      "combine": "Handset carrying local directory settings",
+      "with": "Rack with its own service directory"
+    },
+    "expectation": "The handset should find the clinic using the rack's local directory.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now reaches Eli through the local directory; water still needs checking during the rehearsal.",
+    "reaction": "Eli's callback makes the successful test feel tangible.",
+    "step": 6,
+    "reason": "The locally monitored water service should be checked against the rack while its uplink is disconnected.",
+    "choice": {
+      "combine": "Locally monitored water service",
+      "with": "Rack with its own service directory"
+    },
+    "expectation": "The pump's local monitoring should remain available without Meridian's uplink.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ren's coordinated stop and restart verified that pump control, water and reporting survived the unplugging, completing the rehearsal.",
+    "reaction": "The end-to-end test was satisfying; it checked more than the rack's indicator.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The failed clinic call and local-directory fix were most worthwhile: they exposed a hidden dependency and led to a concrete, tested repair.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Repeating the handset–rack combination immediately after configuring the directory felt somewhat repetitive, although it produced a useful call test.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The radios could exchange packets while the handset still depended on the company directory to find the clinic.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Trying the water service with the rack seemed sensible, but the game instead automatically paired it with the handset; that specific pairing was not obvious to me beforehand.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the local services fare during the migration; uncovering and testing the hidden directory dependency made this chapter engaging.",
+        "steps": [
+          2,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

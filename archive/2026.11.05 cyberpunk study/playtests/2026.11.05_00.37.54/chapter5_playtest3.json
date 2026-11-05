@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "Freeing the printer seems like a useful first step toward examining the clinic's requests.",
+    "choice": 1,
+    "expectation": "I expect to clear the jam, though the archive may still need to be read separately.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The display also needs repair, but I want to investigate the clinic records first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer is cleared, so I can try reading the clinic's archive.",
+    "reaction": "The simple mechanical repair makes sense, though it is unsurprising.",
+    "step": 2,
+    "reason": "The archive cartridge and cleared printer seem like the direct next step toward examining the requests.",
+    "choice": 1,
+    "expectation": "I expect the printer to produce records from the archive, though I don't yet know what they will show.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The market display also needs repair, but I want to inspect the clinic records first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The archive produced a dispatch history, giving me records to compare with the depot's intake.",
+    "reaction": "The detail that the clinic was asking all along makes the missing requests feel consequential.",
+    "step": 3,
+    "reason": "Comparing the two records directly addresses the first goal.",
+    "choice": 1,
+    "expectation": "I expect to see which clinic requests are absent from the depot export, though the reason may remain unclear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The market board still needs repair, but the records are ready to compare now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The comparison identifies an intake filter as the point where requests from unlisted addresses disappear, completing the first goal.",
+    "reaction": "The distinction between zero admitted requests and zero need is striking.",
+    "step": 4,
+    "reason": "This is the only offered combination, and repairing the board should help show the missing work to the market.",
+    "choice": 1,
+    "expectation": "I expect the matching module to restore the queue board's display, though showing the requests may take another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The queue board is repaired and ready for information.",
+    "reaction": "Reusing its controller and case is a sensible repair, though the result is predictable.",
+    "step": 5,
+    "reason": "This is the only offered combination, and the volunteered cards should help show the market's delivery needs.",
+    "choice": 1,
+    "expectation": "I expect the cards to be displayed on the board; showing the missing work to Moth may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The board now shows volunteered requests, giving me a public list to compare with the missing dispatches.",
+    "reaction": "Limiting the display to volunteered requests is a thoughtful detail; seeing the already-delivered cooling parts listed also catches my attention.",
+    "step": 6,
+    "reason": "This is the only offered combination, and it should connect the missing dispatches with the public list.",
+    "choice": 1,
+    "expectation": "I expect the missing requests to be compared with or added to the public list; I don't know whether this will also show them to Moth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The board now marks the intake gap and makes its incompleteness visible, ready to show Moth.",
+    "reaction": "Letting people correct their own entries is a useful detail.",
+    "step": 7,
+    "reason": "This is the only offered combination and should show Moth the missing work.",
+    "choice": 1,
+    "expectation": "I expect Moth to receive the board's evidence of the intake gap, though I don't know how it will respond.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth corrects its interpretation of the records and stops recommending that the neighborhood wait; both chapter goals are complete.",
+    "reaction": "Its distinction between absent requests and absent admitted records gives the comparison a satisfying payoff.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the clinic history with depot intake was most worthwhile: the matching IDs and filter made the misleading zero concrete.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Replacing the queue board display was sensible but predictable, with little decision-making involved.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The depot's zero counted requests admitted by its filter, not the neighborhood's actual need; Moth then revised its conclusion.",
+        "steps": [
+          3,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though several were the only offered combination rather than meaningful choices.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue to see whether the neighborhood can change the system, not just document its omissions. The evidence-to-correction payoff was engaging, though the choices were often linear.",
+        "steps": [
+          3,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

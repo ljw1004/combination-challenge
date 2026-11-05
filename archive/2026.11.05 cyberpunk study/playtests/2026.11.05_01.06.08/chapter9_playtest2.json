@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "Start developing the routing rule using the practice cases, leaving the sealed trips for testing.",
+    "choice": 1,
+    "expectation": "Moth will use the practice cases to produce or adjust a local routing rule; I’m unsure what form it will take.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the talkbox also advances a goal, but I want to investigate the routing test first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The settings fit the practice trips, but their performance on unseen trips remains unknown.",
+    "reaction": "The distinction makes the sealed test more interesting.",
+    "step": 2,
+    "reason": "Test the fitted settings against trips they haven't learned from.",
+    "choice": 1,
+    "expectation": "The Tuesday pack will reveal how the settings perform on unseen requests, though they may fail some.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox also needs repair, but I want to test the routing settings first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Tuesday test exposed a wrongly refused two-carrier pickup, so the routing rule needs a human review path.",
+    "reaction": "The failure is revealing: a coordination issue looked like an impossible request.",
+    "step": 3,
+    "reason": "Use the dispatch review switch and rule to address the refused request.",
+    "choice": 1,
+    "expectation": "The rule will route such requests to a dispatcher rather than automatically refusing them, though I’m unsure how it will work.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox needs repair too, but I want to address the test failure first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Difficult cases now go to a dispatcher, but the changed rule needs a fresh test.",
+    "reaction": "The reminder that Tuesday’s score no longer applies makes sense.",
+    "step": 4,
+    "reason": "Test the revised rule on the fresh Wednesday cases.",
+    "choice": 1,
+    "expectation": "The new pack will show how the revised rule handles unseen requests, though it may reveal further problems.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox still needs repair, but I want to finish testing the revised rule first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The revised rule handled a different timing conflict through human review, completing the routing test goal; the talkbox remains.",
+    "reaction": "The staffed waiting point makes the handoff feel concrete.",
+    "step": 5,
+    "reason": "The only offered combination repairs the talkbox audio, advancing the remaining goal.",
+    "choice": 1,
+    "expectation": "The compatible speaker board should restore the talkbox's audio; further fittings may be needed for the request button.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox can now play clear replies; it still needs a way to initiate requests.",
+    "reaction": "Eli's test adds a small personal touch to the repair.",
+    "step": 6,
+    "reason": "Fit the call button to advance the remaining goal; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The button should provide a tactile way to initiate a call, though the transmitter may still need fitting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox now has an accessible tactile button alongside its original one; it still needs a request connection.",
+    "reaction": "Keeping both buttons is a thoughtful detail.",
+    "step": 7,
+    "reason": "Fit the transmitter to connect the request button; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The talkbox should be able to send a request and receive a human reply, though it may need testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset is assembled and signals when it is listening; it still needs connecting to the tested routing process.",
+    "reaction": "The visible listening signal is a useful privacy detail.",
+    "step": 8,
+    "reason": "Connect the handset to the tested routing rule; this is the only offered combination and advances the remaining goal.",
+    "choice": 1,
+    "expectation": "Requests should reach the routing process, with difficult cases sent for human review and a reply route available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now reaches the tested queue, and Eli can answer requests the rule cannot handle. Both chapter goals are complete.",
+    "reaction": "Replacing a silent refusal with a human reply feels like a satisfying payoff.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The Tuesday test exposed a real two-carrier request wrongly refused as impossible; adding human review addressed the specific failure.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The talkbox fittings were straightforward, sequential steps with only one combination offered each time, so they felt less engaging than the routing test.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Revising the rule made Tuesday's score no longer representative, making a fresh test necessary.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the talkbox parts had clear roles, even if their assembly was predictable.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The concrete test failure and human-review response made me curious how the neighborhood's system would handle further problems.",
+        "steps": [
+          2,
+          3,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

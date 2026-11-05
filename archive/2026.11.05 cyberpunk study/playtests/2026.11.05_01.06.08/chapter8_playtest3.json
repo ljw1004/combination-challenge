@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "reason": "Measure the essential equipment's load before arranging reserve power.",
+    "choice": 1,
+    "expectation": "The meter should show the panel's load, though I don't know yet how reserve runtime will be determined.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Preparing the carrier also serves a goal, but the flashing supply warning makes the power measurement my priority."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The measured load includes cycling peaks, so the reserve setup must support more than the average draw.",
+    "reaction": "The distinction between peak and average load is useful.",
+    "step": 2,
+    "reason": "Connect the charged reserve battery to the measured panel to assess the backup setup.",
+    "choice": 1,
+    "expectation": "I expect the battery and measured load to yield a reserve-power assessment or setup, though the switch and power unit may still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The carrier also needs preparation, but I want to continue addressing the power warning first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The measured essential load gives an estimated reserve duration past dawn with a margin, provided the load does not increase.",
+    "reaction": "The estimate feels more useful with its limits and next check stated.",
+    "step": 3,
+    "reason": "Continue the reserve setup by adding the enclosed switch to the load-based estimate.",
+    "choice": 1,
+    "expectation": "I expect this to prepare a controlled changeover to reserve power; the backup power unit may still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The carrier still needs preparation, but I want to finish the reserve setup first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The approved switch isolates the essential circuits, keeping nonessential advertisements off the reserve load.",
+    "reaction": "The advertisements going dark makes the tradeoff concrete.",
+    "step": 4,
+    "reason": "Add the matched backup power unit to continue the reserve setup.",
+    "choice": 1,
+    "expectation": "I expect the unit to connect or prepare backup power for the isolated circuits; the cooler may still need a separate check.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The carrier also needs preparation, but I want to finish the reserve setup first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The backup unit is connected to the essential circuits but still needs its battery.",
+    "reaction": "The distinction between a connected route and an actual power source is clear.",
+    "step": 5,
+    "reason": "Connect the charged battery to supply the essential circuits.",
+    "choice": 1,
+    "expectation": "I expect reserve power to become available, though the cooler may still need a separate check.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The carrier needs preparation too, but I want to finish the reserve connection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reserve feed now supplies the isolated essential circuit, using the battery's stored energy.",
+    "reaction": "The reminder that reserve power buys time rather than creating energy is clear.",
+    "step": 6,
+    "reason": "Connect the monitored cooler to the reserve feed to check the essential backup arrangement.",
+    "choice": 1,
+    "expectation": "I expect the cooler to run on reserve power under independent monitoring, though a further check may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The carrier also needs preparation, but I want to verify the cooler's reserve supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooler survived the transfer to reserve power under monitoring, completing the reserve-power goal.",
+    "reaction": "Eli's relief makes the successful changeover feel consequential.",
+    "step": 7,
+    "reason": "The carrier is the remaining goal, and fitting its jacket is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the jacket to insulate the transport crate; the thermal packs will likely still need to be added.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is insulated, including its lid; the thermal packs are the remaining offered step.",
+    "reaction": "Covering the often-forgotten lid is a useful detail.",
+    "step": 8,
+    "reason": "Add the prepared thermal packs to finish preparing the cold carrier; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a cold carrier ready for the next collection, though its safe holding duration is not stated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier now has prepared thermal packs and handling rules, completing the remaining goal without implying indefinite cold storage.",
+    "reaction": "The stated limit makes the completed carrier feel credible.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Transferring the cooler to monitored reserve power was most worthwhile: the check confirmed that cooling survived the changeover, and Eli's relief made the result consequential.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The successive reserve-power connections felt somewhat repetitive, even though each had a clear role.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The measured load's cycling peaks mattered alongside its average, and the reserve estimate depended on not adding more load.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary; the switch, backup unit and battery had distinct purposes, although their separate combinations made the sequence feel drawn out.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: the practical details and the clinic's situation made the outcome engaging, though I would hope for more varied decisions than the sequential connections.",
+        "steps": [
+          1,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

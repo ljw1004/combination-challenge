@@ -1,0 +1,127 @@
+[
+  {
+    "step": 1,
+    "reason": "The notice is central to the migration question, and the independent verifier can check its signature before we rely on it.",
+    "choice": {
+      "combine": "Signed dawn migration notice",
+      "with": "Independent signature verifier"
+    },
+    "expectation": "The verifier should establish whether the notice's signature is valid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signature verifies the notice's issuer and integrity, but not its policy claims; I can now compare it with the subscription records.",
+    "reaction": "The distinction between authenticity and trustworthiness is useful.",
+    "step": 2,
+    "reason": "The subscription export may identify which Latch services the verified migration notice affects.",
+    "choice": {
+      "combine": "Migration notice with its issuer verified",
+      "with": "Latch service subscription export"
+    },
+    "expectation": "Comparing the notice with the export should clarify what expires at dawn.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The notice identifies the credentials and revenue threshold affected at dawn; I should connect that finding to the clinic's dispatch.",
+    "reaction": "The euphemistic notice conceals a specific loss of access.",
+    "step": 3,
+    "reason": "The clinic's dispatch record should show how the credential expiry affects its service.",
+    "choice": {
+      "combine": "Notice matched to Latch's service credentials",
+      "with": "Clinic dispatch with a human review route"
+    },
+    "expectation": "The comparison should establish the clinic's exposure to the dawn migration.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Compatible controller radio module",
+          "with": "Miro's damaged portable network controller"
+        },
+        "reason": "I could start repairing the local network instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The affected-service list establishes which credentials will be rejected, without implying that every physical machine stops. The remaining goal is the local network.",
+    "reaction": "The distinction between lost access and physical shutdown makes the risk clearer.",
+    "step": 4,
+    "reason": "The compatible radio module is the obvious replacement for the damaged network controller.",
+    "choice": {
+      "combine": "Compatible controller radio module",
+      "with": "Miro's damaged portable network controller"
+    },
+    "expectation": "The radio module should restore the controller's network hardware.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller has a replacement radio and works on workshop power; it still needs a portable supply later.",
+    "reaction": "The repair is a useful start, though the controller is not yet truly portable.",
+    "step": 5,
+    "reason": "The documented local software should configure the repaired controller for a network without the corporate uplink.",
+    "choice": {
+      "combine": "Documented local controller software",
+      "with": "Portable controller on workshop power"
+    },
+    "expectation": "The controller should be configured to run the local network.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller now runs local services without the corporate uplink; the test handset can check whether a device can connect.",
+    "reaction": "It's satisfying to see the repaired hardware running an offline network.",
+    "step": 6,
+    "reason": "Miro's test handset is the available device for trying the new local network.",
+    "choice": {
+      "combine": "Miro's test handset",
+      "with": "Portable controller running local services"
+    },
+    "expectation": "The handset should connect to the controller and demonstrate local communication.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset verified one local link without the corporate uplink, completing the network goal; the controller still depends on workshop power.",
+    "reaction": "Satisfying to see the repair pass a concrete, appropriately limited test.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the repaired controller with the handset was most worthwhile: it turned the offline network from a setup claim into a demonstrated connection.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the documented software was a fairly predictable bridge between the hardware repair and the more interesting connection test.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The migration expires delivery and listed utility-access credentials, not necessarily the physical machines themselves. That distinction made the threat more specific than the notice's cheerful language suggested.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; each followed visibly from the notice investigation or the network repair.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I'd be curious to see whether the local network can become portable and help the neighborhood deal with the credential expiry; the limited successful test leaves a meaningful next problem.",
+        "steps": [
+          3,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

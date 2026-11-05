@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The replacement cartridge appears suited to the trolley's seized caster, which may help move the crate.",
+    "choice": {
+      "combine": "Trolley with a seized caster",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The replacement cartridge will repair the trolley's caster.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair roll freed the caster assembly, so the replacement cartridge may now fit.",
+    "reaction": "The failed direct fit clarified that the old assembly needed freeing first.",
+    "step": 2,
+    "reason": "The freed caster assembly looks ready for its replacement cartridge.",
+    "choice": {
+      "combine": "Trolley with its caster freed",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The cartridge will replace the broken bearing and restore the trolley.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trolley is repaired and ready to move the clinic crate.",
+    "reaction": "The caster replacement was a satisfying, straightforward repair.",
+    "step": 3,
+    "reason": "The straight-running trolley should carry the rejected crate to the clinic door.",
+    "choice": {
+      "combine": "Straight-running trolley",
+      "with": "Rejected clinic crate"
+    },
+    "expectation": "The crate will be loaded onto the trolley for delivery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate reached the clinic, but the courier still needs a receiving signature and the system refusal remains unexplained.",
+    "reaction": "The physical delivery was straightforward, though the digital problem remains.",
+    "step": 4,
+    "reason": "The handset controls the rejected delivery and may reveal what its system refuses.",
+    "choice": {
+      "inspect": "Courier's handset"
+    },
+    "expectation": "Its available combinations should indicate how to investigate or resolve the refusal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's receipt records the delivery alongside the contradictory rejection; the system refusal still needs investigation.",
+    "reaction": "The conflicting records make the digital problem more concrete.",
+    "step": 5,
+    "reason": "The address plate may provide physical evidence to compare with the handset's rejected address.",
+    "choice": {
+      "combine": "Mud-covered clinic address plate",
+      "with": "Courier's handset"
+    },
+    "expectation": "The plate may help reveal why the handset refuses the clinic's address.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cleaning the plate revealed the clinic's address, 8B Latch Market, which can now be compared with the handset's record.",
+    "reaction": "The failed attempt usefully revealed that the plate needed cleaning first.",
+    "step": 6,
+    "reason": "The legible address may help identify what the courier's system refuses.",
+    "choice": {
+      "combine": "Clinic address plate: 8B Latch Market",
+      "with": "Courier's handset"
+    },
+    "expectation": "The handset will compare the visible address with its rejected record.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset read the address correctly but rejected it because it was absent from the active service directory; the dawn migration makes that exclusion urgent. Both goals are complete.",
+    "reaction": "The distinction between a correct address and an incomplete directory was a compelling reveal.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the cleaned plate with the handset was most worthwhile: it turned a delivery problem into a concrete question about who is included in shared infrastructure.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the cartridge before freeing the caster was less engaging because the direct fit failed, though the automatic repair kept it moving.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The handset recognized the address correctly but still refused it, and a directory migration was approaching at dawn.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Cleaning the plate with the repair roll was sensible in hindsight, but I initially expected the muddy plate to work directly with the handset.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. The contradictory delivery records and impending migration make me curious how the neighbors might challenge the directory, beyond the satisfying physical repair.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

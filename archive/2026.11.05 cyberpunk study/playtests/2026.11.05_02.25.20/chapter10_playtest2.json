@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "The cargo bike's loose mount needs repair before it can carry the clinic order.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Cargo bike with a loose carrier mount"
+    },
+    "expectation": "The repair roll should help secure the bike's carrier mount.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier mount is secured, so the matching rails can likely be fitted next.",
+    "reaction": "The practical safety check is reassuring.",
+    "step": 2,
+    "reason": "The matching carrier rails should fit the newly secured mount.",
+    "choice": {
+      "combine": "Matching cargo carrier rails",
+      "with": "Cargo bike with a secured carrier mount"
+    },
+    "expectation": "The rails should attach to the bike and prepare it to carry the clinic order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rails are fitted to the secured mount, ready for the clinic carrier.",
+    "reaction": "The rated fit makes the repair feel purposeful.",
+    "step": 3,
+    "reason": "The prepared carrier should fit the bike's newly installed rails.",
+    "choice": {
+      "combine": "Carrier with prepared thermal packs",
+      "with": "Cargo bike fitted for the clinic carrier"
+    },
+    "expectation": "The carrier should attach securely to the cargo bike for the collection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The prepared carrier is locked onto the bike, and Miro has the collection reference.",
+    "reaction": "The distinction between the clinic cabinet and the portable carrier is clear.",
+    "step": 4,
+    "reason": "The tested route slate should guide the equipped bike to the cold store and back.",
+    "choice": {
+      "combine": "Trolley-tested route slate",
+      "with": "Cargo bike with the prepared cold carrier"
+    },
+    "expectation": "Miro should use the local route to collect the clinic order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic order is collected via the surveyed local route, leaving the depot refusal to investigate.",
+    "reaction": "The successful collection is satisfying, though the idle van remains unexplained.",
+    "step": 5,
+    "reason": "Comparing the authorized dispatch export with Meridian's published policy may reveal why the depot refused the request.",
+    "choice": {
+      "combine": "Authorized depot dispatch export",
+      "with": "Meridian's published distribution policy"
+    },
+    "expectation": "The comparison should show which distribution rule affected the clinic's request.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Meridian's published distribution policy",
+          "with": "Depot's published reserved-capacity log"
+        },
+        "reason": "The capacity log might instead explain how the published policy was applied."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dispatch export shows that the clinic lost eligibility and priority under a commercial rule tied to address and contracted revenue.",
+    "reaction": "The automatic comparison clarified the refusal, though I had expected to compare the export with the policy first.",
+    "step": 6,
+    "reason": "The published distribution policy may explain the ranking fields exposed in the refusal.",
+    "choice": {
+      "combine": "Depot refusal with its ranking fields exposed",
+      "with": "Meridian's published distribution policy"
+    },
+    "expectation": "The policy should clarify how the commercial ranking rule applies to the clinic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The published policy confirms that contracted revenue, rather than clinical need, set the priority in this refusal.",
+    "reaction": "The distinction is clear, and the idle van now feels more pointed.",
+    "step": 7,
+    "reason": "The reserved-capacity log may show how the rule relates to the available van.",
+    "choice": {
+      "combine": "Published revenue rule matched to the refusal",
+      "with": "Depot's published reserved-capacity log"
+    },
+    "expectation": "The log should clarify whether reserved capacity explains why the van remained available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capacity log explains why the van remained idle: its availability had been sold to another customer. The rule is understood, but the van is still inaccessible.",
+    "reaction": "That distinction makes the depot’s claim of insufficient demand feel misleading rather than simply mistaken.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the refusal from its ranking fields through the published policy and capacity log was most worthwhile. It connected the clinic’s experience to specific commercial decisions without pretending that understanding them fixes the problem.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The successive mount and rail repairs were sensible but predictable; they offered less to think about than the investigation.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The van was not merely unused despite demand: its availability had been reserved for someone else.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "My first attempt to compare the dispatch export directly with the policy failed, although the game automatically paired it with the clinic dispatch instead. That prerequisite was not obvious to me.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see whether the neighbors can challenge the rules or build a durable alternative, especially since identifying the rule did not give them access to the van.",
+        "steps": [
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

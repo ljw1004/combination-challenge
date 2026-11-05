@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "Moth can examine Sal's recording as the starting point for a traceable clinic recommendation.",
+    "choice": {
+      "combine": "Moth with the missing intake exposed",
+      "with": "Sal's volunteered repair recording"
+    },
+    "expectation": "Moth will process the recorded repair request, likely producing a transcript or recommendation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's transcript misheard the request, so Sal's correction is needed before relying on it.",
+    "reaction": "The confident but wrong transcript makes the error clear.",
+    "step": 2,
+    "reason": "Sal's correction should address the mistaken transcript.",
+    "choice": {
+      "combine": "Sal's correction of the transcript",
+      "with": "Transcript asking for a code-box repair"
+    },
+    "expectation": "The transcript will be corrected to reflect Sal's actual request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The corrected request identifies cooling as the job and retains the audio for checking.",
+    "reaction": "Keeping the original alongside the correction is reassuring.",
+    "step": 3,
+    "reason": "The cooler's model plate should help make the service request specific to the equipment.",
+    "choice": {
+      "combine": "Corrected cold-box service request",
+      "with": "Clinic cooler's model plate photograph"
+    },
+    "expectation": "The request will incorporate the cooler's model information.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The request needed the local interface first; it now links the recommendation to its recording and correction.",
+    "reaction": "The automatic pairing clarified the next step after my incorrect guess.",
+    "step": 4,
+    "reason": "The model plate may now provide equipment-specific evidence for the sourced request.",
+    "choice": {
+      "combine": "Service request with source and correction",
+      "with": "Clinic cooler's model plate photograph"
+    },
+    "expectation": "The model plate will help identify the cooler in the recommendation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sourced request had to be connected to Moth; its evidence and correction controls are now visible.",
+    "reaction": "The compatibility feedback helped, though my model-plate guess was wrong again.",
+    "step": 5,
+    "reason": "The stalled sign motor is the other goal, and the repair roll is a plausible way to free it.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Stalled low-voltage sign motor"
+    },
+    "expectation": "The tools will free or repair the motor so it can turn again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor shaft is clear, so it can now be prepared to turn the sign.",
+    "reaction": "The trapped thread was a satisfyingly concrete cause of the stall.",
+    "step": 6,
+    "reason": "The protected power lead should let the freed motor run safely.",
+    "choice": {
+      "combine": "Sign motor with a clear shaft",
+      "with": "Sign's protected power lead"
+    },
+    "expectation": "The lead will power the freed motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The freed motor now runs smoothly on its protected lead and is ready for the sign.",
+    "reaction": "Seeing it complete a revolution confirms the repair worked.",
+    "step": 7,
+    "reason": "The turning motor should drive Sal's painted sign.",
+    "choice": {
+      "combine": "Sign motor turning smoothly",
+      "with": "Hand-painted noodle sign"
+    },
+    "expectation": "The sign will turn again with the repaired motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sign is turning again, completing Sal's repair goal; the clinic recommendation remains unfinished.",
+    "reaction": "The rotating sign and Sal's reply are a pleasing payoff to the repair.",
+    "step": 8,
+    "reason": "Moth now has source and correction controls; the cooler's model plate may provide evidence for its clinic recommendation.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Clinic cooler's model plate photograph"
+    },
+    "expectation": "Moth will use the model plate to make a more specific, traceable recommendation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The corrected request and model plate produced a cooling ticket matched to the cabinet and completed the remaining goal.",
+    "reaction": "It was satisfying to see the correction lead to a concrete repair choice.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Correcting the transcript and preserving the original audio was most worthwhile: it showed how a confident error could be checked and changed before affecting a repair.",
+        "steps": [
+          1,
+          2,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the model plate twice before the required interface and Moth connections felt repetitive, although the compatibility feedback kept progress moving.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Moth confidently turned train noise into a computer-repair request; Sal's correction revealed that the actual problem was cooling.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to connect the sourced request to the interface and then Moth before using the model plate was not clear to me at first.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the corrected ticket affects the clinic repair; the sign repair also offered a satisfying physical payoff.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

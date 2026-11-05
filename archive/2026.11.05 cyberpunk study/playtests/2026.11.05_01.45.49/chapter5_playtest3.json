@@ -1,0 +1,170 @@
+[
+  {
+    "step": 1,
+    "reason": "The printer is jammed, so the repair roll is a plausible way to restore it before examining its requests.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Jammed clinic request printer"
+    },
+    "expectation": "The tools should clear or repair the printer.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Clinic dispatch archive cartridge",
+          "with": "Depot intake export"
+        },
+        "reason": "The two records may be directly comparable, but the printer also needs attention."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer is cleared and ready to handle the archived requests.",
+    "reaction": "The straightforward repair was satisfying.",
+    "step": 2,
+    "reason": "The archive cartridge likely supplies the requests to the cleared printer.",
+    "choice": {
+      "combine": "Clinic dispatch archive cartridge",
+      "with": "Cleared request printer"
+    },
+    "expectation": "The printer should produce the clinic's archived requests for comparison.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Clinic dispatch archive cartridge",
+          "with": "Depot intake export"
+        },
+        "reason": "The records might be directly comparable without printing them first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic's requests are now printed and can be compared with the depot's intake.",
+    "reaction": "The printout makes the missing requests feel tangible.",
+    "step": 3,
+    "reason": "Comparing the printed requests with the intake export directly addresses the first goal.",
+    "choice": {
+      "combine": "Clinic's printed dispatch history",
+      "with": "Depot intake export"
+    },
+    "expectation": "The comparison should reveal which clinic requests never reached the depot's intake.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The comparison shows that an intake filter excluded requests from unlisted addresses, completing the first goal.",
+    "reaction": "The distinction between zero admitted requests and zero need is striking.",
+    "step": 4,
+    "reason": "The matching display module should restore the market queue board so it can show the missing work.",
+    "choice": {
+      "combine": "Matching noticeboard display module",
+      "with": "Market queue board with a dead display"
+    },
+    "expectation": "The replacement module should make the queue board usable again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The market queue board now has a working display for showing the missing requests.",
+    "reaction": "Reusing the old controller and case is a nice repair detail.",
+    "step": 5,
+    "reason": "The marked dispatch tape contains the missing work that the repaired board can show to the market.",
+    "choice": {
+      "combine": "Dispatch tape marked with missing requests",
+      "with": "Repaired market queue board"
+    },
+    "expectation": "The board should display the missing clinic requests.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The marked dispatch tape currently has no available combinations, so it cannot be put directly on the board.",
+    "reaction": "That was unexpected; I may need an intermediate step.",
+    "step": 6,
+    "reason": "Inspecting the repaired board should reveal how to prepare it to show the missing work.",
+    "choice": {
+      "inspect": "Repaired market queue board"
+    },
+    "expectation": "The board will list its available partners, possibly including the volunteered delivery histories.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Volunteered delivery histories"
+        },
+        "reason": "The histories may need preparation before they can be displayed."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The volunteered histories produced a public list distinguishing waiting jobs from deliveries collected by hand; the missing work is now visible to the market.",
+    "reaction": "The distinction between waiting and already collected is useful, though the dispatch tape's lack of a role was unexpected.",
+    "step": 7,
+    "reason": "Moth still needs to see the overlooked deliveries, so its terminal is the natural partner for the public list.",
+    "choice": {
+      "combine": "Public list of overlooked deliveries",
+      "with": "Moth's orange terminal"
+    },
+    "expectation": "Moth should use the list to recognize work missing from the depot count.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The public list needed the marked dispatch tape before Moth could be involved; the board now shows the intake gap and invites corrections.",
+    "reaction": "The correction mechanism is useful, though the required order was not obvious.",
+    "step": 8,
+    "reason": "The updated board is ready to show Moth the missing work.",
+    "choice": {
+      "combine": "Queue board showing the intake gap",
+      "with": "Moth's orange terminal"
+    },
+    "expectation": "Moth should recognize the gap between the public requests and the depot's count.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth recognized that missing records did not mean missing work and marked the directory unsuitable for estimating demand in Latch. Both chapter goals are complete.",
+    "reaction": "Moth acknowledging its mistaken recommendation was a satisfying conclusion.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the clinic's dispatch history with depot intake made the filter's effect concrete: zero admitted requests was not zero need.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to put the marked dispatch tape directly on the repaired board was frustrating because its required intermediate step was not apparent.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The tape initially had no available combination, but became usable once the board held the volunteered delivery histories.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for adding the dispatch tape felt unclear: the tape could not be used on the repaired board until a public list had been created.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the neighborhood uses the corrected evidence, although the unclear board sequence was a drawback.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

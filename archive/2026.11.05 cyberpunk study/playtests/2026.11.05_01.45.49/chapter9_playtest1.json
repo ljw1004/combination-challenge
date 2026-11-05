@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "The practice cases are the visible starting point for developing a local routing rule before testing it on unseen trips.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Anonymized route practice cases"
+    },
+    "expectation": "Moth will use the practice cases to prepare a routing rule, leaving the sealed evaluation pack for testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The settings fit the practice trips; they still need testing on unseen requests.",
+    "reaction": "The distinction between fitting and testing is clear.",
+    "step": 2,
+    "reason": "The sealed Tuesday pack provides the unseen cases needed to evaluate the fitted settings.",
+    "choice": {
+      "combine": "Local routing settings fitted to practice cases",
+      "with": "Sealed Tuesday evaluation pack"
+    },
+    "expectation": "The fitted settings will be tested against the Tuesday trips.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The unseen test exposed a two-carrier request the rule wrongly refused; the dispatcher can arrange a pair.",
+    "reaction": "The failure makes the rule's limitation concrete.",
+    "step": 3,
+    "reason": "The dispatch review switch and rule seem suited to correcting how this refusal is handled.",
+    "choice": {
+      "combine": "Tuesday test: one real request wrongly refused",
+      "with": "Dispatch review switch and rule"
+    },
+    "expectation": "The failed case will inform a review rule that sends such requests to a human dispatcher.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The revised rule sends difficult cases to a dispatcher, so the Tuesday score no longer evaluates the current rule.",
+    "reaction": "The need for a fresh test is clear.",
+    "step": 4,
+    "reason": "The fresh Wednesday pack can test the revised rule on cases it has not been adjusted to.",
+    "choice": {
+      "combine": "Local routing rule with human review",
+      "with": "Fresh Wednesday evaluation pack"
+    },
+    "expectation": "The revised rule will be evaluated on Wednesday's unseen requests.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The revised rule passed a fresh test involving a different problem, completing the routing goal.",
+    "reaction": "The staffed waiting point makes the human handoff concrete.",
+    "step": 5,
+    "reason": "The compatible speaker board directly addresses the talkbox's failed audio.",
+    "choice": {
+      "combine": "Compatible talkbox speaker board",
+      "with": "Clinic request talkbox with failed audio"
+    },
+    "expectation": "The replacement board will restore the talkbox's audio.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox now has working audio; it still needs a request control and connection.",
+    "reaction": "The clear reply confirms the repair.",
+    "step": 6,
+    "reason": "The large tactile call button is the obvious next fitting for a request talkbox.",
+    "choice": {
+      "combine": "Large tactile call button",
+      "with": "Talkbox with working audio"
+    },
+    "expectation": "The button will give the talkbox a usable call control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox now has an accessible tactile call button alongside its ordinary button; it still needs a connection.",
+    "reaction": "Keeping both buttons is a useful detail.",
+    "step": 7,
+    "reason": "The local request transmitter is the remaining apparent connection for sending a request and receiving a reply.",
+    "choice": {
+      "combine": "Local request transmitter",
+      "with": "Talkbox with a tactile call button"
+    },
+    "expectation": "The transmitter will connect the talkbox to the local request and reply route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset is complete and listens only when pressed, but the human reply route has not yet been demonstrated.",
+    "reaction": "The visible listening signal is a useful detail.",
+    "step": 8,
+    "reason": "The tested routing rule with human review is the most plausible way to connect handset requests to a dispatcher.",
+    "choice": {
+      "combine": "Clinic's deliberate-use request handset",
+      "with": "Revised routing rule tested on fresh cases"
+    },
+    "expectation": "A handset request will use the tested rule and have a route to a human reply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now reaches the tested queue, with difficult requests routed to Eli for a reasoned reply; both chapter goals are complete.",
+    "reaction": "It is satisfying to see the repaired device connected to a practical human fallback.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the revised rule on fresh Wednesday cases was most worthwhile: it showed a human handoff working on a different problem, not just the one used to revise the rule.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The talkbox assembly was straightforward and somewhat predictable compared with the routing decisions, though its accessibility details were useful.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The Tuesday test revealed that a two-carrier pickup was wrongly rejected because the rule could book only one volunteer, even though a dispatcher could arrange a pair.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the talkbox parts had clear functions, and the revised rule needed a fresh test.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the concrete failures and human workarounds made me curious how the neighborhood's systems might develop, even if the repairs themselves were fairly predictable.",
+        "steps": [
+          2,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "step": 1,
+    "reason": "Isolating the uplink directly tests whether the shared controls can operate without Meridian.",
+    "choice": 1,
+    "expectation": "The rack will be disconnected from the external uplink, letting us check its local operation; I don't yet know whether it will work.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Testing the clinic handset also matters, but I want to establish the offline condition first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The uplink is disconnected, but the green indicator alone doesn't verify the other services.",
+    "reaction": "The distinction makes me curious whether the clinic link survives.",
+    "step": 2,
+    "reason": "The handset test is the only offered combination and checks the clinic link offline.",
+    "choice": 1,
+    "expectation": "I expect the handset to test communication over the local radio link, though it may reveal a failure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios work, but clinic address discovery still depends on the corporate directory; the controller may provide a local alternative.",
+    "reaction": "The working road with a missing signpost is a clear, surprising failure.",
+    "step": 3,
+    "reason": "The only offered combination may let the controller supply the clinic's local address.",
+    "choice": 1,
+    "expectation": "I expect to configure local address discovery so the handset can find the clinic without the uplink, though it may need further testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now carries known local addresses and can configure the disconnected rack through its service port.",
+    "reaction": "The limited local directory feels like a practical fix, though it still needs testing.",
+    "step": 4,
+    "reason": "The only offered combination should apply the local directory settings to the rack.",
+    "choice": 1,
+    "expectation": "I expect the rack to receive the local directory configuration; a separate test may still be needed to confirm clinic calls work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rack now runs its own directory without the uplink, completing the local-control goal; clinic calls and water still need checking.",
+    "reaction": "Satisfying to see the missing directory moved onto cooperative equipment.",
+    "step": 5,
+    "reason": "The only offered combination may test the handset against the rack's local directory.",
+    "choice": 1,
+    "expectation": "I expect the handset to find the clinic through the rack, though a call or water-service check may still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset reaches Eli using the local directory, confirming clinic calls work without the uplink; water service still needs checking.",
+    "reaction": "The callback is a satisfying, human way to make the test convincing.",
+    "step": 6,
+    "reason": "The only offered combination should check the water service alongside the working clinic connection.",
+    "choice": 1,
+    "expectation": "I expect a rehearsal check of water monitoring and clinic calls while the uplink remains disconnected, though it could reveal another dependency.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stop-and-restart rehearsal confirms that local pump control, water and reporting work with the uplink disconnected; both goals are complete.",
+    "reaction": "Coordinating the test with Eli watching the tap made the successful rehearsal feel concrete.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The failed clinic call was the strongest moment: working radios still depended on a corporate directory, exposing a dependency the green light missed.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Loading the settings onto the handset and then applying them to the rack felt like a fairly mechanical two-step repair, especially with only one combination offered each time.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I didn't expect the radio link to exchange packets while the handset still couldn't find the clinic; the missing signpost analogy clarified why.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the single-option sequence left little room for meaningful choices after the failure.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. The hidden directory dependency and the concrete offline rehearsal made me curious about how the neighborhood's network will hold up beyond the test.",
+        "steps": [
+          2,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

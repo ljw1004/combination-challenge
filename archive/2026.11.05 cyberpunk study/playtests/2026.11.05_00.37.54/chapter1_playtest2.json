@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "Freeing the trolley seems useful for moving the clinic's crate through the door.",
+    "choice": 1,
+    "expectation": "I expect the repair roll to help loosen or remove the seized caster, possibly preparing the trolley for its replacement.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cleaning the address plate might help establish the clinic's address, but moving the crate seems a practical first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seized caster is free, and its broken bearing explains why it needs the replacement cartridge.",
+    "reaction": "The steering joke made the breakdown a little more memorable.",
+    "step": 2,
+    "reason": "Fit the replacement cartridge to get the trolley ready to move the crate.",
+    "choice": 1,
+    "expectation": "I expect the replacement to restore the trolley's caster so it can roll again.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The address plate may help investigate the rejected delivery, but I want to finish the trolley repair first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement caster restored the trolley, so it is ready to carry the crate.",
+    "reaction": "The four wheels agreeing on a direction is a satisfying finish to the repair.",
+    "step": 3,
+    "reason": "Use the repaired trolley to move the clinic's crate toward its door.",
+    "choice": 1,
+    "expectation": "I expect to load the crate onto the trolley, possibly getting it through the clinic door.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cleaning the address plate could help investigate the delivery rejection, but I want to move the crate first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is on the trolley, but the address problem remains unresolved.",
+    "reaction": "The distinction between the handling and address problems is clear.",
+    "step": 4,
+    "reason": "Clean the clinic's address plate to investigate why the courier's system rejects the delivery.",
+    "choice": 1,
+    "expectation": "I expect the repair roll to clean the plate and reveal its address, though that may not fix the system.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Restoring the bell could help at the clinic, but the address plate seems more directly relevant to the rejection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cleaned plate reveals the clinic's address, which I can now check against the courier's handset.",
+    "reaction": "Eli's potato-shaped eight is a funny detail.",
+    "step": 5,
+    "reason": "Check the revealed address against the courier's system to understand the rejection.",
+    "choice": 1,
+    "expectation": "I expect the handset to show how it handles 8B Latch Market, though it may still reject it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The bell could be useful, but checking the address is more directly relevant to the delivery problem."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset reads the address correctly but rejects it because it is absent from the active service directory; the investigation goal is complete.",
+    "reaction": "The distinction between a missing directory entry and a spelling error is informative.",
+    "step": 6,
+    "reason": "The bell repair is the only offered combination and may help get the crate through the door.",
+    "choice": 1,
+    "expectation": "I expect the battery to restore the wireless bell, though I am unsure how that will help with delivery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bell works and reaches Eli inside; the remaining offered combination pairs it with the crate.",
+    "reaction": "Eli's response is a reassuring bit of humor.",
+    "step": 7,
+    "reason": "Use the bell with the loaded trolley; it's the only offered combination and may get the crate inside.",
+    "choice": 1,
+    "expectation": "I expect ringing the bell to help Eli receive the crate, though I'm unsure exactly how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli helped get the crate inside and unload it; the trolley is now empty at the clinic.",
+    "reaction": "Getting the cooling parts through the real door is satisfying, even though the directory problem remains.",
+    "step": 8,
+    "reason": "Use the trolley with the handset; it's the only offered combination, though its purpose isn't clear yet.",
+    "choice": 1,
+    "expectation": "I expect the handset to record or acknowledge the delivery, but I'm unsure whether it will accept it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's signed receipt documents the delivery alongside the contradictory directory rejection, and both goals are complete.",
+    "reaction": "The conflicting records are a sharp, satisfying ending to the delivery.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Checking the address against the handset was most worthwhile: it showed that a correctly read address can still be missing from the service directory.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final trolley-and-handset combination was less engaging because its purpose was unclear and it was the only offered action.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The handset read the address correctly but rejected it anyway; the signed receipt later made the contradiction tangible.",
+        "steps": [
+          5,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Pairing the working bell with the loaded trolley felt a little indirect, though Eli opening the gate explained its purpose afterward.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The conflicting records make me curious how the neighborhood might challenge the directory, though the forced final combinations were less engaging.",
+        "steps": [
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

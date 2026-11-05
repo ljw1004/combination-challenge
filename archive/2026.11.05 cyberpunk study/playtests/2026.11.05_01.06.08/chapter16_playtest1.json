@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "Check the rooftop sightline before setting up the radio link between the market and clinic.",
+    "choice": 1,
+    "expectation": "I expect the scope to help assess or align the radio path, though the link may need more setup.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Measuring the batteries also supports independent power, but I want to check the link path first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios are aligned on a clear path, so they can now be connected to the local controller.",
+    "reaction": "The clear line below the track is a satisfying practical detail.",
+    "step": 2,
+    "reason": "Connect the aligned radios to the controller to establish the local link.",
+    "choice": 1,
+    "expectation": "I expect the controller to communicate over the radio link, though independent power may still need work.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Measuring the batteries supports the power goal, but I want to connect the radios first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The market and clinic now have a private local radio route; independent power remains to be addressed.",
+    "reaction": "It's useful to see the local link kept separate from the wider connection.",
+    "step": 3,
+    "reason": "Measure the battery pair as the only available combination toward powering the link.",
+    "choice": 1,
+    "expectation": "I expect a measurement useful for assessing the radio power supply, though I'm unsure exactly what it will show.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both battery packs have been checked under load, providing a basis for the radio power setup.",
+    "reaction": "The distinction between labels and measured behavior is useful.",
+    "step": 4,
+    "reason": "Connect the tested batteries to the matched power boxes; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the power boxes to prepare the batteries to supply the radios, though further connections may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested batteries now have local fuse protection and are ready to connect to the radio link.",
+    "reaction": "The fault protection is a useful practical detail.",
+    "step": 5,
+    "reason": "Connect the protected reserves to the link; this is the only offered combination and advances the power goal.",
+    "choice": 1,
+    "expectation": "I expect the battery reserves to power the radios independently, though charging may still need to be arranged.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both radios now run on protected batteries, with the old wall adapter disconnected; charging remains to be arranged.",
+    "reaction": "Disconnecting the overlooked wall adapter is a useful detail.",
+    "step": 6,
+    "reason": "Add the matched solar chargers to support the independent link; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the solar pair to provide charging for the radio batteries, though its capacity may have limits.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The solar kits can recharge the reserves in daylight, but the batteries must carry the link tonight.",
+    "reaction": "The reminder that solar adds no energy tonight is a useful constraint.",
+    "step": 7,
+    "reason": "Use the load meter on the link to assess its power use; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a measurement that helps assess how long the reserves can run the radios, though the result may have limits.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The measured reserves cover the remaining night with a margin, and the next goal is to reach Eli.",
+    "reaction": "Checking both actual loads makes the power plan feel grounded.",
+    "step": 8,
+    "reason": "Use Moth with the tested link to try reaching Eli; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect Moth to help communicate with Eli over the local link, though a further step may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's reply confirms the clinic link works, and Tin Row's call suggests a possible next step between networks.",
+    "reaction": "Eli's noodles make the successful test feel personal; Tin Row's offer sparks some curiosity.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Load-testing both operating radios was the most worthwhile step: it turned the battery setup into a grounded plan for getting through the night.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the batteries to the matched power boxes felt like a predictable intermediate step, though the fuse explanation gave it a purpose.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The old wall adapter still had to be disconnected for both ends of the link to be independent.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but most of the power sequence offered only one combination at a time, leaving little room for meaningful choice.",
+        "steps": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to continue, particularly to see how Latch and Tin Row connect their networks. The practical constraints were engaging, although I would hope for more choices than this chapter offered.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

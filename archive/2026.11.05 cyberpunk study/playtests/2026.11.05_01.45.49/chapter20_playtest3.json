@@ -1,0 +1,171 @@
+[
+  {
+    "step": 1,
+    "reason": "The archive has an uncertain history, so isolating the reader is a sensible first step before testing it.",
+    "choice": {
+      "combine": "Hardware isolation harness",
+      "with": "Spare maintenance reader"
+    },
+    "expectation": "The harness should prepare the reader to examine the archive without access to live controls.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reader can now display local files without sending data or operating equipment, so I can examine the archive within that boundary.",
+    "reaction": "The distinction between an actual isolation boundary and a caution is useful.",
+    "step": 2,
+    "reason": "The isolated reader is prepared to examine the shared archive safely.",
+    "choice": {
+      "combine": "Shared maintenance archive",
+      "with": "Isolated maintenance reader"
+    },
+    "expectation": "The reader should open the archive without giving it access to live controls.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The archive is now available as source material in an isolated session, without authority over equipment.",
+    "reaction": "The separation between useful information and control is clear.",
+    "step": 3,
+    "reason": "The dummy request seems suited to testing how the isolated session handles potentially hostile archive content.",
+    "choice": {
+      "combine": "Dummy request file",
+      "with": "Isolated maintenance session"
+    },
+    "expectation": "The session should process the test request without affecting live equipment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dummy request has no currently available combination, so my proposed test was premature.",
+    "reaction": "I’m unsure what preparation the test needs.",
+    "step": 4,
+    "reason": "Inspecting the isolated session should reveal what can be done with the archive next.",
+    "choice": {
+      "inspect": "Isolated maintenance session"
+    },
+    "expectation": "The session should list its available partners, possibly including a way to examine the archive.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth exposed an archive instruction to upload request history; the isolated session reveals its source without giving it authority.",
+    "reaction": "The hostile instruction makes the reason for isolation concrete.",
+    "step": 5,
+    "reason": "The dummy request may now let us test the exposed instruction without using real request history.",
+    "choice": {
+      "combine": "Dummy request file",
+      "with": "Session showing hostile instructions"
+    },
+    "expectation": "The session should test the suspicious instruction against dummy data rather than live records.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dummy-data test showed an attempted export blocked by isolation, completing the archive-testing goal without proving all malicious instructions detectable.",
+    "reaction": "Seeing the boundary stop a concrete attempt is satisfying.",
+    "step": 6,
+    "reason": "The matching fan is the obvious replacement for the rattling repeater's fan.",
+    "choice": {
+      "combine": "Matching repeater fan",
+      "with": "Rattling spare repeater"
+    },
+    "expectation": "The replacement fan should repair the repeater, although local authorization may still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fan has no available combination yet, so the repeater likely needs preparation first.",
+    "reaction": "The direct replacement was premature.",
+    "step": 7,
+    "reason": "The original wiring card may provide the information needed to prepare the repeater repair.",
+    "choice": {
+      "inspect": "Original fan wiring card"
+    },
+    "expectation": "The card should reveal an available repair step or compatible partner.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fan diagram matches the original wiring card, so its repair information has been independently checked despite the hostile instruction.",
+    "reaction": "It is useful to see that the archive can contain both valid and malicious content.",
+    "step": 8,
+    "reason": "The checked fan page should guide the repeater repair.",
+    "choice": {
+      "combine": "Fan page checked against the device",
+      "with": "Rattling spare repeater"
+    },
+    "expectation": "The checked diagram should prepare the repeater for its replacement fan.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repeater is isolated and open, and the checked diagram confirms the fan match.",
+    "reaction": "It is a relief to have reached the straightforward repair.",
+    "step": 9,
+    "reason": "The repeater is now prepared for its matching replacement fan.",
+    "choice": {
+      "combine": "Matching repeater fan",
+      "with": "Repeater prepared for its replacement fan"
+    },
+    "expectation": "The replacement fan should fit and repair the repeater's rattling fan.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement fan passed the repeater's service test; local authorization remains to be addressed.",
+    "reaction": "The quiet service test is a satisfying repair result.",
+    "step": 10,
+    "reason": "The residents' service fobs are the available means of granting local authority to the repaired repeater.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Quiet repaired repeater"
+    },
+    "expectation": "The fobs should authorize the repaired repeater under local control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal's fob enabled the repaired repeater's network port, completing the repair under local authority without giving the maintenance session control.",
+    "reaction": "The separation between repair advice and authorization made for a satisfying finish.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the hostile instruction with dummy records was most worthwhile: the attempted export made the isolation boundary concrete rather than merely a warning.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the replacement fan before preparing the repeater was an unproductive detour; the result did not explain what preparation was missing.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The archive contained both an instruction to upload private history and a useful fan diagram that could be checked against the device.",
+        "steps": [
+          4,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to involve Moth before the dummy request could be used was not obvious to me; I discovered it by inspecting the session.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would choose another chapter: the concrete security test and the physical repair worked together, and I would be curious to see how the locally controlled network develops.",
+        "steps": [
+          5,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

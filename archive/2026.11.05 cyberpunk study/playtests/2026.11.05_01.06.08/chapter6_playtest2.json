@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll have Moth process Sal's recording first, moving toward a traceable clinic recommendation.",
+    "choice": 1,
+    "expectation": "Moth will produce a transcript or interpretation of the request, though the train noise may cause errors.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the sign motor also serves a goal, but I want to see how Moth handles the noisy recording first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transcript misheard the request as a computer repair, so Sal's correction is needed before relying on it.",
+    "reaction": "The confident but wrong interpretation is a striking example of how plausible wording can mislead.",
+    "step": 2,
+    "reason": "I'll apply Sal's correction to address the transcription error.",
+    "choice": 1,
+    "expectation": "The transcript should reflect Sal's intended request, though I don't yet know how the correction will be recorded.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The motor still needs repair, but correcting the mistaken request comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal's correction identifies the job as cooling repair, with the original audio retained for checking.",
+    "reaction": "Keeping the audio alongside the correction is a useful, concrete detail.",
+    "step": 3,
+    "reason": "I'll connect the corrected request to the source-and-correction interface to make it traceable.",
+    "choice": 1,
+    "expectation": "The interface will link the request to its source and correction, though I don't know exactly how.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor still needs repair, but I'll continue with the clinic request first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The request now links to the recording and Sal's correction, making its evidence inspectable rather than automatically trustworthy.",
+    "reaction": "The distinction between a source and proof is clear and useful.",
+    "step": 4,
+    "reason": "I'll give the sourced request to Moth to continue developing the clinic recommendation.",
+    "choice": 1,
+    "expectation": "Moth will use the corrected request, with its source attached, to produce or refine a recommendation.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor still needs repair, but I want to finish following the clinic request first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth can now show its sources and accept corrections; the cooler's model plate may help refine its recommendation.",
+    "reaction": "The undo-button exchange gives the correction controls a nice personality.",
+    "step": 5,
+    "reason": "I'll give Moth the cooler's model information to continue the clinic recommendation.",
+    "choice": 1,
+    "expectation": "Moth may use the model plate to make a more specific recommendation, though I don't know what it will suggest.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor still needs repair, but I'll continue the clinic task first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The corrected request and model plate identified a compatible fan cartridge, completing the clinic recommendation goal.",
+    "reaction": "It's satisfying to see the correction lead to a concrete repair choice.",
+    "step": 6,
+    "reason": "The sign motor is the remaining goal, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The repair roll should help free or diagnose the stalled motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Removing trapped thread cleared the motor shaft, so it is ready for the power lead.",
+    "reaction": "The thread is a small, plausible cause for the stall.",
+    "step": 7,
+    "reason": "Connecting the protected lead is the only offered combination and should move the sign repair forward.",
+    "choice": 1,
+    "expectation": "The motor should be ready to run on protected power, though the sign may still need fitting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor now turns smoothly on its protected lead, ready for the sign.",
+    "reaction": "Sal watching a full revolution is a satisfying little test.",
+    "step": 8,
+    "reason": "Fitting the sign is the only offered combination and should complete the repair.",
+    "choice": 1,
+    "expectation": "The painted noodle sign should turn on the repaired motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sign is turning again, completing the remaining goal and the chapter.",
+    "reaction": "Moth's observation and Sal's reply make the finished repair amusing.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Matching the corrected request to the cooler's model plate was most worthwhile: it showed how a human correction changed a concrete repair choice.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the motor's power lead was straightforward progress, but less engaging as the only offered combination.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Moth confidently turned train noise into a plausible but wrong computer-repair request.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the source-and-correction interface was a convenient ready-made solution rather than something I had to figure out.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd be curious to see how the neighborhood uses Moth's correction controls, though the guided combinations leave limited room for discovery.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

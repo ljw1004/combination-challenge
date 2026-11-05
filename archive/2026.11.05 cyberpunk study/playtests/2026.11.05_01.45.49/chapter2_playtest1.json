@@ -1,0 +1,143 @@
+[
+  {
+    "step": 1,
+    "reason": "The matching insert looks like the replacement part for Miro's damaged speaker.",
+    "choice": {
+      "combine": "Miro's cracked little speaker",
+      "with": "Matching speaker insert"
+    },
+    "expectation": "The insert should repair the speaker, or reveal what preparation it needs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The speaker is repaired and ready to connect to Miro's player.",
+    "reaction": "The preserved concert dates are a nice detail.",
+    "step": 2,
+    "reason": "Connecting the repaired speaker to the music player should give Miro his music back.",
+    "choice": {
+      "combine": "Repaired little speaker",
+      "with": "Miro's pocket music player"
+    },
+    "expectation": "The player should play through the repaired speaker.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Miro's music is restored, leaving the terminal and missing address to investigate.",
+    "reaction": "The quiet music on the stall shelf is a satisfying finish to the repair.",
+    "step": 3,
+    "reason": "The discarded terminal is the remaining lead, but its repair requirements aren't clear yet.",
+    "choice": {
+      "inspect": "Discarded orange service terminal"
+    },
+    "expectation": "Inspection should reveal which available parts or tools can be used with the terminal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open terminal has dirty contacts and a split display ribbon, identifying two repairs needed before use.",
+    "reaction": "The inspection made the faults clear.",
+    "step": 4,
+    "reason": "Contact cleaner directly addresses the dirty contacts.",
+    "choice": {
+      "combine": "Orange terminal with its cover open",
+      "with": "Electronics contact cleaner"
+    },
+    "expectation": "The cleaner should restore the terminal's dirty contacts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Orange terminal with its cover open",
+          "with": "Matching display ribbon"
+        },
+        "reason": "Replacing the split ribbon is also a visible repair."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The contacts are clean; the split display ribbon still needs replacement.",
+    "reaction": "The distinction between removing corrosion and damaging the contact is a satisfying repair detail.",
+    "step": 5,
+    "reason": "The matching ribbon should replace the terminal's split display ribbon.",
+    "choice": {
+      "combine": "Orange terminal with clean contacts",
+      "with": "Matching display ribbon"
+    },
+    "expectation": "The terminal should have a functional display connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The display connection is repaired and the terminal is closed; it still needs power.",
+    "reaction": "The tidy repair is satisfying.",
+    "step": 6,
+    "reason": "The protected workshop power supply is the obvious way to power the repaired terminal.",
+    "choice": {
+      "combine": "Orange terminal with its display repaired",
+      "with": "Protected workshop power supply"
+    },
+    "expectation": "The terminal should power on so I can investigate the missing address.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The terminal is powered and Moth is awake, so I can ask about the address rejection.",
+    "reaction": "Moth's response gives the repaired terminal a welcome personality.",
+    "step": 7,
+    "reason": "The saved rejection contains the missing-address problem Moth may be able to investigate.",
+    "choice": {
+      "combine": "Moth's orange terminal",
+      "with": "Address rejection saved from the handset"
+    },
+    "expectation": "Moth should examine the rejection and explain what it knows about the missing address.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's cached map shows Latch as a service gap, explaining why its old directory would divert deliveries rather than recognizing the neighborhood.",
+    "reaction": "The contrast between the map and the active street outside is striking.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Opening and diagnosing the terminal made the subsequent repairs understandable, and waking Moth gave the work a personality and a connection to the larger problem.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Cleaning the contacts and replacing the ribbon were straightforward successive repairs; satisfying in detail, but not especially demanding decisions.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Moth's cached map treats the neighborhood as a service gap even though people and businesses are clearly there.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the terminal's visible faults explained the repairs, and the saved rejection gave Moth a clear question to investigate.",
+        "steps": [
+          3,
+          4,
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the neighbors challenge the directory before migration, especially after Moth's map showed how the error affects deliveries.",
+        "steps": [
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

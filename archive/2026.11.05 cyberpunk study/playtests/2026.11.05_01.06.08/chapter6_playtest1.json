@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with Sal's recording to see how Moth handles the noisy clinic request.",
+    "choice": 1,
+    "expectation": "Moth may produce a transcript or recommendation, though the train noise could cause errors.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the sign motor addresses the other goal, but I'm more curious about the recording first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's transcript misheard the request, so Sal's correction is the next useful step.",
+    "reaction": "The confident but wrong transcription is a clear example of how a plausible sentence can mislead.",
+    "step": 2,
+    "reason": "Apply Sal's correction to the mistaken transcript.",
+    "choice": 1,
+    "expectation": "The transcript should reflect Sal's intended request, though it may need further verification.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The motor also needs repair, but correcting the request follows naturally from the error."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal's correction identifies a cooling repair, with the original recording retained for checking.",
+    "reaction": "Keeping the audio alongside the correction makes the correction usefully traceable.",
+    "step": 3,
+    "reason": "Use the source-and-correction interface to make the corrected request traceable.",
+    "choice": 1,
+    "expectation": "The interface may link the request to its recording and correction, though further details could still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor still needs repair, but I want to follow the request through first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The request now links to its recording and correction, making its basis inspectable rather than automatically trustworthy.",
+    "reaction": "The distinction between having a source and proving a claim is useful.",
+    "step": 4,
+    "reason": "Give Moth the sourced request to continue the clinic recommendation.",
+    "choice": 1,
+    "expectation": "Moth may produce a recommendation based on the corrected request, perhaps needing further verification.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor still needs attention, but I'd like to finish following the request first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth now exposes its sources and correction controls; the cooler's model plate may provide further evidence.",
+    "reaction": "Moth's remark about undo buttons adds a welcome bit of personality to the repair.",
+    "step": 5,
+    "reason": "Use the model plate to ground the clinic recommendation in the actual cooler.",
+    "choice": 1,
+    "expectation": "Moth may identify the cooler or refine its recommendation, though the photograph alone may not establish the fault.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor still needs repair, but I'd like to finish the clinic request first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The corrected request and model plate led Moth to a compatible fan cartridge, completing the clinic goal.",
+    "reaction": "It's satisfying to see the correction change the actual repair.",
+    "step": 6,
+    "reason": "The sign motor is the only remaining offered combination and addresses the other goal.",
+    "choice": 1,
+    "expectation": "The repair roll may free the stalled motor, though the sign may still need power and assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Removing trapped thread cleared the motor shaft, so it can now be connected to power.",
+    "reaction": "The trapped thread is a small, amusing explanation for the stall.",
+    "step": 7,
+    "reason": "Connect the protected power lead; it's the only offered combination and advances the sign repair.",
+    "choice": 1,
+    "expectation": "The motor should receive power, though the painted sign may still need attaching.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cleared motor now turns smoothly on its protected lead, ready for the sign.",
+    "reaction": "Sal watching a full revolution is a nice, practical test.",
+    "step": 8,
+    "reason": "Attach the painted sign to the working motor; it's the only offered combination and should finish the repair.",
+    "choice": 1,
+    "expectation": "The noodle sign should turn again on the repaired motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sign is turning again, completing the remaining goal and the chapter.",
+    "reaction": "Moth's observation and Sal's reply make the finished repair amusing.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Matching the corrected request to the cooler's model plate was most satisfying: the correction changed the actual repair, not just the wording.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the motor to its power lead was straightforward and less engaging than clearing the trapped thread or seeing the sign turn.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Moth confidently turned train noise into a plausible but wrong computer-repair request; Sal's correction changed it to a cooling job.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the named source-and-correction interface was a convenient, ready-made solution whose workings remained abstract.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The combination of tangible repairs, Moth's personality and the consequences of correcting its mistake makes me curious about what happens next.",
+        "steps": [
+          1,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

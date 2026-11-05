@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "The replacement cartridge looks suited to repairing the trolley's seized caster, which could help move the crate.",
+    "choice": {
+      "combine": "Trolley with a seized caster",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The replacement cartridge will repair the trolley's caster.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seized caster had to be removed before installing its replacement; the trolley is now ready for the next repair step.",
+    "reaction": "The failed bearing makes the repair sequence clear.",
+    "step": 2,
+    "reason": "The old caster is removed, so the replacement cartridge should now fit.",
+    "choice": {
+      "combine": "Trolley with failed caster removed",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The replacement cartridge will restore the trolley's caster.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trolley is repaired and can now plausibly carry the clinic crate.",
+    "reaction": "The matching caster's straightforward installation is satisfying.",
+    "step": 3,
+    "reason": "The repaired trolley should help move the rejected crate to the clinic door.",
+    "choice": {
+      "combine": "Straight-running trolley",
+      "with": "Rejected clinic crate"
+    },
+    "expectation": "The crate will be loaded onto the trolley for delivery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is inside the clinic, but the courier still needs a signature and the system refusal remains unexplained.",
+    "reaction": "Getting the crate through the real door is satisfying, even though the paperwork remains unresolved.",
+    "step": 4,
+    "reason": "The address plate and handset are the clearest available clues to what the courier's system refuses.",
+    "choice": {
+      "combine": "Mud-covered clinic address plate",
+      "with": "Courier's handset"
+    },
+    "expectation": "Comparing the plate with the handset may reveal why the clinic's address is rejected.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cleaning the plate revealed the clinic's address, 8B Latch Market, which can now be compared with the courier's handset.",
+    "reaction": "The hand-painted eight is a small, amusing detail.",
+    "step": 5,
+    "reason": "The legible address may help identify what the courier's system rejects.",
+    "choice": {
+      "combine": "Clinic address plate: 8B Latch Market",
+      "with": "Courier's handset"
+    },
+    "expectation": "The handset will check or reveal its response to the clinic's address.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset reads the address correctly but rejects it because it is absent from the active directory; the migration at dawn may make that exclusion permanent.",
+    "reaction": "The distinction between a bad address and an excluded directory entry is intriguing.",
+    "step": 6,
+    "reason": "The crate is delivered, but the courier still needs a receiving signature, so I'll try the delivered crate with the handset.",
+    "choice": {
+      "combine": "Delivered clinic crate",
+      "with": "Courier's handset"
+    },
+    "expectation": "The handset may record receipt of the delivered crate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's signature completed the delivery and left a receipt alongside the rejected address lookup, preserving the contradiction.",
+    "reaction": "Seeing the successful receipt beside the failed lookup was a satisfying ending.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Checking the cleaned address against the handset was most worthwhile: it revealed that the system excluded a correctly read address, making the infrastructure problem concrete.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Removing the old caster before installing the replacement was clear once shown, but that repair sequence was less interesting than the directory discovery.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The handset read the address correctly but rejected it because it was absent from the active directory; the impending migration raised the stakes.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary. My initial attempts to install the caster and check the muddy plate needed preparatory work, which the compatibility feedback made clear.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd be curious to see how the neighbors address the directory exclusion, especially after the receipt exposed the contradiction.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

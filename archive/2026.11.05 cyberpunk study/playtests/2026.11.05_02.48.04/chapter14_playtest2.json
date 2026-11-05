@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "The tablet is the core of the request desk, but the sponsor app makes its next useful repair unclear.",
+    "choice": {
+      "inspect": "Sponsor-loaded request tablet"
+    },
+    "expectation": "The compatibility list should show how to start preparing the tablet for private requests.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sponsor app is removed and the microphone is physically disconnected, so the tablet is ready for the request-desk fittings.",
+    "reaction": "The physical disconnection makes the privacy change concrete.",
+    "step": 2,
+    "reason": "A large button should give people a deliberate way to make requests on the prepared tablet.",
+    "choice": {
+      "combine": "Large request button",
+      "with": "Tablet with microphone disconnected"
+    },
+    "expectation": "The button will be fitted to the tablet for deliberate requests.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The large button now operates the form's Send control; the microphone remains disconnected.",
+    "reaction": "The accessible send control is a useful, concrete improvement.",
+    "step": 3,
+    "reason": "The folded hood should give people more privacy while using the request tablet.",
+    "choice": {
+      "combine": "Folded screen hood",
+      "with": "Request tablet with large button"
+    },
+    "expectation": "The hood will fit over the tablet screen to shield requests from nearby viewers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet now has a privacy hood as well as the large send button.",
+    "reaction": "The hood addresses a different privacy concern from the disconnected microphone.",
+    "step": 4,
+    "reason": "The receipt printer is a plausible next fitting for the request desk.",
+    "choice": {
+      "combine": "Old receipt printer",
+      "with": "Hooded tablet with large button"
+    },
+    "expectation": "The printer will connect to the tablet to provide a paper record of a request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer connects to the local controller rather than directly to the tablet, producing a local queue printer with privacy and deletion controls.",
+    "reaction": "I had expected a direct connection; the separate handling of return details is useful.",
+    "step": 5,
+    "reason": "The hooded tablet and local queue printer are the prepared parts of the request desk, so I expect them to connect now.",
+    "choice": {
+      "combine": "Hooded tablet with large button",
+      "with": "Local queue printer"
+    },
+    "expectation": "The tablet will send requests to the local queue and provide receipts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet connects separately to the local controller, with its outside route blocked and microphone still disconnected.",
+    "reaction": "I expected it to connect directly to the printer; the controller is the common link instead.",
+    "step": 6,
+    "reason": "The screen-shielded tablet and local queue printer are now both connected locally, so I will try bringing them together.",
+    "choice": {
+      "combine": "Screen-shielded request tablet",
+      "with": "Local queue printer"
+    },
+    "expectation": "The tablet and printer will form a working private request desk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet and printer now form a private request desk with receipts and non-digital access.",
+    "reaction": "The pencil offers a useful alternative to using the tablet.",
+    "step": 7,
+    "reason": "The remaining goal is optional AI help, so Moth is the natural addition to the desk.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Private request desk"
+    },
+    "expectation": "Moth will provide optional assistance without making AI use mandatory.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's help is opt-in and its proposed wording is shown before sending; the private request desk goal is complete.",
+    "reaction": "Sal keeping her original wording makes the choice feel genuinely hers.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting Moth as optional help was most worthwhile: people can review its suggestion and retain their own words.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two attempts to connect the printer and tablet directly were repetitive, though the feedback clarified that each needed the controller first.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The printer and tablet each connected to the controller separately before they could form a desk; I had expected a direct connection.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The exact connection order was not obvious from the object names, although the compatibility feedback made the required steps clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the practical privacy choices and Sal's response to Moth made me curious how the neighborhood will use what it has built.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

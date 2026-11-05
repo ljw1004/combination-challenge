@@ -1,0 +1,161 @@
+[
+  {
+    "step": 1,
+    "reason": "The tablet's sponsor app obstructs the request form, but it is not yet clear how to remove or replace it.",
+    "choice": {
+      "inspect": "Sponsor-loaded request tablet"
+    },
+    "expectation": "The compatibility list should show how to begin making the tablet suitable for voluntary requests.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Service screwdriver",
+          "with": "Sponsor-loaded request tablet"
+        },
+        "reason": "The screwdriver might open the tablet, but the visible problem is an app rather than a confirmed hardware fault."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The listening app is removed and the microphone physically disconnected; the tablet is ready for further request-desk work.",
+    "reaction": "The physical disconnection makes the privacy change reassuringly concrete.",
+    "step": 2,
+    "reason": "A large request button is an obvious way to make the form deliberately accessible.",
+    "choice": {
+      "combine": "Large request button",
+      "with": "Tablet with microphone disconnected"
+    },
+    "expectation": "The button will give people a deliberate way to start a request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The button has no available combination yet, so another part of the request desk likely needs attention first.",
+    "reaction": "I was premature in assuming the button could be fitted immediately.",
+    "step": 3,
+    "reason": "Checking the modified tablet should reveal the next available part of the setup.",
+    "choice": {
+      "inspect": "Tablet with microphone disconnected"
+    },
+    "expectation": "The tablet's compatibility list will show how to continue preparing the request desk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet now uses the local controller and has its outside network route blocked.",
+    "reaction": "The local-only default makes the privacy protection more concrete.",
+    "step": 4,
+    "reason": "The request button may now be usable with the locally connected tablet; I am retrying it because the setup has changed.",
+    "choice": {
+      "combine": "Large request button",
+      "with": "Local request tablet"
+    },
+    "expectation": "The button will give people a deliberate way to start a request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The button now sends a written request only when pressed.",
+    "reaction": "The distinction between standing nearby and choosing to send is satisfying.",
+    "step": 5,
+    "reason": "The folded hood should give people more privacy while they write on the tablet.",
+    "choice": {
+      "combine": "Folded screen hood",
+      "with": "Press-to-send request tablet"
+    },
+    "expectation": "The hood will shield the request screen from nearby onlookers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hood shields the request form from the queue; the desk still needs any remaining components.",
+    "reaction": "A simple cardboard shield is a satisfying privacy measure.",
+    "step": 6,
+    "reason": "The old receipt printer may give requesters a record of what they submitted.",
+    "choice": {
+      "combine": "Old receipt printer",
+      "with": "Screen-shielded request tablet"
+    },
+    "expectation": "The printer will add a printed receipt to the request desk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer now works through the local controller, producing receipts while keeping return details off the shared queue.",
+    "reaction": "I was wrong about connecting it directly to the tablet, but the privacy controls are useful.",
+    "step": 7,
+    "reason": "The local queue printer and shielded request tablet appear to be the prepared parts of the request desk.",
+    "choice": {
+      "combine": "Local queue printer",
+      "with": "Screen-shielded request tablet"
+    },
+    "expectation": "Combining them will complete a request desk with private submission and receipts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet and printer now form a private request desk, though the goal has not yet been reported complete.",
+    "reaction": "The pencil and paper option is a welcome alternative to speaking to a machine.",
+    "step": 8,
+    "reason": "Moth is the remaining obvious component to connect with the completed desk, though its exact role is unclear.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Private request desk"
+    },
+    "expectation": "Moth may help handle requests from the desk while preserving the user's choice and access to corrections.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Private request desk"
+        },
+        "reason": "I could check its available partners first, but Moth appears to be the remaining relevant item."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth adds optional rewriting with a preview, and the request desk goal is complete.",
+    "reaction": "Sal keeping her original wording makes the choice feel tangible.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting Moth to the desk was most worthwhile: help is optional, its wording is shown before sending, and Sal can keep her own words.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Retrying the button after discovering the tablet needed a local connection was a little repetitive, though the first failed attempt clarified the sequence.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The printer connected to the controller rather than directly to the tablet; the compatibility feedback performed that connection automatically.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The button's initial unavailability felt somewhat arbitrary until the tablet was connected locally; the result did not explain why that order was required.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The concrete privacy choices and optional assistance made this chapter engaging, and I would be curious to see how the neighborhood uses the desk.",
+        "steps": [
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

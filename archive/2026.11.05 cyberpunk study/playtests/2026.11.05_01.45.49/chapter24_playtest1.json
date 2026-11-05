@@ -1,0 +1,180 @@
+[
+  {
+    "step": 1,
+    "reason": "The workshop needs to be easy to find, and bright paint looks suited to marking its front.",
+    "choice": {
+      "combine": "Signwriter's bright paint",
+      "with": "Workshop front at dawn"
+    },
+    "expectation": "The paint will make the workshop front more visible.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The paint has no available combination, so marking the front that way is not currently possible.",
+    "reaction": "That was an unexpected dead end.",
+    "step": 2,
+    "reason": "The retired address display may give the workshop a visible location.",
+    "choice": {
+      "combine": "Retired address display",
+      "with": "Workshop front at dawn"
+    },
+    "expectation": "The display will be installed or adapted to identify the workshop.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Workshop front at dawn"
+        },
+        "reason": "Checking the front's available partners could clarify how to make it findable."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The address display is now configured with the local address and request-desk call button; it may be ready to identify the workshop.",
+    "reaction": "The automatic setup was a useful surprise.",
+    "step": 3,
+    "reason": "The configured display should help people find and contact the workshop from its front.",
+    "choice": {
+      "combine": "Local delivery display",
+      "with": "Workshop front at dawn"
+    },
+    "expectation": "The display will be installed at the workshop front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The configured display cannot currently be combined with anything, so I don't yet know how it contributes to opening the workshop.",
+    "reaction": "That was another unexpected dead end.",
+    "step": 4,
+    "reason": "Inspecting the workshop front should reveal what can actually be done with it.",
+    "choice": {
+      "inspect": "Workshop front at dawn"
+    },
+    "expectation": "The inspection will identify available partners for preparing the workshop front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal's fob opened the shutter and made the stocked workshop accessible.",
+    "reaction": "The automatic opening clarified the next stage.",
+    "step": 5,
+    "reason": "The bright paint may now be useful for marking the opened workshop.",
+    "choice": {
+      "combine": "Open workshop shutter",
+      "with": "Signwriter's bright paint"
+    },
+    "expectation": "The paint will add a visible workshop sign or marking.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Open workshop shutter"
+        },
+        "reason": "I could check its available partners first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open workshop now has a freshly painted sign identifying it.",
+    "reaction": "Sal's addition to the sign was a nice touch.",
+    "step": 6,
+    "reason": "The remaining goal of giving the night shift a reason to linger suggests putting the breakfast noodles in Sal's hot broth.",
+    "choice": {
+      "combine": "Fresh breakfast noodles",
+      "with": "Sal's pot of hot broth"
+    },
+    "expectation": "The noodles and broth will make a meal for the shift.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The noodles and broth became breakfast, completing the night-shift goal.",
+    "reaction": "It's satisfying to see the shift get a proper break.",
+    "step": 7,
+    "reason": "The local audio receiver looks like a suitable way to connect Miro's working speaker to the local network.",
+    "choice": {
+      "combine": "Local network audio receiver",
+      "with": "Miro's speaker playing again"
+    },
+    "expectation": "The receiver will connect to the speaker for local audio.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Freshly lettered workshop"
+        },
+        "reason": "I could check what remains to open the workshop."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver is tuned to Tin Row through a separate public-audio channel; it has not yet been connected to the speaker.",
+    "reaction": "The separate channel is a useful detail, though the attempted pairing took an unexpected route.",
+    "step": 8,
+    "reason": "The tuned receiver and working speaker now seem ready to play Tin Row's broadcast.",
+    "choice": {
+      "combine": "Receiver tuned to Tin Row",
+      "with": "Miro's speaker playing again"
+    },
+    "expectation": "The speaker will play the broadcast received from Tin Row.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The speaker now plays Tin Row's broadcast; the workshop-opening goal remains.",
+    "reaction": "Reusing the repaired speaker is a nice callback.",
+    "step": 9,
+    "reason": "Inspecting the freshly lettered workshop should clarify what remains to open it for use.",
+    "choice": {
+      "inspect": "Freshly lettered workshop"
+    },
+    "expectation": "The inspection will reveal any available next step for the workshop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically installed the local delivery display, opening the workshop and completing the final goal.",
+    "reaction": "It was satisfying to see the address display finally help someone find the bench.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Opening the workshop with the local display brought the repair and address problems together in a concrete result: a rider could find a bench the neighborhood can maintain.",
+        "steps": [
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The early attempts to mark the front and install the display were frustrating dead ends; the required order was not yet clear.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Trying the display against the front instead automatically configured it through the controller; later, inspecting the lettered workshop finally installed it.",
+        "steps": [
+          2,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The paint having no available operation before the shutter was opened felt unintuitive, even though it worked afterward.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter to see how the workshop and its neighbors use the network, although the early dead ends made this chapter's ordering less satisfying.",
+        "steps": [
+          1,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

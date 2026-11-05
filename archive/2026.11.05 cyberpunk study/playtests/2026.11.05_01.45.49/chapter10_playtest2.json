@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "The matching rails look like the appropriate first adjustment for Miro's cargo bike.",
+    "choice": {
+      "combine": "Matching cargo carrier rails",
+      "with": "Miro's cargo bike awaiting adjustment"
+    },
+    "expectation": "The rails should fit the bike and help prepare it to carry the clinic order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rails have no available combination yet, so the bike may need adjustment first.",
+    "reaction": "The failed attempt was unexpected given the matching rails.",
+    "step": 2,
+    "reason": "The repair roll may let June adjust the bike before the rails can be fitted.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Miro's cargo bike awaiting adjustment"
+    },
+    "expectation": "The bike will be adjusted and ready for its cargo rails.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bike's carrier mount is now sound, making the matching rails the logical next fitting.",
+    "reaction": "The adjustment explains why the rails weren't usable earlier.",
+    "step": 3,
+    "reason": "The matching rails should now fit the repaired carrier mount.",
+    "choice": {
+      "combine": "Matching cargo carrier rails",
+      "with": "Cargo bike with a sound carrier mount"
+    },
+    "expectation": "The rails will be fitted to prepare the bike for carrying the clinic order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bike is now fitted to secure the clinic carrier.",
+    "reaction": "The rated rails make the carrying arrangement feel more dependable than a strapped-on stack.",
+    "step": 4,
+    "reason": "The prepared carrier should fit the bike's newly installed rails for the collection.",
+    "choice": {
+      "combine": "Carrier with prepared thermal packs",
+      "with": "Cargo bike fitted for the clinic carrier"
+    },
+    "expectation": "The carrier will be secured to the cargo bike for the clinic order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cold carrier is secured to the bike, and Miro has the collection reference.",
+    "reaction": "The distinction between the stationary cabinet and portable carrier is clear.",
+    "step": 5,
+    "reason": "The tested route slate should guide the loaded cargo bike to the cold store.",
+    "choice": {
+      "combine": "Trolley-tested route slate",
+      "with": "Cargo bike with the prepared cold carrier"
+    },
+    "expectation": "Miro will use the local route to collect the clinic order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic order has been collected, leaving the depot refusal to investigate.",
+    "reaction": "The local collection worked, though the idle van remains unexplained.",
+    "step": 6,
+    "reason": "The dispatch export and published distribution policy may reveal which rule caused the refusal.",
+    "choice": {
+      "combine": "Authorized depot dispatch export",
+      "with": "Meridian's published distribution policy"
+    },
+    "expectation": "Comparing the dispatch records with the policy will identify or narrow down the refusal rule.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The request reached the depot, but its address and low contracted revenue caused it to lose eligibility and priority under a commercial rule.",
+    "reaction": "It is striking that a received request can still be excluded by those ranking fields.",
+    "step": 7,
+    "reason": "Comparing the exposed ranking fields with Meridian's published policy should clarify the rule behind the refusal.",
+    "choice": {
+      "combine": "Depot refusal with its ranking fields exposed",
+      "with": "Meridian's published distribution policy"
+    },
+    "expectation": "The policy will explain how the address and revenue fields affect eligibility and priority.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The published policy confirms that contracted revenue, rather than clinic need, determines priority.",
+    "reaction": "The distinction makes the refusal clearer, but leaves the idle van unexplained.",
+    "step": 8,
+    "reason": "The reserved-capacity log may explain why the van remained available despite the refused request.",
+    "choice": {
+      "combine": "Published revenue rule matched to the refusal",
+      "with": "Depot's published reserved-capacity log"
+    },
+    "expectation": "The log will add context about the van's reserved capacity and the refusal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capacity log explains the idle van: it was reserved for another customer, while the demand claim omitted both the clinic order and that reservation. Both goals are complete.",
+    "reaction": "The explanation is illuminating but frustrating: knowing the rule does not give the clinic access to the van.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Tracing the refusal from the dispatch fields through the published policy and capacity log was most worthwhile. It showed how a received request could lose priority and why an apparently available van stayed idle.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial failed attempt to fit the matching rails was the least worthwhile moment; the required adjustment was not apparent from the rail names alone.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The request reached the depot but lost eligibility and priority because of its address and low contracted revenue, rather than its need.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Fitting the matching rails only after repairing the bike initially felt arbitrary, although the subsequent description of the unsound mounting hardware explained the sequence.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the investigation clarified the commercial rule without resolving the neighborhood's access to the van, leaving a meaningful problem to follow.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

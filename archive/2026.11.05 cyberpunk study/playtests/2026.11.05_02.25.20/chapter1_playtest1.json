@@ -1,0 +1,161 @@
+[
+  {
+    "step": 1,
+    "reason": "The replacement cartridge looks like a direct fix for the trolley's seized caster, which could help move the crate.",
+    "choice": {
+      "combine": "Trolley with a seized caster",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The replacement cartridge should repair the trolley's caster.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mud-covered clinic address plate",
+          "with": "Courier's handset"
+        },
+        "reason": "The plate might help investigate the rejected address, but repairing the trolley is a clearer first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The failed caster had to be removed with the repair roll before installing its replacement.",
+    "reaction": "The automatic repair step clarified the order; the crumbling bearing was a vivid detail.",
+    "step": 2,
+    "reason": "The trolley is now ready for the replacement caster cartridge.",
+    "choice": {
+      "combine": "Trolley with failed caster removed",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The replacement cartridge will restore the trolley's mobility.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement caster is installed, leaving a working trolley.",
+    "reaction": "The four wheels agreeing on a direction is a satisfying repair detail.",
+    "step": 3,
+    "reason": "The working trolley should help move the rejected crate to the clinic door.",
+    "choice": {
+      "combine": "Straight-running trolley",
+      "with": "Rejected clinic crate"
+    },
+    "expectation": "The crate will be loaded onto the trolley for delivery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is inside the clinic, but the courier still needs a receiving signature and the address refusal remains unexplained.",
+    "reaction": "Getting the cooling parts through the real doorway is satisfying, though the system still needs attention.",
+    "step": 4,
+    "reason": "The courier's handset is the clearest place to investigate why the address was refused and how to complete the signature.",
+    "choice": {
+      "inspect": "Courier's handset"
+    },
+    "expectation": "Inspection will reveal what can interact with the handset or help resolve the refusal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mud-covered clinic address plate",
+          "with": "Courier's handset"
+        },
+        "reason": "The physical address might help, but I don't yet know whether the handset can use it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's signature completed the delivery goal, and the saved receipt contains the failed destination lookup.",
+    "reaction": "The contradiction between the signed receipt and the nonexistent address is intriguing.",
+    "step": 5,
+    "reason": "The receipt may provide a way to examine the failed lookup and understand what the system refuses.",
+    "choice": {
+      "inspect": "Eli's signed receiving receipt"
+    },
+    "expectation": "The receipt's available partners may reveal how to investigate the address refusal.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Courier's handset"
+        },
+        "reason": "The handset also displays the failed lookup, but the newly saved receipt seems worth checking first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receipt has no available combinations, so it does not currently provide a way to investigate the lookup.",
+    "reaction": "That is mildly disappointing given the failed lookup appeared on it.",
+    "step": 6,
+    "reason": "The muddy address plate may need cleaning before it can help establish the clinic's address.",
+    "choice": {
+      "combine": "Mud-covered clinic address plate",
+      "with": "June's repair roll"
+    },
+    "expectation": "The repair roll may help clean the plate so its address can be read.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Mud-covered clinic address plate"
+        },
+        "reason": "Inspection could identify its available partners, but cleaning it seems plausible enough to try."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cleaning the plate revealed the clinic's address, 8B Latch Market.",
+    "reaction": "Eli's potato-shaped eight is a funny detail, though the address refusal still needs explaining.",
+    "step": 7,
+    "reason": "The readable plate may let the handset check the clinic's actual address.",
+    "choice": {
+      "combine": "Clinic address plate: 8B Latch Market",
+      "with": "Courier's handset"
+    },
+    "expectation": "The handset will use the address on the plate to reveal something about the failed lookup.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset reads the address correctly but rejects it because it is absent from the active service directory; the dawn migration raises the stakes. Both goals are complete.",
+    "reaction": "The distinction between a readable address and an excluded directory entry was an intriguing reveal.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Repairing the trolley and delivering the crate made the physical problem tangible, with the broken bearing and newly aligned wheels giving the repair satisfying detail.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the signed receipt led nowhere, despite its connection to the failed lookup.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The handset could read the correct address and still reject it because the directory excluded it, rather than because of a spelling error.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; removing the failed caster before installing its replacement made physical sense, even though I initially tried the replacement first.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. The directory migration and the contradiction between the real clinic and the system's records make me curious how the neighbors will respond.",
+        "steps": [
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

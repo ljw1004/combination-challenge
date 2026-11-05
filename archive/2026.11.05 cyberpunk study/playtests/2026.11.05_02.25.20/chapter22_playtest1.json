@@ -1,0 +1,137 @@
+[
+  {
+    "step": 1,
+    "reason": "A backup cartridge and Moth's terminal are the natural starting point for preserving its local settings before repair.",
+    "choice": {
+      "combine": "Blank backup cartridge",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "The cartridge will receive a copy of Moth's local settings, which can then be tested.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cartridge now holds Moth's selected software, settings and corrections; the copy still needs testing.",
+    "reaction": "Moth's question makes the distinction between a backup and identity feel consequential.",
+    "step": 2,
+    "reason": "The isolated reader is a plausible place to check the recovery copy without disturbing Moth.",
+    "choice": {
+      "combine": "Moth's recovery copy",
+      "with": "Isolated maintenance reader"
+    },
+    "expectation": "The reader will test or inspect the copied settings independently.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Moth's recovery copy",
+          "with": "Cooling cradle with empty recovery port"
+        },
+        "reason": "The recovery port might be the intended place to test the copy instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The isolated restore recovered the map correction, completing the tested-backup goal without resolving Moth's question about identity.",
+    "reaction": "The concrete recovery test is reassuring, and its limits are clear.",
+    "step": 3,
+    "reason": "The replacement switch should address the terminal's faulty off switch before it goes into the cooling cradle.",
+    "choice": {
+      "combine": "Replacement terminal off switch",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "The terminal will gain a working off switch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch cannot be fitted yet, so another preparation may be needed first.",
+    "reaction": "I expected the switch replacement to be straightforward.",
+    "step": 4,
+    "reason": "The cradle has a recovery port, and the tested cartridge appears designed to fit it.",
+    "choice": {
+      "combine": "Tested settings cartridge in its sleeve",
+      "with": "Cooling cradle with empty recovery port"
+    },
+    "expectation": "The tested recovery cartridge will be fitted to the cradle.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cooling cradle with empty recovery port"
+        },
+        "reason": "I could check its compatible partners before attempting the fitting."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested backup is attached to the cradle's read-only port, ready before Moth's case is opened.",
+    "reaction": "The access flap is a neat detail that keeps the protected copy available.",
+    "step": 5,
+    "reason": "The prepared cradle and Moth's terminal are the obvious next pairing for the case repair.",
+    "choice": {
+      "combine": "Cooling cradle with recovery cartridge attached",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "Moth will be prepared for the cooling and switch repairs with the recovery copy close at hand.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cradle's rear module quieted Moth's fan; the off switch remains to be repaired.",
+    "reaction": "The quieter fan is satisfying progress.",
+    "step": 6,
+    "reason": "With the cooling repair done, the replacement switch may now fit the prepared terminal.",
+    "choice": {
+      "combine": "Replacement terminal off switch",
+      "with": "Moth with a quiet fan"
+    },
+    "expectation": "The replacement will restore Moth's off switch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch was fitted and tested with Moth's agreement; its voice returned with the saved settings, completing the chapter.",
+    "reaction": "The consent and accessible switch make the repair feel respectful, though the power cycle does not settle the identity question.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the backup on an isolated reader was the most worthwhile action: recovering the map correction demonstrated what the copy could actually restore without claiming to resolve Moth's identity.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed switch attempt was the least worthwhile passage: it gave no useful compatibility information beyond saying the switch could not yet be combined.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Moth's question about whether the copy was still Moth shifted the backup from a routine precaution into a question the repair could not answer.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The switch had to wait until after the cooling repair, but the failed attempt did not explain that dependency. The eventual sequence worked, though its necessity was not clear to me.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the tested backup and Moth's response gave the practical repair an unresolved personal dimension I would like to see explored.",
+        "steps": [
+          1,
+          2,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

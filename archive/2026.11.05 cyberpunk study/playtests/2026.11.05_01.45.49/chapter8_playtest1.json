@@ -1,0 +1,159 @@
+[
+  {
+    "step": 1,
+    "reason": "The reserve-power goal calls for a measurement, so the enclosed load meter is a sensible first check on the cooler.",
+    "choice": {
+      "combine": "Clinic's enclosed load meter",
+      "with": "Clinic cooler under independent monitoring"
+    },
+    "expectation": "The meter will measure the cooler's electrical load for planning reserve power.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meter measured the essential-equipment panel rather than the cooler directly, including cycling peaks needed for backup planning.",
+    "reaction": "The distinction between peak and average load is useful; my initial pairing was wrong.",
+    "step": 2,
+    "reason": "The matched backup unit appears to be the appropriate equipment for supplying the measured essential loads.",
+    "choice": {
+      "combine": "Matched clinic backup power unit",
+      "with": "Measured essential-load panel"
+    },
+    "expectation": "The backup unit will connect to or be checked against the measured essential-load panel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The backup power unit has no available operation yet, so it likely needs other preparation first.",
+    "reaction": "My attempted connection was premature.",
+    "step": 3,
+    "reason": "The charged reserve battery and enclosed reserve switch look like the natural starting pair for the backup supply.",
+    "choice": {
+      "combine": "Charged clinic reserve battery",
+      "with": "Enclosed clinic reserve switch"
+    },
+    "expectation": "The switch will provide a controlled connection for the reserve battery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reserve estimate is now tied to the measured essential load, with a margin through collection; adding loads would change it.",
+    "reaction": "The automatic pairing clarified the next step after my incorrect guess.",
+    "step": 4,
+    "reason": "The fitted insulating jacket should prepare the latching crate to carry cold supplies.",
+    "choice": {
+      "combine": "Carrier's fitted insulating jacket",
+      "with": "Clinic's latching transport crate"
+    },
+    "expectation": "The jacket will fit around the crate to make an insulated carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is now insulated, including its lid, and ready for the next carrier preparation.",
+    "reaction": "The lid detail makes the insulation step feel practical.",
+    "step": 5,
+    "reason": "The prepared thermal packs belong in the insulated carrier for the next collection.",
+    "choice": {
+      "combine": "Prepared clinic thermal packs",
+      "with": "Insulated clinic transport carrier"
+    },
+    "expectation": "The thermal packs will prepare the carrier to keep its contents cold.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier now has prepared thermal packs and handling rules, completing the cold-carrier goal.",
+    "reaction": "The reminder that its cold buffer is limited is useful.",
+    "step": 6,
+    "reason": "The reserve estimate is tied to the measured essential load, so the enclosed switch looks like the next step in connecting reserve power.",
+    "choice": {
+      "combine": "Reserve estimate tied to measured load",
+      "with": "Enclosed clinic reserve switch"
+    },
+    "expectation": "The switch will connect the measured essential loads to reserve power.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The approved switch has isolated the essential circuits for reserve use; the backup supply still needs connecting.",
+    "reaction": "The advertisements going dark makes the distinction between essential and nonessential loads concrete.",
+    "step": 7,
+    "reason": "The matched backup power unit should now connect to the isolated essential circuits.",
+    "choice": {
+      "combine": "Matched clinic backup power unit",
+      "with": "Essential circuits isolated for reserve use"
+    },
+    "expectation": "The backup unit will supply the isolated essential circuits from reserve power.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The backup unit is connected to the essential circuits, but its battery connector is empty.",
+    "reaction": "The distinction between a connected circuit and an actual power source is clear.",
+    "step": 8,
+    "reason": "The charged reserve battery should supply the connected backup unit.",
+    "choice": {
+      "combine": "Charged clinic reserve battery",
+      "with": "Reserve power unit connected to essential circuits"
+    },
+    "expectation": "Rae will connect the battery to supply the essential circuits.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The charged battery now supplies the isolated essential circuit through the matched backup unit.",
+    "reaction": "The reserve feed is in place; the cooler still needs to be connected or checked.",
+    "step": 9,
+    "reason": "The monitored clinic cooler is essential equipment, so I will try it with the reserve feed.",
+    "choice": {
+      "combine": "Clinic cooler under independent monitoring",
+      "with": "Clinic reserve power feed"
+    },
+    "expectation": "The cooler will operate on the essential reserve circuit, with its monitoring still in place.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooler is now running on reserve power with its logger checked, completing the remaining goal.",
+    "reaction": "Seeing the cooling survive the transfer was a satisfying confirmation of the preparations.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the battery and then checking the cooler on reserve made the distinction between a prepared circuit and a working supply tangible.",
+        "steps": [
+          7,
+          8,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the backup unit against the measured panel was unproductive: it had no available operation yet, and the result gave no further direction.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The battery combined with the measured panel to produce a reserve estimate, rather than connecting to the switch as I expected. The estimate also accounted for cycling peaks and a margin.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The battery-to-panel pairing for an estimate was not obvious to me; I had expected to prepare a physical connection instead.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the neighborhood handles the directory migration; the practical repairs and their limits were engaging, even if some combinations were hard to anticipate.",
+        "steps": [
+          6,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

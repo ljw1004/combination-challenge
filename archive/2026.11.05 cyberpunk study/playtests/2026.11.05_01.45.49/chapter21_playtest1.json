@@ -1,0 +1,182 @@
+[
+  {
+    "step": 1,
+    "reason": "The compatible spares belong in the service cupboard for the handoff.",
+    "choice": {
+      "combine": "Compatible maintenance spares",
+      "with": "Workshop service cupboard"
+    },
+    "expectation": "The cupboard will be stocked with usable maintenance supplies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cupboard is stocked with labeled compatible spares, with faulty parts kept separate.",
+    "reaction": "The clear separation of good and bad parts is satisfying.",
+    "step": 2,
+    "reason": "The known faulty cartridge and isolated practice panel are a natural pair for training the next shift.",
+    "choice": {
+      "combine": "Known faulty training cartridge",
+      "with": "Isolated practice panel"
+    },
+    "expectation": "The cartridge will provide a safe fault for someone to practice diagnosing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The practice panel now presents a missing signal despite having power, creating a fault for operators to diagnose.",
+    "reaction": "That distinction makes the training fault more interesting than a simple power failure.",
+    "step": 3,
+    "reason": "I want to see what can be done with the faulted panel to prepare the handoff.",
+    "choice": {
+      "inspect": "Practice panel with a real fault"
+    },
+    "expectation": "The panel's available partners should show how the operators can practice or document the diagnosis.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's diagram helped Miro and Sal locate the practice fault without disturbing the neighboring connector.",
+    "reaction": "The shared verification makes the exercise feel practical.",
+    "step": 4,
+    "reason": "The alarm bell and tested neighbor link directly match the goal of providing a local fault alarm.",
+    "choice": {
+      "combine": "Local shift alarm bell",
+      "with": "Tested neighbor request link"
+    },
+    "expectation": "The bell will be connected to indicate a fault on the neighbor link.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The alarm bell has no available operation yet, so the link alarm likely needs preparation first.",
+    "reaction": "The failed attempt leaves its required setup unclear.",
+    "step": 5,
+    "reason": "The located training fault may have a next step toward a usable handoff; inspection will clarify it.",
+    "choice": {
+      "inspect": "Practice panel with the fault located"
+    },
+    "expectation": "The panel's compatible partners will show how to complete the training exercise.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal restored the practice panel with a matching spare, and Miro now wants to try using his own login.",
+    "reaction": "The handoff is becoming a practical exercise rather than just a written procedure.",
+    "step": 6,
+    "reason": "Miro's login suggests using the residents' service fobs on the restored panel.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Practice panel restored"
+    },
+    "expectation": "Miro will be able to verify the restored panel using his own authorization.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Miro independently repeated the check and demonstrated the local stop, completing a practical second handoff.",
+    "reaction": "The separate logins and hands-on checks make the handoff convincing.",
+    "step": 7,
+    "reason": "The completed practice handoff and stocked cupboard seem like the pieces needed to leave the next shift usable supplies and guidance.",
+    "choice": {
+      "combine": "Practice panel after a second handoff",
+      "with": "Stocked maintenance cupboard"
+    },
+    "expectation": "The exercise and stocked supplies will form a usable maintenance handoff.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed practice panel cannot currently be combined with anything, so the handoff needs another route.",
+    "reaction": "The next step is unclear.",
+    "step": 8,
+    "reason": "Inspecting the stocked cupboard may reveal how to finish the supplies and handoff goal.",
+    "choice": {
+      "inspect": "Stocked maintenance cupboard"
+    },
+    "expectation": "The compatibility report will show whether the cupboard can contribute to the handoff.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Locally approved spare repeater"
+        },
+        "reason": "The repeater may instead be the missing preparation for the link alarm."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fobs made the stocked cupboard accessible to Sal and Miro, and Ren checked its mechanical fallback; the handoff goal is complete.",
+    "reaction": "The independent access is a satisfying complement to the practice handoff.",
+    "step": 9,
+    "reason": "The spare repeater may be needed to prepare the neighbor link before the alarm bell can be used, but its role is not yet clear.",
+    "choice": {
+      "inspect": "Locally approved spare repeater"
+    },
+    "expectation": "Its compatibility report should reveal the next available step toward the link alarm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired repeater is installed in the neighbor link, with a tested bypass that keeps the original route usable during removal.",
+    "reaction": "The bypass makes the spare more useful for the night shift.",
+    "step": 10,
+    "reason": "The link is now prepared, so the local alarm bell may be ready to connect.",
+    "choice": {
+      "combine": "Local shift alarm bell",
+      "with": "Neighbor link with a replaceable repeater"
+    },
+    "expectation": "The bell will provide a local fault alarm for the neighbor link.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested bell now alerts the agreed shift responders to a repeater fault, completing the remaining goal.",
+    "reaction": "The tested alarm and assigned responders make the handoff feel complete.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The practice fault and second handoff were most worthwhile: distinguishing a missing signal from lost power, then having another operator repeat the checks, made the training feel concrete.",
+        "steps": [
+          2,
+          3,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to combine the completed practice panel with the cupboard was frustrating; it left the route to the handoff unclear until I inspected the cupboard.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The alarm could not be connected directly to the tested link; installing the spare repeater first also revealed a useful bypass for maintenance.",
+        "steps": [
+          4,
+          9,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the residents' fobs on the cupboard made sense once shown, but the completed practice panel could not combine with it despite the shared handoff goal.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the practical fault diagnosis and the emphasis on other people being able to maintain the infrastructure made me curious about what the neighborhood does next, although the blocked combinations were occasionally unclear.",
+        "steps": [
+          2,
+          3,
+          6,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

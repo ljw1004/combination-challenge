@@ -1,0 +1,163 @@
+[
+  {
+    "step": 1,
+    "reason": "Moth can work from Sal's volunteered recording before the transcript is corrected.",
+    "choice": {
+      "combine": "Moth with the missing intake exposed",
+      "with": "Sal's volunteered repair recording"
+    },
+    "expectation": "Moth will produce a transcript or interpretation of the clinic's request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth produced a confident but incorrect transcript, so Sal's correction is needed before relying on it.",
+    "reaction": "The train noise producing a plausible wrong repair is striking.",
+    "step": 2,
+    "reason": "Sal's correction should identify what the recording actually requested.",
+    "choice": {
+      "combine": "Transcript asking for a code-box repair",
+      "with": "Sal's correction of the transcript"
+    },
+    "expectation": "The transcript will be corrected to reflect Sal's request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The correction identifies a cooling request, with the original audio retained for checking.",
+    "reaction": "Keeping the source alongside the correction makes the change more trustworthy.",
+    "step": 3,
+    "reason": "The cooler's model plate should supply equipment details for the corrected service request.",
+    "choice": {
+      "combine": "Corrected cold-box service request",
+      "with": "Clinic cooler's model plate photograph"
+    },
+    "expectation": "The request will gain the cooler's model information for a more specific recommendation.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Corrected cold-box service request",
+          "with": "Local source-and-correction interface"
+        },
+        "reason": "The interface may instead be the next step for making the request traceable."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The model photograph was not yet compatible; the interface was automatically used to link the request to its source and correction.",
+    "reaction": "The reminder that a source still needs inspection is useful; I had guessed the order wrong.",
+    "step": 4,
+    "reason": "The model photograph may now add the equipment details needed for the service recommendation.",
+    "choice": {
+      "combine": "Service request with source and correction",
+      "with": "Clinic cooler's model plate photograph"
+    },
+    "expectation": "The service request will incorporate the cooler's model information.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sourced request was installed in Moth rather than combined with the model photograph, giving it source and correction controls.",
+    "reaction": "I guessed the order wrong again, but the visible route back to evidence is a useful result.",
+    "step": 5,
+    "reason": "The stalled sign motor is a clear repair task for June's repair roll.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Stalled low-voltage sign motor"
+    },
+    "expectation": "The repair roll will help free the motor so it can turn again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor shaft is clear, so the sign can now be assembled and powered.",
+    "reaction": "The trapped thread was a satisfyingly concrete fault.",
+    "step": 6,
+    "reason": "The cleared motor should fit the painted sign before it is powered.",
+    "choice": {
+      "combine": "Sign motor with a clear shaft",
+      "with": "Hand-painted noodle sign"
+    },
+    "expectation": "The motor will be attached to the sign so it can turn.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sign motor with a clear shaft",
+          "with": "Sign's protected power lead"
+        },
+        "reason": "The motor might need its power lead connected first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor needed its protected lead before it could be attached to the sign; it is now turning smoothly.",
+    "reaction": "The automatic correction resolved another mistaken ordering guess.",
+    "step": 7,
+    "reason": "The powered, tested motor should now turn Sal's painted sign.",
+    "choice": {
+      "combine": "Sign motor turning smoothly",
+      "with": "Hand-painted noodle sign"
+    },
+    "expectation": "The motor will be fitted to the sign and make it turn.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor now turns Sal's sign, completing that goal; the clinic recommendation still needs attention.",
+    "reaction": "The rotating sign and Sal's business-model joke are a satisfying finish to the repair.",
+    "step": 8,
+    "reason": "Moth now has source and correction controls, so the cooler's model plate may provide the evidence needed for its recommendation.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Clinic cooler's model plate photograph"
+    },
+    "expectation": "Moth will use the model plate to make a traceable recommendation for the cooler.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth matched the corrected request and model plate to a compatible fan cartridge, completing the clinic goal and the chapter.",
+    "reaction": "It was satisfying to see Sal's correction change the actual repair, not just the transcript.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Correcting the transcript was most worthwhile: it changed the job from software to cooling while preserving the audio for checking, and ultimately led to the right cartridge.",
+        "steps": [
+          2,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated ordering guesses were less satisfying: the model photograph was rejected twice before it became usable, although the automatic combinations kept progress moving.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Moth turned train noise into a confident but wrong computer-repair request; the plausible wording made the error particularly striking.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for linking the sourced request to Moth before using the model photograph was not clear to me from the available pieces.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue: the concrete sign repair and the way a human correction affected the clinic repair made me curious about what happens next, despite the occasionally opaque ordering.",
+        "steps": [
+          2,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

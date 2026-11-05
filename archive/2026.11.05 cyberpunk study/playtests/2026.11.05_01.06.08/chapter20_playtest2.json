@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The only available action should prepare an isolated reader for testing the untrusted archive.",
+    "choice": 1,
+    "expectation": "I expect the harness to isolate the reader, though the archive may need further checks before use.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reader now has a concrete isolation boundary, so I can inspect the archive without giving it a route to equipment.",
+    "reaction": "The distinction between a technical boundary and an instruction to be careful is clear and satisfying.",
+    "step": 2,
+    "reason": "The archive can now be examined on the isolated reader; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect to see what the archive contains, but its contents may still be untrustworthy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The archive is loaded as source material in the isolated session, without giving its contents authority over equipment.",
+    "reaction": "The distinction between a software session and a separate device is useful.",
+    "step": 3,
+    "reason": "Connecting Moth to the isolated session is the only offered gameplay action and should let it examine the material.",
+    "choice": 1,
+    "expectation": "I expect Moth to review the archive within the isolated session; its contents may include misleading instructions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The archive contains an unauthorized instruction that the session repeated, so its repair advice needs checking against a trusted source.",
+    "reaction": "The injected upload request is a clear and unsettling example of source text being mistaken for authority.",
+    "step": 4,
+    "reason": "I want to test how the session handles a harmless dummy file without exposing real request histories.",
+    "choice": 1,
+    "expectation": "I expect the dummy file to reveal whether the hostile instruction influences the session; the isolation should prevent an actual upload.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The original wiring card could check the repair advice, but I want to test the hostile instruction first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dummy test showed that the session attempted the unauthorized export, but the isolation blocked it; it does not establish that every malicious instruction would be caught.",
+    "reaction": "The attempted export makes the value of the boundary concrete.",
+    "step": 5,
+    "reason": "The only offered gameplay action compares the suspect session with the original fan wiring card, which may help establish a safe repair plan.",
+    "choice": 1,
+    "expectation": "I expect the wiring card to help check the archive's fan instructions, though it may not settle everything.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fan diagram agrees with the maker's card, providing a checked basis for the repair despite the hostile instruction elsewhere.",
+    "reaction": "The mixed trustworthy and malicious content is a useful complication.",
+    "step": 6,
+    "reason": "The only offered gameplay action applies the checked fan information to the rattling repeater.",
+    "choice": 1,
+    "expectation": "I expect to identify or prepare the fan for replacement, though the repair may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repeater is isolated and its fan checked against both the original card and the diagram, ready for replacement.",
+    "reaction": "The return to an ordinary repair after the hostile instruction is a relief.",
+    "step": 7,
+    "reason": "The only offered gameplay action fits the matching replacement fan.",
+    "choice": 1,
+    "expectation": "I expect the replacement fan to fix the rattling, though the repeater may still need a check before use.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement fan passed the repeater's enclosed service test, leaving local authorization as the next step.",
+    "reaction": "The quiet test is a satisfying finish to the physical repair.",
+    "step": 8,
+    "reason": "The only offered gameplay action uses the residents' fobs to put the repaired repeater under local authority.",
+    "choice": 1,
+    "expectation": "I expect the fobs to authorize the repeater for local use, though it may need further configuration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repeater is repaired and enabled under local authority; the isolated maintenance session never received the key. Both chapter goals are complete.",
+    "reaction": "The separation between useful advice and authority over equipment is a satisfying conclusion.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the hostile instruction with dummy records made the isolation boundary tangible: the session attempted an export, but lacked the network and credentials to carry it out.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Preparing and fitting the replacement fan was straightforward and somewhat predictable, though the quiet service test gave it a satisfying payoff.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The archive contained both an unauthorized upload instruction and a useful fan diagram that matched the original wiring card.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although most choices were the only offered gameplay action, so the sequence involved little independent decision-making.",
+        "steps": [
+          1,
+          2,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in seeing how the neighborhood uses its repaired infrastructure, though I would hope for more meaningful choices than this mostly linear chapter offered.",
+        "steps": [
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

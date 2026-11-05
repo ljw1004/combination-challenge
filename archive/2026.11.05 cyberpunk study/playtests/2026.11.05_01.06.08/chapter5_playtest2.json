@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "Repairing the printer may help recover or inspect the clinic's requests for comparison with depot intake.",
+    "choice": 1,
+    "expectation": "I expect to clear the printer jam, though the archive cartridge may still need a separate step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The display also needs repair, but I want to investigate the missing requests first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer is cleared, so I can try the archive cartridge next.",
+    "reaction": "The straightforward repair was satisfying.",
+    "step": 2,
+    "reason": "The cartridge should let the cleared printer produce the clinic's request records.",
+    "choice": 1,
+    "expectation": "I expect a printout of the archived requests, though comparison with depot intake may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The queue board also needs repair, but the request records are the more immediate next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The archive produced the clinic's dispatch history, ready to compare with depot intake.",
+    "reaction": "The image of the long printout makes the missing requests feel tangible.",
+    "step": 3,
+    "reason": "Comparing the two records directly advances the first goal.",
+    "choice": 1,
+    "expectation": "I expect to identify requests present in the clinic history but absent from the depot export.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The display needs repair too, but the comparison comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The comparison traced the missing requests to an intake filter; the market display is the next available task.",
+    "reaction": "The distinction between no admitted requests and no need is clear and striking.",
+    "step": 4,
+    "reason": "This is the only offered combination, and repairing the board should help show the missing work.",
+    "choice": 1,
+    "expectation": "I expect the replacement module to restore the queue board's display.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The queue board's display is repaired and ready for the volunteered histories.",
+    "reaction": "Reusing the old controller and case is a nice repair detail.",
+    "step": 5,
+    "reason": "This is the only offered combination and should help show the market's missing delivery work.",
+    "choice": 1,
+    "expectation": "I expect the volunteered histories to appear on the board, though the dispatch tape may need a separate step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The board now shows overlooked deliveries while distinguishing waiting jobs from those collected by hand.",
+    "reaction": "That distinction makes the missing count more concrete.",
+    "step": 6,
+    "reason": "This is the only offered combination and should bring the clinic evidence together with the public list.",
+    "choice": 1,
+    "expectation": "I expect a combined account of the overlooked requests; showing it to Moth may take another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The board now connects the omitted requests to the depot gap and allows people to correct an explicitly incomplete list.",
+    "reaction": "The ability to correct the evidence is a useful detail.",
+    "step": 7,
+    "reason": "This is the only offered combination and should show the intake gap to Moth.",
+    "choice": 1,
+    "expectation": "I expect Moth to receive or examine the board's evidence, though its response is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth recognized that missing records were not missing work and marked the directory unsuitable for estimating local demand. Both chapter goals are complete.",
+    "reaction": "Moth acknowledging the mistake was a satisfying conclusion to the comparison.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the clinic and depot records was most worthwhile: the intake filter made the difference between an empty count and unmet need concrete.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Replacing the board display felt fairly routine, especially as it was the only offered combination.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Moth had recommended keeping vans away based on the incomplete directory, then recognized why that inference was wrong.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary, though several later actions were the only offered combinations rather than meaningful choices.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the repair work connects to a consequential infrastructure problem, and I am curious how the neighbors will challenge the directory.",
+        "steps": [
+          3,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

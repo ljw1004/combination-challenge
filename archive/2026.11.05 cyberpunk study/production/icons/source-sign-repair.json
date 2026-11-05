@@ -1,0 +1,100 @@
+{
+  "scope": [
+    "moth-cooled",
+    "moth-restable",
+    "noodle-sign-turning"
+  ],
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "status": "Moth repairs accepted by fresh independent review per production lead; current narrow sign-sidewall candidate awaits fresh independent review.",
+  "supersedes": {
+    "moth-cooled": "b02 cell 1 runtime export",
+    "moth-restable": "b02 cell 2 runtime export",
+    "noodle-sign-turning": "b05 cell 13 runtime export"
+  },
+  "selected_masters": [
+    {
+      "path": "projects/cyberpunk-study/production/icons/masters/moth-source-repair.png",
+      "generated_source": "/Users/ljw/.codex/generated_images/01a1ab67-be99-7be1-989c-65ad91cde1cc/exec-4bb35d90-9af7-431b-a761-1802fa78b4e7.png",
+      "columns": 2,
+      "extraction_record": "projects/cyberpunk-study/production/icons/moth-source-repair-extraction.json",
+      "sha256": "83b98f1d9c73266ef9ebc4a624be8abc5905c9ee501bb73eb94744886d0f802e"
+    },
+    {
+      "path": "projects/cyberpunk-study/production/icons/masters/noodle-sign-anatomy-repair.png",
+      "generated_source": "/Users/ljw/.codex/generated_images/01a1ab67-be99-7be1-989c-65ad91cde1cc/exec-473fc74e-da72-4d03-bc76-ee8b9d05361f.png",
+      "columns": 1,
+      "extraction_record": "projects/cyberpunk-study/production/icons/noodle-sign-anatomy-repair-extraction.json",
+      "sha256": "0bd340ad569a10dbf59bea4a5d28103a74cf032662441b2b8cc8fae862a82ced",
+      "selection": "Current narrow sidewall-flange clarification selected by author; fresh independent review pending.",
+      "edited_from": "projects/cyberpunk-study/production/icons/references/noodle-sign-port-repair-input.png"
+    }
+  ],
+  "requests": [
+    {
+      "prompt": "projects/cyberpunk-study/production/icons/requests/moth-source-repair.txt",
+      "inputs": "projects/cyberpunk-study/production/icons/requests/moth-source-repair-inputs.json",
+      "status": "Selected; fresh independent review accepted per production lead."
+    },
+    {
+      "prompt": "projects/cyberpunk-study/production/icons/requests/noodle-sign-anatomy-repair.txt",
+      "inputs": "projects/cyberpunk-study/production/icons/requests/noodle-sign-anatomy-repair-inputs.json",
+      "status": "Whole-body-rotation output superseded by narrow sidewall clarification after fresh review; retained as actual input.",
+      "prompt_assumption_limit": "Original prompt wrongly described shaft and socket as sharing a face. The selected delivered image instead retains the socket on the adjacent perpendicular side face.",
+      "negative_outcome": "First rotation preserved the perpendicular socket axis, but fresh review found the flange supporting face ambiguous between the top and sidewall.",
+      "superseded_output": {
+        "generated_source": "/Users/ljw/.codex/generated_images/01a1ab67-be99-7be1-989c-65ad91cde1cc/exec-8b0ffc03-c26b-40c4-b79c-5d893709c6c4.png",
+        "master_sha256": "2d99c19e66b5ab9c7501654cc6b3df1a19c4cc8519b93ca24c88ddf91ffe3244",
+        "runtime_sha256": "2481567c0554cecab85837dfd9ab61cce1d4b27d55951e5976c1055bdc684361",
+        "retained_as_input": "projects/cyberpunk-study/production/icons/references/noodle-sign-port-repair-input.png"
+      }
+    },
+    {
+      "prompt": "projects/cyberpunk-study/production/icons/requests/noodle-sign-port-repair.txt",
+      "inputs": "projects/cyberpunk-study/production/icons/requests/noodle-sign-port-repair-inputs.json",
+      "status": "Rejected/superseded; exact historical request retained.",
+      "negative_outcome": "The follow-up wrongly made the power socket parallel to the output shaft. Inspection of the original motor establishes the socket on the perpendicular side face. This follow-up introduced a physical continuity defect.",
+      "rejected_output": {
+        "generated_source": "/Users/ljw/.codex/generated_images/01a1ab67-be99-7be1-989c-65ad91cde1cc/exec-bbb9ef6b-8320-4398-986f-588ef3bcd75b.png",
+        "master_sha256": "abe1bd3d63b0739c66bd2de741c4f7402715d4816c13986955d60dbf7e6c2e0b",
+        "runtime_sha256": "4f19ef55c9952b8641da6f473cb98bcbd86c013b50cbb3dab6ada2c3c76423b8",
+        "workspace_output_retained": false,
+        "disposition": "Selected-master path overwritten with restored first image; no rejected master copy retained in project. Tool-generated cache left untouched."
+      }
+    },
+    {
+      "prompt": "projects/cyberpunk-study/production/icons/requests/noodle-sign-sidewall-repair.txt",
+      "inputs": "projects/cyberpunk-study/production/icons/requests/noodle-sign-sidewall-repair-inputs.json",
+      "status": "Current author-selected candidate; fresh independent review pending.",
+      "scope": "Lower only the small square socket flange onto the unmistakable vertical sidewall, preserving perpendicular plug axis and principal assembly geometry."
+    }
+  ],
+  "contact_sheet": "projects/cyberpunk-study/production/icons/contact-sheets/source-sign-repair-contact.png",
+  "outcomes": [
+    "Both later Moth screens retain the grounded document with three source lines and correction cursor; case, fan and bridged/rocker states remain. Fresh independent review accepted these repairs per production lead.",
+    "Current sign candidate places the four-screw socket flange wholly below the top-plate boundary on the vertical sidewall. Plug axis remains perpendicular to the upward shaft. The sign, cylinder, shaft, rotated feet and principal assembly geometry remain.",
+    "The earlier parallel-socket edit remains rejected; its exact request and negative output hashes remain recorded. The first whole-body-rotation image was then restored, reviewed and superseded because its flange attachment face was ambiguous; it is retained as the actual input to the current narrow edit.",
+    "The sign\u2019s existing upper hanging loops remain unused. The lower-center spindle attachment is retained under the permitted routine-assembly interpretation; no claim is made that it reuses those upper loops."
+  ],
+  "verification": {
+    "runtime_scope": "Current narrow correction changed only noodle-sign-turning among the 80 b02\u2013b06 runtime exports; the other 79 remain byte-identical to their pre-correction state.",
+    "runtime_format": "All three are 256x256 RGBA with transparent canvas margins.",
+    "reference_integrity": "All exact prompt input paths exist and match their recorded SHA-256.",
+    "author_display_check": "Current sidewall candidate inspected enlarged and with unchanged Moth repairs/anchors at 64px and 52px on cream/navy.",
+    "limit": "Current sign-sidewall candidate requires a new fresh independent review. Author selection and small-size inspection are not independent validation."
+  },
+  "runtime_assets": [
+    {
+      "path": "projects/cyberpunk-study/assets/icons/moth-cooled.png",
+      "sha256": "e649f1704ac936047190bbd4b74897135cfaaad45eb2bffefa0b01d9e1d317f9"
+    },
+    {
+      "path": "projects/cyberpunk-study/assets/icons/moth-restable.png",
+      "sha256": "0aeabf477f870d63cb0e783b64eafd9aa016e78349ec8cb8b5b89b19bce2121e"
+    },
+    {
+      "path": "projects/cyberpunk-study/assets/icons/noodle-sign-turning.png",
+      "sha256": "8abff5c6348f55f6a7a2c0b3548fd9bd17e8d55048cf656bbf1e4749cdb71392"
+    }
+  ]
+}

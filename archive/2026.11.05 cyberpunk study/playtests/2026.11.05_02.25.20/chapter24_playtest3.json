@@ -1,0 +1,112 @@
+[
+  {
+    "step": 1,
+    "reason": "The noodles and hot broth look like the obvious ingredients for breakfast for the night shift.",
+    "choice": {
+      "combine": "Sal's pot of hot broth",
+      "with": "Fresh breakfast noodles"
+    },
+    "expectation": "The noodles will go into the broth to make a meal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Breakfast is ready, completing the night-shift goal; the workshop still needs to be opened.",
+    "reaction": "The straightforward meal was a satisfying way to bring the shift together.",
+    "step": 2,
+    "reason": "Bright paint and the workshop front suggest making the workshop visible to neighbors.",
+    "choice": {
+      "combine": "Signwriter's bright paint",
+      "with": "Workshop front at dawn"
+    },
+    "expectation": "The paint will help identify the workshop from outside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The workshop is visibly named, but its shutter still needs opening.",
+    "reaction": "Sal's amendment is a nice touch; the closed shutter makes the next obstacle clear.",
+    "step": 3,
+    "reason": "The residents' fobs may operate the workshop shutter, as they do other local controls.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Painted workshop with shutter down"
+    },
+    "expectation": "A resident's fob will open the shutter.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Painted workshop with shutter down"
+        },
+        "reason": "I could check how the shutter opens before trying the fobs."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The residents' fob opened the shutter, leaving the workshop ready inside.",
+    "reaction": "It's satisfying to see the shared access work at the newly painted front.",
+    "step": 4,
+    "reason": "The retired address display may help people find the newly opened workshop.",
+    "choice": {
+      "combine": "Retired address display",
+      "with": "Freshly lettered workshop"
+    },
+    "expectation": "The address display will help identify the workshop's location.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The display now has the workshop's local address and request-desk call button, but it needed the controller rather than the workshop front.",
+    "reaction": "The compatibility feedback made the mistake easy to recover from; the distinction from Meridian's directory is useful.",
+    "step": 5,
+    "reason": "The configured delivery display belongs at the freshly lettered workshop so people can find and contact it.",
+    "choice": {
+      "combine": "Local delivery display",
+      "with": "Freshly lettered workshop"
+    },
+    "expectation": "The display will be installed at the workshop and help visitors reach it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The display is installed, a Tin Row rider finds the workshop, and the remaining goal is complete.",
+    "reaction": "It was satisfying to see the local address help someone actually arrive, without suggesting the corporate directory had been fixed.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Installing the local delivery display was most worthwhile: it connected the workshop’s visible opening to a practical way for a neighbor to find it.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Painting and then opening the shutter were fairly predictable steps, though Sal’s amendment gave them character.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I expected the retired display to fit directly onto the workshop; instead it first needed the local controller to supply an address and call button.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The display’s need for the controller was not obvious from its name, but the resulting local address gave that extra step a clear purpose.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for a little longer: seeing a neighbor find the workshop makes me curious about the next repairs, although this chapter’s combinations were mostly straightforward.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

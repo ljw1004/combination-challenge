@@ -1,0 +1,140 @@
+[
+  {
+    "step": 1,
+    "reason": "Start building the routing rule from the practice cases, keeping the sealed tests separate.",
+    "choice": 1,
+    "expectation": "Moth will produce a candidate rule or learn from the cases; it will still need evaluation on unseen trips.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the talkbox also advances a goal, but I want to start with the routing test."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The settings fit the practice trips, but their performance on unseen requests remains unknown.",
+    "reaction": "The distinction between practice and evaluation is clear, and I'm curious how the settings perform.",
+    "step": 2,
+    "reason": "Test the fitted settings on the sealed Tuesday cases before drawing conclusions.",
+    "choice": 1,
+    "expectation": "The evaluation should reveal how the settings handle unseen trips, possibly exposing mistakes.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox needs repair too, but I want to evaluate the routing settings first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The unseen test exposed a wrongly refused request, so the routing rule needs a way to handle exceptions.",
+    "reaction": "Finding the failure before deployment feels useful; the unusual load makes the limitation concrete.",
+    "step": 3,
+    "reason": "Apply the dispatch review switch and rule to address the wrongly refused request.",
+    "choice": 1,
+    "expectation": "Unusual refusals may be routed to a human dispatcher for review, though the revised approach will still need testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Difficult cases now go to a dispatcher with their reasons and sources, but the changed rule needs a fresh evaluation.",
+    "reaction": "The reminder that Tuesday's score no longer applies makes the need for another test clear.",
+    "step": 4,
+    "reason": "Evaluate the revised rule on the fresh Wednesday cases.",
+    "choice": 1,
+    "expectation": "The new test should show how the revised rule handles unseen requests, though it may reveal further limitations.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox still needs repair, but testing the changed rule comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The revised rule passed a fresh evaluation sufficient for a limited trial, completing the routing-test goal without guaranteeing future performance.",
+    "reaction": "The limited conclusion feels appropriately cautious, though the test results are rather vague.",
+    "step": 5,
+    "reason": "The talkbox repair is the only available combination and advances the remaining goal.",
+    "choice": 1,
+    "expectation": "The compatible speaker board should restore the talkbox's audio, with further work likely needed for the request button.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox can now deliver a clear audio reply; it still needs a way to initiate requests.",
+    "reaction": "Eli's little test gives the repair a nice personal touch.",
+    "step": 6,
+    "reason": "Fit the call button; it is the only available combination and advances the remaining goal.",
+    "choice": 1,
+    "expectation": "The talkbox should gain a tactile way to initiate a call, though it may still need the transmitter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox now has a more accessible tactile button while retaining its ordinary button.",
+    "reaction": "Keeping both controls is a useful detail.",
+    "step": 7,
+    "reason": "Connect the transmitter; this is the only available combination and should enable requests to reach someone.",
+    "choice": 1,
+    "expectation": "The talkbox should be able to transmit a request and receive a human reply, though the result may clarify how the reply route works.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset can now transmit requests and signals when it is listening; it still needs a reply route.",
+    "reaction": "The visible listening signal is a reassuring privacy detail.",
+    "step": 8,
+    "reason": "Connect the handset to the tested routing rule; it is the only available combination and may establish the human reply route.",
+    "choice": 1,
+    "expectation": "Requests should reach the routing system, with difficult cases available for human review and a way to reply through the handset.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now reaches the local queue, and Eli can review and answer requests the rule cannot handle. Both chapter goals are complete.",
+    "reaction": "Replacing silent refusal with a human reply feels like a meaningful payoff.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the rule on unseen Tuesday cases and adding human review made an abstract failure concrete and gave it a practical response.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The Wednesday evaluation was less satisfying because its results were vague, despite justifying a limited trial.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "An unseen test exposed a safely manageable request that the rule wrongly refused; revising the rule also made the old test score inapplicable.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the talkbox assembly was straightforward and offered only one combination at each stage.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the concrete failure and human-review payoff made me curious how the local system would work in practice.",
+        "steps": [
+          2,
+          3,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

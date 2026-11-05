@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "Rae has isolated the cabinet and explicitly assigned us the dirt, so cleaning the clogged filter is a sensible first repair.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Dust-clogged cooler filter cassette"
+    },
+    "expectation": "The repair roll should help clear the filter cassette.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter is clean and ready to return to the isolated cabinet; the lint alone does not indicate a compressor fault.",
+    "reaction": "The distinction between a clogged filter and a compressor fault is useful.",
+    "step": 2,
+    "reason": "The cleaned filter belongs back in the isolated cooling cabinet as part of restoring airflow.",
+    "choice": {
+      "combine": "Clean cooler filter cassette",
+      "with": "Isolated clinic cooling cabinet"
+    },
+    "expectation": "The clean filter cassette will fit back into the cabinet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clean filter is installed, but the cabinet remains isolated and its separate fan socket is empty.",
+    "reaction": "The separate service bays make the next repair clear.",
+    "step": 3,
+    "reason": "The compatible fan cartridge should fit the empty fan socket.",
+    "choice": {
+      "combine": "Compatible clinic fan cartridge",
+      "with": "Clinic cabinet with clean filter, fan still missing"
+    },
+    "expectation": "Rae will install the fan cartridge in the cabinet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter and fan are installed, restoring the air path while leaving the refrigeration system sealed.",
+    "reaction": "It's satisfying to see the two separate repairs complete the air path.",
+    "step": 4,
+    "reason": "The restored cabinet needs its checked service supply to run again.",
+    "choice": {
+      "combine": "Clinic's checked service supply",
+      "with": "Clinic cabinet with its air path restored"
+    },
+    "expectation": "The cabinet will be powered for a service check.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rae reconnected the checked supply, and the cooling cabinet is running with its fan sounding normal.",
+    "reaction": "The ordinary fan sound is a reassuring result.",
+    "step": 5,
+    "reason": "The goal calls for independent monitoring, so the logger should be paired with the running cabinet.",
+    "choice": {
+      "combine": "Independent clinic temperature logger",
+      "with": "Running clinic cooling cabinet"
+    },
+    "expectation": "The logger will independently monitor the cabinet's temperature.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The independent logger confirms the cooler held its specified range during the service check, completing the restoration goal.",
+    "reaction": "The separate verification is reassuring, especially with storage decisions left to clinic staff.",
+    "step": 6,
+    "reason": "Comparing the old temperature log with door openings may help explain the spikes.",
+    "choice": {
+      "combine": "Cabinet's old temperature log",
+      "with": "Clinic door-opening log"
+    },
+    "expectation": "The logs will show whether temperature spikes coincide with door openings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Most temperature spikes align with door openings, but the air-sensor trace alone cannot establish what every stored object experienced.",
+    "reaction": "The distinction between air temperature and stored-object temperature is useful.",
+    "step": 7,
+    "reason": "The comparison explains much of the trace, but it isn't clear what evidence or equipment should be used next, so I'll check its available partners.",
+    "choice": {
+      "inspect": "Temperature spikes aligned with door openings"
+    },
+    "expectation": "The inspection should show what can use the aligned logs to investigate the spikes further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth used the aligned logs to produce a cooling forecast that distinguishes brief door-related warming from sustained cooling loss and marks uncertainty.",
+    "reaction": "The less dramatic graph is a useful clarification.",
+    "step": 8,
+    "reason": "The forecast may need to be compared with the independently monitored cooler to finish investigating the spikes; I'll check its available partners.",
+    "choice": {
+      "inspect": "Cooling forecast with its limits shown"
+    },
+    "expectation": "The inspection should show what can use the forecast next.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cooling forecast with its limits shown",
+          "with": "Clinic cooler under independent monitoring"
+        },
+        "reason": "The monitored cooler might provide a useful comparison, but I'm not certain the pair is compatible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rae compared the independent service check with the explained historical trace, completing the investigation; the supply controller's renewal warning leaves a need for a fallback.",
+    "reaction": "The verified record is satisfying, and the new warning makes me curious what happens next.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the temperature and door-opening logs was the most worthwhile decision: it offered a plausible explanation for most spikes while making clear that air readings do not establish what every stored item experienced.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final inspection felt a little redundant: I had already considered pairing the forecast with the monitored cooler, and inspection confirmed and automatically performed that pairing.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The service record revealed a renewal warning even though the repaired cabinet held its range, shifting attention from the repair to the reliability of its supply.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary. I was uncertain what to do with the aligned logs, but inspecting them exposed the connection to Moth.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The repair and evidence comparison were satisfying, and the unresolved supply warning makes me interested in how the clinic secures a fallback.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

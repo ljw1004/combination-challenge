@@ -1,0 +1,138 @@
+[
+  {
+    "step": 1,
+    "reason": "Cleaning the address plate may show what the courier's system is rejecting.",
+    "choice": 2,
+    "expectation": "I expect the repair roll to help uncover the clinic's address, though that may not fix the handset's refusal.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Repairing the trolley could help move the crate, but I want to investigate the address first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cleaned plate gives a specific address to test against the courier's handset.",
+    "reaction": "Eli's potato-shaped eight is a funny detail.",
+    "step": 2,
+    "reason": "Comparing the address with the handset should help identify what its system refuses.",
+    "choice": 2,
+    "expectation": "I expect the handset to check 8B Latch Market and reveal something about the rejection, though it may not resolve it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The address is read correctly but missing from the active service directory, so cleaning it cannot resolve the rejection.",
+    "reaction": "The distinction between a bad address and a directory exclusion is intriguing.",
+    "step": 3,
+    "reason": "Repairing the trolley seems useful for moving the clinic's crate through its door.",
+    "choice": 1,
+    "expectation": "I expect the repair roll to loosen or prepare the seized caster, possibly allowing the replacement to be fitted.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The bell may be useful, but the trolley seems more directly connected to the crate."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster assembly is free, but its bearing has fallen apart, so it needs replacement.",
+    "reaction": "The steering joke is amusing, and the repair problem is clear.",
+    "step": 4,
+    "reason": "Fit the replacement cartridge to restore the trolley for moving the crate.",
+    "choice": 1,
+    "expectation": "I expect the replacement cartridge to make the trolley usable, though moving the crate may require another action.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement caster restored the trolley, making it ready to move the crate.",
+    "reaction": "The repair's physical progression is satisfying.",
+    "step": 5,
+    "reason": "Use the repaired trolley to get the clinic's crate through the door.",
+    "choice": 1,
+    "expectation": "I expect to move the crate toward or through the clinic door; the directory rejection may remain unresolved.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The bell could be useful, but the crate is the remaining stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is now on the trolley, but the delivery goal is not yet complete and the address problem remains.",
+    "reaction": "The handling solution is practical, though I expected the crate to reach the door already.",
+    "step": 6,
+    "reason": "The battery and bell are the only offered combination, so I'll try them to advance.",
+    "choice": 1,
+    "expectation": "I expect the battery to power the bell, though I don't yet know how it will help deliver the crate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bell works and offers a way to alert Eli, though its role in moving the crate is not yet clear.",
+    "reaction": "Eli's response is reassuring and funny.",
+    "step": 7,
+    "reason": "This is the only offered combination, and the bell may help Eli receive the crate.",
+    "choice": 1,
+    "expectation": "I expect ringing the bell to bring Eli's help with the crate, though I don't know exactly how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli helped get the crate inside and unload it, though the goal has not yet registered as complete.",
+    "reaction": "The bell's role now makes sense, and the delivery feels like practical progress.",
+    "step": 8,
+    "reason": "This is the only offered combination; the handset may let us record the delivery.",
+    "choice": 1,
+    "expectation": "I expect the handset to register or attempt to register the completed delivery, though the directory rejection may prevent it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signed receipt completes the delivery while preserving evidence that the handset's directory contradicts reality.",
+    "reaction": "The conflicting records are a compelling ending to the delivery.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the cleaned address against the handset was most worthwhile: it showed the problem was directory exclusion, not a spelling error.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Loading the crate onto the repaired trolley felt slightly anticlimactic because I expected it to reach the door in that action.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The handset read the address correctly but still rejected it; the signed receipt later made that contradiction concrete.",
+        "steps": [
+          2,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Powering the bell felt unclear at first: it was the only offered combination, and its connection to the crate was not yet apparent. Eli opening the gate explained it afterward.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The contradiction between the directory and the physical clinic gives me a reason to see what happens next, and the trolley repair was satisfying.",
+        "steps": [
+          2,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

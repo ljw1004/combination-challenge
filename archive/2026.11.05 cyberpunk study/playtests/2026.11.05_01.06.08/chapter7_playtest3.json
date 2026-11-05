@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "Clean the clogged filter to begin restoring the cooler's airflow.",
+    "choice": 1,
+    "expectation": "I expect the repair roll will let me clean or clear the filter cassette; the fan and cabinet may need further work.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Comparing the logs could explain the temperature spikes, but I want to start with the physical repair."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter is clear, but the lint alone doesn't establish a compressor fault. I can continue assembling the air module.",
+    "reaction": "A useful distinction; the cleaning itself was straightforward.",
+    "step": 2,
+    "reason": "Fit the compatible fan to the cleaned filter to continue restoring airflow.",
+    "choice": 1,
+    "expectation": "I expect an assembled air module that can be fitted to the cabinet, though further checks may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The logs may explain the spikes, but I want to continue the repair first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The air module is ready for Rae to fit and check in the isolated cabinet.",
+    "reaction": "The fan and filter came together as expected; the division of work with Rae is reassuring.",
+    "step": 3,
+    "reason": "Have Rae fit and check the repaired module to continue restoring the cooler.",
+    "choice": 1,
+    "expectation": "I expect the module to be installed in the cabinet, with power and temperature checks still needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Comparing the logs could explain the spikes, but the module is ready to fit now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired module is installed, and the sealed refrigeration system remains untouched. The cabinet is ready for its checked supply.",
+    "reaction": "The installation was straightforward, and keeping the sealed system intact makes the repair boundary clear.",
+    "step": 4,
+    "reason": "Connect the checked service supply to continue restoring the cooler.",
+    "choice": 1,
+    "expectation": "I expect the cabinet to run so its operation can be checked; independent temperature monitoring may still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The logs may explain the spikes, but I want to finish bringing the cabinet back into service first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cabinet is running, but its temperature still needs independent monitoring.",
+    "reaction": "The ordinary fan sound is a satisfying, modest sign of progress.",
+    "step": 5,
+    "reason": "Attach the independent logger to check the running cooler's temperature.",
+    "choice": 1,
+    "expectation": "I expect the logger to begin monitoring the cabinet; it may take further evidence to explain the old spikes.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Comparing the old logs could explain the spikes, but I want to establish monitoring first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The independent logger confirms the cooler held its specified range during the service check; the old spikes still need investigation.",
+    "reaction": "The independent check is reassuring, and the distinction between equipment verification and storage decisions is clear.",
+    "step": 6,
+    "reason": "Compare the temperature and door-opening logs to investigate the spikes; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect to see whether the spikes coincide with door openings, though correlation alone may not establish their cause.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Most spikes align with door openings, which helps explain the air readings but doesn't establish stored objects' temperatures.",
+    "reaction": "The distinction between air readings and stored objects is useful.",
+    "step": 7,
+    "reason": "Show the comparison to Moth to investigate the spikes; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect Moth to incorporate the log comparison while preserving its limits; I don't know whether it will settle the investigation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's forecast distinguishes brief warm air from sustained cooling loss and marks uncertainty; the monitored cooler can now be considered alongside it.",
+    "reaction": "Making the graph less dramatic without hiding uncertainty is satisfying.",
+    "step": 8,
+    "reason": "Combine the forecast with the independently monitored cooler to continue investigating the spikes; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the current monitoring and qualified forecast to be brought together, though I don't know whether that will finish the investigation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rae's comparison completes the investigation and confirms the cabinet held its range during the check, but the supply controller's renewal warning leaves a fallback unresolved.",
+    "reaction": "The verified record is satisfying, and the warning provides a credible reason to remain cautious.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the temperature and door-opening logs was most worthwhile: it made the spikes more understandable without claiming to establish what stored objects experienced.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The sequential module assembly and installation were clear but predictable, with little meaningful choice beyond following the repair.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The final service record introduced a renewal warning on the supply controller even after the cabinet held its range.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though combining the forecast with the monitored cooler was somewhat abstract; I wasn't sure exactly what it would produce.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes, I'd try another chapter to see how the supply warning is addressed, although the straightforward repair sequence offered limited decisions.",
+        "steps": [
+          2,
+          3,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

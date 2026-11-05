@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "Start developing the routing rule using the practice cases, keeping the sealed evaluation packs separate.",
+    "choice": 1,
+    "expectation": "Moth will use the cases to develop a local routing rule that can later be tested on unseen trips.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the talkbox also advances a goal, but I want to start with the routing test."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The settings fit the practice trips, but their performance on unseen trips remains unknown.",
+    "reaction": "The warning makes the separate test feel purposeful.",
+    "step": 2,
+    "reason": "Test the fitted settings against the sealed Tuesday cases rather than assuming practice performance generalizes.",
+    "choice": 1,
+    "expectation": "The Tuesday pack will reveal how the routing settings perform on unseen requests, possibly exposing failures.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox needs repair too, but the evaluation is the next logical routing step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The unseen test exposed a wrongly refused request, so the routing rule needs a way to handle exceptions.",
+    "reaction": "Finding a concrete failure before deployment makes the test feel useful.",
+    "step": 3,
+    "reason": "Use the dispatch review switch and rule to address the refusal with human review.",
+    "choice": 1,
+    "expectation": "The unusual request will gain a route to dispatcher review, though the rule may still need further testing.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox also needs repair, but I want to address the discovered routing failure first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Difficult cases now go to a dispatcher with their reason and source, but the revised rule needs a fresh test.",
+    "reaction": "The distinction between Tuesday's result and the changed rule is clear and useful.",
+    "step": 4,
+    "reason": "Evaluate the revised rule on the fresh Wednesday cases.",
+    "choice": 1,
+    "expectation": "The new pack will show how the revised rule handles unseen requests, potentially revealing further limits.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox still needs repair, but testing the changed rule is the immediate next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The revised rule passed a fresh evaluation sufficient for a limited trial, completing the routing goal.",
+    "reaction": "Retesting the changed rule feels like a meaningful conclusion, though its limits remain.",
+    "step": 5,
+    "reason": "The only offered combination repairs the talkbox audio, advancing the remaining goal.",
+    "choice": 1,
+    "expectation": "The compatible speaker board will restore the talkbox audio, though the request button and reply route may still need work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox now has working reply audio; it still needs a call button and request connection.",
+    "reaction": "Eli's test is a nice small character moment.",
+    "step": 6,
+    "reason": "Fit the call button using the only offered combination to advance the remaining goal.",
+    "choice": 1,
+    "expectation": "The talkbox will gain a tactile call button, though it may still need the transmitter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox now has an accessible tactile button while retaining its ordinary button; it still needs the request connection.",
+    "reaction": "Keeping both buttons is a thoughtful detail.",
+    "step": 7,
+    "reason": "Connect the transmitter using the only offered combination to complete the request route.",
+    "choice": 1,
+    "expectation": "The talkbox should be able to send requests and receive a human reply, though it may still need testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now has a deliberate listening control and indicator; it still needs to be connected to the tested routing rule.",
+    "reaction": "The visible listening signal is a reassuring detail.",
+    "step": 8,
+    "reason": "Use the only offered combination to connect the handset to the tested request route.",
+    "choice": 1,
+    "expectation": "The handset will send requests through the tested rule, with difficult cases reaching a human dispatcher.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now reaches the tested queue, with difficult requests routed to Eli for a reasoned reply; both chapter goals are complete.",
+    "reaction": "Replacing silence with a human reply is a satisfying conclusion.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the rule on Tuesday's unseen cases was most worthwhile: it exposed a concrete wrongful refusal before deployment and gave the later human-review change a clear purpose.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the talkbox parts was straightforward but less engaging as a sequence of only-offered combinations, despite the appealing character and accessibility details.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Changing the refusal rule meant Tuesday's score no longer described it, making a fresh Wednesday test necessary.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the talkbox assembly offered little meaningful choice because each part was the only combination offered.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The concrete failure, human-review fix and fresh test made me curious how the dispatch system would fare in use, even if the assembly sequence was predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

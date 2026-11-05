@@ -1,0 +1,166 @@
+[
+  {
+    "step": 1,
+    "reason": "The workshop needs to be easy to find, so painting its front is a plausible first step.",
+    "choice": {
+      "combine": "Signwriter's bright paint",
+      "with": "Workshop front at dawn"
+    },
+    "expectation": "The paint will make the workshop front more visible.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Local network audio receiver",
+          "with": "Miro's speaker playing again"
+        },
+        "reason": "The speaker and receiver also look like a natural pairing for the night shift."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sign is painted, but the shutter still needs opening.",
+    "reaction": "Sal's amendment is a nice touch; the closed shutter makes the next practical problem clear.",
+    "step": 2,
+    "reason": "The residents' fobs may provide the local authorization needed to open the workshop shutter.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Painted workshop with shutter down"
+    },
+    "expectation": "A resident's fob will unlock or open the shutter.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Painted workshop with shutter down"
+        },
+        "reason": "I could check what the shutter needs before trying the fobs."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fob opened the shutter, leaving the painted workshop ready inside.",
+    "reaction": "It's satisfying to see the workshop open, though the goal is not yet complete.",
+    "step": 3,
+    "reason": "The retired address display may help people find the newly opened workshop.",
+    "choice": {
+      "combine": "Retired address display",
+      "with": "Freshly lettered workshop"
+    },
+    "expectation": "The display will add a visible address to the workshop.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Local network audio receiver",
+          "with": "Miro's speaker playing again"
+        },
+        "reason": "Connecting the speaker is another plausible way to prepare for the night shift."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The display needed the local controller, not the workshop front; it now shows the address and a request-desk call button.",
+    "reaction": "The compatibility feedback made the correction straightforward.",
+    "step": 4,
+    "reason": "The configured display should help people find and contact the open workshop.",
+    "choice": {
+      "combine": "Local delivery display",
+      "with": "Freshly lettered workshop"
+    },
+    "expectation": "The display will be installed at the workshop, making it easier to find and use.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Local network audio receiver",
+          "with": "Miro's speaker playing again"
+        },
+        "reason": "The speaker and receiver could also help prepare for the night shift."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The local display is installed, and the workshop accessibility goal is complete.",
+    "reaction": "The Tin Row rider finding the bench makes the result feel concrete.",
+    "step": 5,
+    "reason": "The local audio receiver and repaired speaker are a natural pairing for the remaining night-shift goal.",
+    "choice": {
+      "combine": "Local network audio receiver",
+      "with": "Miro's speaker playing again"
+    },
+    "expectation": "The receiver will connect the speaker to local audio.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sal's pot of hot broth",
+          "with": "Fresh breakfast noodles"
+        },
+        "reason": "Preparing food also seems relevant to giving the shift a reason to linger."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver needed the local controller first; it is now tuned to Tin Row's public audio channel.",
+    "reaction": "The separate audio channel is a useful detail, though I had expected to connect the speaker directly.",
+    "step": 6,
+    "reason": "The tuned receiver should now connect to Miro's repaired speaker.",
+    "choice": {
+      "combine": "Receiver tuned to Tin Row",
+      "with": "Miro's speaker playing again"
+    },
+    "expectation": "Tin Row's broadcast will play through the speaker.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sal's pot of hot broth",
+          "with": "Fresh breakfast noodles"
+        },
+        "reason": "Preparing breakfast could also help the night shift linger."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tuned receiver connected to Miro's speaker, completing the night-shift goal and the chapter.",
+    "reaction": "The return of the battered speaker and the imperfect rehearsal make the ending feel pleasantly lived-in.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Installing the local delivery display was most worthwhile: a Tin Row rider actually found the workshop, making the infrastructure's benefit tangible.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the audio receiver took an extra step I hadn't anticipated; the correction was clear, but the setup was less engaging than seeing the workshop used.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The receiver first needed the local controller, and the broadcast used a separate rate-limited channel that preserved the gateway's control restrictions.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The fob opening the workshop shutter was plausible, though the initial board didn't explain how the shutter was controlled.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the workshop's first visitor and the music from Tin Row suggest a community with more small stories to discover, not just more infrastructure to assemble.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

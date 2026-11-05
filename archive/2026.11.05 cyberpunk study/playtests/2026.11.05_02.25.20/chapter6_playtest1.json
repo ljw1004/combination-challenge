@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "The stalled sign motor is a clear repair target for June's tools.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Stalled low-voltage sign motor"
+    },
+    "expectation": "June will free or diagnose the motor so the sign can turn again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor shaft is clear, so it can now be connected to its protected power lead.",
+    "reaction": "The trapped thread was a satisfying, concrete fault to find.",
+    "step": 2,
+    "reason": "The cleared low-voltage motor needs its protected power lead to run.",
+    "choice": {
+      "combine": "Sign motor with a clear shaft",
+      "with": "Sign's protected power lead"
+    },
+    "expectation": "The lead will supply power to the repaired motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor now runs smoothly, so the painted sign can be attached.",
+    "reaction": "Watching it complete a revolution is a reassuring test.",
+    "step": 3,
+    "reason": "The turning motor should drive Sal's painted sign.",
+    "choice": {
+      "combine": "Sign motor turning smoothly",
+      "with": "Hand-painted noodle sign"
+    },
+    "expectation": "The sign will turn on the repaired motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sign is turning again, completing Sal's repair; the clinic recommendation remains.",
+    "reaction": "Moth's observation about the sign is a nice dry joke.",
+    "step": 4,
+    "reason": "Moth needs to hear Sal's recording before its transcript and recommendation can be checked.",
+    "choice": {
+      "combine": "Moth with the missing intake exposed",
+      "with": "Sal's volunteered repair recording"
+    },
+    "expectation": "Moth will process the recording into a transcript or recommendation that can be checked.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's transcript misidentifies the repair, so Sal's correction is needed before relying on it.",
+    "reaction": "The confident but wrong transcription is a striking example of how noise can mislead a system.",
+    "step": 5,
+    "reason": "Sal's correction should fix the transcript's mistaken repair request.",
+    "choice": {
+      "combine": "Transcript asking for a code-box repair",
+      "with": "Sal's correction of the transcript"
+    },
+    "expectation": "The transcript will reflect Sal's intended request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal's correction identifies a cooling job, and the original audio needs to remain linked to the corrected request.",
+    "reaction": "The code-box to cold-box correction makes the transcription error concrete.",
+    "step": 6,
+    "reason": "The source-and-correction interface should link the corrected request to its original source before Moth recommends a part.",
+    "choice": {
+      "combine": "Corrected cold-box service request",
+      "with": "Local source-and-correction interface"
+    },
+    "expectation": "The interface will preserve the source and correction together for checking.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The interface now links the recording, correction and source, ready to load onto Moth.",
+    "reaction": "Keeping the source visible makes the correction easier to verify.",
+    "step": 7,
+    "reason": "The prepared display needs to be loaded onto Moth before its recommendation can be traced.",
+    "choice": {
+      "combine": "Prepared source display for Moth",
+      "with": "Moth with the missing intake exposed"
+    },
+    "expectation": "Moth will use the linked source display when making its recommendation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth now has source display and correction controls; the cooler's model plate remains available to inform the recommendation.",
+    "reaction": "The undo-button exchange makes the correction controls feel tangible.",
+    "step": 8,
+    "reason": "The model plate should give Moth the cooler's identity before it recommends a part.",
+    "choice": {
+      "combine": "Moth with source display and correction controls",
+      "with": "Clinic cooler's model plate photograph"
+    },
+    "expectation": "Moth will use the model information to produce a traceable repair recommendation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The corrected request and model plate produced a compatible fan-cartridge ticket, completing the clinic goal and the chapter.",
+    "reaction": "It is satisfying to see the correction change the actual repair rather than just the wording.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Correcting the transcription and linking it to its source was most worthwhile: the error was concrete, and the final ticket showed why checking it mattered.",
+        "steps": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the cleared motor to its power lead was straightforward and felt more like routine progress than a meaningful decision.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Moth confidently heard a code-box repair where Sal meant a cold-box repair; the fluent but wrong transcript made the risk of noisy input clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; even the straightforward sign-repair steps had a clear physical purpose.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the corrected ticket affects the clinic repair, especially since the story connects technical mistakes to tangible consequences.",
+        "steps": [
+          4,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

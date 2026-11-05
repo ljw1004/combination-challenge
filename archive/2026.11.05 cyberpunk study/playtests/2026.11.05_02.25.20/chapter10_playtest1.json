@@ -1,0 +1,136 @@
+[
+  {
+    "step": 1,
+    "reason": "The loose cargo-bike mount and matching rails suggest a direct repair for collecting the clinic order.",
+    "choice": {
+      "combine": "Matching cargo carrier rails",
+      "with": "Cargo bike with a loose carrier mount"
+    },
+    "expectation": "The rails should secure the bike's carrier mount for the collection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rails fit, but the mount still needs securing before the bike can carry anything.",
+    "reaction": "The separate loose mount is a useful distinction.",
+    "step": 2,
+    "reason": "June's repair roll is the apparent tool for tightening the remaining loose mount.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Bike with fitted rails and loose mount"
+    },
+    "expectation": "The repair roll should let June secure the carrier mount.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mount is secure and the bike is ready for the clinic carrier.",
+    "reaction": "The fitted rails and secured mount make the repair feel complete.",
+    "step": 3,
+    "reason": "The prepared carrier is the intended load for the newly fitted cargo bike.",
+    "choice": {
+      "combine": "Carrier with prepared thermal packs",
+      "with": "Cargo bike fitted for the clinic carrier"
+    },
+    "expectation": "The carrier should fit securely onto the bike for the collection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The prepared carrier is secured to the bike, with the collection reference ready.",
+    "reaction": "The distinction between the stationary cabinet and the traveling carrier is clear.",
+    "step": 4,
+    "reason": "The tested route slate should guide the equipped bike to collect the order.",
+    "choice": {
+      "combine": "Trolley-tested route slate",
+      "with": "Cargo bike with the prepared cold carrier"
+    },
+    "expectation": "The bike should follow the local route to collect the clinic order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic order has been collected and received; the depot refusal remains to investigate.",
+    "reaction": "The local collection worked, though the idle van still raises a question.",
+    "step": 5,
+    "reason": "Comparing the authorized dispatch export with the published distribution policy may reveal why the depot refused the request.",
+    "choice": {
+      "combine": "Authorized depot dispatch export",
+      "with": "Meridian's published distribution policy"
+    },
+    "expectation": "The dispatch records and policy should expose the rule applied to the clinic request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dispatch comparison exposed the commercial ranking fields behind the refusal; the published records may explain the rule further.",
+    "reaction": "The request reached the depot but was still deprioritized, which clarifies the problem.",
+    "step": 6,
+    "reason": "The exposed ranking fields can be compared with Meridian's published distribution policy.",
+    "choice": {
+      "combine": "Depot refusal with its ranking fields exposed",
+      "with": "Meridian's published distribution policy"
+    },
+    "expectation": "The policy should help establish how the address and revenue criteria produce the refusal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The published policy confirms that contracted revenue, rather than clinical need, determined priority.",
+    "reaction": "The match makes the refusal's commercial basis clear.",
+    "step": 7,
+    "reason": "The reserved-capacity log is the remaining published record and may explain why the apparently empty van was unavailable.",
+    "choice": {
+      "combine": "Published revenue rule matched to the refusal",
+      "with": "Depot's published reserved-capacity log"
+    },
+    "expectation": "The capacity log should clarify how the revenue rule relates to the idle van.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capacity log explains that the idle van was reserved for another customer; exposing the rule does not make it available to the clinic.",
+    "reaction": "The distinction between an empty van and available capacity was surprising and made the depot's claim more questionable.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Tracing the refusal from the dispatch fields through the published policy and capacity log was most worthwhile: each record added a different part of the explanation.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the rails and then separately securing the mount was a little repetitive, although the distinction made physical sense.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The van was empty because its availability had been sold, not because it was necessarily free to take the clinic order.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "My attempt to compare the dispatch export directly with the policy did not work; the required comparison with the clinic dispatch became clear only from the compatibility feedback.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd be curious to see whether the neighbors can challenge the commercial rule or build a more reliable alternative, though the straightforward repair steps were less engaging than the investigation.",
+        "steps": [
+          1,
+          2,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

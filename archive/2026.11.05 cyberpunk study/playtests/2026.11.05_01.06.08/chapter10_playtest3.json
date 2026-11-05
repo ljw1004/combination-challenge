@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "Adjusting Miro's cargo bike is a practical first step toward collecting the clinic order.",
+    "choice": 1,
+    "expectation": "I expect the bike to be adjusted for use, though it may still need the carrier rails fitted.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Comparing dispatch records could reveal the refusal rule, but I prefer to prepare the collection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier mount is sound, so fitting the rails looks like the next step toward collection.",
+    "reaction": "The practical check is reassuring, though the outcome was expected.",
+    "step": 2,
+    "reason": "The matching rails should prepare the cargo bike to carry the clinic order.",
+    "choice": 1,
+    "expectation": "I expect the rails to fit the repaired mount, though the carrier may still need to be attached.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The depot export may explain the refusal, but I want to finish preparing the bike first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rails make the bike ready to accept the clinic carrier.",
+    "reaction": "The rated, secure fit is reassuring, though expected.",
+    "step": 3,
+    "reason": "Attach the prepared carrier to continue the collection.",
+    "choice": 1,
+    "expectation": "I expect the carrier to be secured to the bike, ready for the local route.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The dispatch export could clarify the refusal, but the carrier is ready to fit now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is secured and Miro has the collection reference, so the bike is ready for the route.",
+    "reaction": "The handoff is clear, though the fitting was expected.",
+    "step": 4,
+    "reason": "Use the tested route to continue the clinic collection.",
+    "choice": 1,
+    "expectation": "I expect Miro to follow the route toward the cold store, though collection may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The export could explain the refusal, but I want to continue the collection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic has received its order; the remaining goal is to investigate the depot's refusal.",
+    "reaction": "The successful local collection is satisfying, especially with the unused van overhead.",
+    "step": 5,
+    "reason": "The dispatch export is the only offered combination and may reveal why the depot refused.",
+    "choice": 1,
+    "expectation": "I expect a comparison of clinic requests with depot dispatch records, though the precise rule may require further evidence.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The request reached the depot but was rejected under commercial address and revenue criteria; the published policy may clarify that rule.",
+    "reaction": "The low-revenue criterion makes the refusal more troubling than a simple routing error.",
+    "step": 6,
+    "reason": "Compare the exposed ranking fields with Meridian's policy; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the policy to explain how those fields determine eligibility and priority, though it may not explain the idle van.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The refusal matches Meridian's published policy, confirming that the ranking follows its commercial objective.",
+    "reaction": "The distinction between efficiency and whose interests it serves is striking.",
+    "step": 7,
+    "reason": "Compare the matched rule with the capacity log; it is the only offered combination and may explain the idle van.",
+    "choice": 1,
+    "expectation": "I expect the log to clarify how capacity was reserved, though it may not establish why this particular van was idle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capacity log explains that the van was reserved for another customer, making the allocation a commercial choice rather than a machine error.",
+    "reaction": "The explanation complicates the initially frustrating image of an idle van.",
+    "step": 8,
+    "reason": "Show Moth the evidence; this is the only offered combination and should advance the investigation.",
+    "choice": 1,
+    "expectation": "I expect Moth to incorporate the reservation and revenue rule into an explanation of the refusal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth now links the depot's demand claim to the revenue rule and its sources; the investigation is complete, though the explanation does not itself secure a van.",
+    "reaction": "The contrast between correcting the explanation and doing the physical delivery is satisfying.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Tracing the refusal from its ranking fields through the published policy and capacity log was most worthwhile: it turned an apparent routing failure into a question about whose priorities the system serves.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The successive bike-mount, rail and carrier fittings were clear but predictable, with little meaningful choice beyond continuing the preparation.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The idle van was reserved for another customer, complicating the initial impression that it was simply unused capacity.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though showing Moth the completed explanation was the only offered combination rather than a meaningful choice.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the contrast between a local workaround and the commercial rules behind the refusal makes me curious what the neighbors can change, even if some repair sequences felt routine.",
+        "steps": [
+          4,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

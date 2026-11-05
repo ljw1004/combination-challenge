@@ -1,0 +1,159 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the local entry demonstration and check the mechanical fallback.",
+    "choice": 2,
+    "expectation": "I expect the key to operate the demonstration latch without relying on the network.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The management key may prepare the controller, but I want to check the physical fallback first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mechanical fallback works independently of the controller; I'll prepare the controller for local entry next.",
+    "reaction": "The physical key is a reassuringly straightforward fallback.",
+    "step": 2,
+    "reason": "The management key should help prepare the verified controller for the entry demonstration.",
+    "choice": 1,
+    "expectation": "I expect the key to enable or configure controller management, though its exact role is unclear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The status sensor also needs attention, but the controller seems useful to prepare first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Miro has authorized the local setup, so I can prepare the controller to run independently of workshop power.",
+    "reaction": "Recording who authorized the setup is a useful distinction from merely accepting a command.",
+    "step": 3,
+    "reason": "The charged power bank should make the local controller portable and ready for the demonstration.",
+    "choice": 1,
+    "expectation": "I expect the power bank to supply the configured controller without the workshop socket.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The disconnected sensor also matters for truthful status, but I want to prepare the controller's power first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller can now run without the workshop socket for the trial, though its battery and connectivity are limited.",
+    "reaction": "The portable power is practical, and its limits are clear.",
+    "step": 4,
+    "reason": "Connect the demonstration latch to the powered controller to try local entry.",
+    "choice": 1,
+    "expectation": "I expect the controller to operate the demonstration latch locally, without an outside connection.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The disconnected sensor needs checking too, but I want to establish local entry first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller opened the latch locally and is ready to travel, but the neighborhood is not yet connected.",
+    "reaction": "It's satisfying to see the repaired controller work, with its scope stated clearly.",
+    "step": 5,
+    "reason": "Check how Moth reports a disconnected sensor so the status demonstration is truthful.",
+    "choice": 2,
+    "expectation": "I expect Moth to report that the door status is unknown rather than claim it is open or closed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The controller and keyed door may offer another entry test, but the sensor addresses the remaining status goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth correctly reports the disconnected sensor as unknown; the physical door can now be compared with that report.",
+    "reaction": "The distinction between no reading and a closed door is clear and useful.",
+    "step": 6,
+    "reason": "Compare the unknown status with the door opened by its key to advance the truthful status demonstration.",
+    "choice": 2,
+    "expectation": "I expect the display to remain uncertain despite the door being physically open, unless a sensor supplies a current reading.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The controller could also be paired with the opened door, but I want to check the status discrepancy first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "June's observation establishes that the door is open while preserving the distinction from the disconnected sensor.",
+    "reaction": "The explicit source label makes the status report more trustworthy.",
+    "step": 7,
+    "reason": "Combine the sourced door report with the local controller to complete the entry and status demonstration.",
+    "choice": 2,
+    "expectation": "I expect a local demonstration that includes June's reported door state and identifies its source, without claiming the sensor works.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The controller can also be combined with the keyed door, but the sourced report seems more directly relevant to truthful status."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The local status page now distinguishes June's timed observation from the unavailable sensor; the remaining entry combination may complete the goal.",
+    "reaction": "The source and time make the status display satisfyingly precise.",
+    "step": 8,
+    "reason": "This is the only available combination, and it should finish the local entry demonstration.",
+    "choice": 1,
+    "expectation": "I expect the controller and keyed door to complete the demonstration of local entry and its mechanical fallback.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both local control and the independent mechanical release work on the same fixture, completing the demonstration and the chapter.",
+    "reaction": "Testing genuinely separate fallback mechanisms was satisfying.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the status report from June's observation was most worthwhile: it showed both when the door was seen open and that the sensor was unavailable.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the controller to the keyed door felt somewhat repetitive after both entry methods had already been demonstrated separately.",
+        "steps": [
+          1,
+          4,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The controller-and-latch combination completed the readiness goal before the entry and status goal; it also made clear that one working controller does not mean the neighborhood is connected.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Completing the readiness goal when testing the latch felt a little abrupt, since the result did not explain how the assistant and migration evidence were kept ready.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would like to see how the modest local controller and the migration evidence are extended into a neighborhood response, though the offered compatible combinations made the individual choices fairly straightforward.",
+        "steps": [
+          4,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

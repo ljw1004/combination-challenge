@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll clean the address plate to establish the clinic's address and investigate the delivery refusal.",
+    "choice": 2,
+    "expectation": "The repair roll may help uncover the address; I'm unsure whether that alone will affect the handset.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Fixing the trolley could help move the crate, but I want to investigate the address first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plate reveals the clinic's address, which I can now check against the courier's handset.",
+    "reaction": "Eli's potato-shaped eight is a charming detail.",
+    "step": 2,
+    "reason": "I'll check the address against the handset to see what its system refuses.",
+    "choice": 2,
+    "expectation": "The handset may explain why it rejects 8B Latch Market, though the plate may not resolve the problem.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Fixing the trolley could help move the crate, but the address check comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset recognizes the address but excludes it from the active directory; I'll turn to getting the crate through the door.",
+    "reaction": "The impending directory migration makes the refusal feel more consequential than a typo.",
+    "step": 3,
+    "reason": "Fixing the trolley is the only offered combination and should help move the crate.",
+    "choice": 1,
+    "expectation": "The repair roll may let me open or repair the seized caster, possibly using the replacement cartridge afterward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster is freed, but its bearing has failed, so the replacement cartridge looks like the next repair.",
+    "reaction": "The failed bearing gives the trolley's steering problem a clear physical cause.",
+    "step": 4,
+    "reason": "I'll fit the replacement cartridge; it's the only offered combination and should restore the trolley.",
+    "choice": 1,
+    "expectation": "The replacement should repair the caster so the trolley can help move the crate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement caster restored the trolley, so it can now be used with the clinic crate.",
+    "reaction": "The matching mount makes the repair feel straightforward and satisfying.",
+    "step": 5,
+    "reason": "I'll use the trolley to move the crate; it's the only offered combination and advances the delivery goal.",
+    "choice": 1,
+    "expectation": "I expect the trolley to help get the crate through the clinic door, though it may not resolve the directory issue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is inside, but the courier still needs a receiving signature.",
+    "reaction": "The physical delivery worked, though the administrative step remains.",
+    "step": 6,
+    "reason": "I'll use the handset to record receipt; it's the only offered combination and addresses the outstanding signature.",
+    "choice": 1,
+    "expectation": "I expect the handset to capture a receiving signature, though the directory rejection may complicate it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's signature completes the delivery and provides a record that contradicts the directory rejection.",
+    "reaction": "The two conflicting records make the infrastructure problem tangible.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Checking the plate against the handset was most worthwhile: it showed that a correctly read address can still be excluded by a directory.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final receipt step felt less engaging as a decision: it was the only offered action and an obvious administrative follow-up.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The handset recognized the address but refused it because it was absent from the active directory, rather than because of a typo.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the trolley repair and receipt both had clear purposes, even when only one action was offered.",
+        "steps": [
+          3,
+          4,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. The conflicting receipt and rejection make me curious about how the neighborhood might challenge the directory, though the mostly forced repair sequence was less engaging as gameplay.",
+        "steps": [
+          2,
+          3,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

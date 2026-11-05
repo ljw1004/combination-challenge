@@ -1,0 +1,156 @@
+[
+  {
+    "step": 1,
+    "reason": "The rooftop scope and radio kit suggest checking the link's sightline before setting it up.",
+    "choice": {
+      "combine": "Packed rooftop radio kit",
+      "with": "Rooftop sightline scope"
+    },
+    "expectation": "The scope should help establish whether the rooftop radio link has a usable sightline.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Inline radio load meter",
+          "with": "Checked rooftop reserve pair"
+        },
+        "reason": "Measuring the reserves is relevant to the goal, but the radio setup may need checking first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios are mounted and aligned along a clear sightline, so I can turn to checking their power needs.",
+    "reaction": "The passing train makes the sightline check feel useful.",
+    "step": 2,
+    "reason": "Measuring the mounted radios' load should provide a basis for checking whether their reserves cover the night.",
+    "choice": {
+      "combine": "Inline radio load meter",
+      "with": "Mounted and aligned rooftop radios"
+    },
+    "expectation": "The meter should measure the radios' power draw.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meter has no available operation yet, so the power check likely needs another prerequisite.",
+    "reaction": "The failed measurement was unexpected.",
+    "step": 3,
+    "reason": "The solar charging pair and checked reserves are the remaining power components; I am guessing they need to be connected before measuring.",
+    "choice": {
+      "combine": "Matched solar charging pair",
+      "with": "Checked rooftop reserve pair"
+    },
+    "expectation": "The charging pair should connect to the radio reserves or reveal the next available step.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Mounted and aligned rooftop radios"
+        },
+        "reason": "Inspecting the radios could reveal their available partners."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protected reserves now have solar inputs and are ready to power the radios, but solar will not charge them tonight.",
+    "reaction": "The daylight limitation makes the reserve check feel important.",
+    "step": 4,
+    "reason": "The prepared reserve outputs are ready for the mounted radios.",
+    "choice": {
+      "combine": "Protected rooftop reserves with solar inputs",
+      "with": "Mounted and aligned rooftop radios"
+    },
+    "expectation": "The reserves should connect to the radios, enabling a power check.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both radios now have reserve power and solar inputs, but their local service route still needs configuring.",
+    "reaction": "The explicit reminder that solar waits for daylight is useful.",
+    "step": 5,
+    "reason": "The result identifies the controller as necessary to configure the radio route.",
+    "choice": {
+      "combine": "Portable local network controller",
+      "with": "Reserve-powered radios with solar inputs"
+    },
+    "expectation": "The controller should configure a local service route over the radios.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Inline radio load meter",
+          "with": "Reserve-powered radios with solar inputs"
+        },
+        "reason": "The powered radios may now be ready for a load measurement, but the route still needs configuration."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The local radio route is configured independently of Meridian, but its overnight load still needs checking.",
+    "reaction": "The remaining load check is clear.",
+    "step": 6,
+    "reason": "The inline meter can now measure the configured, reserve-powered link.",
+    "choice": {
+      "combine": "Inline radio load meter",
+      "with": "Independent radio link awaiting its load check"
+    },
+    "expectation": "The measurement should help determine whether both reserves can cover the night.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both reserves have been checked against measured loads and cover the remaining night; the next goal is to reach Eli.",
+    "reaction": "It is satisfying to see the reserve estimate backed by measurements and a margin.",
+    "step": 7,
+    "reason": "The tested link is the clearest place to check how to reach Eli.",
+    "choice": {
+      "inspect": "Load-tested independent link"
+    },
+    "expectation": "The inspection should show what can use the link to contact Eli.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically connected Moth to the tested link, confirmed communication with Eli, and revealed a possible future connection with Tin Row.",
+    "reaction": "Eli's reply was a satisfying, human confirmation that the link works.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Measuring both radio loads against usable capacity and starting charge was most worthwhile: it made the overnight reserve claim concrete, with a margin and a follow-up check.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "My attempted load measurement was the least worthwhile moment: it failed without explaining which prerequisite was missing.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The meter could not be used on the mounted radios until the reserves and local route were configured; the solar panels also would not add energy overnight.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring the local route to be configured before measuring the radios' load felt somewhat arbitrary; the result did not explain why that order was necessary.",
+        "steps": [
+          2,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd like to see how the neighborhoods make their networks understand each other, and the measured, practical repair made this chapter engaging.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

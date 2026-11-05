@@ -1,0 +1,138 @@
+[
+  {
+    "step": 1,
+    "reason": "Check the rooftop sightline to start establishing the market-to-clinic radio link.",
+    "choice": 1,
+    "expectation": "I expect the scope and radio kit to help verify or align the link, though power will still need attention.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Measuring the batteries also supports the independent-power goal, but I want to check the link first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios are aligned on a clear sightline, so the link can now be connected or powered.",
+    "reaction": "The passing train makes the alignment feel like a practical check rather than just placing equipment.",
+    "step": 2,
+    "reason": "Measure the charged batteries to prepare an independent power supply for the radios.",
+    "choice": 2,
+    "expectation": "I expect a measurement useful for matching the batteries to the radio load; the power setup may require further work.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Connecting the aligned radios to the controller also advances the link, but independent power is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both battery packs have been checked under load, so I can proceed with the radio power setup.",
+    "reaction": "The load test makes the battery labels feel less like an unsupported promise.",
+    "step": 3,
+    "reason": "Combine the tested batteries with the matched power boxes to advance the independent-power goal.",
+    "choice": 2,
+    "expectation": "I expect a usable battery supply for the radios, though it may still need connecting and charging arrangements.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Connecting the radios to the controller also matters, but I want to finish preparing their power first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested batteries now have individual fused protection; the radios still need to be connected.",
+    "reaction": "The local fuse protection makes the power setup feel more concrete.",
+    "step": 4,
+    "reason": "Connect the aligned radios to the local controller; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the radios to extend the local network between the market and clinic, though they may still need their power connected.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios now carry a private local route between the market and clinic; independent power remains to be connected.",
+    "reaction": "It's satisfying to see packets reach the clinic without leaving Latch.",
+    "step": 5,
+    "reason": "Connect the protected reserves to the radio link; this is the only offered combination and advances the power goal.",
+    "choice": 1,
+    "expectation": "I expect the battery reserves to power the link independently, though charging may still need attention.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both radios now run on protected reserves, with the old wall adapter disconnected; charging remains to be addressed.",
+    "reaction": "Disconnecting the adapter makes the independence check more convincing.",
+    "step": 6,
+    "reason": "Add the matched solar chargers to support the battery-powered link; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the solar pair to provide a way to recharge the radio batteries, though its capacity may have limits.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios have solar charging ready for daylight, but must rely on their reserves tonight.",
+    "reaction": "I appreciate the clear limit that the panels add no energy tonight.",
+    "step": 7,
+    "reason": "Use the load meter on the link to check its power demand; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a measurement to help assess how the reserves support the radios, though it may not establish an exact runtime.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The measured loads and battery capacities show both reserves can cover the remaining night, and the next goal is to reach Eli.",
+    "reaction": "The written recheck and margin make the power estimate feel grounded.",
+    "step": 8,
+    "reason": "Use Moth with the independent link to work toward reaching Eli; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect Moth to help establish or test communication with Eli, though another step may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's reply confirms the local channel works, and Tin Row's call suggests a possible next step in connecting networks.",
+    "reaction": "Eli's noodle message gives the technical test a welcome human payoff.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Load-testing the working radios was most worthwhile: comparing actual demand with usable battery capacity made the overnight plan credible rather than just hopeful.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate battery protection and connection steps felt somewhat repetitive, particularly with only one option available by then.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The solar kits add no energy tonight; the link must depend on the reserves until daylight.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though several were simply the only offered combination rather than meaningful choices.",
+        "steps": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. Eli's reply gives the repair a personal payoff, and Tin Row's offer makes me curious how the separate networks might communicate.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

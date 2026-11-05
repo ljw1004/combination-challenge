@@ -1,0 +1,190 @@
+[
+  {
+    "step": 1,
+    "reason": "The isolated cabinet likely contains the flow sensor, so the service kit is a practical starting point for checking it.",
+    "choice": {
+      "combine": "Pump service kit",
+      "with": "Isolated pump control cabinet"
+    },
+    "expectation": "The kit should let us access the sensor for inspection or testing.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Replacement flow sensor",
+          "with": "Ren's sensor-and-contact test rig"
+        },
+        "reason": "The rig might test the replacement directly, but the installed sensor may need checking first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kit replaced a failed permission relay with the supported local-control board, rather than checking the flow sensor.",
+    "reaction": "I was surprised the first repair concerned the relay rather than the sensor.",
+    "step": 2,
+    "reason": "Ren's test rig is the clearest available way to check the flow sensor, but its required partner is not yet certain.",
+    "choice": {
+      "inspect": "Ren's sensor-and-contact test rig"
+    },
+    "expectation": "The compatibility list should show what the rig can test next.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Replacement flow sensor",
+          "with": "Ren's sensor-and-contact test rig"
+        },
+        "reason": "The rig might test the replacement directly, though I don't yet know whether that checks the installed sensor."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement sensor passed a bench test, but the installed system still needs testing; the next goal is to check the independent stop.",
+    "reaction": "The no-flow comparison makes the test more convincing.",
+    "step": 3,
+    "reason": "The physical stop button and operator's key are the most relevant visible pieces, but their testing sequence is unclear.",
+    "choice": {
+      "inspect": "Physical stop button"
+    },
+    "expectation": "The compatibility list should show how to check or install the independent stop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stop button now has a matching service lead independent of Moth and the radio; it still needs connecting and checking.",
+    "reaction": "The separate control path makes the intended independence clearer.",
+    "step": 4,
+    "reason": "The prepared stop lead should connect to the pump cabinet's control plug.",
+    "choice": {
+      "combine": "Stop button with service lead",
+      "with": "Pump cabinet with local relay"
+    },
+    "expectation": "The stop button should connect to the local pump controls, ready for testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stop button passed an independent contact test, including with the network lead absent; the next goal is to return the pump to Ren's control.",
+    "reaction": "Testing without the network lead makes the independence tangible.",
+    "step": 5,
+    "reason": "The tested flow sensor appears ready to be fitted to the pump cabinet before returning it to service.",
+    "choice": {
+      "combine": "Bench-tested flow sensor",
+      "with": "Pump cabinet with local relay"
+    },
+    "expectation": "The tested sensor should be installed in the cabinet for a system-level check.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Independently tested stop button",
+          "with": "Pump cabinet with local relay"
+        },
+        "reason": "The tested stop also needs to be connected to the pump controls."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bench-tested sensor is installed, giving the cabinet flow feedback; the stop still needs connecting.",
+    "reaction": "Distinguishing a run request from measured flow is a useful detail.",
+    "step": 6,
+    "reason": "The independently tested stop button should now connect to the pump cabinet.",
+    "choice": {
+      "combine": "Independently tested stop button",
+      "with": "Pump cabinet with flow feedback"
+    },
+    "expectation": "The stop button should be fitted to the cabinet for Ren's control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested stop is installed directly in the control circuit. Local reporting and Ren's complete system check remain.",
+    "reaction": "The direct stop path makes its independence clear.",
+    "step": 7,
+    "reason": "The local network controller is the likely way to configure the cabinet's still-missing local reporting.",
+    "choice": {
+      "combine": "Portable local network controller",
+      "with": "Metered pump cabinet with independent stop"
+    },
+    "expectation": "The controller should configure local reporting without making the stop dependent on the network.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Pump operator's key",
+          "with": "Metered pump cabinet with independent stop"
+        },
+        "reason": "Ren's key may authorize control, but reporting is explicitly still unconfigured."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Local reporting is configured, but Ren still needs to verify the installed stop under operating conditions.",
+    "reaction": "The distinction between a bench test and an installed-system check is reassuring.",
+    "step": 8,
+    "reason": "Ren's operator key is the remaining visible control for returning the pump to its operator and checking the installed system.",
+    "choice": {
+      "combine": "Pump operator's key",
+      "with": "Pump cabinet with independent stop"
+    },
+    "expectation": "Ren should be able to operate and check the pump, including its installed stop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ren verified the installed stop without the network, completed the service checks, and returned the pump to local operation.",
+    "reaction": "The installed-system test closes the gap left by the bench test.",
+    "step": 9,
+    "reason": "The pump is running, but the goal has not yet been reported complete. Inspecting it should reveal the remaining operation.",
+    "choice": {
+      "inspect": "Pump running under local control"
+    },
+    "expectation": "The inspection should show what remains to return the pump fully to Ren's control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically linked the running pump to the clinic radio, reporting measured flow and Ren's contact point and completing the final goal.",
+    "reaction": "The ordinary sound of the tap was a satisfying payoff for the checks.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Ren's installed stop test was the most worthwhile: it confirmed that the pump actually stops without the network, beyond merely testing the button on the bench.",
+        "steps": [
+          4,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to connect the prepared stop directly to the cabinet was a confusing detour; it needed a separate rig test first, which had not been obvious to me.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected the service kit to help check the flow sensor, but it instead replaced the failed remote-permission relay with a supported local-control board.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The final radio link's purpose made sense once revealed, but it was not clear to me that it was required to complete the goal after Ren had returned the pump to operation.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd be curious to see how the neighborhood extends its network, though the repeated preparation and testing steps could become predictable.",
+        "steps": [
+          2,
+          4,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

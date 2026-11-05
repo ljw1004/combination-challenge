@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "The terminal is the route to investigating the missing address, but its repair needs aren't yet clear.",
+    "choice": {
+      "inspect": "Discarded orange service terminal"
+    },
+    "expectation": "Inspection should reveal which available parts or supplies can be used with it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Opening the terminal revealed dirty contacts and a split display ribbon, giving me two clear repair tasks.",
+    "reaction": "The specific faults make the repair straightforward.",
+    "step": 2,
+    "reason": "Contact cleaner directly addresses the dirty contacts.",
+    "choice": {
+      "combine": "Orange terminal with its cover open",
+      "with": "Electronics contact cleaner"
+    },
+    "expectation": "The cleaner should restore the terminal's contacts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Orange terminal with its cover open",
+          "with": "Matching display ribbon"
+        },
+        "reason": "The split ribbon also needs replacement."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The contacts are clean; the split display ribbon still needs replacement.",
+    "reaction": "The corrosion clearing is a satisfying small repair.",
+    "step": 3,
+    "reason": "The matching ribbon addresses the remaining identified fault.",
+    "choice": {
+      "combine": "Orange terminal with clean contacts",
+      "with": "Matching display ribbon"
+    },
+    "expectation": "The replacement ribbon should repair the terminal's display connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The display connection is repaired and the terminal is closed; it may now be ready for power.",
+    "reaction": "The tidy repair is satisfying.",
+    "step": 4,
+    "reason": "The protected power supply is the natural next step for testing the repaired terminal.",
+    "choice": {
+      "combine": "Orange terminal with its display repaired",
+      "with": "Protected workshop power supply"
+    },
+    "expectation": "The terminal should power on so I can investigate the address rejection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The terminal is powered and its assistant, Moth, is awake; I can now ask about the rejection.",
+    "reaction": "Moth's dry response gives the repaired terminal some personality.",
+    "step": 5,
+    "reason": "The saved rejection is the evidence Moth can use to investigate the missing address.",
+    "choice": {
+      "combine": "Moth's orange terminal",
+      "with": "Address rejection saved from the handset"
+    },
+    "expectation": "Moth should examine the rejection and offer information about the missing address.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's cached map confirms its directory marks Latch as a service gap; the remaining goal is repairing Miro's speaker.",
+    "reaction": "It's striking that Moth repeats the directory's error despite the neighborhood visibly existing.",
+    "step": 6,
+    "reason": "The matching speaker insert is the obvious replacement part for Miro's cracked speaker.",
+    "choice": {
+      "combine": "Miro's cracked little speaker",
+      "with": "Matching speaker insert"
+    },
+    "expectation": "The insert should repair the speaker or advance its repair.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Miro's cracked little speaker"
+        },
+        "reason": "I could check whether the speaker needs opening first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The speaker insert is replaced; the repaired speaker can now be connected to Miro's music player.",
+    "reaction": "Keeping the penciled concert dates is a nice touch.",
+    "step": 7,
+    "reason": "Connecting the repaired speaker to the music player should restore Miro's music.",
+    "choice": {
+      "combine": "Repaired little speaker",
+      "with": "Miro's pocket music player"
+    },
+    "expectation": "The player should play through the repaired speaker.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired speaker plays from Miro's music player, completing the remaining goal.",
+    "reaction": "The quiet bass line is a satisfying payoff for the repair.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Asking Moth about the rejection was most worthwhile: its cached map showed how an outdated directory can perpetuate an error about a real neighborhood.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Cleaning the contacts and replacing the ribbon were clear but predictable sequential repairs, with little decision-making once the faults were identified.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Moth treated the neighborhood as a service gap even though it visibly exists, showing that the assistant relied on its flawed directory.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the repairs and connections had clear purposes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I'd like to see how the neighbors challenge the faulty directory; Moth's confident reliance on it gives the story an intriguing problem to pursue.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

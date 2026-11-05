@@ -1,0 +1,169 @@
+[
+  {
+    "step": 1,
+    "reason": "The controller currently depends on a workshop socket, so its charged power bank is a practical first step toward a portable local-entry demonstration.",
+    "choice": {
+      "combine": "Charged controller power bank",
+      "with": "Portable controller with a verified local link"
+    },
+    "expectation": "The power bank should give the controller a portable supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The power bank has no available combination yet, so the controller may need preparation first.",
+    "reaction": "The failed attempt was unexpected given the earlier mention of portable power.",
+    "step": 2,
+    "reason": "Inspecting the controller should reveal what can be done with it now.",
+    "choice": {
+      "inspect": "Portable controller with a verified local link"
+    },
+    "expectation": "The report should identify available partners for preparing the controller.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Miro's management key authorized the local setup, leaving the controller configured by its owner.",
+    "reaction": "The distinction between a working command and permission to use it is useful.",
+    "step": 3,
+    "reason": "Now that the controller is configured, I'll try giving it the portable supply needed for the demonstration.",
+    "choice": {
+      "combine": "Portable network configured by its owner",
+      "with": "Charged controller power bank"
+    },
+    "expectation": "The power bank should let the configured controller operate away from the workshop socket.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The configured controller now has its own power for the trial, though its battery is limited and it has no internet connection.",
+    "reaction": "The portable supply worked once the owner had authorized setup.",
+    "step": 4,
+    "reason": "The powered local controller and demonstration latch appear to be the next pieces needed for local entry.",
+    "choice": {
+      "combine": "Portable controller on its own power",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The controller should connect to the demonstration latch for a local entry test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller opened the demonstration latch locally; the latch remains on the bench and the controller is still available.",
+    "reaction": "The local entry worked without implying the whole neighborhood is connected.",
+    "step": 5,
+    "reason": "The disconnected door-status sensor should be attached to the demonstration latch to support a truthful status report.",
+    "choice": {
+      "combine": "Disconnected door-status sensor",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The sensor should be connected to the demonstration door so its state can be reported.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disconnected sensor gives Moth an honest unknown status rather than a false closed reading.",
+    "reaction": "The distinction between a missing reading and a closed door is useful.",
+    "step": 6,
+    "reason": "Miro asked to demonstrate the mechanical fallback, so the key and latch are the natural next pair.",
+    "choice": {
+      "combine": "Mechanical demonstration-door key",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The key should operate the demonstration latch independently of the local network.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mechanical key opened the latch without the controller, demonstrating the fallback.",
+    "reaction": "The independent mechanical fallback is reassuring.",
+    "step": 7,
+    "reason": "The open-door demonstration and Moth's unknown status are the remaining relevant pieces for checking the status report.",
+    "choice": {
+      "combine": "Moth's display: door state unknown",
+      "with": "Demonstration door opened with its key"
+    },
+    "expectation": "Moth should report the door's status honestly in light of the key-operated opening.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth now reports the door open based on June's manual observation, while still identifying the sensor as disconnected.",
+    "reaction": "I like that the report distinguishes an observation from a working sensor.",
+    "step": 8,
+    "reason": "The manual report may have a remaining role in the demonstration, so I'll check its available partners.",
+    "choice": {
+      "inspect": "Door state reported by June"
+    },
+    "expectation": "The inspection should show whether the manual report can complete the local-entry demonstration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller now serves June's observation with its source and time, while clearly marking the sensor unavailable.",
+    "reaction": "The status page preserves the useful distinction between an observation and a live sensor reading.",
+    "step": 9,
+    "reason": "The goal remains open, so I'll check what the completed status page can be combined with next.",
+    "choice": {
+      "inspect": "Local status page with its evidence visible"
+    },
+    "expectation": "The inspection should reveal any remaining operation involving the status page.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The status page has no further available combinations, so I need to check another part of the demonstration.",
+    "reaction": "That was less informative than I hoped.",
+    "step": 10,
+    "reason": "The controller is central to the local-entry demonstration, so its available partners may reveal what remains.",
+    "choice": {
+      "inspect": "Portable local network controller"
+    },
+    "expectation": "The inspection should show any remaining operation involving the controller.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Testing the controller and key-operated door together confirmed two independent entry routes and completed the goal.",
+    "reaction": "The distinction between genuinely independent mechanisms and two controls relying on the same service was satisfying.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the manual observation with the local status page was most worthwhile: it showed how to share useful information without pretending the disconnected sensor worked.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the finished status page found no available combinations, so it added little while I was trying to find the remaining goal requirement.",
+        "steps": [
+          9
+        ]
+      },
+      "surprise": {
+        "text": "The power bank could not be used until the controller had been configured with its owner's management key; that prerequisite was not initially obvious.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Having to combine the controller with the already key-opened door to establish the two entry routes was not obvious to me, although the resulting test had a clear purpose.",
+        "steps": [
+          10
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in seeing how the modest local network is extended, particularly because this chapter kept its limitations and fallback mechanisms explicit.",
+        "steps": [
+          4,
+          8,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

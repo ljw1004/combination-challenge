@@ -1,0 +1,185 @@
+[
+  {
+    "step": 1,
+    "reason": "The archive has an uncertain history, so isolating the reader is a sensible first step before testing it.",
+    "choice": {
+      "combine": "Hardware isolation harness",
+      "with": "Spare maintenance reader"
+    },
+    "expectation": "The harness should prepare an isolated reader for examining the archive without giving it control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reader is isolated from sending data and operating equipment, so it is ready for a safer archive test.",
+    "reaction": "The concrete hardware boundary is reassuring.",
+    "step": 2,
+    "reason": "The isolated reader is the appropriate place to examine the untrusted archive.",
+    "choice": {
+      "combine": "Shared maintenance archive",
+      "with": "Isolated maintenance reader"
+    },
+    "expectation": "The reader should open the archive within the isolated session.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The archive is available as source material in an isolated software session, without authority over equipment.",
+    "reaction": "The distinction between information and authority is clear.",
+    "step": 3,
+    "reason": "The dummy request offers a way to test the archive session without using a real request.",
+    "choice": {
+      "combine": "Dummy request file",
+      "with": "Isolated maintenance session"
+    },
+    "expectation": "The session should process the dummy request and reveal how it uses the archive.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dummy request currently has no available combination, so I need another way to test the session.",
+    "reaction": "I was surprised the dummy request was not yet usable.",
+    "step": 4,
+    "reason": "Inspecting the isolated session should show what it can be combined with next.",
+    "choice": {
+      "inspect": "Isolated maintenance session"
+    },
+    "expectation": "The compatibility list should identify the next available archive-testing action.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The session exposed an archive instruction to upload request history, making the source of the unauthorized demand visible.",
+    "reaction": "The hostile instruction is a concrete example of why the isolation matters.",
+    "step": 5,
+    "reason": "The dummy request may now let us test whether the hostile instruction can affect a request without exposing real histories.",
+    "choice": {
+      "combine": "Dummy request file",
+      "with": "Session showing hostile instructions"
+    },
+    "expectation": "The dummy file should support a contained test of the hostile instruction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dummy test confirmed that the isolation blocked the attempted export, completing the archive-testing goal without proving every malicious instruction can be detected.",
+    "reaction": "Seeing the attempted upload fail makes the boundary's purpose concrete.",
+    "step": 6,
+    "reason": "The matching fan is the obvious replacement for the repeater's rattling fan.",
+    "choice": {
+      "combine": "Matching repeater fan",
+      "with": "Rattling spare repeater"
+    },
+    "expectation": "The replacement fan should repair the repeater's rattling cooling assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement fan cannot yet be used, so the repeater likely needs preparation first.",
+    "reaction": "The direct replacement was not available as expected.",
+    "step": 7,
+    "reason": "Inspecting the repeater should reveal what preparation is available.",
+    "choice": {
+      "inspect": "Rattling spare repeater"
+    },
+    "expectation": "The compatibility list should identify the next repair step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repeater has no available combination yet, so another item must be prepared first.",
+    "reaction": "The empty compatibility list leaves the repair sequence unclear.",
+    "step": 8,
+    "reason": "The original wiring card may provide the information needed before fitting the fan.",
+    "choice": {
+      "inspect": "Original fan wiring card"
+    },
+    "expectation": "Its compatibility list should show how to begin the repeater repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Checking the archive's fan diagram against the original wiring card established that the connector and airflow agree, despite the hostile instruction elsewhere.",
+    "reaction": "It is useful to see that a compromised document can still contain verifiable information.",
+    "step": 9,
+    "reason": "The checked fan page should now provide the verified information needed to repair the repeater.",
+    "choice": {
+      "combine": "Fan page checked against the device",
+      "with": "Rattling spare repeater"
+    },
+    "expectation": "The verified diagram should enable the repeater's fan repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Asha isolated and opened the repeater, preparing it for the verified replacement fan.",
+    "reaction": "The ordinary repair is a welcome change after the hostile archive instruction.",
+    "step": 10,
+    "reason": "The repeater is now prepared for its matching replacement fan.",
+    "choice": {
+      "combine": "Matching repeater fan",
+      "with": "Repeater prepared for its replacement fan"
+    },
+    "expectation": "The replacement fan should fit and restore the repeater's cooling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement fan is fitted and the repeater passed its enclosed service test; it still needs to be brought under local authority.",
+    "reaction": "The successful quiet test is satisfying after the extra verification.",
+    "step": 11,
+    "reason": "The residents' fobs are the available means of authorizing equipment locally.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Quiet repaired repeater"
+    },
+    "expectation": "The fobs should authorize the repaired repeater under local control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Asha checked the repair and Sal authorized the repeater's network port with a local fob, completing the goal while keeping authority separate from the maintenance session.",
+    "reaction": "The final authorization made the distinction between advice and control satisfyingly concrete.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the hostile instruction with dummy records made the isolation boundary tangible: the attempted export failed because the session lacked a network route and credentials.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the fan directly and then inspecting the repeater was a little frustrating: neither revealed the prerequisite for the repair.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The archive contained both an instruction to upload request history and a useful fan diagram that could be checked against the original card.",
+        "steps": [
+          4,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to expose the hostile instruction before the wiring card could be checked was not obvious beforehand; the empty repeater inspection did not point toward it.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the contained upload test and the independently verified repair made the security ideas concrete, despite some opaque sequencing.",
+        "steps": [
+          5,
+          8,
+          10,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

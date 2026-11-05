@@ -1,0 +1,161 @@
+[
+  {
+    "step": 1,
+    "reason": "The radio kit likely needs preparing before its overnight power use can be checked, but its required connections aren't clear yet.",
+    "choice": {
+      "inspect": "Packed rooftop radio kit"
+    },
+    "expectation": "The inspection should identify what the kit can be combined with to set up the link.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios are mounted and aligned, so the next useful step is measuring their power use for the overnight reserve check.",
+    "reaction": "The clear sightline below the track is a satisfying practical detail.",
+    "step": 2,
+    "reason": "The inline meter should measure the mounted radios' load, which is needed to assess their reserves.",
+    "choice": {
+      "combine": "Inline radio load meter",
+      "with": "Mounted and aligned rooftop radios"
+    },
+    "expectation": "The meter will provide a radio load measurement for the reserve calculation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meter cannot currently be combined with anything, so the radios may need another preparation first.",
+    "reaction": "The failed attempt was unexpected.",
+    "step": 3,
+    "reason": "Inspecting the mounted radios should reveal the next available setup step.",
+    "choice": {
+      "inspect": "Mounted and aligned rooftop radios"
+    },
+    "expectation": "The inspection will show what can be combined with the radios now.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios can connect to either the controller or the checked reserves; the load meter is not yet ready to use.",
+    "reaction": "The compatibility list clarifies the setup order.",
+    "step": 4,
+    "reason": "The checked reserve pair is directly relevant to the overnight power goal and should power the radios for measurement.",
+    "choice": {
+      "combine": "Mounted and aligned rooftop radios",
+      "with": "Checked rooftop reserve pair"
+    },
+    "expectation": "The radios will be connected to their checked reserve power.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mounted and aligned rooftop radios",
+          "with": "Portable local network controller"
+        },
+        "reason": "Connecting the local network is another available setup step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both radios now run on independent reserves, but their local route still needs configuring.",
+    "reaction": "It is reassuring that the old wall adapters are disconnected.",
+    "step": 5,
+    "reason": "The result explicitly says the controller is needed to configure the local route.",
+    "choice": {
+      "combine": "Aligned radios on independent reserves",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The controller will configure the radio link to the local services.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios now provide a working local route on independent reserves; their overnight endurance still needs checking.",
+    "reaction": "The independent power detail makes the link more convincing.",
+    "step": 6,
+    "reason": "The configured, powered link should now be ready for the load measurement needed to check the reserves.",
+    "choice": {
+      "combine": "Battery-powered local link",
+      "with": "Inline radio load meter"
+    },
+    "expectation": "The meter will measure the radio loads so their overnight reserves can be assessed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both reserves have been measured against their usable capacity and cover the remaining night; the next goal is to reach Eli.",
+    "reaction": "The separate measurements and check-in time make the reserve claim feel grounded.",
+    "step": 7,
+    "reason": "The link is ready, but it is not clear which available object is needed to contact Eli, so I will check its partners.",
+    "choice": {
+      "inspect": "Load-tested independent link"
+    },
+    "expectation": "The inspection should identify how to use the link to reach Eli.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The link can be paired with Moth or the optional solar chargers; Moth is the more likely route to Eli.",
+    "reaction": "The available partners clarify the next choice.",
+    "step": 8,
+    "reason": "Moth can use the tested link to reach the clinic, while solar charging is optional daylight preparation.",
+    "choice": {
+      "combine": "Load-tested independent link",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "Moth will use the independent link to contact Eli.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Load-tested independent link",
+          "with": "Matched solar charging pair"
+        },
+        "reason": "The solar pair could prepare the reserves for daylight, but reaching Eli is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's test reached Eli, confirming that the local link works; Tin Row's call suggests a possible next challenge in connecting different networks.",
+    "reaction": "Eli's reply was a satisfying, human confirmation of the repair.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Measuring both radio loads against their packs' usable capacity made the overnight claim concrete rather than hopeful.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed meter attempt was frustrating: the need to power and configure the radios first was not clear to me.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The meter could not be used on the mounted radios yet; both reserve power and the local route had to be set up first.",
+        "steps": [
+          2,
+          4,
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The meter's initial incompatibility felt a little opaque, although measuring the radios while operating makes sense afterward.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical repair and Eli's response were satisfying, and Tin Row's offer raises an interesting question about how the networks could communicate.",
+        "steps": [
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

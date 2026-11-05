@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "Start the clinic recommendation by letting Moth process Sal's recording.",
+    "choice": 1,
+    "expectation": "Moth will produce a transcript or interpretation, though the train noise may cause errors.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the sign motor also advances a goal, but I want to investigate the recording first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth misheard the noisy recording, so the transcript needs correction before it can support a reliable recommendation.",
+    "reaction": "The confident wrong repair request is a striking example of a plausible transcription error.",
+    "step": 2,
+    "reason": "Apply Sal's correction to fix the misunderstanding at its source.",
+    "choice": 1,
+    "expectation": "The transcript should reflect Sal's intended repair request, though it may still need verification.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor also needs repair, but correcting the transcript follows directly from the error."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The correction identifies cooling as the actual job, with the original audio retained for checking.",
+    "reaction": "Keeping the audio alongside the correction is a useful, concrete safeguard.",
+    "step": 3,
+    "reason": "Use the source-and-correction interface to make the corrected request traceable.",
+    "choice": 1,
+    "expectation": "The interface will connect the request to its source and correction, though further verification may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor also needs attention, but the corrected request is ready for the next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The request now links its recording and correction, making the evidence inspectable rather than automatically trustworthy.",
+    "reaction": "The distinction between having a source and proving a claim is clear and useful.",
+    "step": 4,
+    "reason": "Give Moth the traceable request to advance the clinic recommendation.",
+    "choice": 1,
+    "expectation": "Moth will use the corrected request to produce or revise a recommendation; it may still need checking against the cooler's model plate.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor also needs repair, but I want to finish the request first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth can now show the evidence behind an answer and accept corrections; the cooler's model plate offers a further check.",
+    "reaction": "The exchange about several undo buttons adds a welcome bit of humor.",
+    "step": 5,
+    "reason": "Use the model plate to ground the clinic recommendation in the actual cooler.",
+    "choice": 1,
+    "expectation": "Moth will use the photographed model details to refine or check its recommendation, though the result may still need review.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sign motor still needs repair, but checking the cooler follows naturally from setting up Moth's controls."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The corrected request and model plate led to a compatible fan cartridge, completing the clinic recommendation goal. The sign remains.",
+    "reaction": "It's satisfying to see the correction change the actual repair choice.",
+    "step": 6,
+    "reason": "The only offered combination starts repairing Sal's stalled sign motor.",
+    "choice": 1,
+    "expectation": "The repair roll will free or diagnose the motor; it may still need power and the sign attached.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Removing trapped thread cleared the motor shaft; it still needs power and the sign.",
+    "reaction": "The trapped thread is a pleasingly simple fault, and Sal's reaction is funny.",
+    "step": 7,
+    "reason": "The only offered combination connects the cleared motor to its protected power lead.",
+    "choice": 1,
+    "expectation": "The motor will be powered or ready to run, though the painted sign may still need attaching.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor now turns smoothly on its protected lead; the sign still needs attaching.",
+    "reaction": "Testing it for a full revolution is a nice practical touch.",
+    "step": 8,
+    "reason": "The only offered combination attaches the sign to the working motor.",
+    "choice": 1,
+    "expectation": "The painted noodle sign will turn again, completing Sal's goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sign is turning again, completing the remaining goal and the chapter.",
+    "reaction": "Moth and Sal's exchange is a funny finish to the repair.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Correcting the misheard request and matching it to the actual cooler made the consequences of an AI error concrete; the correction changed the repair choice.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the cleared sign motor to power felt predictable, though the full-revolution test was a nice touch.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Moth confidently heard a computer repair instead of a cooling request; keeping the audio made the correction checkable.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, although the offered compatible combinations made the sequence straightforward rather than a discovery of compatibility.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how Moth and the neighborhood address the directory problem; the concrete repairs and character exchanges held my interest.",
+        "steps": [
+          4,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

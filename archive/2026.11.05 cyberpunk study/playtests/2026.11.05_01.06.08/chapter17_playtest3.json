@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The immediate goal is to check the flow sensor, so testing its replacement with Ren's rig seems the most direct start.",
+    "choice": 2,
+    "expectation": "I expect the rig to check the replacement sensor, though it may need further work before installation.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Opening or servicing the isolated cabinet may be useful, but the sensor test addresses the stated goal more directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement sensor passed a reference check, but still needs testing in the installed system. The next goal is the independent stop.",
+    "reaction": "Checking zero flow as well as running water was a useful detail.",
+    "step": 2,
+    "reason": "The stop button is the direct next target for the new goal.",
+    "choice": 2,
+    "expectation": "I expect to service or prepare the physical stop button for testing; I don't yet know whether that alone will verify it.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The cabinet also needs attention, but the stop is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stop button now has a connected service lead that bypasses Moth and the radio, but it has not yet been tested.",
+    "reaction": "The separate control path makes the intended independence clearer.",
+    "step": 3,
+    "reason": "Ren's test rig is the direct way to check the prepared stop button.",
+    "choice": 2,
+    "expectation": "I expect Ren to test the stop switch and its lead; the installed pump system may still need a separate test.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The cabinet needs attention too, but checking the stop is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stop button passed its contact test even without the network lead; the next goal is returning the pump to Ren's control.",
+    "reaction": "Testing without the network makes the independent stop convincing.",
+    "step": 4,
+    "reason": "Servicing the isolated cabinet is the only offered combination and the next step toward returning control to Ren.",
+    "choice": 1,
+    "expectation": "I expect the service kit to prepare the cabinet for further work, not necessarily restore control immediately.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cabinet now has the manufacturer's local-control board in place of the failed remote-permission relay; it still needs its other components and system checks.",
+    "reaction": "The supported local mode makes the repair's purpose clear.",
+    "step": 5,
+    "reason": "Installing the bench-tested flow sensor is the only offered combination and advances the pump restoration.",
+    "choice": 1,
+    "expectation": "I expect the sensor to be fitted to the cabinet, with an installed-system test still needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cabinet now has flow feedback, though the installed system still needs testing.",
+    "reaction": "The distinction between requesting a run and measuring flow is clear and useful.",
+    "step": 6,
+    "reason": "Connecting the local controller is the only offered combination and should advance the return to Ren's control.",
+    "choice": 1,
+    "expectation": "I expect the controller to connect to the pump cabinet; I don't assume that will complete the system test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump now has a local reporting address, while Ren's controls and interlocks retain authority over changes.",
+    "reaction": "The distinction between a remote request and local control is reassuring.",
+    "step": 7,
+    "reason": "Fitting the tested stop button is the only offered combination and advances the pump restoration.",
+    "choice": 1,
+    "expectation": "I expect the independent stop to be connected to the cabinet; the assembled system may still need testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested stop is fitted to the cabinet, giving Ren a local stop independent of the screens.",
+    "reaction": "The separate physical stop is a satisfying safety measure.",
+    "step": 8,
+    "reason": "The operator's key is the only offered combination and should help return control to Ren.",
+    "choice": 1,
+    "expectation": "I expect the key to enable Ren's control of the pump, though the assembled system may still need a test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ren checked the complete system and verified pressure and flow before releasing the locally controlled pump for use.",
+    "reaction": "Seeing the assembled system checked before use is satisfying.",
+    "step": 9,
+    "reason": "The clinic radio link is the only offered combination and may allow the pump's status to be shared locally.",
+    "choice": 1,
+    "expectation": "I expect the running pump to connect to the local radio link, perhaps for reporting; Ren's controls should remain authoritative.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic link now reports measured flow and Ren's contact point, and the pump restoration goal is complete.",
+    "reaction": "Eli filling the jug makes the technical work feel concrete.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the stop without the network was the strongest moment: it demonstrated independence rather than merely promising it.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The sequence of single-option fittings felt predictable, even though each had a clear role.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The flow sensor's reference test included zero flow, and the result explicitly distinguished that bench check from testing the installed system.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the later fittings were clear, although the menu left little choice.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would cautiously continue for the neighborhood story and the practical consequences of its repairs, though I would hope for more meaningful choices.",
+        "steps": [
+          3,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

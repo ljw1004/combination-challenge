@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll verify the migration notice before relying on its claims about what expires.",
+    "choice": 1,
+    "expectation": "I expect to establish whether the notice's signature is valid, though that may not confirm its contents are accurate.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the controller advances the local network, but the notice may clarify the immediate problem first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The notice is authentically from Meridian, but its signature does not validate its policy claims. I can now compare it with Latch's subscription records.",
+    "reaction": "The distinction between authenticity and a sound policy is clear and useful.",
+    "step": 2,
+    "reason": "Comparing the verified notice with the subscription export should clarify what actually expires.",
+    "choice": 1,
+    "expectation": "I expect to learn which Latch services are affected, though the records may not resolve everything.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The controller repair also advances a goal, but I want to establish the migration's effects first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The notice reveals that delivery and utility-access credentials below a revenue threshold expire at dawn. I'll check the effect on clinic dispatch.",
+    "reaction": "The contrast between the cheerful notice and the specific cutoff is striking.",
+    "step": 3,
+    "reason": "Connecting the notice to clinic dispatch should clarify its practical consequences.",
+    "choice": 1,
+    "expectation": "I expect to see how the credential expiry affects clinic requests, though it may not establish every service impact.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The controller repair is important for the local network, but I want to finish checking the notice first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The affected-service list confirms which credentials will be rejected, without implying that every physical machine will stop. The notice goal is complete.",
+    "reaction": "The distinction between lost access and machines stopping is useful.",
+    "step": 4,
+    "reason": "The radio module repair is the only offered combination and advances the local network goal.",
+    "choice": 1,
+    "expectation": "I expect the compatible module to restore the controller's radio, though further setup may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller's radio and short-range link work; it still needs power and possibly further setup.",
+    "reaction": "The straightforward module replacement makes sense.",
+    "step": 5,
+    "reason": "The power supply is the only offered combination and should move the local network setup forward.",
+    "choice": 1,
+    "expectation": "I expect the controller to power on, though it may still need software and a handset test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller powers up, but this trial depends on the workshop socket.",
+    "reaction": "The portable power limitation is clear.",
+    "step": 6,
+    "reason": "Installing the documented software is the only offered combination and should advance the local network.",
+    "choice": 1,
+    "expectation": "I expect the controller to run the local software, though it may still need a handset test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The offline software starts a local network, but it does not provide outside services.",
+    "reaction": "The distinction between local connectivity and an external uplink is clear.",
+    "step": 7,
+    "reason": "Testing the handset is the only offered combination and should check whether a nearby device can use the network.",
+    "choice": 1,
+    "expectation": "I expect the handset to connect locally, though it may not reach outside services.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset test verifies one local connection without the corporate uplink, completing the network goal without proving external access.",
+    "reaction": "Satisfying to see the repaired controller work, with the test's scope stated clearly.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Matching the notice to the clinic's actual request identifiers made the threatened cutoff concrete while distinguishing lost access from machines physically stopping.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Powering the controller was straightforward but felt like a routine link in a largely predetermined repair sequence.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The cheerful migration notice turned out to expire delivery and utility-access credentials based on contracted revenue.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the controller sequence offered only one combination at each decision, leaving little meaningful choice.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the neighborhood responds to the cutoff; the notice's consequences and the limited local-network test leave an interesting problem unresolved.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

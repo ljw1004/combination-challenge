@@ -1,0 +1,127 @@
+[
+  {
+    "step": 1,
+    "reason": "The rack's ownership is unclear, so I'll check the purchase book before attempting local control.",
+    "choice": 1,
+    "expectation": "I expect the records to identify which rack equipment the cooperative owns, though they may not settle everything.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Preparing fobs could help with access, but ownership seems worth establishing first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receipts distinguish the cooperative's controller, wiring and switches from Meridian's modem, so local control can focus on owned equipment.",
+    "reaction": "The oversized ownership sticker was a satisfying detail.",
+    "step": 2,
+    "reason": "I'll compare the migration notice with the identified equipment to see what access is affected.",
+    "choice": 1,
+    "expectation": "I expect a clearer picture of which rack services the migration affects, though ownership alone may not establish that.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The fobs may help establish local access, but I want to understand the affected services first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The leased modem's approval lead no longer controls the cooperative's door, while its uplink remains available.",
+    "reaction": "Separating the permission signal from the uplink is a useful distinction.",
+    "step": 3,
+    "reason": "I'll connect the local controller to the rack to establish an alternative control path.",
+    "choice": 1,
+    "expectation": "I expect the portable controller to provide local control of the cooperative's equipment, though further setup may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fobs may be needed for access, but connecting the controller to the rack seems like the more direct next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooperative's circuits now respond locally using the controller's existing fallback settings.",
+    "reaction": "It's satisfying to see local control working without the account server.",
+    "step": 4,
+    "reason": "I'll prepare the service fobs; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the controller to configure the fobs for local access, though further setup may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The residents now have fobs enrolled on their own controller, independent of company or Moth permissions.",
+    "reaction": "It's satisfying that control of access stays with the cooperative.",
+    "step": 5,
+    "reason": "I'll combine the fobs with the local control selector; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the fobs to enable or authorize the local selector, though I'm unsure exactly how it works.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The selector recognizes the residents' fobs but still requires manual operation.",
+    "reaction": "The distinction between authorization and actually moving the switch is clear.",
+    "step": 6,
+    "reason": "I'll add the raised lettering to make the selector easier to identify; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect tactile labels on the selector, though it may still need to be connected or operated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The selector now has tactile LOCAL and EXTERNAL labels, ready to be fitted to the rack.",
+    "reaction": "Miro checking the labels with his eyes shut makes their purpose tangible.",
+    "step": 7,
+    "reason": "I'll connect the marked selector to the locally addressed rack; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the selector to provide a way to choose local control, though it may still need to be operated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The selector is fitted and both residents' fobs work, completing the shift to shared local control.",
+    "reaction": "Sal and Miro testing their own access was a satisfying finish.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Checking the purchase book was worthwhile: the receipts turned the misleading ownership sticker into a concrete distinction between the leased modem and cooperative equipment.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The sequence became somewhat repetitive once each decision offered only one combination, even though the tactile labels had a clear purpose.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The modem could retain its uplink while its separate approval signal was removed from door control.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Pairing the fobs with the selector initially felt a little opaque; the result clarified that recognition authorizes access but does not move the switch.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. The shared-control outcome was satisfying, and I would be curious to see how the neighborhood extends it beyond the rack, though the single-option sequence was less engaging.",
+        "steps": [
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "The repair roll is a plausible way to clear the printer jam so the clinic's requests can be examined.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Jammed clinic request printer"
+    },
+    "expectation": "The printer should be cleared or opened for repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer is cleared, so I can try using the archive cartridge to retrieve the clinic's requests.",
+    "reaction": "The straightforward repair was satisfying.",
+    "step": 2,
+    "reason": "The clinic's archive cartridge belongs with its cleared request printer and may make the requests available for comparison.",
+    "choice": {
+      "combine": "Clinic dispatch archive cartridge",
+      "with": "Cleared request printer"
+    },
+    "expectation": "The printer should produce the archived clinic requests.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printed dispatch history makes the clinic's requests available to compare with depot intake.",
+    "reaction": "The contrast between the recorded requests and the clinic's apparent silence is striking.",
+    "step": 3,
+    "reason": "Comparing the printed history with the depot export directly addresses the first goal.",
+    "choice": {
+      "combine": "Clinic's printed dispatch history",
+      "with": "Depot intake export"
+    },
+    "expectation": "The comparison should reveal which clinic requests are missing from depot intake.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The comparison shows that an intake filter excludes requests from unlisted addresses; the marked tape can be compared with the volunteers’ list.",
+    "reaction": "The distinction between no admitted requests and no need is striking.",
+    "step": 4,
+    "reason": "The result explicitly points to comparing the marked tape with the volunteers’ delivery histories.",
+    "choice": {
+      "combine": "Dispatch tape marked with missing requests",
+      "with": "Volunteered delivery histories"
+    },
+    "expectation": "The comparison should help show the missing work using the volunteers’ records.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The marked tape cannot currently be combined with anything, so the volunteers’ comparison may need another preparation first.",
+    "reaction": "That was unexpected given the comparison hint.",
+    "step": 5,
+    "reason": "The matching display module should repair the market queue board so the missing work can be shown there.",
+    "choice": {
+      "combine": "Matching noticeboard display module",
+      "with": "Market queue board with a dead display"
+    },
+    "expectation": "The board should have a working display for the records.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The queue board now has a working display and is ready for content.",
+    "reaction": "The display repair was straightforward.",
+    "step": 6,
+    "reason": "The volunteered delivery histories are a plausible source of the public list needed for the board and comparison.",
+    "choice": {
+      "combine": "Volunteered delivery histories",
+      "with": "Empty repaired queue board"
+    },
+    "expectation": "The board should display a public list based on the volunteered histories.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired board now displays the volunteers’ waiting jobs and completed collections, providing the public list mentioned in the comparison hint.",
+    "reaction": "The distinction between waiting and collected jobs makes the missing work more concrete.",
+    "step": 7,
+    "reason": "The marked dispatch tape was kept for comparison with this public list.",
+    "choice": {
+      "combine": "Dispatch tape marked with missing requests",
+      "with": "Public waiting and collection list"
+    },
+    "expectation": "The comparison should connect the missing requests with the market's visible delivery records.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The queue board now shows the intake gap, with people able to correct its incomplete list. Moth still needs to see the missing work.",
+    "reaction": "Making the list correctable is a useful detail.",
+    "step": 8,
+    "reason": "Showing the marked queue board to Moth directly addresses the remaining goal.",
+    "choice": {
+      "combine": "Queue board showing the intake gap",
+      "with": "Moth's orange terminal"
+    },
+    "expectation": "Moth should learn about the requests missing from the depot's intake.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth recognizes that missing records are not missing work and marks the directory unsuitable for estimating local demand; both goals are complete.",
+    "reaction": "Moth acknowledging its mistaken recommendation was a satisfying conclusion.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the clinic's dispatch history with depot intake was most worthwhile: it exposed how a filter made unmet requests disappear from the count.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to compare the tape directly with the volunteer histories was frustrating because the preceding hint suggested that comparison, but the board first needed preparation.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The depot's zero meant no requests were admitted to the count, not that nobody needed deliveries.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to put the volunteer histories on the board before comparing them with the tape felt unclear at first, though the resulting public, correctable list gave it a purpose.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The repairs were straightforward, but tracing the missing requests through the records and seeing Moth revise its conclusion made me curious about what happens next.",
+        "steps": [
+          3,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

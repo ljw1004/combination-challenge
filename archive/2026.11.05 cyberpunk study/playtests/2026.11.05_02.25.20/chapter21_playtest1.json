@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The compatible spares belong in the service cupboard, making supplies available for the handoff.",
+    "choice": {
+      "combine": "Compatible maintenance spares",
+      "with": "Workshop service cupboard"
+    },
+    "expectation": "The cupboard will be stocked with maintenance supplies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spares are organized, but the cupboard is still on June's fob, so shared access may need attention.",
+    "reaction": "The labelled trays and separate bad-parts tin are a practical touch.",
+    "step": 2,
+    "reason": "Residents' fobs may let others access the stocked cupboard without relying on June.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Stocked cupboard on June’s fob"
+    },
+    "expectation": "The cupboard will become accessible to other authorized residents.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cupboard now has shared authorized access and a mechanical fallback; the handoff still needs attention.",
+    "reaction": "The fallback makes the shared access more convincing.",
+    "step": 3,
+    "reason": "The known faulty cartridge and isolated practice panel suggest a safe way to train someone for the handoff.",
+    "choice": {
+      "combine": "Known faulty training cartridge",
+      "with": "Isolated practice panel"
+    },
+    "expectation": "The faulty cartridge will be installed or tested on the isolated practice panel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The practice panel now shows a real missing-signal fault despite having power; the operators still need to work through it.",
+    "reaction": "That distinction makes the training fault useful rather than just a broken lamp.",
+    "step": 4,
+    "reason": "I'll check how the faulted panel can be used for the handoff before guessing at a repair.",
+    "choice": {
+      "inspect": "Practice panel with a real fault"
+    },
+    "expectation": "The inspection should show what can be used with the practice panel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's diagram and the operators' checks located the practice fault; the panel may now be ready for a repair or handoff.",
+    "reaction": "It is satisfying that the operators verified the suggestion rather than simply accepting it.",
+    "step": 5,
+    "reason": "The stocked cupboard may contain what is needed to resolve the located fault and complete the training.",
+    "choice": {
+      "combine": "Practice panel with the fault located",
+      "with": "Shared maintenance cupboard"
+    },
+    "expectation": "The operators will use the shared supplies to address the practice fault.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The practice panel is restored using the compatible spares, and Miro wants to try using his own login.",
+    "reaction": "The direct spares pairing was useful feedback; Miro's request suggests the next test.",
+    "step": 6,
+    "reason": "Miro's own service fob may let him demonstrate access to the restored panel.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Practice panel restored"
+    },
+    "expectation": "Miro will use his own credentials to try the restored practice panel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal and Miro have both practiced the handoff with their own access, completing the supplies and handoff goal. The neighbor-link alarm remains.",
+    "reaction": "The repeated check makes the handoff feel more credible than a roster alone.",
+    "step": 7,
+    "reason": "The local alarm bell and tested neighbor link are the clearest pair for detecting a link fault.",
+    "choice": {
+      "combine": "Local shift alarm bell",
+      "with": "Tested neighbor request link"
+    },
+    "expectation": "The bell will be connected or configured to signal a fault on the neighbor link.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bell is bench-tested on the approved spare repeater; the repeater still needs fitting and testing on the neighbor link.",
+    "reaction": "The compatibility feedback clarified where the alarm belongs.",
+    "step": 8,
+    "reason": "The prepared repeater needs to be fitted into the tested neighbor link before its installed alarm can be checked.",
+    "choice": {
+      "combine": "Approved spare repeater with fault bell",
+      "with": "Tested neighbor request link"
+    },
+    "expectation": "The repeater and its fault bell will be installed on the neighbor link.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repeater is installed, its bypass and fault bell have been tested, and shift responsibilities are agreed. Both chapter goals are complete.",
+    "reaction": "The installed test and named responders make the alarm feel like a useful handoff rather than just another component.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The practice-panel handoff was most worthwhile: Sal and Miro checked and repaired a real fault, then Miro repeated the check under his own credentials. It showed that shared responsibility requires practiced people, not just a roster.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Stocking the cupboard was straightforward and less engaging than diagnosing the panel, though the shared access and mechanical fallback gave it a purpose.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The practice panel had power while reporting a missing signal; a lit lamp did not mean its reporting path worked.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "I guessed that the cupboard itself would supply the panel repair, but the game required the spares as a separate partner. The feedback made the needed pairing clear.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would choose another chapter for the combination of practical fault-finding and the story's attention to who can maintain a system after its builder leaves, although some straightforward fitting steps were less engaging.",
+        "steps": [
+          4,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

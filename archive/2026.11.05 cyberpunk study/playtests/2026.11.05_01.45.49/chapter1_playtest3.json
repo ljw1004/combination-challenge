@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The replacement cartridge looks like the right part to free the trolley for moving the clinic's crate.",
+    "choice": {
+      "combine": "Trolley with a seized caster",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The replacement cartridge should repair the trolley's seized caster.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mud-covered clinic address plate",
+          "with": "Courier's handset"
+        },
+        "reason": "The address plate might help identify what the courier's system refuses, but the trolley repair looks more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair roll freed the trolley's seized caster; the replacement cartridge did not fit directly at that stage.",
+    "reaction": "The crumbling bearing makes the repair feel concrete.",
+    "step": 2,
+    "reason": "The freed trolley should help move the rejected crate to the clinic door.",
+    "choice": {
+      "combine": "Trolley with its caster freed",
+      "with": "Rejected clinic crate"
+    },
+    "expectation": "The crate will be loaded onto the trolley or moved toward the clinic.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mud-covered clinic address plate",
+          "with": "Courier's handset"
+        },
+        "reason": "The address plate might help investigate the handset's refusal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The freed trolley needed the replacement cartridge before it could carry the crate; it now runs straight.",
+    "reaction": "The matching caster seating makes the repair feel satisfying.",
+    "step": 3,
+    "reason": "With the trolley repaired, it should be ready to move the clinic's crate.",
+    "choice": {
+      "combine": "Straight-running trolley",
+      "with": "Rejected clinic crate"
+    },
+    "expectation": "The crate will be loaded onto the trolley or moved toward the clinic door.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired trolley got the crate through the clinic door; the courier still needs a signature and the system refusal remains unexplained.",
+    "reaction": "It is satisfying to see the repaired trolley put to use.",
+    "step": 4,
+    "reason": "The handset may explain why the clinic's address was rejected.",
+    "choice": {
+      "inspect": "Courier's handset"
+    },
+    "expectation": "Inspecting the handset should reveal what it can be used with to investigate the refusal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mud-covered clinic address plate",
+          "with": "Courier's handset"
+        },
+        "reason": "The plate might establish the address, but its mud could need attention first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset recorded Eli's signature, leaving a receipt that contradicts its address rejection.",
+    "reaction": "The conflicting records make the remaining mystery more concrete.",
+    "step": 5,
+    "reason": "The address plate may help establish what the courier's system is refusing, but its mud suggests it may need preparation first.",
+    "choice": {
+      "inspect": "Mud-covered clinic address plate"
+    },
+    "expectation": "Inspection should reveal what can be used with the plate.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mud-covered clinic address plate",
+          "with": "June's repair roll"
+        },
+        "reason": "The repair roll might contain something to clean the plate."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cleaning the plate revealed the clinic's address: 8B Latch Market.",
+    "reaction": "Eli's potato-shaped eight is a memorable detail.",
+    "step": 6,
+    "reason": "The revealed address may help test what the courier's handset refuses.",
+    "choice": {
+      "combine": "Clinic address plate: 8B Latch Market",
+      "with": "Courier's handset"
+    },
+    "expectation": "The handset may compare the visible address with its rejected record.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset read the address correctly but rejected it because it was absent from the active service directory; the dawn migration gives that discrepancy urgency.",
+    "reaction": "The directory explanation and impending migration made the problem more intriguing than a simple misread address.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the cleaned address against the handset was most worthwhile: it resolved the immediate mystery while opening a larger question about who controls the directory.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two premature trolley combinations were a little repetitive, though the automatic compatibility feedback kept the repair moving.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the handset read the address correctly yet rejected it because the destination was missing from the active directory.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt entirely purposeless, though needing to free the caster before installing the replacement was not obvious from the initial board.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. The conflicting records and approaching directory migration make me curious how the neighborhood can challenge the system, and the physical repair grounded the story.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

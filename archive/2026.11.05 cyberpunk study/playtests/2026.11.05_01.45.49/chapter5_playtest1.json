@@ -1,0 +1,156 @@
+[
+  {
+    "step": 1,
+    "reason": "The clinic printer is jammed, so the repair roll is a practical first step toward examining its requests.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Jammed clinic request printer"
+    },
+    "expectation": "The tools should clear the printer or reveal what needs repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer is cleared, so it may now be able to read the clinic archive.",
+    "reaction": "The straightforward repair was satisfying.",
+    "step": 2,
+    "reason": "The archive cartridge likely contains the requests needed for comparison, and the cleared printer can plausibly produce them.",
+    "choice": {
+      "combine": "Clinic dispatch archive cartridge",
+      "with": "Cleared request printer"
+    },
+    "expectation": "The printer should produce the clinic's archived requests.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer produced the clinic's dispatch history, ready to compare with the depot's records.",
+    "reaction": "The long list makes the missing requests feel concrete.",
+    "step": 3,
+    "reason": "Comparing the printed requests with the depot intake directly addresses the first goal.",
+    "choice": {
+      "combine": "Clinic's printed dispatch history",
+      "with": "Depot intake export"
+    },
+    "expectation": "The comparison should reveal which clinic requests are missing from depot intake.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The comparison identifies an intake filter as the source of the missing requests; the marked tape can help show the discrepancy.",
+    "reaction": "The distinction between no admitted requests and no need is striking.",
+    "step": 4,
+    "reason": "The dead queue board needs its matching display module before it can show the market the missing work.",
+    "choice": {
+      "combine": "Matching noticeboard display module",
+      "with": "Market queue board with a dead display"
+    },
+    "expectation": "The replacement module should restore the queue board's display.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The queue board's display is repaired and ready to show information.",
+    "reaction": "Reusing the old controller and case was a satisfying detail.",
+    "step": 5,
+    "reason": "The marked dispatch tape contains the missing requests the market needs to see.",
+    "choice": {
+      "combine": "Dispatch tape marked with missing requests",
+      "with": "Repaired market queue board"
+    },
+    "expectation": "The board should display the missing requests for the market.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The marked tape has no available combination, so I need another way to show the missing work.",
+    "reaction": "That was unexpected; the tape seemed like a natural input for the board.",
+    "step": 6,
+    "reason": "The volunteered delivery histories may provide the material needed to show the market what the official intake missed.",
+    "choice": {
+      "combine": "Volunteered delivery histories",
+      "with": "Repaired market queue board"
+    },
+    "expectation": "The board will show the volunteered histories or use them to document missing work.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Repaired market queue board"
+        },
+        "reason": "I could check its available partners first, but the histories look like a plausible fit."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The volunteered histories produced a public list distinguishing waiting deliveries from those collected by hand.",
+    "reaction": "That distinction makes the missing work more concrete.",
+    "step": 7,
+    "reason": "Moth needs to see the overlooked deliveries, and the public list now documents them.",
+    "choice": {
+      "combine": "Public list of overlooked deliveries",
+      "with": "Moth's orange terminal"
+    },
+    "expectation": "Moth will use the list to understand work missing from the depot count.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The board now combines the public list with the marked dispatch tape, showing the intake gap and inviting corrections.",
+    "reaction": "I was surprised the tape became usable after the histories were added; the invitation to correct the list is a useful detail.",
+    "step": 8,
+    "reason": "The completed queue board documents the missing work, which Moth still needs to see.",
+    "choice": {
+      "combine": "Queue board showing the intake gap",
+      "with": "Moth's orange terminal"
+    },
+    "expectation": "Moth will use the board's evidence to recognize the intake gap.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth recognized that missing records did not mean missing work and marked the directory unsuitable for estimating local demand. Both chapter goals are complete.",
+    "reaction": "Moth's admission was a satisfying payoff to the comparison.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the clinic's dispatch history with depot intake was most worthwhile: it exposed how a filter could turn real requests into an apparently meaningful zero.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the marked tape directly on the repaired board was frustrating because it seemed like a natural input but had no available combination at that point.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The tape became usable after the volunteered histories had been added to the board, and people could then correct the resulting incomplete list.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The requirement to add the histories before the tape felt somewhat arbitrary; the earlier rejection did not explain that dependency.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the repair work and the discrepancy in Moth's understanding gave the infrastructure problem a concrete human consequence, though the board sequence was less clear than I expected.",
+        "steps": [
+          3,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

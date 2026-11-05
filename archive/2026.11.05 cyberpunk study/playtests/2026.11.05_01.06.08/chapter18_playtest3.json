@@ -1,0 +1,109 @@
+[
+  {
+    "step": 1,
+    "reason": "Isolating the uplink starts the rehearsal of the local rack without Meridian.",
+    "choice": 1,
+    "expectation": "I expect the shared controls to be disconnected from the corporate uplink so their local operation can be tested.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Testing the clinic link also matters, but I want to isolate the uplink first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The uplink is disconnected, but the green indicator alone does not establish that local services work.",
+    "reaction": "The distinction makes me curious about the actual link test.",
+    "step": 2,
+    "reason": "Testing the clinic radio link is the only available combination and checks a useful path during the outage.",
+    "choice": 1,
+    "expectation": "I expect the offline handset to test whether clinic calls can still travel over the local radio link.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radio link works, but clinic calls depend on the company directory for address lookup; the controller may provide a local alternative.",
+    "reaction": "The working road and missing signpost is a clear, surprising failure.",
+    "step": 3,
+    "reason": "The only available combination may let the controller supply the clinic's local address.",
+    "choice": 1,
+    "expectation": "I expect a local directory or address setting to help the handset find the clinic, though it may need further testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now has local directory settings and can configure the rack through its service port; the fix still needs applying and testing.",
+    "reaction": "The limited local address list makes the proposed fix feel concrete.",
+    "step": 4,
+    "reason": "The only available combination applies the local directory settings to the disconnected rack.",
+    "choice": 1,
+    "expectation": "I expect the rack to use the local directory without Meridian, though clinic calls will still need a test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rack now runs its own directory without the uplink, but clinic calls and water still need checking.",
+    "reaction": "It's satisfying to see the missing directory restored locally.",
+    "step": 5,
+    "reason": "The only available combination may test the handset against the rack's local directory.",
+    "choice": 1,
+    "expectation": "I expect the handset to find local services through the rack, though the clinic call may need a separate test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset resolves the clinic locally and Eli answers, confirming the call path works without the uplink; water still needs checking.",
+    "reaction": "Eli's insistence on a callback is a nice, practical touch.",
+    "step": 6,
+    "reason": "The only available combination should check the water service alongside the working clinic call.",
+    "choice": 1,
+    "expectation": "I expect a rehearsal check showing whether water remains available while the clinic link operates locally.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ren's coordinated stop-and-restart test confirmed that local pump control, water and reporting survived without the uplink; both chapter goals are complete.",
+    "reaction": "The test was satisfying because it checked the actual service rather than relying on an indicator.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the clinic call and then coordinating the pump test made the repair meaningful: both communication and water worked without the uplink.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Loading the directory settings and then applying them felt a little procedural, especially with only one combination available at each step.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The radios could exchange packets while the clinic call failed because address lookup still depended on the company directory. The road-and-signpost explanation made the hidden dependency clear.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the directory setup was split into several forced combinations rather than meaningful choices.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the locally controlled services fare during the migration, although this chapter's mostly forced sequence offered limited decision-making.",
+        "steps": [
+          1,
+          2,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

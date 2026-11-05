@@ -1,0 +1,21 @@
+# Teaching boundaries and primary sources
+
+Consulted 5 November 2026. These sources constrain the invented technology; they do not authenticate the fictional city, characters or events.
+
+| Principle | Primary source | Authoring consequence |
+|---|---|---|
+| Evaluate on data distinct from training and tuning; repeated use can exhaust a holdout's independence. | [Google's Machine Learning Crash Course: dividing datasets](https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets) | A local tuning example is not the final unseen test. One successful trial supports a limited conclusion, not universal reliability. |
+| A properly implemented digital signature supports origin authentication and integrity. | [NIST CSRC digital signature glossary](https://csrc.nist.gov/glossary/term/digital_signature) | Verifying Meridian's notice establishes who issued it and whether it changed. It does not prove its commercial policy is fair or its claims correct. |
+| Untrusted text can redirect an assistant; instructions in a prompt are not a guaranteed security boundary. | [NCSC: Prompt injection is not SQL injection](https://www.ncsc.gov.uk/blog-post/prompt-injection-is-not-sql-injection) | The hostile manual remains data. External restrictions on what the assistant can operate matter; a warning sentence alone is not a complete solution. Describe residual limits. |
+| Data suitability, domain context, clear human responsibilities and continuing evaluation matter throughout an AI system's life. | [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) | Compare measured local circumstances with the assistant's claims, keep appeal paths and responsible operators, and make future maintenance part of the ending. The framework supplies questions, not certification of the fictional system. |
+
+Other standing boundaries: retrieving a source does not guarantee a correct answer; a model score is not permission; a network does not generate energy; copying software state does not settle consciousness or personal continuity. The story dramatizes these distinctions without claiming that a night of repairs establishes a safe real-world municipal AI deployment.
+
+Additional sources consulted by the independent authenticity reviewer:
+
+- [Emerson Rosemount flowmeter manual](https://www.emerson.com/is/content/emerson/en/measurement-instrumentation/technical/products/flow--vortex/documents/doc-rosemount-8800-00809-0100-4004.pdf), sections 4.1.3/C.2: simulated signals and actual sensor measurement are different tests. The story consequently supplies a physical reference-flow fixture rather than calling pulse simulation a complete sensor test.
+- [Keysight: battery discharge capacity](https://www.keysight.com/dk/en/use-cases/test-battery-discharge-capacity.html): usable capacity depends on delivery over time and test conditions. Both rooftop packs have recent capacity records and checked charge; the final estimate also uses actual load and a margin.
+- [New Zealand NCSC: implement and test backups](https://www.ncsc.govt.nz/protect-your-organisation/implement-and-test-backups/): readable media alone does not demonstrate restoration. Moth's scoped settings backup is restored into a clean compatible profile; the story does not infer personal continuity from it.
+- [SICK ES11 operating instructions](https://www.sick.com/media/docs/3/83/283/operating_instructions_es11_safety_switches_en_im0104283.pdf), p. 9: a switch/contact check and observing the installed machine stop are separate checks. Ren explicitly tests the fitted physical stop with the network disconnected before release for use.
+
+- Battery testing uses an applied load as well as measurement: [NI, Characterize Batteries and Power Consumption](https://www.ni.com/en/shop/electronic-test-instrumentation/digital-multimeters/what-are-digital-multimeters/characterize-batteries-and-power-consumption-using-the-ni-pxie-4.html). The chapter-16 final check measures the operating radios as its actual load; the supplied reserve assemblies carry their existing capacity records. This supports the distinction, not a claim that the fictional equipment has been engineered or certified.

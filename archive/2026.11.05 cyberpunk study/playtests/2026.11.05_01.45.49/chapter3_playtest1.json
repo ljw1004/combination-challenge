@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "reason": "The loose lamp joint looks like a straightforward repair for June's tools and the bench-light goal.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Loose-jointed low-voltage bench lamp"
+    },
+    "expectation": "The tools should secure the lamp's loose joint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair roll instead reconnected the market light strips; the loose bench lamp still needs attention.",
+    "reaction": "The automatic repair was useful, though I hadn't expected it.",
+    "step": 2,
+    "reason": "The reclaimed reflector looks like a fitting for the bench lamp.",
+    "choice": {
+      "combine": "Reclaimed lamp reflector",
+      "with": "Loose-jointed low-voltage bench lamp"
+    },
+    "expectation": "The reflector should fit onto the lamp and help direct its light.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fitting the reflector also fixed the loose joint, leaving a shielded bench lamp ready for power.",
+    "reaction": "It was satisfying that one fitting resolved both problems.",
+    "step": 3,
+    "reason": "The repaired lamp needs power to provide steady bench lighting.",
+    "choice": {
+      "combine": "Shielded bench lamp",
+      "with": "Protected workshop power supply"
+    },
+    "expectation": "The power supply should light the repaired bench lamp.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered lamp completes the bench-light goal; the market lighting and map remain.",
+    "reaction": "The warm light is a satisfying payoff for the repair.",
+    "step": 4,
+    "reason": "The reconnected strips need a safe connection to the charged market battery.",
+    "choice": {
+      "combine": "Reconnected market light strips",
+      "with": "Fused lighting lead"
+    },
+    "expectation": "The fused lead should connect to the strips as part of the market lighting setup.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The strips needed the sign offcuts first; they are now sheltered market lights.",
+    "reaction": "The automatic fitting was useful, though the lead was not the next step I expected.",
+    "step": 5,
+    "reason": "The sheltered lights still need power, and the charged market battery is the natural source.",
+    "choice": {
+      "combine": "Sheltered market lights",
+      "with": "Charged market battery pack"
+    },
+    "expectation": "The battery should power the market lights, possibly using the fused lead.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sheltered lights cannot currently be combined directly, so the battery or lead may need preparation first.",
+    "reaction": "The failed power connection was unexpected.",
+    "step": 6,
+    "reason": "The fused lead may need to be connected to the battery before it can power the lights.",
+    "choice": {
+      "combine": "Fused lighting lead",
+      "with": "Charged market battery pack"
+    },
+    "expectation": "The lead should connect to the battery to provide a fused power connection.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Fused lighting lead"
+        },
+        "reason": "I could check its available partners first, but the battery is a plausible connection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fused lead prepared the battery as a protected portable lighting supply.",
+    "reaction": "That clarifies why the earlier direct battery connection failed.",
+    "step": 7,
+    "reason": "The protected supply is now the appropriate power source for the sheltered market lights.",
+    "choice": {
+      "combine": "Protected portable lighting supply",
+      "with": "Sheltered market lights"
+    },
+    "expectation": "The protected supply should power the market lights.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The market lights are on local power; the remaining goal also calls for marking what the map omits.",
+    "reaction": "Seeing the stalls lit is a satisfying payoff.",
+    "step": 8,
+    "reason": "The cached service map and illuminated market are the clearest available pieces for marking the missing neighborhood.",
+    "choice": {
+      "combine": "Moth's cached service map",
+      "with": "Market lights on local power"
+    },
+    "expectation": "The lit market may help mark the places missing from Moth's map.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Marking the lit stalls on Moth's map completed the remaining goal and made clear that the grey gap reflects missing directory data, not an empty neighborhood.",
+    "reaction": "The contrast between the map and the living market was a satisfying conclusion.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the market lights and marking the stalls on the map connected the practical repair to the neighborhood's larger problem.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to connect the sheltered lights directly to the battery was frustrating because the need to prepare the fused supply first was not clear to me.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Fitting the reflector also secured the lamp's loose joint; I had expected the repair roll to do that separately.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The order of the market-light fittings felt somewhat arbitrary: the strips accepted the offcuts before the lead, and the battery needed a separate fused supply.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. The repairs had tangible payoffs, and I would like to see whether the marked map helps challenge the directory's account of the neighborhood.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

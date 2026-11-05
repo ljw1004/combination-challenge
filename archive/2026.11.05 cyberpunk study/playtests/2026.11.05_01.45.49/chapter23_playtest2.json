@@ -1,0 +1,239 @@
+[
+  {
+    "step": 1,
+    "reason": "The supplies are already on the cart, and the marked shared passage offers a route through.",
+    "choice": {
+      "combine": "Clinic supplies on the boundary cart",
+      "with": "Marked shared passage"
+    },
+    "expectation": "The cart should move through the shared passage toward the clinic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shipment is now released for collection; the request record was needed before the final leg.",
+    "reaction": "The automatic release clarified the handoff, though my passage guess was wrong.",
+    "step": 2,
+    "reason": "The released supplies and clinic intake reader appear to be the next pieces for getting the shipment through.",
+    "choice": {
+      "combine": "Clinic supplies released for collection",
+      "with": "Clinic intake reader"
+    },
+    "expectation": "The clinic reader should record receipt of the released supplies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The released supplies currently have no available combination, so the intake reader is not yet the next step.",
+    "reaction": "That was an unexpected blockage after the release.",
+    "step": 3,
+    "reason": "Inspecting the intake reader should reveal what must happen before the shipment can be received.",
+    "choice": {
+      "inspect": "Clinic intake reader"
+    },
+    "expectation": "The reader will show its available partner or partners.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The intake reader now uses the clinic's local order list rather than the company address lookup.",
+    "reaction": "The missing offline configuration explains the blockage.",
+    "step": 4,
+    "reason": "The configured reader should now be able to receive the released shipment.",
+    "choice": {
+      "combine": "Locally configured intake reader",
+      "with": "Clinic supplies released for collection"
+    },
+    "expectation": "The reader will check and record the clinic's supplies against the local order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The configured reader cannot yet be combined, so another part of the dawn sequence may need to happen first.",
+    "reaction": "The repeated blockage is puzzling.",
+    "step": 5,
+    "reason": "The dawn migration monitor may reveal the available operations for the remaining goals.",
+    "choice": {
+      "inspect": "Dawn migration monitor"
+    },
+    "expectation": "The monitor will list available ingredients, possibly revealing the next step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The monitor has four available partners, suggesting the dawn sequence involves infrastructure checks before intake.",
+    "reaction": "The available options clarify where to proceed, though their order is still uncertain.",
+    "step": 6,
+    "reason": "The pump was tested offline, so checking it at the migration monitor is a plausible way to verify water service at dawn.",
+    "choice": {
+      "combine": "Pump tested with the uplink absent",
+      "with": "Dawn migration monitor"
+    },
+    "expectation": "The monitor will check the pump's status during migration.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Pump operator's key",
+          "with": "Dawn migration monitor"
+        },
+        "reason": "The operator's key might be needed to authorize the pump check."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ren has verified water service after migration using the local key; the battery and cistern still need monitoring.",
+    "reaction": "The automatic inclusion of the key resolved the authorization question.",
+    "step": 7,
+    "reason": "The monitor also accepts the local network controller, which may check whether local requests still work.",
+    "choice": {
+      "combine": "Portable local network controller",
+      "with": "Dawn migration monitor"
+    },
+    "expectation": "The monitor will check the local network during migration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth now shows local service status, and the request queue is waiting for the clinic's receiving confirmation.",
+    "reaction": "The blank city feed is a useful distinction from the working local services.",
+    "step": 8,
+    "reason": "The intake reader is configured locally, and the monitor may now offer a receiving operation.",
+    "choice": {
+      "inspect": "Dawn migration monitor"
+    },
+    "expectation": "The monitor will show the operations currently available, possibly including the clinic intake.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The migration monitor has no further available operations, so the receiving confirmation must be handled elsewhere.",
+    "reaction": "That rules out the monitor but leaves the shipment handoff unclear.",
+    "step": 9,
+    "reason": "The local morning desk is now active, so I’ll check whether the released supplies have gained an available partner.",
+    "choice": {
+      "inspect": "Clinic supplies released for collection"
+    },
+    "expectation": "The inspection will show any available next step for the shipment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The released supplies still have no available partner, so another operation must precede their receipt.",
+    "reaction": "The handoff remains unclear after another unproductive inspection.",
+    "step": 10,
+    "reason": "The shared passage may have an available operation needed to move the shipment, even though the supplies could not initiate it.",
+    "choice": {
+      "inspect": "Marked shared passage"
+    },
+    "expectation": "The passage will list its available partners and may reveal how to move the cart.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Miro opened the shared wicket with a resident's fob, making the passage available for the shipment.",
+    "reaction": "That explains why the cart could not use the passage yet.",
+    "step": 11,
+    "reason": "The released supplies can now plausibly pass through the opened wicket.",
+    "choice": {
+      "combine": "Wicket opened by its residents",
+      "with": "Clinic supplies released for collection"
+    },
+    "expectation": "The cart will move through the wicket toward the clinic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplies have reached the clinic door through the opened wicket.",
+    "reaction": "The physical handoff is finally moving after the earlier blockage.",
+    "step": 12,
+    "reason": "The locally configured intake reader should now be able to check the supplies at the clinic.",
+    "choice": {
+      "combine": "Supplies at the clinic door",
+      "with": "Locally configured intake reader"
+    },
+    "expectation": "Eli can verify and record the shipment against the local order.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli verified and recorded the shipment, completing the clinic delivery goal.",
+    "reaction": "It's satisfying to see the physical delivery and local record come together.",
+    "step": 13,
+    "reason": "The morning desk showed a queue awaiting receiving confirmation; the shipment has now been received, so the desk may reveal the next step for local requests.",
+    "choice": {
+      "inspect": "Moth on the local morning desk"
+    },
+    "expectation": "The desk will show its available partners for completing the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic's receiving confirmation closed its request, and Moth is ready for the next shift.",
+    "reaction": "It's satisfying that the request closes only after receipt is confirmed.",
+    "step": 14,
+    "reason": "The remaining goal joins water service and local requests, so the verified water service and morning desk are plausible partners.",
+    "choice": {
+      "combine": "Water service after the migration",
+      "with": "Moth showing the morning's real work"
+    },
+    "expectation": "The desk will incorporate the verified water service alongside the local requests.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Moth showing the morning's real work"
+        },
+        "reason": "I could check the desk's partners first, but the remaining goal suggests trying the water service directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neighbor link carried Ren's water readings across both blocks, and Asha's report exposed a separate issue; both chapter goals are complete.",
+    "reaction": "The automatic combination was a surprise, and I appreciated that the story didn't pretend one repair fixed both buildings.",
+    "step": 15,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Getting the cart through the resident-opened wicket and having Eli verify the shipment brought the physical route and local records together satisfyingly.",
+        "steps": [
+          10,
+          11,
+          12
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated checks around the shipment handoff were frustrating: the released supplies had no available partner, but that didn't indicate that the wicket needed opening.",
+        "steps": [
+          2,
+          4,
+          8,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the passage revealed that a resident's fob had to open it before the cart could proceed; my initial attempt had not made that dependency clear.",
+        "steps": [
+          1,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to open the wicket made physical sense once revealed, but finding that step felt somewhat arbitrary because inspecting the supplies showed no partners rather than pointing to the blocked passage.",
+        "steps": [
+          9,
+          10
+        ]
+      },
+      "continue": {
+        "text": "I would consider continuing: the grounded delivery and the distinction between reporting a problem and fixing it were satisfying, though I'd hope for clearer feedback around blocked dependencies.",
+        "steps": [
+          10,
+          11,
+          12,
+          14
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

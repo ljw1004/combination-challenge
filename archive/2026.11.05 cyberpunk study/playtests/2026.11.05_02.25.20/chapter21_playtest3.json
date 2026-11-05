@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "The maintenance spares belong in the service cupboard for the handoff.",
+    "choice": {
+      "combine": "Compatible maintenance spares",
+      "with": "Workshop service cupboard"
+    },
+    "expectation": "The cupboard will be stocked with usable maintenance supplies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cupboard is stocked and labeled, but its name suggests access is still tied to June's fob.",
+    "reaction": "Separating the bad parts into a red tin is a useful detail.",
+    "step": 2,
+    "reason": "Residents' service fobs may give others access to the stocked cupboard for the handoff.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Stocked cupboard on June’s fob"
+    },
+    "expectation": "The cupboard will become accessible to other residents.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cupboard is now accessible to Sal and Miro, with a mechanical fallback; the handoff still needs attention.",
+    "reaction": "The independent access is a satisfying improvement over relying on June.",
+    "step": 3,
+    "reason": "The known faulty cartridge looks suited to the isolated practice panel for training someone to diagnose faults.",
+    "choice": {
+      "combine": "Known faulty training cartridge",
+      "with": "Isolated practice panel"
+    },
+    "expectation": "The panel will provide a safe fault for the next shift to practice diagnosing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The practice panel now has a real fault that distinguishes a missing signal from loss of power.",
+    "reaction": "That distinction makes the training exercise concrete.",
+    "step": 4,
+    "reason": "Inspecting the faulted panel should show how to use it for the handoff.",
+    "choice": {
+      "inspect": "Practice panel with a real fault"
+    },
+    "expectation": "The panel will have a compatible way to conduct or record the practice exercise.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's suggestion and the operators' checks located the practice fault; the handoff may still need a repair or record.",
+    "reaction": "It is useful that Miro verified the symptom rather than simply accepting Moth's suggestion.",
+    "step": 5,
+    "reason": "The local alarm bell and tested neighbor link are the clearest match for the fault-alarm goal.",
+    "choice": {
+      "combine": "Local shift alarm bell",
+      "with": "Tested neighbor request link"
+    },
+    "expectation": "The link will gain a local alarm for a fault.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Practice panel with the fault located"
+        },
+        "reason": "I could continue the training exercise first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bell is bench-tested on the approved spare repeater; it still needs fitting to the neighbor link and an installed test.",
+    "reaction": "I had expected a direct connection, so the repeater step was a useful correction.",
+    "step": 6,
+    "reason": "The prepared repeater needs to be fitted into the neighbor link.",
+    "choice": {
+      "combine": "Approved spare repeater with fault bell",
+      "with": "Tested neighbor request link"
+    },
+    "expectation": "The repeater and its fault bell will be installed on the neighbor link, ready for testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repeater and bell passed the installed fault test, and shift responders are assigned; the handoff goal remains.",
+    "reaction": "The bypass and assigned responders make the alarm more useful than a bell alone.",
+    "step": 7,
+    "reason": "The practice fault has been located, so inspecting the panel should reveal the next handoff step.",
+    "choice": {
+      "inspect": "Practice panel with the fault located"
+    },
+    "expectation": "The panel will show a compatible next step for completing the training or handoff.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal restored the practice panel with a matching spare; Miro now wants to try from his own login.",
+    "reaction": "The handoff practice is becoming concrete, with another operator taking a turn.",
+    "step": 8,
+    "reason": "Miro's service fob may let him access the restored panel under his own login.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Practice panel restored"
+    },
+    "expectation": "Miro will use his own authorization to try the restored panel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Miro's own-fob check and demonstration completed the practical handoff; both chapter goals are complete.",
+    "reaction": "It was satisfying to see the handoff tested by a second person rather than merely recorded on a roster.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The practice-panel sequence was most worthwhile: operators located and repaired a real fault, then Miro repeated the check under his own authorization.",
+        "steps": [
+          3,
+          4,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the panel after locating the fault was a little mechanical: its sole partner was automatically used, so there was little decision to make at that point.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I expected the bell to connect directly to the neighbor link, but it first had to be fitted to the spare repeater and bench-tested.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The bell-to-repeater pairing was not obvious to me initially, although the matched fault contact explained its purpose afterward.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the tested handoff and alarm made the neighborhood's infrastructure feel like something people can actually maintain, and I am curious how it holds up.",
+        "steps": [
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "reason": "The replacement cartridge looks like a direct fix for the trolley's seized caster, which could help move the crate.",
+    "choice": {
+      "combine": "Trolley with a seized caster",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The replacement cartridge will repair the trolley's caster.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mud-covered clinic address plate",
+          "with": "Courier's handset"
+        },
+        "reason": "The address plate might help investigate why the courier's system rejects the clinic."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seized caster had to be removed with the repair roll before the replacement could be fitted.",
+    "reaction": "The crumbling bearing makes the repair step clear.",
+    "step": 2,
+    "reason": "The failed caster is removed, so the replacement cartridge should now fit.",
+    "choice": {
+      "combine": "Trolley with failed caster removed",
+      "with": "Replacement caster cartridge"
+    },
+    "expectation": "The replacement cartridge will restore the trolley's mobility.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement caster is fitted, leaving a working trolley ready to move the crate.",
+    "reaction": "The straightforward repair is satisfying.",
+    "step": 3,
+    "reason": "The working trolley should help carry the rejected crate to the clinic door.",
+    "choice": {
+      "combine": "Straight-running trolley",
+      "with": "Rejected clinic crate"
+    },
+    "expectation": "The crate will be loaded onto the trolley for delivery.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Rejected clinic crate"
+        },
+        "reason": "I could check its available uses if the trolley is not the next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crate is physically delivered, but the courier still needs a receiving signature and the system rejection remains unexplained.",
+    "reaction": "The successful delivery is satisfying, though the administrative problem remains.",
+    "step": 4,
+    "reason": "The handset is the clearest place to investigate what the courier's system refuses.",
+    "choice": {
+      "inspect": "Courier's handset"
+    },
+    "expectation": "Its available partners may show how to investigate the rejection or record the delivery.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mud-covered clinic address plate",
+          "with": "Courier's handset"
+        },
+        "reason": "The address plate might help establish the clinic's address, although the mud could be an obstacle."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's receipt confirms delivery, while the failed destination lookup remains unresolved.",
+    "reaction": "The contradiction between the signature and the missing address is intriguing.",
+    "step": 5,
+    "reason": "The muddy address plate may provide evidence of the clinic's address, but its available use is not yet clear.",
+    "choice": {
+      "inspect": "Mud-covered clinic address plate"
+    },
+    "expectation": "Its compatible partners may show how to make the address useful for investigating the rejection.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mud-covered clinic address plate",
+          "with": "June's repair roll"
+        },
+        "reason": "The repair roll might contain something to clean the plate."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cleaning the plate revealed the clinic's address, 8B Latch Market, which may help investigate the failed lookup.",
+    "reaction": "Eli's badly painted eight is an amusing detail.",
+    "step": 6,
+    "reason": "The revealed address and handset are the most direct pair for checking why the destination lookup failed.",
+    "choice": {
+      "combine": "Clinic address plate: 8B Latch Market",
+      "with": "Courier's handset"
+    },
+    "expectation": "The handset will check the visible address or reveal why it rejects it.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Clinic address plate: 8B Latch Market"
+        },
+        "reason": "I could check its compatible partners first, but the handset seems a plausible match."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset correctly reads the address but rejects it because it is absent from the active service directory; the dawn migration makes that exclusion more consequential. Both goals are complete.",
+    "reaction": "The rejection despite a correctly read address was surprising, and the migration deadline raises the stakes.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Checking the cleaned address against the handset was most worthwhile: it distinguished a directory exclusion from a simple reading error and advanced the story.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the address plate was less engaging because its sole available operation executed automatically, although cleaning it did reveal a useful detail.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The handset accepted the address's spelling but still refused the destination, with a directory migration due at dawn.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Trying the replacement caster first failed because the old assembly needed removal; that sequence made physical sense once revealed, rather than feeling arbitrary.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. The contrast between the real clinic and the directory, especially the impending migration, makes me curious how the neighbors will challenge the exclusion.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,190 @@
+[
+  {
+    "step": 1,
+    "reason": "The seized folding ramp likely needs freeing before it can make the kerb passable.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Seized folding threshold ramp"
+    },
+    "expectation": "The repair roll should free the ramp so it can be prepared for use.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hinge is free, so the ramp can now be fitted with its traction mat.",
+    "reaction": "The grit and lock explanation made the repair satisfying.",
+    "step": 2,
+    "reason": "The matching traction mat should make the freed ramp safer to use.",
+    "choice": {
+      "combine": "Matching ramp traction mat",
+      "with": "Folding ramp with a free hinge"
+    },
+    "expectation": "The mat will fit onto the ramp.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ramp now has its traction surface and is ready to try at the kerb.",
+    "reaction": "The mat locking into the channels was a satisfying fit.",
+    "step": 3,
+    "reason": "The prepared ramp should make the service-alley kerb passable.",
+    "choice": {
+      "combine": "Ramp with its traction surface fitted",
+      "with": "Service-alley kerb"
+    },
+    "expectation": "The ramp will be installed at the kerb.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ramp is secured at the kerb while leaving the drain clear; the crossing still needs to be visible.",
+    "reaction": "Keeping the drain clear is a satisfying practical detail.",
+    "step": 4,
+    "reason": "The reflector clips should make the secured crossing more visible.",
+    "choice": {
+      "combine": "Bicycle reflector clips",
+      "with": "Secured service-alley crossing"
+    },
+    "expectation": "The clips will mark the crossing so people can see it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossing is now visible and the first goal is complete; the remaining goal is to try a usable trolley route.",
+    "reaction": "Marking both edges is a useful practical detail.",
+    "step": 5,
+    "reason": "The residents' step-free survey can correct the map's inaccessible route.",
+    "choice": {
+      "combine": "Residents' step-free route survey",
+      "with": "City map marked with the living market"
+    },
+    "expectation": "The survey will help mark a step-free route on the map.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The survey has no available combination yet, so I need to try another part of the route first.",
+    "reaction": "I was surprised the survey could not be used yet.",
+    "step": 6,
+    "reason": "The trolley can test whether the newly secured crossing works for a loaded route.",
+    "choice": {
+      "combine": "Straight-running trolley",
+      "with": "Reflective service-alley crossing"
+    },
+    "expectation": "The trolley will be used to test the crossing.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "City map marked with the living market"
+        },
+        "reason": "Checking the map's available partners might reveal how to use the survey."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trolley has no available combination yet either, so the crossing is not ready for a direct trolley test.",
+    "reaction": "Two unavailable combinations in a row are a little frustrating.",
+    "step": 7,
+    "reason": "Inspecting the marked map may reveal what must happen before the route can be tested.",
+    "choice": {
+      "inspect": "City map marked with the living market"
+    },
+    "expectation": "The map will show its available partners, possibly identifying the next route-planning step.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Moth's orange terminal"
+        },
+        "reason": "Moth suggested the original route and might be involved in revising it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The map and Moth produced a shortest route that uses stairs, revealing the route that needs correcting.",
+    "reaction": "The distinction between minimizing distance and making a usable route is clear and interesting.",
+    "step": 8,
+    "reason": "The residents' step-free survey should help correct Moth's stair-dependent route.",
+    "choice": {
+      "combine": "Residents' step-free route survey",
+      "with": "Moth's shortest route to the clinic"
+    },
+    "expectation": "The survey will revise the route to avoid inaccessible stairs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The survey produced a wider step-free route through the service alley; the kerb it mentions now has a reflective crossing.",
+    "reaction": "It is satisfying to see the residents' knowledge correct Moth's narrow optimization.",
+    "step": 9,
+    "reason": "The revised route and completed crossing belong together before the trolley can try the route.",
+    "choice": {
+      "combine": "Route through the service alley",
+      "with": "Reflective service-alley crossing"
+    },
+    "expectation": "The route will incorporate the passable crossing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossing is now included in a marked route suited to the checked trolley and loads.",
+    "reaction": "The qualification that it may not suit every traveler is a useful detail.",
+    "step": 10,
+    "reason": "The trolley can now try the marked step-free delivery route.",
+    "choice": {
+      "combine": "Straight-running trolley",
+      "with": "Marked step-free delivery route"
+    },
+    "expectation": "The trolley will test the revised route to the clinic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loaded trolley test completed the route goal and recorded troublesome corners, showing that the revised route still needed practical checking.",
+    "reaction": "I liked that the test used an expected delivery weight rather than treating the marked route as proof enough.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Moth's shortest route and the residents' correction made the difference between optimizing distance and meeting actual travel needs concrete.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the survey and trolley before their prerequisite route existed was mildly frustrating; neither attempt explained what was missing.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the map automatically produced Moth's stair-dependent shortest route, which revealed why the survey had not been usable yet.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The survey's initial unavailability felt somewhat arbitrary until the shortest route appeared; its eventual purpose was clear.",
+        "steps": [
+          5,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical repairs and the way local knowledge corrected Moth's optimization made me curious how the story will address the wider directory problem.",
+        "steps": [
+          1,
+          3,
+          7,
+          8,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

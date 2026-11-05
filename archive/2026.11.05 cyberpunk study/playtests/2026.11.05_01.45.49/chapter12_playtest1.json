@@ -1,0 +1,184 @@
+[
+  {
+    "step": 1,
+    "reason": "The portable controller previously depended on a workshop socket; its charged power bank looks like the intended portable supply.",
+    "choice": {
+      "combine": "Charged controller power bank",
+      "with": "Portable controller with a verified local link"
+    },
+    "expectation": "The controller will run from the power bank for the local entry demonstration.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Shop latch in a demonstration frame"
+        },
+        "reason": "The latch is central to the goal, but powering the controller is a clear first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The power bank has no available combination yet, so the controller may need another preparation first.",
+    "reaction": "That was an unexpected setback given the earlier mention of portable power.",
+    "step": 2,
+    "reason": "Checking the controller should reveal which local-entry preparations are currently available.",
+    "choice": {
+      "inspect": "Portable controller with a verified local link"
+    },
+    "expectation": "The inspection will list its available partners and may reveal the next preparation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Miro's authorization configured the network, potentially enabling the portable power supply.",
+    "reaction": "The distinction between a command working and being authorized is useful.",
+    "step": 3,
+    "reason": "The configured controller may now accept the charged power bank that was unavailable earlier.",
+    "choice": {
+      "combine": "Charged controller power bank",
+      "with": "Portable network configured by its owner"
+    },
+    "expectation": "The power bank will provide the controller with a portable supply.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Portable network configured by its owner",
+          "with": "Shop latch in a demonstration frame"
+        },
+        "reason": "The configured network might be ready to connect to the latch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The authorized controller now has its own limited power supply and can be used for the local demonstration.",
+    "reaction": "Satisfying to see the earlier power-bank attempt work after authorization.",
+    "step": 4,
+    "reason": "The powered local controller and demonstration latch appear to be the next pieces needed for local entry.",
+    "choice": {
+      "combine": "Portable controller on its own power",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The controller will connect to the demonstration latch for a local entry test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller successfully opened the demonstration latch locally; the latch remains on the bench.",
+    "reaction": "The successful local test is satisfying, though it does not establish a neighborhood-wide connection.",
+    "step": 5,
+    "reason": "The disconnected door-status sensor should help provide the truthful status report required by the goal.",
+    "choice": {
+      "combine": "Disconnected door-status sensor",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The sensor will be connected to the demonstration door so its actual status can be reported.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disconnected sensor produces an explicit unknown status on Moth's display rather than a false closed reading.",
+    "reaction": "The honest handling of a missing signal is a useful distinction.",
+    "step": 6,
+    "reason": "Miro specifically asked to see what happens when the clever system breaks, so the mechanical key is the natural next test.",
+    "choice": {
+      "combine": "Mechanical demonstration-door key",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The mechanical key will demonstrate an independent way to open the latch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mechanical key opened the demonstration door independently of the controller.",
+    "reaction": "The physical fallback makes the demonstration more convincing.",
+    "step": 7,
+    "reason": "Comparing the open door with Moth's unknown-status display may complete the truthful status demonstration.",
+    "choice": {
+      "combine": "Moth's display: door state unknown",
+      "with": "Demonstration door opened with its key"
+    },
+    "expectation": "Moth will report the status honestly despite the disconnected sensor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth now reports the open door as June's manual observation, while still identifying the sensor as disconnected.",
+    "reaction": "The distinction between an observation and a working sensor is satisfying.",
+    "step": 8,
+    "reason": "The goal has not yet been reported complete, so inspecting the updated status should reveal the next available operation.",
+    "choice": {
+      "inspect": "Door state reported by June"
+    },
+    "expectation": "The inspection will show what can be combined with the manually reported door state.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller now serves the manually observed door state with its source and time, while showing the sensor as unavailable.",
+    "reaction": "The sourced status page is a satisfying conclusion to the test, though the goal remains open.",
+    "step": 9,
+    "reason": "The status page is the newest result, and inspecting it may reveal what remains to complete the demonstration.",
+    "choice": {
+      "inspect": "Local status page with its evidence visible"
+    },
+    "expectation": "The inspection will show any available next operation for the status page.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The status page has no available combination, so I need to look elsewhere for the remaining step.",
+    "reaction": "It is unclear what the demonstration still needs.",
+    "step": 10,
+    "reason": "The controller enabled local entry and serves the status page, so its remaining partners may indicate what completes the goal.",
+    "choice": {
+      "inspect": "Portable local network controller"
+    },
+    "expectation": "The inspection will show any currently available operation involving the controller.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Testing the controller and mechanical key on the same fixture established two independent entry routes and completed the goal.",
+    "reaction": "The distinction between genuinely independent routes and two controls relying on the same service was satisfying.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reporting the open door as June's observation, then displaying its source and the unavailable sensor, made the limits of the status report concrete.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the finished status page yielded no partners, leaving it unclear what the demonstration still needed.",
+        "steps": [
+          9
+        ]
+      },
+      "surprise": {
+        "text": "The disconnected sensor led to an explicit unknown state rather than a false closed reading; a manual observation could then be reported without pretending the sensor worked.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The power bank could not be combined until after owner authorization. Authorization had a clear purpose, but why it was a prerequisite for connecting power was not clear to me.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the independent entry test and evidence-labeled status made the infrastructure questions tangible, and I am curious how the local network will be extended.",
+        "steps": [
+          8,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

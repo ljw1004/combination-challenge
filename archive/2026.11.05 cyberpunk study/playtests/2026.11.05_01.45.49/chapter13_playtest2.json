@@ -1,0 +1,193 @@
+[
+  {
+    "step": 1,
+    "reason": "The purchase book may identify which parts of the branded rack the cooperative owns.",
+    "choice": {
+      "combine": "Cooperative purchase book",
+      "with": "Branded service rack"
+    },
+    "expectation": "Comparing the records with the rack should clarify what can be placed under local control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receipts establish which rack components the cooperative owns, and the labelled leads must be checked against the expiry notice before separation.",
+    "reaction": "The distinction between ownership of the modem and the other equipment is useful.",
+    "step": 2,
+    "reason": "The result explicitly says to match the expiry notice to the rack before separating either lead.",
+    "choice": {
+      "combine": "Authenticated migration notice and affected-service list",
+      "with": "Rack with ownership exposed"
+    },
+    "expectation": "The notice should clarify which labelled connections are affected by the credential expiry.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The leased modem's approval lead is isolated, while its uplink remains connected; the cooperative's controller can now be configured locally.",
+    "reaction": "The distinction between removing authorization and retaining connectivity is satisfying.",
+    "step": 3,
+    "reason": "The local control selector appears suited to switching the cooperative-owned rack equipment to local control.",
+    "choice": {
+      "combine": "Local control selector",
+      "with": "Rack with authorization lead removed"
+    },
+    "expectation": "The selector should establish a local control path for the rack.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The selector has no currently available operation, so another part of the local-control setup must come first.",
+    "reaction": "That was an unproductive guess.",
+    "step": 4,
+    "reason": "The portable controller may provide the local service that the rack needs before the selector can be used.",
+    "choice": {
+      "combine": "Portable local network controller",
+      "with": "Rack with authorization lead removed"
+    },
+    "expectation": "The controller should connect the cooperative's rack equipment to the local network.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Rack with authorization lead removed"
+        },
+        "reason": "Checking the rack's available partners could clarify the next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooperative's rack now has local addresses and responds using its existing fallback settings.",
+    "reaction": "It's satisfying to see the equipment answer without the account server.",
+    "step": 5,
+    "reason": "Now that the rack is locally addressed, the selector may be ready to establish local control.",
+    "choice": {
+      "combine": "Local control selector",
+      "with": "Locally addressed service rack"
+    },
+    "expectation": "The selector should switch the rack to local control.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Locally addressed service rack"
+        },
+        "reason": "I could check its available partners before trying the selector again."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The selector still has no available operation, so local addressing alone is not enough.",
+    "reaction": "Trying it again was frustrating and premature.",
+    "step": 6,
+    "reason": "Inspecting the rack should reveal its currently available partners instead of guessing the next prerequisite.",
+    "choice": {
+      "inspect": "Locally addressed service rack"
+    },
+    "expectation": "The inspection should show what can advance the rack setup, possibly performing the operation if only one is available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The locally addressed rack has no available partners, so the next step must involve other equipment.",
+    "reaction": "The empty compatibility list is surprising and narrows the search.",
+    "step": 7,
+    "reason": "The blank service fobs may need preparation before they can grant local access; inspecting them avoids another blind combination.",
+    "choice": {
+      "inspect": "Blank service fobs"
+    },
+    "expectation": "The inspection should reveal what can prepare or configure the fobs, and may perform a sole available operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller enrolled the blank fobs, giving residents locally issued permissions.",
+    "reaction": "The automatic enrollment clarified the missing step.",
+    "step": 8,
+    "reason": "The enrolled fobs may now let the locally addressed rack recognize residents' access.",
+    "choice": {
+      "combine": "Residents' service fobs",
+      "with": "Locally addressed service rack"
+    },
+    "expectation": "The rack should accept the locally enrolled fobs or advance the local-control setup.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Residents' service fobs"
+        },
+        "reason": "Checking their available partners would avoid another guess."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fobs paired with the selector, but someone still needs to operate its handle.",
+    "reaction": "The distinction between recognizing a fob and moving the switch is clear.",
+    "step": 9,
+    "reason": "Inspecting the paired selector should reveal how to operate it without guessing another prerequisite.",
+    "choice": {
+      "inspect": "Paired control selector"
+    },
+    "expectation": "The inspection should show the selector's available partner and may perform the operation if there is only one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The paired selector now has tactile LOCAL and EXTERNAL labels, but its handle still needs operating.",
+    "reaction": "The tactile labels make the control clearer and more accessible.",
+    "step": 10,
+    "reason": "The marked selector appears ready to be used with the locally addressed rack.",
+    "choice": {
+      "combine": "Clearly marked control selector",
+      "with": "Locally addressed service rack"
+    },
+    "expectation": "The selector should let someone switch the cooperative's rack to local control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The marked selector completed the rack setup, and Sal and Miro both tested their fobs; the local-control goal is complete.",
+    "reaction": "It was satisfying to see control shared rather than dependent on June alone.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Matching the notice to the rack was worthwhile: it showed how to remove the leased modem's authority over the door while retaining its uplink.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the selector twice before its prerequisites were ready was repetitive, especially after the first attempt said it had no available operation.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the locally addressed rack had no available partners; the fobs had to be enrolled on the portable controller separately.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to pair the fobs with the selector before fitting it to the rack was not obvious to me, though the feedback made the sequence clear.",
+        "steps": [
+          8,
+          9,
+          10
+        ]
+      },
+      "continue": {
+        "text": "I would continue: separating ownership, authorization and connectivity made the infrastructure problem interesting, and the shared controls gave the repair a meaningful outcome despite the frustrating prerequisite search.",
+        "steps": [
+          1,
+          2,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

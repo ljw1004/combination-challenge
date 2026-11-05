@@ -1,0 +1,177 @@
+[
+  {
+    "step": 1,
+    "reason": "Match the boundary shipment to the answered requests to help get the clinic's supplies through.",
+    "choice": 2,
+    "expectation": "I expect the stubs to identify or confirm the shipment, though the supplies may still need to be moved and checked in.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Opening the shared passage also seems useful for the delivery, but I would first connect the supplies to the request."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplies are released, but the final leg still needs a local route.",
+    "reaction": "Satisfying to see Eli's collection arrangement work despite the address rejection.",
+    "step": 2,
+    "reason": "Use the residents' fobs with the shared passage to help move the released supplies through.",
+    "choice": 1,
+    "expectation": "I expect the passage to be available for the cart, though further delivery or intake steps may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Preparing the intake reader may also help, but the shipment first needs a route through."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The residents opened the wicket locally, providing a route for the released supplies.",
+    "reaction": "The repaired hinge quietly demonstrating local control is satisfying.",
+    "step": 3,
+    "reason": "Move the released supplies through the open wicket toward the clinic.",
+    "choice": 1,
+    "expectation": "I expect the cart to pass through, though the clinic may still need to check in the shipment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplies have reached the clinic door; intake remains to be completed.",
+    "reaction": "It is satisfying to see the shared passage used for the delivery.",
+    "step": 4,
+    "reason": "Connect the intake reader to the local controller so the clinic can receive the shipment without the corporate uplink.",
+    "choice": 1,
+    "expectation": "I expect the reader to work locally, though checking in the supplies may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reader can now compare the shipment against Eli's local order list without a company lookup.",
+    "reaction": "The offline receiving connection is a useful payoff for the local network.",
+    "step": 5,
+    "reason": "Check the delivered supplies into the clinic using the configured reader.",
+    "choice": 1,
+    "expectation": "I expect Eli to confirm the shipment against the local order list and receive it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli accepted the checked shipment into the clinic's own record, completing the delivery goal. Water and local requests still need attention.",
+    "reaction": "Satisfying to see the delivery reach the same door the courier rejected.",
+    "step": 6,
+    "reason": "Place the tested pump at the migration monitor to check water service during the switchover.",
+    "choice": 2,
+    "expectation": "I expect the monitor to show the pump's status, though other components may be needed to verify service.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The operator's key may also be needed, but I would start with the pump itself."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is at the monitor, and the operator's key can now be used with it.",
+    "reaction": "The placement was preparatory; it has not yet shown whether water is working.",
+    "step": 7,
+    "reason": "Use the operator's key with the tested pump to check local water control during migration.",
+    "choice": 1,
+    "expectation": "I expect the key to enable or verify pump operation at the monitor, though the result may require further checks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ren verified water pressure and flow after migration; local requests still need checking.",
+    "reaction": "The working pump is reassuring, especially with its battery and maintenance limits acknowledged.",
+    "step": 8,
+    "reason": "Connect the verified water service to the neighbor link to help check local communication.",
+    "choice": 1,
+    "expectation": "I expect water status to be available over the local link, though requests may need further checks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ren's water readings reach both blocks, and Asha's slow tap has been added to the work rather than treated as fixed.",
+    "reaction": "The distinction between reporting a problem and fixing it is a satisfying detail.",
+    "step": 9,
+    "reason": "Place the local controller at the monitor to help check that local requests still work.",
+    "choice": 2,
+    "expectation": "I expect this to prepare a local network check; Moth or another component may also be needed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Moth may also be needed at the monitor, but I would start with the controller."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller is at the monitor, making the Moth combination available.",
+    "reaction": "The placement was preparatory; local requests have not yet been checked.",
+    "step": 10,
+    "reason": "Connect Moth to the controller at the monitor to check the remaining local service.",
+    "choice": 1,
+    "expectation": "I expect Moth to help verify local requests after migration, though the exact check is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth can now show which local services answer, while the unavailable city feed remains blank.",
+    "reaction": "The honest blank is a satisfying detail, though local requests have not yet been checked.",
+    "step": 11,
+    "reason": "Combine the morning desk with the received shipment; it is the only offered gameplay action and may connect the delivery record to the local service view.",
+    "choice": 1,
+    "expectation": "I expect the desk to display or verify the clinic shipment locally, though its role in checking requests is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic's confirmation closes its request, while Tin Row's slow tap remains open for the next shift. Both chapter goals are complete.",
+    "reaction": "Satisfying to see completed and unfinished work kept distinct rather than everything being declared fixed.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Receiving the shipment at the clinic was the strongest payoff: the local route and offline intake overcame the original address rejection without pretending the corporate service had changed.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the pump and controller at the monitor felt like procedural preparation rather than meaningful decisions; neither placement itself showed a service working.",
+        "steps": [
+          6,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "The final desk closed only the confirmed clinic request and left Tin Row's slow tap open, turning the status display into a useful distinction between reported and completed work.",
+        "steps": [
+          8,
+          11
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining Moth's morning desk with the received shipment was not clearly connected to the remaining request goal beforehand; I followed the only offered gameplay action.",
+        "steps": [
+          11
+        ]
+      },
+      "continue": {
+        "text": "I would continue for the neighborhood's unresolved work and the practical consequences of local control, though I would hope for fewer purely preparatory placements.",
+        "steps": [
+          6,
+          8,
+          9,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

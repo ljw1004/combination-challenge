@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to check that the radio endpoints have a usable sightline for the clinic link.",
+    "choice": 1,
+    "expectation": "I expect the scope to help align or verify the rooftop radio link, though it may not power it yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Measuring the batteries also supports independent power, but I want to check the link path first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The radios are aligned on a clear path, so I can connect them to the local controller.",
+    "reaction": "The train passing without interrupting the link is a reassuring detail.",
+    "step": 2,
+    "reason": "Connecting the aligned radios to the controller should advance the market-to-clinic link.",
+    "choice": 1,
+    "expectation": "I expect the controller to connect to the radio link, though independent power may still need work.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Measuring the batteries matters for independent power, but I want to connect the aligned radios first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The local radio route reaches the clinic without relying on the wider connection; independent power remains to be addressed.",
+    "reaction": "It's satisfying to see the aligned radios carry local traffic.",
+    "step": 3,
+    "reason": "Measuring the charged batteries is the only offered combination and should help prepare independent power.",
+    "choice": 1,
+    "expectation": "I expect a measurement useful for assessing the radio power supply, though I'm unsure exactly what it will show.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both battery packs have been tested under load, so they are ready to be paired with the radio power boxes.",
+    "reaction": "The load test makes the power plan feel more grounded than relying on labels.",
+    "step": 4,
+    "reason": "This is the only offered combination and should prepare independent power for the radios.",
+    "choice": 1,
+    "expectation": "I expect the tested batteries and matched boxes to form a radio power supply, though the link may still need connecting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested batteries now have local fuse protection and are ready to supply the radio link.",
+    "reaction": "The separate protection for each radio makes the setup feel more robust.",
+    "step": 5,
+    "reason": "The only offered combination connects the protected reserves to the local link.",
+    "choice": 1,
+    "expectation": "I expect the market-to-clinic radios to run on the protected batteries; charging may still need attention.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both radios now run on protected reserves, with the old wall adapter disconnected; charging remains to be addressed.",
+    "reaction": "Disconnecting the overlooked wall adapter is a useful reminder about hidden dependencies.",
+    "step": 6,
+    "reason": "The only offered combination should add charging to the independent radio link.",
+    "choice": 1,
+    "expectation": "I expect the matched solar chargers to replenish the radio batteries, though their capacity may have limits.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The solar kits are connected but cannot recharge the reserves tonight; their future contribution depends on daylight and clear panels.",
+    "reaction": "The distinction between connected chargers and available energy is useful.",
+    "step": 7,
+    "reason": "The only offered combination should measure the link's power use and help assess its reserves.",
+    "choice": 1,
+    "expectation": "I expect a load measurement or an estimate of how long the link can run, though I'm unsure what it will show.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The measured reserves cover the remaining night with a margin, and the next goal is to reach Eli across the link.",
+    "reaction": "The capacity check and scheduled follow-up make the power plan reassuringly concrete.",
+    "step": 8,
+    "reason": "The only offered combination connects Moth to the tested link and may help reach Eli.",
+    "choice": 1,
+    "expectation": "I expect Moth to use the local link to contact Eli, though another step may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli's reply confirms the local channel works, and Tin Row's call points to a possible next challenge: connecting compatible networks.",
+    "reaction": "Eli's message gives the technical test a welcome human payoff.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the link's operating load against usable battery capacity was the most worthwhile passage: it turned an independence claim into a concrete overnight plan with a margin and a follow-up check.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The sequential battery and power-box preparations were clear but felt routine, especially with only one combination offered at each point.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The old wall adapter was still a dependency even after the radios had protected reserves; disconnecting it made the independence requirement more concrete.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though most power steps were the only offered action, so they involved little meaningful choice.",
+        "steps": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. Eli's reply gives the repair a personal payoff, and Tin Row's offer makes me curious about how the separate networks might communicate.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

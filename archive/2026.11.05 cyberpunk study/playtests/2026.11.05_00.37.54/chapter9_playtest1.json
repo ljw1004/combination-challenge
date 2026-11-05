@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "Start developing the local routing rule using the practice cases before testing it on unseen trips.",
+    "choice": 1,
+    "expectation": "Moth will use the anonymized cases to form or adjust a routing rule; the sealed evaluation packs should remain separate for testing.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the talkbox also supports a goal, but I want to start with the routing test."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The settings fit the practice trips, but still need testing on unseen cases.",
+    "reaction": "The distinction between fitting and testing is clear, though expected.",
+    "step": 2,
+    "reason": "Test the fitted settings on the separate Tuesday pack before drawing conclusions about their performance.",
+    "choice": 1,
+    "expectation": "The Tuesday cases will reveal how the settings perform on trips they did not learn from; I do not know whether they will pass.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox needs repair too, but the evaluation is the natural next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The unseen test exposed a wrongly refused request, so the routing rule needs a way to handle exceptions.",
+    "reaction": "The specific failure makes the value of testing more concrete.",
+    "step": 3,
+    "reason": "Add dispatcher review for the refusal rather than letting the rule make the final decision alone.",
+    "choice": 1,
+    "expectation": "The switch and rule will route at least this kind of questionable refusal to a human dispatcher; I don't know whether further testing will expose other problems.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox also needs repair, but addressing the test failure comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The revised rule sends difficult cases to a dispatcher, so it needs a fresh evaluation rather than relying on Tuesday's result.",
+    "reaction": "The reminder that changing the rule invalidates the old score is useful.",
+    "step": 4,
+    "reason": "Test the revised rule against the fresh Wednesday cases.",
+    "choice": 1,
+    "expectation": "The new pack will show how the revised rule handles unseen requests, though it may reveal further failures.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox still needs repair, but I want to finish evaluating the revised rule first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fresh test supports a limited trial of the revised rule; the remaining goal is the clinic request button.",
+    "reaction": "The limited conclusion feels appropriately cautious, though the test results are not detailed.",
+    "step": 5,
+    "reason": "Repair the talkbox audio as the only available combination toward the remaining goal.",
+    "choice": 1,
+    "expectation": "The compatible speaker board should restore the talkbox's audio, with further work likely needed for the button and reply route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox can now deliver a clear audio reply; it still needs a request button.",
+    "reaction": "Eli's teasing gives the straightforward repair a little personality.",
+    "step": 6,
+    "reason": "Fit the tactile call button, the only available combination, toward the remaining goal.",
+    "choice": 1,
+    "expectation": "The button should let someone initiate a request through the talkbox; a transmitter may still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox now has an accessible tactile button while retaining its ordinary button; it still needs a request connection.",
+    "reaction": "Keeping both buttons is a thoughtful accessibility detail.",
+    "step": 7,
+    "reason": "Connect the local transmitter, the only available combination, to enable requests and replies.",
+    "choice": 1,
+    "expectation": "The transmitter should connect the talkbox to a local human reply route, though I don't know exactly how that route works.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now combines a button, audio and transmitter, with a visible listening signal; it still needs a reply route.",
+    "reaction": "The explicit listening signal is a useful privacy detail.",
+    "step": 8,
+    "reason": "Connect the handset to the tested routing rule, the only available combination, to complete the request route.",
+    "choice": 1,
+    "expectation": "Requests should reach the local routing process, with difficult cases going to a human dispatcher; I am unsure how replies will be delivered.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now reaches the tested queue, with Eli able to review and answer requests the rule cannot handle; both goals are complete.",
+    "reaction": "The human reply route gives the testing and handset repairs a concrete payoff.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the revised rule on fresh cases was most worthwhile: it connected the earlier failure and human-review change to a cautious, limited trial.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The sequential talkbox fittings were straightforward and offered little choice, although the character and accessibility details helped.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The Tuesday test rejected an unusual request that a dispatcher could safely arrange; revising the rule then meant the old test score no longer described it.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the final handset-to-rule combination left the mechanics of the reply route somewhat opaque until the result.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for the story and its concrete treatment of human oversight, though the largely prescribed combinations make the gameplay less compelling.",
+        "steps": [
+          2,
+          3,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

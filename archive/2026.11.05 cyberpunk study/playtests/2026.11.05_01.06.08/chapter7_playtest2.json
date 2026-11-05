@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "Compare the temperature and door-opening records to investigate what the spikes mean.",
+    "choice": 2,
+    "expectation": "The logs may show whether spikes coincide with door openings, though that alone may not establish the cause.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cleaning the filter should help restore the cooler, but I want to investigate the existing records first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Most spikes align with door openings, but the logs do not establish the temperature experienced by every stored object.",
+    "reaction": "The distinction between air readings and stored objects is useful.",
+    "step": 2,
+    "reason": "Give Moth the comparison to advance the investigation of the spikes.",
+    "choice": 2,
+    "expectation": "Moth may interpret the aligned records while retaining their limitations.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cleaning the filter would advance the cooler repair, but I want to follow up on the log comparison first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's forecast distinguishes brief door-related warming from sustained cooling loss while marking uncertain periods.",
+    "reaction": "The explicit uncertainty makes the forecast more useful.",
+    "step": 3,
+    "reason": "The filter repair is the only offered combination and advances restoration of the cooler.",
+    "choice": 1,
+    "expectation": "I expect to clean the clogged filter cassette so it can be reused.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter is clean and airflow can resume; the lint alone does not indicate a compressor fault.",
+    "reaction": "The repair is straightforward, and the warning against overdiagnosis is useful.",
+    "step": 4,
+    "reason": "The only offered combination fits the compatible fan cartridge with the cleaned filter, advancing the cooler repair.",
+    "choice": 1,
+    "expectation": "I expect an assembled air module ready for the cabinet, though it may need further work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired air module is ready for Rae to fit and check.",
+    "reaction": "The fan and filter fitting together is satisfying and straightforward.",
+    "step": 5,
+    "reason": "The only offered combination returns the repaired module to the isolated cabinet.",
+    "choice": 1,
+    "expectation": "I expect Rae to fit the module to the cabinet; the cooler may still need power and testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired module is fitted, restoring the air path without opening the sealed refrigeration system.",
+    "reaction": "The separation between the accessible repair and sealed system is reassuring.",
+    "step": 6,
+    "reason": "The only offered combination connects the checked supply to the repaired cabinet.",
+    "choice": 1,
+    "expectation": "I expect the cabinet to run again, though independent monitoring may still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cabinet is running again after Rae reconnects the inspected supply; independent monitoring remains.",
+    "reaction": "The ordinary fan sound is a satisfying sign of progress, though it doesn't prove the temperature is right.",
+    "step": 7,
+    "reason": "The only offered combination adds independent temperature monitoring to the running cabinet.",
+    "choice": 1,
+    "expectation": "I expect the logger to monitor the cabinet independently, though it may take readings over time to assess performance.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The independent logger shows the cabinet holding its specified range during the service check; clinical staff decide what can be stored.",
+    "reaction": "The independent check is reassuring, and the division of responsibility feels clear.",
+    "step": 8,
+    "reason": "The only offered combination connects the limited forecast with the monitored cooler to finish investigating the spikes.",
+    "choice": 1,
+    "expectation": "I expect the forecast and independent readings to be compared, with any remaining uncertainty acknowledged.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rae verified the cooling record against the independent run, but a supply-controller renewal warning leaves a fallback needed.",
+    "reaction": "The verified repair is satisfying; the warning makes me curious what comes next.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the old temperature and door logs, then checking the repaired cabinet independently, made the distinction between an explanation and verification concrete.",
+        "steps": [
+          1,
+          2,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The successive filter, fan, cabinet and power combinations were straightforward but became repetitive, especially with only one offered action at each point.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Most spikes coincided with door openings, but that did not establish what every stored object experienced. The renewal warning also introduced a new concern after the successful check.",
+        "steps": [
+          1,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the linear repair sequence offered little meaningful choice in fast mode.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would like to see how the neighbors provide a fallback for the supply controller; the combination of practical repair and cautious interpretation held my interest.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

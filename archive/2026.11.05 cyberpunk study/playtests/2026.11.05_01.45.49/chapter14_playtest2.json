@@ -1,0 +1,158 @@
+[
+  {
+    "step": 1,
+    "reason": "The sponsor app obstructs the request form, but it's unclear how the tablet should be changed. I'll check its available operations.",
+    "choice": {
+      "inspect": "Sponsor-loaded request tablet"
+    },
+    "expectation": "The inspection should show what can be used with the tablet.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Large request button",
+          "with": "Sponsor-loaded request tablet"
+        },
+        "reason": "The button could make requests deliberate, but the tablet may need preparation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet is free of the listening app and its microphone is physically disconnected, so I can now work on the deliberate request interface.",
+    "reaction": "The physical disconnect makes the privacy change reassuringly concrete.",
+    "step": 2,
+    "reason": "A large request button fits the goal of letting people choose when to make a request.",
+    "choice": {
+      "combine": "Large request button",
+      "with": "Tablet with microphone disconnected"
+    },
+    "expectation": "The button should add a deliberate way to initiate a request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The button has no available combination yet, so the tablet likely needs another step first.",
+    "reaction": "I was surprised the seemingly relevant button could not be used yet.",
+    "step": 3,
+    "reason": "I'll check what can currently be done with the prepared tablet rather than guess another pairing.",
+    "choice": {
+      "inspect": "Tablet with microphone disconnected"
+    },
+    "expectation": "The inspection should identify the tablet's available next step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The request form now uses the local controller, with its outside network route blocked; the button may now be usable.",
+    "reaction": "Keeping requests local makes the privacy boundary clearer.",
+    "step": 4,
+    "reason": "The button is a plausible next addition now that the tablet is connected to the local service.",
+    "choice": {
+      "combine": "Large request button",
+      "with": "Local request tablet"
+    },
+    "expectation": "The button should provide a deliberate way to initiate a request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet now sends a written request only when the large button is pressed.",
+    "reaction": "The button's limited function makes the user's choice clear.",
+    "step": 5,
+    "reason": "The screen hood could give people more privacy while writing a request.",
+    "choice": {
+      "combine": "Folded screen hood",
+      "with": "Press-to-send request tablet"
+    },
+    "expectation": "The hood should shield the request screen from nearby observers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hood shields the request form from the queue, adding visual privacy.",
+    "reaction": "The simple cardboard solution is satisfying.",
+    "step": 6,
+    "reason": "The receipt printer may give requesters a record of what they submitted.",
+    "choice": {
+      "combine": "Old receipt printer",
+      "with": "Screen-shielded request tablet"
+    },
+    "expectation": "The printer should provide a receipt for a submitted request.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printer now connects to the local controller, producing receipts while keeping return details off the shared queue.",
+    "reaction": "I expected a direct tablet connection, but the controller provides a useful privacy boundary.",
+    "step": 7,
+    "reason": "The local queue printer and shielded request tablet are the prepared parts of the request desk.",
+    "choice": {
+      "combine": "Local queue printer",
+      "with": "Screen-shielded request tablet"
+    },
+    "expectation": "They should work together to complete the local request desk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tablet and printer now form a private request desk with a paper option.",
+    "reaction": "The pencil is a useful low-tech alternative.",
+    "step": 8,
+    "reason": "Moth is the remaining piece and may connect the private desk to its source and correction controls.",
+    "choice": {
+      "combine": "Private request desk",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "The desk should work with Moth while preserving people's choice about making requests.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Private request desk"
+        },
+        "reason": "I could check its available partners first, but Moth is a plausible next connection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's help is optional, and users can review its suggested wording before sending; the request desk goal is complete.",
+    "reaction": "Sal keeping her original wording makes the choice feel real.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the tablet to the local controller made the privacy boundary concrete: requests stay local unless the sender asks otherwise.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the button before the tablet was connected was a dead end; its relevance was clear, but the prerequisite was not.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The printer needed the controller rather than a direct tablet connection, and that arrangement also kept return details off the shared queue.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The button's unavailable pairing initially felt arbitrary because the need to connect the tablet first was not visible.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the concrete privacy choices and Moth's optional help made me curious how the neighborhood will use its local infrastructure.",
+        "steps": [
+          3,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

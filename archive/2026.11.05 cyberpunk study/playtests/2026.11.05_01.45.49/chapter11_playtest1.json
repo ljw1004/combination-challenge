@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "The notice's signature can be checked before relying on its migration claims.",
+    "choice": {
+      "combine": "Signed dawn migration notice",
+      "with": "Independent signature verifier"
+    },
+    "expectation": "The verifier should establish whether the notice's signature is valid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The notice is authentic and intact, but its signature does not validate its policy claims. I can now compare its terms with Latch's subscription records.",
+    "reaction": "The distinction between authenticity and justification is useful.",
+    "step": 2,
+    "reason": "The subscription export should clarify which Latch services the verified migration notice affects.",
+    "choice": {
+      "combine": "Migration notice with its issuer verified",
+      "with": "Latch service subscription export"
+    },
+    "expectation": "The comparison should show what expires at dawn for Latch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The notice identifies the delivery and utility-access credentials that expire at dawn; the local network is the next clear task.",
+    "reaction": "The cheerful notice conceals a consequential cutoff.",
+    "step": 3,
+    "reason": "The compatible radio module is a plausible repair for Miro's damaged network controller.",
+    "choice": {
+      "combine": "Compatible controller radio module",
+      "with": "Miro's damaged portable network controller"
+    },
+    "expectation": "The replacement module should restore the controller's radio hardware.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller's radio is replaced and its setup screen works on workshop power; it still needs a portable supply later.",
+    "reaction": "The repair is progress, though the socket limits portability.",
+    "step": 4,
+    "reason": "The documented local software is the natural next step for configuring the repaired controller.",
+    "choice": {
+      "combine": "Documented local controller software",
+      "with": "Portable controller on workshop power"
+    },
+    "expectation": "The software should configure the controller to run a local network.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller now runs local services without an outside uplink, ready for a device test.",
+    "reaction": "The offline network is a useful step toward local communication.",
+    "step": 5,
+    "reason": "Miro's test handset can check whether a nearby device can use the new network.",
+    "choice": {
+      "combine": "Miro's test handset",
+      "with": "Portable controller running local services"
+    },
+    "expectation": "The handset should connect to the local network and test communication.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset verified one local link without the corporate uplink. The migration notice still needs to be connected to the clinic's situation.",
+    "reaction": "It's satisfying that the test states precisely what it verified.",
+    "step": 6,
+    "reason": "The clinic dispatch may reveal what the expiring credentials mean for its service.",
+    "choice": {
+      "combine": "Notice matched to Latch's service credentials",
+      "with": "Clinic dispatch with a human review route"
+    },
+    "expectation": "The comparison should clarify how the dawn expiration affects clinic dispatch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matched records identify which delivery dispatch and utility-control credentials will be rejected at dawn, without implying that every physical machine will stop.",
+    "reaction": "That distinction makes the threat more concrete without overstating it.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the handset against the local controller was most worthwhile: it demonstrated a working connection without the corporate uplink while stating the test's narrow scope.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the documented software was a straightforward setup step, with little decision-making beyond choosing the obvious matching pieces.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Replacing the radio also revealed that the portable controller depended on a workshop socket, so a working local network was not yet a portable one.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the repairs and record comparisons had clear purposes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue: the verified cutoff creates a concrete problem, and I would like to see whether the limited local network can help the neighborhood respond.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

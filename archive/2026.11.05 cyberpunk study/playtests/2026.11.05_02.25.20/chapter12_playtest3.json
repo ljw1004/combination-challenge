@@ -1,0 +1,178 @@
+[
+  {
+    "step": 1,
+    "reason": "The controller previously depended on workshop power; the charged power bank is a plausible way to make it portable for the entry demonstration.",
+    "choice": {
+      "combine": "Charged controller power bank",
+      "with": "Portable controller with a verified local link"
+    },
+    "expectation": "The power bank should supply the local controller without its workshop adapter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller now has portable power but needs Miro's owner key for setup.",
+    "reaction": "The explicit owner setup makes the next step clear.",
+    "step": 2,
+    "reason": "The result identifies Miro's management key as necessary to configure the controller.",
+    "choice": {
+      "combine": "Miro's controller management key",
+      "with": "Battery-powered controller awaiting owner setup"
+    },
+    "expectation": "The key should complete the controller's owner setup.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller is configured and portable, so it is ready for the local entry demonstration.",
+    "reaction": "The setup is complete, with its power and connectivity limits made clear.",
+    "step": 3,
+    "reason": "The configured local controller and demonstration latch are the natural pieces to connect for local entry.",
+    "choice": {
+      "combine": "Portable controller on its own power",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The controller should provide a local way to operate the demonstration latch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller can open the demonstration latch locally, but the status report and mechanical fallback remain to be checked.",
+    "reaction": "The local link works without implying the whole neighborhood is connected.",
+    "step": 4,
+    "reason": "The disconnected door-status sensor is the clearest remaining piece for a truthful status report.",
+    "choice": {
+      "combine": "Disconnected door-status sensor",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "Connecting the sensor to the latch should make its actual state available for reporting.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mechanical demonstration-door key",
+          "with": "Shop latch in a demonstration frame"
+        },
+        "reason": "I could test the mechanical fallback first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disconnected sensor produces an honest unknown state on Moth's display rather than attaching to the latch.",
+    "reaction": "The automatic result was unexpected but clearly demonstrates the missing-signal problem.",
+    "step": 5,
+    "reason": "The mechanical key and demonstration latch are the obvious pair for testing entry without the local controller.",
+    "choice": {
+      "combine": "Mechanical demonstration-door key",
+      "with": "Shop latch in a demonstration frame"
+    },
+    "expectation": "The key should open the demonstration latch mechanically as a fallback.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mechanical key opens the demonstration door independently of the controller.",
+    "reaction": "The fallback worked as expected.",
+    "step": 6,
+    "reason": "The open door and Moth's unknown-state display may let us demonstrate why a missing sensor reading should not be treated as closed.",
+    "choice": {
+      "combine": "Moth's display: door state unknown",
+      "with": "Demonstration door opened with its key"
+    },
+    "expectation": "The demonstration should connect the actual open door with the display's honest unknown status.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth now reports the door as open based on June's observation, while keeping the sensor's disconnected status distinct.",
+    "reaction": "The source label makes the distinction clear.",
+    "step": 7,
+    "reason": "The manual report may have another useful connection, but the remaining step toward the goal is not obvious.",
+    "choice": {
+      "inspect": "Door state reported by June"
+    },
+    "expectation": "Inspection should show what can be combined with the sourced door report.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller now serves June's dated observation alongside the unavailable sensor status.",
+    "reaction": "The page makes the evidence and its limits clear.",
+    "step": 8,
+    "reason": "The goal has not yet been reported complete, so I'll check whether the status page has a remaining operation.",
+    "choice": {
+      "inspect": "Local status page with its evidence visible"
+    },
+    "expectation": "Inspection should reveal whether the status page can be combined further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The status page has no further combinations, so the unfinished goal must depend on another available object.",
+    "reaction": "I’m unsure what remains after the local entry and status demonstrations.",
+    "step": 9,
+    "reason": "The latch may reveal a remaining demonstration operation that the status page does not.",
+    "choice": {
+      "inspect": "Shop latch in a demonstration frame"
+    },
+    "expectation": "Inspection should show any remaining compatible actions involving the latch.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The latch has no remaining available combinations, so it does not reveal the missing goal condition.",
+    "reaction": "I'm still unsure what the demonstration needs.",
+    "step": 10,
+    "reason": "The controller served the status page and operated the latch, so its remaining partners may indicate what is missing.",
+    "choice": {
+      "inspect": "Portable local network controller"
+    },
+    "expectation": "Inspection should reveal any remaining available operation involving the controller.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller inspection automatically combined it with the key-opened door, demonstrating both entry routes on the same fixture and completing the goal.",
+    "reaction": "The independent fallback was satisfying, though I had not realized that an additional combination was needed to establish it.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reporting the open door as June's observation, then publishing it with the unavailable sensor clearly labeled, made the difference between evidence and inference tangible.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the finished status page and then the latch was unproductive; I was unsure why the goal remained incomplete.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "Trying to connect the disconnected sensor to the latch instead automatically produced an honest unknown-state display on Moth.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The final combination felt somewhat unclear: I had already demonstrated local control and the mechanical key separately, but had to combine the controller with the key-opened door to establish both routes on the same fixture.",
+        "steps": [
+          3,
+          5,
+          10
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the distinction between a manual observation and a sensor reading was interesting, and the prospect of extending the local network gives the story a practical next step. I'd hope the remaining goal conditions are clearer.",
+        "steps": [
+          6,
+          7,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

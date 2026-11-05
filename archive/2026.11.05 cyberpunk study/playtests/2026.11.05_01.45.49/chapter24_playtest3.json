@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "The workshop needs to be recognizable, and the signwriter's paint suggests marking its front.",
+    "choice": {
+      "combine": "Signwriter's bright paint",
+      "with": "Workshop front at dawn"
+    },
+    "expectation": "The paint will make the workshop front easier to find.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The paint has no currently available combination, so I need another starting point for the workshop front.",
+    "reaction": "I was surprised the obvious sign-painting pair did not work.",
+    "step": 2,
+    "reason": "Inspecting the front should reveal what it currently needs.",
+    "choice": {
+      "inspect": "Workshop front at dawn"
+    },
+    "expectation": "The inspection will identify an available way to prepare or mark the workshop entrance.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fobs opened the shutter, making the workshop accessible and potentially enabling further work on the front.",
+    "reaction": "The automatic opening was useful, though I hadn't expected the fobs to be the first step.",
+    "step": 3,
+    "reason": "Now that the shutter is open, I suspect the paint may be usable to mark the workshop.",
+    "choice": {
+      "combine": "Signwriter's bright paint",
+      "with": "Open workshop shutter"
+    },
+    "expectation": "The paint will add a visible workshop sign or marking.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Opening the shutter made the paint usable, and the workshop now has a freshly lettered sign.",
+    "reaction": "The added “AND TODAY” is a nice touch.",
+    "step": 4,
+    "reason": "The retired address display could help people find the newly signed workshop.",
+    "choice": {
+      "combine": "Retired address display",
+      "with": "Freshly lettered workshop"
+    },
+    "expectation": "The display will add address information to the workshop front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The address display needed the local controller first; it now shows the workshop's address and a request-desk call button.",
+    "reaction": "The automatic setup was helpful, and its limited claim about Meridian is clear.",
+    "step": 5,
+    "reason": "The configured display and lettered workshop appear ready to be brought together so people can find and contact it.",
+    "choice": {
+      "combine": "Local delivery display",
+      "with": "Freshly lettered workshop"
+    },
+    "expectation": "The display will complete the workshop's visible, usable front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The display completed the workshop entrance and the first goal; the remaining goal is to give the night shift a reason to linger.",
+    "reaction": "It is satisfying to see the local address help a rider find the workshop.",
+    "step": 6,
+    "reason": "The hot broth and breakfast noodles look like complementary ingredients for a meal for the shift.",
+    "choice": {
+      "combine": "Sal's pot of hot broth",
+      "with": "Fresh breakfast noodles"
+    },
+    "expectation": "The noodles will go into the broth to make breakfast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The broth and noodles made breakfast, completing the remaining goal and the chapter.",
+    "reaction": "A shared meal is a warm, fitting conclusion to the night shift.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the local display to the workshop was satisfying: a Tin Row rider could actually find it without a paid address lookup.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial attempt to paint the front was frustrating because the apparently obvious pairing was unavailable until the shutter was opened.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I didn't expect the residents' fobs to be the first step toward painting the workshop, or the address display to need the controller before installation.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The paint being unusable before the shutter was opened felt somewhat arbitrary, even though the later result identifies the sign as being on the old workshop front.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing the locally maintained address help a neighbor arrive, followed by the shared breakfast, made the infrastructure work feel connected to people's lives.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

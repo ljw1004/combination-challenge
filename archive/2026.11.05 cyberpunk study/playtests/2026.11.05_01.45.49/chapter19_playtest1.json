@@ -1,0 +1,180 @@
+[
+  {
+    "step": 1,
+    "reason": "The matching hinge pin looks like the direct repair for the bent wicket hinge.",
+    "choice": {
+      "combine": "Matching hinge pin",
+      "with": "Wicket with bent hinge pin"
+    },
+    "expectation": "The replacement pin should restore the wicket's hinge.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wicket now swings freely; it may be ready for the passage sign.",
+    "reaction": "The straightforward hinge repair was satisfying.",
+    "step": 2,
+    "reason": "The two-way sign fits the goal of opening a shared passage.",
+    "choice": {
+      "combine": "Two-way passage sign",
+      "with": "Free-running shared wicket"
+    },
+    "expectation": "The sign should mark the repaired passage for travel in both directions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The passage is marked and both communities have working access; the remaining goal is exchanging requests.",
+    "reaction": "The independent access arrangements make the shared passage feel practical.",
+    "step": 3,
+    "reason": "The configurable gateway is the natural starting point for bridging the two local networks.",
+    "choice": {
+      "combine": "Configurable radio gateway",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The gateway should connect to Latch's local controller as a basis for the Tin Row link.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gateway needed Tin Row's message format first; its terminology now maps CLOSED to RECEIVED rather than implying help is complete.",
+    "reaction": "The hidden disagreement over a familiar word was surprising.",
+    "step": 4,
+    "reason": "With the message mapping in place, the gateway may now be ready to join Latch's controller.",
+    "choice": {
+      "combine": "Gateway with explicit message mapping",
+      "with": "Portable local network controller"
+    },
+    "expectation": "The mapped gateway should connect to the local controller for the inter-block link.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Gateway with explicit message mapping"
+        },
+        "reason": "I could check its partners first, but connecting it to the controller seems plausible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mapped gateway can now find Latch's request desk and return replies while preserving Tin Row's names.",
+    "reaction": "Keeping both communities' names intact is a useful detail.",
+    "step": 5,
+    "reason": "The guest reporting port looks like the next piece needed to give Tin Row a defined route into the connected gateway.",
+    "choice": {
+      "combine": "Guest reporting port",
+      "with": "Gateway connected to our local directory"
+    },
+    "expectation": "The port should establish a guest-facing route for exchanging requests.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Guest reporting port"
+        },
+        "reason": "I could check its available partners if the intended connection is different."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reporting port is now authorized for agreed requests and selected status, without granting pump control.",
+    "reaction": "The distinction between communication and control is reassuring.",
+    "step": 6,
+    "reason": "The authorized port should now be ready to connect to the configured gateway.",
+    "choice": {
+      "combine": "Locally authorized reporting port",
+      "with": "Gateway connected to our local directory"
+    },
+    "expectation": "The gateway and port should establish the agreed reporting route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gateway now restricts neighbor access to visible permitted message types, with control outputs disconnected.",
+    "reaction": "The physical separation of control outputs makes the access boundary clearer.",
+    "step": 7,
+    "reason": "Tin Row's test handset can check whether requests and replies work through the restricted gateway.",
+    "choice": {
+      "combine": "Tin Row's test handset",
+      "with": "Gateway with restricted neighbor access"
+    },
+    "expectation": "The handset should test the agreed inter-block request exchange.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test handset has no available operation yet, so the gateway likely needs further setup before it can be tested.",
+    "reaction": "The failed test is slightly frustrating, but it narrows the next step.",
+    "step": 8,
+    "reason": "The working clinic radio link may provide the connection the restricted gateway still needs.",
+    "choice": {
+      "combine": "Gateway with restricted neighbor access",
+      "with": "Working clinic radio link"
+    },
+    "expectation": "The gateway should connect to the existing radio link, making an inter-block test possible.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Gateway with restricted neighbor access"
+        },
+        "reason": "I could check its available partners, but the radio link seems like a plausible next connection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The restricted gateway now connects the rooftop link to Tin Row's radio, making the two local networks reachable.",
+    "reaction": "The missing connection makes the earlier failed test clearer.",
+    "step": 9,
+    "reason": "Tin Row's test handset can now check the newly established link.",
+    "choice": {
+      "combine": "Tin Row's test handset",
+      "with": "Link to Tin Row"
+    },
+    "expectation": "The handset should test whether requests and replies can pass between the networks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test confirmed that requests, acknowledgments and corrections travel between the communities without marking an unfinished job complete; both chapter goals are complete.",
+    "reaction": "I liked seeing the earlier terminology mapping matter in an actual exchange.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the neighbor link was most worthwhile: Asha's correction traveled back, and RECEIVED left her delivery open rather than falsely declaring it complete.",
+        "steps": [
+          3,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The premature handset test was the least worthwhile decision; it failed because the gateway had not yet joined the radio link.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Tin Row's CLOSED needed mapping to RECEIVED, exposing a consequential disagreement about whether a request still needed help.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "My attempts to connect the gateway and reporting port before preparing them were guesses; their prerequisites were not obvious to me, although the automatic compatibility feedback clarified them.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in seeing how the two communities use the link, especially because the final test made the message-format issue concrete.",
+        "steps": [
+          3,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

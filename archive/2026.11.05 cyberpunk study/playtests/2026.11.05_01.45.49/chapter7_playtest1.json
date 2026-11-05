@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "The isolated cooler's clogged filter is a clear repair task that June can safely handle.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Dust-clogged cooler filter cassette"
+    },
+    "expectation": "The repair roll will help clear the filter cassette for the cooler.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter is clean and ready to reinstall; the lint alone does not establish a compressor fault.",
+    "reaction": "The straightforward cleaning feels like useful progress.",
+    "step": 2,
+    "reason": "The cleaned cassette belongs in the isolated cooling cabinet.",
+    "choice": {
+      "combine": "Clean cooler filter cassette",
+      "with": "Isolated clinic cooling cabinet"
+    },
+    "expectation": "The clean filter will be fitted back into the cabinet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter and compatible fan form a repaired air module, ready for Rae to fit into the cabinet.",
+    "reaction": "The automatic combination clarified that the parts belong together before installation.",
+    "step": 3,
+    "reason": "The completed air module is ready to fit into the isolated cabinet.",
+    "choice": {
+      "combine": "Repaired cooler air module",
+      "with": "Isolated clinic cooling cabinet"
+    },
+    "expectation": "Rae will fit the repaired module into the cabinet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired air module is installed, restoring the cabinet's air path without opening the sealed refrigeration system.",
+    "reaction": "The installation is satisfying, especially with the safety boundary kept clear.",
+    "step": 4,
+    "reason": "The restored cabinet needs its checked service supply before it can run.",
+    "choice": {
+      "combine": "Clinic cabinet with its air path restored",
+      "with": "Clinic's checked service supply"
+    },
+    "expectation": "The checked supply will power the repaired cabinet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cabinet is running with its restored air path; independent monitoring is still needed.",
+    "reaction": "The ordinary fan sound is a reassuring sign of progress.",
+    "step": 5,
+    "reason": "The independent logger can monitor the running cooler separately from its own controls.",
+    "choice": {
+      "combine": "Independent clinic temperature logger",
+      "with": "Running clinic cooling cabinet"
+    },
+    "expectation": "The logger will be set up to independently monitor the cabinet's temperature.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The independent logger confirms the cooler holds its specified range during the service check; the remaining goal is to understand the earlier spikes.",
+    "reaction": "The separate check is reassuring, and the staff retain the storage decision.",
+    "step": 6,
+    "reason": "Comparing the old temperature log with door openings may show whether the spikes coincide with use.",
+    "choice": {
+      "combine": "Cabinet's old temperature log",
+      "with": "Clinic door-opening log"
+    },
+    "expectation": "The logs will help relate temperature spikes to door openings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Most old temperature spikes coincide with door openings, but the air sensor cannot establish every stored object's temperature.",
+    "reaction": "The correlation is useful, and its limits are important.",
+    "step": 7,
+    "reason": "Moth can examine the aligned logs to help interpret the spikes without overstating what they prove.",
+    "choice": {
+      "combine": "Temperature spikes aligned with door openings",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "Moth will interpret the aligned records with their limitations.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's forecast distinguishes brief door-related warming from sustained cooling loss while preserving uncertainty.",
+    "reaction": "The less dramatic graph seems more useful without pretending certainty.",
+    "step": 8,
+    "reason": "The forecast and independently monitored cooler may together establish what the spikes mean in the context of the repair.",
+    "choice": {
+      "combine": "Cooling forecast with its limits shown",
+      "with": "Clinic cooler under independent monitoring"
+    },
+    "expectation": "The current monitoring and limited forecast will be brought together to assess the cooler.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cooling forecast with its limits shown"
+        },
+        "reason": "I could check its available partners if the connection is not sufficient."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The independent run and qualified interpretation became a verified service record, completing the chapter; the supply controller's renewal warning leaves a fallback unresolved.",
+    "reaction": "The completed record is satisfying, though the warning leaves an interesting concern.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the old temperature and door logs was most worthwhile: it made the spikes more understandable while clearly distinguishing air readings from the temperatures of stored objects.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The attempted direct installation of the clean filter was a small confusing detour: it first needed to be combined with the fan, though the feedback resolved that automatically.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The repair produced a renewal warning on the supply controller even though the cabinet held its specified range.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt entirely purposeless, although the required order of assembling the filter and fan before installation was not obvious to me.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical repair and careful treatment of uncertain evidence were engaging, and I would be curious to see how the supply warning is handled.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

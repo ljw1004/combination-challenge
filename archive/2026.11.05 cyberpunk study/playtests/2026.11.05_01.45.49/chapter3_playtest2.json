@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "The loose-jointed bench lamp likely needs the repair tools before it can provide steady light.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Loose-jointed low-voltage bench lamp"
+    },
+    "expectation": "The repair roll should help secure the lamp's loose joint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair roll reconnected the market strips instead of fixing the lamp, so the strips are ready for the next lighting step.",
+    "reaction": "The automatic switch to the strips was unexpected, though the connector clicks were satisfying.",
+    "step": 2,
+    "reason": "The fused lead looks like the appropriate safe connection between the reconnected strips and their battery pack.",
+    "choice": {
+      "combine": "Reconnected market light strips",
+      "with": "Fused lighting lead"
+    },
+    "expectation": "The lead should connect to the strips as part of powering the market lights.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The offcuts sheltered the strips; the fused lead was not used, so powering the market lights remains a likely next step.",
+    "reaction": "I was surprised the strips needed covers before the power connection.",
+    "step": 3,
+    "reason": "The sheltered lights appear ready to connect to their charged market battery; the fused lead may also be needed.",
+    "choice": {
+      "combine": "Sheltered market lights",
+      "with": "Charged market battery pack"
+    },
+    "expectation": "The battery should power the sheltered market lights, possibly using the fused lead.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sheltered lights currently have no available combination, so I need to prepare another component before powering them.",
+    "reaction": "The dead end is a little puzzling after fitting the covers.",
+    "step": 4,
+    "reason": "The loose-jointed lamp still needs attention, but my earlier tool attempt did not work; checking its partners should clarify the repair.",
+    "choice": {
+      "inspect": "Loose-jointed low-voltage bench lamp"
+    },
+    "expectation": "The inspection should reveal what can be used to prepare the lamp.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reclaimed lamp reflector",
+          "with": "Loose-jointed low-voltage bench lamp"
+        },
+        "reason": "The reflector belongs with a lamp, but it is not clear whether the joint must be fixed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reflector fitting also secured the lamp's joint, leaving a shielded lamp ready for power.",
+    "reaction": "It was satisfying to fix the joint while fitting the shade, though that connection wasn't obvious beforehand.",
+    "step": 5,
+    "reason": "The shielded low-voltage lamp needs power, and the protected workshop supply is available.",
+    "choice": {
+      "combine": "Shielded bench lamp",
+      "with": "Protected workshop power supply"
+    },
+    "expectation": "The supply should power the lamp and provide steady bench light.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The workshop lamp is powered, completing the bench-light goal; the market lights remain.",
+    "reaction": "The warm light around the repair mat is a satisfying result.",
+    "step": 6,
+    "reason": "The charged battery and fused lead look like the remaining power components for the market lights.",
+    "choice": {
+      "combine": "Charged market battery pack",
+      "with": "Fused lighting lead"
+    },
+    "expectation": "The fused lead should prepare a safer connection from the battery to the market lights.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery and fused lead now form a protected portable lighting supply, which may power the sheltered market lights.",
+    "reaction": "The bounded supply is a reassuring preparation for the lights.",
+    "step": 7,
+    "reason": "The sheltered lights and protected supply are the prepared components for lighting the market.",
+    "choice": {
+      "combine": "Sheltered market lights",
+      "with": "Protected portable lighting supply"
+    },
+    "expectation": "The protected supply should power the market lights.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The market lights are powered locally; marking what the map leaves out remains.",
+    "reaction": "The illuminated stalls make the neighborhood's absence from the directory feel concrete.",
+    "step": 8,
+    "reason": "Moth's cached map and the now-visible market seem like the relevant pieces for marking the missing neighborhood.",
+    "choice": {
+      "combine": "Moth's cached service map",
+      "with": "Market lights on local power"
+    },
+    "expectation": "The lit market should help mark the places missing from Moth's map.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Marking the lit stalls completed the market goal and clarified that the grey gap reflects missing directory data, not empty ground.",
+    "reaction": "The contrast between the map and the living market was satisfying.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Marking the lit market on Moth's map connected the repair work to the story's central problem: a directory can omit places that plainly exist.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the sheltered lights directly with the battery led to a dead end without explaining what preparation was missing.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the lamp revealed that fitting the reflector also fixed its loose joint; I had expected the joint to need a separate tool repair.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The lamp's joint repair being bundled with the reflector fitting was not obvious from the available names, although the result explained what happened.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see whether the marked map can challenge the directory, and the practical repairs made that larger problem feel tangible.",
+        "steps": [
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

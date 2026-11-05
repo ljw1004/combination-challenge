@@ -1,0 +1,7 @@
+# Final sign family: release review
+
+Fresh independent informed AI review by `/root/sign_release_review`, supplied only four current runtime drawings, current chapter-6 names/readings/recipes, the active brief and standing guidance. No previous candidates, reviews, repair prompts or production history were supplied. Exact start was not recorded; filing uses completion-file time **05 November 2026, 04:39:03 America/Los_Angeles**. Method: [icon guide](../../../../docs/icon-guide.md#7-diagnose-revise-and-review-again); intent: [active brief](../../../../stories/cyberpunk/design-brief.md).
+
+**Keep all four.** The motor, powered motor, painted sign and turning assembly preserve their recognizable components and plausible ordinary attachment. Inspected at 256px and actual 64px/52px reductions; scale, full rims and cropping pass. The lower mounting spindle is routine assembly, not a claim that the upper hanging loops are the coupling. The visible result supports the story without requiring hidden engineering detail.
+
+**Version and decision.** Final turning-sign SHA-256 `8abff5c6348f55f6a7a2c0b3548fd9bd17e8d55048cf656bbf1e4749cdb71392`; unchanged donor hashes are recorded in the [preceding outcome](../2026.11.05_04.26.31/report.md). Source report SHA `b700f971bc38c37185886487e80c3d9a77bf4d711c6b043399007b348bf70233`. Accepted for release, followed by focused browser checks of this exact export. This is informed visual continuity review, not human recognition, native-device use or engineering certification. Raw inspection output is disposable scratch.

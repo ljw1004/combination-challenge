@@ -1,0 +1,183 @@
+[
+  {
+    "step": 1,
+    "reason": "The shipment is already on the boundary cart, and the shared wicket is the established passage between blocks.",
+    "choice": {
+      "combine": "Clinic supplies on the boundary cart",
+      "with": "Marked shared wicket, closed"
+    },
+    "expectation": "The supplies can pass through the shared wicket toward the clinic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collection request released the supplies; the local final leg remains to be completed.",
+    "reaction": "The request check makes sense, though I had expected to move straight through the wicket.",
+    "step": 2,
+    "reason": "The released supplies still need to reach the clinic, so the intake reader is a plausible next check.",
+    "choice": {
+      "combine": "Clinic supplies released for collection",
+      "with": "Clinic intake reader"
+    },
+    "expectation": "The clinic will receive or verify the collected supplies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The released supplies cannot currently be combined further, so another part of the delivery route may need preparation.",
+    "reaction": "I was surprised the intake reader was not the next step.",
+    "step": 3,
+    "reason": "The shared wicket is closed and may need to be opened for the cart to pass.",
+    "choice": {
+      "inspect": "Marked shared wicket, closed"
+    },
+    "expectation": "Inspection should show how to make the passage usable.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The residents' fob opened the wicket, making the shared passage available.",
+    "reaction": "The locally controlled gate worked as intended.",
+    "step": 4,
+    "reason": "The released supplies can now plausibly travel through the open passage.",
+    "choice": {
+      "combine": "Wicket opened by its residents",
+      "with": "Clinic supplies released for collection"
+    },
+    "expectation": "The cart will pass through the wicket toward the clinic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplies are now at the clinic door, ready for intake.",
+    "reaction": "The repaired passage has paid off in a concrete way.",
+    "step": 5,
+    "reason": "The clinic intake reader can now verify the shipment at its destination.",
+    "choice": {
+      "combine": "Supplies at the clinic door",
+      "with": "Clinic intake reader"
+    },
+    "expectation": "Eli will receive and record the supplies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplies at the door cannot currently be combined with the intake reader, so I need to find what the reader requires.",
+    "reaction": "That was unexpected; arrival alone was not enough for intake.",
+    "step": 6,
+    "reason": "Inspecting the intake reader should reveal its available next step.",
+    "choice": {
+      "inspect": "Clinic intake reader"
+    },
+    "expectation": "The reader will show what it needs to process the shipment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The intake reader now has access to the clinic's local order list without Meridian's address lookup.",
+    "reaction": "The missing local configuration explains why intake was not ready.",
+    "step": 7,
+    "reason": "The configured reader should now be able to check the supplies at the clinic door.",
+    "choice": {
+      "combine": "Locally configured intake reader",
+      "with": "Supplies at the clinic door"
+    },
+    "expectation": "Eli can compare the shipment with the local order and receive it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Eli verified and recorded the shipment, completing the delivery goal.",
+    "reaction": "The local intake check made the final delivery feel properly complete.",
+    "step": 8,
+    "reason": "Ren's operator key is the established means of controlling the pump, so it is a plausible next step for keeping water working.",
+    "choice": {
+      "combine": "Pump operator's key",
+      "with": "Pump tested with the uplink absent"
+    },
+    "expectation": "The pump will be checked or operated under local control during the migration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ren verified water pressure and flow after migration; the battery and cistern still need monitoring.",
+    "reaction": "The automatic dawn check clarified how the monitor fits into the test.",
+    "step": 9,
+    "reason": "The remaining goal includes local requests, so the neighbor link may need a corresponding dawn check.",
+    "choice": {
+      "combine": "Neighbor link with local fault bell",
+      "with": "Dawn migration monitor"
+    },
+    "expectation": "The monitor will check whether the local request link still works after migration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ren's water readings now reach both blocks, and Asha's slow tap has been added to the work rather than treated as fixed.",
+    "reaction": "The distinction between reporting a problem and fixing it is useful.",
+    "step": 10,
+    "reason": "The remaining goal is to keep local requests working; the migration monitor may offer the relevant check.",
+    "choice": {
+      "inspect": "Dawn migration monitor"
+    },
+    "expectation": "The monitor will show what can be checked next after migration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth now has a read-only local service view, and the request queue awaits confirmation that the clinic received its shipment.",
+    "reaction": "The blank city feed is a useful reminder that the local network has limits.",
+    "step": 11,
+    "reason": "The clinic's recorded receipt appears to be the confirmation the request queue is waiting for.",
+    "choice": {
+      "combine": "Moth on the local morning desk",
+      "with": "Clinic shipment received"
+    },
+    "expectation": "The local queue will reflect the clinic's confirmed receipt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clinic's receiving confirmation closed the corresponding request, completing the remaining goal while leaving the next shift to choose its work.",
+    "reaction": "It was satisfying that the request closed on an actual receipt rather than a predicted delivery.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Configuring the intake reader locally and then checking the shipment made the delivery feel complete, and showed why a working route alone was not enough.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the intake reader before it was locally configured was frustrating; its missing setup was not apparent from the attempted combination.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The supplies could not be processed on arrival until the reader was connected to the clinic's local order list.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The first attempt to move the cart through the wicket instead automatically released it against the collection request. The check made sense afterward, but its priority was not obvious beforehand.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the concrete payoff of the shared passage and the careful distinction between reporting and fixing a problem made me curious about the next shift's work.",
+        "steps": [
+          4,
+          9,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

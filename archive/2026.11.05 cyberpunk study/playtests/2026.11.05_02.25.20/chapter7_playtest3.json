@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "The removable filter cassette is clogged, and June's repair roll is the available tool for cleaning or opening it.",
+    "choice": {
+      "combine": "June's repair roll",
+      "with": "Dust-clogged cooler filter cassette"
+    },
+    "expectation": "The tools should help clear the filter cassette for the cooler repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter is clean, so it can go back into the cooler; the lint alone does not establish a compressor fault.",
+    "reaction": "The distinction between a dirty filter and a failed compressor is useful.",
+    "step": 2,
+    "reason": "The cleaned cassette belongs in the isolated cooling cabinet.",
+    "choice": {
+      "combine": "Clean cooler filter cassette",
+      "with": "Isolated clinic cooling cabinet"
+    },
+    "expectation": "The clean filter should fit back into the cabinet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter is installed, but the cabinet remains isolated with its fan socket empty.",
+    "reaction": "The separate service bays make the remaining repair clear.",
+    "step": 3,
+    "reason": "The compatible fan cartridge should fill the empty fan socket.",
+    "choice": {
+      "combine": "Compatible clinic fan cartridge",
+      "with": "Clinic cabinet with clean filter, fan still missing"
+    },
+    "expectation": "Rae will fit the fan cartridge into the cabinet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter and fan are installed, restoring the air path without opening the sealed refrigeration system.",
+    "reaction": "The repair is progressing clearly.",
+    "step": 4,
+    "reason": "The restored cabinet needs its checked service supply before it can run.",
+    "choice": {
+      "combine": "Clinic's checked service supply",
+      "with": "Clinic cabinet with its air path restored"
+    },
+    "expectation": "Rae will reconnect the cabinet to the checked supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cabinet is running again; it still needs independent temperature monitoring.",
+    "reaction": "The ordinary fan sound is a reassuring sign, though not proof of stable cooling.",
+    "step": 5,
+    "reason": "The independent logger should monitor the running cabinet.",
+    "choice": {
+      "combine": "Independent clinic temperature logger",
+      "with": "Running clinic cooling cabinet"
+    },
+    "expectation": "The logger will be set up to independently record the cabinet's temperature.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The independent logger confirms the cooler held its specified range during the service check; the remaining goal is to understand the earlier spikes.",
+    "reaction": "The independent check is reassuring, and the storage decision remains with clinical staff.",
+    "step": 6,
+    "reason": "Comparing the old temperature log with the door-opening log may reveal whether the spikes coincide with openings.",
+    "choice": {
+      "combine": "Cabinet's old temperature log",
+      "with": "Clinic door-opening log"
+    },
+    "expectation": "The logs will show whether door openings correspond to the recorded temperature spikes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Most spikes align with door openings, but the air sensor cannot establish what every stored object experienced.",
+    "reaction": "The distinction between air temperature and stored-object temperature is useful.",
+    "step": 7,
+    "reason": "Moth can examine the aligned logs to help interpret the spikes for the remaining goal.",
+    "choice": {
+      "combine": "Temperature spikes aligned with door openings",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "Moth will assess the evidence while acknowledging the limits of the sensor readings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's forecast distinguishes brief door-related warming from sustained cooling loss while marking uncertain periods.",
+    "reaction": "The explicit uncertainty makes the graph more useful without overstating the evidence.",
+    "step": 8,
+    "reason": "The forecast and independently monitored cooler are the remaining relevant pieces for interpreting the temperature spikes.",
+    "choice": {
+      "combine": "Cooling forecast with its limits shown",
+      "with": "Clinic cooler under independent monitoring"
+    },
+    "expectation": "The current monitoring may be compared with the forecast to clarify what the spikes mean.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rae compared the independent run with the old trace, completing the investigation; the supply controller's renewal warning leaves a fallback to consider.",
+    "reaction": "The verified repair is satisfying, though the warning leaves an unresolved concern.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the temperature and door-opening logs was most worthwhile: it gave the spikes a plausible explanation while making clear that air readings do not establish every stored object's temperature.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the filter and fan felt fairly predictable; the separate steps made the repair clear but offered little meaningful choice.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The renewal warning appeared just as the cooling service record was verified, showing that a successful repair did not settle the supply issue.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the forecast with the monitored cooler was a guess based on the remaining relevant pieces; I did not know exactly how the comparison would work.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. The careful distinction between evidence and uncertainty interested me, and I would like to see how the supply warning is addressed.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

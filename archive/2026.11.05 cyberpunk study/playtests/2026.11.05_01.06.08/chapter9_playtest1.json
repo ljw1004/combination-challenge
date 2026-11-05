@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "Start developing the routing rule from the practice cases before testing it on unseen trips.",
+    "choice": 1,
+    "expectation": "Moth will use the practice cases to form a local routing rule; its performance on the sealed test pack remains uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the talkbox also advances a goal, but I want to start with the routing test."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The settings fit the practice trips, but their performance on unseen trips is still unknown, so I should test them.",
+    "reaction": "The warning against treating practice success as general success is clear and useful.",
+    "step": 2,
+    "reason": "Use the sealed Tuesday pack to evaluate the settings on trips they did not learn from.",
+    "choice": 1,
+    "expectation": "The evaluation will reveal how the settings handle unseen Tuesday trips, possibly exposing failures.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox repair also matters, but the evaluation follows directly from fitting the settings."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The unseen test exposed a wrongly refused two-carrier pickup, so the rule needs a human review route.",
+    "reaction": "The specific failure makes the value of testing concrete.",
+    "step": 3,
+    "reason": "Use the dispatch review switch and rule to address the wrongly refused request.",
+    "choice": 1,
+    "expectation": "Requests the rule cannot handle may be sent to a dispatcher for review, though the revised approach will still need testing.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox needs repair too, but addressing the test failure comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The revised rule sends difficult cases to a dispatcher, but Tuesday's test no longer evaluates the changed rule.",
+    "reaction": "Keeping the reason and source visible makes the review route feel practical.",
+    "step": 4,
+    "reason": "Test the revised rule on the fresh Wednesday cases.",
+    "choice": 1,
+    "expectation": "The fresh evaluation will show how the changed rule handles unseen requests, though it may reveal further problems.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The talkbox also needs repair, but testing the revised rule is the immediate next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fresh test shows the revised rule can refer a different timing conflict to a dispatcher while ordinary trips pass through; the routing goal is complete.",
+    "reaction": "The different example makes the human handoff feel useful beyond the original failure.",
+    "step": 5,
+    "reason": "Repair the talkbox audio to advance the remaining clinic request-button goal; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The compatible speaker board should restore the talkbox audio, though the button and reply route may still need work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox can now play a clear reply; it still needs a call button and likely a transmitter.",
+    "reaction": "Eli's test adds a small, amusing character moment to a straightforward repair.",
+    "step": 6,
+    "reason": "Fit the tactile call button to advance the remaining goal; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The button should let someone initiate a request, though connecting the local transmitter may still be necessary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The talkbox now has an easier-to-find tactile button while retaining its ordinary button; it still needs a request connection.",
+    "reaction": "Keeping both buttons is a thoughtful accessibility detail.",
+    "step": 7,
+    "reason": "Connect the local transmitter to enable requests; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The transmitter should connect the talkbox to a local request route, though I don't know whether a human reply route will need further work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now has audio, a button and a transmitter, with a visible listening signal; it still needs a request and reply route.",
+    "reaction": "The deliberate listening signal is a useful privacy detail.",
+    "step": 8,
+    "reason": "Connect the handset to the tested routing rule to advance the remaining goal; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The handset should send requests through the routing system, potentially including its human review route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset now reaches the tested queue, with difficult requests sent to Eli for a reasoned reply; both chapter goals are complete.",
+    "reaction": "Connecting the repaired device to a real human reply makes the two strands feel usefully joined.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The Tuesday test and revised rule were the strongest passage: a specific wrongly refused pickup led to a practical human review route.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the talkbox components was straightforward and somewhat repetitive, even if the accessibility and listening details gave it purpose.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The rule treated a two-carrier pickup as impossible because it could book only one volunteer; the fresh test then showed review helping with a different timing problem.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the talkbox fittings were predictable and offered no meaningful choice once the routing goal was complete.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. The concrete failures and human corrections made me curious how the neighborhood will handle the wider directory problem, although I would hope for more meaningful choices than the linear repair sequence.",
+        "steps": [
+          2,
+          3,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

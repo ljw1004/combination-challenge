@@ -1,0 +1,156 @@
+[
+  {
+    "step": 1,
+    "reason": "Stocking the service cupboard directly supports the supplies and handoff goal.",
+    "choice": 1,
+    "expectation": "The compatible spares will be stored for future maintenance, though a separate handoff may still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The practice panel could help train the next shift, but I’ll prepare the supplies first."
+      },
+      {
+        "choice": 3,
+        "reason": "The spare repeater may help the neighbor link, but I’ll address the cupboard first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spares are sorted and clearly identified, with bad parts kept separate; the handoff still needs attention.",
+    "reaction": "The part-number labels are a practical, satisfying detail.",
+    "step": 2,
+    "reason": "Pairing the residents' fobs with the stocked cupboard may give the next shift access to the supplies.",
+    "choice": 1,
+    "expectation": "Residents will be able to access the maintenance supplies, though further handoff steps may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Training is also relevant, but I want to finish making the supplies accessible first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal and Miro can access the spares independently, with a mechanical fallback.",
+    "reaction": "The fallback makes the handoff feel more robust.",
+    "step": 3,
+    "reason": "The faulty cartridge and isolated panel look useful for practicing a repair without affecting live services.",
+    "choice": 1,
+    "expectation": "The panel will provide a safe training exercise using the known fault.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The repeater may advance the neighbor-link alarm, but I want to address training first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The practice panel now presents a missing signal despite having power, giving operators a concrete diagnostic exercise.",
+    "reaction": "That distinction makes the training exercise more interesting than a generic repair.",
+    "step": 4,
+    "reason": "Using Moth with the faulty panel may help the operators interpret and practice responding to the fault.",
+    "choice": 1,
+    "expectation": "Moth will help present or explain the fault for training, though I don't know exactly how.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The repeater could advance the neighbor-link goal, but I want to continue the training exercise first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth's diagram helped locate the reporting fault, while Miro verified it and Sal identified a connector to leave alone.",
+    "reaction": "The shared verification makes the exercise more concrete.",
+    "step": 5,
+    "reason": "Using a compatible spare should let the operators practice fixing the located fault.",
+    "choice": 1,
+    "expectation": "They will replace the faulty training component and check whether the signal returns.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The repeater also needs attention, but I want to finish the practice repair first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal restored the practice panel using a matching spare under Ren's supervision, demonstrating that someone else can perform the repair.",
+    "reaction": "It's satisfying to see the training turn into a completed repair.",
+    "step": 6,
+    "reason": "The fobs may help establish local authorization for the trained operators and complete the handoff.",
+    "choice": 1,
+    "expectation": "The residents' fobs will be associated with the restored practice panel or operator handoff; the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The repeater still needs attention, but I want to finish the training handoff first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal and Miro have demonstrated a real shift handoff, completing the supplies and handoff goal. The neighbor-link alarm remains.",
+    "reaction": "The second operator repeating the check makes the handoff convincing.",
+    "step": 7,
+    "reason": "The repeater is the only available combination and likely advances the remaining neighbor-link goal.",
+    "choice": 1,
+    "expectation": "The spare repeater will be connected to the tested neighbor link, possibly preparing it for a fault alarm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repeater is fitted in a serviceable position, and its bypass keeps the original route usable during removal. The fault alarm remains to be added.",
+    "reaction": "The tested bypass is a useful detail for the night shift.",
+    "step": 8,
+    "reason": "The bell is the only available combination and directly addresses the remaining alarm goal.",
+    "choice": 1,
+    "expectation": "The bell will be connected to signal a neighbor-link fault, though I don't know how it will be tested.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tested fault bell and agreed shift responsibilities complete the neighbor-link alarm and both chapter goals.",
+    "reaction": "The audible test and named responders make the alarm feel useful rather than merely installed.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The practice repair and second handoff were most worthwhile: Sal fixed a real fault, then Miro repeated the check and demonstrated the stop himself.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Stocking the cupboard was practical but less engaging than the diagnostic exercise; it was a straightforward preparation.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The practice panel had power while reporting a missing signal, a useful distinction I hadn't expected from a simple training setup.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the fobs on the restored practice panel had an unclear purpose when I chose it; the result made sense as an operator handoff.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical fault diagnosis and shared responsibility made me curious to see how the neighborhood handles its next problem, though the final alarm sequence was predictable.",
+        "steps": [
+          3,
+          4,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

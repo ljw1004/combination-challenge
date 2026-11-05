@@ -1,0 +1,140 @@
+[
+  {
+    "step": 1,
+    "reason": "The workshop needs a visible front, and the signwriter's paint looks suited to marking it.",
+    "choice": {
+      "combine": "Signwriter's bright paint",
+      "with": "Workshop front at dawn"
+    },
+    "expectation": "The paint will make the workshop easier to recognize or find.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The paint has no available combination yet, so I need to find what prepares the workshop front.",
+    "reaction": "The direct sign-painting guess was premature.",
+    "step": 2,
+    "reason": "Inspecting the workshop front should reveal an available way to prepare it.",
+    "choice": {
+      "inspect": "Workshop front at dawn"
+    },
+    "expectation": "The inspection will show what can currently be used with the front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sal's fob opened the shutter, preparing the workshop front for further work.",
+    "reaction": "The shared access makes a practical start.",
+    "step": 3,
+    "reason": "The retired address display could identify the now-open workshop.",
+    "choice": {
+      "combine": "Retired address display",
+      "with": "Open workshop shutter"
+    },
+    "expectation": "The display will be fitted or adapted to help people find the workshop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The address display needed the local controller first; it now shows the workshop's address and a request-desk call button.",
+    "reaction": "The distinction between a local address and a changed delivery policy is useful.",
+    "step": 4,
+    "reason": "The configured display should now help identify the open workshop.",
+    "choice": {
+      "combine": "Local delivery display",
+      "with": "Open workshop shutter"
+    },
+    "expectation": "The display will be installed at the workshop front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The local delivery display has no available combination yet, so installing it on the shutter was premature.",
+    "reaction": "I'm curious what else the workshop needs before the display can be used.",
+    "step": 5,
+    "reason": "The breakfast noodles and hot broth are an obvious pairing for the night shift.",
+    "choice": {
+      "combine": "Fresh breakfast noodles",
+      "with": "Sal's pot of hot broth"
+    },
+    "expectation": "The noodles and broth will make breakfast for the shift.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Open workshop shutter"
+        },
+        "reason": "I could check what the workshop front needs next."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The noodles and broth became breakfast, completing the night-shift goal.",
+    "reaction": "It is satisfying to see the shift handed over and everyone given a place to eat.",
+    "step": 6,
+    "reason": "The workshop goal remains, and inspecting the open shutter should show what it needs next.",
+    "choice": {
+      "inspect": "Open workshop shutter"
+    },
+    "expectation": "The inspection will reveal any currently available partner for the workshop front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Opening the shutter made the paint usable, and the workshop now has a fresh sign.",
+    "reaction": "Sal's addition makes the sign feel welcoming.",
+    "step": 7,
+    "reason": "The locally configured address display may now complement the lettered workshop front.",
+    "choice": {
+      "combine": "Freshly lettered workshop",
+      "with": "Local delivery display"
+    },
+    "expectation": "The display will be added to the workshop to help people find and contact it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The local display joined the painted sign, and a Tin Row rider found the workshop; both chapter goals are complete.",
+    "reaction": "The rider's arrival makes the local address feel like a practical achievement.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the local delivery display to the signed workshop was most worthwhile: it connected the repair work to someone actually finding the bench without a paid lookup.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to install the display before the sign was ready was unproductive; the result gave no hint about the missing prerequisite.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The paint could not be used until the shutter was opened, even though painting the front seemed like a plausible first move.",
+        "steps": [
+          1,
+          2,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The display's dependence on the freshly lettered workshop felt somewhat arbitrary: I could understand needing a local address, but not why the display couldn't be installed before painting.",
+        "steps": [
+          3,
+          4,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter: the combination of practical repairs and seeing neighbors use them made the ending satisfying, despite some opaque ordering.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

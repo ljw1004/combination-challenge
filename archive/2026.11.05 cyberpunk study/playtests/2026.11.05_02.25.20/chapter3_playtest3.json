@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "The reclaimed reflector appears suited to the shadeless bench lamp, bringing it closer to providing useful light.",
+    "choice": {
+      "combine": "Reclaimed lamp reflector",
+      "with": "Shadeless low-voltage bench lamp"
+    },
+    "expectation": "The reflector should fit the lamp and direct its light toward the bench.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reflector fitted the lamp, leaving it ready to be powered.",
+    "reaction": "Satisfying to see the matching part seat in the existing collar.",
+    "step": 2,
+    "reason": "The shielded low-voltage lamp needs power to provide steady bench lighting.",
+    "choice": {
+      "combine": "Shielded bench lamp",
+      "with": "Protected workshop power supply"
+    },
+    "expectation": "The power supply should light the bench lamp.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered lamp completed the bench-lighting goal, so I can focus on the market lights.",
+    "reaction": "The warm light makes the repair feel complete.",
+    "step": 3,
+    "reason": "The detached fused lead looks like the appropriate connection for the market battery.",
+    "choice": {
+      "combine": "Charged market battery, lead detached",
+      "with": "Battery’s fused output lead"
+    },
+    "expectation": "The lead should connect to the battery so it can safely power the market lights.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fused lead made the battery a protected portable supply for the market lights.",
+    "reaction": "The matching lead made this a straightforward repair.",
+    "step": 4,
+    "reason": "The disconnected market light strips need a power supply, and the portable supply is prepared.",
+    "choice": {
+      "combine": "Disconnected market light strips",
+      "with": "Protected portable lighting supply"
+    },
+    "expectation": "The supply should power the market light strips.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The strips needed their original connectors repaired before they could be powered; they are now reconnected but uncovered.",
+    "reaction": "The connector clicks were satisfying, though I had overlooked that repair.",
+    "step": 5,
+    "reason": "The translucent offcuts look suitable for covering the reconnected light strips.",
+    "choice": {
+      "combine": "Reconnected uncovered light strips",
+      "with": "Translucent sign offcuts"
+    },
+    "expectation": "The offcuts should cover the strips while letting their light through.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The offcuts covered the reconnected lights, which still need power.",
+    "reaction": "The clipped-on covers are a neat reuse of the sign material.",
+    "step": 6,
+    "reason": "The covered market lights are unpowered, and the protected portable supply is ready.",
+    "choice": {
+      "combine": "Covered market lights, unpowered",
+      "with": "Protected portable lighting supply"
+    },
+    "expectation": "The supply should power the market lights.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The market lights are now powered locally; marking what the map omits remains.",
+    "reaction": "The lit stalls make the neighborhood's absence from the map more tangible.",
+    "step": 7,
+    "reason": "The cached service map shows the gap, and the illuminated market may provide the missing local context.",
+    "choice": {
+      "combine": "Moth's cached service map",
+      "with": "Market lights on local power"
+    },
+    "expectation": "This may mark the occupied market on the map despite its recorded service gap.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Moth's cached service map"
+        },
+        "reason": "I could check its available partners, since the marking step is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Marking the lit stalls completed the market goal and clarified that the grey gap reflects missing directory data, not an empty neighborhood.",
+    "reaction": "The contrast between the living market and the grey map was striking.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Marking the powered market on Moth's map connected the physical repair to the story's larger problem: infrastructure can overlook places that plainly exist.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Preparing and powering the bench lamp was straightforward, but less interesting than the market repairs and their consequences.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The light strips needed their connectors repaired before accepting power; my premature attempt exposed that missing step and automatically performed it.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the map directly with the powered lights felt a little abstract, though marking the visible stalls made sense once explained.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd be curious to see whether the marked map helps challenge the directory, and the repairs gave that problem a tangible setting.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

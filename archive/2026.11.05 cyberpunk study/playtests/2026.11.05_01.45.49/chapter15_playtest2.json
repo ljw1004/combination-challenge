@@ -1,0 +1,154 @@
+[
+  {
+    "step": 1,
+    "reason": "The submitted requests are the natural starting point for getting residents' needs answered through the desk.",
+    "choice": {
+      "combine": "Residents' submitted requests",
+      "with": "Request desk with optional help"
+    },
+    "expectation": "The desk will organize or receive the requests for local handling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The requests now have receipts and a privacy-conscious local queue; they still need to be matched with help.",
+    "reaction": "The limited sharing of job details is reassuring.",
+    "step": 2,
+    "reason": "The dispatch handset seems the most direct way to route the receipted requests to volunteers.",
+    "choice": {
+      "combine": "Receipted local requests",
+      "with": "Dispatch handset"
+    },
+    "expectation": "The handset will help dispatch the requests for a human response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handset cannot yet be combined with the requests; the compatibility list points instead to the notice or Moth.",
+    "reaction": "I was surprised the direct dispatch attempt did not work.",
+    "step": 3,
+    "reason": "The notice is a known compatible partner and may connect the residents' requests to the appeal about affected services.",
+    "choice": {
+      "combine": "Receipted local requests",
+      "with": "Authenticated migration notice and affected-service list"
+    },
+    "expectation": "The requests and notice will be linked as evidence for the residents' appeal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Receipted local requests",
+          "with": "Moth with source display and correction controls"
+        },
+        "reason": "Moth is the other listed partner, but the notice seems more directly relevant to the appeal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The approved statements and authenticated notice now form an appeal bundle ready to lodge.",
+    "reaction": "The distinction between the notice and residents' evidence is clear.",
+    "step": 4,
+    "reason": "The civic appeal connection is the apparent route for lodging the completed bundle.",
+    "choice": {
+      "combine": "Residents' appeal bundle",
+      "with": "Civic appeal connection"
+    },
+    "expectation": "The residents' appeal will be submitted through the civic connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The appeal is lodged, but its three-working-day response will not address the dawn deadline; the local requests still need answers.",
+    "reaction": "The receipt is progress, though the delay is sobering.",
+    "step": 5,
+    "reason": "Moth was listed as compatible with the receipted requests and may help prepare them for local dispatch.",
+    "choice": {
+      "combine": "Receipted local requests",
+      "with": "Moth with source display and correction controls"
+    },
+    "expectation": "Moth will help organize the requests for human handling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moth has proposed rounds but flagged the upstairs carry's urgency and staffing as questions for volunteers.",
+    "reaction": "It's useful that Moth leaves those uncertainties open rather than guessing.",
+    "step": 6,
+    "reason": "The neighbors' access notes may resolve practical questions about the proposed stops.",
+    "choice": {
+      "combine": "Moth's proposed collection rounds",
+      "with": "Neighbors' access notes"
+    },
+    "expectation": "The notes will help volunteers refine the rounds around residents' access needs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The volunteers have agreed on an order and a two-person team for the upstairs carry; the rounds still need dispatching.",
+    "reaction": "It's satisfying that the access notes changed both staffing and priority.",
+    "step": 7,
+    "reason": "The dispatch handset is the natural way to send the agreed rounds to the volunteers.",
+    "choice": {
+      "combine": "Neighbors' agreed collection rounds",
+      "with": "Dispatch handset"
+    },
+    "expectation": "The agreed jobs will be communicated for volunteers to carry out.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The volunteers have received their assigned stops and confirmed them by readback; the requests may still need completion.",
+    "reaction": "The readback is a practical confirmation, not just a sent message.",
+    "step": 8,
+    "reason": "The working handset may be ready to coordinate the remaining request work; I'll inspect it rather than guess its next partner.",
+    "choice": {
+      "inspect": "Working dispatch handset"
+    },
+    "expectation": "Its available partners will show how to proceed with the local requests.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically connected the handset to the desk, producing replies and completing the remaining goal while keeping unfinished jobs visible.",
+    "reaction": "It was satisfying to see the requests answered without treating a proposed solution as completed work.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the neighbors' access notes to revise the rounds was most worthwhile: the volunteers changed both the staffing and priority of the upstairs carry.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial attempt to dispatch the receipted requests was frustrating because the apparently direct pairing did not work, although its compatibility feedback helped.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The appeal was accepted, but its three-working-day response time made clear it would not resolve the dawn problem.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The requests could not initially be paired with the dispatch handset; the required intermediate steps were not obvious to me at that point.",
+        "steps": [
+          2,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the neighborhood handles the dawn deadline; the combination of practical coordination and unresolved stakes held my interest.",
+        "steps": [
+          4,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
