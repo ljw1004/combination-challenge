@@ -4,6 +4,8 @@ This index describes live projects only. Each project keeps its briefs, research
 
 - [Cosmic narrative redevelopment](cosmic-study/README.md): contrasting literary stories and conceptual combination designs in response to human feedback about clarity, primitive overload and the missing narrative hook.
 
+- [Cyberpunk reconsideration](cyberpunk-study/README.md): divergent futuristic story concepts whose narrative follows the continuing lives of combined creations, with successive fresh reviews after human play feedback.
+
 - [Theology study](theology-study/README.md): continuing development of Theology: Disputed Questions, with two completed revision/evaluation cycles, structured player responses, graded chapter reports and current recommendations.
 - [Ideas study](ideas-study/README.md): ancient-to-modern connections, worthwhile independent discoveries, a whole-story teaching audit and successive chapter evaluations.
 - [Mars study](mars-study/README.md): remaining artwork and graphics for the promoted [Mission to Mars](../stories/mars/mars.md), with v12 preserved unchanged as a reference.

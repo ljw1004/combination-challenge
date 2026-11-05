@@ -1,5 +1,7 @@
 # No Fixed Address
 
+**Development status, 5 November 2026:** human play feedback found this version difficult because many small icons represented subtle distinctions. Its approach is set aside for the [active reconsideration](../../projects/cyberpunk-study/README.md). The sections below describe the published version, not constraints on the new concepts: its plot, AI curriculum, item count and circular-token direction are all open to replacement. Proposed alternatives remain in the study until a new direction is adopted.
+
 ## Purpose and player promise
 
 A cyberpunk combination story about repairing a city that has decided your neighborhood is unprofitable. The player is **June**, a repairer in **Latch**, a densely inhabited district beneath the Meridian company's elevated transit line. **Moth** is a discarded municipal assistant running on a small, visibly repaired orange service terminal. **Eli**, June's brother, works the neighborhood clinic night shift. People speak in introductions and discoveries; people are never inventory ingredients.
