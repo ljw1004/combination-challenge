@@ -78,12 +78,12 @@ The stabilizer fin broke. I can't steer. We're coming in hot.
 
 I need to power the hab’s air scrubber before the air runs out.
 
-> NOTE: The astronaut stays suited outside. The array and its charging lead are successive receiving states of the same installed equipment: fitting the cable retires the earlier panel target, not the physical panels. The scrubber is a separate small target and the antenna mounting is above the dome. Three fixed identities are present at most. The two service fittings may be completed in either order; the power goal also requires charging the reserve. Cables are compatible dedicated lengths. The original array stays left of the starter dome and the scrubber right. Small reclaimed components mentioned later come from spares, not from disabling this life-support equipment.
+> NOTE: The astronaut stays suited outside. The array and its charging lead are successive receiving states of the same installed equipment: fitting the cable retires the earlier panel target, not the physical panels. The power goals disclose solar, scrubber and reserve charging in that order; communications is an independent goal. Three fixed identities are present at most. Cables are compatible dedicated lengths. The original array stays left of the starter dome and the scrubber right. Small reclaimed components mentioned later come from spares, not from disabling this life-support equipment. The steel pin is recovered here while scavenging outside and saved for the electromagnet.
 
 **Goals**
-- Restore power to the air scrubber
-  - both: `charged-reserve-battery`
-  - and: `habitat-scrubber`[`power-cable`]
+- Restore solar power -- `station-power`
+- next: Restore the air scrubber -- `habitat-scrubber`[`power-cable`]
+- next: Recharge the reserve battery -- `charged-reserve-battery`
 - Restore comms -- `antenna-mount`[`unseated-antenna`]
 
 **Hotspots**
@@ -142,6 +142,11 @@ I need to power the hab’s air scrubber before the air runs out.
 
   This battery will power the air scrubber overnight.
 
+- `steel-pin` Steel pin
+  - icon: ![Steel pin](assets/materials/items/steel-pin.png)
+
+  A small steel pin from a broken cargo restraint. I keep it with the salvage.
+
 **Combinations**
 - `solar-panels` [consume] @ `solar-array-base` [transform] -> `deployed-solar-array`
 - `power-cable` [consume] @ `deployed-solar-array` [transform] -> `station-power`
@@ -151,35 +156,54 @@ I need to power the hab’s air scrubber before the air runs out.
 
 ![Water](assets/survival/scenes/water.webp)
 
-After air, water. Pale ice shows beneath a dusty bank a short walk from the hab.
+After air, water. Pale ice shows beneath a dusty bank a short walk from the hab. The little battery heater is ready beside the path.
 
-> NOTE: The same low, stable, non-overhanging ice bank is about fifteen metres from the starter habitat and returns in the source-core scene; retain its band, cap and neighbouring rock. This selected local geometry is a fictional site premise, not a universal safe setback. There is no well, bore, extraction head, buried melt cavity, exterior water pipe or industrial processor.
-
-> NOTE: The heater includes an existing small galley pot, a suitable latched lid/seal and controlled heating. Collection, closed-vessel melting, carrying inside and opening are complete operations. Fabric only strains particles. A small qualified drinking-water cartridge handles this favourable source's dissolved contamination; its suitability and finite performance are the user's accepted fiction. It is not an air-scrubber cartridge. Tokens represent the repeated manual practice and fresh quantities, not one pot permanently supplying the farm. The same heater/pot later cooks supper after cleaning.
+> NOTE: The same low, stable, non-overhanging ice bank is about fifteen metres from the starter habitat and returns during source-core collection. Its rusty band, dusty cap and neighbouring rock identify it. Both pot routes are legal: load ice before putting the pot on the heater, or put the empty pot on the heater and add ice there. The heater survives both routes; only the separate pot-on-heater overlay retires when the second route produces portable meltwater. Collection, closing the original pressure-capable lid, controlled melting, carrying inside and opening are bundled operations. The open-pot pictures show the contents after opening. The cartridge is from drinking-water service; its suitability for this favourable source is an accepted mission premise. Routine repeated trips supply later work with the same small pot.
 
 **Goals**
-- Make a filter -- `water-filter`
-- next: Carry clean water back to the hab -- `stored-water`
+- Melt a pot of ice -- `meltwater`
+- next: Filter clean water -- `clean-water`
 
 **Hotspots**
+- (three hotspots are a lot but okay here because the ice bank, heater and temporary pot sitting on that heater have separate actions)
 - `visible-ice` (at 47.75641%, 30.03555%)
-  - icon: ![visible-ice](assets/survival/items/water-visible-ice.png)
+  - icon: ![Visible ice](assets/survival/items/water-visible-ice.png)
+- `heater` (at 77%, 39%)
+  - icon: ![Battery heater](assets/live-feedback/battery-heater-base.png)
+- `pot-on-heater` (at 79.6%, 34.9%)
+  - icon: ![Empty pot on heater](assets/live-feedback/pot-empty.png)
 
 **Items**
 - `visible-ice` Visible ice
   - icon: ![Visible ice](assets/survival/items/water-visible-ice.png)
 
-  A low bank with a rusty band beneath its dusty cap. I can take loose ice from the edge and leave the deeper layers untouched.
+  A low bank with a rusty band beneath its dusty cap. I can dig loose ice from the edge and leave the deeper layers untouched.
 
-- `heater` Heater
-  - icon: ![Heater](assets/survival/items/heater.png)
+- `shovel`
 
-  The small galley heater fits its latched pot. I collect ice, close the pressure-capable lid and warm it without opening a puddle to the Martian air.
+- `ice-chunks` Ice chunks
+  - icon: ![Ice chunks](assets/live-feedback/ice-chunks.png)
 
-- `meltwater` Meltwater
-  - icon: ![Meltwater](assets/survival/items/meltwater.png)
+- `empty-pot` Empty pot
+  - icon: ![Empty pot](assets/live-feedback/pot-empty.png)
 
-  The ice melts inside the closed pot. I carry it into the hab before opening the lid.
+  The small galley pot has a latched lid for melting outside. Its folding handles make it easy to carry.
+
+- `pot-of-ice` Pot of ice
+  - icon: ![Pot of ice](assets/live-feedback/pot-ice.png)
+
+- `heater` Battery heater
+  - icon: ![Battery heater](assets/live-feedback/battery-heater-base.png)
+
+  The battery-powered base stays here while I carry the pot. It can warm the closed pot without spilling water into the thin Martian air.
+
+- `pot-on-heater` Empty pot on heater
+  - icon: ![Empty pot on heater](assets/live-feedback/pot-empty.png)
+
+- `meltwater` Pot of meltwater
+  - icon: ![Pot of meltwater](assets/live-feedback/pot-meltwater.png)
+
+  The ice melts inside the closed pot. I carry it into the hab before opening the lid. Dust has turned the water brown.
 
 - `fabric` Fabric
   - icon: ![Fabric](assets/survival/items/fabric.png)
@@ -194,37 +218,25 @@ After air, water. Pale ice shows beneath a dusty bank a short walk from the hab.
 - `water-filter` Water filter
   - icon: ![Water filter](assets/survival/items/water-filter.png)
 
-  The cloth catches grit before water enters the cartridge. The cartridge removes the dissolved contaminants in this source.
+  Cloth catches grit before water enters the cartridge. The cartridge treats dissolved contamination in this source. The compact funnel fits directly over the pot.
 
-- `clean-water` Clean water
-  - icon: ![Clean water](assets/survival/items/clean-water.png)
+- `clean-water` Pot of clean water
+  - icon: ![Pot of clean water](assets/live-feedback/pot-clean-water.png)
 
-  Clear water passes into the clean vessel.
-
-- `tap-water-bag` Collapsible tank with tap
-  - icon: ![Collapsible tank with tap](assets/survival/items/tap-water-bag.png)
-
-  An empty water bag from the lander, with a broad base and a small tap.
-
-- `stored-water` Stored water
-  - icon: ![Stored water](assets/survival/items/stored-water.png)
-
-  I carry the filled tank inside and set it by the service wall. From now on, regular trips with the pot keep the tap and the growing room supplied.
-
-- `steel-pin` Steel pin
-  - icon: ![Steel pin](assets/materials/items/steel-pin.png)
-
-  A small steel pin from a broken cargo restraint. I keep it with the salvage.
+  The filter catches the brown grit; clear water returns to the rinsed pot, almost to its rim. Repeated trips will supply drinking, growing and making.
 
 **Combinations**
+- `shovel` [preserve] @ `visible-ice` -> `ice-chunks`
+- `ice-chunks` [consume] + `empty-pot` [transform] -> `pot-of-ice`
+- `pot-of-ice` [transform] @ `heater` -> `meltwater`
+- `empty-pot` [transform] @ `heater` -> `pot-on-heater`
+- `ice-chunks` [consume] @ `pot-on-heater` [transform] -> `meltwater`
 - `fabric` [consume] + `reclaimed-water-cartridge` [consume] -> `water-filter`
-- `heater` [preserve] @ `visible-ice` -> `meltwater`
 - `water-filter` [preserve] + `meltwater` [transform] -> `clean-water`
-- `clean-water` [consume] + `tap-water-bag` [transform] -> `stored-water`
 
 ## Fire
 
-![Fire](assets/survival/scenes/fire.webp)
+![Fire](assets/live-feedback/fire.webp)
 
 I’ve got air and water. A quick break, then back to work.
 
@@ -238,21 +250,21 @@ I’ve got air and water. A quick break, then back to work.
 
 **Hotspots**
 - `reflector-base` (at 55.25641%, 28.08057%)
-  - icon: ![reflector base](assets/survival/items/fire-reflector-base.png)
+  - icon: ![reflector base](assets/live-feedback/fire-reflector-base.png)
 - `open-reflector` (at 55.25641%, 28.08057%)
-  - icon: ![open reflector](assets/survival/items/fire-open-reflector.png)
+  - icon: ![open reflector](assets/live-feedback/fire-open-reflector.png)
 - `solar-furnace` (at 55.25641%, 28.08057%)
-  - icon: ![assembled solar furnace](assets/survival/items/fire-solar-furnace.png)
+  - icon: ![assembled solar furnace](assets/live-feedback/fire-solar-furnace.png)
 
 **Items**
 - `reflector-base` Reflector base
-  - icon: ![Reflector base](assets/survival/items/fire-reflector-base.png)
+  - icon: ![Reflector base](assets/live-feedback/fire-reflector-base.png)
 
 - `open-reflector` Open reflector petals
-  - icon: ![Open reflector petals](assets/survival/items/fire-open-reflector.png)
+  - icon: ![Open reflector petals](assets/live-feedback/fire-open-reflector.png)
 
 - `solar-furnace` Assembled solar furnace
-  - icon: ![Assembled solar furnace](assets/survival/items/fire-solar-furnace.png)
+  - icon: ![Assembled solar furnace](assets/live-feedback/fire-solar-furnace.png)
 
 - `reflector-petals` Reflector petals
   - icon: ![Reflector petals](assets/items/reflector-petals.png)
@@ -300,7 +312,7 @@ I’ve got air and water. A quick break, then back to work.
 
 ## `cave-shelter` Earth
 
-![`cave-shelter` Earth](assets/survival/scenes/earth.webp)
+![`cave-shelter` Earth](assets/live-feedback/earth.webp)
 
 The rock offers shelter, but no air. I can build a small room inside it.
 
@@ -315,32 +327,32 @@ The rock offers shelter, but no air. I can build a small room inside it.
 
 **Hotspots**
 - `surveyed-cavern-floor` (at 49.29487%, 35.87085%)
-  - icon: ![surveyed-cavern-floor](assets/survival/items/earth-surveyed-cavern-floor.png)
+  - icon: ![surveyed-cavern-floor](assets/live-feedback/earth-surveyed-cavern-floor.png)
 - `cleared-cavern-bay` (at 49.29487%, 35.87085%)
-  - icon: ![cleared-cavern-bay](assets/survival/items/earth-cleared-cavern-bay.png)
+  - icon: ![cleared-cavern-bay](assets/live-feedback/earth-cleared-cavern-bay.png)
 - `protected-cavern-floor` (at 49.29487%, 35.87085%)
-  - icon: ![protected-cavern-floor](assets/survival/items/earth-protected-cavern-floor.png)
+  - icon: ![protected-cavern-floor](assets/live-feedback/earth-protected-cavern-floor.png)
 - `sealed-growing-room` (at 49.29487%, 35.87085%)
-  - icon: ![sealed-growing-room](assets/survival/items/earth-sealed-growing-room.png)
+  - icon: ![sealed-growing-room](assets/live-feedback/earth-sealed-growing-room.png)
 - `pressurized-growing-room` (at 49.29487%, 35.87085%)
-  - icon: ![pressurized-growing-room](assets/survival/items/earth-pressurized-growing-room.png)
+  - icon: ![pressurized-growing-room](assets/live-feedback/earth-pressurized-growing-room.png)
 - `lit-growing-room` (at 49.29487%, 35.87085%)
-  - icon: ![lit-growing-room](assets/survival/items/earth-lit-growing-room.png)
+  - icon: ![lit-growing-room](assets/live-feedback/earth-lit-growing-room.png)
 
 **Items**
 - `surveyed-cavern-floor` Rough cavern floor
-  - icon: ![Rough cavern floor](assets/survival/items/earth-surveyed-cavern-floor.png)
+  - icon: ![Rough cavern floor](assets/live-feedback/earth-surveyed-cavern-floor.png)
 
 - `shovel` Shovel
   - icon: ![Shovel](assets/survival/items/shovel.png)
 
 - `cleared-cavern-bay` Cleared cavern bay
-  - icon: ![Cleared cavern bay](assets/survival/items/earth-cleared-cavern-bay.png)
+  - icon: ![Cleared cavern bay](assets/live-feedback/earth-cleared-cavern-bay.png)
 
   Loose stones and grit lie in a small spoil pile. The uneven rock is ready for a level pad.
 
 - `protected-cavern-floor` Smooth brick floor
-  - icon: ![Smooth brick floor](assets/survival/items/earth-protected-cavern-floor.png)
+  - icon: ![Smooth brick floor](assets/live-feedback/earth-protected-cavern-floor.png)
 
   Close-set ceramic bricks make a smooth base. I check the joints so nothing sharp presses against the tent floor.
 
@@ -350,10 +362,10 @@ The rock offers shelter, but no air. I can build a small room inside it.
   A compact, substantial folded tent with a reinforced floor, integrated thin base protection, airlock and service fittings.
 
 - `sealed-growing-room` Unfolded pressure room
-  - icon: ![Unfolded pressure room](assets/survival/items/earth-sealed-growing-room.png)
+  - icon: ![Unfolded pressure room](assets/live-feedback/earth-sealed-growing-room.png)
 
 - `pressurized-growing-room` Inflated pressure room
-  - icon: ![Inflated pressure room](assets/survival/items/earth-pressurized-growing-room.png)
+  - icon: ![Inflated pressure room](assets/live-feedback/earth-pressurized-growing-room.png)
 
   The fabric rises into the shelter of the cavern. Its doorway sits just behind the narrow mouth.
 
@@ -361,7 +373,7 @@ The rock offers shelter, but no air. I can build a small room inside it.
   - icon: ![Grow-light rails](assets/items/grow-light-rails.png)
 
 - `lit-growing-room` Lit growing room
-  - icon: ![Lit growing room](assets/survival/items/earth-lit-growing-room.png)
+  - icon: ![Lit growing room](assets/live-feedback/earth-lit-growing-room.png)
 
   The warm light catches the brick floor. Outside the small doorway, the cave is still dark.
 
@@ -382,7 +394,7 @@ The rock offers shelter, but no air. I can build a small room inside it.
 
 I can sleep beneath the rock. The laboratory can stay in the repaired starter habitat.
 
-> NOTE: This is the rear-left sleeping alcove of the cave pressure hab, viewed toward its soft opaque partition from the growing area. The opposite rear-right service bay is offscreen. This view has no second exterior door, window or sink. Those belong to the single entrance/service end shown from inside in the garden scenes. Build the ceramic deck at its actual alcove before adding insulation and the thin camping mattress in either order. Its close-set blocks rest continuously on the floor; there are no ceramic rails spanning a gap. The existing heater warms the room. Ordinary smoothing and edge protection belong to the block operation.
+> NOTE: This is the rear-left sleeping alcove of the cave pressure hab, viewed toward its soft opaque partition from the growing area. The opposite rear-right service bay is offscreen. This view has no second exterior door, window or sink. Those belong to the single entrance/service end shown from inside in the garden scenes. Build the ceramic deck at its actual alcove before adding reflective insulation, then the thin camping mattress. The insulation lies directly on the ceramic deck, beneath the mattress. Its close-set blocks rest continuously on the floor; there are no ceramic rails spanning a gap. The existing heater warms the room. Ordinary smoothing and edge protection belong to the block operation.
 
 **Goals**
 - Make a sheltered berth -- `cave-berth`
@@ -394,8 +406,6 @@ I can sleep beneath the rock. The laboratory can stay in the repaired starter ha
   - icon: ![ceramic berth](assets/survival/items/a-bed-under-the-hill-ceramic-berth.png)
 - `insulated-ceramic-berth` (at 51.98718%, 38.47749%)
   - icon: ![insulated ceramic berth](assets/survival/items/a-bed-under-the-hill-insulated-ceramic-berth.png)
-- `uninsulated-berth` (at 51.98718%, 38.47749%)
-  - icon: ![uninsulated berth](assets/survival/items/a-bed-under-the-hill-uninsulated-berth.png)
 - `cave-berth` (at 51.98718%, 38.47749%)
   - icon: ![cave berth](assets/survival/items/a-bed-under-the-hill-cave-berth.png)
 
@@ -406,14 +416,11 @@ I can sleep beneath the rock. The laboratory can stay in the repaired starter ha
 - `ceramic-berth` Ceramic berth base
   - icon: ![Ceramic berth base](assets/survival/items/a-bed-under-the-hill-ceramic-berth.png)
 
-- `insulated-ceramic-berth` Insulated berth base (exclusive with `uninsulated-berth`)
+- `insulated-ceramic-berth` Insulated berth base
   - icon: ![Insulated berth base](assets/survival/items/a-bed-under-the-hill-insulated-ceramic-berth.png)
 
-- `uninsulated-berth` Uninsulated berth (exclusive with `insulated-ceramic-berth`)
-  - icon: ![Uninsulated berth](assets/survival/items/a-bed-under-the-hill-uninsulated-berth.png)
-
 - `cabin-mattress` Cabin mattress
-  - icon: ![Cabin mattress](assets/fixed/items/cabin-mattress.png)
+  - icon: ![Cabin mattress](assets/live-feedback/cabin-mattress.png)
 
 - `cave-berth` Cave berth
   - icon: ![Cave berth](assets/survival/items/a-bed-under-the-hill-cave-berth.png)
@@ -431,92 +438,141 @@ I can sleep beneath the rock. The laboratory can stay in the repaired starter ha
   Light loose insulation from the general supplies. Keep its fibres outside food, roots and sample containment.
 
 - `reflective-insulation` Reflective insulation
-  - icon: ![Reflective insulation](assets/items/reflective-insulation.png)
+  - icon: ![Reflective insulation](assets/live-feedback/reflective-insulation.png)
 
 **Combinations**
 - `ceramic-blocks` [consume] @ `berth-alcove` [transform] -> `ceramic-berth`
 - `reflective-insulation` [consume] @ `ceramic-berth` [transform] -> `insulated-ceramic-berth`
-- `cabin-mattress` [consume] @ `ceramic-berth` [transform] -> `uninsulated-berth`
 - `cabin-mattress` [consume] @ `insulated-ceramic-berth` [transform] -> `cave-berth`
-- `reflective-insulation` [consume] @ `uninsulated-berth` [transform] -> `cave-berth`
 - `packing-foil` [consume] + `insulation-felt` [consume] -> `reflective-insulation`
 
 ## One room for roots
 
-![One room for roots](assets/survival/scenes/one-room-for-roots.webp)
+![One room for roots](assets/live-feedback/garden/construction-with-service-header.webp)
 
-Under the rock, I have room for three crops. Their roots need clean support, water and air.
+Potatoes on the left, soybeans against the far wall, lettuce on the right. Three small beds can turn this room into a place that grows food.
 
-> NOTE: The prepared whole-bed assembly has four independent slots: three crops and a loose opaque cover over the open potato medium. Soybeans and lettuce may be sown before or after the cover. Potato planting also fits its loose flaps. Installing the cover never replaces the owner or erases a planted crop. The cover is a broad horizontal surface over the medium, not another sleeve around an already opaque brick wall; leaves remain in light.
+> NOTE: These are three independent crop locations. Each accepts its own ceramic walls, permeable Fabric underlining, prepared medium and individual drip branch, in that order. The ceramic trough base is the selected water-retaining construction premise; Fabric cushions and separates the medium, and is not a waterproof liner. The shared feed header is original room service plumbing. Each drip operation connects its own emitters to that header. Routine metering, nutrients and replenishment are included, without recirculation or a return pump.
 
-> NOTE: Leave headroom below the potato bed's original rim for later hilling. The original wall retains that additional medium; neither a new collar nor a higher wall is built later.
+> NOTE: The potato bed alone accepts the loose opaque foil-backed cover. Potato planting and cover fitting may occur in either order; the seed overlay is drawn after the cover, preserving shoots above its loose flaps. Soybeans and lettuce never accept that cover. Leave room below the original potato rim for later hilling. The same three locations persist through tending, storm protection and harvest.
 
-> NOTE: Fire makes selected stable porous granules and decomposes measured oxychlorine contamination; rinsing removes soluble residues/fines, and a batch check determines suitability. This is a fictional qualified feedstock, not a claim that firing makes all Mars dirt safe. The sink is cleaned after preparation. Wastewater stays separate from clean water and crop feed. There is no crop recirculation; controlled nutrients, salinity checks and finite-cycle maintenance remain part of cultivation.
+> NOTE: Grading and rinsing the fired granules uses clean water at the visible sink as one ordinary operation. The sink remains scenery. The qualified selected batch passes its leach and salinity checks; this is not a claim that firing makes all Martian dirt safe. Wastewater remains separate from clean water and crop feed. Controlled nutrients, salinity checks and finite-cycle maintenance remain part of cultivation.
 
 **Goals**
-- Build and prepare the growing beds -- `irrigated-growing-beds`
-- next: Plant the crops and cover the potato medium -- `irrigated-growing-beds`[`seed-potatoes`,`soybean-seeds`,`lettuce-seeds`,`foil-backed-cloth`]
+- (three goals are a lot but okay here because each crop has its own visible bed and independent construction chain)
+- Plant potatoes and shade their medium -- `watered-potato-bed`[`seed-potatoes`,`foil-backed-cloth`]
+- Plant soybeans -- `watered-soybean-bed`[`soybean-seeds`]
+- Plant lettuce -- `watered-lettuce-bed`[`lettuce-seeds`]
 
 **Hotspots**
-- `clean-preparation-sink` (at 42.94872%, 20.08294%)
-  - icon: ![clean-preparation-sink](assets/survival/items/one-room-for-roots-clean-preparation-sink.png)
-- `growing-room-floor` (at 50.12821%, 30.98341%)
-  - icon: ![growing-room-floor](assets/survival/items/one-room-for-roots-growing-room-floor.png)
-- `ceramic-bed-walls` (at 50.12821%, 30.98341%)
-  - icon: ![ceramic-bed-walls](assets/survival/items/one-room-for-roots-ceramic-bed-walls.png)
-- `lined-growing-beds` (at 50.12821%, 30.98341%)
-  - icon: ![lined-growing-beds](assets/survival/items/one-room-for-roots-lined-growing-beds.png)
-- `prepared-growing-beds` (at 50.12821%, 30.98341%)
-  - icon: ![prepared-growing-beds](assets/survival/items/one-room-for-roots-prepared-growing-beds.png)
-- `irrigated-growing-beds` (at 50.12821%, 30.98341%)
-  - icon: ![irrigated-growing-beds](assets/survival/items/one-room-for-roots-irrigated-growing-beds.png)
+- (three hotspots are a lot but okay here because the three crop beds occupy separate established locations and replace their own construction states)
+- `potato-plot` (at 17.30769%, 31.90166%)
+  - icon: ![Potato bed](assets/live-feedback/garden/potato-floor.png)
+- `potato-bed-walls` (at 17.30769%, 31.90166%)
+  - icon: ![Potato bed](assets/live-feedback/garden/potato-ceramic.png)
+- `lined-potato-bed` (at 17.30769%, 31.90166%)
+  - icon: ![Potato bed](assets/live-feedback/garden/potato-fabric.png)
+- `filled-potato-bed` (at 17.30769%, 31.90166%)
+  - icon: ![Potato bed](assets/live-feedback/garden/potato-medium.png)
+- `watered-potato-bed` (at 17.30769%, 31.90166%)
+  - icon: ![Potato bed](assets/live-feedback/garden/potato-dripped.png)
+- `soybean-plot` (at 52.4359%, 27.66588%)
+  - icon: ![Soybean bed](assets/live-feedback/garden/soybean-floor.png)
+- `soybean-bed-walls` (at 52.4359%, 27.66588%)
+  - icon: ![Soybean bed](assets/live-feedback/garden/soybean-ceramic.png)
+- `lined-soybean-bed` (at 52.4359%, 27.66588%)
+  - icon: ![Soybean bed](assets/live-feedback/garden/soybean-fabric.png)
+- `filled-soybean-bed` (at 52.4359%, 27.66588%)
+  - icon: ![Soybean bed](assets/live-feedback/garden/soybean-medium.png)
+- `watered-soybean-bed` (at 52.4359%, 27.66588%)
+  - icon: ![Soybean bed](assets/live-feedback/garden/soybean-dripped.png)
+- `lettuce-plot` (at 85.25641%, 31.90166%)
+  - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-floor.png)
+- `lettuce-bed-walls` (at 85.25641%, 31.90166%)
+  - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-ceramic.png)
+- `lined-lettuce-bed` (at 85.25641%, 31.90166%)
+  - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-fabric.png)
+- `filled-lettuce-bed` (at 85.25641%, 31.90166%)
+  - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-medium.png)
+- `watered-lettuce-bed` (at 85.25641%, 31.90166%)
+  - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-dripped.png)
 
 **Items**
-- `growing-room-floor` Growing-room floor
-  - icon: ![Growing-room floor](assets/survival/items/one-room-for-roots-growing-room-floor.png)
+- `potato-plot` Potato bed site
+  - icon: ![Potato bed site](assets/live-feedback/garden/potato-floor.png)
 
-- `ceramic-bed-walls` Ceramic bed walls
-  - icon: ![Ceramic bed walls](assets/survival/items/one-room-for-roots-ceramic-bed-walls.png)
+- `potato-bed-walls` Ceramic potato bed
+  - icon: ![Ceramic potato bed](assets/live-feedback/garden/potato-ceramic.png)
 
-- `sheet` Sheet
-  - icon: ![Sheet](assets/items/food-safe-liner-sheet.png)
+- `lined-potato-bed` Fabric-lined potato bed
+  - icon: ![Fabric-lined potato bed](assets/live-feedback/garden/potato-fabric.png)
 
-  Flexible waterproof sheet from the general supplies. The smooth ceramic supports it.
+  Clean permeable cloth cushions the granules inside the ceramic trough.
 
-- `lined-growing-beds` Lined growing beds
-  - icon: ![Lined growing beds](assets/survival/items/one-room-for-roots-lined-growing-beds.png)
+- `filled-potato-bed` Filled potato bed
+  - icon: ![Filled potato bed](assets/live-feedback/garden/potato-medium.png)
 
-- `clean-preparation-sink` Preparation sink
-  - icon: ![Preparation sink](assets/survival/items/one-room-for-roots-clean-preparation-sink.png)
+- `watered-potato-bed` Watered potato bed (compound)
+  - icon: ![Watered potato bed](assets/live-feedback/garden/potato-dripped.png)
+  - unnamed slot: accepts `foil-backed-cloth`, icon: ![Loose potato cover](assets/live-feedback/garden/potato-foil-overlay.png)
+  - unnamed slot: accepts `seed-potatoes`, icon: ![Planted potato](assets/live-feedback/garden/potato-seed-overlay.png)
 
-  The broad basin and faucet on the entrance-end wall, supplied from the clean tank.
+  [`seed-potatoes`,`foil-backed-cloth`] Shoots emerge through the loose cover flaps. The leaves receive light while the future potatoes remain shaded.
+
+- `soybean-plot` Soybean bed site
+  - icon: ![Soybean bed site](assets/live-feedback/garden/soybean-floor.png)
+
+- `soybean-bed-walls` Ceramic soybean bed
+  - icon: ![Ceramic soybean bed](assets/live-feedback/garden/soybean-ceramic.png)
+
+- `lined-soybean-bed` Fabric-lined soybean bed
+  - icon: ![Fabric-lined soybean bed](assets/live-feedback/garden/soybean-fabric.png)
+
+  Clean permeable cloth cushions the granules inside the ceramic trough.
+
+- `filled-soybean-bed` Filled soybean bed
+  - icon: ![Filled soybean bed](assets/live-feedback/garden/soybean-medium.png)
+
+- `watered-soybean-bed` Watered soybean bed (compound)
+  - icon: ![Watered soybean bed](assets/live-feedback/garden/soybean-dripped.png)
+  - unnamed slot: accepts `soybean-seeds`, icon: ![Planted soybean](assets/live-feedback/garden/soybean-seed-overlay.png)
+
+  [`soybean-seeds`] Small soybean leaves spread above their watered row.
+
+- `lettuce-plot` Lettuce bed site
+  - icon: ![Lettuce bed site](assets/live-feedback/garden/lettuce-floor.png)
+
+- `lettuce-bed-walls` Ceramic lettuce bed
+  - icon: ![Ceramic lettuce bed](assets/live-feedback/garden/lettuce-ceramic.png)
+
+- `lined-lettuce-bed` Fabric-lined lettuce bed
+  - icon: ![Fabric-lined lettuce bed](assets/live-feedback/garden/lettuce-fabric.png)
+
+  Clean permeable cloth cushions the granules inside the ceramic trough.
+
+- `filled-lettuce-bed` Filled lettuce bed
+  - icon: ![Filled lettuce bed](assets/live-feedback/garden/lettuce-medium.png)
+
+- `watered-lettuce-bed` Watered lettuce bed (compound)
+  - icon: ![Watered lettuce bed](assets/live-feedback/garden/lettuce-dripped.png)
+  - unnamed slot: accepts `lettuce-seeds`, icon: ![Planted lettuce](assets/live-feedback/garden/lettuce-seed-overlay.png)
+
+  [`lettuce-seeds`] The first lettuce leaves open close to the damp medium.
 
 - `growing-medium` Growing medium
   - icon: ![Growing medium](assets/survival/items/growing-medium.png)
 
-  I grade and rinse the fired granules. This batch passes the leach and salinity checks. Air remains between the porous grains; the drippers will supply the nutrients.
-
-- `prepared-growing-beds` Prepared growing beds
-  - icon: ![Prepared growing beds](assets/survival/items/one-room-for-roots-prepared-growing-beds.png)
+  I grade and rinse the fired granules with clean water. Air remains between the porous grains; the drippers will deliver the nutrients.
 
 - `drip-line` Drip line
   - icon: ![Drip line](assets/survival/items/drip-line.png)
 
-  Small emitters and their supplied controller deliver water and crop-specific nutrients, including soybean nitrogen.
-
-- `irrigated-growing-beds` Irrigated growing beds (compound)
-  - icon: ![Irrigated growing beds](assets/survival/items/one-room-for-roots-irrigated-growing-beds.png)
-  - unnamed slot: accepts `foil-backed-cloth`, icon: ![foil-backed-cloth](assets/survival/overlays/irrigated-growing-beds-foil-backed-cloth.png)
-  - unnamed slot: accepts `seed-potatoes`, icon: ![seed-potatoes](assets/survival/overlays/irrigated-growing-beds-seed-potatoes.png)
-  - unnamed slot: accepts `soybean-seeds`, icon: ![soybean-seeds](assets/survival/overlays/irrigated-growing-beds-soybean-seeds.png)
-  - unnamed slot: accepts `lettuce-seeds`, icon: ![lettuce-seeds](assets/survival/overlays/irrigated-growing-beds-lettuce-seeds.png)
-
-  [`seed-potatoes`,`soybean-seeds`,`lettuce-seeds`,`foil-backed-cloth`] The potato shoots come through loose flaps in the cover. Their leaves receive light while the medium stays shaded. Soybeans and lettuce have their own watered rows.
+  Each bed gets its own small emitter branch, connected to the room's feed header. Supplied controls meter water and crop-specific nutrients, including soybean nitrogen.
 
 - `seed-potatoes` Seed potatoes
   - icon: ![Seed potatoes](assets/items/seed-potatoes.png)
 
-  Certified sprouting tubers with room for new potatoes beneath the foliage.
+  Certified sprouting tubers, with room for new potatoes beneath the foliage.
 
 - `soybean-seeds` Soybean seeds
   - icon: ![Soybean seeds](assets/items/soybean-seeds.png)
@@ -529,23 +585,29 @@ Under the rock, I have room for three crops. Their roots need clean support, wat
 - `foil-backed-cloth` Foil-backed fabric
   - icon: ![Foil-backed fabric](assets/items/foil-backed-cloth.png)
 
-  Fabric protects the opaque laminate at its folds. Overlapping flaps leave room for shoots and planting.
+  Fabric protects the opaque foil at its folds. Overlapping flaps leave room for shoots and planting.
 
 - `ceramic-blocks`
-
 - `fired-granules`
-
+- `clean-water`
 - `packing-foil`
-
 - `fabric`
 
 **Combinations**
-- `ceramic-blocks` [consume] @ `growing-room-floor` [transform] -> `ceramic-bed-walls`
-- `sheet` [consume] @ `ceramic-bed-walls` [transform] -> `lined-growing-beds`
-- `fired-granules` [consume] @ `clean-preparation-sink` -> `growing-medium`
-- `growing-medium` [consume] @ `lined-growing-beds` [transform] -> `prepared-growing-beds`
-- `drip-line` [consume] @ `prepared-growing-beds` [transform] -> `irrigated-growing-beds`
+- `fired-granules` [consume] + `clean-water` [consume] -> `growing-medium`
 - `packing-foil` [consume] + `fabric` [consume] -> `foil-backed-cloth`
+- `ceramic-blocks` [consume] @ `potato-plot` [transform] -> `potato-bed-walls`
+- `fabric` [consume] @ `potato-bed-walls` [transform] -> `lined-potato-bed`
+- `growing-medium` [consume] @ `lined-potato-bed` [transform] -> `filled-potato-bed`
+- `drip-line` [consume] @ `filled-potato-bed` [transform] -> `watered-potato-bed`
+- `ceramic-blocks` [consume] @ `soybean-plot` [transform] -> `soybean-bed-walls`
+- `fabric` [consume] @ `soybean-bed-walls` [transform] -> `lined-soybean-bed`
+- `growing-medium` [consume] @ `lined-soybean-bed` [transform] -> `filled-soybean-bed`
+- `drip-line` [consume] @ `filled-soybean-bed` [transform] -> `watered-soybean-bed`
+- `ceramic-blocks` [consume] @ `lettuce-plot` [transform] -> `lettuce-bed-walls`
+- `fabric` [consume] @ `lettuce-bed-walls` [transform] -> `lined-lettuce-bed`
+- `growing-medium` [consume] @ `lined-lettuce-bed` [transform] -> `filled-lettuce-bed`
+- `drip-line` [consume] @ `filled-lettuce-bed` [transform] -> `watered-lettuce-bed`
 
 ## `first-harvest` Under the leaves
 
@@ -610,7 +672,7 @@ The stems have grown. More medium will keep new potatoes out of the light; the f
 - `cargo-mesh` Cargo net
   - icon: ![Cargo net](assets/survival/items/cargo-mesh.png)
 
-  Strong, light synthetic restraint net salvaged from the cargo packing. I set aside panels for the soybean support, one sling basket and a light cover above the crops.
+  Strong, light synthetic restraint net salvaged from the cargo packing. I set aside panels for the soybean support, one sling basket and low covers close above the three crops.
 
 - `first-lettuce-harvest` Lettuce harvest
   - icon: ![Lettuce harvest](assets/survival/items/first-lettuce-harvest.png)
@@ -631,58 +693,55 @@ The stems have grown. More medium will keep new potatoes out of the light; the f
 
 ## `water-problem` What the water carries
 
-![`water-problem` What the water carries](assets/survival/scenes/what-the-water-carries.webp)
+![What the water carries](assets/live-feedback/shared-laboratory.webp)
 
-After the first harvest, I bring in another pot of meltwater. It sits in the filling funnel instead of passing through.
+After the first harvest, I bring in another pot of meltwater. Brown sludge has clogged the cloth in the filter. A clean microscope slide will take just a trace of it.
 
-> NOTE: The fixed filter is the same portable cloth/cartridge filter constructed in Water, now on the raw filling funnel. The blockage interrupts refilling, not the tap from a full clean tank. Replacing the cloth and retaining its residue is one complete action. This visit must follow the established farm and first harvest. Damaged ambiguous fragments motivate fresh unmelted ice; morphology does not establish life, age or native origin.
+> NOTE: This is the same cloth/cartridge filter and the same small galley pot from Water. The funnel seats directly on the pot rim; there is no separate filter stand or specimen jar. Taking a small wet smear and fitting its coverslip is one operation. The ordinary slide icon is deliberately enlarged for recognition and dragging; only the microscope reading reveals detail. The microscope faces the operator at the front of the table and the same registered background and receiver return in Something whole. This discovery follows the established farm and first harvest.
 
 **Goals**
-- Clear the filter and restore filling -- `collected-intake-residue`
-- next: Find out what blocked it -- `first-body-on-membrane`
+- Collect a trace of the sludge -- `sludge-microscope-slide`
+- next: Examine it under the microscope -- `examined-sludge-slide`
 
 **Hotspots**
-- `water-filter` (at 28.84615%, 15.01777%)
-  - icon: ![water-filter](assets/survival/items/what-the-water-carries-water-filter.png)
-- `laboratory-microscope` (at 73.52564%, 14.78081%)
-  - icon: ![laboratory-microscope](assets/survival/items/what-the-water-carries-laboratory-microscope.png)
+- `water-filter` (at 28.8%, 18%)
+  - icon: ![Clogged filter on the galley pot](assets/live-feedback/pot-filter-clogged.png)
+- `laboratory-microscope` (at 71.8%, 16.1%)
+  - icon: ![Laboratory microscope](assets/live-feedback/lab-microscope-hit.png)
+  - place: `examined-sludge-slide` (at 71.8%, 19.2%)
 
 **Items**
 - `water-filter`
 
-- `fabric`
+- `empty-microscope-slide` Microscope slide
+  - icon: ![Microscope slide](assets/live-feedback/slide-empty.png)
 
-- `collected-intake-residue` Collected filter residue
-  - icon: ![Collected filter residue](assets/items/collected-intake-residue.png)
+  A clean glass slide from the laboratory supplies.
 
-  Brown flakes have matted across the cloth prefilter. I fit a clean piece and rinse the old one into a sample vessel. Water flows through the funnel again.
+- `sludge-microscope-slide` Sludge microscope slide
+  - icon: ![Sludge microscope slide](assets/live-feedback/slide-prepared.png)
+
+  A small brown smear lies under the cover glass. There is little to see with the naked eye.
 
 - `laboratory-microscope` Laboratory microscope
-  - icon: ![Laboratory microscope](assets/survival/items/what-the-water-carries-laboratory-microscope.png)
+  - icon: ![Laboratory microscope](assets/live-feedback/lab-microscope-hit.png)
 
-- `laboratory-membrane` Laboratory membrane
-  - icon: ![Laboratory membrane](assets/items/laboratory-membrane.png)
+  The eyepieces face the working side of the table. Its cooled stage can also hold an ice slide below freezing.
 
-  Separates suspended particles; it does not remove dissolved salts.
-
-- `particle-bearing-membrane` Particle-bearing membrane
-  - icon: ![Particle-bearing membrane](assets/items/particle-bearing-membrane.png)
-
-- `first-body-on-membrane` Patterned fragments on membrane
-  - icon: ![Patterned fragments on membrane](assets/fixed/items/first-body-on-membrane.png)
+- `examined-sludge-slide` Examined sludge slide
+  - icon: ![Examined sludge slide](assets/live-feedback/slide-prepared.png)
 
   ![Damaged fragments under magnification](assets/fixed/items/first-body-on-membrane.png)
 
-  A curve repeats in two of the broken flakes. Melted, poured, caught in a filter—nothing has come through whole. I seal the holder and send the images to Earth.
+  A curve repeats in two of the broken flakes. Melted, poured, caught in a filter—nothing has come through whole. I record the magnified view and send it to Earth.
 
 **Combinations**
-- `fabric` [consume] @ `water-filter` -> `collected-intake-residue`
-- `laboratory-membrane` [consume] + `collected-intake-residue` [transform] -> `particle-bearing-membrane`
-- `particle-bearing-membrane` [transform] @ `laboratory-microscope` -> `first-body-on-membrane`
+- `empty-microscope-slide` [consume] @ `water-filter` -> `sludge-microscope-slide`
+- `sludge-microscope-slide` [transform] @ `laboratory-microscope` -> `examined-sludge-slide`
 
 ## The ground we know
 
-![The ground we know](assets/survival/scenes/the-ground-we-know.webp)
+![The ground we know](assets/live-feedback/local-core-laboratory.webp)
 
 *Mara, NASA surface support — recorded message:*
 
@@ -690,33 +749,31 @@ After the first harvest, I bring in another pot of meltwater. It sits in the fil
 
 “The receiving laboratories can examine internal structure and chemistry that your microscope cannot resolve. Flight is looking at an earlier rendezvous.”
 
-> NOTE: This is the same visible ice bank, rusty band and neighbouring rock from Water. The source core penetrates untouched interior ice beside the harvested edge, away from surface weathering and heater contact. There is no underground heated cavity. The separate remote deposit permits sampling away from station disturbance. These are distinct physical specimens.
+> NOTE: The source core penetrates untouched interior ice beside the hand-harvested edge. The narrow transparent receiver covers only the visible bank in the doorway. Collection includes sealing a thin clean liner; the earlier reflective insulation supplies a modest transfer wrap. Wrapping includes returning the sample to the existing laboratory cold storage, offscreen. Insulation delays warming and the sealed liner limits vapor loss; neither supplies cooling. Existing laboratory, rover and flight cold services maintain frozen specimens. There is no new refrigerated casket or storage fixture to build.
 
 **Goals**
 - Take an unmelted reference from the water source -- `sealed-source-core`
-- next: Store it before the farther expedition -- `stored-source-core`
+- next: Protect it before the farther expedition -- `stored-source-core`
 
 **Hotspots**
-- `visible-ice` (at 23.26923%, 22.45261%)
-- `laboratory-core-freezer` (at 75%, 22.48223%)
+- `visible-ice` (at 23%, 22.3%)
+  - icon: ![Visible ice](assets/live-feedback/local-ice-hit.png)
 
 **Items**
 - `sealed-source-core` Sealed source core
-  - icon: ![Sealed source core](assets/items/sealed-source-core.png)
+  - icon: ![Sealed source core](assets/live-feedback/local-core-lined.png)
 
-  Beyond the hand-harvested edge, the brown flakes remain where the ice held them.
+  The clean barrel reaches ice beyond the hand-harvested edge. I seal the core in its thin liner before carrying it inside.
 
-- `stored-source-core` Stored source core
-  - icon: ![Stored source core](assets/items/stored-source-core.png)
-  - from chapter `specimen-stow`: Water-source core
-  - from chapter `specimen-stow` icon: ![Water-source core](assets/items/sealed-source-core.png)
+- `stored-source-core` Insulated source core
+  - icon: ![Insulated source core](assets/live-feedback/local-core-insulated.png)
+  - from chapter `specimen-stow`: Local ice core
 
-  This core and the membrane stay in the laboratory while I go farther from the bank.
+  A small piece of the same reflective insulation wraps the sealed liner. It slows warming during transfers; the laboratory’s existing cold store keeps the core frozen while I go farther from the bank.
 
 - `visible-ice`
 
-- `laboratory-core-freezer` Laboratory core freezer
-  - icon: ![Laboratory core freezer](assets/survival/items/the-ground-we-know-laboratory-core-freezer.png)
+- `reflective-insulation`
 
 - `core-drill` Core drill
   - icon: ![Core drill](assets/items/core-drill.png)
@@ -724,39 +781,39 @@ After the first harvest, I bring in another pot of meltwater. It sits in the fil
   The clean chilled barrel takes interior ice without melting it. The liner seals before leaving the barrel.
 
 **Combinations**
-- `core-drill` [preserve] @ `visible-ice` [preserve] -> `sealed-source-core`
-- `sealed-source-core` [transform] @ `laboratory-core-freezer` [preserve] -> `stored-source-core`
+- `core-drill` [preserve] @ `visible-ice` -> `sealed-source-core`
+- `sealed-source-core` [transform] + `reflective-insulation` [consume] -> `stored-source-core`
 
 ## Across the gully
 
 ![Across the gully](assets/survival/scenes/across-the-gully.webp)
 
-Loose rubble slides beneath the wheels on the far bank. I can scramble over the rocks to rig the winch at the solid outcrop above. The rover will follow the straight pull up the loose ramp.
+Loose rubble slides beneath the wheels on the far bank. I can scramble over the rocks to rig the winch at the solid outcrop above. Its long cable will pull the rover up the loose ramp.
 
-> NOTE: The steep, rutted ground route needs traction assistance, not a bridge or airborne lift. A difficult surveyed foot scramble over rocks reaches sound bedrock for rigging; do not paint an easy pedestrian highway. The anchor, straight pull, rover recovery point and finished rover share one axis. The rover ends directly below the winch, never off to its side. Site stability, suited foot access and recovery rating are qualified premises.
-
-> NOTE: The derived reached-ice-bank receiver appears only after the rover crossing and targets a broad, low, non-overhanging ice face in the near middle distance. Its crop must make the ice itself the obvious receiver. The winch remains at its anchor for return; the drill action includes contained sampling, sealed-liner transfer into the rover cold cradle, controlled return and winch recovery. No primitive far-face receiver permits early sampling.
+> NOTE: The steep rutted ground route needs traction assistance. A difficult surveyed foot scramble reaches sound bedrock for rigging. The preserved rock anchor remains at its physical site; the separate installed-winch receiver includes the entire extended line down to the tow hook, so its declared centre is below and left of the drum. The corrected rover has its headlights, tow point and steering wheel at the front, with its seat back and small science store behind. The derived ice receiver appears only after the crossing: its transparent registered canvas shows the same rover at the lower cable hook and covers the exposed ice band above. This is one reached-bank scene state, preserving the separate winch and all background landmarks. Sampling includes clean sealed-liner handling, a reused insulation wrap, the rover’s existing cold service, controlled return and winch recovery. Site stability, suited access and recovery rating remain qualified scene premises.
 
 **Goals**
 - Anchor the winch above the loose ramp -- `anchored-winch`
 - next: Bring the rover to the ice band -- `reached-ice-bank`
 - next: Bring back ice from within the band -- `remote-ice-core`
 
-
 **Hotspots**
+- (three hotspots are a lot but okay here because the rock anchor stays in place, the long winch line receives the rover, and the reached ice becomes a separate sampling target)
 - `bedrock-anchor` (at 86.85897%, 15.49171%)
   - icon: ![Bedrock anchor](assets/survival/items/across-the-gully-bedrock-anchor.png)
-- `anchored-winch` (at 86.85897%, 15.49171%)
-  - icon: ![Anchored winch](assets/survival/items/across-the-gully-anchored-winch.png)
-- `reached-ice-bank` (at 68.39744%, 13.29976%)
-  - icon: ![Reached ice bank](assets/survival/items/across-the-gully-reached-ice-bank.png)
+- `anchored-winch` (at 73.8%, 29.8%)
+  - icon: ![Winch with extended cable](assets/live-feedback/extended-winch.png)
+- `reached-ice-bank` (at 54.871795%, 27.014218%)
+  - icon: ![Rover below the winch at the reached ice bank](assets/live-feedback/reached-ice-bank-with-rover.png)
 
 **Items**
 - `bedrock-anchor` Bedrock anchor
   - icon: ![Bedrock anchor](assets/survival/items/across-the-gully-bedrock-anchor.png)
 
-- `anchored-winch` Anchored winch
-  - icon: ![Anchored winch](assets/survival/items/across-the-gully-anchored-winch.png)
+- `anchored-winch` Winch with extended cable
+  - icon: ![Winch with extended cable](assets/live-feedback/extended-winch.png)
+
+  The cable reaches all the way down the loose ramp. I can attach it to the rover’s front tow point.
 
 - `rover-winch` Winch
   - icon: ![Winch](assets/survival/items/rover-winch.png)
@@ -764,86 +821,74 @@ Loose rubble slides beneath the wheels on the far bank. I can scramble over the 
   A portable powered winch with its line, anchor sling and remote control.
 
 - `expedition-rover` Expedition rover
-  - icon: ![Expedition rover](assets/survival/items/expedition-rover.png) (at 45%, 54%)
+  - icon: ![Expedition rover](assets/live-feedback/expedition-rover-corrected.png) (at 45%, 54%)
 
-  The survey rover's cold cradle will keep the core frozen on the journey home.
+  The small science store behind the seat connects to the rover’s existing cold service. It will keep the wrapped core frozen on the journey home.
 
 - `reached-ice-bank` Reached ice bank
-  - icon: ![Reached ice bank](assets/survival/items/across-the-gully-reached-ice-bank.png)
+  - icon: ![Rover below the winch at the reached ice bank](assets/live-feedback/reached-ice-bank-with-rover.png)
 
-  The wheels reach firm rock directly beneath the winch. The exposed ice band is now within reach. I leave the winch anchored for the way back. Here I can take a core and put it straight into the rover’s cold cradle.
+  The wheels reach firm rock below the winch. The exposed ice band is now within reach. I leave the line anchored for the way back.
 
-- `remote-ice-core` Ice core
-  - icon: ![Ice core](assets/survival/items/remote-ice-core.png)
+- `remote-ice-core` Remote ice core
+  - icon: ![Remote ice core](assets/live-feedback/remote-core-insulated.png)
 
-  The brown band runs through the ice inside its thin sealed liner. I secure it on the rover’s cold cradle and retrace the gully. This sample has never passed through the water machinery.
+  A brown band runs through the original core inside its thin sealed liner. I wrap it in reflective insulation, secure it in the rover’s cold service and retrace the gully. This ice has never passed through the water pot.
 
 - `core-drill`
 
-
 **Combinations**
-- `rover-winch` [consume] @ `bedrock-anchor` [transform] -> `anchored-winch`
-- `expedition-rover` [transform] @ `anchored-winch` [preserve] -> `reached-ice-bank`
+- `rover-winch` [consume] @ `bedrock-anchor` -> `anchored-winch`
+- `expedition-rover` [transform] @ `anchored-winch` -> `reached-ice-bank`
 - `core-drill` [preserve] @ `reached-ice-bank` -> `remote-ice-core`
 
 ## Something whole
 
-![Something whole](assets/survival/scenes/something-whole.webp)
+![Something whole](assets/live-feedback/shared-laboratory.webp)
 
-The new core is back in the laboratory, still frozen. A thin slab will let light through the ice around the dark fleck.
+The remote core is back in laboratory cooling. A small shaving on a glass slide will let light pass through the ice.
 
-> NOTE: The cold fixture produces only the thin viewing slab in its sealed optical holder; show that slab alone at a readable enlarged scale. The parent remainder stays refrigerated in the laboratory and is not bundled into the output token. The cut slab is thicker than the inclusion, not a histological slice through the body. Clean tools, a preparation blank, optical-face smoothing, containment and cold transfer are complete operations. The microscope has a cooled stage. Flight later takes the source core, examined remote slab and original membrane as three distinct specimens. Morphology alone establishes neither age, chemistry nor origin.
+> NOTE: The original remote core survives slide preparation and later boards the cabin as the remote specimen. Taking a small clear shaving with the existing clean laboratory tools, mounting it on a chilled slide, fitting its cover and returning the parent core to cold storage are one complete operation. No separate sectioning fixture is a player object. The microscope’s existing cooled stage holds the thin ice frozen during viewing. The ordinary slide icon reveals no creature; magnification supplies the discovery. Both slides stay in the laboratory. The two original cores provide material for independent investigation; do not claim that leaving the examined shaving behind returns that exact individual inclusion. Morphology alone establishes neither age, chemistry nor origin.
 
 **Goals**
-- Prepare a thin ice section -- `sectioned-ice-core`
+- Prepare an ice microscope slide -- `sectioned-ice-core`
 - next: Look through the ice -- `examined-ice-core`
 
-
 **Hotspots**
-- `cold-sectioning-stage` (at 33.01282%, 20.08294%)
-  - icon: ![cold-sectioning-stage](assets/survival/items/something-whole-cold-sectioning-stage.png)
-- `cold-stage-microscope` (at 73.52564%, 14.89929%)
-  - icon: ![cold-stage-microscope](assets/survival/items/something-whole-cold-stage-microscope.png)
-
+- `laboratory-microscope` (at 71.8%, 16.1%)
+  - icon: ![Laboratory microscope](assets/live-feedback/lab-microscope-hit.png)
+  - place: `examined-ice-core` (at 71.8%, 19.2%)
 
 **Items**
-- `cold-stage-microscope` Cold-stage microscope
-  - icon: ![Cold-stage microscope](assets/survival/items/something-whole-cold-stage-microscope.png)
+- `laboratory-microscope`
 
-  A small microscope above a refrigerated stage. The sealed thin-section holder supplies the specimen boundary; the optics stand in room air.
-
-- `examined-ice-core` Examined ice slab
-  - icon: ![Examined ice slab](assets/survival/items/examined-ice-core.png)
-  - from chapter `specimen-stow`: Remote ice slab
-
-  ![The complete outline in the ice section](assets/fixed/discoveries/intact-body-in-ice.png)
-
-  Overlapping plates. Paired, jointed limbs. Where the intake sample held scattered fragments, this outline stays together within the thin section of ice.
-
-  I leave the focus there for a long time.
-
-  I cannot tell how old it is, or where it came from. But I can send Earth the body and the layer around it together, instead of a handful of broken flakes.
-
-  I record the view. Then the slab joins the source core on laboratory cooling; the first fragments remain sealed in their membrane holder. Those three specimens are coming with me. The rest of the remote core stays protected in the laboratory.
+- `empty-microscope-slide`
 
 - `remote-ice-core`
 
-- `cold-sectioning-stage` Cold sectioning fixture
-  - icon: ![Cold sectioning fixture](assets/survival/items/something-whole-cold-sectioning-stage.png)
+- `sectioned-ice-core` Ice microscope slide
+  - icon: ![Ice microscope slide](assets/live-feedback/slide-prepared.png)
 
-- `sectioned-ice-core` Thin ice slab
-  - icon: ![Thin ice slab](assets/survival/items/sectioned-ice-core.png)
+  A thin shaving rests under the cover glass. I keep it cold and return the original core to storage. To my unaided eyes, the slide looks ordinary.
 
-  A thin slab is sealed alone in its clear optical holder. I retain the rest of the core on laboratory cooling. The ice stays frozen throughout.
+- `examined-ice-core` Examined ice slide
+  - icon: ![Examined ice slide](assets/live-feedback/slide-prepared.png)
 
+  ![The complete outline in the ice section](assets/fixed/discoveries/intact-body-in-ice.png)
+
+  Overlapping plates. Paired, jointed limbs. Where the sludge held scattered fragments, this outline stays together within the ice.
+
+  I leave the focus there for a long time.
+
+  I cannot tell how old it is, or where it came from. I record the view for Earth. The two original cores remain frozen for the receiving laboratories; they can investigate the material and its layers for themselves. The slides will stay here.
 
 **Combinations**
-- `remote-ice-core` [transform] @ `cold-sectioning-stage` -> `sectioned-ice-core`
-- `sectioned-ice-core` [transform] @ `cold-stage-microscope` -> `examined-ice-core`
+- `empty-microscope-slide` [consume] + `remote-ice-core` [preserve] -> `sectioned-ice-core`
+- `sectioned-ice-core` [transform] @ `laboratory-microscope` -> `examined-ice-core`
 
 ## Metal from the red ground
 
-![Metal from the red ground](assets/survival/scenes/metal-from-the-red-ground.webp)
+![Metal from the red ground](assets/live-feedback/metal-from-the-red-ground.webp)
 
 *Mara, Earth — recorded message:*
 
@@ -865,11 +910,11 @@ I need vessels for making fuel, and a new support for the lander. The red ground
 
 **Hotspots**
 - `solar-furnace` (at 55.25641%, 28.08057%)
-  - icon: ![solar-furnace](assets/survival/items/metal-from-the-red-ground-solar-furnace.png)
+  - icon: ![solar-furnace](assets/live-feedback/metal-from-the-red-ground-solar-furnace.png)
 - `electrochemical-furnace` (at 55.25641%, 28.08057%)
-  - icon: ![electrochemical-furnace](assets/survival/items/metal-from-the-red-ground-electrochemical-furnace.png)
+  - icon: ![electrochemical-furnace](assets/live-feedback/metal-from-the-red-ground-electrochemical-furnace.png)
 - `powered-reduction-furnace` (at 55.25641%, 28.08057%)
-  - icon: ![powered-reduction-furnace](assets/survival/items/metal-from-the-red-ground-powered-reduction-furnace.png)
+  - icon: ![powered-reduction-furnace](assets/live-feedback/metal-from-the-red-ground-powered-reduction-furnace.png)
 
 **Items**
 - `solar-furnace`
@@ -884,12 +929,12 @@ I need vessels for making fuel, and a new support for the lander. The red ground
   The mineral-analysis experiment's small high-temperature electrode insert, suitable for the furnace receiver.
 
 - `electrochemical-furnace` Furnace with electrodes
-  - icon: ![Furnace with electrodes](assets/survival/items/metal-from-the-red-ground-electrochemical-furnace.png)
+  - icon: ![Furnace with electrodes](assets/live-feedback/metal-from-the-red-ground-electrochemical-furnace.png)
 
   I fit the laboratory electrodes inside the receiver.
 
 - `powered-reduction-furnace` Powered reduction furnace
-  - icon: ![Powered reduction furnace](assets/survival/items/metal-from-the-red-ground-powered-reduction-furnace.png)
+  - icon: ![Powered reduction furnace](assets/live-feedback/metal-from-the-red-ground-powered-reduction-furnace.png)
 
   Sunlight heats the mineral bath. I connect the shared repair controller to drive the separation.
 
@@ -922,161 +967,131 @@ I need vessels for making fuel, and a new support for the lander. The red ground
 
 ## Two gases from water
 
-![Two gases from water](assets/survival/scenes/two-gases-from-water.webp)
+![Two gases from water](assets/live-feedback/fuel/water-scene.webp)
 
-The iron gives me something to build with. First I need hydrogen for methane, and oxygen to keep separate for the engine.
+The iron gives me something to build with. A divided cell will supply hydrogen for methane, and oxygen to keep separate for the engine.
 
-> NOTE: The prominent divided body and both cylinders are fabricated locally. The water-cell insert is the unused electrolyzer service spare from a small regenerative-power experiment; its membrane, electrodes and gas-separating internals are distinct from the furnace's high-temperature electrodes. Allocated gas-service repair spares supply one short grey valve/connector for each cylinder, with oxygen-contact parts kept separately clean. No active breathing hardware or emergency oxygen is cannibalized. The shared repair controller operates this batch after the metal work. Compatibility, useful delivery pressure and local canister workmanship are accepted game premises; no testing or qualification puzzle is required.
+> NOTE: The cell's body and the common Empty tank are locally formed Iron. The unused service insert from the regenerative-power experiment supplies the membrane, electrodes and separate gas paths; it is distinct from the furnace electrodes and does not cannibalize breathing equipment. Allocated gas-service spares provide the necessary short grey valves, seals and dedicated connectors. Local canister strength and useful gas delivery pressure are accepted game premises. The existing electrical service and ordinary safe filling are bundled, without a power-cord action here.
 
-> NOTE: The cell stands on firm cleared ground or its packed laboratory tray, with a simple water-fill closure, separate gas outlets and electrical contacts. No manufactured table, frame or permanent feed-bag stand is required. All four gas canisters are plain matte Iron with rounded ends, simple formed seams, one reused grey valve each and a hand-marked gas identity. No handles, brass, individual gauges, riveted label plates or foot rings. Found stones or shallow hollows steady them; the existing rover carries longer trips. Retain those exact bodies and markings through filling and transfer.
-
-> NOTE: Both gas-fill recipes require the actual cell's water and power slots. The filled hydrogen and oxygen cylinders are distinct portable items with persistent visual identity. Neither is installed in a fixed rack. Oxygen survives for ascent and never joins the methane reactor. Dedicated gas paths, repeated filling, compression and ordinary checks are bundled; the cylinders hold ambient-temperature gases, not cryogenic liquids.
+> NOTE: Two water-filling actions commission the two sides of one pictured vessel. The first replaces the empty cell with its hydrogen-ready state; the second preserves that state and creates a separate oxygen receiver at the other nozzle. Each rule has exactly one result. Empty tank can be made at the cell before or after water. Its reusable token represents the same limited batch of identical locally made vessels, with dedicated clean gas service, not a bottle switched indiscriminately between gases. Water filling and gas collection include repeated trips and batches.
 
 **Goals**
-- Build and feed a water-splitting cell -- `water-electrolysis-cell`[`power-cable`,`clean-water`]
-- next: Collect the gases in separate cylinders
+- Fill both sides of the water cell -- `oxygen-outlet`
+- next: Collect the gases separately
   - both: `hydrogen-cylinder`
   - and: `oxygen-cylinder`
 
 **Hotspots**
-- `salvaged-cell-internals` (at 55.25641%, 30.50948%)
-  - icon: ![salvaged-cell-internals](assets/survival/items/two-gases-from-water-salvaged-cell-internals.png)
-- `water-electrolysis-cell` (at 55.25641%, 30.50948%)
-  - icon: ![water-electrolysis-cell](assets/survival/items/two-gases-from-water-water-electrolysis-cell.png)
+- `water-electrolysis-cell` (at 37.94872%, 32.64218%)
+  - icon: ![Empty water cell](assets/live-feedback/fuel/cell-empty.png)
+  - place: `empty-gas-tank` (at 54.8%, 30%)
+- `hydrogen-cell` (at 37.94872%, 32.64218%)
+  - icon: ![Hydrogen side](assets/live-feedback/fuel/cell-hydrogen.png)
+  - place: `empty-gas-tank` (at 54.8%, 30%)
+  - place: `hydrogen-cylinder` (at 20%, 30%)
+- `oxygen-outlet` (at 46.79487%, 32.52370%)
+  - icon: ![Oxygen side](assets/live-feedback/fuel/cell-oxygen-outlet.png)
 
 **Items**
 - `salvaged-cell-internals` Reclaimed electrolyzer insert
-  - icon: ![Reclaimed electrolyzer insert](assets/survival/items/two-gases-from-water-salvaged-cell-internals.png)
+  - icon: ![Reclaimed electrolyzer insert](assets/live-feedback/fuel/cell-insert.png)
 
-  An unused service insert from the regenerative-power experiment supplies the membrane and electrodes. I can build a new body around it.
+  The unused service insert supplies the membrane and electrodes. I can form an iron body around it.
 
-- `water-electrolysis-cell` Water-splitting cell (compound)
-  - icon: ![Water-splitting cell](assets/survival/items/two-gases-from-water-water-electrolysis-cell.png)
-  - unnamed slot: accepts `power-cable`, icon: ![power-cable](assets/survival/overlays/water-electrolysis-cell-power-cable.png)
-  - unnamed slot: accepts `clean-water`, icon: ![clean-water](assets/survival/overlays/water-electrolysis-cell-clean-water.png)
+- `water-electrolysis-cell` Empty water cell
+  - icon: ![Empty water cell](assets/live-feedback/fuel/cell-empty.png)
 
-  [`power-cable`,`clean-water`] The divided cell is ready. Water and electricity will produce hydrogen at one outlet and oxygen at the other.
+  Two compartments, two separate gas outlets. Each side needs water.
 
-- `hydrogen-valve` Hydrogen-service fitting
-  - icon: ![Hydrogen-service fitting](assets/survival/items/hydrogen-valve.png)
+- `hydrogen-cell` H₂ outlet
+  - icon: ![Hydrogen side](assets/live-feedback/fuel/cell-hydrogen.png)
 
-  One compact grey hydrogen valve and connector from the allocated gas-service spares.
+  The first side is filled. I can collect hydrogen here; another water delivery will fill the oxygen side.
 
-- `oxygen-valve` Oxygen-clean fitting
-  - icon: ![Oxygen-clean fitting](assets/survival/items/oxygen-valve.png)
+- `oxygen-outlet` O₂ outlet
+  - icon: ![Oxygen side](assets/live-feedback/fuel/cell-oxygen-outlet.png)
 
-  One compact grey oxygen-clean valve and connector from the allocated gas-service spares.
+  Both sides are filled. The right outlet supplies oxygen, kept apart from the hydrogen.
 
-- `empty-hydrogen-cylinder` Empty hydrogen cylinder
-  - icon: ![Empty hydrogen cylinder](assets/survival/items/empty-hydrogen-cylinder.png)
+- `empty-gas-tank` Empty tank
+  - icon: ![Empty tank](assets/live-feedback/fuel/tank-empty.png)
 
-  A plain round-ended iron canister with one reused valve. I mark it H₂.
+  A plain iron body with a small reclaimed service valve. I make the vessels alike, reserving separate clean fittings for each gas.
 
-- `empty-oxygen-cylinder` Empty oxygen cylinder
-  - icon: ![Empty oxygen cylinder](assets/survival/items/empty-oxygen-cylinder.png)
+- `hydrogen-cylinder` H₂ tank
+  - icon: ![H₂ tank](assets/live-feedback/fuel/tank-h2.png)
 
-  A plain round-ended iron canister with its own clean reused valve. I mark it O₂.
+  Hydrogen collected from its own side of the cell will feed the methane reaction.
 
-- `hydrogen-cylinder` Hydrogen cylinder
-  - icon: ![Hydrogen cylinder](assets/survival/items/hydrogen-cylinder.png)
+- `oxygen-cylinder` O₂ tank
+  - icon: ![O₂ tank](assets/live-feedback/fuel/tank-o2.png)
 
-  The cell separates water. Hydrogen fills this dedicated cylinder; the oxygen follows its own path.
-
-- `oxygen-cylinder` Oxygen cylinder
-  - icon: ![Oxygen cylinder](assets/survival/items/oxygen-cylinder.png)
-
-  Oxygen fills its own clean cylinder. I keep it apart from the hydrogen and methane for the engine’s oxidizer tank.
+  Oxygen stays separate. It is the engine's oxidizer, never a feed for the methane plant.
 
 - `iron-stock`
-
-- `power-cable`
-
 - `clean-water`
 
 **Combinations**
-- `iron-stock` [consume] @ `salvaged-cell-internals` [transform] -> `water-electrolysis-cell`
-- `iron-stock` [consume] + `hydrogen-valve` [consume] -> `empty-hydrogen-cylinder`
-- `iron-stock` [consume] + `oxygen-valve` [consume] -> `empty-oxygen-cylinder`
-- `empty-hydrogen-cylinder` [transform] @ `water-electrolysis-cell`[`power-cable`,`clean-water`] -> `hydrogen-cylinder`
-- `empty-oxygen-cylinder` [transform] @ `water-electrolysis-cell`[`power-cable`,`clean-water`] -> `oxygen-cylinder`
+- `iron-stock` [consume] + `salvaged-cell-internals` [consume] -> `water-electrolysis-cell`
+- `clean-water` [consume] @ `water-electrolysis-cell` [transform] -> `hydrogen-cell`
+- `clean-water` [consume] @ `hydrogen-cell` -> `oxygen-outlet`
+- `iron-stock` [consume] @ `water-electrolysis-cell` -> `empty-gas-tank`
+- `iron-stock` [consume] @ `hydrogen-cell` -> `empty-gas-tank`
+- `empty-gas-tank` [preserve] @ `hydrogen-cell` -> `hydrogen-cylinder`
+- `empty-gas-tank` [preserve] @ `oxygen-outlet` -> `oxygen-cylinder`
 
 ## Fuel from air and water
 
-![Fuel from air and water](assets/survival/scenes/fuel-from-air-and-water.webp)
+![Fuel from air and water](assets/live-feedback/fuel/fuel-scene.webp)
 
 *Mara, Earth — recorded message:*
 
-“Hydrogen and carbon dioxide can make methane. Keep the oxygen separate. Use the station’s power, and leave its essential loads running.”
+“Hydrogen and carbon dioxide can make methane. Keep the oxygen separate. Use the station's power, and leave its essential loads running.”
 
-The iron chamber goes between the two feed cylinders. I can fit those three parts in any order.
+One of the iron tanks makes the reaction chamber. Now it needs both gases and power.
 
-> NOTE: Iron fitted at the central site means fabricating the actual plain reaction chamber. The gas analyzer's nonessential carbon-analysis channel supplies its nickel methanizer catalyst, small heater/sensor and sample-drying fittings; those original measurements stop. The microscope and cold specimen storage remain intact. A simple local water trap and the shared repair controller complete the batch equipment. Small ceramic pieces or found rocks hold the hot body off firm cleared ground. There is no supplied processor-core primitive, catalyst-fetch step, manufactured table, elaborate mounting legs, extra solar field or masonry platform. The central chamber, hydrogen and atmospheric CO2 can be fitted in any order; collection requires all three and the power cord.
+> NOTE: Preparing the site includes adapting one of the same locally made empty tanks as the plain reaction chamber. The gas analyzer's nonessential carbon-analysis channel donates its nickel methanizer catalyst, small heater/sensor and sample-drying fittings; those original measurements stop. The microscope and specimen cooling remain intact. The existing shared controller and a simple water trap complete the equipment. Small ceramic pieces or found rocks keep the hot chamber clear of the ground. No new metal stock, supplied fuel plant, table, mounting frame or solar field appears.
 
-> NOTE: The existing isolated atmospheric-service branch captures, separates and releases CO2 at useful pressure without interrupting breathing. The water-cell insert also supplies its gases at useful delivery pressure; the reaction circuit keeps a pressure difference to its receiver, and the lander performs final tank conditioning. These are bounded mission capabilities, not properties of an empty bottle or power cord. Dedicated gas-contact fittings remain separate while the shared instrument reads each service. Oxygen is absent from this scene. The original array has an explicit load/time margin for scheduled batches while essentials remain powered. Water recovery reduces demand; fuel accumulation and the storm interruption take story time. The same portable methane cylinder later feeds the lander.
+> NOTE: The existing isolated atmospheric-service branch collects and releases CO₂ at useful pressure while breathing continues. Dedicated gas paths, compatible fittings, useful pressure differences and sufficient batch throughput are bounded mission capabilities. The original array has a load/time margin for scheduled processing while essential services remain powered. Gas production and recovered water are repeated batches, interrupted later by the storm. Oxygen never enters this plant. The same common Empty tank supplies the CO₂ and methane collection operations, representing dedicated members of the finite vessel batch.
 
 **Goals**
-- Build and connect the methane plant -- `fuel-assembly`[`iron-stock`,`hydrogen-cylinder`,`carbon-dioxide-cylinder`,`power-cable`]
+- Connect both gases and power -- `fuel-assembly`[`hydrogen-cylinder`,`carbon-dioxide-cylinder`,`power-cable`]
 - next: Collect methane for the return -- `methane-cylinder`
 
 **Hotspots**
-- `fuel-assembly` (at 50.51282%, 32.22749%)
-  - icon: ![fuel-assembly](assets/survival/items/fuel-from-air-and-water-fuel-assembly.png)
+- `fuel-assembly` (at 50%, 34.06398%)
+  - icon: ![Methane-making installation](assets/live-feedback/fuel/reactor-base.png)
 - `habitat-scrubber` (at 87.62821%, 23.31161%)
-  - icon: ![habitat-scrubber](assets/survival/items/fuel-from-air-and-water-habitat-scrubber.png)
+  - icon: ![Air scrubber](assets/survival/items/fuel-from-air-and-water-habitat-scrubber.png)
 
 **Items**
 - `fuel-assembly` Methane-making installation (compound)
-  - icon: ![Methane-making installation](assets/survival/items/fuel-from-air-and-water-fuel-assembly.png)
-  - unnamed slot: accepts `iron-stock`, icon: ![iron](assets/survival/overlays/fuel-assembly-iron-stock.png)
-  - unnamed slot: accepts `hydrogen-cylinder`, icon: ![hydrogen-cylinder](assets/survival/overlays/fuel-assembly-hydrogen-cylinder.png)
-  - unnamed slot: accepts `carbon-dioxide-cylinder`, icon: ![carbon-dioxide-cylinder](assets/survival/overlays/fuel-assembly-carbon-dioxide-cylinder.png)
-  - unnamed slot: accepts `power-cable`, icon: ![power-cable](assets/survival/overlays/fuel-assembly-power-cable.png)
+  - icon: ![Methane-making installation](assets/live-feedback/fuel/reactor-base.png)
+  - unnamed slot: accepts `power-cable`, icon: ![Power](assets/live-feedback/fuel/reactor-power.png)
+  - unnamed slot: accepts `hydrogen-cylinder`, icon: ![Hydrogen feed](assets/live-feedback/fuel/reactor-h2.png)
+  - unnamed slot: accepts `carbon-dioxide-cylinder`, icon: ![Carbon dioxide feed](assets/live-feedback/fuel/reactor-co2.png)
 
-  [`iron-stock`,`hydrogen-cylinder`,`carbon-dioxide-cylinder`,`power-cable`] The iron chamber receives hydrogen and carbon dioxide through separate feeds. Its catalyst makes methane and water; the small water trap and dryer keep the fuel outlet clean.
+  [`hydrogen-cylinder`,`carbon-dioxide-cylinder`,`power-cable`] The iron chamber receives hydrogen and carbon dioxide through separate feeds. Its catalyst makes methane and water; the small trap and dryer keep the fuel outlet clean.
 
 - `habitat-scrubber`
+- `empty-gas-tank`
 
-- `carbon-dioxide-fitting` Carbon-dioxide fitting
-  - icon: ![Carbon-dioxide fitting](assets/survival/items/carbon-dioxide-fitting.png)
+- `carbon-dioxide-cylinder` CO₂ tank
+  - icon: ![CO₂ tank](assets/live-feedback/fuel/tank-co2.png)
 
-  One compact grey valve and connector allocated to carbon dioxide from the gas-service spares.
+  The atmospheric branch collects carbon dioxide from Martian air. The breathing circuit keeps working.
 
-- `empty-carbon-dioxide-cylinder` Empty carbon-dioxide cylinder
-  - icon: ![Empty carbon-dioxide cylinder](assets/survival/items/empty-carbon-dioxide-cylinder.png)
+- `methane-cylinder` CH₄ tank
+  - icon: ![CH₄ tank](assets/live-feedback/fuel/tank-ch4.png)
 
-  A plain round-ended iron canister with one reused valve, marked CO₂.
-
-- `carbon-dioxide-cylinder` Carbon-dioxide cylinder
-  - icon: ![Carbon-dioxide cylinder](assets/survival/items/carbon-dioxide-cylinder.png)
-
-  The atmospheric service collects carbon dioxide from the Martian air into the cylinder. The breathing circuit keeps working.
-
-- `methane-fitting` Methane-service fitting
-  - icon: ![Methane-service fitting](assets/survival/items/methane-fitting.png)
-
-  One compact grey valve and connector allocated to methane from the gas-service spares.
-
-- `empty-methane-cylinder` Empty methane cylinder
-  - icon: ![Empty methane cylinder](assets/survival/items/empty-methane-cylinder.png)
-
-  A plain round-ended iron canister with one reused valve, marked CH₄.
-
-- `methane-cylinder` Methane cylinder
-  - icon: ![Methane cylinder](assets/survival/items/methane-cylinder.png)
-
-  The plant runs through repeated batches. I collect the dry methane in its own cylinder and return the recovered water to the process.
-
-- `iron-stock`
+  The plant runs through repeated batches. I collect dry methane and return the recovered water to the process.
 
 - `hydrogen-cylinder`
-
 - `power-cable`
 
 **Combinations**
-- `iron-stock` [consume] + `carbon-dioxide-fitting` [consume] -> `empty-carbon-dioxide-cylinder`
-- `empty-carbon-dioxide-cylinder` [transform] @ `habitat-scrubber`[`power-cable`] -> `carbon-dioxide-cylinder`
-- `iron-stock` [consume] + `methane-fitting` [consume] -> `empty-methane-cylinder`
-- `empty-methane-cylinder` [transform] @ `fuel-assembly`[`iron-stock`,`hydrogen-cylinder`,`carbon-dioxide-cylinder`,`power-cable`] -> `methane-cylinder`
+- `empty-gas-tank` [preserve] @ `habitat-scrubber`[`power-cable`] -> `carbon-dioxide-cylinder`
+- `empty-gas-tank` [preserve] @ `fuel-assembly`[`hydrogen-cylinder`,`carbon-dioxide-cylinder`,`power-cable`] -> `methane-cylinder`
 
 ## Amber noon
 
@@ -1164,7 +1179,9 @@ Back in the starter hab, the sky has turned amber.
 
 Enough warmth, light and water to keep the roots alive. Productive growth can resume when the solar supply recovers.
 
-> NOTE: The entrance-end thermal screen attaches to the pressure hab's existing tabs, draping around the usable sink and leaving its door overlap and ventilation path clear. Fitting the separate Fabric canopy includes tensioning the reserved cargo-net panel between existing tabs to keep the soft cloth above the foliage. The edges descend toward the beds with circulation gaps. Both screens use the hab's original attachments; no rods, rails, rings or wooden supports are added. The canopy is lowered during dark periods and rolled back for shortened lamp hours, bundled in the complete operation. Cloth reduces heat loss; existing heaters and the finite reserve supply energy. There is no quilted wall padding or process-heat tank. The same beds and drip feeds remain, with reduced watering as demand falls.
+> NOTE: The entrance-end thermal screen uses original hab tabs and leaves the sink, door overlap and ventilation route usable. Separate lengths of dry, permeable Fabric cover the three crop beds, supported by the reserved cargo net only a hand-width above each crop's leaves. Their edges overlap the ceramic bed walls. Net ties reach original tabs; no poles, hoops, rails or new hardware are built. Fitting the net and cloth is one complete operation. Open the covers for shortened lamp periods and ordinary ventilation; the picture shows their closed arrangement. The original wall screen is drawn first and the crop covers afterward, preserving either installation order.
+
+> NOTE: Low covers reduce air exchange and slow cooling; they supply no heat. This cave habitat is not an outdoor clear-sky radiation-frost case. Existing heaters and finite reserve power carry the temporary interruption. The same beds and drip feeds remain, with reduced watering as demand falls. No new thermal reservoir or player monitoring chores are added.
 
 **Goals**
 - Reduce heat and light losses -- `screened-growing-area`
@@ -1175,10 +1192,10 @@ Enough warmth, light and water to keep the roots alive. Productive growth can re
   - icon: ![Entrance attachment tabs](assets/survival/items/keep-the-roots-alive-growing-room-service-rail.png)
 - `screened-growing-area` (at 51.15385%, 20.1718%)
   - icon: ![Screened growing area](assets/survival/items/keep-the-roots-alive-screened-growing-area.png)
-- `crop-canopy-supports` (at 50%, 18.1872%)
-  - icon: ![Crop-cover attachment tabs](assets/survival/items/keep-the-roots-alive-crop-canopy-supports.png)
-- `covered-crops` (at 50%, 18.12796%)
-  - icon: ![Covered crops](assets/survival/items/keep-the-roots-alive-covered-crops.png)
+- `crop-canopy-supports` (at 50.0%, 22.09716%)
+  - icon: ![Crop beds needing covers](assets/live-feedback/garden/storm-cover-target.png)
+- `covered-crops` (at 50.0%, 22.09716%)
+  - icon: ![Covered crops](assets/live-feedback/garden/storm-covered-crops.png)
 
 **Items**
 - `growing-room-service-rail` Entrance attachment tabs
@@ -1189,17 +1206,17 @@ Enough warmth, light and water to keep the roots alive. Productive growth can re
 - `screened-growing-area` Screened growing area
   - icon: ![Screened growing area](assets/survival/items/keep-the-roots-alive-screened-growing-area.png)
 
-  The dimmed lamps serve the crop area. The ventilation route stays open.
+  The sink, door overlap and ventilation route remain usable.
 
-- `crop-canopy-supports` Crop-cover attachment tabs
-  - icon: ![Crop-cover attachment tabs](assets/survival/items/keep-the-roots-alive-crop-canopy-supports.png)
+- `crop-canopy-supports` Crop beds needing covers
+  - icon: ![Crop beds needing covers](assets/live-feedback/garden/storm-cover-target.png)
 
-  The pressure envelope already has attachment tabs above the crop area.
+  The plants need their own close covers. The room already has attachment tabs for the spare cargo net.
 
 - `covered-crops` Covered crops
-  - icon: ![Covered crops](assets/survival/items/keep-the-roots-alive-covered-crops.png)
+  - icon: ![Covered crops](assets/live-feedback/garden/storm-covered-crops.png)
 
-  The canopy holds a pocket of warmer air above the plants; the reserve heaters carry the continuing load. Mara's forecast update has a sentence at the end: “It's raining outside my window.”
+  The low covers slow the beds’ cooling while the reserve heater carries them through the storm. Mara’s forecast update has a sentence at the end: “It’s raining outside my window.”
 
 - `farm-thermal-screen` Farm thermal screen
   - icon: ![Farm thermal screen](assets/items/farm-thermal-screen.png)
@@ -1240,13 +1257,13 @@ A pale edge of sunlight returns. Under the dust, the panels are still connected.
 
 ## `lander-repair` The leg that stays
 
-![`lander-repair` The leg that stays](assets/survival/scenes/the-leg-that-stays.webp)
+![`lander-repair` The leg that stays](assets/live-feedback/fuel/lander-repair-scene.webp)
 
 The plant is working again. Now I can finish the repair that will let this cabin leave.
 
 > NOTE: The original stone remains an unloaded catch. Two qualified low broad ceramic stacks secure either side of the sound cross-member while the original legs remain stable; a central footer shares their firm bearing surface. These blocks do not act as lifting jacks. The shovel operation includes rolling the loose stone away, never lifting the vehicle with the shovel. Only the resulting clear gap accepts iron.
 
-> NOTE: The final member is a short substantial tubular strut with saddle and broad foot, visually comparable to the existing legs. Keep camera, ground texture/colour, ceramic registration, original feet and vehicle height unchanged. No ground bolts, giant framework or lift. Any redundant side-block removal is bundled after the permanent member is fitted. Material, buckling, bearing and procedural qualification are explicit future repair premises. This chapter-only receiver prevents premature repair construction on the crash board.
+> NOTE: The final member is a short substantial tubular strut with saddle and broad foot, visually comparable to the existing legs. Keep camera, ground texture/colour, ceramic registration, original feet and vehicle height unchanged. No ground bolts, giant framework or lift. Removal of both side stacks and the central ceramic footer is bundled after the permanent member is fitted. Its broad iron foot bears directly on firm ground; no temporary bricks remain in this or the next chapter. Material, buckling, bearing and procedural qualification are explicit future repair premises. This chapter-only receiver prevents premature repair construction on the crash board.
 
 **Goals**
 - Block the frame and lay its footing -- `ceramic-landing-footing`
@@ -1261,7 +1278,7 @@ The plant is working again. Now I can finish the repair that will let this cabin
 - `clear-support-gap` (at 61.47436%, 37.08531%)
   - icon: ![clear-support-gap](assets/survival/items/the-leg-that-stays-clear-support-gap.png)
 - `level-launch-platform` (at 61.47436%, 37.08531%)
-  - icon: ![level-launch-platform](assets/survival/items/the-leg-that-stays-level-launch-platform.png)
+  - icon: ![level-launch-platform](assets/live-feedback/fuel/lander-permanent-leg.png)
 
 **Items**
 - `landing-footing-site` Lower-frame support site
@@ -1280,9 +1297,9 @@ The plant is working again. Now I can finish the repair that will let this cabin
   With the side blocks protecting the frame, I roll the loose stone out. The middle of the footing is clear.
 
 - `level-launch-platform` Supported launch frame
-  - icon: ![Supported launch frame](assets/survival/items/the-leg-that-stays-level-launch-platform.png)
+  - icon: ![Supported launch frame](assets/live-feedback/fuel/lander-permanent-leg.png)
 
-  The short iron strut fits between its broad foot and saddle beneath the cross-member. It is as substantial as the original legs. This support will stay here when I leave.
+  The short iron strut fits between its broad foot and saddle beneath the cross-member. It is as substantial as the original legs. I clear away the temporary bricks; its broad foot bears on firm ground. This support will stay here when I leave.
 
 - `ceramic-blocks`
 
@@ -1297,13 +1314,13 @@ The plant is working again. Now I can finish the repair that will let this cabin
 
 ## Fuel for the return
 
-![Fuel for the return](assets/survival/scenes/fuel-for-the-return.webp)
+![Fuel for the return](assets/live-feedback/fuel/lander-ports-scene.webp)
 
 I bring over oxygen and methane in their separate cylinders. The lander’s cooling system collects each in its own flight tank.
 
 > NOTE: These are the same locally made oxygen cylinders from water electrolysis and methane cylinders from the reaction plant, with unchanged labels, necks and service fittings. They contain ambient-temperature gases. The lander's already-equipped active tank conditioning accepts the gases and liquefies them inside its actual flight tanks; that integration is a declared future mission premise. Repeated production, deliveries and elapsed time fill the tanks using these same cylinders: two small bottles do not contain an entire ascent load.
 
-> NOTE: Both transfer circuits work in either order and retain dedicated compatible fittings. No methane reactor, factory pads or extra array appears at the lander. The repaired lower support remains visible. Departure preparation isolates, disconnects and stows the hoses before launch.
+> NOTE: Both transfer circuits work in either order and retain dedicated compatible fittings. No methane reactor, factory pads or extra array appears at the lander. The repaired lower support remains visible. Connecting each dedicated service hose is included in the tank delivery; the filled state shows it. The ports are marked O₂ and CH₄ before delivery. Departure preparation disconnects and stows the hoses before launch.
 
 **Goals**
 - Fill both separate ascent tanks
@@ -1311,52 +1328,39 @@ I bring over oxygen and methane in their separate cylinders. The lander’s cool
   - and: `oxygen-transferred`
 
 **Hotspots**
-- `lander-methane-port` (at 78.46154%, 30.83531%)
-  - icon: ![lander-methane-port](assets/survival/items/fuel-for-the-return-lander-methane-port.png)
-- `methane-transferred` (at 78.46154%, 30.83531%)
-  - icon: ![methane-transferred](assets/survival/items/fuel-for-the-return-methane-transferred.png)
-- `lander-oxygen-port` (at 21.98718%, 30.83531%)
-  - icon: ![lander-oxygen-port](assets/survival/items/fuel-for-the-return-lander-oxygen-port.png)
-- `oxygen-transferred` (at 21.98718%, 30.83531%)
-  - icon: ![oxygen-transferred](assets/survival/items/fuel-for-the-return-oxygen-transferred.png)
+- `lander-methane-port` (at 77.17949%, 33.47156%)
+  - icon: ![lander-methane-port](assets/live-feedback/fuel/port-ch4.png)
+- `methane-transferred` (at 77.17949%, 33.47156%)
+  - icon: ![methane-transferred](assets/live-feedback/fuel/transfer-ch4.png)
+- `lander-oxygen-port` (at 23.71795%, 32.81991%)
+  - icon: ![lander-oxygen-port](assets/live-feedback/fuel/port-o2.png)
+- `oxygen-transferred` (at 23.71795%, 32.81991%)
+  - icon: ![oxygen-transferred](assets/live-feedback/fuel/transfer-o2.png)
 
 **Items**
 - `lander-methane-port` Lander methane port
-  - icon: ![Lander methane port](assets/survival/items/fuel-for-the-return-lander-methane-port.png)
+  - icon: ![Lander methane port](assets/live-feedback/fuel/port-ch4.png)
 
 - `methane-transferred` Methane transferred
-  - icon: ![Methane transferred](assets/survival/items/fuel-for-the-return-methane-transferred.png)
+  - icon: ![Methane transferred](assets/live-feedback/fuel/transfer-ch4.png)
 
   The lander receives methane through its dedicated line and cools it into the fuel tank.
 
 - `lander-oxygen-port` Lander oxygen port
-  - icon: ![Lander oxygen port](assets/survival/items/fuel-for-the-return-lander-oxygen-port.png)
+  - icon: ![Lander oxygen port](assets/live-feedback/fuel/port-o2.png)
 
 - `oxygen-transferred` Oxygen transferred
-  - icon: ![Oxygen transferred](assets/survival/items/fuel-for-the-return-oxygen-transferred.png)
+  - icon: ![Oxygen transferred](assets/live-feedback/fuel/transfer-o2.png)
 
   Oxygen follows its own clean line into the separate oxidizer system.
-
-- `hose` Hose
-  - icon: ![Hose](assets/survival/reused/hose.png)
-
-  Compatible dedicated lengths from the service supplies. The oxygen-clean line never carries methane.
-
-- `methane-transfer-cylinder` Methane cylinder with transfer hose
-  - icon: ![Methane cylinder with transfer hose](assets/survival/items/methane-transfer-cylinder.png)
-
-- `oxygen-transfer-cylinder` Oxygen cylinder with transfer hose
-  - icon: ![Oxygen cylinder with transfer hose](assets/survival/items/oxygen-transfer-cylinder.png)
 
 - `methane-cylinder`
 
 - `oxygen-cylinder`
 
 **Combinations**
-- `hose` [consume] + `methane-cylinder` [transform] -> `methane-transfer-cylinder`
-- `hose` [consume] + `oxygen-cylinder` [transform] -> `oxygen-transfer-cylinder`
-- `methane-transfer-cylinder` [consume] @ `lander-methane-port` [transform] -> `methane-transferred`
-- `oxygen-transfer-cylinder` [consume] @ `lander-oxygen-port` [transform] -> `oxygen-transferred`
+- `methane-cylinder` [consume] @ `lander-methane-port` [transform] -> `methane-transferred`
+- `oxygen-cylinder` [consume] @ `lander-oxygen-port` [transform] -> `oxygen-transferred`
 
 ## Supper from the garden
 
@@ -1364,135 +1368,131 @@ I bring over oxygen and methane in their separate cylinders. The lander’s cool
 
 Mara confirms a hold for rendezvous alignment. The spacecraft is ready, the specimens are safe, and the farm has survived. I can gather supper.
 
-> NOTE: Keep this one merged garden-and-supper chapter with two fixed receivers, the mature beds and the actual sink. The same lined basket makes three successive loads: potatoes, lettuce, then soybeans. Each continued harvest sets the preceding crop on the clean counter and reuses the basket; the retained harvest tokens represent those set-aside loads, not cloned baskets. Draw the same recognizable basket in every harvest result. This deliberate sequential abstraction permits the requested single basket and merged scene without four fixed crop/sink targets.
+> NOTE: Three independent harvest receivers occupy the same potato, soybean and lettuce beds. The sink remains visible scenery. One reusable lined basket gathers each crop in any order; each load is set aside on the clean counter before the next. Crop-result pictures illustrate collection with that same basket, not additional baskets. The later harvest identities are mature states of the established beds, not new plantings.
 
-> NOTE: Soybeans come last and their only downstream recipe is washing/soaking/draining at the sink, so that operation actually retires the raw harvested-bean token. The potatoes combine only with prepared beans. The clean galley pot/heater introduced for water thoroughly cook them; fresh lettuce joins last. Ordinary shelling, hand harvesting, cleaning and elapsed cooking time belong to complete operations. The source core, remote slab and membrane stay on laboratory cooling throughout.
-
-> NOTE: The reviewed mixed fates express these physical roles: the basket is reusable at first picking and becomes the final potato load here. Potato and lettuce loads remain while the same basket gathers the next crop, then are consumed in cooking and serving. Uniformly consuming these loads while harvesting would break their later meal use.
+> NOTE: The clean-water item is the same cleaned galley pot used for water collection. Potatoes and soybeans may enter it in either order. Bean washing, soaking and draining, pot refills, and thorough cooking on the existing heater are bundled into those operations. Neither intermediate pot accepts lettuce: the cooked stew must exist first. Both original cores stay on existing laboratory cooling throughout; the microscope slides remain in the laboratory.
 
 **Goals**
-- Gather the three crops
-  - both: `harvested-potatoes`
-  - and: `soybeans-on-fabric`
-  - and: `supper-lettuce`
-- next: Wash and prepare the soybeans -- `prepared-soybeans`
-- next: Cook the soybeans with the potatoes -- `potatoes-and-soybeans`
+- (three goals are a lot but okay here because the basket can visit each of the three established crop beds independently)
+- Harvest potatoes -- `harvested-potatoes`
+- Harvest soybeans -- `soybeans-on-fabric`
+- Harvest lettuce -- `supper-lettuce`
+- next: Cook the beans and potatoes -- `potatoes-and-soybeans`
 - next: Add fresh lettuce -- `stew-and-lettuce-supper`
 
-
 **Hotspots**
-- `harvest-ready-beds` (at 50%, 29.88744%)
-  - icon: ![harvest-ready-beds](assets/survival/items/supper-from-the-garden-harvest-ready-beds.png)
-  - place: `harvested-potatoes` (at 22%, 34%)
-  - place: `soybeans-on-fabric` (at 50%, 34%)
-  - place: `supper-lettuce` (at 78%, 34%)
-- `clean-preparation-sink` (at 42.5%, 17.95024%)
-  - icon: ![clean-preparation-sink](assets/survival/items/supper-from-the-garden-clean-preparation-sink.png)
-
+- (three hotspots are a lot but okay here because each mature crop has its own established bed and the sink remains scenery)
+- `harvest-potato-bed` (at 18.46154%, 29.94668%)
+  - icon: ![Potato bed ready to harvest](assets/live-feedback/garden/potato-harvest-target.png)
+- `harvest-soybean-bed` (at 54.29487%, 27.1327%)
+  - icon: ![Soybean bed ready to harvest](assets/live-feedback/garden/soybean-harvest-target.png)
+- `harvest-lettuce-bed` (at 86.34615%, 34.47867%)
+  - icon: ![Lettuce bed ready to harvest](assets/live-feedback/garden/lettuce-harvest-target.png)
 
 **Items**
-- `harvest-ready-beds` Beds ready to harvest
-  - icon: ![Beds ready to harvest](assets/survival/items/supper-from-the-garden-harvest-ready-beds.png)
+- `harvest-potato-bed` Potato bed ready to harvest
+  - icon: ![Potato bed ready to harvest](assets/live-feedback/garden/potato-harvest-target.png)
 
-- `harvested-potatoes` Potato harvest in basket
-  - icon: ![Potato harvest in basket](assets/survival/items/harvested-potatoes.png)
+- `harvest-soybean-bed` Soybean bed ready to harvest
+  - icon: ![Soybean bed ready to harvest](assets/live-feedback/garden/soybean-harvest-target.png)
 
-  I lift the potatoes into the lined basket. The lettuce will be the next load.
+- `harvest-lettuce-bed` Lettuce bed ready to harvest
+  - icon: ![Lettuce bed ready to harvest](assets/live-feedback/garden/lettuce-harvest-target.png)
 
-- `soybeans-on-fabric` Soybean harvest in basket
-  - icon: ![Soybean harvest in basket](assets/survival/items/soybeans-on-fabric.png)
+- `harvested-potatoes` Potato harvest
+  - icon: ![Potato harvest](assets/survival/items/harvested-potatoes.png)
 
-  I set the lettuce aside on the clean counter and use the same basket for the soybean pods. The dry pods release their seeds into its clean lining.
+  I lift the potatoes into the lined basket, then set them on the clean counter. The basket is ready for another crop.
 
-- `supper-lettuce` Lettuce harvest in basket
-  - icon: ![Lettuce harvest in basket](assets/survival/items/supper-lettuce.png)
+- `soybeans-on-fabric` Soybean harvest
+  - icon: ![Soybean harvest](assets/survival/items/soybeans-on-fabric.png)
 
-  I set the potatoes on the clean counter and use the same basket to gather crisp lettuce.
+  The dry pods release their seeds into the basket's clean lining. I set the beans aside and keep the basket ready.
 
-- `prepared-soybeans` Washed and soaked soybeans
-  - icon: ![Prepared soybeans](assets/survival/items/prepared-soybeans.png)
+- `supper-lettuce` Lettuce harvest
+  - icon: ![Lettuce harvest](assets/survival/items/supper-lettuce.png)
 
-  I carry the soybean basket to the sink, wash its beans, leave them to soak in the clean basin and drain them. They still need a full cook.
+  Crisp lettuce fills the same lined basket. I set the leaves aside for the meal.
+
+- `pot-of-potatoes` Potatoes in the pot
+  - icon: ![Potatoes in the pot](assets/live-feedback/pot-potatoes.png)
+
+  Washed potato pieces settle into clean water in the galley pot. The beans can join them.
+
+- `pot-of-soybeans` Soybeans in the pot
+  - icon: ![Soybeans in the pot](assets/live-feedback/pot-soybeans.png)
+
+  I wash and soak the beans, drain them and add fresh water to the galley pot. They are ready for potatoes and a thorough cook.
 
 - `potatoes-and-soybeans` Cooked potato and soybean stew
-  - icon: ![Potatoes and soybeans](assets/survival/items/potatoes-and-soybeans.png)
+  - icon: ![Cooked potato and soybean stew](assets/live-feedback/pot-cooked-stew.png)
 
-  The cleaned galley pot and small heater bring the soaked beans and potatoes to a full cook. Soft potato and tender beans fill the small metal vessel.
+  On the small heater, the cleaned galley pot brings the prepared beans and potatoes to a full cook. Soft potato and tender beans fill the familiar vessel.
 
 - `stew-and-lettuce-supper` Stew and lettuce supper
-  - icon: ![Stew and lettuce supper](assets/survival/items/stew-and-lettuce-supper.png)
+  - icon: ![Stew and lettuce supper](assets/live-feedback/pot-supper.png)
 
   At the berth, the hot stew makes me pause. Crisp leaves snap against the soft potato. These are the crops I kept alive beneath the rock. For once, the message I record for Earth is about supper.
 
 - `lined-harvest-basket`
-
+- `clean-water`
 
 **Combinations**
-- `lined-harvest-basket` [consume] @ `harvest-ready-beds` -> `harvested-potatoes`
-- `harvested-potatoes` [preserve] @ `harvest-ready-beds` -> `supper-lettuce`
-- `supper-lettuce` [preserve] @ `harvest-ready-beds` -> `soybeans-on-fabric`
-- `soybeans-on-fabric` [transform] @ `clean-preparation-sink` -> `prepared-soybeans`
-- `harvested-potatoes` [consume] + `prepared-soybeans` [consume] -> `potatoes-and-soybeans`
+- `lined-harvest-basket` @ `harvest-potato-bed` -> `harvested-potatoes`
+- `lined-harvest-basket` @ `harvest-soybean-bed` -> `soybeans-on-fabric`
+- `lined-harvest-basket` @ `harvest-lettuce-bed` -> `supper-lettuce`
+- `clean-water` [transform] + `harvested-potatoes` [consume] -> `pot-of-potatoes`
+- `clean-water` [transform] + `soybeans-on-fabric` [consume] -> `pot-of-soybeans`
+- `pot-of-potatoes` [transform] + `soybeans-on-fabric` [consume] -> `potatoes-and-soybeans`
+- `pot-of-soybeans` [transform] + `harvested-potatoes` [consume] -> `potatoes-and-soybeans`
 - `potatoes-and-soybeans` [transform] + `supper-lettuce` [consume] -> `stew-and-lettuce-supper`
 
 ## `specimen-stow` The things we take
 
 ![The things we take](assets/survival/scenes/the-things-we-take.webp)
 
-Rendezvous clearance. Inside the cabin, three empty places wait for the things we found.
+Rendezvous clearance. Inside the cabin, two cold cradles wait for the cores: one from home, one from across the gully.
 
-> NOTE: Three actual specimens board separately: the source core, the examined remote ice slab in its sealed optical holder, and the original membrane. The remote parent-core remainder stays on laboratory cooling. Qualified cold transfer, fastening and the flight refrigeration connection are bundled in each drag; no open ice warms in cabin air. All three may be secured in any order. There is no new core-plus-slice package or carrier-building step. The rover and laboratory apparatus stay behind.
+> NOTE: The two original ice cores return. The laboratory slides and microscope stay behind. Each core remains in its sealed liner and reused insulating wrap during transfer from existing laboratory/rover cooling to the flight cold cradle. Insulation only slows heat transfer; the established refrigeration keeps the samples cold. Fastening and connecting flight cooling are bundled in each drag. Either core may be stowed first. No new carrier-building step or examined-slice package is introduced.
 
 **Goals**
-- Secure the core and slab on flight cooling
+- Secure both original cores on flight cooling
   - both: `flight-stowed-source-core`
   - and: `flight-stowed-remote-core`
-- next: Secure the original membrane -- `flight-stowed-membrane`
 
 **Hotspots**
-- (three hotspots are a lot but okay here because each of the three actual specimens has its own assigned place inside the cabin)
-- `water-source-core-cradle` (at 37.75641%, 14.09953%)
-  - icon: ![Water-source core cradle](assets/survival/items/the-things-we-take-water-source-core-cradle.png)
-- `flight-stowed-source-core` (at 37.75641%, 14.09953%)
-  - icon: ![Flight-stowed source core](assets/survival/items/the-things-we-take-flight-stowed-source-core.png)
-- `remote-band-core-cradle` (at 37.75641%, 27.25118%)
-  - icon: ![Remote-slab cradle](assets/survival/items/the-things-we-take-remote-band-core-cradle.png)
-- `flight-stowed-remote-core` (at 37.75641%, 27.25118%)
-  - icon: ![Flight-stowed remote slab](assets/survival/items/the-things-we-take-flight-stowed-remote-core.png)
-- `flight-specimen-locker` (at 76.02564%, 19.87559%)
-  - icon: ![Flight specimen locker](assets/survival/items/the-things-we-take-flight-specimen-locker.png)
-- `flight-stowed-membrane` (at 76.02564%, 19.87559%)
-  - icon: ![Flight-stowed membrane](assets/survival/items/the-things-we-take-flight-stowed-membrane.png)
+- `water-source-core-cradle` (at 37.75641%, 16%)
+  - icon: ![Local core cradle](assets/live-feedback/fuel/core-cradle-target.png)
+- `flight-stowed-source-core` (at 37.75641%, 16%)
+  - icon: ![Local core secured](assets/live-feedback/fuel/stowed-local-core.png)
+- `remote-band-core-cradle` (at 37.75641%, 28.4%)
+  - icon: ![Remote core cradle](assets/live-feedback/fuel/core-cradle-target.png)
+- `flight-stowed-remote-core` (at 37.75641%, 28.4%)
+  - icon: ![Remote core secured](assets/live-feedback/fuel/stowed-remote-core.png)
 
 **Items**
-- `flight-stowed-membrane` Flight-stowed membrane
-  - icon: ![Flight-stowed membrane](assets/survival/items/the-things-we-take-flight-stowed-membrane.png)
+- `water-source-core-cradle` Local core cradle
+  - icon: ![Local core cradle](assets/live-feedback/fuel/core-cradle-target.png)
 
-  The original membrane holder has its own place aboard, separate from the ice specimens.
+- `remote-band-core-cradle` Remote core cradle
+  - icon: ![Remote core cradle](assets/live-feedback/fuel/core-cradle-target.png)
 
-- `flight-specimen-locker` Flight specimen locker
-  - icon: ![Flight specimen locker](assets/survival/items/the-things-we-take-flight-specimen-locker.png)
+- `flight-stowed-source-core` Local core secured
+  - icon: ![Local core secured](assets/live-feedback/fuel/stowed-local-core.png)
 
-- `water-source-core-cradle` Water-source core cradle
-  - icon: ![Water-source core cradle](assets/survival/items/the-things-we-take-water-source-core-cradle.png)
+  The original local core is secured in its cold cradle. Its sealed liner preserves the untouched ice around the sampled source.
 
-- `remote-band-core-cradle` Remote-slab cradle
-  - icon: ![Remote-slab cradle](assets/survival/items/the-things-we-take-remote-band-core-cradle.png)
+- `flight-stowed-remote-core` Remote core secured
+  - icon: ![Remote core secured](assets/live-feedback/fuel/stowed-remote-core.png)
 
-- `flight-stowed-source-core` Flight-stowed source core
-  - icon: ![Flight-stowed source core](assets/survival/items/the-things-we-take-flight-stowed-source-core.png)
-
-- `flight-stowed-remote-core` Flight-stowed remote slab
-  - icon: ![Flight-stowed remote slab](assets/survival/items/the-things-we-take-flight-stowed-remote-core.png)
+  The original remote core joins it, still in its separate liner. The small shaving and its microscope slide remain in the laboratory.
 
 - `stored-source-core`
-- `examined-ice-core`
-- `first-body-on-membrane`
+- `remote-ice-core`
 
 **Combinations**
 - `stored-source-core` [transform] @ `water-source-core-cradle` [transform] -> `flight-stowed-source-core`
-- `examined-ice-core` [transform] @ `remote-band-core-cradle` [transform] -> `flight-stowed-remote-core`
-- `first-body-on-membrane` [transform] @ `flight-specimen-locker` [transform] -> `flight-stowed-membrane`
+- `remote-ice-core` [transform] @ `remote-band-core-cradle` [transform] -> `flight-stowed-remote-core`
 
 ## My hand on the switch
 
@@ -1500,7 +1500,7 @@ Rendezvous clearance. Inside the cabin, three empty places wait for the things w
 
 I take the pilot’s seat and close the hatch. The last command is mine.
 
-> NOTE: The removable arming plug is real physical flight hardware, kept separate during surface operations. Spacecraft arming plugs have actual precedent; this crew-accessible Mars-ascent enable socket is an explicit fictional adaptation, not a claim about an Apollo ignition key. The single combination is the complete deliberate launch operation: insert the plug, confirm arming, then press the existing START control. Insertion alone does not ignite the engine or power the entire cabin. Normal interlocks and ascent checks are bundled. Earlier goals establish repair, separate propellants and all three specimens aboard. Only the dashboard is the receiving area; the windows are outside it. The completed appearance retains the physical plug protruding from its socket.
+> NOTE: The removable arming plug is real physical flight hardware, kept separate during surface operations. Spacecraft arming plugs have actual precedent; this crew-accessible Mars-ascent enable socket is an explicit fictional adaptation, not a claim about an Apollo ignition key. The single combination is the complete deliberate launch operation: insert the plug, confirm arming, then press the existing START control. Insertion alone does not ignite the engine or power the entire cabin. Normal interlocks and ascent checks are bundled. Earlier goals establish repair, separate propellants and both original cores aboard. Only the dashboard is the receiving area; the windows are outside it. The completed appearance retains the physical plug protruding from its socket.
 
 **Goals**
 - Fit the arming plug and launch -- `ascent-underway`
@@ -1534,7 +1534,7 @@ I take the pilot’s seat and close the hatch. The last command is mine.
 
 The cabin climbs above the base. The lower stage, its new leg and the small cave mouth draw together below me. Light still glows where the garden is.
 
-In the cold locker, the core, the thin slab and the first broken fragments travel separately. The layer around the whole outline is coming with us.
+In the cold locker, the two original cores travel in separate cradles: one from the water bank beside home, one from across the gully. The surrounding layers are coming with us.
 
 Earth will have more than a picture to examine.
 

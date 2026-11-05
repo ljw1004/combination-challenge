@@ -1,0 +1,97 @@
+{
+  "generator": "built-in image_gen",
+  "output_directory": "stories/mars/assets/live-feedback",
+  "source_directory": "projects/mars-study/production/live-feedback/sources",
+  "requests": [
+    {
+      "name": "water-family",
+      "prompt": "prompts/water-family.prompt.txt",
+      "inputs": [
+        "stories/mars/assets/survival/items/meltwater.png",
+        "stories/mars/assets/survival/items/heater.png",
+        "stories/mars/assets/survival/items/water-filter.png"
+      ],
+      "selected": "sources/water-family.png",
+      "original_output": "/Users/ljw/.codex/generated_images/01a1a95e-23bc-7e32-8ce5-d24b60bc889a/exec-048beabf-b6eb-41de-b8de-3bfcb6cd2c67.png",
+      "selection": "Cells 0\u20134 selected. Cell 5 superseded by rim-seated filter family."
+    },
+    {
+      "name": "slides-and-cores",
+      "prompt": "prompts/slides-and-cores.initial.prompt.txt",
+      "inputs": [
+        "stories/mars/assets/survival/items/remote-ice-core.png",
+        "stories/mars/assets/items/reflective-insulation.png"
+      ],
+      "original_output": "/Users/ljw/.codex/generated_images/01a1a95e-23bc-7e32-8ce5-d24b60bc889a/exec-49bac1d1-974f-456f-8c52-c3b8162820b6.png",
+      "selection": "Original alpha was nonzero across white background. Composition retained through a generated alpha repair; its necessary reference input is preserved under references/."
+    },
+    {
+      "name": "slides-and-cores-alpha",
+      "prompt": "prompts/slides-and-cores.alpha.prompt.txt",
+      "inputs": [
+        "runs/mars-live-feedback/water-samples/sample-family-r1.png"
+      ],
+      "selected": "sources/slides-and-cores.png",
+      "original_output": "/Users/ljw/.codex/generated_images/01a1a95e-23bc-7e32-8ce5-d24b60bc889a/exec-534af063-a5f2-4a26-80c1-f0669d2dabd6.png"
+    },
+    {
+      "name": "pot-filter-family",
+      "prompt": "prompts/pot-filter-family.prompt.txt",
+      "inputs": [
+        {
+          "source": "sources/water-family.png",
+          "crop": [
+            0,
+            0,
+            512,
+            470
+          ],
+          "role": "pot design reference"
+        },
+        {
+          "source": "sources/water-family.png",
+          "crop": [
+            1000,
+            475,
+            1536,
+            1024
+          ],
+          "role": "filter arrangement repair target"
+        }
+      ],
+      "selected": "sources/pot-filter-family.png",
+      "original_output": "/Users/ljw/.codex/generated_images/01a1a95e-23bc-7e32-8ce5-d24b60bc889a/exec-35d83e94-36cf-40fd-81f6-d3a4b4d8dfd8.png"
+    },
+    {
+      "name": "supper-pot-family",
+      "prompt": "prompts/supper-pot-family.prompt.txt",
+      "inputs": [
+        {
+          "source": "sources/water-family.png",
+          "crop": [
+            0,
+            0,
+            512,
+            470
+          ],
+          "role": "exact pot design reference"
+        }
+      ],
+      "selected": "sources/supper-pot-family.png",
+      "original_output": "/Users/ljw/.codex/generated_images/01a1a95e-23bc-7e32-8ce5-d24b60bc889a/exec-60c673df-3fdc-4d30-9eef-f18aa6bedf4a.png"
+    }
+  ],
+  "producer_checks": {
+    "native_alpha": "All 18 initial exports included transparent exterior padding and retained generated alpha within extracted silhouettes. This historical count predates current runtime cleanup; water-samples.geometry.json lists the current exports.",
+    "display": "Producer inspected 1x reference-size proof on light and dark grounds. Proofs are disposable under runs/mars-live-feedback/water-samples.",
+    "limits": "Producer checks do not establish user recognition or browser target fit. Consolidated recognition and integration outcome: ../../art-review/2026.11.04_18.55.58/report.md."
+  },
+  "reference_input_mappings": [
+    {
+      "request": "slides-and-cores-alpha",
+      "original_input": "runs/mars-live-feedback/water-samples/sample-family-r1.png",
+      "retained_input": "references/sample-family-r1.png",
+      "sha256": "0cd10eaed21ac32cd2ca6b415ccb61b60175fd02dadc310e54a42961bd43ff00"
+    }
+  ]
+}

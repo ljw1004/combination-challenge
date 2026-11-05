@@ -1,0 +1,551 @@
+{
+  "version": 1,
+  "generator": "built-in image_gen",
+  "brief": "stories/mars/design-brief.md; latest user feedback overrides prior sample handling",
+  "state": "selected production assets; review outcome: ../../art-review/2026.11.04_18.55.58/report.md",
+  "notes": [
+    "Four selected source atlases retained before extraction.",
+    "Water atlas cell 5 is unused: its filter support was superseded by pot-filter-family.png.",
+    "The first slides/core sheet had a translucent white backdrop; the selected master is the alpha repair.",
+    "Glass slide runtime assets are owned by export-glass-slides.py; unused atlas cells are not exported.",
+    "Pot state images share one common display canvas and normalized visible dimensions; no content is painted by this exporter.",
+    "Core labels are hand marks; the specimen ice remains in a thin liner under the soft foil/felt wrap.",
+    "Portable images have no scene placement. Heater and filter target locations require root integration.",
+    "Meal states were additionally generated from the selected pot reference to preserve vessel identity."
+  ],
+  "assets": [
+    {
+      "name": "pot-empty",
+      "source": "projects/mars-study/production/live-feedback/sources/water-family.png",
+      "cell_zero_based": 0,
+      "source_cell_bounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "source_object_bounds": [
+        45,
+        78,
+        498,
+        420
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/pot-empty.png",
+      "runtime_pixels": [
+        320,
+        248
+      ],
+      "recommended_display_pixels": [
+        80,
+        62
+      ],
+      "visible_size_pixels": [
+        76,
+        58
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "pot-ice",
+      "source": "projects/mars-study/production/live-feedback/sources/water-family.png",
+      "cell_zero_based": 1,
+      "source_cell_bounds": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "source_object_bounds": [
+        545,
+        78,
+        998,
+        420
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/pot-ice.png",
+      "runtime_pixels": [
+        320,
+        248
+      ],
+      "recommended_display_pixels": [
+        80,
+        62
+      ],
+      "visible_size_pixels": [
+        76,
+        58
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "pot-meltwater",
+      "source": "projects/mars-study/production/live-feedback/sources/water-family.png",
+      "cell_zero_based": 2,
+      "source_cell_bounds": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "source_object_bounds": [
+        1045,
+        78,
+        1504,
+        420
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/pot-meltwater.png",
+      "runtime_pixels": [
+        320,
+        248
+      ],
+      "recommended_display_pixels": [
+        80,
+        62
+      ],
+      "visible_size_pixels": [
+        76,
+        58
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "pot-clean-water",
+      "source": "projects/mars-study/production/live-feedback/sources/water-family.png",
+      "cell_zero_based": 3,
+      "source_cell_bounds": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "source_object_bounds": [
+        43,
+        581,
+        505,
+        928
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/pot-clean-water.png",
+      "runtime_pixels": [
+        320,
+        248
+      ],
+      "recommended_display_pixels": [
+        80,
+        62
+      ],
+      "visible_size_pixels": [
+        76,
+        58
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "battery-heater-base",
+      "source": "projects/mars-study/production/live-feedback/sources/water-family.png",
+      "cell_zero_based": 4,
+      "source_cell_bounds": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "source_object_bounds": [
+        563,
+        652,
+        914,
+        924
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/battery-heater-base.png",
+      "runtime_pixels": [
+        256,
+        200
+      ],
+      "recommended_display_pixels": [
+        64,
+        50
+      ],
+      "visible_size_pixels": [
+        60,
+        46
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "pot-filter-clogged",
+      "source": "projects/mars-study/production/live-feedback/sources/pot-filter-family.png",
+      "cell_zero_based": 1,
+      "source_cell_bounds": [
+        971,
+        0,
+        1942,
+        809
+      ],
+      "source_object_bounds": [
+        1049,
+        98,
+        1824,
+        720
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/pot-filter-clogged.png",
+      "runtime_pixels": [
+        416,
+        336
+      ],
+      "recommended_display_pixels": [
+        104,
+        84
+      ],
+      "visible_size_pixels": [
+        100,
+        80
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "local-core-lined",
+      "source": "projects/mars-study/production/live-feedback/sources/slides-and-cores.png",
+      "cell_zero_based": 3,
+      "source_cell_bounds": [
+        1629,
+        0,
+        2172,
+        362
+      ],
+      "source_object_bounds": [
+        1661,
+        64,
+        2147,
+        304
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/local-core-lined.png",
+      "runtime_pixels": [
+        384,
+        200
+      ],
+      "recommended_display_pixels": [
+        96,
+        50
+      ],
+      "visible_size_pixels": [
+        92,
+        46
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "local-core-insulated",
+      "source": "projects/mars-study/production/live-feedback/sources/slides-and-cores.png",
+      "cell_zero_based": 5,
+      "source_cell_bounds": [
+        543,
+        362,
+        1086,
+        724
+      ],
+      "source_object_bounds": [
+        573,
+        431,
+        1056,
+        672
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/local-core-insulated.png",
+      "runtime_pixels": [
+        384,
+        200
+      ],
+      "recommended_display_pixels": [
+        96,
+        50
+      ],
+      "visible_size_pixels": [
+        92,
+        46
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "remote-core-insulated",
+      "source": "projects/mars-study/production/live-feedback/sources/slides-and-cores.png",
+      "cell_zero_based": 6,
+      "source_cell_bounds": [
+        1086,
+        362,
+        1629,
+        724
+      ],
+      "source_object_bounds": [
+        1115,
+        431,
+        1598,
+        672
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/remote-core-insulated.png",
+      "runtime_pixels": [
+        384,
+        200
+      ],
+      "recommended_display_pixels": [
+        96,
+        50
+      ],
+      "visible_size_pixels": [
+        92,
+        46
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "pot-potatoes",
+      "source": "projects/mars-study/production/live-feedback/sources/supper-pot-family.png",
+      "cell_zero_based": 0,
+      "source_cell_bounds": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "source_object_bounds": [
+        108,
+        9,
+        702,
+        468
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/pot-potatoes.png",
+      "runtime_pixels": [
+        320,
+        248
+      ],
+      "recommended_display_pixels": [
+        80,
+        62
+      ],
+      "visible_size_pixels": [
+        76,
+        58
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "pot-soybeans",
+      "source": "projects/mars-study/production/live-feedback/sources/supper-pot-family.png",
+      "cell_zero_based": 1,
+      "source_cell_bounds": [
+        768,
+        0,
+        1536,
+        512
+      ],
+      "source_object_bounds": [
+        849,
+        9,
+        1443,
+        469
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/pot-soybeans.png",
+      "runtime_pixels": [
+        320,
+        248
+      ],
+      "recommended_display_pixels": [
+        80,
+        62
+      ],
+      "visible_size_pixels": [
+        76,
+        58
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "pot-cooked-stew",
+      "source": "projects/mars-study/production/live-feedback/sources/supper-pot-family.png",
+      "cell_zero_based": 2,
+      "source_cell_bounds": [
+        0,
+        512,
+        768,
+        1024
+      ],
+      "source_object_bounds": [
+        108,
+        525,
+        703,
+        985
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/pot-cooked-stew.png",
+      "runtime_pixels": [
+        320,
+        248
+      ],
+      "recommended_display_pixels": [
+        80,
+        62
+      ],
+      "visible_size_pixels": [
+        76,
+        58
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "pot-supper",
+      "source": "projects/mars-study/production/live-feedback/sources/supper-pot-family.png",
+      "cell_zero_based": 3,
+      "source_cell_bounds": [
+        768,
+        512,
+        1536,
+        1024
+      ],
+      "source_object_bounds": [
+        849,
+        525,
+        1444,
+        985
+      ],
+      "component_threshold": 32,
+      "edge_preservation_radius": 2,
+      "runtime": "stories/mars/assets/live-feedback/pot-supper.png",
+      "runtime_pixels": [
+        320,
+        248
+      ],
+      "recommended_display_pixels": [
+        80,
+        62
+      ],
+      "visible_size_pixels": [
+        76,
+        58
+      ],
+      "placement_on_runtime_canvas": [
+        8,
+        8
+      ],
+      "transform": "crop component; resize to recorded visible size; center with transparent padding",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

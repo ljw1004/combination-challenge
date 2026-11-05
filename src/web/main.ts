@@ -668,7 +668,7 @@ function worldHTML(chapters: string, scenes: {chapter: number; image?: string}[]
   const {scale, width, height, bounds} = boardGeometry();
   // Scenery and the interactive board share geometry, but have separate stacking
   // contexts so the fixed goals can sit between them without masking any pixels.
-  const scenery = scenes.map(({chapter, image}, position) => `<div class="scene-panel" data-chapter="${chapter}" style="top:${position*bounds.height}px">${image ? `<img class="scene-art" src="${escape(asset(image))}" alt="">` : ''}<div class="location-scrim"></div></div>`).join('');
+  const scenery = scenes.map(({chapter, image}, position) => `<div class="scene-panel" data-chapter="${chapter}" style="top:${position*bounds.height}px">${image ? `<img class="scene-art" src="${escape(asset(image))}" alt="">` : ''}</div>`).join('');
   return `<div class="world" data-panel-height="${height}" style="width:${width}px;height:${scenes.length*height}px;--board-scale:${scale};--card-scale:${width/390/scale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--world-height:${scenes.length*bounds.height}px;--scene-left:${-bounds.x}px"><div class="scene-layer" aria-hidden="true">${scenery}</div><div class="board fixed-locations">${chapters}</div></div>`;
 }
 function packArrival(checkpointLayout=false, source?: State){

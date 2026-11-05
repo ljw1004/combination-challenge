@@ -1,5 +1,7 @@
 # Mission to Mars design examples
 
+This record describes the promotion-time version. The live PNG was subsequently refreshed for the [live feedback revision](../production/live-feedback/design-examples.md); the original measurements and hash below remain historical.
+
 4 November 2026. The requested [design-exxamples.png](../../../stories/mars/design-exxamples.png) preserves the user's filename and presents three current gameplay views, following the cream framing, title and chapter captions of the Settlement and Cookbook examples.
 
 Captured the canonical `/combinations.html?story=mars/mars.md` route in Chromium at 390 × 844 CSS pixels and device scale 2. The sheet places three unaltered 780 × 1688 browser captures in a 2532 × 2000 HTML/CSS composition. No game CSS, artwork or source manuscript was changed to obtain these views.

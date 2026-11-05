@@ -9,6 +9,7 @@ The live [Mars design brief](../../../stories/mars/design-brief.md) owns accepte
 | Editable manuscript and runtime assets | `stories/mars/mars.md` and `stories/mars/assets/`. Future integrated changes target these paths. |
 | Accepted physical and visual intent | `stories/mars/design-brief.md`, also governing study iterations. |
 | Preserved story references | `projects/mars-study/mars-v12/` and `illustrated-baseline/`; do not export into or rewrite them. |
+| Current live revision | [Chapter feedback, selected art and checks](live-feedback/README.md), including the two-fill water cell. |
 | Selected production inputs | The [v12 survival package](v12/survival/README.md) supplies the accepted source family, registration, exact requests and catalogue. The [v12 index](v12/README.md) distinguishes its earlier passes. |
 | Disposable work | Ignored `runs/` subdirectories for trial generations, rejected candidates, crops, scene/lifecycle proofs and browser captures. |
 

@@ -1,0 +1,30 @@
+{
+  "purpose": "Preserve the exact inputs originally supplied to selected fuel image-generation requests. Original request argument files remain unchanged; these mappings resolve historical scratch paths after cleanup.",
+  "references": [
+    {
+      "request": "lander-no-bricks.json",
+      "original_reference_path": "/Users/ljw/code/combination-challenge/runs/mars-live-feedback/fuel/the-leg-that-stays.png",
+      "sha256": "886c20cb4ba5cafd2cab9619df036ea4d5950986e002dd3e89f0a5751dbf5244",
+      "retained_reference": "references/the-leg-that-stays.png"
+    },
+    {
+      "request": "lander-transfer.json",
+      "original_reference_path": "/Users/ljw/code/combination-challenge/runs/mars-live-feedback/fuel/lander-transfer-template.png",
+      "sha256": "7b8acdb5c71982e3485104ff2d100c436e54bbebea49cddc276a1a2ad6c6ccb3",
+      "retained_reference": "references/lander-transfer-template.png"
+    },
+    {
+      "request": "reactor-connected.json",
+      "original_reference_path": "/Users/ljw/code/combination-challenge/runs/mars-live-feedback/fuel/reactor-template.png",
+      "sha256": "f5f6b3a0ebc714ec8b76b66dd2347e6f739754b2607144693d5312f17a8ac6ee",
+      "retained_reference": "references/reactor-template.png"
+    },
+    {
+      "request": "water-ground.json",
+      "original_reference_path": "/Users/ljw/code/combination-challenge/runs/mars-live-feedback/fuel/two-gases-from-water.png",
+      "sha256": "c59664f6bda9801c906e249b2eb499d44ab2133140f8fb3f46f33b426d4b7286",
+      "reconstruct_from": "stories/mars/assets/survival/scenes/two-gases-from-water.webp",
+      "reconstruction": "Pillow: Image.open(source).convert(\"RGBA\").crop((0, 0, 780, 780)).save(target). Verified to reproduce the original PNG bytes."
+    }
+  ]
+}

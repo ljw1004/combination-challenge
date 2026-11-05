@@ -1,0 +1,152 @@
+{
+  "scope": {
+    "manuscript": "stories/mars/mars.md",
+    "chapters": [
+      2,
+      3,
+      9,
+      10,
+      11,
+      12
+    ],
+    "excluded": "Other manuscript chapters, engine code, standing guidance and design brief were owned elsewhere."
+  },
+  "ids": {
+    "retained_for_later": [
+      "steel-pin",
+      "clean-water",
+      "stored-source-core",
+      "remote-ice-core"
+    ],
+    "new": [
+      "empty-pot",
+      "ice-chunks",
+      "pot-of-ice",
+      "pot-on-heater",
+      "empty-microscope-slide",
+      "sludge-microscope-slide",
+      "examined-sludge-slide"
+    ],
+    "revised_meaning": {
+      "heater": "Fixed battery heater; persists through both pot routes.",
+      "stored-source-core": "Original local core in a thin sealed liner and reused insulation, kept on existing lab cooling.",
+      "sectioned-ice-core": "Ordinary ice microscope slide; original remote core survives.",
+      "examined-ice-core": "Examined ice slide; stays in the lab."
+    },
+    "removed": [
+      "tap-water-bag",
+      "stored-water",
+      "collected-intake-residue",
+      "laboratory-membrane",
+      "particle-bearing-membrane",
+      "first-body-on-membrane",
+      "laboratory-core-freezer",
+      "cold-sectioning-stage",
+      "cold-stage-microscope"
+    ]
+  },
+  "authored_centres": {
+    "water": {
+      "heater": [
+        77,
+        39
+      ],
+      "pot_overlay": [
+        79.6,
+        34.9
+      ],
+      "reason": "Pot sprite includes right-side handles; body centre needs a rightward offset over the circular heater."
+    },
+    "lab": {
+      "microscope": [
+        71.8,
+        16.1
+      ],
+      "examined_slide": [
+        71.8,
+        19.2
+      ],
+      "filter": [
+        28.8,
+        18
+      ]
+    },
+    "source": {
+      "ice": [
+        23,
+        22.3
+      ],
+      "hit_display": [
+        85,
+        36
+      ]
+    },
+    "gully": {
+      "anchor": [
+        86.85897,
+        15.49171
+      ],
+      "extended_winch": [
+        73.8,
+        29.8
+      ],
+      "winch_display": [
+        180,
+        260
+      ],
+      "reached_ice": [
+        54.871795,
+        27.014218
+      ],
+      "reached_bank_display": [
+        272,
+        368
+      ],
+      "registration": "reached-rover-registration.json"
+    }
+  },
+  "checks": {
+    "logic": "Pass on the current full manuscript: Air sequential goal disclosure with comms first; both Water routes; heater persistence and pot-overlay retirement; sludge examination; local core insulation; gully pre-crossing sampling gate; remote core preserved after shaving and examination.",
+    "browser": "Pass at 390\u00d7844 with real drags: both Water routes, empty-pot registration, winch placement and rover crossing, reached-ice coring, sludge slide examination and ice-slide examination. Shared laboratory scenes and narrowed source ice target inspected.",
+    "lint": "Scoped fast declarations pass. Full lint reached the existing 20,000-state fixed-analysis limit and still reports missing artwork in other concurrently edited chapters; full final verification belongs to integration.",
+    "evidence": "Disposable scripts, states and captures under runs/mars-live-feedback/water-samples. Producer checks are not fresh recognition review.",
+    "gully_crossed_state": "Rover is now mechanically registered into the reached-bank receiver at the existing cable hook; appeared only after crossing and survived reload and coring in 320\u00d7844 and 390\u00d7844 real-drag checks. No combination, goal, item identity or engine changes."
+  },
+  "new_scene_sources": [
+    {
+      "name": "shared-laboratory",
+      "input": "stories/mars/assets/survival/scenes/what-the-water-carries.webp",
+      "prompt": "prompts/shared-laboratory.prompt.txt",
+      "selected": "sources/shared-laboratory.png",
+      "output": "stories/mars/assets/live-feedback/shared-laboratory.webp"
+    },
+    {
+      "name": "local-core-laboratory",
+      "input": "stories/mars/assets/survival/scenes/the-ground-we-know.webp",
+      "prompt": "prompts/local-core-laboratory.prompt.txt",
+      "selected": "sources/local-core-laboratory.png",
+      "output": "stories/mars/assets/live-feedback/local-core-laboratory.webp"
+    },
+    {
+      "name": "expedition-rover-corrected",
+      "input": "stories/mars/assets/survival/items/expedition-rover.png",
+      "prompt": "prompts/expedition-rover-corrected.prompt.txt",
+      "selected": "sources/expedition-rover-corrected.png"
+    },
+    {
+      "name": "extended-winch",
+      "input": [
+        "stories/mars/assets/survival/items/rover-winch.png",
+        "stories/mars/assets/survival/scenes/across-the-gully.webp"
+      ],
+      "prompt": "prompts/extended-winch.prompt.txt",
+      "selected": "sources/extended-winch.png"
+    },
+    {
+      "name": "ice-chunks",
+      "input": [],
+      "prompt": "prompts/ice-chunks.prompt.txt",
+      "selected": "sources/ice-chunks.png"
+    }
+  ]
+}

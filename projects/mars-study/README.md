@@ -8,6 +8,8 @@ The [previous live version](illustrated-baseline/mars.md) and its artwork are pr
 
 The [live design brief](../../stories/mars/design-brief.md) is the single authority for accepted intent, including work in this directory. Follow its [revision requirements and applicable techniques](../../stories/mars/design-brief.md#revision-and-artwork-requirements). Record unaccepted departures in [working notes](working-notes.md); update the live brief when a decision is adopted. Frozen iteration briefs describe their original versions and are not copied back over the live brief. The [shared authoring process](../../docs/story-authoring.md#develop-a-story) owns iteration and review; the [production entry point](production/README.md) identifies source packages and historical tool limits.
 
+The [live feedback revision](production/live-feedback/README.md) records the latest chapter changes, selected artwork and checks.
+
 The phase descriptions, version claims and example commands below record earlier development. The live brief owns current intent; historical exports must not overwrite the accepted reference or the live story without deliberate adaptation.
 
 ## Preserved development record
@@ -60,7 +62,7 @@ The earlier artwork phase was completed on 1 November 2026. Its source paintings
 
 The central design problem is to make dramatic tension and practical tinkering work through combinations. The player should build a dependable, eventually fruitful place from a small useful set of mission equipment and local materials, then do science that changes what they understand and what they need to do. This is a direction to test through the [shared development process](../../docs/story-authoring.md#develop-a-story), not an assertion that the current candidate has succeeded.
 
-The user confirmed a **solo surface expedition**, plausible future engineering and a handful of explicit fictional allowances where useful. The mission's scientific purpose remains central. This resolves the earlier question about rescuing crewmates: passive companions should not become objects the player must manage. Draft-specific equipment and fiction assumptions belong in each `design-brief.md`; the [current brief](mars-v12/design-brief.md) records its choices and scientific boundaries.
+The user confirmed a **solo surface expedition**, plausible future engineering and a handful of explicit fictional allowances where useful. The mission's scientific purpose remains central. This resolves the earlier question about rescuing crewmates: passive companions should not become objects the player must manage. Draft-specific equipment and fiction assumptions belong in each `design-brief.md`; the [current brief](../../stories/mars/design-brief.md) records its choices and scientific boundaries.
 
 We have to reconcile how we can match the constraints of a "combining game" with a Mars survival story. I have two central ideas:
 1. It's hard to boost payload into orbit. That's why there's only mass allowance for one person. That's why you're on your own.
@@ -95,7 +97,7 @@ Establish shelter first, water second and the substantial shared farm third, bef
 
 Build around real components and places rather than specialized formers named after each product. Chapter openings should favor observed circumstances and natural, delayed Earth radio messages. Name important threats plainly: mission control warns of a major dust storm and substantial solar-power loss. That storm concerns the home and garden; keeping the sample cold is not a separate emergency substory.
 
-The current investigation begins when brown material blocks the hand-carried water filter. Damaged patterned fragments lead to separate source and remote ice cores; a cold viewing section from the remote core reveals the articulated outline while the remaining core is retained. Local Iron follows that discovery and immediately precedes water electrolysis and fuel construction. The [v12 brief](mars-v12/design-brief.md#story-and-voice) owns the sequence and the boundary between local supports and supplied precision equipment. Omit comparison and routine-processing detours that obscure the discovery; pleasant tools or locally positive ratings do not justify them.
+The current investigation begins when brown material blocks the hand-carried water filter. Damaged patterned fragments lead to separate source and remote ice cores; a cold viewing section from the remote core reveals the articulated outline while the remaining core is retained. Local Iron follows that discovery and immediately precedes water electrolysis and fuel construction. The [live brief](../../stories/mars/design-brief.md#story-voice-and-sequence) owns the sequence and the boundary between local supports and supplied precision equipment. Omit comparison and routine-processing detours that obscure the discovery; pleasant tools or locally positive ratings do not justify them.
 
 Keep meaningful science in the player's hands. Explore how combining can let the player investigate a question, form a hypothesis and act on evidence. Each retained experiment should reveal something that changes the question or next action. Avoid a long procession of instrument attachments, routine controls and documentation before the interesting discovery can happen.
 
