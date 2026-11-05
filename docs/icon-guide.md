@@ -176,6 +176,8 @@ For a scene audit, render the background alone, every declared fixed appearance 
 
 Check whether decorative objects accidentally invite the same interaction as the movable icons. Fading a row of isolated objects may still leave it looking like inventory. Contextual setting, overlapping forms, shared supports and deliberate cropping can help a decorative illustration read as a scene. Review that distinction with the actual movable objects present; use the story's visual language rather than prescribing one universal composition.
 
+For a downward landscape extension, give the generator a clean upper crop and ask it to outpaint beyond that edge. Locate any existing texture seam before choosing protected pixels: preserving a numerical half of the canvas can preserve the defect itself. Inspect the final exported junction close up as well as in the player; exact preserved pixels and a seamless generation do not prove that their composition is seamless.
+
 Separate the generated painting from its page framing when layout limits need precision. A painting can extend beyond the visible page; place and crop it during scene composition instead of relying only on a prompt to establish the working area. Keep food and objects naturally proportioned, inspect the visible crop for lost subjects or awkward edges, and preserve the full painting alongside the composed export. Check the result in the actual player at its supported viewport sizes.
 
 ## 9. Verify the playable result and retain the work

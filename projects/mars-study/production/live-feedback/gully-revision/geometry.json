@@ -69,19 +69,27 @@
   "depth": "Winch at central far ledge about50%,18%; rover near distant ice about66%,12%, visibly beyond winch; brown-layer ice about67%,8%.",
   "limits": "Geometry and extraction metadata; informed source and browser review outcomes are recorded separately in README.md.",
   "foreground": {
-    "source": "sources/foreground-gully.png",
+    "source": "sources/outpainted-gully.png",
+    "sourceCrop": [
+      116,
+      0,
+      860,
+      1609
+    ],
     "originalSource": "sources/central-gully.png",
     "originalRowsPreserved": [
       0,
-      844
+      640
     ],
     "smoothstepTransitionRows": [
-      844,
-      960
+      640,
+      740
     ],
-    "generatedRows": [
-      960,
+    "outpaintedRows": [
+      740,
       1688
-    ]
+    ],
+    "excludedOldSeamRow": 756,
+    "input": "references/outpaint-canvas.png"
   }
 }

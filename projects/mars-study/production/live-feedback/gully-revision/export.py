@@ -19,10 +19,12 @@ def cut(im,poly,holes=(),soften=.4):
  if soften:m=m.filter(ImageFilter.GaussianBlur(soften))
  out=im.copy();out.putalpha(m);return out
 base=source('central'); rig=source('rigged'); arr=source('reached')
-# Retain every original pixel in the upper half, including all changing
-# equipment. Blend the selected painted foreground only below the midpoint.
-foreground=source('foreground')
-transition=(844,960)
+# The old source has a baked-in soil cut at row756, ABOVE its midpoint.
+# Outpaint from a clean upper crop; never retain that old cut in the export.
+# The framing bars constrain the generated scene's tall aspect and are cropped.
+foreground=Image.open(P/'sources/outpainted-gully.png').convert('RGBA')
+foreground=foreground.crop((116,0,860,foreground.height)).resize(SIZE,Image.Resampling.LANCZOS)
+transition=(640,740)
 mask=Image.new('L',SIZE)
 for y in range(SIZE[1]):
  t=max(0,min(1,(y-transition[0])/(transition[1]-transition[0])))
