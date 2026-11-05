@@ -28,7 +28,7 @@ def export(output, proofs=None):
     layers = {}
     for key, spec in layout['layers'].items():
         image = opened(spec['source'])
-        size = tuple(round(n * spec['scale']) for n in image.size)
+        size = tuple(spec['size']) if 'size' in spec else tuple(round(n * spec['scale']) for n in image.size)
         image = image.resize(size, Image.Resampling.LANCZOS)
         layer = Image.new('RGBA', canvas)
         layer.paste(image, tuple(spec['origin']))

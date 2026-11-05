@@ -1,5 +1,7 @@
 # Two storm-service controls
 
+The later [shelter/control refinement](../shelter-and-controls/README.md) shortens the plate to remove its unused right third. Its selected source and exporter now own the live scene. The record below describes the preceding removal of the third control.
+
 4 November 2026. The user removed the right-hand fuel-plant selector and its action because gas processing is manual. The image retains only the existing reserve-power and water selectors. Their positions, scale, unselected pixels and fitted appearances remain unchanged; the old mounting plate retains its full width with a plain right side.
 
 [request.json](request.json) records the exact built-in imagegen edit and original scene reference. [two-controls-master.png](two-controls-master.png) is the selected painted removal. [export-scene.py](export-scene.py) resizes that edit to the original 780 × 1688 canvas and takes only the local replacement in **[475, 228, 608, 433]**, with an eight-pixel inward smoothstep boundary. The final [runtime scene](../../../../../stories/mars/assets/live-feedback/storm-controls/amber-noon.webp) is lossless WebP, so original decoded pixels outside the patch remain byte-identical after decoding.

@@ -240,11 +240,79 @@ After air, water. Pale ice shows beneath a dusty bank a short walk from the hab.
 - `fabric` [consume] + `reclaimed-water-cartridge` [consume] -> `water-filter`
 - `water-filter` [preserve] + `meltwater` [transform] -> `clean-water`
 
+## `cave-shelter` Earth
+
+![`cave-shelter` Earth](assets/live-feedback/earth.webp)
+
+The rock offers shelter, but no air. I can build a small room inside it.
+
+> NOTE: The entrance is smaller and less regular than the deeper chamber. Natural rock partly masks the tent front; the tent fits snugly rather than occupying a huge empty stage. The initial floor is rough with hand-clearable stones, never major structural boulders. Shovelling clears loose stones, levels the shallow footprint and checks for sharp points without cutting structural rock. The insulated pressure hab rests directly on that prepared ground; its original reinforced floor includes rated base protection. There is no brick pad, exterior apron, entrance baffle, perimeter wall or separate underlay item. This shelter is established before the solar furnace or ceramics exist. The folded state is compact but has enough visible fabric to plausibly fill the final footprint.
+
+> NOTE: The cave provides shielding; the rated tent contains breathable air. Inflation does not turn on lamps. Existing integrated air handling and regulated heat make the room usable. Lights fit directly to the inflated room, and only then does its window glow.
+
+**Goals**
+- Clear the tent footprint -- `cleared-cavern-bay`
+- next: Inflate the room -- `pressurized-growing-room`
+- next: Bring in light -- `lit-growing-room`
+
+**Hotspots**
+- `surveyed-cavern-floor` (at 49.29487%, 35.87085%)
+  - icon: ![surveyed-cavern-floor](assets/live-feedback/earth-surveyed-cavern-floor.png)
+- `cleared-cavern-bay` (at 49.29487%, 35.87085%)
+  - icon: ![cleared-cavern-bay](assets/live-feedback/earth-cleared-cavern-bay.png)
+- `sealed-growing-room` (at 49.29487%, 35.87085%)
+  - icon: ![sealed-growing-room](assets/live-feedback/earth-sealed-growing-room.png)
+- `pressurized-growing-room` (at 49.29487%, 35.87085%)
+  - icon: ![pressurized-growing-room](assets/live-feedback/earth-pressurized-growing-room.png)
+- `lit-growing-room` (at 49.29487%, 35.87085%)
+  - icon: ![lit-growing-room](assets/live-feedback/earth-lit-growing-room.png)
+
+**Items**
+- `surveyed-cavern-floor` Rough cavern floor
+  - icon: ![Rough cavern floor](assets/live-feedback/earth-surveyed-cavern-floor.png)
+
+- `shovel` Shovel
+  - icon: ![Shovel](assets/survival/items/shovel.png)
+
+- `cleared-cavern-bay` Cleared cavern bay
+  - icon: ![Cleared cavern bay](assets/live-feedback/earth-cleared-cavern-bay.png)
+
+  Loose stones and grit lie in a small spoil pile. I level the footprint and clear the sharp edges before unfolding the hab.
+
+- `folded-pressure-envelope` Folded insulated hab
+  - icon: ![Folded insulated hab](assets/survival/items/folded-pressure-envelope.png)
+
+  A compact insulated pressure tent from the habitat supplies, with its own reinforced protective floor, airlock and service fittings.
+
+- `sealed-growing-room` Unfolded pressure room
+  - icon: ![Unfolded pressure room](assets/live-feedback/earth-sealed-growing-room.png)
+
+- `pressurized-growing-room` Inflated pressure room
+  - icon: ![Inflated pressure room](assets/live-feedback/earth-pressurized-growing-room.png)
+
+  The fabric rises into the shelter of the cavern. Its doorway sits just behind the narrow mouth.
+
+- `grow-light-rails` Grow-light rails
+  - icon: ![Grow-light rails](assets/items/grow-light-rails.png)
+
+- `lit-growing-room` Lit growing room
+  - icon: ![Lit growing room](assets/live-feedback/earth-lit-growing-room.png)
+
+  Warm light glows through the small window. The cave outside the doorway is still dark.
+
+- `air-tanks`
+
+**Combinations**
+- `shovel` [preserve] @ `surveyed-cavern-floor` [transform] -> `cleared-cavern-bay`
+- `folded-pressure-envelope` [consume] @ `cleared-cavern-bay` [transform] -> `sealed-growing-room`
+- `air-tanks` [consume] @ `sealed-growing-room` [transform] -> `pressurized-growing-room`
+- `grow-light-rails` [consume] @ `pressurized-growing-room` [transform] -> `lit-growing-room`
+
 ## Fire
 
 ![Fire](assets/live-feedback/fire.webp)
 
-I’ve got air and water. A quick break, then back to work.
+The sheltered room is up. Now I need ceramic blocks for the berth and crop beds, and porous granules for their roots.
 
 > NOTE: The same outdoor solar furnace keeps its feet, reflector rim and receiver axis registered through assembly. Supported molds form bricks; a separate tray fires preformed loose granules for the garden. The selected local feed can make stable porous ceramic. No finished bricks are crushed for substrate. Later metal extraction adapts this furnace with high-temperature electrodes and controlled current; sunlight supplies heat, not chemical reduction.
 
@@ -315,84 +383,6 @@ I’ve got air and water. A quick break, then back to work.
 - `screened-regolith` [consume] @ `solar-furnace` [preserve] -> `ceramic-blocks`
 - `clean-water` [consume] + `screened-regolith` [consume] -> `granule-charge`
 - `granule-charge` [transform] @ `solar-furnace` -> `fired-granules`
-
-## `cave-shelter` Earth
-
-![`cave-shelter` Earth](assets/live-feedback/earth.webp)
-
-The rock offers shelter, but no air. I can build a small room inside it.
-
-> NOTE: The entrance is smaller and less regular than the deeper chamber. Natural rock partly masks the tent front; the tent fits snugly rather than occupying a huge empty stage. The initial floor is rough with hand-clearable stones, never major structural boulders. The brick pad covers only the tent footprint, with visible laid courses and smooth joints. There is no exterior apron, entrance baffle, perimeter wall or separate padded-underlay item. The pressure envelope includes its own rated thin base protection. The folded state is compact but has enough visible fabric to plausibly fill the final footprint.
-
-> NOTE: The cave provides shielding; the rated tent contains breathable air. Inflation does not turn on lamps. Existing integrated air handling and regulated heat make the room usable. Lights fit directly to the inflated room, and only then does its window glow.
-
-**Goals**
-- Give the tent a smooth brick floor -- `protected-cavern-floor`
-- next: Inflate the room -- `pressurized-growing-room`
-- next: Bring in light -- `lit-growing-room`
-
-**Hotspots**
-- `surveyed-cavern-floor` (at 49.29487%, 35.87085%)
-  - icon: ![surveyed-cavern-floor](assets/live-feedback/earth-surveyed-cavern-floor.png)
-- `cleared-cavern-bay` (at 49.29487%, 35.87085%)
-  - icon: ![cleared-cavern-bay](assets/live-feedback/earth-cleared-cavern-bay.png)
-- `protected-cavern-floor` (at 49.29487%, 35.87085%)
-  - icon: ![protected-cavern-floor](assets/live-feedback/earth-protected-cavern-floor.png)
-- `sealed-growing-room` (at 49.29487%, 35.87085%)
-  - icon: ![sealed-growing-room](assets/live-feedback/earth-sealed-growing-room.png)
-- `pressurized-growing-room` (at 49.29487%, 35.87085%)
-  - icon: ![pressurized-growing-room](assets/live-feedback/earth-pressurized-growing-room.png)
-- `lit-growing-room` (at 49.29487%, 35.87085%)
-  - icon: ![lit-growing-room](assets/live-feedback/earth-lit-growing-room.png)
-
-**Items**
-- `surveyed-cavern-floor` Rough cavern floor
-  - icon: ![Rough cavern floor](assets/live-feedback/earth-surveyed-cavern-floor.png)
-
-- `shovel` Shovel
-  - icon: ![Shovel](assets/survival/items/shovel.png)
-
-- `cleared-cavern-bay` Cleared cavern bay
-  - icon: ![Cleared cavern bay](assets/live-feedback/earth-cleared-cavern-bay.png)
-
-  Loose stones and grit lie in a small spoil pile. The uneven rock is ready for a level pad.
-
-- `protected-cavern-floor` Smooth brick floor
-  - icon: ![Smooth brick floor](assets/live-feedback/earth-protected-cavern-floor.png)
-
-  Close-set ceramic bricks make a smooth base. I check the joints so nothing sharp presses against the tent floor.
-
-- `folded-pressure-envelope` Folded pressure envelope
-  - icon: ![Folded pressure envelope](assets/survival/items/folded-pressure-envelope.png)
-
-  A compact, substantial folded tent with a reinforced floor, integrated thin base protection, airlock and service fittings.
-
-- `sealed-growing-room` Unfolded pressure room
-  - icon: ![Unfolded pressure room](assets/live-feedback/earth-sealed-growing-room.png)
-
-- `pressurized-growing-room` Inflated pressure room
-  - icon: ![Inflated pressure room](assets/live-feedback/earth-pressurized-growing-room.png)
-
-  The fabric rises into the shelter of the cavern. Its doorway sits just behind the narrow mouth.
-
-- `grow-light-rails` Grow-light rails
-  - icon: ![Grow-light rails](assets/items/grow-light-rails.png)
-
-- `lit-growing-room` Lit growing room
-  - icon: ![Lit growing room](assets/live-feedback/earth-lit-growing-room.png)
-
-  The warm light catches the brick floor. Outside the small doorway, the cave is still dark.
-
-- `ceramic-blocks`
-
-- `air-tanks`
-
-**Combinations**
-- `shovel` [preserve] @ `surveyed-cavern-floor` [transform] -> `cleared-cavern-bay`
-- `ceramic-blocks` [consume] @ `cleared-cavern-bay` [transform] -> `protected-cavern-floor`
-- `folded-pressure-envelope` [consume] @ `protected-cavern-floor` [transform] -> `sealed-growing-room`
-- `air-tanks` [consume] @ `sealed-growing-room` [transform] -> `pressurized-growing-room`
-- `grow-light-rails` [consume] @ `pressurized-growing-room` [transform] -> `lit-growing-room`
 
 ## A bed under the hill
 
@@ -767,12 +757,12 @@ After the first harvest, I bring in another pot of meltwater. Brown sludge has c
 
 **Items**
 - `sealed-source-core` Cut source core
-  - icon: ![Cut source core](assets/live-feedback/core-readability/cut-source-core.png)
+  - icon: ![Cut source core](assets/live-feedback/compact-sample-rack/cut-source-core.png)
 
   The clean barrel reaches ice beyond the hand-harvested edge. I seal the core in its thin liner before carrying it inside.
 
 - `stored-source-core` Insulated source core
-  - icon: ![Insulated source core](assets/live-feedback/core-readability/insulated-source-core.png)
+  - icon: ![Insulated source core](assets/live-feedback/compact-sample-rack/insulated-source-core.png)
   - from chapter `specimen-stow`: Local ice core
 
   A small piece of the same reflective insulation wraps the sealed liner. It slows warming during transfers; the laboratory’s existing cold store keeps the core frozen while I go farther from the bank.
@@ -838,7 +828,7 @@ Broken ledges and loose rubble block the rover’s climb. I can scramble to soun
   The rover climbs the ledge. I unhook it, reel in the cable and drive on across the plateau to the ice. The brown layer is now within reach of the core drill; the winch stays anchored for the return.
 
 - `remote-ice-core` Remote ice core
-  - icon: ![Remote ice core](assets/live-feedback/core-readability/remote-horizontal.png)
+  - icon: ![Remote ice core](assets/live-feedback/compact-sample-rack/remote-ice-core.png)
 
   A brown band runs through the original core inside its thin sealed liner. I wrap it in reflective insulation, secure it in the rover’s cold service and retrace the gully. This ice has never passed through the water pot.
 
@@ -980,7 +970,7 @@ The iron gives me something to build with. A divided cell will supply hydrogen f
 
 > NOTE: The cell's body and the common Empty tank are locally formed Iron. The unused service insert from the regenerative-power experiment supplies the membrane, electrodes and separate gas paths; it is distinct from the furnace electrodes and does not cannibalize breathing equipment. Allocated gas-service spares provide the necessary short grey valves, seals and dedicated connectors. Local canister strength and useful gas delivery pressure are accepted game premises. The existing electrical service and ordinary safe filling are bundled, without a power-cord action here.
 
-> NOTE: Two water-filling actions commission the two sides of one pictured vessel. The first replaces the empty cell with its hydrogen-ready state; the second preserves that state and creates a separate oxygen receiver over the right half. The hydrogen receiver covers the matching left half, independently of the spigots’ painted size. Each rule has exactly one result. Empty tank can be made at the cell before or after water. Its reusable token represents the same limited batch of identical locally made vessels, with dedicated clean gas service, not a bottle switched indiscriminately between gases. Water filling and gas collection include repeated trips and batches.
+> NOTE: Two water-filling actions commission the two sides of one pictured vessel. The first replaces the empty cell with its hydrogen-ready state; the second preserves that state and creates a separate oxygen receiver over the right half. After the first fill, the hydrogen receiver covers the full vessel. The second fill adds the later-painted oxygen receiver over the right half, where it takes drop priority; the remaining exposed left half still receives hydrogen. Receiving areas are independent of the spigots’ painted size. Each rule has exactly one result. Empty tank can be made at the cell before or after water. Its reusable token represents the same limited batch of identical locally made vessels, with dedicated clean gas service, not a bottle switched indiscriminately between gases. Water filling and gas collection include repeated trips and batches.
 
 **Goals**
 - Fill both sides of the water cell -- `oxygen-outlet`
@@ -994,7 +984,7 @@ The iron gives me something to build with. A divided cell will supply hydrogen f
   - place: `empty-gas-tank` (at 54.8%, 30%)
 - `hydrogen-cell` (at 37.94872%, 32.64218%)
   - icon: ![Hydrogen side](assets/live-feedback/fuel/cell-hydrogen.png)
-  - hitbox: (at 28.33333%, 32.64218%) (size 19.23077%, 14.21801%)
+  - hitbox: (at 37.94872%, 32.64218%) (size 38.46154%, 14.21801%)
   - place: `empty-gas-tank` (at 21.02564%, 38.27014%)
   - place: `hydrogen-cylinder` (at 20%, 30%)
 - `oxygen-outlet` (at 46.79487%, 32.52370%)
@@ -1060,7 +1050,7 @@ The iron gives me something to build with. A divided cell will supply hydrogen f
 
 One of the iron tanks makes the reaction chamber. Now it needs both gases and power.
 
-> NOTE: Preparing the site includes adapting one of the same locally made empty tanks as the plain reaction chamber. The gas analyzer's nonessential carbon-analysis channel donates its nickel methanizer catalyst, small heater/sensor and sample-drying fittings; those original measurements stop. The microscope and specimen cooling remain intact. The existing shared controller and a simple water trap complete the equipment. Small ceramic pieces or found rocks keep the hot chamber clear of the ground. No new metal stock, supplied fuel plant, table, mounting frame or solar field appears.
+> NOTE: Preparing the site includes adapting one of the same locally made empty tanks as the plain reaction chamber. The gas analyzer's nonessential carbon-analysis channel donates its nickel methanizer catalyst, small heater/sensor and sample-drying fittings; those original measurements stop. The microscope and specimen cooling remain intact. The existing shared controller and a simple water trap complete the equipment. A clear pale hand-marked CH₄ identifies the main converter body and remains visible as its feeds and power are fitted. Small ceramic pieces or found rocks keep the hot chamber clear of the ground. No new metal stock, supplied fuel plant, table, mounting frame or solar field appears.
 
 > NOTE: The existing isolated atmospheric-service branch collects and releases CO₂ at useful pressure while breathing continues. Dedicated gas paths, compatible fittings, useful pressure differences and sufficient batch throughput are bounded mission capabilities. The original array has a load/time margin for scheduled processing while essential services remain powered. Gas production and recovered water are repeated batches, interrupted later by the storm. Oxygen never enters this plant. The same common Empty tank supplies the CO₂ and methane collection operations, representing dedicated members of the finite vessel batch.
 
@@ -1114,7 +1104,7 @@ Back in the starter hab, the sky has turned amber.
 
 “Storm alert. Science advises a major regional dust storm over your site. You may lose most of your solar power. The essential reserve covers the forecast interruption. Stop the industrial loads and protect the growing room.”
 
-> NOTE: This control visit takes place in the original surface starter habitat, which still houses the laboratory. Its round window looks onto the storm. A small mounting strip carries two compact selectors with clear symbols: battery/lightning for power, and a tap and droplet for water service. The reusable key lies on the floor below. Selecting water reserve stops outdoor melting trips and switches the clean tank to essential use; there is no well to drain. Either reserve selector may be set first. The essential battery reserve carries air handling, reduced heat and laboratory cooling through the forecast. Hot processing stops; stored breathing gas and the scrubber remain available. Both selector states are required before proceeding. Pausing the manually operated gas batches is ordinary storm preparation, not a third control action.
+> NOTE: This control visit takes place in the original surface starter habitat, which still houses the laboratory. Its round window looks onto the storm. A compact backing plate fits just two selectors, with no unused blank third bay. Their clear symbols are battery/lightning for power, and a tap and droplet for water service. The reusable key lies on the floor below. Selecting water reserve stops outdoor melting trips and switches the clean tank to essential use; there is no well to drain. Either reserve selector may be set first. The essential battery reserve carries air handling, reduced heat and laboratory cooling through the forecast. Hot processing stops; stored breathing gas and the scrubber remain available. Both selector states are required before proceeding. Pausing the manually operated gas batches is ordinary storm preparation, not a third control action.
 
 **Goals**
 - Put the station on reserve -- `reserve-power-selected`
@@ -1439,50 +1429,29 @@ Mara confirms a hold for rendezvous alignment. The spacecraft is ready, the spec
 
 ## `specimen-stow` The things we take
 
-![The things we take](assets/live-feedback/core-readability/the-things-we-take.webp)
+![The things we take](assets/live-feedback/compact-sample-rack/the-things-we-take.webp)
 
 Rendezvous clearance. The mission’s sample rack has room for four cores. I secure just two: one from home, one from across the gully. The other two places will go home empty.
 
-> NOTE: Returning ice cores was part of the original mission. One compact cold rack has four horizontal holders in a two-by-two arrangement; only the upper two are targets. The lower two remain empty because the mission ends early. The two original ice cores return. The laboratory slides and microscope stay behind. Each core stays in its thin sealed liner, with reused insulation for transfers between existing laboratory/rover cooling and the flight cold cradle. The remote icon shows the ice exposed for identification in the cooled cradle; removing and replacing its transfer wrap is bundled. Insulation only slows heat transfer; the established refrigeration keeps the samples cold. Fastening and connecting flight cooling are bundled in each drag. Either core may be stowed first. No new carrier-building step or examined-slice package is introduced.
+> NOTE: Returning ice cores was part of the original mission. One compact cold rack has four close-spaced horizontal places in a two-by-two arrangement, with thin padding and simple restraints. The entire compartment is one receiving target: either original core may be installed first, then the other. Both remain visible in the upper places; the lower two remain empty because the mission ends early. All portable and fitted cores use a purely side-on horizontal profile without perspective or a visible circular end face. The laboratory slides and microscope stay behind. Each core stays in its thin sealed liner, with reused insulation for transfers between existing laboratory/rover cooling and the flight cold rack. The remote icon shows the ice exposed for identification in the cooled rack; removing and replacing its transfer wrap is bundled. Insulation only slows heat transfer; the established refrigeration keeps the samples cold. Fastening and connecting flight cooling are bundled in each drag. No new carrier-building step or examined-slice package is introduced.
 
 **Goals**
-- Secure both original cores on flight cooling
-  - both: `flight-stowed-source-core`
-  - and: `flight-stowed-remote-core`
+- Secure both original cores on flight cooling -- `flight-sample-rack`[`stored-source-core`,`remote-ice-core`]
 
 **Hotspots**
-- `water-source-core-cradle` (at 31.41025641%, 19.37203791%)
-  - icon: ![Local core cradle](assets/live-feedback/core-readability/core-cradle-target.png)
-- `flight-stowed-source-core` (at 31.41025641%, 19.37203791%)
-  - icon: ![Local core secured](assets/live-feedback/core-readability/stowed-source-core.png)
-- `remote-band-core-cradle` (at 62.30769231%, 19.37203791%)
-  - icon: ![Remote core cradle](assets/live-feedback/core-readability/core-cradle-target.png)
-- `flight-stowed-remote-core` (at 62.30769231%, 19.37203791%)
-  - icon: ![Remote core secured](assets/live-feedback/core-readability/stowed-remote-core.png)
+- `flight-sample-rack` (at 47.56410256%, 21.80094787%)
+  - icon: ![Four-sample return rack](assets/live-feedback/compact-sample-rack/sample-rack-target.png)
 
 **Items**
-- `water-source-core-cradle` Local core cradle
-  - icon: ![Local core cradle](assets/live-feedback/core-readability/core-cradle-target.png)
+- `flight-sample-rack` Four-sample return rack (compound)
+  - icon: ![Four-sample return rack](assets/live-feedback/compact-sample-rack/sample-rack-target.png)
+  - unnamed slot: accepts `stored-source-core`, icon: ![Local core secured](assets/live-feedback/compact-sample-rack/stowed-source-core.png)
+  - unnamed slot: accepts `remote-ice-core`, icon: ![Remote core secured](assets/live-feedback/compact-sample-rack/stowed-remote-core.png)
 
-- `remote-band-core-cradle` Remote core cradle
-  - icon: ![Remote core cradle](assets/live-feedback/core-readability/core-cradle-target.png)
-
-- `flight-stowed-source-core` Local core secured
-  - icon: ![Local core secured](assets/live-feedback/core-readability/stowed-source-core.png)
-
-  The original local core is secured in its cold cradle. Its sealed liner preserves the untouched ice around the sampled source.
-
-- `flight-stowed-remote-core` Remote core secured
-  - icon: ![Remote core secured](assets/live-feedback/core-readability/stowed-remote-core.png)
-
-  The original remote core joins it, still in its separate liner. The small shaving and its microscope slide remain in the laboratory.
+  [`stored-source-core`,`remote-ice-core`] Both original cores are secured on flight cooling, each in its own sealed liner. Two places remain empty. The small shaving and its microscope slide remain in the laboratory.
 
 - `stored-source-core`
 - `remote-ice-core`
-
-**Combinations**
-- `stored-source-core` [transform] @ `water-source-core-cradle` [transform] -> `flight-stowed-source-core`
-- `remote-ice-core` [transform] @ `remote-band-core-cradle` [transform] -> `flight-stowed-remote-core`
 
 ## My hand on the switch
 
@@ -1524,7 +1493,7 @@ I take the pilot’s seat and close the hatch. The last command is mine.
 
 The cabin climbs above the base. The lower stage, its new leg and the small cave mouth draw together below me. Light still glows where the garden is.
 
-In the cold locker, the two original cores travel in separate cradles: one from the water bank beside home, one from across the gully. The surrounding layers are coming with us.
+In the cold locker, the two original cores fit snugly in the mission’s four-place compartment: one from the water bank beside home, one from across the gully. The surrounding layers are coming with us.
 
 Earth will have more than a picture to examine.
 

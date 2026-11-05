@@ -135,6 +135,23 @@ for (const route of ['load-pot-first', 'park-pot-first', 'dig-then-park']) {
   }
 }
 
+{
+  let s = start('Earth');
+  assert.equal(s.chapter, 3, 'Cave shelter comes immediately after water');
+  assert.equal(story.chapters[4].name, 'Fire', 'Ceramic production follows shelter');
+  assert(!live(s, 'ceramic-blocks') && !live(s, 'solar-furnace'), 'Shelter needs no future ceramics or furnace');
+  currentTargets(s, ['surveyed-cavern-floor']);
+  no(s, 'folded-pressure-envelope', 'surveyed-cavern-floor');
+  s = h(s, 'shovel', 'surveyed-cavern-floor', 'cleared-cavern-bay');
+  s = h(s, 'folded-pressure-envelope', 'cleared-cavern-bay', 'sealed-growing-room');
+  no(s, 'grow-light-rails', 'sealed-growing-room');
+  s = h(s, 'air-tanks', 'sealed-growing-room', 'pressurized-growing-room');
+  s = h(s, 'grow-light-rails', 'pressurized-growing-room', 'lit-growing-room');
+  gone(s, 'surveyed-cavern-floor', 'cleared-cavern-bay', 'sealed-growing-room', 'pressurized-growing-room');
+  currentTargets(s, ['lit-growing-room']);
+  finish(s, 'shelter before ceramics without a brick pad');
+}
+
 for (const insulationFirst of [true, false]) {
   let s = start('A bed under the hill');
   no(s, 'cabin-mattress', 'berth-alcove');
@@ -333,12 +350,17 @@ for (const cores of permutations(['source', 'remote'])) {
   assert.equal(s.tokens[key('remote-ice-core')].firstSeen?.chapter, 10, 'Remote core provenance');
   for (const core of cores) {
     const source = core === 'source' ? 'stored-source-core' : 'remote-ice-core';
-    const target = core === 'source' ? 'water-source-core-cradle' : 'remote-band-core-cradle';
-    no(s, 'examined-sludge-slide', target);
-    no(s, 'examined-ice-core', target);
-    s = h(s, source, target, `flight-stowed-${core}-core`);
-    gone(s, source, target);
+    const target = 'flight-sample-rack';
+    no(s, 'examined-sludge-slide', target, false);
+    no(s, 'examined-ice-core', target, false);
+    s = b(s, source, target);
+    gone(s, source);
+    assert.equal(s.tokens[key(source)].status, 'installed', 'Original core fitted intact');
+    assert(s.tokens[key(target)].slots.includes(key(source)), 'Rack retains fitted original');
+    currentTargets(s, [target]);
   }
+  assert.deepEqual([...s.tokens[key('flight-sample-rack')].slots].sort(),
+    ['stored-source-core', 'remote-ice-core'].map(key).sort(), 'Both cores share one rack');
   for (const slide of ['examined-sludge-slide', 'examined-ice-core'])
     assert(s.tokens[key(slide)].chapter < s.chapter, 'Slides remain in earlier laboratory');
   finish(s, 'both original cores and no slide stow');

@@ -22,6 +22,10 @@ This phase applies the user's 25 chapter-specific requests to [the live manuscri
 
 The [exact feedback](feedback.txt) is retained as the phase input. The active brief owns current rules; this record maps their application rather than providing a competing brief.
 
+## Later shelter, controls and sample-rack refinement
+
+The [shelter/control package](shelter-and-controls/README.md) moves Earth before Fire, removes the whole-hab brick pad, stages the full-cell/right-half gas receivers, marks the converter CH₄ and compacts the two-selector panel. The [sample-rack package](compact-sample-rack/README.md) replaces the earlier perspective cores and larger holders with strictly side-on specimens and one compact four-place compound receiver. These selected packages supersede those parts of the earlier batch below. See the [current review outcome](../../art-review/2026.11.04_21.21.20/report.md).
+
 ## Production
 
 All new painting used the built-in image-generation tool. Selected masters, exact requests and necessary inputs are retained here; mechanical exporters handle extraction, alpha, sizing and registration. Runtime assets are in `stories/mars/assets/live-feedback/`. Trials and review captures belong in ignored `runs/mars-live-feedback/` and are disposable.

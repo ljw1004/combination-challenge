@@ -175,94 +175,6 @@
         "purpose": "Blend only the lower cleared-soil texture inside the existing footprint; preserve original foreground rocks and avoid a straight horizontal join."
       }
     },
-    "brick-pad": {
-      "source": "stories/mars/assets/survival/items/earth-protected-cavern-floor.png",
-      "origin": [
-        12,
-        247
-      ],
-      "scale": 0.5,
-      "mask": "projects/mars-study/production/live-feedback/masks/brick-pad.png",
-      "extraction": {
-        "polygons": [
-          [
-            [
-              227,
-              448
-            ],
-            [
-              453,
-              448
-            ],
-            [
-              501,
-              459
-            ],
-            [
-              535,
-              483
-            ],
-            [
-              576,
-              532
-            ],
-            [
-              606,
-              596
-            ],
-            [
-              638,
-              666
-            ],
-            [
-              671,
-              736
-            ],
-            [
-              695,
-              797
-            ],
-            [
-              700,
-              879
-            ],
-            [
-              17,
-              879
-            ],
-            [
-              26,
-              823
-            ],
-            [
-              48,
-              753
-            ],
-            [
-              68,
-              683
-            ],
-            [
-              94,
-              615
-            ],
-            [
-              124,
-              552
-            ],
-            [
-              159,
-              501
-            ],
-            [
-              193,
-              468
-            ]
-          ]
-        ],
-        "feather": 0.7
-      }
-    },
     "collapsed-tent": {
       "source": "stories/mars/assets/survival/items/earth-sealed-growing-room.png",
       "origin": [
@@ -1142,6 +1054,21 @@
           "dilate": 2
         }
       }
+    },
+    "collapsed-ground-contact": {
+      "source": "projects/mars-study/production/live-feedback/shelter-and-controls/sources/collapsed-hem.png",
+      "origin": [
+        0,
+        200
+      ],
+      "size": [
+        780,
+        750
+      ],
+      "mask": "projects/mars-study/production/live-feedback/shelter-and-controls/collapsed-contact-mask.png",
+      "extraction": {
+        "purpose": "Remove masonry lip baked into original collapsed tent edge; keep natural fabric-to-dirt contact."
+      }
     }
   },
   "families": [
@@ -1177,23 +1104,17 @@
         "cleared-cavern-bay": [
           "cleared-floor"
         ],
-        "protected-cavern-floor": [
-          "cleared-floor",
-          "brick-pad"
-        ],
         "sealed-growing-room": [
           "cleared-floor",
-          "brick-pad",
-          "collapsed-tent"
+          "collapsed-tent",
+          "collapsed-ground-contact"
         ],
         "pressurized-growing-room": [
           "cleared-floor",
-          "brick-pad",
           "inflated-tent"
         ],
         "lit-growing-room": [
           "cleared-floor",
-          "brick-pad",
           "inflated-tent",
           "lit-window"
         ]
@@ -1280,5 +1201,6 @@
       "source": "stories/mars/assets/items/reflective-insulation.png",
       "visiblePixels": 280
     }
-  ]
+  ],
+  "cavePremise": "Cave shelter precedes Fire. Original insulated envelope rests directly on the shovelled footprint; no ceramic pad. Cleared ground and tent masks retain their common registration."
 }
