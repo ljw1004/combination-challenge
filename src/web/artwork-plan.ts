@@ -72,6 +72,6 @@ export function scrollbackArtwork(story: Story, state: State): string[] {
 export function placementArtwork(story: Story): string[] {
   return story.chapters.flatMap((c, chapter) => c.hotspots.flatMap(id => {
     const h = hotspotDefinition(story,chapter,id), icon=h.icon??itemPresentation(story,chapter,id).icon;
-    return h.placements?.length && icon ? [icon.url] : [];
+    return h.placements?.length ? [background(story,chapter),icon?.url].filter((url):url is string=>!!url) : [];
   }));
 }

@@ -17,6 +17,10 @@ export class ItemArtwork {
 
   retryFailures() { this.images.retryFailures(); }
 
+  dimensions(path: string | undefined, asset: (path: string) => string) {
+    return path ? this.images.get(asset(path))?.size : undefined;
+  }
+
   private size(icon: Icon, asset: (path: string) => string, bounds?: {width: number; height: number}, fixed = false) {
     const base = this.images.get(asset(icon.url))?.size, size = iconDimensions(base?.width ?? 224, base?.height ?? 224, fixed);
     const fit = bounds ? Math.min(1, bounds.width / size.width, bounds.height / size.height) : 1;

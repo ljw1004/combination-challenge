@@ -9,7 +9,7 @@
 /* Small authored artwork keeps its natural size and a usable touch area. */
 .icon-thing::before {
   content: ''; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
-  width: max(100%, calc(44px / var(--board-scale, 1))); height: max(100%, calc(44px / var(--board-scale, 1)));
+  width: max(100%, calc(44px * var(--label-scale, 1))); height: max(100%, calc(44px * var(--label-scale, 1)));
 }
 .icon-thing::after { content: ''; position: absolute; inset: 0; border-radius: 8px; pointer-events: none; }
 .icon-thing.icon-circular::after, .hotspot-icon.hotspot-circular::after {
@@ -26,7 +26,7 @@
 .icon-thing .icon-name, .hotspot-icon .icon-name {
   display: none; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
   width: max-content; max-width: 132px; padding: 3px 6px; border: 1px solid #ffffff66; border-radius: 5px;
-  background: #080d14bf; color: #fff; font: calc(12px / var(--board-scale, 1))/1.2 Arial, Helvetica, sans-serif;
+  background: #080d14bf; color: #fff; font: calc(12px * var(--label-scale, 1))/1.2 Arial, Helvetica, sans-serif;
   white-space: normal; overflow-wrap: anywhere; text-align: center; pointer-events: none;
 }
 .icon-thing:is(.pressed, .possible, .dragging, .will-create, :focus-visible) .icon-name { display: block; }
@@ -47,8 +47,8 @@
 /* The receiving box owns interaction and labels; connected artwork may extend
    beyond it without intercepting clicks or changing its registered scale. */
 .chapter-panel .hotspot.hotspot-hitbox {
-  width:max(var(--hit-width),calc(44px / var(--board-scale,1)));
-  height:max(var(--hit-height),calc(44px / var(--board-scale,1))); min-height:0;
+  width:max(var(--hit-width),calc(44px * var(--label-scale,1)));
+  height:max(var(--hit-height),calc(44px * var(--label-scale,1))); min-height:0;
 }
 .hotspot-hitbox > .icon-stack {
   position:absolute; width:var(--icon-width); height:var(--icon-height);
@@ -57,13 +57,13 @@
 }
 .hotspot-icon::before {
   content: ''; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
-  width: max(100%, calc(44px / var(--board-scale, 1))); height: max(100%, calc(44px / var(--board-scale, 1)));
+  width: max(100%, calc(44px * var(--label-scale, 1))); height: max(100%, calc(44px * var(--label-scale, 1)));
 }
 /* Only the circular target receives pointer hits, including the minimum touch area. */
 .chapter-panel .hotspot.hotspot-circular { pointer-events: none; }
 .hotspot-circular::before {
-  width: max(min(var(--icon-width), var(--icon-height)), calc(44px / var(--board-scale, 1)));
-  height: max(min(var(--icon-width), var(--icon-height)), calc(44px / var(--board-scale, 1)));
+  width: max(min(var(--icon-width), var(--icon-height)), calc(44px * var(--label-scale, 1)));
+  height: max(min(var(--icon-width), var(--icon-height)), calc(44px * var(--label-scale, 1)));
   border-radius: 50%; pointer-events: auto;
 }
 .hotspot-icon::after { content: ''; position: absolute; inset: 0; pointer-events: none; }

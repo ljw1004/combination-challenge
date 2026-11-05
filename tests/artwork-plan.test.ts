@@ -71,7 +71,7 @@ test('cover, one-combination frontier and next-chapter primitives remain separat
 test('fixed result artwork is prefetched and placement probes use fallback item artwork',()=>{
   const story=parseStory('# Fixed art\n## Work\nbackground: ![scene](room.svg)\n**Items**\n- A\n- B\n- H\n  - icon: ![default](default.svg)\n**Hotspots**\n- H\n  - icon: ![fixed](fixed.svg)\n  - place: A (at 50%, 50%)\n**Goals**\n- Build -- H\n**Combinations**\n- A + B -> H\n## Revisit\nbackground: ![scene](room.svg)\n**Hotspots**\n- H\n  - place: A (at 50%, 50%)');
   assert(lookaheadArtwork(story,newGame(story),true).includes('fixed.svg'));
-  assert.deepEqual(placementArtwork(story),['fixed.svg','default.svg']);
+  assert.deepEqual(placementArtwork(story),['room.svg','fixed.svg','room.svg','default.svg']);
 });
 
 test('slot overlays preload only when a fitting is available, including conditional result readings', () => {

@@ -9,6 +9,7 @@ test('CLI placement lint measures transparent, fractional, small, and text hotsp
   const directory = mkdtempSync(join(tmpdir(),'combination-placement-'));
   const checker = new PlacementBrowser();
   try {
+    writeFileSync(join(directory,'room.svg'),'<svg xmlns="http://www.w3.org/2000/svg" width="780" height="1688"></svg>');
     writeFileSync(join(directory,'hit.svg'),'<svg xmlns="http://www.w3.org/2000/svg" width="321" height="320"></svg>');
     writeFileSync(join(directory,'tiny.svg'),'<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"></svg>');
     const story = (icon: string, x: number) => parseStory(`# Hit area
@@ -34,5 +35,14 @@ ${icon ? `  - icon: ![area](${icon})\n` : ''}  - place: A (at ${x}%, 50%)
     const diagnostics=await checker.lint(repeated);
     expect(diagnostics.map(d=>d.code)).toEqual(['place-outside-hotspot']);
     expect(diagnostics[0].message).toContain('Second');
+    // A wide scene has a shorter coordinate space; vertical placement lint
+    // must use its natural aspect ratio, just like the visible receiver.
+    writeFileSync(join(directory,'wide.svg'),'<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768"></svg>');
+    const wide=story('tiny.svg',50);
+    wide.chapters[0].image='wide.svg';
+    wide.hotspots['name:H'].placements![0].y=.56;
+    expect(await checker.lint(wide)).toEqual([]); // 17.55 units below centre, inside 22.
+    wide.hotspots['name:H'].placements![0].y=.6;
+    expect((await checker.lint(wide)).map(d=>d.code)).toEqual(['place-outside-hotspot']);
   } finally { await checker.close(); rmSync(directory,{recursive:true,force:true}); }
 });

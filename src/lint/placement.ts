@@ -7,10 +7,11 @@ export function lintPlacementGeometry(story: Story, measurements: HotspotMeasure
   const diagnostics: Diagnostic[] = [];
   for (const size of measurements) {
     const hotspot = hotspotDefinition(story,size.chapter,size.id), chapter = story.chapters[size.chapter];
-    const rect = hotspotRect(hotspot, activeHotspots(story,size.chapter).indexOf(hotspot.id), size);
+    const scene = size.scene ?? {width:390,height:844};
+    const rect = hotspotRect(hotspot, activeHotspots(story,size.chapter).indexOf(hotspot.id), size, 1, {x:0,y:0,...scene}, scene);
     for (const place of hotspot.placements ?? []) {
       if (![place.x, place.y].every(n => Number.isFinite(n) && n >= 0 && n <= 1)) continue;
-      if (containsPoint(rect, {x: place.x * 390, y: place.y * 844})) continue;
+      if (containsPoint(rect, {x: place.x * scene.width, y: place.y * scene.height})) continue;
       diagnostics.push({severity: 'error', code: 'place-outside-hotspot', message: `The prescribed centre is outside ${hotspot.name}'s hit ${rect.circular ? 'circle' : 'rectangle'} in ${chapter.name}.`, source: place.source, span: place.source.span!, stage: 'fast'});
     }
   }

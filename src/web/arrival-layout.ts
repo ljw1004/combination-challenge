@@ -12,6 +12,7 @@ export interface ArrivalTile extends Rect {
 }
 export interface ArrivalOptions {
   bounds: Rect;
+  scene?: {width:number;height:number};
   /** Top of the measured goals, in scene coordinates. */
   goalsTop: number;
   previousChapter?: number;
@@ -220,7 +221,8 @@ function repackGroup(group: ArrivalTile[], fixed: ArrivalTile[], bounds: Rect, h
 function layoutFootprints(tiles: ArrivalTile[], options: ArrivalOptions): ArrivalLayout {
   const {bounds,hotspots,previousChapter}=options;
   const working={x:bounds.x+8,y:bounds.y+EDGE,width:Math.max(0,bounds.width-16),height:Math.max(0,Math.min(bottom(bounds)-2*EDGE,options.goalsTop-GAP)-bounds.y-EDGE)};
-  const fixed=tiles.filter(t=>t.fixed||t.fresh&&t.start).map(t=>t.fresh&&t.start?{...t,x:t.start.x*390-t.width/2,y:t.start.y*844-t.height/2}:{...t});
+  const scene=options.scene??{width:390,height:844};
+  const fixed=tiles.filter(t=>t.fixed||t.fresh&&t.start).map(t=>t.fresh&&t.start?{...t,x:t.start.x*scene.width-t.width/2,y:t.start.y*scene.height-t.height/2}:{...t});
   if(options.checkpoint){
     const preferred=checkpointPreferences(tiles.filter(t=>!t.fixed&&!(t.fresh&&t.start)),working,bounds);
     // Spend spare room on separation before accepting the ordinary overlap
@@ -305,7 +307,7 @@ export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): Ar
   const footprints = tiles.map(tile => {
     const above = headroom.get(tile.id)!;
     return {...tile, y: tile.y - above, height: tile.height + above,
-      start: tile.start && {...tile.start, y: tile.start.y - above / (2 * 844)}};
+      start: tile.start && {...tile.start, y: tile.start.y - above / (2 * (options.scene?.height ?? 844))}};
   });
   const layout = layoutFootprints(footprints, options);
   return {...layout, positions: new Map([...layout.positions].map(([id, position]) => [id, {...position, y: position.y + headroom.get(id)!}]))};

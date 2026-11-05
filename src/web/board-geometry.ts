@@ -1,12 +1,21 @@
 export interface BoardRect {x:number;y:number;width:number;height:number}
-const referenceBoard: BoardRect = {x: 0, y: 0, width: 390, height: 844};
+export const referenceBoard: BoardRect = {x: 0, y: 0, width: 390, height: 844};
 
-/** Fill the portrait viewport, cropping the reference scene at its sides and bottom. */
-export function viewportBoard(width: number, height: number) {
-  const visibleWidth = Math.min(390, width);
-  const scale = Math.max(visibleWidth / 390, height / 844);
-  const bounds = {x: (390 - visibleWidth / scale) / 2, y: 0, width: visibleWidth / scale, height: height / scale};
-  return {scale, width: visibleWidth, height, bounds};
+/** Artwork keeps its natural proportions in a 390-unit-wide authoring space. */
+export function sceneSize(image?: {width:number;height:number}) {
+  return {width: 390, height: image && image.width > 0 && image.height > 0 ? 390 * image.height / image.width : 844};
+}
+
+/** Only phone-shaped artwork fills a narrow portrait pane. Else fit the whole scene. */
+export function viewportBoard(width: number, height: number, image?: {width:number;height:number}) {
+  const scene = sceneSize(image);
+  const cover = scene.height / scene.width >= 16 / 9 && width < 640 && height > width;
+  const scale = (cover ? Math.max : Math.min)(width / scene.width, height / scene.height);
+  const visibleWidth = cover ? width : scene.width * scale;
+  const visibleHeight = cover ? height : scene.height * scale;
+  const bounds = {x: cover ? (scene.width - visibleWidth / scale) / 2 : 0, y: 0, width: cover ? visibleWidth / scale : scene.width, height: cover ? visibleHeight / scale : scene.height};
+  return {scale, scene, cover, width: visibleWidth, height: visibleHeight, left: (width-visibleWidth)/2, top: (height-visibleHeight)/2, bounds,
+    labelScale: cover ? 1 / scale : 1, cardScale: cover ? width / 390 / scale : 1};
 }
 
 /** Coordinates remain in the reference scene; only the visible drop bounds change. */

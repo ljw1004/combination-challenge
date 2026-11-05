@@ -1,0 +1,11 @@
+# Augustine study portrait recomposition
+
+2026-11-04. The user requested that the first study join the phone-shaped backgrounds while retaining its room and table. The shared framing decision is maintained in [UX](../../../docs/ux.md#work-surface-and-dragging).
+
+Selected runtime artwork: [theology-augustine-study.webp](../../../stories/theology/assets/theology-augustine-study.webp), 780 × 1688. The earlier 1024 × 1536 image is preserved in Git history. One edit was made with the built-in image generation tool, using that earlier image as its reference and `transparent_background: false`. The selected [853 × 1844 PNG master](augustine-portrait.png) was exported with `cwebp -q 88 -resize 780 1688`; the original generated file remains in the local image-generation output directory.
+
+The informed visual check covered the room's proportions, natural table perspective, uninterrupted wood surface, lack of text or extra objects, and the exported image. This was not an independent recognition review or a historical authenticity assessment.
+
+Exact tool prompt:
+
+> Edit the supplied Augustine study background into a tall portrait game background, target aspect ratio exactly 390:844 (width:height), ideally 1024 by 2216 or a close matching tall canvas. Preserve the warm, realistic painted illustration style, North African stone study, central double-arched sunlit window and small distant city, carved stone column on the right, book and scroll shelves at both side edges, and potted olive branch on the left. Recompose the scene naturally to the taller frame: the room and window form the upper roughly quarter to third, and the existing empty wooden tabletop extends toward the viewer across most of the lower frame, maintaining convincing perspective and natural wood grain. Keep a small glimpse of the table's near edge and supports at the bottom. Preserve the original objects and visual character; no people, no new props, no text, no interface, no border. Do not stretch the original room or table vertically, and avoid any seams or bands in the extended surface. This will be used at 390x844 on phones, cropped at the bottom on shorter phone viewports, and displayed as the complete composition on desktop. Keep the image opaque.
