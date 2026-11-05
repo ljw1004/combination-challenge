@@ -2,6 +2,7 @@ import type {Hotspot, Story} from '../story/types.ts';
 import {escape} from './markdown.ts';
 import {activeHotspots, hotspotDefinition} from '../engine/fixed-items.ts';
 import {itemPresentation} from '../engine/presentation.ts';
+import {validHitbox} from '../story/hotspot-hitbox.ts';
 
 export interface Rect {x: number; y: number; width: number; height: number}
 export interface HotspotRegion extends Rect {circular?: boolean}
@@ -15,15 +16,21 @@ export function iconDimensions(width: number, height: number, fixed = false) {
   return {width: width / 4 * fit, height: height / 4 * fit};
 }
 const referenceBounds = {x: 0, y: 0, width: 390, height: 844};
-export function hotspotCentre(hotspot: Hotspot, index: number, bounds = referenceBounds) {
+function artworkCentre(hotspot: Hotspot, index: number, bounds = referenceBounds) {
   return {
     x: hotspot.x === undefined ? bounds.x + (.19 + index % 3 * .31) * bounds.width : hotspot.x * 390,
     y: hotspot.y === undefined ? (.70 + Math.floor(index / 3) * .13) * bounds.height : hotspot.y * 844,
   };
 }
+export function hotspotCentre(hotspot: Hotspot, index: number, bounds = referenceBounds) {
+  return validHitbox(hotspot.hitbox) && !hotspot.icon?.circular
+    ? {x:hotspot.hitbox.x * 390, y:hotspot.hitbox.y * 844}
+    : artworkCentre(hotspot,index,bounds);
+}
 export function hotspotRect(hotspot: Hotspot, index: number, size: {width: number; height: number; circular?: boolean}, scale = 1, bounds = referenceBounds): HotspotRegion {
-  const centre = hotspotCentre(hotspot, index, bounds);
-  if (size.circular ?? hotspot.icon?.circular) {
+  const circular = size.circular ?? hotspot.icon?.circular;
+  const centre = circular ? artworkCentre(hotspot,index,bounds) : hotspotCentre(hotspot, index, bounds);
+  if (circular) {
     const diameter = Math.max(Math.min(size.width, size.height), 44 / scale);
     return {x: centre.x - diameter / 2, y: centre.y - diameter / 2, width: diameter, height: diameter, circular: true};
   }
@@ -45,7 +52,10 @@ export function overlapsHotspot(item: Rect, hotspot: HotspotRegion): boolean {
 }
 export function hotspotHTML(h: Hotspot, index: number, visual: HotspotVisual, bounds = referenceBounds) {
   const {x, y} = hotspotCentre(h, index, bounds);
-  return `<div class="hotspot ${visual.className}" data-hotspot="${escape(h.id)}" tabindex="0" role="img" aria-label="${escape(h.name)}" style="left:${x-bounds.x}px;top:${y}px;${visual.style}">${visual.html}</div>`;
+  const box = validHitbox(h.hitbox) && !h.icon?.circular ? h.hitbox : undefined;
+  const art = artworkCentre(h,index,bounds);
+  const receivingStyle = box ? `--hit-width:${box.width*390}px;--hit-height:${box.height*844}px;--art-offset-x:${art.x-x}px;--art-offset-y:${art.y-y}px;` : '';
+  return `<div class="hotspot ${visual.className}${box?' hotspot-hitbox':''}" data-hotspot="${escape(h.id)}" tabindex="0" role="img" aria-label="${escape(h.name)}" style="left:${x-bounds.x}px;top:${y}px;${visual.style}${receivingStyle}">${visual.html}</div>`;
 }
 
 /** All declared surfaces, including unvisited ones, at the canonical 390px width. */

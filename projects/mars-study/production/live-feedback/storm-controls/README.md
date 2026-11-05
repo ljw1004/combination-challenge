@@ -1,0 +1,7 @@
+# Two storm-service controls
+
+4 November 2026. The user removed the right-hand fuel-plant selector and its action because gas processing is manual. The image retains only the existing reserve-power and water selectors. Their positions, scale, unselected pixels and fitted appearances remain unchanged; the old mounting plate retains its full width with a plain right side.
+
+[request.json](request.json) records the exact built-in imagegen edit and original scene reference. [two-controls-master.png](two-controls-master.png) is the selected painted removal. [export-scene.py](export-scene.py) resizes that edit to the original 780 × 1688 canvas and takes only the local replacement in **[475, 228, 608, 433]**, with an eight-pixel inward smoothstep boundary. The final [runtime scene](../../../../../stories/mars/assets/live-feedback/storm-controls/amber-noon.webp) is lossless WebP, so original decoded pixels outside the patch remain byte-identical after decoding.
+
+[geometry.json](geometry.json) records registration and confirms zero changed pixels outside the patch. Both remaining selector rectangles were compared exactly. Producer inspection covered the full scene at 390 × 844 and all four power/water state combinations. No lamp, fuel pictogram, key dial, wire or visible removal scar remains at the former third control. This is an informed source-composite check, not a browser-action or independent recognition test. Temporary proofs are under `runs/mars-storm-controls/`; the integrating parent updates story semantics and assigns final browser review.

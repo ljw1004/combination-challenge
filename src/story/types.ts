@@ -26,7 +26,9 @@ export interface Item {
   icon?: Icon; exclusiveWith?: string; presentations: ItemPresentation[]; source: Source;
 }
 export interface Placement { item: Ref; x: number; y: number; source: Source }
-export interface Hotspot { id: string; name: string; x?: number; y?: number; icon?: Icon; placements?: Placement[]; source: Source }
+/** A scene-relative receiving rectangle, independent of registered artwork. */
+export interface HotspotHitbox { x: number; y: number; width: number; height: number; source: Source }
+export interface Hotspot { id: string; name: string; x?: number; y?: number; icon?: Icon; hitbox?: HotspotHitbox; placements?: Placement[]; source: Source }
 export interface Condition { item: Ref; hotspot?: string; source: Source }
 export interface Goal {
   id: string; text: string; next: boolean; operator: 'and' | 'or'; conditions: Condition[]; source: Source;

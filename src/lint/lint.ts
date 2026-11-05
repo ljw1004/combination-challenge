@@ -10,6 +10,8 @@ import { presentationDiagnostics } from './presentations.ts';
 import {recipeConflictDiagnostics} from './recipe-conflicts.ts';
 import {recipeIngredients} from '../engine/fixed-items.ts';
 import {dynamicHotspotChapter,fixedItemDiagnostics} from './fixed-items.ts';
+import {validHitbox} from '../story/hotspot-hitbox.ts';
+import {itemPresentation} from '../engine/presentation.ts';
 
 export interface LintOptions {
   analysis?: boolean;
@@ -94,7 +96,16 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
       warning('mixed-fates',`${story.items[id].name} has mixed fates: ${counts.join(', ')}. Review these visibility and placement hints; different roles can be intentional.`,list[0].source,list.map(use=>use.location),fixes,story.items[id].name);
     }
   }
-  for (const hotspot of story.chapters.flatMap(c=>Object.values(c.hotspotDefinitions??{}))) {
+  for (const [chapterIndex, chapter] of story.chapters.entries()) for (const hotspot of Object.values(chapter.hotspotDefinitions??{})) {
+    if (hotspot.hitbox) {
+      const source = hotspot.hitbox.source;
+      if (!validHitbox(hotspot.hitbox)) error('hitbox-position', 'Hitbox centres must be between 0% and 100%; width and height must be greater than 0% and at most 100%.', source);
+      // Earlier boards may remain visible as progression changes item artwork.
+      // Only effective presentations count; an overridden default never renders.
+      const circular = hotspot.icon ? hotspot.icon.circular : story.chapters.slice(chapterIndex)
+        .some((_, offset) => itemPresentation(story, chapterIndex + offset, hotspot.id).icon?.circular);
+      if (circular) error('hitbox-circular', 'An explicit rectangular hitbox cannot be combined with circular hotspot artwork.', hotspot.hitbox.source);
+    }
     if ((hotspot.x!==undefined && (hotspot.x<0 || hotspot.x>1)) || (hotspot.y!==undefined && (hotspot.y<0 || hotspot.y>1))) error('hotspot-position','Hotspot coordinates must be between 0% and 100%.',hotspot.source);
     for (const [i, placement] of (hotspot.placements ?? []).entries()) {
       const {item, x, y, source} = placement;

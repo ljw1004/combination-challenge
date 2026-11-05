@@ -279,6 +279,10 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     }
   }
   function itemNode(node: Bullet, parent?: Ref, at?: string, topLevelItem = false): Ref | undefined {
+    if (/^hitbox\s*:/.test(node.text)) {
+      error('hitbox-context', 'hitbox: belongs directly beneath a Hotspots declaration.', node.line, node.text);
+      return;
+    }
     if (/^(?:from|after)\s+chapter\b/.test(node.text)) {
       error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration.', node.line, node.text);
       return;
@@ -330,6 +334,10 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     return { text, operator: op, next };
   }
   function condition(raw: string, line: number, from: number): Condition | undefined {
+    if (/^hitbox\s*:/.test(raw)) {
+      error('hitbox-context', 'hitbox: belongs directly beneath a Hotspots declaration.', line, raw);
+      return;
+    }
     if (/^\(three (?:goals|rules)\b/i.test(raw)) {
       error('goal-syntax', 'A three-goal acknowledgment belongs at the top level of Goals, not among a goal\'s conditions.', line, raw);
       return;
@@ -448,6 +456,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
         error('hotspot-acknowledgment-syntax', 'Use the exact three-hotspot acknowledgment wording and a top-level hyphen bullet.', node.line);continue;
       }
       if (/^place\s*:/.test(node.text)) { error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
+      if (/^hitbox\s*:/.test(node.text)) { error('hitbox-context', 'hitbox: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
       if (/^(?:from|after)\s+chapter\b/.test(node.text)) { error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration.', node.line, node.text); continue; }
       const h = ref(node.text, node.line, 'hotspot', 'hotspot-declaration', 'declaration'); chapter.hotspots.push(h.id);
       const coordinate = /\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(node.text);
@@ -458,6 +467,17 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       wonder(story.items[h.id], node.prose, node.line);
       for (const child of node.children) {
         if (/^icon\s*:/.test(child.text)) assignIcon(definition, child);
+        else if (/^hitbox\s*:/.test(child.text)) {
+          const match = /^hitbox:\s*\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)\s*\(size (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(child.text);
+          if (!match || child.children.length || child.prose.some(part => part.text.trim())) {
+            error('hitbox-syntax', 'Use hitbox: (at X%, Y%) (size W%, H%) without nested content.', child.line, child.text);
+            continue;
+          }
+          const box = {x:+match[1]/100, y:+match[2]/100, width:+match[3]/100, height:+match[4]/100, source:source(child.line,child.text)};
+          if (definition.hitbox && (['x','y','width','height'] as const).some(key => definition.hitbox![key] !== box[key])) {
+            error('conflicting-hitbox', 'The same fixed item has different receiving rectangles in this chapter.', child.line, child.text);
+          } else definition.hitbox ??= box;
+        }
         else if (/^place\s*:/.test(child.text)) {
           const match = /^place:\s*(.+?)\s+\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(child.text);
           if (!match || child.children.length || child.prose.some(part => part.text.trim())) {

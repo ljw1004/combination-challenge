@@ -1,5 +1,7 @@
 # Live Mars feedback revision
 
+The subsequent [artwork and receiving-area follow-up](follow-up.md) records the current selected families, later user corrections and new verification. The production and verification figures below describe the first completed batch at `e41ab400`; they are not results for later revisions.
+
 This phase applies the user's 25 chapter-specific requests to [the live manuscript](../../../../stories/mars/mars.md), governed by [its active design brief](../../../../stories/mars/design-brief.md). The accepted follow-up chooses **two water fills and two visible gas targets on one cell**, both accepting the common Empty tank. The 24-chapter arc remains. The preserved v12 and illustrated baseline are unchanged; the study remains active.
 
 | Feedback | Adopted change |
@@ -31,7 +33,7 @@ All new painting used the built-in image-generation tool. Selected masters, exac
 - [Fuel/lander/core-stow geometry](fuel/geometry.json) and [exporter](fuel/export-fuel.py); adjacent JSON files retain each exact imagegen request.
 - [Refreshed design examples](design-examples.md), composed from three actual gameplay captures.
 
-The visible cave/furnace/lander seams had two causes: extraction boundaries and a background-only runtime wash. Source registration repairs address the former; removing the renderer's scrim, opacity and saturation treatment addresses the latter. The [UX rule](../../../../docs/ux.md#item-artwork) now requires authored scenery colours, with desired washes baked into artwork. The [graphics method](../../../../docs/icon-guide.md#register-changing-scenery) requires source and browser checks. No combination-engine or format extension was needed.
+The visible cave/furnace/lander seams had two causes: extraction boundaries and a background-only runtime wash. Source registration repairs address the former; removing the renderer's scrim, opacity and saturation treatment addresses the latter. The [UX rule](../../../../docs/ux.md#item-artwork) now requires authored scenery colours, with desired washes baked into artwork. The [graphics method](../../../../docs/icon-guide.md#register-changing-scenery) requires source and browser checks. This first batch needed no combination-engine or format extension; the later follow-up adds independent receiving rectangles.
 
 The cell lid and separate outlets keep its gas paths enclosed. Water deliveries represent repeated filling, and upright tank display is the user's visual convention. One additional previously made tank supplies the reactor body during site preparation; the shared four gas-service allocations remain dedicated. No table, decorative fittings, new control display or hose-building action is introduced.
 

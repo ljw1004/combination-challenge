@@ -1,5 +1,7 @@
 # Mission to Mars
 
+![The delivered habitat before arrival](assets/live-feedback/cover-before-crash.webp)
+
 Your lander crashes badly onto the surface. Can you patch things up and complete your science mission?
 
 > NOTE: Promoted from the accepted Mars v12 reference on 4 November 2026. Fixed identities and recipes implement the 24-chapter story in design-brief.md. The unchanged v12 manuscript, production sources and review records are preserved under projects/mars-study/. Future revisions belong to this live copy. Chapter identifiers remain stable when chapters move.
@@ -8,7 +10,7 @@ Your lander crashes badly onto the surface. Can you patch things up and complete
 
 ## Crash landing
 
-![Crash landing](assets/survival/scenes/crash-landing.webp)
+![Crash landing](assets/live-feedback/lander-support-fit/crash-landing.webp)
 
 *Emergency*
 
@@ -78,7 +80,7 @@ The stabilizer fin broke. I can't steer. We're coming in hot.
 
 I need to power the hab’s air scrubber before the air runs out.
 
-> NOTE: The astronaut stays suited outside. The array and its charging lead are successive receiving states of the same installed equipment: fitting the cable retires the earlier panel target, not the physical panels. The power goals disclose solar, scrubber and reserve charging in that order; communications is an independent goal. Three fixed identities are present at most. Cables are compatible dedicated lengths. The original array stays left of the starter dome and the scrubber right. Small reclaimed components mentioned later come from spares, not from disabling this life-support equipment. The steel pin is recovered here while scavenging outside and saved for the electromagnet.
+> NOTE: The astronaut stays suited outside. The deployed and powered solar panels retain a tight receiving rectangle over the panels. Their full cable artwork can extend beyond that rectangle. The scrubber has its own complete cable overlay and equipment-sized receiver, so either cable can be connected without hiding the other. The power goals disclose solar, scrubber and reserve charging in that order; communications is an independent goal. Three fixed identities are present at most. Cables are compatible dedicated lengths. The original array stays left of the starter dome and the scrubber right. Small reclaimed components mentioned later come from spares, not from disabling this life-support equipment. The steel pin is recovered in the following water chapter, keeping it out of this chapter’s cable work.
 
 **Goals**
 - Restore solar power -- `station-power`
@@ -90,12 +92,16 @@ I need to power the hab’s air scrubber before the air runs out.
 - (three hotspots are a lot but okay here because the array connection, air scrubber and antenna mounting have three distinct physical jobs)
 - `solar-array-base` (at 38.01282%, 21.71209%)
   - icon: ![solar-array-base](assets/survival/items/air-solar-array-base.png)
+  - hitbox: (at 20.19231%, 26.83649%) (size 38.33333%, 4.73934%)
 - `deployed-solar-array` (at 38.01282%, 21.71209%)
   - icon: ![deployed-solar-array](assets/survival/items/air-deployed-solar-array.png)
+  - hitbox: (at 20.19231%, 23.63744%) (size 38.33333%, 11.49289%)
 - `station-power` (at 38.01282%, 21.71209%)
   - icon: ![station-power](assets/survival/items/air-station-power.png)
-- `habitat-scrubber` (at 87.62821%, 23.31161%)
-  - icon: ![habitat-scrubber](assets/survival/items/air-habitat-scrubber.png)
+  - hitbox: (at 20.19231%, 23.63744%) (size 38.33333%, 11.49289%)
+- `habitat-scrubber` (at 84.87179%, 23.31161%)
+  - icon: ![habitat-scrubber](assets/live-feedback/air-targets/scrubber-base.png)
+  - hitbox: (at 87.94872%, 23.19313%) (size 22.56410%, 10.84123%)
 - `antenna-mount` (at 73.78205%, 5.89455%)
   - icon: ![antenna-mount](assets/survival/items/air-antenna-mount.png)
 
@@ -109,8 +115,8 @@ I need to power the hab’s air scrubber before the air runs out.
 - `deployed-solar-array` Deployed solar panels
   - icon: ![Deployed solar panels](assets/survival/items/air-deployed-solar-array.png)
 
-- `station-power` Connected charging lead
-  - icon: ![Connected charging lead](assets/survival/items/air-station-power.png)
+- `station-power` Powered solar panels
+  - icon: ![Powered solar panels](assets/survival/items/air-station-power.png)
 
 - `power-cable` Power cable
   - icon: ![Power cable](assets/items/power-cable.png)
@@ -118,8 +124,8 @@ I need to power the hab’s air scrubber before the air runs out.
   Compatible lengths from the service supplies; each connection keeps its own cable.
 
 - `habitat-scrubber` Air scrubber (compound)
-  - icon: ![Air scrubber](assets/survival/items/air-habitat-scrubber.png)
-  - unnamed slot: accepts `power-cable`, icon: ![power-cable](assets/survival/overlays/habitat-scrubber-power-cable.png)
+  - icon: ![Air scrubber](assets/live-feedback/air-targets/scrubber-base.png)
+  - unnamed slot: accepts `power-cable`, icon: ![power-cable](assets/live-feedback/air-targets/scrubber-connected.png)
 
 - `antenna-mount` Antenna mounting (compound)
   - icon: ![Antenna mounting](assets/survival/items/air-antenna-mount.png)
@@ -141,11 +147,6 @@ I need to power the hab’s air scrubber before the air runs out.
   - icon: ![Charged reserve battery](assets/fixed/items/charged-reserve-battery.png)
 
   This battery will power the air scrubber overnight.
-
-- `steel-pin` Steel pin
-  - icon: ![Steel pin](assets/materials/items/steel-pin.png)
-
-  A small steel pin from a broken cargo restraint. I keep it with the salvage.
 
 **Combinations**
 - `solar-panels` [consume] @ `solar-array-base` [transform] -> `deployed-solar-array`
@@ -224,6 +225,11 @@ After air, water. Pale ice shows beneath a dusty bank a short walk from the hab.
   - icon: ![Pot of clean water](assets/live-feedback/pot-clean-water.png)
 
   The filter catches the brown grit; clear water returns to the rinsed pot, almost to its rim. Repeated trips will supply drinking, growing and making.
+
+- `steel-pin` Steel pin
+  - icon: ![Steel pin](assets/materials/items/steel-pin.png)
+
+  A small steel pin from a broken cargo restraint. I keep it with the salvage.
 
 **Combinations**
 - `shovel` [preserve] @ `visible-ice` -> `ice-chunks`
@@ -530,11 +536,11 @@ Potatoes on the left, soybeans against the far wall, lettuce on the right. Three
 
   Clean permeable cloth cushions the granules inside the ceramic trough.
 
-- `filled-soybean-bed` Filled soybean bed
-  - icon: ![Filled soybean bed](assets/live-feedback/garden/soybean-medium.png)
+- `filled-soybean-bed` Unwatered soybean bed
+  - icon: ![Unwatered soybean bed](assets/live-feedback/garden/soybean-medium.png)
 
-- `watered-soybean-bed` Watered soybean bed (compound)
-  - icon: ![Watered soybean bed](assets/live-feedback/garden/soybean-dripped.png)
+- `watered-soybean-bed` Soybean bed (compound)
+  - icon: ![Soybean bed](assets/live-feedback/garden/soybean-dripped.png)
   - unnamed slot: accepts `soybean-seeds`, icon: ![Planted soybean](assets/live-feedback/garden/soybean-seed-overlay.png)
 
   [`soybean-seeds`] Small soybean leaves spread above their watered row.
@@ -697,7 +703,7 @@ The stems have grown. More medium will keep new potatoes out of the light; the f
 
 After the first harvest, I bring in another pot of meltwater. Brown sludge has clogged the cloth in the filter. A clean microscope slide will take just a trace of it.
 
-> NOTE: This is the same cloth/cartridge filter and the same small galley pot from Water. The funnel seats directly on the pot rim; there is no separate filter stand or specimen jar. Taking a small wet smear and fitting its coverslip is one operation. The ordinary slide icon is deliberately enlarged for recognition and dragging; only the microscope reading reveals detail. The microscope faces the operator at the front of the table and the same registered background and receiver return in Something whole. This discovery follows the established farm and first harvest.
+> NOTE: This is the same cloth/cartridge filter and the same small galley pot from Water. The funnel seats directly on the pot rim; there is no separate filter stand or specimen jar. Taking a small wet smear and fitting its coverslip is one operation. The ordinary slide icon is deliberately enlarged for recognition and dragging; only the microscope reading reveals detail. This first microscope field is wet filter sediment on glass, not ice. Tiny irregular brown grains and chips remain ambiguous between mineral structure and possible biological fragments; no recognizable anatomy or large plate establishes life. The later intact ice section uses the same rusty-brown material colour. The microscope faces the operator at the front of the table and the same registered background and receiver return in Something whole. This discovery follows the established farm and first harvest.
 
 **Goals**
 - Collect a trace of the sludge -- `sludge-microscope-slide`
@@ -721,7 +727,7 @@ After the first harvest, I bring in another pot of meltwater. Brown sludge has c
 - `sludge-microscope-slide` Sludge microscope slide
   - icon: ![Sludge microscope slide](assets/live-feedback/slide-prepared.png)
 
-  A small brown smear lies under the cover glass. There is little to see with the naked eye.
+  A brown smear lies under the cover glass. Its fine structure needs magnification.
 
 - `laboratory-microscope` Laboratory microscope
   - icon: ![Laboratory microscope](assets/live-feedback/lab-microscope-hit.png)
@@ -731,9 +737,9 @@ After the first harvest, I bring in another pot of meltwater. Brown sludge has c
 - `examined-sludge-slide` Examined sludge slide
   - icon: ![Examined sludge slide](assets/live-feedback/slide-prepared.png)
 
-  ![Damaged fragments under magnification](assets/fixed/items/first-body-on-membrane.png)
+  ![Damaged fragments under magnification](assets/live-feedback/microscopy/filter-sediment.webp)
 
-  A curve repeats in two of the broken flakes. Melted, poured, caught in a filter—nothing has come through whole. I record the magnified view and send it to Earth.
+  Two of the broken flakes have a curiously similar edge. Crystal fractures, perhaps. Melted, poured, caught in a filter—nothing has come through whole. I record the magnified view and send it to Earth.
 
 **Combinations**
 - `empty-microscope-slide` [consume] @ `water-filter` -> `sludge-microscope-slide`
@@ -760,13 +766,13 @@ After the first harvest, I bring in another pot of meltwater. Brown sludge has c
   - icon: ![Visible ice](assets/live-feedback/local-ice-hit.png)
 
 **Items**
-- `sealed-source-core` Sealed source core
-  - icon: ![Sealed source core](assets/live-feedback/local-core-lined.png)
+- `sealed-source-core` Cut source core
+  - icon: ![Cut source core](assets/live-feedback/core-readability/cut-source-core.png)
 
   The clean barrel reaches ice beyond the hand-harvested edge. I seal the core in its thin liner before carrying it inside.
 
 - `stored-source-core` Insulated source core
-  - icon: ![Insulated source core](assets/live-feedback/local-core-insulated.png)
+  - icon: ![Insulated source core](assets/live-feedback/core-readability/insulated-source-core.png)
   - from chapter `specimen-stow`: Local ice core
 
   A small piece of the same reflective insulation wraps the sealed liner. It slows warming during transfers; the laboratory’s existing cold store keeps the core frozen while I go farther from the bank.
@@ -786,34 +792,35 @@ After the first harvest, I bring in another pot of meltwater. Brown sludge has c
 
 ## Across the gully
 
-![Across the gully](assets/survival/scenes/across-the-gully.webp)
+![Across the gully](assets/live-feedback/gully-revision/central-gully.webp)
 
-Loose rubble slides beneath the wheels on the far bank. I can scramble over the rocks to rig the winch at the solid outcrop above. Its long cable will pull the rover up the loose ramp.
+Broken ledges and loose rubble block the rover’s climb. I can scramble to sound rock above the central route and rig the winch. Beyond that ledge, the ice band is still a long drive away.
 
-> NOTE: The steep rutted ground route needs traction assistance. A difficult surveyed foot scramble reaches sound bedrock for rigging. The preserved rock anchor remains at its physical site; the separate installed-winch receiver includes the entire extended line down to the tow hook, so its declared centre is below and left of the drum. The corrected rover has its headlights, tow point and steering wheel at the front, with its seat back and small science store behind. The derived ice receiver appears only after the crossing: its transparent registered canvas shows the same rover at the lower cable hook and covers the exposed ice band above. This is one reached-bank scene state, preserving the separate winch and all background landmarks. Sampling includes clean sealed-liner handling, a reused insulation wrap, the rover’s existing cold service, controlled return and winch recovery. Site stability, suited access and recovery rating remain qualified scene premises.
+> NOTE: The winch is anchored on sound rock at the central far ledge of a steep broken gully, with the ice well beyond it across an intervening plateau. A difficult surveyed foot scramble permits rigging and recovery. Its slack cable snakes down the central route, lying over the terrain and receding in perspective; it is not a straight hanging line. Rover arrival includes the winched climb, unhooking, reeling and the drive beyond the winch to the distant ice. The completed state retains the same winch and shows the same rover smaller, farther away than the winch and near the ice. Both states share an exact artwork canvas and centre. The reached receiver covers the actual brown-layer ice and nearby rover, and does not appear before the pull. The brown band matches the remote core; it supports a sampling association, not certainty about what formed it. Sampling includes a sealed clear liner, routine transfer insulation and existing rover cooling. Site stability, suited access and recovery rating remain qualified scene premises.
 
 **Goals**
-- Anchor the winch above the loose ramp -- `anchored-winch`
+- Anchor the winch above the broken slope -- `anchored-winch`
 - next: Bring the rover to the ice band -- `reached-ice-bank`
 - next: Bring back ice from within the band -- `remote-ice-core`
 
 **Hotspots**
-- (three hotspots are a lot but okay here because the rock anchor stays in place, the long winch line receives the rover, and the reached ice becomes a separate sampling target)
-- `bedrock-anchor` (at 86.85897%, 15.49171%)
-  - icon: ![Bedrock anchor](assets/survival/items/across-the-gully-bedrock-anchor.png)
-- `anchored-winch` (at 73.8%, 29.8%)
-  - icon: ![Winch with extended cable](assets/live-feedback/extended-winch.png)
-- `reached-ice-bank` (at 54.871795%, 27.014218%)
-  - icon: ![Rover below the winch at the reached ice bank](assets/live-feedback/reached-ice-bank-with-rover.png)
+- `bedrock-anchor` (at 56.53846154%, 16.76540284%)
+  - icon: ![Bedrock anchor](assets/live-feedback/gully-revision/central-bedrock-hit.png)
+- `anchored-winch` (at 60.25641026%, 26.06635071%)
+  - icon: ![Winch with extended cable](assets/live-feedback/gully-revision/rigged-winch.png)
+  - hitbox: (at 48.07692308%, 30.65758294%) (size 29.48717949%, 28.73222749%)
+- `reached-ice-bank` (at 60.25641026%, 26.06635071%)
+  - icon: ![Rover beyond the winch at the distant ice bank](assets/live-feedback/gully-revision/reached-rover-and-ice.png)
+  - hitbox: (at 67.43589744%, 9.62677725%) (size 32.82051282%, 8.59004739%)
 
 **Items**
 - `bedrock-anchor` Bedrock anchor
-  - icon: ![Bedrock anchor](assets/survival/items/across-the-gully-bedrock-anchor.png)
+  - icon: ![Bedrock anchor](assets/live-feedback/gully-revision/central-bedrock-hit.png)
 
 - `anchored-winch` Winch with extended cable
-  - icon: ![Winch with extended cable](assets/live-feedback/extended-winch.png)
+  - icon: ![Winch with extended cable](assets/live-feedback/gully-revision/rigged-winch.png)
 
-  The cable reaches all the way down the loose ramp. I can attach it to the rover’s front tow point.
+  The cable lies over the rubble all the way down the broken slope. I can attach it to the rover’s front tow point.
 
 - `rover-winch` Winch
   - icon: ![Winch](assets/survival/items/rover-winch.png)
@@ -826,12 +833,12 @@ Loose rubble slides beneath the wheels on the far bank. I can scramble over the 
   The small science store behind the seat connects to the rover’s existing cold service. It will keep the wrapped core frozen on the journey home.
 
 - `reached-ice-bank` Reached ice bank
-  - icon: ![Rover below the winch at the reached ice bank](assets/live-feedback/reached-ice-bank-with-rover.png)
+  - icon: ![Rover beyond the winch at the distant ice bank](assets/live-feedback/gully-revision/reached-rover-and-ice.png)
 
-  The wheels reach firm rock below the winch. The exposed ice band is now within reach. I leave the line anchored for the way back.
+  The rover climbs the ledge. I unhook it, reel in the cable and drive on across the plateau to the ice. The brown layer is now within reach of the core drill; the winch stays anchored for the return.
 
 - `remote-ice-core` Remote ice core
-  - icon: ![Remote ice core](assets/live-feedback/remote-core-insulated.png)
+  - icon: ![Remote ice core](assets/live-feedback/core-readability/remote-horizontal.png)
 
   A brown band runs through the original core inside its thin sealed liner. I wrap it in reflective insulation, secure it in the rover’s cold service and retrace the gully. This ice has never passed through the water pot.
 
@@ -839,7 +846,7 @@ Loose rubble slides beneath the wheels on the far bank. I can scramble over the 
 
 **Combinations**
 - `rover-winch` [consume] @ `bedrock-anchor` -> `anchored-winch`
-- `expedition-rover` [transform] @ `anchored-winch` -> `reached-ice-bank`
+- `expedition-rover` [transform] @ `anchored-winch` [transform] -> `reached-ice-bank`
 - `core-drill` [preserve] @ `reached-ice-bank` -> `remote-ice-core`
 
 ## Something whole
@@ -848,7 +855,7 @@ Loose rubble slides beneath the wheels on the far bank. I can scramble over the 
 
 The remote core is back in laboratory cooling. A small shaving on a glass slide will let light pass through the ice.
 
-> NOTE: The original remote core survives slide preparation and later boards the cabin as the remote specimen. Taking a small clear shaving with the existing clean laboratory tools, mounting it on a chilled slide, fitting its cover and returning the parent core to cold storage are one complete operation. No separate sectioning fixture is a player object. The microscope’s existing cooled stage holds the thin ice frozen during viewing. The ordinary slide icon reveals no creature; magnification supplies the discovery. Both slides stay in the laboratory. The two original cores provide material for independent investigation; do not claim that leaving the examined shaving behind returns that exact individual inclusion. Morphology alone establishes neither age, chemistry nor origin.
+> NOTE: The original remote core survives slide preparation and later boards the cabin as the remote specimen. Taking a small clear shaving with the existing clean laboratory tools, mounting it on a chilled slide, fitting its cover and returning the parent core to cold storage are one complete operation. No separate sectioning fixture is a player object. The microscope’s existing cooled stage holds the thin ice frozen during viewing. The ordinary slide icon carries a clearly visible brown sample patch but reveals no creature; magnification supplies the discovery. Both slides stay in the laboratory. The two original cores provide material for independent investigation; do not claim that leaving the examined shaving behind returns that exact individual inclusion. Morphology alone establishes neither age, chemistry nor origin.
 
 **Goals**
 - Prepare an ice microscope slide -- `sectioned-ice-core`
@@ -874,7 +881,7 @@ The remote core is back in laboratory cooling. A small shaving on a glass slide 
 - `examined-ice-core` Examined ice slide
   - icon: ![Examined ice slide](assets/live-feedback/slide-prepared.png)
 
-  ![The complete outline in the ice section](assets/fixed/discoveries/intact-body-in-ice.png)
+  ![The complete outline in the ice section](assets/live-feedback/microscopy/whole-in-ice.webp)
 
   Overlapping plates. Paired, jointed limbs. Where the sludge held scattered fragments, this outline stays together within the ice.
 
@@ -973,7 +980,7 @@ The iron gives me something to build with. A divided cell will supply hydrogen f
 
 > NOTE: The cell's body and the common Empty tank are locally formed Iron. The unused service insert from the regenerative-power experiment supplies the membrane, electrodes and separate gas paths; it is distinct from the furnace electrodes and does not cannibalize breathing equipment. Allocated gas-service spares provide the necessary short grey valves, seals and dedicated connectors. Local canister strength and useful gas delivery pressure are accepted game premises. The existing electrical service and ordinary safe filling are bundled, without a power-cord action here.
 
-> NOTE: Two water-filling actions commission the two sides of one pictured vessel. The first replaces the empty cell with its hydrogen-ready state; the second preserves that state and creates a separate oxygen receiver at the other nozzle. Each rule has exactly one result. Empty tank can be made at the cell before or after water. Its reusable token represents the same limited batch of identical locally made vessels, with dedicated clean gas service, not a bottle switched indiscriminately between gases. Water filling and gas collection include repeated trips and batches.
+> NOTE: Two water-filling actions commission the two sides of one pictured vessel. The first replaces the empty cell with its hydrogen-ready state; the second preserves that state and creates a separate oxygen receiver over the right half. The hydrogen receiver covers the matching left half, independently of the spigots’ painted size. Each rule has exactly one result. Empty tank can be made at the cell before or after water. Its reusable token represents the same limited batch of identical locally made vessels, with dedicated clean gas service, not a bottle switched indiscriminately between gases. Water filling and gas collection include repeated trips and batches.
 
 **Goals**
 - Fill both sides of the water cell -- `oxygen-outlet`
@@ -987,10 +994,13 @@ The iron gives me something to build with. A divided cell will supply hydrogen f
   - place: `empty-gas-tank` (at 54.8%, 30%)
 - `hydrogen-cell` (at 37.94872%, 32.64218%)
   - icon: ![Hydrogen side](assets/live-feedback/fuel/cell-hydrogen.png)
-  - place: `empty-gas-tank` (at 54.8%, 30%)
+  - hitbox: (at 28.33333%, 32.64218%) (size 19.23077%, 14.21801%)
+  - place: `empty-gas-tank` (at 21.02564%, 38.27014%)
   - place: `hydrogen-cylinder` (at 20%, 30%)
 - `oxygen-outlet` (at 46.79487%, 32.52370%)
   - icon: ![Oxygen side](assets/live-feedback/fuel/cell-oxygen-outlet.png)
+  - hitbox: (at 47.56410%, 32.64218%) (size 19.23077%, 14.21801%)
+  - place: `oxygen-cylinder` (at 55.12821%, 30%)
 
 **Items**
 - `salvaged-cell-internals` Reclaimed electrolyzer insert
@@ -1061,8 +1071,9 @@ One of the iron tanks makes the reaction chamber. Now it needs both gases and po
 **Hotspots**
 - `fuel-assembly` (at 50%, 34.06398%)
   - icon: ![Methane-making installation](assets/live-feedback/fuel/reactor-base.png)
-- `habitat-scrubber` (at 87.62821%, 23.31161%)
-  - icon: ![Air scrubber](assets/survival/items/fuel-from-air-and-water-habitat-scrubber.png)
+- `habitat-scrubber` (at 84.87179%, 23.31161%)
+  - icon: ![Air scrubber](assets/live-feedback/air-targets/fuel-scrubber-base.png)
+  - hitbox: (at 87.94872%, 23.19313%) (size 22.56410%, 10.84123%)
 
 **Items**
 - `fuel-assembly` Methane-making installation (compound)
@@ -1095,7 +1106,7 @@ One of the iron tanks makes the reaction chamber. Now it needs both gases and po
 
 ## Amber noon
 
-![Amber noon](assets/survival/scenes/amber-noon.webp)
+![Amber noon](assets/live-feedback/storm-controls/amber-noon.webp)
 
 Back in the starter hab, the sky has turned amber.
 
@@ -1103,18 +1114,13 @@ Back in the starter hab, the sky has turned amber.
 
 “Storm alert. Science advises a major regional dust storm over your site. You may lose most of your solar power. The essential reserve covers the forecast interruption. Stop the industrial loads and protect the growing room.”
 
-> NOTE: This control visit takes place in the original surface starter habitat, which still houses the laboratory. Its round window looks onto the storm. A small mounting strip carries three compact selectors with clear symbols: battery/lightning for power, a tap and droplet for water service, and a reactor with cylinder for fuel. The reusable key lies on the floor below. Selecting water reserve stops outdoor melting trips and switches the clean tank to essential use; there is no well to drain. Water reserve and fuel shutdown may finish in either order. The essential battery reserve carries air handling, reduced heat and laboratory cooling through the forecast. Hot processing stops; stored breathing gas and the scrubber remain available. All three selector states are required before proceeding.
-
-> NOTE: The fuel-circuit selector is a general spare service switch repurposed when the plant was connected, with a new hand-marked fuel label. It was not delivered as a ready-made fuel-plant control. It switches the branch; it does not duplicate the shared process instrument.
+> NOTE: This control visit takes place in the original surface starter habitat, which still houses the laboratory. Its round window looks onto the storm. A small mounting strip carries two compact selectors with clear symbols: battery/lightning for power, and a tap and droplet for water service. The reusable key lies on the floor below. Selecting water reserve stops outdoor melting trips and switches the clean tank to essential use; there is no well to drain. Either reserve selector may be set first. The essential battery reserve carries air handling, reduced heat and laboratory cooling through the forecast. Hot processing stops; stored breathing gas and the scrubber remain available. Both selector states are required before proceeding. Pausing the manually operated gas batches is ordinary storm preparation, not a third control action.
 
 **Goals**
 - Put the station on reserve -- `reserve-power-selected`
-- next: Leave the exterior circuits safe
-  - both: `water-service-secured`
-  - and: `fuel-plant-shut-down`
+- next: Secure the water reserve -- `water-service-secured`
 
 **Hotspots**
-- (three hotspots are a lot but okay here because one key operates three separate installed service selectors)
 - `reserve-power-selector` (at 31.98718%, 19.78673%)
   - icon: ![Reserve power selector](assets/survival/items/amber-noon-reserve-power-selector.png)
 - `reserve-power-selected` (at 31.98718%, 19.78673%)
@@ -1123,10 +1129,6 @@ Back in the starter hab, the sky has turned amber.
   - icon: ![Water-service control](assets/survival/items/amber-noon-water-service-control.png)
 - `water-service-secured` (at 50.83333%, 19.78673%)
   - icon: ![Water service secured](assets/survival/items/amber-noon-water-service-secured.png)
-- `fuel-plant-shutdown-control` (at 69.10256%, 19.78673%)
-  - icon: ![Fuel-plant shutdown control](assets/survival/items/amber-noon-fuel-plant-shutdown-control.png)
-- `fuel-plant-shut-down` (at 69.10256%, 19.78673%)
-  - icon: ![Fuel plant shut down](assets/survival/items/amber-noon-fuel-plant-shut-down.png)
 
 **Items**
 - `restored-power` Station solar array
@@ -1146,7 +1148,7 @@ Back in the starter hab, the sky has turned amber.
   - icon: ![Reserve power selected](assets/survival/items/amber-noon-reserve-power-selected.png)
   - from chapter `lander-repair`: Station power selector
 
-  I leave power connected until the shutdown cycles finish. Air handling, reduced heat and laboratory cooling stay on the station reserve.
+  I pause the hot processing and leave air handling, reduced heat and laboratory cooling on the station reserve.
 
 - `water-service-control` Water-service control
   - icon: ![Water-service control](assets/survival/items/amber-noon-water-service-control.png)
@@ -1157,21 +1159,9 @@ Back in the starter hab, the sky has turned amber.
 
   I finish the fill and secure the clean tank. During the storm it will supply essential needs; outdoor melting trips can wait.
 
-- `fuel-plant-shutdown-control` Fuel-plant shutdown control
-  - icon: ![Fuel-plant shutdown control](assets/survival/items/amber-noon-fuel-plant-shutdown-control.png)
-
-  I put a hand-drawn fuel symbol beside the spare service switch when I connected the plant.
-
-- `fuel-plant-shut-down` Fuel plant shut down
-  - icon: ![Fuel plant shut down](assets/survival/items/amber-noon-fuel-plant-shut-down.png)
-  - from chapter `lander-repair`: Fuel-plant service control
-
-  The plant cools and isolates before power disconnects. Its separate gas cylinders stay shut until production resumes.
-
 **Combinations**
 - `service-key` [preserve] @ `reserve-power-selector` [transform] -> `reserve-power-selected`
 - `service-key` [preserve] @ `water-service-control` [transform] -> `water-service-secured`
-- `service-key` [preserve] @ `fuel-plant-shutdown-control` [transform] -> `fuel-plant-shut-down`
 
 ## Keep the roots alive
 
@@ -1219,7 +1209,7 @@ Enough warmth, light and water to keep the roots alive. Productive growth can re
   The low covers slow the beds’ cooling while the reserve heater carries them through the storm. Mara’s forecast update has a sentence at the end: “It’s raining outside my window.”
 
 - `farm-thermal-screen` Farm thermal screen
-  - icon: ![Farm thermal screen](assets/items/farm-thermal-screen.png)
+  - icon: ![Farm thermal screen](assets/live-feedback/farm-thermal-screen.png)
 
 - `fabric`
 
@@ -1257,13 +1247,13 @@ A pale edge of sunlight returns. Under the dust, the panels are still connected.
 
 ## `lander-repair` The leg that stays
 
-![`lander-repair` The leg that stays](assets/live-feedback/fuel/lander-repair-scene.webp)
+![`lander-repair` The leg that stays](assets/live-feedback/lander-support-fit/lander-repair-scene.webp)
 
 The plant is working again. Now I can finish the repair that will let this cabin leave.
 
 > NOTE: The original stone remains an unloaded catch. Two qualified low broad ceramic stacks secure either side of the sound cross-member while the original legs remain stable; a central footer shares their firm bearing surface. These blocks do not act as lifting jacks. The shovel operation includes rolling the loose stone away, never lifting the vehicle with the shovel. Only the resulting clear gap accepts iron.
 
-> NOTE: The final member is a short substantial tubular strut with saddle and broad foot, visually comparable to the existing legs. Keep camera, ground texture/colour, ceramic registration, original feet and vehicle height unchanged. No ground bolts, giant framework or lift. Removal of both side stacks and the central ceramic footer is bundled after the permanent member is fitted. Its broad iron foot bears directly on firm ground; no temporary bricks remain in this or the next chapter. Material, buckling, bearing and procedural qualification are explicit future repair premises. This chapter-only receiver prevents premature repair construction on the crash board.
+> NOTE: The final member is a short substantial square-section iron strut with a fitted saddle bearing under the original frame junction and a broad flat foot, visually comparable to the existing legs. Keep camera, ground texture/colour, ceramic registration, original feet and vehicle height unchanged. No ground bolts, giant framework or lift. Removal of both side stacks and the central ceramic footer is bundled after the permanent member is fitted. Its broad iron foot bears directly on firm ground; no temporary bricks remain in this or the next chapter. Material, buckling, bearing and procedural qualification are explicit future repair premises. This chapter-only receiver prevents premature repair construction on the crash board.
 
 **Goals**
 - Block the frame and lay its footing -- `ceramic-landing-footing`
@@ -1278,7 +1268,7 @@ The plant is working again. Now I can finish the repair that will let this cabin
 - `clear-support-gap` (at 61.47436%, 37.08531%)
   - icon: ![clear-support-gap](assets/survival/items/the-leg-that-stays-clear-support-gap.png)
 - `level-launch-platform` (at 61.47436%, 37.08531%)
-  - icon: ![level-launch-platform](assets/live-feedback/fuel/lander-permanent-leg.png)
+  - icon: ![level-launch-platform](assets/live-feedback/lander-support-fit/lander-permanent-leg.png)
 
 **Items**
 - `landing-footing-site` Lower-frame support site
@@ -1297,7 +1287,7 @@ The plant is working again. Now I can finish the repair that will let this cabin
   With the side blocks protecting the frame, I roll the loose stone out. The middle of the footing is clear.
 
 - `level-launch-platform` Supported launch frame
-  - icon: ![Supported launch frame](assets/live-feedback/fuel/lander-permanent-leg.png)
+  - icon: ![Supported launch frame](assets/live-feedback/lander-support-fit/lander-permanent-leg.png)
 
   The short iron strut fits between its broad foot and saddle beneath the cross-member. It is as substantial as the original legs. I clear away the temporary bricks; its broad foot bears on firm ground. This support will stay here when I leave.
 
@@ -1314,7 +1304,7 @@ The plant is working again. Now I can finish the repair that will let this cabin
 
 ## Fuel for the return
 
-![Fuel for the return](assets/live-feedback/fuel/lander-ports-scene.webp)
+![Fuel for the return](assets/live-feedback/lander-support-fit/lander-ports-scene.webp)
 
 I bring over oxygen and methane in their separate cylinders. The lander’s cooling system collects each in its own flight tank.
 
@@ -1449,11 +1439,11 @@ Mara confirms a hold for rendezvous alignment. The spacecraft is ready, the spec
 
 ## `specimen-stow` The things we take
 
-![The things we take](assets/survival/scenes/the-things-we-take.webp)
+![The things we take](assets/live-feedback/core-readability/the-things-we-take.webp)
 
-Rendezvous clearance. Inside the cabin, two cold cradles wait for the cores: one from home, one from across the gully.
+Rendezvous clearance. The mission’s sample rack has room for four cores. I secure just two: one from home, one from across the gully. The other two places will go home empty.
 
-> NOTE: The two original ice cores return. The laboratory slides and microscope stay behind. Each core remains in its sealed liner and reused insulating wrap during transfer from existing laboratory/rover cooling to the flight cold cradle. Insulation only slows heat transfer; the established refrigeration keeps the samples cold. Fastening and connecting flight cooling are bundled in each drag. Either core may be stowed first. No new carrier-building step or examined-slice package is introduced.
+> NOTE: Returning ice cores was part of the original mission. One compact cold rack has four horizontal holders in a two-by-two arrangement; only the upper two are targets. The lower two remain empty because the mission ends early. The two original ice cores return. The laboratory slides and microscope stay behind. Each core stays in its thin sealed liner, with reused insulation for transfers between existing laboratory/rover cooling and the flight cold cradle. The remote icon shows the ice exposed for identification in the cooled cradle; removing and replacing its transfer wrap is bundled. Insulation only slows heat transfer; the established refrigeration keeps the samples cold. Fastening and connecting flight cooling are bundled in each drag. Either core may be stowed first. No new carrier-building step or examined-slice package is introduced.
 
 **Goals**
 - Secure both original cores on flight cooling
@@ -1461,29 +1451,29 @@ Rendezvous clearance. Inside the cabin, two cold cradles wait for the cores: one
   - and: `flight-stowed-remote-core`
 
 **Hotspots**
-- `water-source-core-cradle` (at 37.75641%, 16%)
-  - icon: ![Local core cradle](assets/live-feedback/fuel/core-cradle-target.png)
-- `flight-stowed-source-core` (at 37.75641%, 16%)
-  - icon: ![Local core secured](assets/live-feedback/fuel/stowed-local-core.png)
-- `remote-band-core-cradle` (at 37.75641%, 28.4%)
-  - icon: ![Remote core cradle](assets/live-feedback/fuel/core-cradle-target.png)
-- `flight-stowed-remote-core` (at 37.75641%, 28.4%)
-  - icon: ![Remote core secured](assets/live-feedback/fuel/stowed-remote-core.png)
+- `water-source-core-cradle` (at 31.41025641%, 19.37203791%)
+  - icon: ![Local core cradle](assets/live-feedback/core-readability/core-cradle-target.png)
+- `flight-stowed-source-core` (at 31.41025641%, 19.37203791%)
+  - icon: ![Local core secured](assets/live-feedback/core-readability/stowed-source-core.png)
+- `remote-band-core-cradle` (at 62.30769231%, 19.37203791%)
+  - icon: ![Remote core cradle](assets/live-feedback/core-readability/core-cradle-target.png)
+- `flight-stowed-remote-core` (at 62.30769231%, 19.37203791%)
+  - icon: ![Remote core secured](assets/live-feedback/core-readability/stowed-remote-core.png)
 
 **Items**
 - `water-source-core-cradle` Local core cradle
-  - icon: ![Local core cradle](assets/live-feedback/fuel/core-cradle-target.png)
+  - icon: ![Local core cradle](assets/live-feedback/core-readability/core-cradle-target.png)
 
 - `remote-band-core-cradle` Remote core cradle
-  - icon: ![Remote core cradle](assets/live-feedback/fuel/core-cradle-target.png)
+  - icon: ![Remote core cradle](assets/live-feedback/core-readability/core-cradle-target.png)
 
 - `flight-stowed-source-core` Local core secured
-  - icon: ![Local core secured](assets/live-feedback/fuel/stowed-local-core.png)
+  - icon: ![Local core secured](assets/live-feedback/core-readability/stowed-source-core.png)
 
   The original local core is secured in its cold cradle. Its sealed liner preserves the untouched ice around the sampled source.
 
 - `flight-stowed-remote-core` Remote core secured
-  - icon: ![Remote core secured](assets/live-feedback/fuel/stowed-remote-core.png)
+  - icon: ![Remote core secured](assets/live-feedback/core-readability/stowed-remote-core.png)
 
   The original remote core joins it, still in its separate liner. The small shaving and its microscope slide remain in the laboratory.
 
@@ -1530,7 +1520,7 @@ I take the pilot’s seat and close the hatch. The last command is mine.
 
 ## The End
 
-![The End](assets/survival/scenes/the-end.webp)
+![The End](assets/live-feedback/lander-support-fit/the-end.webp)
 
 The cabin climbs above the base. The lower stage, its new leg and the small cave mouth draw together below me. Light still glows where the garden is.
 

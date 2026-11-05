@@ -44,6 +44,17 @@
   display: block; width: var(--icon-width); height: var(--icon-height); min-height: 0;
   padding: 0; border: 0 !important; background: transparent !important; box-shadow: none !important; outline: none !important;
 }
+/* The receiving box owns interaction and labels; connected artwork may extend
+   beyond it without intercepting clicks or changing its registered scale. */
+.chapter-panel .hotspot.hotspot-hitbox {
+  width:max(var(--hit-width),calc(44px / var(--board-scale,1)));
+  height:max(var(--hit-height),calc(44px / var(--board-scale,1))); min-height:0;
+}
+.hotspot-hitbox > .icon-stack {
+  position:absolute; width:var(--icon-width); height:var(--icon-height);
+  left:calc(50% + var(--art-offset-x) - var(--icon-width)/2);
+  top:calc(50% + var(--art-offset-y) - var(--icon-height)/2);
+}
 .hotspot-icon::before {
   content: ''; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
   width: max(100%, calc(44px / var(--board-scale, 1))); height: max(100%, calc(44px / var(--board-scale, 1)));

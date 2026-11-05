@@ -215,6 +215,8 @@ Use this for an existing landscape feature or apparatus that belongs naturally i
 
 Compose targets with their surroundings and preserve room for movable items and names. Use the existing `place:` mechanism when a received item or result should settle at a particular point; it does not create supplies or enforce a prerequisite. Check the actual hit area, target recognition, placement and narrow-screen crop through real dragging. A beautifully integrated feature can still be hard to identify as the receiver or have an unreachable target. See [scene composition](icon-guide.md#8-expand-through-related-families) and [placement semantics](story-format-spec.md#specification).
 
+When attached details extend beyond the useful receiver, use an independent rectangular `hitbox:` to keep the receiving area on the apparatus while preserving the complete registered painting. A long cable need not make the intervening landscape interactive. Conversely, a small painted outlet can receive input over its clearly identified half of a vessel. Check both accepted and rejected drop points, not just the centre. Syntax and shared geometry belong to the [specification](story-format-spec.md#specification).
+
 ### Independent construction and operating states
 
 Use a compound when independently added parts should remain individually meaningful. Its base and slot overlays share the same canvas and registered geometry; declaration order supplies the visual stacking order regardless of installation order. Plan the complete assembly and its partial states together. Preserve already installed parts when another slot is filled. An ordinary transformation creates a new identity and does not automatically transfer fitted details; author the resulting structure deliberately when a true transformation is needed.
@@ -242,6 +244,8 @@ A late fixed receiver can localize an otherwise global operation to the affected
 Use this when investigation changes the story's question or purpose. Keep the original material, an extracted section and observations distinct where their differences matter. Track collection, destructive preparation, retained remainder, examination and later custody. A picture of an intact object must not replace an earlier damaged fragment without a new source or operation.
 
 Studying two specimens need not manufacture a comparison object; sequential goals can ask for both observations. Containers and working assemblies may be real constructions, but a comparison alone does not create a physical package. Let results change what the player can ask, understand or do; routine assays and record-making do not automatically deserve separate actions. Review the specimen lineage and the strength of the inference separately: an interesting shape or association may justify further investigation without proving origin, age or mechanism.
+
+Make the image's certainty match that stage of the investigation. An early ambiguous finding must remain ambiguous in the painting, not only in cautious prose; a recognizable complete structure can reveal a later discovery too soon. Review an unnamed image at its displayed size before revealing the intended explanation. Preserve the preparation medium as well as the specimen: melted residue, a wet smear and an intact frozen section are different physical views.
 
 ### Intellectual synthesis and changing perspectives
 

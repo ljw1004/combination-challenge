@@ -86,6 +86,7 @@ function finish(s: State, group: string) {
 for (const order of permutations(['solar', 'scrubber', 'battery', 'comms'])
   .filter(xs => xs.indexOf('solar') < xs.indexOf('battery'))) {
   let s = start('Air');
+  assert(!live(s, 'steel-pin'), 'Steel pin must not invite early cable combination');
   const goals = story.chapters[s.chapter].goals;
   assert.deepEqual(visibleGoals(story, s).map(g => g.text), ['Restore solar power', 'Restore comms']);
   no(s, 'reserve-battery', 'station-power');
@@ -108,6 +109,7 @@ for (const order of permutations(['solar', 'scrubber', 'battery', 'comms'])
 for (const route of ['load-pot-first', 'park-pot-first', 'dig-then-park']) {
   for (const filterFirst of [true, false]) {
     let s = start('Water');
+    assert(live(s, 'steel-pin'), 'Steel pin is recovered in the outdoor water chapter');
     currentTargets(s, ['visible-ice', 'heater']);
     const filter = (state: State) => b(state, 'fabric', 'reclaimed-water-cartridge', 'water-filter');
     if (filterFirst) s = filter(s);
@@ -189,6 +191,7 @@ for (const beds of permutations(['potato', 'soybean', 'lettuce'])) for (const co
   s = h(s, 'rover-winch', 'bedrock-anchor', 'anchored-winch');
   no(s, 'core-drill', 'reached-ice-bank');
   s = h(s, 'expedition-rover', 'anchored-winch', 'reached-ice-bank');
+  gone(s, 'anchored-winch');
   s = h(s, 'core-drill', 'reached-ice-bank', 'remote-ice-core');
   finish(s, 'crossing before remote sampling');
   s = start('Something whole');
@@ -260,6 +263,14 @@ for (const order of permutations(['capture', 'hydrogen-cylinder', 'carbon-dioxid
   assert.deepEqual(s.tokens[key('empty-gas-tank')].firstSeen, emptyEncounter, 'Same empty-tank resource reused');
   assert(live(s, 'empty-gas-tank') && live(s, 'oxygen-cylinder'), 'Empty tank and separate oxygen survive');
   finish(s, 'three methane fittings and CO2 capture orders');
+}
+
+for (const order of permutations(['reserve-power-selector', 'water-service-control'])) {
+  let s = start('Amber noon');
+  currentTargets(s, ['reserve-power-selector', 'water-service-control']);
+  for (const target of order) s = h(s, 'service-key', target);
+  currentTargets(s, ['reserve-power-selected', 'water-service-secured']);
+  finish(s, 'two storm selectors in either order');
 }
 
 for (const order of permutations(['screen', 'covers'])) {
