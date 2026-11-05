@@ -39,7 +39,7 @@ A new setting.
 async function open(page:Page){
   await page.route('**/arrival-fixture/story.md',r=>r.fulfill({contentType:'text/markdown',body:manuscript}));
   await page.route('**/arrival-fixture/*.svg',r=>r.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="320"></svg>`}));
-  await page.goto('/combinations.html?story=arrival-fixture/story.md');
+  await page.goto('/make-something.html?story=arrival-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
 }
@@ -124,7 +124,7 @@ Finish the preparation.
   await page.route('**/centred-fixture/*.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320"><circle cx="160" cy="160" r="150" fill="tan"/></svg>'}));
   for(const viewport of [{width:390,height:844},{width:320,height:550},{width:1024,height:844}]){
     await page.setViewportSize(viewport);
-    await page.goto('/combinations.html?story=centred-fixture/story.md');
+    await page.goto('/make-something.html?story=centred-fixture/story.md');
     await jumpToChapter(page,'Second',true);
     await page.getByRole('button',{name:'Begin',exact:true}).click();
     const panel=page.locator('.chapter-panel').last();
@@ -183,7 +183,7 @@ ${names.slice(0,3).map(name=>`  - slot: ${name}, accepts ${name}, icon: ![select
     const size=filename==='ports.svg'?[60,68]:filename==='room.svg'?[390,844]:filename==='enclosure.svg'?[240,480]:filename==='selected.svg'?sizes[3]:sizes[Number(filename[0])];
     return route.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${size[0]*4}" height="${size[1]*4}"><rect width="100%" height="100%" fill="tan"/></svg>`});
   });
-  await page.goto('/combinations.html?story=badge-fixture/story.md');
+  await page.goto('/make-something.html?story=badge-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const station=page.locator('[data-hotspot]');await station.hover();

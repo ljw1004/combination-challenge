@@ -32,10 +32,10 @@ export function sitePages(): Plugin {
       server.middlewares.use(async (request, response, next) => {
         const path = new URL(request.url ?? '/', 'http://localhost').pathname;
         const catalogue = path === '/' || path === '/index.html' || path === '/index-dev.html';
-        const player = path === '/combinations-dev.html' || path.endsWith('/combinations.html');
+        const player = path === '/make-something-dev.html' || path.endsWith('/make-something.html');
         if (catalogue || player) {
           try {
-            let html = readFileSync(resolve(root, catalogue ? 'index-dev.html' : 'combinations-dev.html'), 'utf8');
+            let html = readFileSync(resolve(root, catalogue ? 'index-dev.html' : 'make-something-dev.html'), 'utf8');
             if (player) {
               const prefix = '../'.repeat(path.split('/').length - 2);
               html = html.replace('data-catalogue="./index.html"', `data-catalogue="${prefix || './'}index.html"`);
@@ -74,7 +74,7 @@ export function sitePages(): Plugin {
     generateBundle: {
       order: 'post',
       handler(_, bundle) {
-        for (const name of ['index', 'combinations']) {
+        for (const name of ['index', 'make-something']) {
           const source = `${name}-dev.html`, page = bundle[source];
           if (!page || page.type !== 'asset') throw new Error(`Missing built template: ${source}`);
           delete bundle[source];

@@ -56,7 +56,7 @@ async function serveFixture(page: Page, text = manuscript) {
 
 async function openFixture(page: Page, text = manuscript) {
   await serveFixture(page, text);
-  await page.goto('/combinations.html?story=fixture/story.md');
+  await page.goto('/make-something.html?story=fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await openEditor(page);
@@ -288,7 +288,7 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   expect(await savedText(page, localBeforeRemote)).toBe(true);
   const otherTab = await page.context().newPage();
   await serveFixture(otherTab);
-  await otherTab.goto('/combinations.html?story=fixture/story.md');
+  await otherTab.goto('/make-something.html?story=fixture/story.md');
   await expect(otherTab.getByRole('textbox', { name: 'Story Markdown' })).toBeVisible();
   const releaseRemoteDelete = await beginDelayedDeletion(page);
   const remoteEdit = localBeforeRemote.replace('New edit made during deletion.', 'A newer copy from another tab.');
@@ -312,11 +312,11 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
 
 test('same-directory loading, missing-story errors and failed storage keep the editing boundary clear', async ({ page }) => {
   await serveFixture(page);
-  await page.route('**/fixture/combinations.html', async route => {
-    const response = await route.fetch({url: new URL('/combinations.html', route.request().url()).href});
+  await page.route('**/fixture/make-something.html', async route => {
+    const response = await route.fetch({url: new URL('/make-something.html', route.request().url()).href});
     await route.fulfill({response});
   });
-  await page.goto('/fixture/combinations.html');
+  await page.goto('/fixture/make-something.html');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await expect(page.locator('.scene-art')).toHaveAttribute('src', /\/fixture\/assets\/bg\.svg$/);
@@ -340,7 +340,7 @@ test('same-directory loading, missing-story errors and failed storage keep the e
 
   page.on('dialog', dialog => dialog.accept());
   await page.route('**/missing/story.md', route => route.fulfill({ status: 404, contentType: 'text/plain', body: 'Missing' }));
-  await page.goto('/combinations.html?story=missing/story.md');
+  await page.goto('/make-something.html?story=missing/story.md');
   await expect(page.getByText(/Could not load the story.*HTTP 404/)).toBeVisible();
   await expect(page.locator('.chapter-panel')).toHaveCount(0);
 });
@@ -350,7 +350,7 @@ test('diagnostics keep source order and scroll while their related locations nav
     + '\n- `frame` [consume] + `probe` [preserve] -> Scrap\n- `frame` [transform] + `tool` [preserve] -> Shaped frame\n- `tool` [consume] + `probe` [preserve] -> Toolbox\n'
     + '\n**Goals**\n' + Array.from({length: 12}, (_, i) => `- Incomplete goal ${i}\n`).join('');
   await serveFixture(page, text.replaceAll('\n', '\r\n'));
-  await page.goto('/combinations.html?story=fixture/story.md');
+  await page.goto('/make-something.html?story=fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await openEditor(page);
@@ -520,7 +520,7 @@ test('chapter heading checkpoint buttons use live text and preserve the draft an
 test('opening the editor reveals the current gameplay chapter without resetting progress', async ({page}) => {
   const text = manuscript.replace('## Field', '\n'.repeat(80) + '## Field').replaceAll('\n', '\r\n');
   await serveFixture(page, text);
-  await page.goto('/combinations.html?story=fixture/story.md');
+  await page.goto('/make-something.html?story=fixture/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await page.locator('[data-item="id:frame"]').dragTo(page.locator('[data-item="id:tool"]'));
@@ -680,7 +680,7 @@ test('mobile chapter navigation is a compact scrolling list and creates checkpoi
   await page.setViewportSize({width: 390, height: 640});
   const extra = Array.from({length: 18}, (_, index) => `\n## Chapter ${index + 3}\n\n**Goals**\n- Keep the kit -- \`kit\`\n`).join('');
   await serveFixture(page, manuscript + extra);
-  await page.goto('/combinations.html?story=fixture/story.md');
+  await page.goto('/make-something.html?story=fixture/story.md');
   await openEditor(page);
   const dialog = page.getByRole('dialog', {name: 'Jump to chapter'});
   const list = dialog.getByRole('list');
@@ -876,7 +876,7 @@ for (const kind of ['goals','hotspots'] as const) test(`three-${kind} quick acti
   const remove = kind === 'goals' ? '- Keep the tool -- `tool`\n' : '- Sink\n';
   const text = kind === 'hotspots' ? manuscript.replace('**Goals**', '**Hotspots**\n- Oven\n- Hob\n- Sink\n\n**Goals**\n**Items**\n- Oven\n- Hob\n- Sink\n\n') : manuscript.replace('- Build the kit -- `kit`', '- Build the kit -- `kit`\n- Keep the frame -- `frame`\n- Keep the tool -- `tool`');
   await serveFixture(page, text.replaceAll('\n', '\r\n'));
-  await page.goto('/combinations.html?story=fixture/story.md');
+  await page.goto('/make-something.html?story=fixture/story.md');
   await openEditor(page);
   const group = page.locator('.editor-diagnostic-entry').filter({hasText: countCode});
   await expectTextOverlay(group.locator('.editor-diagnostic-fix'));
@@ -968,7 +968,7 @@ Build a two-stage construction.
 - D [preserve] + Tool [preserve] -> E
 `;
   await serveFixture(page, chain);
-  await page.goto('/combinations.html?story=fixture/story.md');
+  await page.goto('/make-something.html?story=fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await openEditor(page);

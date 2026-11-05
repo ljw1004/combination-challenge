@@ -38,7 +38,7 @@ const station = (page: Page, name: string) => page.locator('.chapter-panel').las
 const cue = (page: Page, kind: string) => page.locator(`.tutorial-overlay[data-tutorial="${kind}"]`);
 async function open(page: Page, text = story) {
   await page.route('**/hotspot-tutorial/story.md', route => route.fulfill({contentType: 'text/markdown', body: text}));
-  await page.goto('/combinations.html?story=hotspot-tutorial/story.md');
+  await page.goto('/make-something.html?story=hotspot-tutorial/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
 }

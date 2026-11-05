@@ -8,7 +8,7 @@ const manuscript = '# Language fixture\n\n## Workshop\n\nFrame in prose is not a
 
 async function open(page: Page, text = manuscript) {
   await page.route('**/language/story.md', route => route.fulfill({contentType: 'text/markdown', body: text}));
-  await page.goto('/combinations.html?story=language/story.md');
+  await page.goto('/make-something.html?story=language/story.md');
   await openDebugPanel(page);
 }
 

@@ -14,7 +14,7 @@ A clogged water intake leads to a microscopic body. NASA requests two unmelted c
 
 This final pass builds the nook around the existing bench, finishes the lamp in one operation, removes routine return-to-window placements and makes electrolysis collection physically clear. Brief observations give necessary construction and harvesting actions their consequences.
 
-The shared player loads `/combinations.html?story=projects/mars-study/mars-v8/mars.md`. These are text and logical-playtest revisions; no visual or artwork work was performed. This remains a candidate for human evaluation.
+The shared player loads `/make-something.html?story=projects/mars-study/mars-v8/mars.md`. These are text and logical-playtest revisions; no visual or artwork work was performed. This remains a candidate for human evaluation.
 
 Structural checks complete **91/91 combinations**, with **128 item identities / 37 primitives** and **29 chapters including the ending**. Starting boards average **3.2 items**, maximum **7**. Lint has no errors and two reviewed mixed-fate warnings for the water line and lettuce trough. These counts describe structure, not human enjoyment.
 

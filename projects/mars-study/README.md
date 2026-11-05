@@ -41,20 +41,20 @@ Run `npm run dev` and use the shared player:
 
 | Version | Local URL |
 |---|---|
-| Illustrated story | `/combinations.html?story=mars/mars.md` |
-| V2 | `/combinations.html?story=projects/mars-study/mars-v2/mars.md` |
-| V3 | `/combinations.html?story=projects/mars-study/mars-v3/mars.md` |
-| V4 | `/combinations.html?story=projects/mars-study/mars-v4/mars.md` |
-| V5 | `/combinations.html?story=projects/mars-study/mars-v5/mars.md` |
-| V6 | `/combinations.html?story=projects/mars-study/mars-v6/mars.md` |
-| V7 | `/combinations.html?story=projects/mars-study/mars-v7/mars.md` |
-| V8 | `/combinations.html?story=projects/mars-study/mars-v8/mars.md` |
-| V9 | `/combinations.html?story=projects/mars-study/mars-v9/mars.md` |
-| V10 | `/combinations.html?story=projects/mars-study/mars-v10/mars.md` |
-| V11 | `/combinations.html?story=projects/mars-study/mars-v11/mars.md` |
-| V12 | `/combinations.html?story=projects/mars-study/mars-v12/mars.md` |
+| Illustrated story | `/make-something.html?story=stories/mars/mars.md` |
+| V2 | `/make-something.html?story=projects/mars-study/mars-v2/mars.md` |
+| V3 | `/make-something.html?story=projects/mars-study/mars-v3/mars.md` |
+| V4 | `/make-something.html?story=projects/mars-study/mars-v4/mars.md` |
+| V5 | `/make-something.html?story=projects/mars-study/mars-v5/mars.md` |
+| V6 | `/make-something.html?story=projects/mars-study/mars-v6/mars.md` |
+| V7 | `/make-something.html?story=projects/mars-study/mars-v7/mars.md` |
+| V8 | `/make-something.html?story=projects/mars-study/mars-v8/mars.md` |
+| V9 | `/make-something.html?story=projects/mars-study/mars-v9/mars.md` |
+| V10 | `/make-something.html?story=projects/mars-study/mars-v10/mars.md` |
+| V11 | `/make-something.html?story=projects/mars-study/mars-v11/mars.md` |
+| V12 | `/make-something.html?story=projects/mars-study/mars-v12/mars.md` |
 
-Project drafts are not added to the published catalogue. The `story=` path resolves relative to `combinations.html`, with no implicit `stories/` prefix. Use the shared [lint, analysis and preview workflow](../../docs/story-authoring.md#check-and-preview-a-draft) for all versions. The earlier versions and their artwork references are preserved without generating or recompressing images.
+Project drafts are not added to the published catalogue. The `story=` path resolves relative to `make-something.html`, with no implicit `stories/` prefix. Use the shared [lint, analysis and preview workflow](../../docs/story-authoring.md#check-and-preview-a-draft) for all versions. The earlier versions and their artwork references are preserved without generating or recompressing images.
 
 The earlier artwork phase was completed on 1 November 2026. Its source paintings, exact generation requests, extraction and registration records remain available for further development. The narrative rewrite is another phase of this same project, not grounds to close it. Keep detailed reviewer output and verification captures in ignored `runs/` space; retain only concise outcomes and useful project deliverables here.
 

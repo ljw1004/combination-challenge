@@ -72,7 +72,7 @@ test('cover, one-step results and next-chapter arrivals load independently, with
     if (name === 'c.svg') await result.promise;
     await route.fulfill({contentType: 'image/svg+xml', body: svg(name)});
   });
-  await page.goto('/combinations.html?story=incremental/story.md', {waitUntil: 'domcontentloaded'});
+  await page.goto('/make-something.html?story=incremental/story.md', {waitUntil: 'domcontentloaded'});
   await expect(page.getByText('Loading story…', {exact: true})).toBeVisible();
   await page.setViewportSize({width: 390, height: 800});
   await expect(page.getByRole('button', {name: 'Start', exact: true})).toHaveCount(0);
@@ -118,7 +118,7 @@ test('an intermittent image failure recovers automatically before laying out the
     if (name === 'a.svg' && ++attempts === 1) return route.abort('failed');
     return route.fulfill({contentType: 'image/svg+xml', body: svg(name)});
   });
-  await page.goto('/combinations.html?story=incremental/story.md');
+  await page.goto('/make-something.html?story=incremental/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   const a = page.locator('[data-item="name:A"]');
@@ -135,7 +135,7 @@ test('exhausted artwork failures fall back without poisoning recovery after reco
     if (name === 'a.svg') { attempts++; if (broken) return route.abort('failed'); }
     return route.fulfill({contentType: 'image/svg+xml', body: svg(name)});
   });
-  await page.goto('/combinations.html?story=incremental/story.md');
+  await page.goto('/make-something.html?story=incremental/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   const a = page.locator('[data-item="name:A"]');
@@ -156,7 +156,7 @@ test('a resumed chapter restart prepares retired starting items that were not ne
     if (hold && name === 'a.svg') { requested = true; await restore.promise; }
     await route.fulfill({contentType: 'image/svg+xml', body: svg(name)});
   });
-  await page.goto('/combinations.html?story=incremental/story.md');
+  await page.goto('/make-something.html?story=incremental/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   const a = page.locator('[data-item="name:A"]');
@@ -184,7 +184,7 @@ test('editing cancels a combination waiting on artwork instead of applying it to
     if (name === 'c.svg') await result.promise;
     await route.fulfill({contentType: 'image/svg+xml', body: svg(name)});
   });
-  await page.goto('/combinations.html?story=incremental/story.md');
+  await page.goto('/make-something.html?story=incremental/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await page.locator('[data-item="name:A"]').dragTo(page.locator('[data-item="name:B"]'));

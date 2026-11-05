@@ -32,7 +32,7 @@ background: ![ground](ground.svg)
       const [w,h] = background ? [780,1688] : [400,400];
       return route.fulfill({contentType: 'image/svg+xml', body: `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="${w}" height="${h}" fill="#7c3e20"/></svg>`});
     });
-    await page.goto('/combinations.html?story=scene-continuity/story.md');
+    await page.goto('/make-something.html?story=scene-continuity/story.md');
     await page.getByRole('button', {name: 'Start', exact: true}).click();
     const patch = page.locator('[data-hotspot="name:Site"]');
     await expect(patch).toBeVisible();

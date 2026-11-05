@@ -11,7 +11,7 @@ The revision developed in [Iteration #10](../working-notes.md#iteration-10), pre
 
 The remote expedition follows the reference core directly. Industrial preparation follows the intact-body examination. Thin mounting and loading intermediates are consolidated; retained constructions show their physical effect. The bent antenna, early berth, distinct crop work, two-chapter celebration and deliberate ascent command remain.
 
-Local player route: `/combinations.html?story=projects/mars-study/mars-v10/mars.md`.
+Local player route: `/make-something.html?story=projects/mars-study/mars-v10/mars.md`.
 
 The [26-chapter fast review](../playtests/2026.11.03_11.59.51/report.md) is complete, with 78 players, independent grading and synthesis. Its concrete findings and subsequent user feedback have been applied. The [whole-story detailed report](../playtests/2026.11.03_12.32.41/report.md) is complete and verified: 108 completed players, 108 independent grades, 36 chapter syntheses and 436 gameplay decisions. The same assignments resumed after commit `66c42916`, preserving their earlier work. Results span both interaction versions. [Findings and proposed revisions](../working-notes.md#completed-whole-story-detailed-review--findings-and-proposed-next-actions) are recorded for user review; no post-report story changes have been applied.
 

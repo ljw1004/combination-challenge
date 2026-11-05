@@ -18,7 +18,7 @@ npm run analyze -- projects/mars-study/mars-v3/mars.md
 npm run dev
 ```
 
-Open `/combinations.html?story=projects/mars-study/mars-v3/mars.md` on the address printed by Vite. The story path resolves relative to `combinations.html`, and artwork resolves beside the manuscript. This draft has its own URL and browser saves, without a separate server or catalogue entry.
+Open `/make-something.html?story=projects/mars-study/mars-v3/mars.md` on the address printed by Vite. The story path resolves relative to `make-something.html`, and artwork resolves beside the manuscript. This draft has its own URL and browser saves, without a separate server or catalogue entry.
 
 The [standard authoring workflow](../../../docs/story-authoring.md#check-and-preview-a-draft) covers lint, analysis and preview. The shared linter checks goal reachability and hotspot counts; the analyzer reports structure and a debugger completion route. Add `--json --details` to the analyzer for individual checkpoint arrival and peak board counts. General browser tests own dragging, layout and reload behavior.
 

@@ -30,7 +30,7 @@ async function open(page:Page,wide=false){
     const [width,height]=r.request().url().endsWith('wide.svg')?[1024,768]:[780,1688];
     return r.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="100%" height="100%" fill="#567"/><path d="M0 0H${width}V${height}H0Z" fill="none" stroke="#fc0" stroke-width="12"/></svg>`});
   });
-  await page.goto('/combinations.html?story=responsive/story.md');
+  await page.goto('/make-something.html?story=responsive/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
 }
 const box=(page:Page,selector:string)=>page.locator(selector).last().boundingBox();

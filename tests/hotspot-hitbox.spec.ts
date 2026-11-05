@@ -38,7 +38,7 @@ async function openFixture(page:Page,text=manuscript){
     const shape=file==='cable-fitted.svg'?'<path d="M320 240H1100" stroke="#c40" stroke-width="30"/>':`<rect width="${w}" height="${h}" fill="${background?'#dbd2b5':'#577a91'}"/>`;
     return route.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">${shape}</svg>`});
   });
-  await page.goto('/combinations.html?story=hitbox-fixture/story.md');
+  await page.goto('/make-something.html?story=hitbox-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
 }

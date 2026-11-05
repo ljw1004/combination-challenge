@@ -12,7 +12,7 @@ The staged expansion developed in [Iteration #9](../working-notes.md#iteration-9
 
 A recoverable hard landing damages the starter habitat and the spacecraft's lower support. The astronaut builds a shared cave farm for potatoes, soybeans and lettuce. A body in the raw-water intake redirects the mission toward intact cores and early return. The workshop's furnace, local material and imported precision cores build the means to leave in the same arrival cabin.
 
-Local player route: `/combinations.html?story=projects/mars-study/mars-v9/mars.md`.
+Local player route: `/make-something.html?story=projects/mars-study/mars-v9/mars.md`.
 
 The reviewed, tested draft has **44 primitives**, **141 recipes / 140 completion combinations**, and **36 chapters**. Of the primitives, 43 originate on Earth and one is Martian regolith; the audit explains every supply, including those used through lasting constructions.
 

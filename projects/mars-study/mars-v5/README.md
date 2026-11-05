@@ -16,4 +16,4 @@ npm run lint -- projects/mars-study/mars-v5/mars.md --details
 npm run analyze -- projects/mars-study/mars-v5/mars.md
 ```
 
-The shared player loads `/combinations.html?story=projects/mars-study/mars-v5/mars.md`. See the [authoring workflow](../../../docs/story-authoring.md#check-and-preview-a-draft) for setup. This revision cycle uses manuscript reviews, logical playtests and mechanical checks; it includes no visual or artwork work.
+The shared player loads `/make-something.html?story=projects/mars-study/mars-v5/mars.md`. See the [authoring workflow](../../../docs/story-authoring.md#check-and-preview-a-draft) for setup. This revision cycle uses manuscript reviews, logical playtests and mechanical checks; it includes no visual or artwork work.

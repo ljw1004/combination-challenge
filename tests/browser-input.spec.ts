@@ -35,7 +35,7 @@ async function openFixture(page: Page) {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.route('**/input-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: manuscript }));
   await page.route('**/input-fixture/illustration.svg', route => route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="80" height="30"><rect width="80" height="30" fill="#765"/></svg>' }));
-  await page.goto('/combinations.html?story=input-fixture/story.md');
+  await page.goto('/make-something.html?story=input-fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
 }
 

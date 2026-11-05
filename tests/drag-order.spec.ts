@@ -15,7 +15,7 @@ ${items}
 `;
   await page.route('**/drag-order/story.md', route => route.fulfill({contentType: 'text/markdown', body: text}));
   await page.route('**/drag-order/tile.svg', route => route.fulfill({contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="224" height="224"><rect width="224" height="224" rx="12" fill="#b8ad80"/></svg>'}));
-  await page.goto('/combinations.html?story=drag-order/story.md');
+  await page.goto('/make-something.html?story=drag-order/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   return text;

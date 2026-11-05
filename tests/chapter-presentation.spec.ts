@@ -12,7 +12,7 @@ test('chapter changes update names and icons on current and old boards, survive 
     const [width, height] = file === 'room.svg' ? [390,844] : file === 'dusty.svg' ? [320,240] : [224,224];
     return route.fulfill({contentType: 'image/svg+xml', body: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="${width}" height="${height}" fill="tan"/></svg>`});
   });
-  await page.goto('/combinations.html?story=chapter-presentation/story.md');
+  await page.goto('/make-something.html?story=chapter-presentation/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   const array = page.locator('[data-item="id:array"]'), spare = page.locator('[data-item="id:relic"]');

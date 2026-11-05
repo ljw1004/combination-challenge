@@ -37,7 +37,7 @@ Fit the cabinet.
 - Panel
 - Shelf
 `}));
-  await page.goto('/combinations.html?story=text-edge-fixture/story.md');
+  await page.goto('/make-something.html?story=text-edge-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const card=page.locator('[data-item="name:Tall wooden cabinet"]');

@@ -33,7 +33,7 @@ Keep exploring.
 
 async function open(page: Page, text = story) {
   await page.route('**/tutorial-*/story.md', route => route.fulfill({contentType: 'text/markdown', body: text}));
-  await page.goto('/combinations.html?story=tutorial-one/story.md');
+  await page.goto('/make-something.html?story=tutorial-one/story.md');
   await expect(page.locator('.tutorial-overlay')).toBeHidden();
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await expect(page.locator('.tutorial-overlay')).toBeHidden();
@@ -129,7 +129,7 @@ test('any combination completes dragging; wonders delay goals, and both accompli
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await expect(page.locator('.tutorial-overlay')).toBeHidden();
   await page.reload(); await expect(page.locator('.tutorial-overlay')).toBeHidden();
-  await page.goto('/combinations.html?story=tutorial-two/story.md');
+  await page.goto('/make-something.html?story=tutorial-two/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await expect(cue(page, 'drag')).toBeVisible();
@@ -178,7 +178,7 @@ test('touch Start selects a contact ring and a real touch drag remains unobstruc
   const context = await browser.newContext({viewport: {width: 390, height: 844}, isMobile: true, hasTouch: true});
   const page = await context.newPage();
   await page.route('**/tutorial-one/story.md', route => route.fulfill({contentType: 'text/markdown', body: story}));
-  await page.goto('/combinations.html?story=tutorial-one/story.md');
+  await page.goto('/make-something.html?story=tutorial-one/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).tap();
   await page.getByRole('button', {name: 'Begin', exact: true}).tap();
   await expect(cue(page, 'drag')).toHaveAttribute('data-modality', 'touch');
@@ -204,7 +204,7 @@ test('touch Start selects a contact ring and a real touch drag remains unobstruc
 test('keyboard Start, old saves and changed manuscripts preserve evidence without counting checkpoint actions', async ({page}) => {
   let text = story;
   await page.route('**/tutorial-one/story.md', route => route.fulfill({contentType: 'text/markdown', body: text}));
-  await page.goto('/combinations.html?story=tutorial-one/story.md');
+  await page.goto('/make-something.html?story=tutorial-one/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).focus(); await page.keyboard.press('Enter');
   await page.getByRole('button', {name: 'Begin', exact: true}).focus(); await page.keyboard.press('Enter');
   await page.emulateMedia({reducedMotion: 'reduce'});

@@ -33,7 +33,7 @@ Finished.`;
   await page.route('**/fixed-fixture/story.md',route=>route.fulfill({contentType:'text/markdown',body:text}));
   await page.route('**/fixed-fixture/room.svg',route=>route.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844"><rect width="390" height="844" fill="#eadfc8"/></svg>'}));
   await page.emulateMedia({reducedMotion:'reduce'});
-  await page.goto('/combinations.html?story=fixed-fixture/story.md');
+  await page.goto('/make-something.html?story=fixed-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const item=(name:string)=>page.locator(`[data-item="name:${name}"]`);
@@ -82,7 +82,7 @@ Fit and use the machine.
 - A [consume] ${notation} H[Part] [preserve] -> C`;
   await page.route('**/fittings-fixture/story.md',route=>route.fulfill({contentType:'text/markdown',body:text}));
   await page.route('**/fittings-fixture/*.svg',route=>route.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="224" height="224"><rect width="224" height="224" fill="tan"/></svg>'}));
-  await page.goto('/combinations.html?story=fittings-fixture/story.md');
+  await page.goto('/make-something.html?story=fittings-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const h=page.locator('[data-hotspot="name:H"]');

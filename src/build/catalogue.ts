@@ -20,8 +20,8 @@ export function catalogueDescription(description: string, storyPath: string): st
 }
 
 export function renderCatalogue(entries: CatalogueEntry[]): string {
-  return `<main class="chooser"><p class="eyebrow">Combination Workshop</p><h1>Make something<br>worth discovering.</h1><nav>${entries.map(entry => {
-    const href = `combinations.html?story=${encodeURIComponent(entry.path).replaceAll('%2F', '/')}`;
+  return `<main class="chooser"><h1>Make Something Worthwhile</h1><nav>${entries.map(entry => {
+    const href = `make-something.html?story=${encodeURIComponent(entry.path).replaceAll('%2F', '/')}`;
     return `<a href="${escape(href)}" data-story="${escape(entry.path)}"><strong>${escape(entry.title)}</strong>${catalogueDescription(entry.description, entry.path)}</a>`;
   }).join('')}</nav></main>`;
 }

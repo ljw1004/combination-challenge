@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     outDir: '.',
     emptyOutDir: false,
-    rolldownOptions: { input: { index: resolve('index-dev.html'), combinations: resolve('combinations-dev.html') } },
+    rolldownOptions: { input: { index: resolve('index-dev.html'), 'make-something': resolve('make-something-dev.html') } },
   },
-  server: { watch: { ignored: ['**/archive/**', '**/runs/**', resolve('index.html'), resolve('combinations.html'), `${resolve('assets')}/**`] } },
+  server: { watch: { ignored: ['**/archive/**', '**/runs/**', resolve('index.html'), resolve('make-something.html'), `${resolve('assets')}/**`] } },
 });

@@ -33,7 +33,7 @@ ${obstructDebug ? '- Antenna (at 85%, 3%)' : ''}
   await page.route('**/goal-layers/story.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
   await page.route('**/goal-layers/room.svg', route => route.fulfill({contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844"><rect width="390" height="844" fill="#507a83"/></svg>'}));
   await page.route('**/goal-layers/tile.svg', route => route.fulfill({contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="224" height="224"><rect width="224" height="224" fill="#b8ad80"/></svg>'}));
-  await page.goto('/combinations.html?story=goal-layers/story.md');
+  await page.goto('/make-something.html?story=goal-layers/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await page.locator('.scene-art').evaluate((image: HTMLImageElement) => image.decode());

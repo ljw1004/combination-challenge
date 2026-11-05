@@ -37,7 +37,7 @@ A last reading.
 async function openFixture(page: Page) {
   await page.route('**/viewport/story.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
   await page.route('**/viewport/*.svg', route => route.fulfill({contentType: 'image/svg+xml', body: `<svg xmlns="http://www.w3.org/2000/svg" width="780" height="1688"><defs><pattern id="grid" width="78" height="84.4" patternUnits="userSpaceOnUse"><rect width="78" height="84.4" fill="#d6dbc2"/><path d="M0 84.4V0H78" fill="none" stroke="#345" stroke-width="5"/></pattern></defs><rect width="780" height="1688" fill="url(#grid)"/><circle cx="390" cy="120" r="80" fill="#e8b465"/></svg>`}));
-  await page.goto('/combinations.html?story=viewport/story.md');
+  await page.goto('/make-something.html?story=viewport/story.md');
   await expect(page.getByRole('button', {name: 'Start', exact: true})).toBeVisible();
 }
 
@@ -278,7 +278,7 @@ test('wide movable artwork fits a cropped panel without changing its aspect rati
   await page.route('**/wide/story.md', route => route.fulfill({contentType:'text/markdown',body: manuscript.replace('- Frame\n','- Frame\n  - icon: ![frame](wide.svg)\n')}));
   await page.route('**/wide/wide.svg', route => route.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="240"><rect width="1440" height="240" fill="#765"/></svg>'}));
   await page.setViewportSize({width:320,height:844});
-  await page.goto('/combinations.html?story=wide/story.md');
+  await page.goto('/make-something.html?story=wide/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const rect = (await page.locator('[data-item="name:Frame"]').boundingBox())!;
@@ -310,7 +310,7 @@ Fit the cabinet.
 - Cabinet [transform] + Wooden shelf [consume] -> Fitted cabinet
 `}));
   await page.setViewportSize({width:320,height:844});
-  await page.goto('/combinations.html?story=text-rows/story.md');
+  await page.goto('/make-something.html?story=text-rows/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const cards = await page.locator('[data-item]').evaluateAll(elements => elements.map(el => {
