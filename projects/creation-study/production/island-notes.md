@@ -1,0 +1,13 @@
+# Island life landscape draft
+
+**Draft only. The user paused artwork while the opening combinations and fast playtests are settled. No independent review or browser integration has been performed on this island.**
+
+The built-in imagegen tool produced an empty offshore view, an inhabited island in that scene, a narrower corrected state, and a transparent extraction. The empty sea preserves a distant version of the hooked ochre headland, its cave and the paired-crater Moon. The constructed island has a weathered volcanic cone, wooded shore and three related birds connected by the fine Variation fork. Their differing plumage carries the difference; an initial floating orange mark that could read as a song was removed. The birds are deliberately emphasized in this painted atlas and are larger than a literal landscape scale would permit.
+
+[Exact prompts and input/output hashes](island-requests.json) retain the selected generation chain. The first oversized inhabited state remains only as a necessary edit reference. The original icon references are copied because promotion will replace those runtime icons; unchanged background references remain at their existing paths.
+
+[Geometry](island-layout.json) and [the mechanical exporter](island-export.py) own the draft runtime files. The proposed receiver is **250×100 reference units at 54%, 29%**, replacing the earlier 190×135 placeholder at 55%, 26%. The icon is an actual transparent landscape cutout, with no circular frame. The generated cutout was one pixel shorter than its portrait source and shifted the island slightly; the explicit crop and proposed registration account for that difference. Its generated alpha is preserved. Small near-opaque alpha values remain in the painted interior; the existing sea showed no conspicuous bleed in the authoring composite, but this has not received independent inspection.
+
+Before the artwork pause, the author inspected the full state and one native 390×844 composite over the empty sea. The narrower island left clear water on both sides, preserved the coast and Moon, and kept the lineage fork visible. This is an informed authoring observation, not a recognition result or browser usability finding. No manuscript, shared icon plan, icons, live story or application code was edited.
+
+On resumption, inspect the source-derived cutout at playing size, test construction before appearance and preservation after the result, review the Variation motif and bird anatomy, then verify actual dragging and short-screen layout. The current draft manuscript still has the earlier placeholder background and coordinates; saving these assets does not integrate them.

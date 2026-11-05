@@ -1,0 +1,209 @@
+[
+  {
+    "step": 1,
+    "reason": "Heat beneath the crust seems like a useful starting point for a seafloor hot spring.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Stone crust"
+    },
+    "expectation": "The fire may create heated rock or volcanic activity beneath the crust.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crust has become moving plates, suggesting a route toward seafloor activity.",
+    "reaction": "The distinction between moving plates and a global liquid ocean was useful.",
+    "step": 2,
+    "reason": "Water interacting with moving plates may lead toward the seafloor hot spring.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Water"
+    },
+    "expectation": "Water may enter cracks near plate boundaries and be heated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and moving plates produced a subduction trench, rather than a hot spring.",
+    "reaction": "The connection between a trench and subduction was useful.",
+    "step": 3,
+    "reason": "Fire may supply the heat needed for a hot spring near the plate boundary.",
+    "choice": {
+      "combine": "Trench",
+      "with": "Fire"
+    },
+    "expectation": "The trench and heat may produce volcanic or hydrothermal activity.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trench has no available combinations, so it is not the next step toward the spring.",
+    "reaction": "I was surprised the trench could not be used further.",
+    "step": 4,
+    "reason": "Inspecting the moving plates may reveal another route to seafloor heat.",
+    "choice": {
+      "inspect": "Moving plates"
+    },
+    "expectation": "The compatibility list may identify a way to create volcanic or hydrothermal activity.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moving plates can combine with Earth or Fire, providing two possible routes beyond the trench.",
+    "reaction": "The compatibility list gives me a clearer next step.",
+    "step": 5,
+    "reason": "Fire is the more direct candidate for creating the heat needed for a seafloor spring.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Fire"
+    },
+    "expectation": "This may produce volcanic activity or another source of seafloor heat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Moving plates",
+          "with": "Earth"
+        },
+        "reason": "Earth might instead produce another geological feature."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire and moving plates produced a volcano, providing a possible heat source for the spring.",
+    "reaction": "The explanation connected plate boundaries with rising magma.",
+    "step": 6,
+    "reason": "Water interacting with volcanic heat is a plausible route to a hydrothermal spring.",
+    "choice": {
+      "combine": "Volcano",
+      "with": "Water"
+    },
+    "expectation": "Water may circulate through heated rock and emerge as a hot spring.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and the volcano produced a hydrothermal vent, completing the seafloor spring goal.",
+    "reaction": "The explanation of heated seawater carrying dissolved chemicals was useful.",
+    "step": 7,
+    "reason": "Rivers can weather rock and carry dissolved minerals toward the sea.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Stone crust"
+    },
+    "expectation": "The river may wear down the crust or pick up minerals that can reach the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers have no available combinations, so they cannot directly carry minerals in the current state.",
+    "reaction": "That was surprising given their earlier role in moving sediment.",
+    "step": 8,
+    "reason": "Inspecting Stone crust may reveal how to release its minerals.",
+    "choice": {
+      "inspect": "Stone crust"
+    },
+    "expectation": "Its available partners may suggest a weathering or mineral-release route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Stone crust has no available combinations, so I need another route to bring minerals into the sea.",
+    "reaction": "I was surprised that neither rivers nor the crust can be used directly.",
+    "step": 9,
+    "reason": "The hydrothermal vent already carries dissolved chemicals from rock into seawater, so inspecting it may reveal the next step.",
+    "choice": {
+      "inspect": "Hydrothermal vent"
+    },
+    "expectation": "Its available partners may show how to bring rock minerals into the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hydrothermal vent has no available combinations, so it is not the next step for the remaining goal.",
+    "reaction": "I was surprised the vent could not be used further.",
+    "step": 10,
+    "reason": "Moving plates can combine with Earth, the remaining known option for creating another geological feature.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Earth"
+    },
+    "expectation": "This may create a landform or expose rock that can eventually supply minerals to the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moving plates and Earth created a continent, giving rainfall a broad land surface to weather.",
+    "reaction": "The connection to buoyant continental crust clarified how the landform fits the plate story.",
+    "step": 11,
+    "reason": "Rainfall on the continent may release rock minerals that can travel toward the sea.",
+    "choice": {
+      "combine": "Continent",
+      "with": "Rainfall"
+    },
+    "expectation": "Rainfall may weather continental rock and release minerals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rainfall weathered the continent, loosening grains and dissolving minerals that may reach the sea.",
+    "reaction": "The result makes the mineral pathway clearer.",
+    "step": 12,
+    "reason": "Rivers can carry material from weathered rock toward the sea.",
+    "choice": {
+      "combine": "Weathered rock",
+      "with": "Rivers"
+    },
+    "expectation": "The rivers may transport the released minerals to the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers carried material from weathered rock to the sea, completing the remaining goal and clarifying the land-to-sea mineral pathway.",
+    "reaction": "It was satisfying to see weathering and transport connect into a complete process.",
+    "step": 13,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the mineral-rich sea was most worthwhile: the sequence linked plate movement, continental crust, weathering and river transport into a coherent pathway.",
+        "steps": [
+          10,
+          11,
+          12
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Checking the crust and vent after the failed river combination felt repetitive; neither inspection offered a next step.",
+        "steps": [
+          7,
+          8,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the trench had no available combinations, and that rivers could not be used with the crust directly but could carry material from weathered rock.",
+        "steps": [
+          3,
+          7,
+          12
+        ]
+      },
+      "arbitrary": {
+        "text": "The vent could not be used further even though its description said it carried dissolved chemicals from rock into seawater. That made the separate mineral goal's required route feel somewhat arbitrary.",
+        "steps": [
+          6,
+          9
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how later chapters build on these geological processes, though I would hope for fewer unproductive compatibility checks.",
+        "steps": [
+          6,
+          8,
+          9,
+          12
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

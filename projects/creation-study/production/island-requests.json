@@ -1,0 +1,67 @@
+{
+  "status": "Draft: user paused artwork before independent review or integration.",
+  "tool": "Built-in image_gen.imagegen",
+  "calls": [
+    {
+      "id": "island-sea-01",
+      "prompt": "Use case: illustration-story\nAsset type: portrait background for the Creation game, an offshore view of the same painted world in the two supplied reference paintings.\nReferences: image 1 and image 2 establish opaque luminous gouache, fine selective ink, lapis sky, teal water, ochre geology, pale ivory light, and recognizable landmarks. Preserve the hooked ochre headland, its dark arched wave-cut cave at water level, and the pale Moon with its two neighboring dark craters. Use a new offshore camera, looking toward that coast from a little farther out at sea.\nScene: the familiar hooked headland is small and distant in the upper left, with a low coast and hazy mountains behind. The same pale cratered Moon hangs in the upper right. Below the distant coast lies calm unbroken teal sea. There is NO foreground island yet, and no birds, boats, people, buildings, circles, symbols or diagrams.\nComposition: a tall 390:844 portrait painting (780x1688 or a larger exact proportion). Keep the distant headland and coast above about 20% of the canvas height, and mainly left of 28% of canvas width. Leave empty sea at the intended future island position: center 55% across, 26% down, about 49% of canvas width and 16% of canvas height. The lower 65% is calm medium-light sea with quiet broad painted strokes, softly reflecting warm ivory light; it must remain usable for movable game pieces. Do not make a hard horizontal blank strip or wash overlay: this is one continuous hand-painted ocean.\nStrong natural coastal perspective, rich restrained gouache texture, warm/cool color relationships matching the references. No text, frame, border, UI, labels, inventory objects, glow emblems or watermark. Fully opaque.",
+      "references": [
+        "stories/creation/assets/backgrounds/first-sea.webp",
+        "stories/creation/assets/backgrounds/cave-before-painting.webp"
+      ],
+      "selectedOutput": "projects/creation-study/production/masters/island-sea-01.png",
+      "transparentBackground": false,
+      "referenceSha256": {
+        "stories/creation/assets/backgrounds/first-sea.webp": "3250c1512fd2d0e7717acfa51bc986a0c63cf30a05d5f8066fb0efbe29f5644c",
+        "stories/creation/assets/backgrounds/cave-before-painting.webp": "bb823a578b4434c359b83977baa09a02061d5cbe81122a6ff15e36ecc81f83dd"
+      },
+      "outputSha256": "15bc6429ff8a94bcd0313eeb7338459b7ae7c1f38476c14a62287a45aecd358c"
+    },
+    {
+      "id": "island-inhabited-01",
+      "prompt": "Use case: precise-object-edit\nAsset type: constructed Island life state of this exact portrait landscape.\nInput image 1 is the EDIT TARGET. Keep its camera, distant hooked headland and cave, mountains, paired-crater Moon, sky, horizon, colors, dimensions and lower working sea unchanged. Image 2 is the earlier volcanic-island identity reference; image 3 its inhabited-bird identity reference; image 4 is the Variation diagram, supplying only its fine lapis branching connector and small ochre/coral difference-mark.\nAdd one natural low volcanic island in the empty sea, centered about 55% across and 27% down. Its complete shoreline should span approximately x30% to x80% and y24% to y34%; the weathered dark cone rises to about y20%. This is an actual landform with a wooded shore and believable contact with the ocean, not an icon, coin or circular island vignette. Match the existing painterly perspective and gouache. Pale surf gently meets its irregular rocky shoreline. No smoke or eruption.\nOn the sunlit wooded near shore, show three related little warm-ochre-and-cream birds, like the icon reference, perched naturally on separate low branches. Slightly emphasize their scale in this illustrated atlas so the birds remain readable on a small screen. One is above two others; the lower birds have subtly different throat markings. Between their perches is one delicate, unframed hand-drawn lapis lineage fork with a fine ivory edge, resembling the connector in image 4. It is an atlas annotation, not a glowing physical object. The fork goes from the upper bird to the two lower birds; use simple arrows and one tiny ochre difference-mark near the differently marked descendant. No song ribbons yet. No circular border, boxed diagram, cell pictures, labels, text, UI or watermark.\nKeep all new island, birds and connector inside a compact rectangle around x29%\u201382%, y19%\u201335%. Everything outside this region must match image 1.",
+      "references": [
+        "projects/creation-study/production/masters/island-sea-01.png",
+        "projects/creation-study/production/references/island-volcanic-island.webp",
+        "projects/creation-study/production/references/island-life-original.webp",
+        "projects/creation-study/production/masters/variation-02.png"
+      ],
+      "selectedOutput": "projects/creation-study/production/references/island-inhabited-01.png",
+      "transparentBackground": false,
+      "note": "Superseded oversize state retained only as the necessary edit input for the selected second state.",
+      "referenceSha256": {
+        "projects/creation-study/production/masters/island-sea-01.png": "15bc6429ff8a94bcd0313eeb7338459b7ae7c1f38476c14a62287a45aecd358c",
+        "projects/creation-study/production/references/island-volcanic-island.webp": "125d18293f43cb6ce8e60e91fd1fd8b70439cb70bc0c8d35de2b796347800c3c",
+        "projects/creation-study/production/references/island-life-original.webp": "439b1f5ebd49f2e07c3ea1e586592fce648c4a052c155682949f5640fe6ee69e",
+        "projects/creation-study/production/masters/variation-02.png": "c5a03fc344059c71bd81bee9e191540ed01471b026e9c8a7e85a1af365d4476b"
+      },
+      "outputSha256": "db28b617a4a0344a9283fff1b4ea60973cb79822bb2a58f27f239fa7a30d4909"
+    },
+    {
+      "id": "island-inhabited-02",
+      "prompt": "Use case: precise-object-edit\nEdit the supplied island landscape only in the inhabited island region.\n1. Uniformly shrink the COMPLETE foreground island, all its shoreline surf, trees, cone, three birds and blue/ivory fork together to 72 percent of its current width and height. Keep the island centered at 55% of canvas width and 27.5% of canvas height. This must leave clear unbroken water between the island and BOTH picture edges. Fill the vacated area with the matching calm teal sea.\n2. Remove the small floating orange wavy line above the lower-right bird entirely. Instead give that bird a small coral throat patch in its plumage, different from the plain cream throat of its lower-left relative. Do not add any floating difference symbol or song ribbon.\nKeep the natural volcanic cone, inhabited shore, three related birds, fine lineage fork, original brushwork and the rest of the landscape identical. The sky, paired-crater Moon, distant coast, hooked headland, cave and all lower sea must remain unchanged. No text, border, labels or new objects.",
+      "references": [
+        "projects/creation-study/production/references/island-inhabited-01.png"
+      ],
+      "selectedOutput": "projects/creation-study/production/masters/island-inhabited-02.png",
+      "transparentBackground": false,
+      "referenceSha256": {
+        "projects/creation-study/production/references/island-inhabited-01.png": "db28b617a4a0344a9283fff1b4ea60973cb79822bb2a58f27f239fa7a30d4909"
+      },
+      "outputSha256": "321ae1fb290d0b55b76bb4af16f421bdb90de33a10eb31ba5518eed17d5ea445"
+    },
+    {
+      "id": "island-cutout-01",
+      "prompt": "Use case: background-extraction\nExtract the COMPLETE foreground inhabited volcanic island from this exact portrait painting onto a genuinely transparent background.\nKeep the island's exact painted silhouette, proportions, camera angle, position and size on the SAME full portrait canvas. Retain the weathered cone, every tree, three birds, their blue-and-ivory lineage fork, rocks and a very narrow irregular fringe of white contact surf touching the shoreline. Preserve the source gouache and colors; do not redesign or enlarge anything.\nRemove ALL other content to transparency: the sky, Moon, clouds, distant mountains, distant hooked headland and cave, all open ocean and all water between the leaves or shoreline rocks that does not belong to the island. No rectangular ocean patch, oval water disk, atmospheric backdrop, pale halo or ground shadow field around it. Individual surf strokes may keep soft antialiased edges, with transparent gaps between them.\nThis is an aligned gameplay layer that will be put back over the original empty sea. Keep the source canvas dimensions and island registration unchanged. No text, border, labels, new symbols or added objects.",
+      "references": [
+        "projects/creation-study/production/masters/island-inhabited-02.png"
+      ],
+      "selectedOutput": "projects/creation-study/production/masters/island-cutout-01.png",
+      "transparentBackground": true,
+      "referenceSha256": {
+        "projects/creation-study/production/masters/island-inhabited-02.png": "321ae1fb290d0b55b76bb4af16f421bdb90de33a10eb31ba5518eed17d5ea445"
+      },
+      "outputSha256": "ec45de668852780b3b2b67885d7a64badada3bc21e18bd7a837838729dbfd6cd"
+    }
+  ]
+}

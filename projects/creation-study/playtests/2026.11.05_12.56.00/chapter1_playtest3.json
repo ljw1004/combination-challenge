@@ -1,0 +1,159 @@
+[
+  {
+    "step": 1,
+    "reason": "Air is a plausible way to open a space within the primordial waters.",
+    "choice": {
+      "combine": "Air",
+      "with": "Waters of the deep"
+    },
+    "expectation": "Air will create a void within the waters.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air opened the void, and the next goal is to place land in it.",
+    "reaction": "The creation of a space within the waters is clear and satisfying.",
+    "step": 2,
+    "reason": "Earth is the obvious material for forming land in the new void.",
+    "choice": {
+      "combine": "Earth",
+      "with": "Void"
+    },
+    "expectation": "Earth will form land in the void.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth formed a molten rocky world; the next goal is to bring it daylight.",
+    "reaction": "The detail that the new world must cool before forming a crust is interesting.",
+    "step": 3,
+    "reason": "Fire in the void seems a plausible way to create a Sun for the world.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Void"
+    },
+    "expectation": "Fire will form a Sun in the void, bringing daylight to the world.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire formed the Sun, but the daylight goal has not yet been reported complete.",
+    "reaction": "The Sun's role as a source of heat and light is clear.",
+    "step": 4,
+    "reason": "The Sun and rocky world are the natural pair to bring daylight to the world.",
+    "choice": {
+      "combine": "Sun",
+      "with": "Rocky world"
+    },
+    "expectation": "The Sun will illuminate the rocky world and complete the daylight goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sunlight now reaches the world, and the next goal is a rocky Moon.",
+    "reaction": "The separate step of illuminating the world makes sense.",
+    "step": 5,
+    "reason": "Earth formed the rocky world in the void, so the same pairing is a plausible way to make a rocky Moon.",
+    "choice": {
+      "combine": "Earth",
+      "with": "Void"
+    },
+    "expectation": "Earth in the void will form a rocky Moon.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Earth"
+        },
+        "reason": "I could check its available partners if the earlier pairing no longer works."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth and the void no longer combine; instead, Earth in the deep produced asteroids that can collide with the world.",
+    "reaction": "The automatic creation of asteroids was unexpected, but their possible collision suggests a route to the Moon.",
+    "step": 6,
+    "reason": "A collision between asteroids and the rocky world may produce material for the Moon.",
+    "choice": {
+      "combine": "Asteroids",
+      "with": "Rocky world"
+    },
+    "expectation": "The asteroids will collide with the world and help form a rocky Moon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision formed the Moon and tilted the world; the new goal is to let the Moon steady that tilt.",
+    "reaction": "The collision explanation and reflected moonlight were interesting.",
+    "step": 7,
+    "reason": "The Moon and rocky world are the natural pair for stabilizing the world's tilt.",
+    "choice": {
+      "combine": "Moon",
+      "with": "Rocky world"
+    },
+    "expectation": "The Moon will help stabilize the rocky world's tilted rotation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon's gravity steadied the world's tilt without fixing it permanently; the next goal is stars.",
+    "reaction": "The distinction between limiting changes and fixing the tilt is interesting.",
+    "step": 8,
+    "reason": "Fire is a plausible ingredient for stars, but their receiving place is uncertain, so checking its partners should guide the next move.",
+    "choice": {
+      "inspect": "Fire"
+    },
+    "expectation": "The inspection will reveal where Fire can be used to make stars.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fire",
+          "with": "Waters of the deep"
+        },
+        "reason": "The deep scattered Earth into many rocky bodies, so it might similarly distribute Fire into stars."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting Fire automatically combined it with the deep to form stars, completing the final goal and the chapter.",
+    "reaction": "The automatic combination was convenient, and the contrast between stars producing light and the Moon reflecting it was satisfying.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Forming the Moon through a collision was most worthwhile: it connected the world's tilt, orbiting debris and reflected moonlight in one explanation.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying Earth with the void again was least worthwhile as a direct action, since it no longer worked; the compatibility feedback did at least reveal the asteroids.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the failed Earth–void pairing automatically produced asteroids in the deep, suggesting the collision that formed the Moon.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Spreading Fire through the primordial deep to make stars felt more like an invented creation-myth rule than a physical inference, although the earlier scattering of Earth offered a clue.",
+        "steps": [
+          5,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would choose to continue: the collision and the explanation of how the Moon limits changes in Earth's tilt made me curious about how later combinations might connect making with discovery.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

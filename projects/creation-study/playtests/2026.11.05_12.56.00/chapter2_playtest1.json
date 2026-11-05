@@ -1,0 +1,220 @@
+[
+  {
+    "step": 1,
+    "reason": "The world is hot, and the chapter calls for bringing water onto its surface to cool it.",
+    "choice": {
+      "combine": "Water",
+      "with": "Rocky world"
+    },
+    "expectation": "Water should cool the rocky world and help begin forming rain or an ocean.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water cooled the surface into a stone crust, providing solid ground for the next stages.",
+    "reaction": "The distinction between the cooled surface and hot interior is useful.",
+    "step": 2,
+    "reason": "Water and air are the most plausible starting ingredients for forming rain, though the exact recipe is uncertain.",
+    "choice": {
+      "combine": "Water",
+      "with": "Air"
+    },
+    "expectation": "The combination may produce clouds or another precursor to rain.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Water cannot combine directly with Air; its available partners are Stone crust and Moon.",
+    "reaction": "I was surprised that Air was not involved in the next water step.",
+    "step": 3,
+    "reason": "Stone crust is solid ground and may now interact with Water differently, so I’ll try that before making tides.",
+    "choice": {
+      "combine": "Water",
+      "with": "Stone crust"
+    },
+    "expectation": "Water may collect on the cooled crust or advance the rain goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Water",
+          "with": "Moon"
+        },
+        "reason": "The Moon is also compatible with Water and may be relevant to tides."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water meeting the still-hot crust formed a steam cloud, a likely precursor to rain.",
+    "reaction": "The distinction between invisible vapour and visible droplets was useful.",
+    "step": 4,
+    "reason": "The cloud is the clearest lead toward rain; inspecting it will reveal its available partners.",
+    "choice": {
+      "inspect": "Steam cloud"
+    },
+    "expectation": "Its compatibility list should show how to advance toward rain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steam cloud",
+          "with": "Stone crust"
+        },
+        "reason": "The cloud might produce rain over the ground, but its required partner is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air cooled the cloud and produced First rain, completing the rain goal and revealing the ocean goal.",
+    "reaction": "The explanation of droplets growing large enough to fall was useful.",
+    "step": 5,
+    "reason": "Rain falling onto the stone crust could collect into an ocean.",
+    "choice": {
+      "combine": "First rain",
+      "with": "Stone crust"
+    },
+    "expectation": "The rain may gather on the crust to form an ocean.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "First rain"
+        },
+        "reason": "I could check its partners if the collection step is not direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain collected in hollows in the crust, suggesting an intermediate stage before the ocean.",
+    "reaction": "The collection in low ground makes physical sense.",
+    "step": 6,
+    "reason": "The hollows are the clearest lead toward an ocean, but their next partner is uncertain.",
+    "choice": {
+      "inspect": "Rain-filled hollows"
+    },
+    "expectation": "The compatibility list should show how to expand or gather the water into an ocean.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rain-filled hollows",
+          "with": "Water"
+        },
+        "reason": "More water might fill the hollows, but I cannot yet tell whether that is the intended interaction."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water joined the filled hollows into an Ocean, completing the ocean goal.",
+    "reaction": "The progression from separate pools to a continuous ocean makes sense.",
+    "step": 7,
+    "reason": "The Moon was previously listed as compatible with Water, and its gravity is the obvious lead for creating tides in the ocean.",
+    "choice": {
+      "combine": "Moon",
+      "with": "Ocean"
+    },
+    "expectation": "The Moon's gravity should produce tides, potentially completing the coast goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon and Ocean produced Tides, but the coast goal remains unfinished.",
+    "reaction": "The explanation that the Sun also contributes to tides was useful.",
+    "step": 8,
+    "reason": "Tides meeting the stone crust is a plausible way to form a coast with rising and falling water.",
+    "choice": {
+      "combine": "Tides",
+      "with": "Stone crust"
+    },
+    "expectation": "The tides and rocky ground may form a tidal coast.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Tides cannot combine directly with Stone crust; its listed partners are Ocean and Moon.",
+    "reaction": "I expected the rocky ground to be involved directly, so the compatibility list is surprising.",
+    "step": 9,
+    "reason": "The Ocean and Stone crust may form the coast that the tides can then reach.",
+    "choice": {
+      "combine": "Ocean",
+      "with": "Stone crust"
+    },
+    "expectation": "The ocean meeting the rocky ground may create a coast.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tides",
+          "with": "Ocean"
+        },
+        "reason": "This is a known compatible pair and might advance the tidal coast goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ocean cannot combine with Stone crust; its available partners are Tides and Air.",
+    "reaction": "The coast appears to require a less direct route than I expected.",
+    "step": 10,
+    "reason": "Tides and Ocean are a confirmed compatible pair and directly relate to the remaining goal.",
+    "choice": {
+      "combine": "Tides",
+      "with": "Ocean"
+    },
+    "expectation": "The tides may act on the ocean to form a coast with rising and falling water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ocean",
+          "with": "Air"
+        },
+        "reason": "Air is another confirmed partner for Ocean, but seems less directly related to tides."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Combining Tides with Ocean created a tidal shore and completed the remaining goal; the coast did not require a direct combination with Stone crust.",
+    "reaction": "The description of alternating wet and dry conditions made the final result satisfying, though the route to it was less direct than I expected.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Forming the steam cloud and then rain was most worthwhile: the explanations distinguished invisible vapour from visible droplets and showed how droplets grow large enough to fall.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two unsuccessful attempts to involve Stone crust in forming the coast felt repetitive, although their compatibility feedback helped narrow the route.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that Tides could not combine directly with Stone crust, and that combining Tides with Ocean instead produced the tidal shore.",
+        "steps": [
+          8,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "The final coast recipe felt somewhat arbitrary: Ocean and Stone crust seemed like a natural way to make a coast, but the game required Tides and Ocean instead.",
+        "steps": [
+          9,
+          10
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the water-to-rain sequence paired understandable physical explanations with a satisfying chain of discoveries, despite the less intuitive coast recipe.",
+        "steps": [
+          3,
+          4,
+          6,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

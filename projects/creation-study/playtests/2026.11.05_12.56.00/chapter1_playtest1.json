@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "Air is the most plausible element for opening a space in the primordial waters.",
+    "choice": {
+      "combine": "Air",
+      "with": "Waters of the deep"
+    },
+    "expectation": "Air will open a void within the waters.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air opened the void, and the next goal is to put land there.",
+    "reaction": "The new receiving place makes the next step clear.",
+    "step": 2,
+    "reason": "Earth is the natural material for forming land in the void.",
+    "choice": {
+      "combine": "Earth",
+      "with": "Void"
+    },
+    "expectation": "Earth will form land in the void.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth formed a molten rocky world, and the next goal is to bring it daylight.",
+    "reaction": "The detail that the world must cool before forming a crust is interesting.",
+    "step": 3,
+    "reason": "Fire in the void seems a plausible way to make a sun for the world.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Void"
+    },
+    "expectation": "Fire will form a sun in the void that can light the world.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire formed the Sun, but the daylight goal has not yet been marked complete.",
+    "reaction": "The distinction between creating the Sun and lighting the world is clear.",
+    "step": 4,
+    "reason": "The Sun likely needs to be connected to the rocky world to give it daylight.",
+    "choice": {
+      "combine": "Sun",
+      "with": "Rocky world"
+    },
+    "expectation": "The Sun will illuminate the rocky world and complete the daylight goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Sun illuminated the rocky world, revealing the goal of making a rocky Moon.",
+    "reaction": "It makes sense that creating the Sun and bringing daylight to the world are separate steps.",
+    "step": 5,
+    "reason": "Earth formed the rocky world, so I expect it may also provide the material for a Moon in the void.",
+    "choice": {
+      "combine": "Earth",
+      "with": "Void"
+    },
+    "expectation": "Earth in the void will form a rocky Moon.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Earth"
+        },
+        "reason": "I could check its available partners first, but the earlier land-forming step suggests trying it directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth in the void did not make the Moon; the compatibility feedback instead created asteroids in the deep that can collide with the world.",
+    "reaction": "The scattered rocky bodies suggest a different route to forming the Moon.",
+    "step": 6,
+    "reason": "The result highlights asteroid collisions with the world, so I will try combining them.",
+    "choice": {
+      "combine": "Asteroids",
+      "with": "Rocky world"
+    },
+    "expectation": "An asteroid collision with the rocky world may produce a Moon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision formed the Moon and tilted the world; the next goal is for the Moon to steady that tilt.",
+    "reaction": "The explanation connects the Moon's formation to both the tilt and reflected moonlight.",
+    "step": 7,
+    "reason": "Combining the Moon with the rocky world seems the direct way to let it stabilize the world's tilt.",
+    "choice": {
+      "combine": "Moon",
+      "with": "Rocky world"
+    },
+    "expectation": "The Moon will help steady the rocky world's tilted rotation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon steadied the world's tilt, and the next goal is to fill the sky with stars.",
+    "reaction": "The qualification that the tilt can still vary is useful.",
+    "step": 8,
+    "reason": "Fire formed the Sun, so its available partners may suggest how to make other stars.",
+    "choice": {
+      "inspect": "Fire"
+    },
+    "expectation": "Fire's compatibility list may reveal where to form stars.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fire",
+          "with": "Waters of the deep"
+        },
+        "reason": "The surrounding deep could be a place to form stars, but I am not certain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting Fire automatically combined it with the deep to create stars, completing the final goal.",
+    "reaction": "The automatic combination was convenient, and the distinction that stars produce their own light reinforces the earlier explanation of moonlight.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The asteroid collision and subsequent stabilization were most worthwhile: they connected the Moon's formation, reflected light and influence on the world's tilt, while noting that the tilt can still vary.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Creating the Sun and then separately combining it with the world was clear, but felt like relatively predictable progress.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Trying Earth in the void did not make the Moon; compatibility feedback instead created asteroids in the deep, suggesting a collision route.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Scattering Earth through the primordial deep to make asteroids was not an obvious choice beforehand, though the result explained the currents and suggested their role.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. The connections between the collision, moonlight and the world's tilt made me curious about how later chapters develop the world.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

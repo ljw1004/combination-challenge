@@ -1,0 +1,169 @@
+[
+  {
+    "step": 1,
+    "reason": "The chapter says sunlight heats the ocean, suggesting the first stage of the water cycle.",
+    "choice": {
+      "combine": "Sun",
+      "with": "Ocean"
+    },
+    "expectation": "The Sun should evaporate ocean water, producing water vapour or a cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sun and ocean produced evaporation, establishing the water-vapour stage of the cycle.",
+    "reaction": "The detail that dissolved salts stay behind is useful.",
+    "step": 2,
+    "reason": "Air may carry the evaporated water into cooler conditions, as it did with the earlier steam cloud.",
+    "choice": {
+      "combine": "Evaporation",
+      "with": "Air"
+    },
+    "expectation": "The vapour will cool and form clouds.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Evaporation"
+        },
+        "reason": "I could check its partners if the next stage is less direct than expected."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation and air formed clouds, confirming the condensation stage.",
+    "reaction": "The distinction between invisible vapour and visible droplets is useful.",
+    "step": 3,
+    "reason": "Clouds should provide the rain needed to carry water onto land.",
+    "choice": {
+      "combine": "Clouds",
+      "with": "Stone crust"
+    },
+    "expectation": "Rain will fall on the land and begin collecting or flowing across it.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Clouds"
+        },
+        "reason": "I could check how the clouds produce rain if combining them with land is premature."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds needed Water rather than Stone crust; the automatic combination produced Rainfall.",
+    "reaction": "The compatibility feedback clarified the missing step.",
+    "step": 4,
+    "reason": "Rainfall can now meet the rocky land and potentially form flowing water.",
+    "choice": {
+      "combine": "Rainfall",
+      "with": "Stone crust"
+    },
+    "expectation": "Rainwater will collect or flow across the land toward a river.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rainfall on the stone crust produced rivers, which transport sediment downhill.",
+    "reaction": "The explanation connects river flow with erosion and deposition.",
+    "step": 5,
+    "reason": "Rivers meeting the ocean is a plausible way to deposit sediment and build the delta.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Ocean"
+    },
+    "expectation": "River sediment will accumulate where the rivers enter the ocean, forming a delta.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers cannot combine directly with Ocean; their available partners are Earth and Sun.",
+    "reaction": "The feedback makes the next options clearer, though the delta route was not as direct as I expected.",
+    "step": 6,
+    "reason": "Earth is the more plausible partner for supplying the sediment needed to build a delta.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Earth"
+    },
+    "expectation": "The rivers will carry or deposit earth as sediment, possibly forming a delta.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rivers",
+          "with": "Sun"
+        },
+        "reason": "This might advance the water-cycle goal instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers and Earth produced sediment, identifying the material needed for the delta.",
+    "reaction": "The description clearly connects erosion with transported sediment.",
+    "step": 7,
+    "reason": "Sediment entering the ocean can accumulate where a river meets the sea.",
+    "choice": {
+      "combine": "Sediment",
+      "with": "Ocean"
+    },
+    "expectation": "The sediment will be deposited at the coast to form a delta.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sediment combined with Rivers to form a delta, completing that goal; the water cycle remains.",
+    "reaction": "The branching channels make the deposition process concrete.",
+    "step": 8,
+    "reason": "The earlier compatibility report listed Sun as a partner for Rivers, making it the clearest remaining route to the water-cycle goal.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Sun"
+    },
+    "expectation": "Sunlight will connect the river water back to evaporation and complete the cycle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers and Sun completed the water cycle and the chapter, tying evaporation to sunlight and the return flow to gravity.",
+    "reaction": "The final explanation usefully brought the stages together.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the delta was most worthwhile: the explanation showed how slowing river water deposits sediment and creates branching channels.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying Rivers with Ocean was the least productive moment: it seemed like a natural delta connection but only revealed other partners.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Sediment combined with Rivers rather than Ocean to make the delta; the automatic combination clarified the intended route.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Clouds needing a separate Water combination for rainfall felt somewhat arbitrary, although the result explained droplets growing before falling.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the linked processes and concise explanations made discovery interesting, despite a few less intuitive combinations.",
+        "steps": [
+          1,
+          2,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

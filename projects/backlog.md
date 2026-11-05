@@ -32,6 +32,7 @@ These are proposals, not existing tools or syntax:
 
 - Define an optional canonical manuscript form and, if useful, a transformer into it. One proposal declares each chapter's items separately from the combinations needed for its goals, with remaining global combinations collected at the end. Preserve which items each chapter introduces; do not require this form for ordinary authoring.
 - Add useful exclusivity examples and investigate a proof of the specification's continuation invariant.
+- Investigate the alternate compound-constructor cleanup counterexample preserved in the [parked Creation engine handoff](creation-study/engine-handoff.md). This is separate engineering work, not a prerequisite for authoring Creation; the local WIP planner branch is not a validated fix.
 
 The retained [opportunity lint](../docs/story-format-spec.md#opportunities-for-authored-content) completes all five stories within its 100-element cap. Review Settlement's four findings (Brush, Weather book, Salt and Brine) and Mars's Illuminated glovebox using their blocking examples and related source rules, without automatically making optional content mandatory. Current evidence and limits are in the [working notes](../notes.md#31-october-2026-retained-opportunity-linter); these are new findings, not reopened historical lint reviews.
 

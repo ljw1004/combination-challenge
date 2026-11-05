@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "reason": "The cave needs light, and fire is the available light source.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Sea cave"
+    },
+    "expectation": "Fire will light the sheltered cave interior.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cave is lit, and painting an animal from memory is now a goal.",
+    "reaction": "The dry walls make a practical painting surface.",
+    "step": 2,
+    "reason": "Weathered rock can contain pigments, and water may make them usable as paint.",
+    "choice": {
+      "combine": "Weathered rock",
+      "with": "Water"
+    },
+    "expectation": "The rock and water will make a pigment or paint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rock and water made pigment suitable for painting the cave wall.",
+    "reaction": "The pigment-making step fits the earlier description of weathered rock.",
+    "step": 3,
+    "reason": "The pigment should be usable at the lit cave to paint its walls.",
+    "choice": {
+      "combine": "Pigment",
+      "with": "Lit cave"
+    },
+    "expectation": "The pigment will be used to make a painting, possibly drawing on memory.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cave now has a painted animal, and the next goal is to add stars.",
+    "reaction": "Using memory automatically made the painting step straightforward.",
+    "step": 4,
+    "reason": "The new goal directly suggests adding the available stars to the painted cave.",
+    "choice": {
+      "combine": "Stars",
+      "with": "Painted cave"
+    },
+    "expectation": "Stars will be added to the cave painting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The painting now includes stars, completing that goal; making a song and passing on learning remain.",
+    "reaction": "The combined animal and night sky make a coherent picture.",
+    "step": 5,
+    "reason": "A call is a sound, and memory could help repeat it as a song; this is a guess.",
+    "choice": {
+      "combine": "Call",
+      "with": "Memory"
+    },
+    "expectation": "The remembered call may develop into a song.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted combination revealed that a call in the painted cave produces an echo, which may help make a song.",
+    "reaction": "The cave echo was unexpected but understandable.",
+    "step": 6,
+    "reason": "Inspecting the echo will reveal how it can contribute to the remaining goals.",
+    "choice": {
+      "inspect": "Echo"
+    },
+    "expectation": "The echo may have a partner that helps make a song.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Echo combined with Memory to make a song, completing that goal. Passing on the community's learning remains.",
+    "reaction": "The remembered echo becoming a repeatable rhythm makes sense.",
+    "step": 7,
+    "reason": "Shared discovery is the clearest available source of knowledge to pass on; inspecting it should reveal how to teach it.",
+    "choice": {
+      "inspect": "Shared discovery"
+    },
+    "expectation": "It may combine with a way of communicating or remembering the discovery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shared discovery combined with Story to produce Teaching, completing the final goal and the chapter.",
+    "reaction": "Passing on both the tested prediction and practical skills was a fitting conclusion.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making pigment and using it with memory to paint an animal was most worthwhile: the material preparation had a clear purpose, and the image communicated something absent.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding stars was straightforward but less engaging as a decision because the new goal named the needed object.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The failed attempt to combine Call with Memory revealed the cave echo; remembering that echo then produced a song.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Call plus Memory was a guess without a clear route to a song. The echo feedback made the eventual connection clearer.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. The cave painting and echo linked physical processes to expression in an interesting way, and I would be curious to see what comes next.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

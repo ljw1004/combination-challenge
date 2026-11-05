@@ -1,0 +1,168 @@
+[
+  {
+    "step": 1,
+    "reason": "Sunlight heats ocean water and should start the evaporation stage of the water cycle.",
+    "choice": {
+      "combine": "Sun",
+      "with": "Ocean"
+    },
+    "expectation": "The Sun will cause ocean water to evaporate, possibly forming clouds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation provides water vapour for the next stage of the water cycle, while leaving salts in the ocean.",
+    "reaction": "The distinction between invisible vapour and a visible cloud is useful.",
+    "step": 2,
+    "reason": "Cooling water vapour with air is a plausible way to form clouds and eventually rain.",
+    "choice": {
+      "combine": "Evaporation",
+      "with": "Air"
+    },
+    "expectation": "The vapour will cool and condense into a cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cooling moist air produced clouds, setting up the rain stage of the cycle.",
+    "reaction": "The distinction between vapour and cloud droplets is reinforced.",
+    "step": 3,
+    "reason": "Clouds need to produce rain over land to create rivers and return water to the sea.",
+    "choice": {
+      "combine": "Clouds",
+      "with": "Earth"
+    },
+    "expectation": "The clouds will bring rain to the land.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Clouds"
+        },
+        "reason": "I could check its available partners if the land combination is wrong."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds combined with Water automatically to produce rainfall over land, so the next step is to collect or channel it.",
+    "reaction": "I expected land to trigger rain, but the compatibility feedback made the intended pairing clear.",
+    "step": 4,
+    "reason": "Rain falling on the stone crust may collect and flow toward the sea.",
+    "choice": {
+      "combine": "Rainfall",
+      "with": "Stone crust"
+    },
+    "expectation": "The rainfall will form flowing water or channels on the rocky land.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rainfall on the crust formed rivers, which can carry sediment toward the ocean.",
+    "reaction": "The explanation connects river flow with both erosion and deposition.",
+    "step": 5,
+    "reason": "A river meeting the ocean is a natural place for sediment to accumulate into a delta, and it returns water to the sea.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Ocean"
+    },
+    "expectation": "The rivers will deliver water and sediment to the ocean, potentially forming a delta and completing the cycle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers cannot combine directly with the ocean; their available partners are Earth and Sun.",
+    "reaction": "I expected the river–ocean meeting to form the delta, so the available pairings are surprising.",
+    "step": 6,
+    "reason": "Earth is the more plausible partner for adding sediment to the rivers and building a delta.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Earth"
+    },
+    "expectation": "The rivers will carry sediment from the land and deposit it as a delta.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rivers",
+          "with": "Sun"
+        },
+        "reason": "Sun may help complete the water cycle, but Earth seems more relevant to sediment."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth and rivers produced sediment, which can now be deposited to build a delta.",
+    "reaction": "The result clarifies the intermediate step I had skipped.",
+    "step": 7,
+    "reason": "Sediment deposited where rivers meet the ocean can build a delta.",
+    "choice": {
+      "combine": "Sediment",
+      "with": "Ocean"
+    },
+    "expectation": "The sediment will accumulate at the coast to form a delta.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rivers",
+          "with": "Sun"
+        },
+        "reason": "This may complete the water cycle, but the sediment suggests finishing the delta first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sediment combined automatically with Rivers to form a delta, completing that goal.",
+    "reaction": "The slowing flow and branching deposits make the delta formation clear.",
+    "step": 8,
+    "reason": "Rivers previously listed Sun as an available partner, and the remaining goal is to complete the water cycle.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Sun"
+    },
+    "expectation": "Sunlight will help return river water to the atmosphere and complete the cycle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final combination completed the water cycle and clarified the roles of sunlight and gravity in moving water through it.",
+    "reaction": "It was satisfying to see the stages brought together in one explanation.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the delta was most worthwhile: the explanation connected slowing river flow, sediment deposition and branching channels to the formation of new land.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The unsuccessful river–ocean attempt was the least useful moment on its own, though its compatibility feedback pointed toward the remaining recipes.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected clouds to combine with land to make rain, but Water was the required partner; the feedback automatically made rainfall.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Using Sun with Rivers to finish the cycle felt somewhat abstract: I followed the compatibility hint, although the final explanation made sunlight's role in evaporation clear.",
+        "steps": [
+          5,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in another chapter because the delta and water-cycle explanations connected the combinations to understandable physical processes.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "step": 1,
+    "reason": "The opening asks me to bring water down onto the hot world, so the world is the natural place to use it.",
+    "choice": {
+      "combine": "Water",
+      "with": "Rocky world"
+    },
+    "expectation": "Water should reach the world, perhaps producing rain or helping cool its surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water cooled the world into a stone crust, but rain and a shore remain to be made.",
+    "reaction": "The cooling makes physical sense and gives the world a surface for rain to reach.",
+    "step": 2,
+    "reason": "Air and water are plausible ingredients for clouds or rain.",
+    "choice": {
+      "combine": "Air",
+      "with": "Water"
+    },
+    "expectation": "Combining air and water may produce clouds or rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air has no available combinations, so it will not directly make rain with water.",
+    "reaction": "That rules out my first weather guess.",
+    "step": 3,
+    "reason": "Inspecting Water should reveal how it can contribute to rain or a shore.",
+    "choice": {
+      "inspect": "Water"
+    },
+    "expectation": "Water may have an available operation involving the world or its new crust.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water can combine with the stone crust or Moon, suggesting routes toward rain and a changing shore.",
+    "reaction": "The two partners give clear leads for both goals.",
+    "step": 4,
+    "reason": "Water meeting the cooled crust is a plausible next step toward rain reaching the ground.",
+    "choice": {
+      "combine": "Water",
+      "with": "Stone crust"
+    },
+    "expectation": "Water and the crust may produce rain on the ground or a body of water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Water",
+          "with": "Moon"
+        },
+        "reason": "The Moon may help create tides for the shifting shore."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water on the still-hot crust created a steam cloud, suggesting a route to rain.",
+    "reaction": "The distinction between invisible vapour and visible droplets is useful.",
+    "step": 5,
+    "reason": "The cloud is the most promising rain ingredient, but its next partner is not yet clear.",
+    "choice": {
+      "inspect": "Steam cloud"
+    },
+    "expectation": "Inspection should reveal how the cloud can produce rain or interact with the ground.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Water",
+          "with": "Moon"
+        },
+        "reason": "That known pairing may advance the shifting shore goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air lifted the cloud into cooler heights, producing first rain and revealing the goal of gathering an ocean.",
+    "reaction": "The automatic combination was satisfying, and the explanation clarified how the rain formed.",
+    "step": 6,
+    "reason": "Water meeting the cooled stone crust seems a plausible way to gather an ocean, though I am guessing what is now available.",
+    "choice": {
+      "combine": "Water",
+      "with": "Stone crust"
+    },
+    "expectation": "Water may collect on the crust to form an ocean.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Water",
+          "with": "Moon"
+        },
+        "reason": "Their previously revealed pairing may advance the shifting shore."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and stone crust could not combine again, but the automatic Moon pairing created tides.",
+    "reaction": "The explanation of the Moon's uneven gravitational pull was useful, though it wasn't the ocean I expected.",
+    "step": 7,
+    "reason": "Rain collecting on the stone crust seems a plausible way to gather an ocean.",
+    "choice": {
+      "combine": "First rain",
+      "with": "Stone crust"
+    },
+    "expectation": "The rain may collect on the crust and form an ocean.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "First rain"
+        },
+        "reason": "Inspection could reveal its available partners if the ocean connection is less direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain gathered in the crust's low places, creating rain-filled hollows but not yet an ocean.",
+    "reaction": "The idea that the stone shapes the water while water changes the stone is interesting.",
+    "step": 8,
+    "reason": "The hollows seem relevant to gathering an ocean, but their next partner is unclear.",
+    "choice": {
+      "inspect": "Rain-filled hollows"
+    },
+    "expectation": "Inspection should reveal how the collected rain can advance toward an ocean.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tides",
+          "with": "Rain-filled hollows"
+        },
+        "reason": "Tides might interact with the collected water to make a changing shore."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water joined the rain-filled hollows to form an ocean, completing the ocean goal.",
+    "reaction": "The separate pools becoming a sea is a satisfying progression.",
+    "step": 9,
+    "reason": "Tides acting on the ocean are a plausible way to make a shore that changes.",
+    "choice": {
+      "combine": "Tides",
+      "with": "Ocean"
+    },
+    "expectation": "The tides should move water along the ocean's shore.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Tides combined with the ocean to create a tidal shore, completing the remaining goal and the chapter.",
+    "reaction": "The advancing and retreating water brought the changing-shore goal to a satisfying close.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Inspecting the steam cloud led to rain and explained how cooling droplets grow and fall; it made the weather progression understandable.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying air with water was unproductive: it ruled out a direct combination but gave little insight into what to try next.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Water met the still-hot crust to make a steam cloud, with the useful distinction that invisible vapour and visible cloud droplets are different.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding more water to the rain-filled hollows made sense once revealed, but the exact next pairing was not obvious beforehand.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. The physical explanations and progression from cooling crust to rain, ocean and tides made me curious to see what the world makes next.",
+        "steps": [
+          1,
+          5,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

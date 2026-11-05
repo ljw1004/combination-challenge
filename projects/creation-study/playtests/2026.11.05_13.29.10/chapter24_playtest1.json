@@ -1,0 +1,167 @@
+[
+  {
+    "step": 1,
+    "reason": "The cave needs light, so fire is the most direct thing to try there.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Sea cave"
+    },
+    "expectation": "Fire will light the cave's sheltered interior.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cave is lit, and the next goal is to paint an imaginary animal.",
+    "reaction": "The fire near the entrance makes practical sense for lighting the dry walls.",
+    "step": 2,
+    "reason": "Weathered rock can contain pigments, and water may help turn them into paint.",
+    "choice": {
+      "combine": "Weathered rock",
+      "with": "Water"
+    },
+    "expectation": "The rock and water will make a usable pigment or paint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pigment is ready to use on the cave wall.",
+    "reaction": "The coloured rock grains make a straightforward paint.",
+    "step": 3,
+    "reason": "The lit cave provides the wall for the pigment, though the imaginary animal may need another ingredient.",
+    "choice": {
+      "combine": "Pigment",
+      "with": "Firelit cave"
+    },
+    "expectation": "The pigment will be applied to the cave wall or reveal what else the painting needs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pigment and memory produced a painting of a remembered animal, but the goal of painting an animal that does not exist remains.",
+    "reaction": "The automatic use of memory explains why the image depicts a remembered animal.",
+    "step": 4,
+    "reason": "A story may help turn the remembered image into an imagined animal.",
+    "choice": {
+      "combine": "Cave painting",
+      "with": "Story"
+    },
+    "expectation": "The story will help create a painting of an imaginary animal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Call",
+          "with": "Memory"
+        },
+        "reason": "I could work on the song instead, since a remembered call might become a repeated tune."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The story transformed the painting into an invented beast, and the next goal is an imagined night sky.",
+    "reaction": "Combining familiar features into a new creature is a satisfying explanation of imagination.",
+    "step": 5,
+    "reason": "Stars suggest the content of the imagined sky, while the lit cave supplies the painting surface.",
+    "choice": {
+      "combine": "Stars",
+      "with": "Firelit cave"
+    },
+    "expectation": "The stars will help create a night-sky painting, possibly with another ingredient added automatically.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The imagined sky is painted; making a song remains a goal.",
+    "reaction": "The chosen arrangement makes the sky an imagined image rather than a simple record.",
+    "step": 6,
+    "reason": "A remembered call might provide a repeated pattern for a song; this is a guess.",
+    "choice": {
+      "combine": "Call",
+      "with": "Memory"
+    },
+    "expectation": "The remembered call may become a tune or another step toward a song.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The call became an echo in the cave rather than a remembered tune; the echo may help make a song.",
+    "reaction": "The cave's reflected sound was a useful surprise.",
+    "step": 7,
+    "reason": "I do not know what the echo can combine with, so checking its partners should guide the song.",
+    "choice": {
+      "inspect": "Echo"
+    },
+    "expectation": "The inspection will reveal a partner for making a song, and may combine it automatically.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The echo and memory made a song; the remaining goal is to pass on the community's learning.",
+    "reaction": "Repeating the echo in a chosen rhythm makes the song's origin clear.",
+    "step": 8,
+    "reason": "The song can carry the shared discovery to others, so combining them is a plausible way to teach it.",
+    "choice": {
+      "combine": "Song",
+      "with": "Shared discovery"
+    },
+    "expectation": "The community will use the song to pass on what it has learned.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The song has no available combinations, so it cannot directly carry the discovery in this game.",
+    "reaction": "That was unexpected, since the song could be taught.",
+    "step": 9,
+    "reason": "Inspecting Shared discovery should reveal how the community can pass on its learning.",
+    "choice": {
+      "inspect": "Shared discovery"
+    },
+    "expectation": "The inspection will show a teaching-related partner, possibly combining automatically.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shared discovery combined with Story to make Teaching, completing the final goal.",
+    "reaction": "The emphasis on explaining evidence and letting others practise makes teaching feel concrete.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the imagined beast was most worthwhile: rearranging familiar features into something new gave a clear account of imagination.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to combine Song with Shared discovery was least worthwhile; the song had no available combinations despite the description saying it could be taught.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The failed attempt with Call and Memory revealed the cave as its partner and automatically produced an echo, which then led to a song.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Using Story rather than Song to pass on the discovery felt somewhat arbitrary, given that the song was described as teachable, though the resulting explanation of teaching was clear.",
+        "steps": [
+          7,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the combinations linked creative activities to understandable ideas, especially imagination and teaching, despite the occasional opaque restriction.",
+        "steps": [
+          4,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

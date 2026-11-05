@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "The cave needs light, and fire is the obvious available source.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Sea cave"
+    },
+    "expectation": "Fire will light the cave interior for painting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cave is lit, and painting an animal from memory is now a goal.",
+    "reaction": "The fire provided the expected practical first step.",
+    "step": 2,
+    "reason": "Weathered rock can contain pigment, and water may make it usable as paint.",
+    "choice": {
+      "combine": "Weathered rock",
+      "with": "Water"
+    },
+    "expectation": "The rock and water will make a painting material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pigment is ready for painting on the lit cave wall.",
+    "reaction": "The rock and water made the expected paint.",
+    "step": 3,
+    "reason": "The lit cave provides the surface for the pigment, and the goal calls for an animal from memory.",
+    "choice": {
+      "combine": "Pigment",
+      "with": "Lit cave"
+    },
+    "expectation": "The community will use the pigment in the cave to paint an animal from memory.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pigment and memory produced an animal painting; the next goal is to add stars.",
+    "reaction": "The automatic use of memory made the painting step straightforward.",
+    "step": 4,
+    "reason": "Stars are available, and the new goal asks for them in the painting.",
+    "choice": {
+      "combine": "Stars",
+      "with": "Painted cave"
+    },
+    "expectation": "Stars will be added to the cave painting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The animal painting now includes stars, completing that goal; making a song and passing on knowledge remain.",
+    "reaction": "The added stars brought the two subjects together as expected.",
+    "step": 5,
+    "reason": "A call provides sound, and a story could give a song something to express; this is a guess.",
+    "choice": {
+      "combine": "Call",
+      "with": "Story"
+    },
+    "expectation": "The call and story may form a song.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The call produced an echo in the painted cave rather than combining with the story; the echo may help make a song.",
+    "reaction": "The automatic echo was an unexpected but understandable result.",
+    "step": 6,
+    "reason": "An echo repeats sound, so pairing it with the story is a plausible next attempt toward a song, though I am guessing.",
+    "choice": {
+      "combine": "Echo",
+      "with": "Story"
+    },
+    "expectation": "The echo and story may inspire a song.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Echo"
+        },
+        "reason": "I could check its available partners before guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Echo combined automatically with memory to make a song; passing on what the community learned remains.",
+    "reaction": "The remembered rhythm explains the song, though my story guess was wrong.",
+    "step": 7,
+    "reason": "A song can be taught, and the shared discovery is knowledge the community can pass on; this is a guess.",
+    "choice": {
+      "combine": "Song",
+      "with": "Shared discovery"
+    },
+    "expectation": "The community may use the song to pass on its discovery.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Song"
+        },
+        "reason": "Checking its partners could clarify how it contributes to teaching."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Song has no available combination, so I need another route to passing on knowledge.",
+    "reaction": "The failed guess leaves the teaching step unclear.",
+    "step": 8,
+    "reason": "Shared discovery is the knowledge to pass on, so checking its available partners should reveal how to teach it.",
+    "choice": {
+      "inspect": "Shared discovery"
+    },
+    "expectation": "The inspection will show what can help communicate the discovery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting Shared discovery revealed Story as its sole partner and automatically produced Teaching, completing the chapter.",
+    "reaction": "It was satisfying that teaching included both explaining evidence and practising skills.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making Teaching was most worthwhile: it connected the earlier discovery to explaining a prediction, checking it and practising skills.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying Song with Shared discovery was least worthwhile; the failed guess did not advance the teaching goal.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I expected a story to help make the song, but the cave produced an echo and memory turned its sounds into a rhythm instead.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding stars directly to the painted cave felt somewhat symbolic rather than a practical painting step, though the goal made its purpose clear.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would try another chapter for the combination of making and concise explanations, especially when the results connect an action to how an idea works.",
+        "steps": [
+          3,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal is to bring water down to the hot world, so using water at the rocky world is a direct starting point.",
+    "choice": {
+      "combine": "Water",
+      "with": "Rocky world"
+    },
+    "expectation": "Water will interact with the world, potentially forming rain or starting its water cycle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water cooled the world into a stone crust; rain has not yet reached the ground.",
+    "reaction": "The cooling step makes sense before rain can reach a solid surface.",
+    "step": 2,
+    "reason": "The new crust may have useful interactions for making rain or a shore, so I’ll check its available partners.",
+    "choice": {
+      "inspect": "Stone crust"
+    },
+    "expectation": "The inspection will show what can interact with the crust.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Air",
+          "with": "Water"
+        },
+        "reason": "Air and water might produce weather, but their relationship to the new crust is unclear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water on the still-hot crust produced a steam cloud, giving me a likely starting point for rain.",
+    "reaction": "The distinction between invisible vapour and visible cloud droplets is useful.",
+    "step": 3,
+    "reason": "I’ll check how the new cloud can produce rain rather than guess its next interaction.",
+    "choice": {
+      "inspect": "Steam cloud"
+    },
+    "expectation": "The inspection will reveal what the cloud can combine with, possibly advancing the rain goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steam cloud",
+          "with": "Rocky world"
+        },
+        "reason": "The cloud might bring rain directly to the world, but its required interaction is unclear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air turned the cloud into first rain, completing the rain goal and revealing the need to gather an ocean.",
+    "reaction": "The cooling and joining of droplets gives the rain a clear physical explanation.",
+    "step": 4,
+    "reason": "Rain falling on the rocky world could collect into an ocean, so I’ll try them together.",
+    "choice": {
+      "combine": "First rain",
+      "with": "Rocky world"
+    },
+    "expectation": "The rain will gather on the world to form an ocean.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain collected in hollows in the stone crust, suggesting a step toward an ocean.",
+    "reaction": "The distinction between the rocky world and its crust caught me out, but the feedback moved things forward.",
+    "step": 5,
+    "reason": "The rain-filled hollows are the clearest lead toward gathering an ocean; I’ll check what they need next.",
+    "choice": {
+      "inspect": "Rain-filled hollows"
+    },
+    "expectation": "The inspection will reveal an available partner, possibly advancing the ocean goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding water joined the flooded hollows into an ocean, completing the ocean goal.",
+    "reaction": "The separate pools becoming a sea is a satisfying progression.",
+    "step": 6,
+    "reason": "The Moon's gravity suggests a way to make the ocean's shore move through tides.",
+    "choice": {
+      "combine": "Moon",
+      "with": "Ocean"
+    },
+    "expectation": "The Moon will raise tides, creating a shore that changes position.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon combined with Water rather than Ocean to create tides, which may help make the moving shore.",
+    "reaction": "The Moon's uneven gravitational pull explains the tides, though Water rather than Ocean was the required partner.",
+    "step": 7,
+    "reason": "Tides acting on the ocean may produce the changing shoreline the goal asks for.",
+    "choice": {
+      "combine": "Tides",
+      "with": "Ocean"
+    },
+    "expectation": "The tides will move the ocean's shoreline.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Tides"
+        },
+        "reason": "I could check its partners, but the ocean seems like a plausible next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Tides combined with the ocean to make a tidal shore, completing the remaining goal and the chapter.",
+    "reaction": "The advancing and retreating water was a satisfying conclusion to the sequence.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making tides was worthwhile because it connected the Moon's uneven gravitational pull with the moving shore, while noting that the Sun also contributes.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the rain-filled hollows felt like a fairly predictable intermediate step, though it efficiently revealed and performed the water combination.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected the Moon to combine directly with the ocean, but the required partner was Water; the feedback still automatically made tides.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Using Water rather than Ocean as the Moon's partner felt somewhat arbitrary, even though the resulting explanation of tides was clear.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the progression from cooling rock to rain and tides combined satisfying construction with useful physical explanations.",
+        "steps": [
+          1,
+          2,
+          3,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

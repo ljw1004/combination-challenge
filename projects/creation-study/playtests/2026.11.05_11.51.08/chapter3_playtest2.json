@@ -1,0 +1,164 @@
+[
+  {
+    "step": 1,
+    "reason": "Sunlight can lift ocean water through evaporation, a likely first step in keeping water travelling.",
+    "choice": {
+      "combine": "Sun",
+      "with": "Ocean"
+    },
+    "expectation": "The Sun will warm the ocean and produce water vapour or a cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation provides water vapour for the next stage of the water cycle.",
+    "reaction": "The detail that dissolved salts stay behind is useful.",
+    "step": 2,
+    "reason": "Air may cool and carry the evaporated water, helping it form clouds.",
+    "choice": {
+      "combine": "Evaporation",
+      "with": "Air"
+    },
+    "expectation": "The water vapour will form clouds or otherwise move through the atmosphere.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds have formed from cooling moist air, providing a likely source of rain.",
+    "reaction": "The distinction between invisible vapour and visible droplets is useful.",
+    "step": 3,
+    "reason": "Clouds can bring precipitation to the land, moving water toward rivers.",
+    "choice": {
+      "combine": "Clouds",
+      "with": "Stone crust"
+    },
+    "expectation": "Rain will fall on the land, perhaps beginning runoff.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds combined with Water to produce rainfall, so water can now move across the land.",
+    "reaction": "I expected the crust to trigger rain, so the automatic combination with Water was a surprise.",
+    "step": 4,
+    "reason": "Rainfall on the stone crust could produce runoff toward rivers.",
+    "choice": {
+      "combine": "Rainfall",
+      "with": "Stone crust"
+    },
+    "expectation": "Water will flow over the land, beginning runoff or a river.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rainfall on the crust created rivers, which can carry sediment toward the ocean.",
+    "reaction": "The explanation of rivers changing their routes through erosion and deposition is useful.",
+    "step": 5,
+    "reason": "Rivers meeting the ocean can deposit sediment and build a delta.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Ocean"
+    },
+    "expectation": "The rivers will deposit sediment at their mouths, forming a delta.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers cannot combine directly with the ocean; Earth and Sun are the available partners.",
+    "reaction": "The compatibility feedback clarifies the next options.",
+    "step": 6,
+    "reason": "Earth is a likely source of sediment for building a delta.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Earth"
+    },
+    "expectation": "The rivers will carry or deposit sediment, potentially forming a delta.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rivers",
+          "with": "Sun"
+        },
+        "reason": "Sunlight might help keep water travelling, but the delta goal suggests trying Earth first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers and Earth produced sediment, which can build a delta where flowing water slows.",
+    "reaction": "The link between erosion upstream and building elsewhere is satisfying.",
+    "step": 7,
+    "reason": "Sediment deposited where rivers meet the ocean can form a delta.",
+    "choice": {
+      "combine": "Sediment",
+      "with": "Ocean"
+    },
+    "expectation": "The sediment will accumulate at the coast and form a delta.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sediment",
+          "with": "Rivers"
+        },
+        "reason": "The rivers carry the sediment, so they might be the required partner instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sediment combined with Rivers to form a delta, completing that goal; keeping water travelling remains.",
+    "reaction": "The branching channels make the sediment's role in building land clear.",
+    "step": 8,
+    "reason": "Rivers can combine with Sun, as the earlier compatibility feedback showed, and sunlight powers the water cycle.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Sun"
+    },
+    "expectation": "Sunlight will return some river water to the atmosphere, helping keep the water cycle moving.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Sun and Rivers completed the water cycle and the chapter, tying evaporation, precipitation and runoff together.",
+    "reaction": "The division of roles between solar energy and gravity is a satisfying summary.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the delta was worthwhile: it connected erosion and sediment transport to the formation of new land and branching channels.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying Rivers with Ocean was less worthwhile because the intuitive pairing failed and only revealed the available partners.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Clouds would not combine with Stone crust; the feedback automatically combined them with Water to make rainfall instead.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Using Water with Clouds to trigger rainfall felt somewhat arbitrary: I expected clouds meeting land to produce rain, though the result explained droplets growing heavy enough to fall.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the chapter made water-cycle processes and land formation understandable through connected discoveries, despite a couple of unintuitive pairings.",
+        "steps": [
+          1,
+          2,
+          4,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

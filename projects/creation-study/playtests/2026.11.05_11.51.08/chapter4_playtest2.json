@@ -1,0 +1,242 @@
+[
+  {
+    "step": 1,
+    "reason": "The introduction points to heat beneath the solid crust, so I’ll try applying fire to it.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Stone crust"
+    },
+    "expectation": "This may reveal the hot rock beneath the crust or create volcanic activity.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Stone crust"
+        },
+        "reason": "I could check its available partners first, but the heat clue makes fire a reasonable try."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire and the crust produced moving plates, suggesting plate movement is the next lead toward a seafloor spring.",
+    "reaction": "The distinction between moving plates and a global liquid ocean was useful.",
+    "step": 2,
+    "reason": "I’ll inspect the new plates to find how they can lead toward the hot spring.",
+    "choice": {
+      "inspect": "Moving plates"
+    },
+    "expectation": "The compatibility list should reveal a useful next step, possibly involving water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Moving plates",
+          "with": "Water"
+        },
+        "reason": "Water is relevant to a seafloor spring, but the connection is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plates can combine with Earth, Water or Fire; water is a plausible route toward the seafloor spring.",
+    "reaction": "The list narrows the options, though it does not reveal their outcomes.",
+    "step": 3,
+    "reason": "Water and moving plates seem likely to connect plate activity with the seafloor.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Water"
+    },
+    "expectation": "This may create a seafloor feature or a hot spring.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Moving plates",
+          "with": "Fire"
+        },
+        "reason": "More heat might produce volcanic activity, but water is more directly connected to the spring."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and moving plates made a trench at a subduction boundary, not the hot spring; the other plate combinations remain leads.",
+    "reaction": "The explanation of how a trench forms was useful.",
+    "step": 4,
+    "reason": "Fire and moving plates may produce the heat or volcanic activity needed for a seafloor spring.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Fire"
+    },
+    "expectation": "This may create volcanic activity that can heat seawater.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Trench"
+        },
+        "reason": "The trench may also have a useful connection to the spring."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire and moving plates produced a volcano, giving me a heat source to try with water.",
+    "reaction": "The connection between plate boundaries, magma and volcanoes is useful.",
+    "step": 5,
+    "reason": "Water interacting with volcanic heat seems a plausible route to a hot spring.",
+    "choice": {
+      "combine": "Volcano",
+      "with": "Water"
+    },
+    "expectation": "This may produce a hydrothermal spring or another feature involving heated water.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Volcano"
+        },
+        "reason": "I could check its partners, but water seems relevant enough to try directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and the volcano created a hydrothermal vent, completing the seafloor spring goal; bringing rock minerals into the sea remains.",
+    "reaction": "The account of seawater circulating through heated rock was interesting.",
+    "step": 6,
+    "reason": "Rivers can carry material from rock toward the sea, so I’ll try them with the stone crust.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Stone crust"
+    },
+    "expectation": "The rivers may weather the rock and carry its minerals toward the sea.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Hydrothermal vent"
+        },
+        "reason": "The vent also releases dissolved chemicals and might have a relevant partner."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers currently have no available combinations, so I need another route to the mineral goal.",
+    "reaction": "That was unexpected given the earlier river sediment step.",
+    "step": 7,
+    "reason": "The vent already carries dissolved chemicals from rock into seawater, so checking its partners may reveal the remaining step.",
+    "choice": {
+      "inspect": "Hydrothermal vent"
+    },
+    "expectation": "Its compatibility list may show how to bring rock minerals into the sea.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Moving plates",
+          "with": "Earth"
+        },
+        "reason": "The remaining known plate combination may produce another relevant rock feature."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hydrothermal vent has no available partners, so it does not provide a direct next step.",
+    "reaction": "That was surprising because the vent carries dissolved chemicals.",
+    "step": 8,
+    "reason": "Earth is the remaining known partner for moving plates and may create a rock feature relevant to the mineral goal.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Earth"
+    },
+    "expectation": "This may create a landform whose rock can supply minerals to the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth and moving plates created a continent, providing a landmass whose rock might supply minerals.",
+    "reaction": "The connection between buoyant crust and continents was useful.",
+    "step": 9,
+    "reason": "Rainfall may weather the continent's rock, starting the route toward minerals in the sea.",
+    "choice": {
+      "combine": "Continent",
+      "with": "Rainfall"
+    },
+    "expectation": "Rainfall may weather the continent and release rock minerals.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Continent"
+        },
+        "reason": "I could check its partners first, but rainfall seems a plausible cause of weathering."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rainfall weathered the continent, loosening grains and dissolving minerals; weathered rock is the next lead.",
+    "reaction": "The distinction between loosened grains and dissolved minerals is useful.",
+    "step": 10,
+    "reason": "Rivers can carry weathered material toward the sea, so I’ll try them with the weathered rock.",
+    "choice": {
+      "combine": "Weathered rock",
+      "with": "Rivers"
+    },
+    "expectation": "Rivers may carry dissolved minerals from the weathered rock into the sea.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Weathered rock"
+        },
+        "reason": "I could check its partners, but rivers are a plausible transport route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers carried material from weathered rock to create a mineral-rich sea, completing the remaining goal.",
+    "reaction": "It was satisfying to see weathering and river transport connect into a complete process.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the hydrothermal vent was worthwhile: it explained how seawater circulates through heated rock and returns carrying dissolved chemicals.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the vent yielded no partners, despite its apparent relevance to minerals in seawater; it did not help identify the remaining route.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Rivers initially had no available combinations, but they became useful with weathered rock after the continent was formed and weathered.",
+        "steps": [
+          6,
+          8,
+          9,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "The unavailable river–stone crust combination felt somewhat arbitrary at first, though the later weathered-rock result gave the distinction a clearer purpose.",
+        "steps": [
+          6,
+          9,
+          10
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the linked explanations of plate movement, hydrothermal vents and weathering made discovery interesting, despite a couple of unproductive checks.",
+        "steps": [
+          1,
+          5,
+          7,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

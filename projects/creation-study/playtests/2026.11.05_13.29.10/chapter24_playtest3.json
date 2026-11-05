@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "Fire is the clearest available way to light the cave.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Sea cave"
+    },
+    "expectation": "Fire will provide light inside the cave for painting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cave is lit, and painting an animal that does not exist is now a goal.",
+    "reaction": "The firelit walls make the next task clear, though the imaginary animal is intriguing.",
+    "step": 2,
+    "reason": "Weathered rock can contain pigments, and water may help prepare them for painting.",
+    "choice": {
+      "combine": "Weathered rock",
+      "with": "Water"
+    },
+    "expectation": "This may make a usable paint or pigment mixture.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rock and water produced pigment ready to use in the cave.",
+    "reaction": "The connection between weathered minerals and paint is satisfying.",
+    "step": 3,
+    "reason": "The pigment can be applied to the firelit cave walls to advance the painting goal.",
+    "choice": {
+      "combine": "Pigment",
+      "with": "Firelit cave"
+    },
+    "expectation": "People will use the pigment to paint on the cave wall, perhaps needing another idea to depict an imaginary animal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pigment and memory produced a painting of a remembered animal, but the goal calls for an animal that does not exist.",
+    "reaction": "The automatic use of memory explains the recognizable image; I’m curious how it can become imaginary.",
+    "step": 4,
+    "reason": "A story might supply an invented animal for the painting.",
+    "choice": {
+      "combine": "Cave painting",
+      "with": "Story"
+    },
+    "expectation": "The story may inspire a painting of an imagined animal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The story transformed the painting into an invented beast, revealing a goal to paint an imagined night sky.",
+    "reaction": "Combining familiar features into an imagined creature is a clear illustration of invention.",
+    "step": 5,
+    "reason": "Stars are the natural subject for the newly requested night-sky painting.",
+    "choice": {
+      "combine": "Imagined beast",
+      "with": "Stars"
+    },
+    "expectation": "The painter may add an imagined starry sky to the cave image.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The imagined beast has no available combinations, so it cannot be used to add the sky.",
+    "reaction": "That was an unproductive guess; the next painting may be separate.",
+    "step": 6,
+    "reason": "Inspecting Stars should reveal how they can contribute to the night-sky goal.",
+    "choice": {
+      "inspect": "Stars"
+    },
+    "expectation": "The compatibility list may identify a way to depict the sky, possibly at the cave.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting Stars automatically combined them with the cave and pigment, completing the imagined sky.",
+    "reaction": "The separate sky painting explains why the beast could not be combined with stars.",
+    "step": 7,
+    "reason": "A call and a story seem like plausible ingredients for a song.",
+    "choice": {
+      "combine": "Call",
+      "with": "Story"
+    },
+    "expectation": "The community may turn a vocal call and a story into a song.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted song combination instead revealed that a call in the cave produces an echo.",
+    "reaction": "The echo is an interesting acoustic clue, though it did not make a song yet.",
+    "step": 8,
+    "reason": "The echo repeats a sound, so inspecting it may reveal how it contributes to making a song.",
+    "choice": {
+      "inspect": "Echo"
+    },
+    "expectation": "Its available partners may suggest a route to song, possibly involving a call or story.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Remembering the echo produced a song and revealed the goal of passing on the community's learning.",
+    "reaction": "Repeating remembered sounds in rhythm is a satisfying route to song.",
+    "step": 9,
+    "reason": "Shared discovery represents knowledge the community can pass on; inspecting it should reveal how to teach it.",
+    "choice": {
+      "inspect": "Shared discovery"
+    },
+    "expectation": "Its available partners may show how the community can pass its learning to others.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting Shared discovery automatically combined it with Story to produce Teaching, completing the final goal.",
+    "reaction": "Passing on both the evidence behind a discovery and practical skills is a satisfying conclusion.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the imagined beast was most worthwhile: combining familiar animal features showed how memory can contribute to invention.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to combine the imagined beast with stars was unproductive; the sky required a separate painting.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The failed song attempt led to an echo, which could then be remembered and repeated in rhythm to make a song.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Using memory with an echo to make a song was not obvious beforehand, although the result explained the connection.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the painting and song sequences connected making with understandable ideas about imagination and sound, even when the next combination was not obvious.",
+        "steps": [
+          4,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

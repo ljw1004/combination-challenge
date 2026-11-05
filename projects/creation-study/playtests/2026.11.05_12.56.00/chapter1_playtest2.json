@@ -1,0 +1,186 @@
+[
+  {
+    "step": 1,
+    "reason": "Air suggests opening a space within the primordial waters.",
+    "choice": {
+      "combine": "Air",
+      "with": "Waters of the deep"
+    },
+    "expectation": "Air will create a void in the waters.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air opened the void, revealing the goal of making land within it.",
+    "reaction": "The image of air pushing apart the cosmic waters is striking.",
+    "step": 2,
+    "reason": "Earth is the natural material for forming land in the newly opened void.",
+    "choice": {
+      "combine": "Earth",
+      "with": "Void"
+    },
+    "expectation": "Earth will form land in the void.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth formed a molten rocky world, and the next goal is to bring it daylight.",
+    "reaction": "The detail about formation heat makes the world's molten state clear.",
+    "step": 3,
+    "reason": "Fire is the remaining element and suggests a source of daylight; the void is where the Sun can be formed.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Void"
+    },
+    "expectation": "Fire will form a Sun in the void.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fire",
+          "with": "Rocky world"
+        },
+        "reason": "The world needs daylight, but placing fire directly on its molten surface seems less likely to make a Sun."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire formed the Sun, but the daylight goal has not yet been marked complete.",
+    "reaction": "The Sun's creation was expected; it still needs to reach the world.",
+    "step": 4,
+    "reason": "The Sun should illuminate the rocky world when they are combined.",
+    "choice": {
+      "combine": "Sun",
+      "with": "Rocky world"
+    },
+    "expectation": "Sunlight will reach the rocky world and complete the daylight goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Sun illuminated the rocky world, revealing the goal of making a rocky Moon.",
+    "reaction": "The daylight step worked as expected.",
+    "step": 5,
+    "reason": "The rocky world may have a useful connection to forming a Moon, but its required partner is not yet clear.",
+    "choice": {
+      "inspect": "Rocky world"
+    },
+    "expectation": "The inspection will reveal available partners for the rocky world, possibly including one for making the Moon.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Earth",
+          "with": "Rocky world"
+        },
+        "reason": "Earth could supply rock for the Moon, but I am unsure how it should be formed."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rocky world has no available combination, so I need another route to the Moon.",
+    "reaction": "That rules out the world itself as the next ingredient.",
+    "step": 6,
+    "reason": "Earth suggests the Moon's rocky material, but its appropriate partner is unclear.",
+    "choice": {
+      "inspect": "Earth"
+    },
+    "expectation": "Earth's available partners may reveal how to form the Moon.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Earth",
+          "with": "Void"
+        },
+        "reason": "The void is a plausible place to form another rocky body, though that pair already made the world."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth and the deep produced asteroids that can collide with the world, suggesting a route to the Moon.",
+    "reaction": "The scattered rocks provide an unexpected connection to a lunar impact.",
+    "step": 7,
+    "reason": "The result explicitly suggests that asteroids can collide with the world, a plausible way to form the Moon.",
+    "choice": {
+      "combine": "Asteroids",
+      "with": "Rocky world"
+    },
+    "expectation": "An asteroid collision will produce material that forms the Moon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision formed the Moon and tilted the world; the new goal is to let the Moon steady it.",
+    "reaction": "The impact explanation usefully connects the Moon's formation to the world's tilt.",
+    "step": 8,
+    "reason": "The goal suggests bringing the Moon and rocky world together so the Moon can affect its tilt.",
+    "choice": {
+      "combine": "Moon",
+      "with": "Rocky world"
+    },
+    "expectation": "The Moon will help steady the tilted world's rotation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon steadied the world's tilt, revealing the goal of filling the sky with stars.",
+    "reaction": "The distinction between limiting changes in tilt and fixing it forever is useful.",
+    "step": 9,
+    "reason": "Fire formed the Sun, so I will try it in the surrounding cosmic deep to make other stars.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Waters of the deep"
+    },
+    "expectation": "Fire will form stars throughout the deep.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Fire"
+        },
+        "reason": "I could check its available partners, but the Sun's formation suggests a direct attempt."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire in the deep created stars and completed the chapter's final goal.",
+    "reaction": "The result followed naturally from how Fire made the Sun.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the Moon from an asteroid collision was most worthwhile: it connected orbital debris, the world's tilt and the Moon's reflected light.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the rocky world yielded no partners, so it provided little beyond ruling out that route.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Earth combined with the primordial deep to make asteroids, which then suggested an impact route to the Moon.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The deep's role in scattering Earth into asteroids was not obvious beforehand, though the resulting explanation gave it a purpose.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. The collision and the explanation of how the Moon limits changes in tilt made me curious how later combinations will connect making a world with scientific ideas.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

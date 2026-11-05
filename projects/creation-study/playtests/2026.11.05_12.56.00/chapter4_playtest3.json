@@ -1,0 +1,197 @@
+[
+  {
+    "step": 1,
+    "reason": "The chapter links internal heat to moving rocky plates, so applying fire to the crust is a plausible starting point.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Stone crust"
+    },
+    "expectation": "The heat will help create moving plates or another geological feature.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heated crust produced moving plates, giving me a starting point for forming a continent or seafloor feature.",
+    "reaction": "The clarification that plates move over slowly deforming rock was useful.",
+    "step": 2,
+    "reason": "Moving plates are central to both goals, but their next compatible operation is not yet clear.",
+    "choice": {
+      "inspect": "Moving plates"
+    },
+    "expectation": "The compatibility list should indicate how to develop the plates toward a continent or hot spring.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plates can combine with Earth, Water or Fire, giving me several possible routes toward the goals.",
+    "reaction": "The list narrows the options but doesn't reveal their results.",
+    "step": 3,
+    "reason": "Earth and moving plates are a plausible combination for raising a continent.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Earth"
+    },
+    "expectation": "The moving plates and earth will form or help raise a continent.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Moving plates",
+          "with": "Water"
+        },
+        "reason": "Water might lead toward the seafloor hot spring instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The moving plates and Earth formed a continent, revealing a goal to carry its minerals to sea.",
+    "reaction": "The distinction between continental and oceanic crust was useful.",
+    "step": 4,
+    "reason": "Rivers can erode the continent and carry material toward the sea.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Continent"
+    },
+    "expectation": "The rivers will carry minerals from the continent to the sea.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Moving plates",
+          "with": "Water"
+        },
+        "reason": "This might advance the seafloor hot spring goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers currently have no available combination, so carrying minerals to sea likely requires another preparation.",
+    "reaction": "That was unexpected given the goal.",
+    "step": 5,
+    "reason": "Water was a known partner for moving plates and may help create the seafloor hot spring.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Water"
+    },
+    "expectation": "The combination may produce a seafloor feature relevant to the hot spring.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and moving plates produced a trench at a subduction boundary, but not yet a hot spring.",
+    "reaction": "The explanation of subduction was useful.",
+    "step": 6,
+    "reason": "The trench is an underwater plate boundary, so fire may provide the heat needed for a seafloor spring.",
+    "choice": {
+      "combine": "Trench",
+      "with": "Fire"
+    },
+    "expectation": "Fire may turn the trench into a hot seafloor feature.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Trench"
+        },
+        "reason": "I could check its available partners before guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trench has no available combinations, so it is not the next step toward the hot spring.",
+    "reaction": "That was surprising given its underwater setting.",
+    "step": 7,
+    "reason": "Fire is the remaining known partner for moving plates and may produce a heated geological feature.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Fire"
+    },
+    "expectation": "This may create volcanic activity relevant to the hot spring.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moving plates and fire produced a volcano, which may supply heat for the seafloor spring.",
+    "reaction": "The possibility of volcanoes beneath the sea makes the connection clearer.",
+    "step": 8,
+    "reason": "Water interacting with volcanic heat is a plausible way to form a hot spring.",
+    "choice": {
+      "combine": "Volcano",
+      "with": "Water"
+    },
+    "expectation": "Water and volcanic heat may form a seafloor hot spring.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Volcanic heat and water formed a hydrothermal vent, completing the seafloor spring goal.",
+    "reaction": "The explanation of chemical energy supporting life without sunlight was interesting.",
+    "step": 9,
+    "reason": "Rainfall may weather the continent, preparing minerals for rivers to carry to sea.",
+    "choice": {
+      "combine": "Continent",
+      "with": "Rainfall"
+    },
+    "expectation": "Rainfall will weather the continent or release minerals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rainfall weathered the continent into rock with dissolved minerals and fragments, providing a possible next step for river transport.",
+    "reaction": "The mention of pigments was an unexpected detail.",
+    "step": 10,
+    "reason": "Rivers can carry material released by weathering toward the sea.",
+    "choice": {
+      "combine": "Weathered rock",
+      "with": "Rivers"
+    },
+    "expectation": "Rivers will carry weathered minerals toward the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers carried material from weathered rock to the sea, completing the final goal.",
+    "reaction": "It was satisfying to see why weathering had to come before river transport.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Forming the hydrothermal vent connected volcanic heat, seawater and the possibility of life without sunlight.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying fire on the trench was a plausible but unproductive detour; the trench had no available combinations.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Rivers could not combine directly with the continent; rainfall first had to weather the rock.",
+        "steps": [
+          4,
+          9,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "The direct river–continent combination initially felt blocked despite matching the stated goal, though the subsequent weathering step clarified the intended process.",
+        "steps": [
+          4,
+          9,
+          10
+        ]
+      },
+      "continue": {
+        "text": "Yes. The geological explanations, especially the hydrothermal vent, made me curious how the story will develop life.",
+        "steps": [
+          8,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

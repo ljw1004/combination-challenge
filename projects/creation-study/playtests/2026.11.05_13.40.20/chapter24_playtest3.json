@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "Fire is the obvious means of lighting the cave's interior.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Sea cave"
+    },
+    "expectation": "The fire will light the sheltered cave for painting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fire lit the cave wall and revealed a goal to paint an animal from memory.",
+    "reaction": "The lit wall gives the painting task a clear place to happen.",
+    "step": 2,
+    "reason": "Weathered rock can contain pigments, and water may help turn them into paint.",
+    "choice": {
+      "combine": "Weathered rock",
+      "with": "Water"
+    },
+    "expectation": "The rock and water will make a usable pigment or paint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rock and water made pigment suitable for marking the cave wall.",
+    "reaction": "The pigment worked as expected.",
+    "step": 3,
+    "reason": "The pigment belongs on the lit cave wall; memory may also be needed to depict the animal.",
+    "choice": {
+      "combine": "Pigment",
+      "with": "Lit cave wall"
+    },
+    "expectation": "The pigment will be used to paint on the wall, perhaps drawing on memory.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pigment and memory produced an animal painting, revealing a goal to add stars.",
+    "reaction": "The remembered animal made the painting feel purposeful.",
+    "step": 4,
+    "reason": "Stars are available and the new goal asks to add them to the painting.",
+    "choice": {
+      "combine": "Stars",
+      "with": "Cave painting"
+    },
+    "expectation": "Stars will be added to the cave painting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cave painting now includes stars, completing that goal; making a song remains.",
+    "reaction": "The image now brings the animal and night sky together.",
+    "step": 5,
+    "reason": "A call is a vocal sound, and memory could help people repeat it as a song; this is a guess.",
+    "choice": {
+      "combine": "Call",
+      "with": "Memory"
+    },
+    "expectation": "The remembered call may become a song or a step toward one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The call could not combine with memory, but automatically produced an echo in the sea cave.",
+    "reaction": "The echo is a useful and unexpected acoustic step toward the song.",
+    "step": 6,
+    "reason": "The echo may have several possible uses, so checking its partners should clarify how it contributes to the song.",
+    "choice": {
+      "inspect": "Echo"
+    },
+    "expectation": "The compatibility report will show what can be combined with the echo, possibly to make a song.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The echo combined automatically with memory to make a song, revealing the goal of passing on knowledge.",
+    "reaction": "It is satisfying that remembering and repeating the echo produced a song.",
+    "step": 7,
+    "reason": "Shared discovery represents knowledge the community can pass on, and the song can be taught to others.",
+    "choice": {
+      "combine": "Song",
+      "with": "Shared discovery"
+    },
+    "expectation": "The community will use the song to pass on what it has learned.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Song has no available combination, so I need another way to pass on the community's knowledge.",
+    "reaction": "I was surprised the song could not be used for teaching.",
+    "step": 8,
+    "reason": "A story can convey the shared discovery to other people.",
+    "choice": {
+      "combine": "Story",
+      "with": "Shared discovery"
+    },
+    "expectation": "The community will pass on its discovery through a story.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Shared discovery"
+        },
+        "reason": "Checking its partners could clarify how the knowledge is passed on."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Story and shared discovery produced teaching, completing the chapter's final goal.",
+    "reaction": "The emphasis on explaining a prediction and letting others practise made the ending concrete.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the echo and turning it into a song linked reflected sound to a repeatable rhythm in a memorable way.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to use the finished song for teaching led nowhere, despite the song's description saying it could be taught.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The failed call-and-memory guess automatically revealed the cave echo, which then became the basis for the song.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Using memory to turn an echo into a song was evocative, but the specific pairing was not obvious to me until I inspected the echo.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see more combinations connect physical phenomena with human creativity, especially when their explanations are as concrete as the echo and teaching passages.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

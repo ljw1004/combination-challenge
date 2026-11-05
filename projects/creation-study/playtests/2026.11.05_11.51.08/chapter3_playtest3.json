@@ -1,0 +1,177 @@
+[
+  {
+    "step": 1,
+    "reason": "Sunlight can evaporate ocean water, beginning the journey into the sky.",
+    "choice": {
+      "combine": "Sun",
+      "with": "Ocean"
+    },
+    "expectation": "The ocean's water will evaporate or form clouds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sun and Ocean produced evaporation, leaving water vapour ready for the next stage of its journey.",
+    "reaction": "The detail that dissolved salts stay behind was useful.",
+    "step": 2,
+    "reason": "Air may carry the evaporated water upward, where it can cool and form clouds.",
+    "choice": {
+      "combine": "Evaporation",
+      "with": "Air"
+    },
+    "expectation": "The vapour will rise and form a cloud.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Evaporation"
+        },
+        "reason": "I could check its available partners if the next stage is not as expected."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation and Air formed Clouds, providing the next stage of the water cycle.",
+    "reaction": "The distinction between invisible vapour and visible droplets was useful.",
+    "step": 3,
+    "reason": "Clouds may produce rain when combined with air, as the steam cloud did in the previous chapter.",
+    "choice": {
+      "combine": "Clouds",
+      "with": "Air"
+    },
+    "expectation": "The clouds will produce rain.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Clouds"
+        },
+        "reason": "I could check its partners if this chapter handles rainfall differently."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds combined with Water automatically to make Rainfall, so the next step is to bring it onto land.",
+    "reaction": "I expected Air again; Water was the available partner instead.",
+    "step": 4,
+    "reason": "Rainfall on the stone crust may begin the flow across land toward rivers.",
+    "choice": {
+      "combine": "Rainfall",
+      "with": "Stone crust"
+    },
+    "expectation": "Rainfall will gather or flow over the land.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rainfall on the stone crust created Rivers, which can now carry water and sediment toward the ocean.",
+    "reaction": "The note that rivers reshape their routes through erosion and deposition was useful.",
+    "step": 5,
+    "reason": "A river meeting the ocean can deposit sediment and build a delta.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Ocean"
+    },
+    "expectation": "The rivers will form a delta where they meet the ocean.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers cannot combine directly with Ocean; Earth and Sun are their available partners.",
+    "reaction": "I expected the river–ocean meeting to make the delta directly.",
+    "step": 6,
+    "reason": "Earth may supply the sediment rivers need to build a delta.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Earth"
+    },
+    "expectation": "The rivers will carry or deposit sediment toward a delta.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rivers",
+          "with": "Sun"
+        },
+        "reason": "Sun might help keep water travelling, but Earth seems more relevant to building a delta."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers and Earth produced Sediment, giving me material that may build the delta.",
+    "reaction": "The connection between erosion upstream and building land elsewhere is useful.",
+    "step": 7,
+    "reason": "Sediment deposited where rivers meet the ocean can build a delta, so I will try it with the ocean.",
+    "choice": {
+      "combine": "Sediment",
+      "with": "Ocean"
+    },
+    "expectation": "The sediment will accumulate at the coast to form a delta.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sediment",
+          "with": "Rivers"
+        },
+        "reason": "The rivers might need to carry the sediment further before it forms a delta."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sediment combined automatically with Rivers to form a Delta, completing that goal. The remaining goal is to keep water travelling.",
+    "reaction": "I expected Ocean to be the partner, but the river-mouth explanation made the result clear.",
+    "step": 8,
+    "reason": "Sun is the other known partner for Rivers and may connect the flowing water back to evaporation.",
+    "choice": {
+      "combine": "Rivers",
+      "with": "Sun"
+    },
+    "expectation": "Sunlight will help return river water to the atmosphere and keep the water cycle moving.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rivers and Sun created the Water cycle, completing the remaining goal and connecting evaporation, precipitation and runoff.",
+    "reaction": "It was satisfying to see the separate stages come together, with sunlight and gravity driving different parts.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building sediment and then a delta linked erosion upstream to deposition at a river mouth, making the land-building process tangible.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying Clouds with Air repeated the previous chapter's apparent pattern, but this chapter required Water instead.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Rivers could not combine directly with Ocean for a delta; they first needed sediment, which then combined with Rivers.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Clouds needing Water rather than Air initially felt unclear, though the result explained that additional droplets grow heavy enough to fall.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see more processes connected through making, especially when the explanations clarify how the natural world works.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

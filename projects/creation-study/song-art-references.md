@@ -1,0 +1,11 @@
+# Visual references for Song of creation
+
+Research only; artwork remains paused during combination testing. The [active brief](../../stories/creation/design-brief.md) owns the game's visual direction. These sources inform an original final composition in its existing painted celestial atlas style.
+
+| Reference | What the source establishes | Possible compositional lesson |
+| --- | --- | --- |
+| [Pluscarden's Four Seasons embroidery, described by St Leo the Great](https://stleothegreat.org.uk/about-us/church-features/) | The church holds a facsimile of the Pluscarden canvas embroidery. Its panels move through the seasons and combine weather, landscapes and memories; the Job text also appears in Hebrew above. | The user's attached image joins many small scenes through continuous braided bands. Let earlier creations remain recognizable within a larger whole. The original is a seasonal composition, not an illustration of the game's four elements. |
+| [Chagall's Creation of the World windows, Musée National Marc Chagall](https://musees-nationaux-alpesmaritimes.fr/chagall/en/cultural-season-rich-program-events) | Chagall designed three creation windows for the museum's concert hall; their blue light surrounds musical performance. | Creation imagery and music can share one space. A deep blue field and connected coloured forms could give the song cosmic scale while remaining compatible with Creation's lapis palette. |
+| [Pirkei Shirah, Center for Jewish Art](https://cja.huji.ac.il/?id=38835&mode=set) | This catalogued 1664 edition belongs to a tradition of verses voiced by the heavens, earth and creatures in praise of the Creator. | The world's many forms can participate visually in the song. This is thematic inspiration, not a claim that the game's prehistoric community follows this later tradition. |
+
+The visual lessons in the last column are author interpretations. The final art should retain this game's coastline, Moon and living lineages and show people singing within their world. Its woven movement can connect water, land, sky and life without a diagram explaining a religious system or a separate scene of people composing a creation account. No borrowed text or lyrics are needed.
