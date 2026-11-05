@@ -126,8 +126,8 @@ Augustine is a Christian bishop in Roman North Africa, writing a short handbook 
   *Evil is goodness damaged or missing, not a separate thing*
 
 **Combinations**
-- `case-a-cut-body-has-lost-its-health` [transform] + `healed-body` [preserve] -> `health-lost` (tutorial)
-- `case-i-take-the-meal-my-neighbour-needs` [transform] + `fair-share` [preserve] -> `the-wrong-is-taking-what-another-is-owed`
+- `case-a-cut-body-has-lost-its-health` [preserve] + `healed-body` [preserve] -> `health-lost` (tutorial)
+- `case-i-take-the-meal-my-neighbour-needs` [preserve] + `fair-share` [preserve] -> `the-wrong-is-taking-what-another-is-owed`
 - `health-lost` + `the-wrong-is-taking-what-another-is-owed` [preserve] -> `being-hurt-is-not-the-same-as-doing-wrong`
 - `health-lost` + `genesis-creation-was-very-good` [preserve] -> `augustine-loss`
 
@@ -277,7 +277,7 @@ The meal has not been returned: the person who took it promised fairness, then c
   *Eg. one infant is ill, one well; neither chose wrong*
 
 **Combinations**
-- `case-i-know-i-should-return-the-stolen-meal` [transform] + `failed-promise` -> `knowing-doing-gap`
+- `case-i-know-i-should-return-the-stolen-meal` [preserve] + `failed-promise` -> `knowing-doing-gap`
 - `paul-the-good-that-i-would-i-do-not` [preserve] + `failed-promise` -> `knowing-doing-gap`
 - `knowing-doing-gap` [preserve] + `love-help` [preserve] -> `aided-choice`
 - `two-infants` [preserve] + `augustines-church-baptizes-infants-for-forgiveness` [preserve] -> `why-forgive-an-infant-who-has-not-chosen-wrong`
@@ -581,7 +581,7 @@ Return to Augustine, bishop of Hippo, for his earlier account of the Trinity. Ch
   *One God as Father, Son and Holy Spirit*
 
 **Combinations**
-- `teacher-pupil` [preserve] + `does-being-son-mean-being-a-lesser-kind-of` [transform] -> `augustine-the-name-son-does-not-mean-a-lesser`
+- `teacher-pupil` [preserve] + `does-being-son-mean-being-a-lesser-kind-of` [preserve] -> `augustine-the-name-son-does-not-mean-a-lesser`
 - `three-humans` [preserve] + `one-divine-being` [preserve] -> `augustine-one-godnot-three-gods-sharing-a-kind`
 - `jesus-father-glorify-thy-son` [preserve] + `augustine-one-godnot-three-gods-sharing-a-kind` [preserve] -> `trinity-bounded`
 
@@ -920,7 +920,7 @@ Martin Luther is a friar and university teacher in Wittenberg, challenging indul
   *The pope can cancel penalties imposed by church authority*
 
 **Combinations**
-- `case-the-household-has-one-coin-and-no-supper` [transform] + `luther-household-necessities-and-poor-neighbours-come-first` [preserve] -> `feed-before-letter`
+- `case-the-household-has-one-coin-and-no-supper` [preserve] + `luther-household-necessities-and-poor-neighbours-come-first` [preserve] -> `feed-before-letter`
 - `declare-forgiveness` [preserve] + `instrumental-baptism` -> `working-for-god-does-not-mean-controlling-gods-gifts`
 - `coin-not-control` [preserve] + `luther-repentance-means-a-lifetime-of-turning-away-from` [preserve] -> `luther-a-paid-guarantee-cannot-replace-a-changed-life`
 - `sellers-claim-reported-by-luther-a-coin-frees-a` [preserve] + `papal-penalty-limit` [preserve] -> `coin-not-control`
@@ -1008,7 +1008,7 @@ The household still needs the supper you put before the indulgence letter. Luthe
 **Combinations**
 - `feed-before-letter` [preserve] + `christ-serves` [preserve] -> `care-not-purchase`
 - `gift-acceptance` [preserve] + `aided-choice` [preserve] -> `two-grace-questions`
-- `body-practice` [transform] + `care-not-purchase` [preserve] -> `practice-not-price`
+- `body-practice` [preserve] + `care-not-purchase` -> `practice-not-price`
 
 > NOTE: Source `liberty-public-domain`: [Luther, Concerning Christian Liberty (1520), Project Gutenberg primary text](https://www.gutenberg.org/cache/epub/1911/pg1911-images.html). Public-domain English text checked for gift, faith, service and bodily discipline. The discipline discussion excludes works as righteousness before God; the bishop comparison denies their making the Christian more holy. Original paraphrases, not quotations from the separate modern Hanover translation.
 
@@ -1171,7 +1171,7 @@ Huldrych Zwingli, the reformer of Zürich, has come to Marburg to meet Luther an
 - `zwingli-a-ring-recalls-a-beloved-without-containing-their` [preserve] + `zwingli-christs-human-body-is-in-heaven` [preserve] -> `zwingli-reading`
 - `eucharist-account` + `luther-christs-words-give-his-body-with-the-bread` -> `two-presence-accounts`
 - `two-presence-accounts` [preserve] + `zwingli-reading` -> `three-supper-accounts`
-- `unbelieving-guest` [transform] + `luther-christs-words-give-his-body-with-the-bread` -> `guest-not-maker`
+- `unbelieving-guest` [preserve] + `luther-christs-words-give-his-body-with-the-bread` -> `guest-not-maker`
 - `guest-not-maker` [preserve] + `faith-benefit` [preserve] -> `received-not-benefited`
 - `marburgs-signers-affirm-one-god-in-three-persons` + `trinity-bounded` [preserve] -> `shared-trinity`
 - `shared-trinity` [preserve] + `signed-supper` -> `shared-belief-in-the-trinity-leaves-their-communion-dispute`
@@ -1279,7 +1279,7 @@ Catholic bishops have gathered at Trent to set out their church’s teaching ami
 **Combinations**
 - `trent-first-help` [preserve] + `trent-no-price` [preserve] -> `response-not-price`
 - `trent-growth` [preserve] + `luther-fruit` [preserve] -> `works-dispute`
-- `response-not-price` [preserve] + `care-not-purchase` [preserve] -> `gift-common-ground`
+- `response-not-price` [preserve] + `care-not-purchase` -> `gift-common-ground`
 
 > NOTE: Source `later-trent-1547`: [Council of Trent, Session VI, Decree on Justification, 13 January 1547](https://history.hanover.edu/texts/trent/ct06.html). Session VI V–VIII: prior help, consent, unearned initial gift and inward renewal; X and canon24: growth in received justice. Compare Luther’s explicit more-sacred-person exclusion, not only temporal order.
 

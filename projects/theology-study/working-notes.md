@@ -1,5 +1,11 @@
 # Theology: working notes
 
+## Preserving examples and premises — 4 November 2026
+
+The user reported that the chapter 2 failed-promise combination appeared to do nothing: its result replaced a similarly worded input in place. Following a read-only evaluation, the user adopted preservation for every Theology input. Seven transforming operands now preserve; two redundant `[preserve]` annotations were removed. The remaining 78 explicit annotations are exactly those required by the unchanged single-use lint. The [design brief](../../stories/theology/design-brief.md#let-the-arguments-earn-their-force) owns the lasting decision. Prose, recipe operands/results, goals and chapter structure are unchanged.
+
+Verification of manuscript SHA-256 `eb415409459ecfa345c39c4697aff189073a61a08431c75788a9ad7f4ac1ee9a`: Theology lint **0 errors / 0 warnings**; all **19** focused story, lint-span and lint-fix checks passed, including complete legal replay witnesses for every manuscript. Parsed checks confirm all 57 recipes preserve their inputs and every explicit fate annotation is required by lint. Actual chapter 2 drags at **320px and 390px** created a separate on-screen result, retained both inputs at their original positions and survived reload without browser errors. These are mechanical and focused browser checks, not new playtests or evidence of improved learning or enjoyment. The linter, shared guidance, tests and generated application files are unchanged.
+
 ## Natural voice and concise readings
 
 The subsequent user clarification distinguishes **reasoning from the current desk** from **autobiographical narration**. All **113 readings** were audited and revised: “I read”, “I hold”, “my argument” and council self-report were replaced with direct reasoning. First person remains in quotations, hypothetical people and natural statements about human experience. The [design brief](../../stories/theology/design-brief.md) records the user’s exact wording examples, the revised rule, the motivation / inputs / synthesis / italic-title pattern, and the complete editorial process. The [authoring guide](../../docs/story-authoring.md#write-wonders-and-attribution) contains the reusable rule.

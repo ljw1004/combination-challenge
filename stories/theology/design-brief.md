@@ -8,6 +8,8 @@ Present the dilemmas as live questions. A reader familiar with a tradition’s c
 
 Give each position its intelligible premises and stakes. Let replies expose a particular weakness or make a useful distinction; do not announce a winner through labels, narration or foreknowledge of the next chapter. Aquinas’s fire example challenges the need for a separate evil source without by itself settling a knowing creator’s responsibility. Distinguish reconstructing a belief from proving it, and preserve substantial disagreements among the sources. Identify the Book of Two Principles as a Cathar text without treating it as the creed of everyone called Cathar.
 
+Preserve every combination input. Examples, premises and questions remain available beside the conclusions they support; interpreting a case does not remove its evidence. Each combination adds a distinct result card so the discovery is visible, rather than replacing a similarly worded card in place. Use default preservation, adding `[preserve]` only where the specification's single-use lint requires an explicit fate. Chapter carry selects the next desk's working set.
+
 ## Two ways to understand the story
 
 Item titles must communicate in plain English to someone who skips readings. Wonders must communicate to someone who combines blindly and reads only the resulting cards. Neither layer should depend on reading the other. Preserve necessary theological distinctions; explain unfamiliar terms where they contribute something ordinary language cannot convey as accurately.

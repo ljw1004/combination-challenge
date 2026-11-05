@@ -6,6 +6,8 @@ Playtests follow the shared [evaluation method](../../docs/fun-and-evaluation.md
 
 ## Current manuscript and evaluations
 
+The current story preserves every combination input, keeping examples and premises beside their new conclusions. The [preservation record](working-notes.md#preserving-examples-and-premises--4-november-2026) documents the player feedback, adopted change and checks; earlier evaluation scores describe their original versions.
+
 Two requested revision/evaluation cycles are complete, followed by a comprehensive chapter/title pass and an audit of all 113 readings for natural voice and brevity. The current manuscript retains dated speaker introductions and local/inherited item names, states arguments directly instead of narrating “I read” or “I argue”, and reduces reading text by 20.3% while preserving its inputs and distinctions. [The current review record](working-notes.md#natural-voice-and-concise-readings) distinguishes blind Terra collection readings from playtests. The [design brief](../../stories/theology/design-brief.md#editorial-process-and-evidence) records the complete review process as well as the user’s format examples. The score table below describes the earlier tested versions, before the wording changes. The current [manuscript](../../stories/theology/theology.md) replaces repeated confirmations with concrete applications while preserving attributed positions and their disagreements. [Working notes](working-notes.md) contain the changes, hypotheses, review outcomes, complete score tables and remaining recommendations.
 
 | Evaluation | Scope | Completed / replay-verified | Worthwhile actions |
