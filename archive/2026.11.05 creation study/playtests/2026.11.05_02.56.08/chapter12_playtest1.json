@@ -1,0 +1,206 @@
+[
+  {
+    "step": 1,
+    "reason": "The forest is the natural place to investigate fallen growth, and its available interactions are not yet clear.",
+    "choice": {
+      "inspect": "First forest"
+    },
+    "expectation": "The inspection should show which available ingredients can begin a forest process.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air brought down fallen wood, providing material for the forest's nutrient cycle.",
+    "reaction": "The windfall makes the link between the forest and decomposition clear.",
+    "step": 2,
+    "reason": "Fallen wood is central to both goals, but its next use is not yet clear.",
+    "choice": {
+      "inspect": "Fallen wood"
+    },
+    "expectation": "The inspection should reveal what can act on the fallen wood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood can combine with partnered cells or wetland, suggesting separate paths toward decomposition and burial.",
+    "reaction": "The two options give the goals a clearer direction.",
+    "step": 3,
+    "reason": "Partnered cells may lead to decomposers that break down the fallen wood.",
+    "choice": {
+      "combine": "Fallen wood",
+      "with": "Partnered cells"
+    },
+    "expectation": "This will create a decomposing organism or begin the breakdown of the wood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fallen wood",
+          "with": "Wetland"
+        },
+        "reason": "The wetland may help bury old plant material, but decomposition is also a goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Partnered cells and fallen wood produced fungi, a plausible decomposer for the nutrient-cycle goal.",
+    "reaction": "The clarification that fungi did not arise spontaneously from wood is useful.",
+    "step": 4,
+    "reason": "Fungi can break down fallen wood, so combining them may advance the decomposition cycle.",
+    "choice": {
+      "combine": "Fungi",
+      "with": "Fallen wood"
+    },
+    "expectation": "The fungi will break down the wood into material that can enrich the soil.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fallen wood",
+          "with": "Wetland"
+        },
+        "reason": "This known combination may advance the separate burial goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fungi and fallen wood produced decomposition, releasing nutrients that may enrich the forest soil.",
+    "reaction": "The nutrient-reuse link is clear and satisfying.",
+    "step": 5,
+    "reason": "Combining decomposition with soil may return the released nutrients to the ground.",
+    "choice": {
+      "combine": "Decomposition",
+      "with": "Soil"
+    },
+    "expectation": "The soil will become enriched and support new growth.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fallen wood",
+          "with": "Wetland"
+        },
+        "reason": "This known pairing may advance the separate burial goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Decomposition and soil produced returned nutrients, advancing the nutrient-cycle path.",
+    "reaction": "The result fits the expected cycle, though the goal is not yet complete.",
+    "step": 6,
+    "reason": "Roots can take up nutrients from soil, making them a plausible next link to new growth.",
+    "choice": {
+      "combine": "Returned nutrients",
+      "with": "Roots"
+    },
+    "expectation": "The roots will take up the returned nutrients and support forest growth.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fallen wood",
+          "with": "Wetland"
+        },
+        "reason": "This known pairing may advance the separate burial goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Roots took up the returned nutrients, completing the renewal goal and revealing a cloud-related goal.",
+    "reaction": "The completed nutrient loop is satisfying, and the new atmospheric connection is intriguing.",
+    "step": 7,
+    "reason": "Fallen wood and wetland were shown to be compatible and may advance the burial goal.",
+    "choice": {
+      "combine": "Fallen wood",
+      "with": "Wetland"
+    },
+    "expectation": "The wetland will preserve or bury some fallen plant material.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Renewing forest",
+          "with": "Clouds"
+        },
+        "reason": "This might address the newly revealed cloud goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood and wetland produced peat, storing old plant material but not yet completing the burial goal.",
+    "reaction": "The explanation makes the connection between waterlogging and incomplete decay clear.",
+    "step": 8,
+    "reason": "Peat is the promising next object for the burial goal, but its available partners are unclear.",
+    "choice": {
+      "inspect": "Peat"
+    },
+    "expectation": "The inspection should reveal how the peat can be buried or transformed.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Renewing forest",
+          "with": "Clouds"
+        },
+        "reason": "This might advance the separate cloud goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Peat combined automatically with Earth to bury carbon, completing the old-sunlight goal.",
+    "reaction": "The connection between slowed decay and long-term carbon storage is clear.",
+    "step": 9,
+    "reason": "Renewing forest and clouds are the most direct visible pairing for the remaining goal, though the mechanism is uncertain.",
+    "choice": {
+      "combine": "Renewing forest",
+      "with": "Clouds"
+    },
+    "expectation": "The forest may contribute moisture or material that helps clouds form.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forest-and-clouds combination completed the final goal and clarified that transpiration can help sustain rainfall in some regions.",
+    "reaction": "The connection between forest growth and distant rainfall was a satisfying final link.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the decomposition loop was most worthwhile: fungi broke down wood, nutrients returned to soil, and roots used them for new growth. The sequence made the forest's interdependence tangible.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting peat was a fairly predictable transition once burial was the remaining goal, although the automatic combination kept it brief.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The newly revealed cloud goal shifted my attention from soil to the atmosphere; the final combination explained how forests can contribute to rainfall beyond individual trees.",
+        "steps": [
+          6,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining fallen wood with partnered cells to make fungi initially felt like a leap, though the result clarified that the wood had not spontaneously become alive.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see further connections between living systems and their surroundings; the nutrient loop and forest-rain link made this chapter engaging without presenting the myth as a literal recipe.",
+        "steps": [
+          4,
+          6,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

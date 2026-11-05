@@ -1,0 +1,169 @@
+[
+  {
+    "step": 1,
+    "reason": "Algae in the ocean are a plausible starting point for an underwater forest.",
+    "choice": {
+      "combine": "Algae",
+      "with": "Ocean"
+    },
+    "expectation": "The algae will grow into a seaweed or kelp forest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Algae needed stone crust rather than the ocean to make a kelp forest; anchoring to rock explains the result.",
+    "reaction": "The automatic correction was useful, and the anchoring detail clarified the recipe.",
+    "step": 2,
+    "reason": "The tidal shore seems relevant to both the crowded coast and the new cave goal, so checking its partners should guide the next move.",
+    "choice": {
+      "inspect": "Tidal shore"
+    },
+    "expectation": "Its partners may reveal how to develop the coast or hollow a cave.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shore and soft-bodied animals produced coral, suggesting a path toward a crowded coastal habitat.",
+    "reaction": "The reminder that coral polyps are animals is interesting.",
+    "step": 3,
+    "reason": "Coral needs dissolved minerals to build its hard structures, making the mineral-rich sea a plausible next partner.",
+    "choice": {
+      "combine": "Coral",
+      "with": "Mineral-rich sea"
+    },
+    "expectation": "The coral will build a reef or another coastal habitat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Coral combines with algae rather than the mineral-rich sea, creating a reef partnership that may lead to the crowded coast.",
+    "reaction": "The correction revealed a useful biological partnership I had overlooked.",
+    "step": 4,
+    "reason": "The reef partnership seems like the most direct starting point for a coastal habitat, but its next ingredient is unclear.",
+    "choice": {
+      "inspect": "Reef partnership"
+    },
+    "expectation": "Its available partners will show how to develop the reef.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reef partnership used the mineral-rich sea to build a coral reef, confirming the role of dissolved minerals after the partnership formed.",
+    "reaction": "The sequence made the reef's living and mineral components clearer.",
+    "step": 5,
+    "reason": "Swimming animals could use the reef as habitat, plausibly making the coast crowded with life.",
+    "choice": {
+      "combine": "Coral reef",
+      "with": "Swimming animals"
+    },
+    "expectation": "The reef will become a community populated by swimming animals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coral reef has no available combinations, so I need another route to the remaining goals.",
+    "reaction": "I expected the reef to support a further habitat combination, so that was surprising.",
+    "step": 6,
+    "reason": "Wind over the ocean makes waves, which could help hollow the cave.",
+    "choice": {
+      "combine": "Ocean",
+      "with": "Air"
+    },
+    "expectation": "This may create waves for the cave goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ocean and air produced waves, providing a likely ingredient for the cave.",
+    "reaction": "The result matched my expectation.",
+    "step": 7,
+    "reason": "Waves can erode rock along a coast, so stone crust is a plausible partner for hollowing a cave.",
+    "choice": {
+      "combine": "Waves",
+      "with": "Stone crust"
+    },
+    "expectation": "The waves will erode the rock into a sea cave.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Waves and stone crust made a sea cave, completing that goal; the crowded coast remains.",
+    "reaction": "The erosion explanation made the combination clear, and the waiting cave hints at a future visitor.",
+    "step": 8,
+    "reason": "The kelp forest provides shelter and food for animals, so swimmers may turn it into a crowded coastal community.",
+    "choice": {
+      "combine": "Kelp forest",
+      "with": "Swimming animals"
+    },
+    "expectation": "The animals will populate the kelp forest and help complete the coastal life goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kelp forest and swimming animals made nursery waters, showing how kelp shelters young animals; the crowded-coast goal remains.",
+    "reaction": "The small spaces among the kelp make the habitat connection tangible.",
+    "step": 9,
+    "reason": "Nursery waters may be part of the remaining coastal community, but its next partner is unclear.",
+    "choice": {
+      "inspect": "Nursery waters"
+    },
+    "expectation": "Its available partners may reveal how to complete the crowded coast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Nursery waters and the coral reef formed a coastal mosaic of distinct habitats; the crowded-coast goal has not yet been reported complete.",
+    "reaction": "The contrast between cooler kelp beds and warmer reefs clarified how the habitats fit together.",
+    "step": 10,
+    "reason": "The coastal mosaic looks close to the remaining goal, but its next partner is unclear.",
+    "choice": {
+      "inspect": "Coastal mosaic"
+    },
+    "expectation": "Its available partners may show how to complete the crowded coast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Tides completed the living coast by connecting its habitats and moving nutrients through them; all chapter goals are complete.",
+    "reaction": "The emphasis on connections rather than just creature counts was a satisfying conclusion.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the reef partnership and then its mineral skeleton made the relationship between living organisms and reef architecture clear.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add swimmers directly to the coral reef went nowhere; it was unclear then that the reef would be used later alongside another habitat.",
+        "steps": [
+          5,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "The crowded coast emerged by joining nursery waters with a reef and then adding tides, rather than simply populating the reef with animals.",
+        "steps": [
+          5,
+          9,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "The final use of tides was understandable once explained, but its role in completing the coastal mosaic was not obvious before inspection.",
+        "steps": [
+          10
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the cave's hint of a future visitor and the ecological connections make me curious about what happens next.",
+        "steps": [
+          7,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

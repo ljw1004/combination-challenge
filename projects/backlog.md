@@ -71,6 +71,8 @@ The frozen comparison used an earlier interface that allowed combinations behind
 
 ## Icon recognition awaiting human trials
 
+Creation's [completed artwork review](<../archive/2026.11.05 creation study/art-review/2026.11.05_05.30.00/report.md>) supports coherent families and context-assisted meanings, with remaining ambiguity in fossil prints, call marks, memory and coat variation, cellular organization, and the song/tide-inquiry sequences. Human phone trials should test these distinctions with normal names/readings, native touch, and continuous play through catastrophe, recovery and independent invention. The six AI campaigns and Chromium checks do not establish recognition speed, enjoyment or retained learning. Its [live brief](../stories/creation/design-brief.md) owns the adopted intent.
+
 Settlement uses the selected coloured woodcut artwork; the seven former playable samples are retained as [reference collections](../references/icon-sets). Validate recognition speed and material/content distinctions on a phone; repeat-exposure agent reviews do not establish those outcomes.
 
 The current Mars story uses plain local iron, finite carried precision parts, soft crop supports and closely registered scene changes, as described in its [live brief](../stories/mars/design-brief.md). Human trials should test the distinctions identified in the [final assembly and portable review](mars-study/art-review/2026.11.04_13.34.39/report.md): gas fittings rely on names and service context, opaque empty/full cylinders share appearances, firing is mainly a colour change, and the rock texture is coarse. These informed AI judgments do not establish recognition speed or enjoyment.

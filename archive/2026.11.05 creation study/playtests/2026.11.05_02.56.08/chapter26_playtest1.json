@@ -1,0 +1,158 @@
+[
+  {
+    "step": 1,
+    "reason": "The chorus is the existing song, but several items could represent how a new generation changes it. Checking its partners should clarify the next step.",
+    "choice": {
+      "inspect": "Chorus"
+    },
+    "expectation": "The inspection should show which available items can develop the chorus.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Chorus",
+          "with": "Story"
+        },
+        "reason": "A story might change the song, but that is only a guess."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Memory preserved the chorus as a remembered song; the next step is to find how it changes.",
+    "reaction": "The song outliving its first singers is a poignant transition.",
+    "step": 2,
+    "reason": "The remembered song has several plausible partners, so checking it should clarify how the next generation changes it.",
+    "choice": {
+      "inspect": "Remembered song"
+    },
+    "expectation": "The inspection should reveal what can develop the remembered song.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Remembered song",
+          "with": "Social group"
+        },
+        "reason": "A community might pass the song on, but its role is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Remembered song has no currently available combinations, so I need to develop another item first.",
+    "reaction": "The lack of a partner is a little surprising.",
+    "step": 3,
+    "reason": "The social group may provide the next generation or a way to pass the song on, so its available partners are worth checking.",
+    "choice": {
+      "inspect": "Social group"
+    },
+    "expectation": "The inspection should reveal an available way to develop the community.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Story"
+        },
+        "reason": "A story might also help develop the tradition."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The social group also has no available combination, so another item must unlock progress.",
+    "reaction": "The second dead end is mildly frustrating.",
+    "step": 4,
+    "reason": "The goal concerns changing a song, so Story may reveal a way to develop its tradition.",
+    "choice": {
+      "inspect": "Story"
+    },
+    "expectation": "The inspection should show whether Story has an available partner.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Question"
+        },
+        "reason": "A question might also lead to a new variation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Story and shared discovery produced Teaching, suggesting a way to pass the remembered song to a new generation.",
+    "reaction": "The connection through teaching is clearer now.",
+    "step": 5,
+    "reason": "Teaching can plausibly pass the remembered song to new singers who might change it.",
+    "choice": {
+      "combine": "Teaching",
+      "with": "Remembered song"
+    },
+    "expectation": "Teaching the remembered song should help the next generation develop it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Teaching instead combined with Question to make New question; the song may now be ready to change through that curiosity.",
+    "reaction": "I was surprised the attempted pairing led to a question rather than the song.",
+    "step": 6,
+    "reason": "A new question could prompt a fresh interpretation of the remembered song, so I will try the pair.",
+    "choice": {
+      "combine": "New question",
+      "with": "Remembered song"
+    },
+    "expectation": "The new question may lead the next generation to change the remembered song.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new question gave the remembered song a different ending, but the goal has not yet been reported complete.",
+    "reaction": "It is satisfying that questioning the inherited ending produced a new creation.",
+    "step": 7,
+    "reason": "The changed song may need to be shared to complete the goal; inspecting it will reveal its available partners.",
+    "choice": {
+      "inspect": "Changed song"
+    },
+    "expectation": "The inspection should show how the changed song can be carried forward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The changed song reached a social group as a children's chorus, completing the goal and showing that the new version can continue to change.",
+    "reaction": "The ending is satisfying: the singers carry the creation beyond my control.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the new question with the remembered song was the most worthwhile moment: questioning an inherited ending made cultural change tangible.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the remembered song and social group yielded two dead ends in a row, making the route to teaching less clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Trying to combine teaching with the remembered song instead automatically produced a new question, which turned out to be what changed the song.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Story plus shared discovery producing teaching was not obvious beforehand, although its purpose became clearer once teaching led to a learner's question.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. The chapter's idea that inherited creations can be questioned and remade leaves me curious about what the next generation might do.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

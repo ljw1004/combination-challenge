@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "Sediment can preserve the great browsers' tracks, matching the goal directly.",
+    "choice": {
+      "combine": "Great browsers",
+      "with": "Sediment"
+    },
+    "expectation": "Their tracks will be recorded in sediment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The great browsers cannot currently be combined with anything, so preserving their tracks likely requires another step first.",
+    "reaction": "That was unexpected given the goal.",
+    "step": 2,
+    "reason": "Inspecting sediment may reveal how to prepare a surface that can record tracks.",
+    "choice": {
+      "inspect": "Sediment"
+    },
+    "expectation": "Sediment will show an available partner relevant to preserving the tracks.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Many-voiced world"
+        },
+        "reason": "The world hotspot might reveal the next event, but I want to investigate the tracks first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sediment has no available combination yet, so the world hotspot is the remaining promising lead.",
+    "reaction": "The track-preservation route is less direct than I expected.",
+    "step": 3,
+    "reason": "Inspect the world to find what event can happen there.",
+    "choice": {
+      "inspect": "Many-voiced world"
+    },
+    "expectation": "The hotspot will reveal an available ingredient, possibly the planetesimals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The planetesimals triggered an impact winter; the catastrophe may have unlocked a way to preserve the tracks.",
+    "reaction": "The sudden impact makes the threatened loss feel immediate.",
+    "step": 4,
+    "reason": "Inspect the impact winter to see what the catastrophe enables next.",
+    "choice": {
+      "inspect": "Impact winter"
+    },
+    "expectation": "It will reveal an available combination leading toward the giants' last tracks.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Sediment"
+        },
+        "reason": "Sediment might now have a newly available role in preserving tracks."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The impact winter and great browsers produced their last tracks; sediment may now preserve them.",
+    "reaction": "The loss feels stark, though the tracks have not yet been preserved.",
+    "step": 5,
+    "reason": "Sediment is the natural material to preserve the newly made tracks.",
+    "choice": {
+      "combine": "Last tracks",
+      "with": "Sediment"
+    },
+    "expectation": "The tracks will be preserved in sediment, completing the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sediment preserved the last tracks as fossil footprints, completing the goal while leaving the giants extinct.",
+    "reaction": "The preserved trace is satisfying but also a stark reminder of the loss.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Preserving the last tracks in sediment brought the goal and the story together: stone can retain evidence without restoring the life itself.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting sediment was initially unrevealing; it had no available partner despite seeming directly relevant to the goal.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the world immediately triggered the impact winter, before the tracks could be made.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining impact winter with the great browsers to produce last tracks felt compressed: it explains their extinction more clearly than how their footprints were made.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The catastrophe and surviving traces leave me curious about how the world recovers, though the track-making sequence was not always clear.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

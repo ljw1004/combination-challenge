@@ -1,0 +1,170 @@
+[
+  {
+    "step": 1,
+    "reason": "Swimming animals are the available starting point for a vertebrate lineage, but their next partner is not clear.",
+    "choice": {
+      "inspect": "Swimming animals"
+    },
+    "expectation": "The compatibility list should show how to begin that lineage.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Swimming animals",
+          "with": "Variation"
+        },
+        "reason": "Variation may produce a new animal branch, but inspection would avoid relying on that guess."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Swimming animals and the wetland produced air-breathing fish, beginning the land vertebrate branch.",
+    "reaction": "The wetland transition makes sense as a starting point.",
+    "step": 2,
+    "reason": "The fish's next step toward land is not yet clear, so checking its partners should guide the lineage.",
+    "choice": {
+      "inspect": "Air-breathing fish"
+    },
+    "expectation": "The compatibility list should reveal how the fish can develop further.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Air-breathing fish",
+          "with": "Variation"
+        },
+        "reason": "Variation might lead to a land-adapted branch, but that is a guess."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fish lineage became limbed vertebrates through the roots at the water's edge, bringing it closer to land.",
+    "reaction": "The explanation usefully distinguishes evolutionary change from an individual fish deciding to grow legs.",
+    "step": 3,
+    "reason": "Membranes suggest a protective boundary for an egg suited to drier ground, though the exact recipe is uncertain.",
+    "choice": {
+      "combine": "Limbed vertebrates",
+      "with": "Membranes"
+    },
+    "expectation": "This may produce an egg adapted to life on land.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Limbed vertebrates"
+        },
+        "reason": "I could check its available partners instead of trying the membrane inference."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Membranes and limbed vertebrates produced the shelled egg, completing the dry-ground reproduction goal.",
+    "reaction": "The protective-membrane inference worked, and the explanation distinguishes it from other reproductive solutions.",
+    "step": 4,
+    "reason": "The next branch toward forest animals is unclear, so I'll check what the shelled egg can combine with.",
+    "choice": {
+      "inspect": "Shelled egg"
+    },
+    "expectation": "Its available partners may reveal a land-animal lineage.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Shelled egg",
+          "with": "Variation"
+        },
+        "reason": "Variation might produce a new branch, but that is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Variation produced reptiles from the shelled egg, suggesting a route toward the forest's animal branches.",
+    "reaction": "The automatic combination confirmed the suspected role of variation.",
+    "step": 5,
+    "reason": "The forest is the destination for the remaining goal, so reptiles may establish a lineage there.",
+    "choice": {
+      "combine": "Reptiles",
+      "with": "First forest"
+    },
+    "expectation": "Reptiles may develop into forest-dwelling animals.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Reptiles"
+        },
+        "reason": "Checking partners would clarify the next branch without relying on the forest inference."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Reptiles in the forest produced great browsers, providing the giants but leaving the small mammals and birds to find.",
+    "reaction": "The giants' tracks and opened paths make their effect on the forest tangible.",
+    "step": 6,
+    "reason": "Reptiles may have further partners leading to the other animal branches, so I'll check.",
+    "choice": {
+      "inspect": "Reptiles"
+    },
+    "expectation": "The compatibility list may show a route toward birds or small mammals.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Great browsers"
+        },
+        "reason": "The prompt to remember the giants suggests they may have another use."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Reptiles and air produced birds, leaving small mammals as the remaining apparent part of the forest goal.",
+    "reaction": "The explanation makes the dinosaur connection clear without conflating bird and insect flight.",
+    "step": 7,
+    "reason": "The route to small mammals is unclear, so I'll check whether fallen wood offers a relevant habitat or ingredient.",
+    "choice": {
+      "inspect": "Fallen wood"
+    },
+    "expectation": "Its partners may reveal a route toward small mammals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood combined with limbed vertebrates to make small furred animals, completing the forest-animal goal and the chapter.",
+    "reaction": "The shelter connection was satisfying, and the warning that smallness does not guarantee survival adds uncertainty.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making limbed vertebrates among the roots was most worthwhile: the water-edge setting gave the transition a tangible context, while the explanation distinguished inherited evolutionary change from an individual fish choosing to grow legs.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the shelled egg was comparatively routine: its sole partner was selected automatically, so there was little decision to make after checking.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Air combined with reptiles to produce birds; the explanation clarified their dinosaur ancestry and distinguished their flight from insect flight.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The shelled egg combining with variation to produce reptiles felt compressed: variation suggests evolutionary change, but the combination did not explain the particular transition.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The great browsers' tracks and the mention of a future impact suggest an unfolding story, and the evolutionary explanations made the combinations more interesting.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

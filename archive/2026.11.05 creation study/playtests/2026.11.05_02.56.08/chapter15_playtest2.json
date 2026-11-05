@@ -1,0 +1,166 @@
+[
+  {
+    "step": 1,
+    "reason": "Shore plants are the available starting point for the plant-focused goals, but their next development is unclear.",
+    "choice": {
+      "inspect": "Shore plants"
+    },
+    "expectation": "Inspection should reveal which available ingredients can advance the plant lineage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shore plants and Sun produced flowers, suggesting a path toward exchanges with animal visitors.",
+    "reaction": "The automatic combination made the plant lineage clear.",
+    "step": 2,
+    "reason": "Flowers offer food to insects, making them a plausible starting point for pollination.",
+    "choice": {
+      "combine": "Flowers",
+      "with": "Insects"
+    },
+    "expectation": "Insects should visit the flowers and help pollinate them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Flowers and insects produced pollination, establishing an exchange that may lead to seeds.",
+    "reaction": "The explanation clearly connected the insect's food-seeking to pollen transfer.",
+    "step": 3,
+    "reason": "Pollination enables flowering plants to reproduce, so combining it with flowers may produce seeds.",
+    "choice": {
+      "combine": "Pollination",
+      "with": "Flowers"
+    },
+    "expectation": "The pollinated flowers should produce seeds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pollination and flowers produced seeds, providing the material for the wind-dispersal goal.",
+    "reaction": "The seed description clearly linked pollination to fertilization and embryo development.",
+    "step": 4,
+    "reason": "Air is the obvious means of carrying seeds on the wind.",
+    "choice": {
+      "combine": "Seeds",
+      "with": "Air"
+    },
+    "expectation": "The seeds should be dispersed by wind, advancing the first goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Seeds and air produced windborne seeds, completing the wind-dispersal goal; the forest-of-exchanges goal remains.",
+    "reaction": "The result was predictable and satisfying progress.",
+    "step": 5,
+    "reason": "Seeds and animals suggest another exchange: animals may eat fruit and disperse seeds, though the necessary intermediate is unclear.",
+    "choice": {
+      "inspect": "Seeds"
+    },
+    "expectation": "Inspection should reveal a useful partner for developing another seed-dispersal relationship.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Seeds",
+          "with": "Limbed vertebrates"
+        },
+        "reason": "Animals might disperse seeds, but there may first be a fruit stage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Seeds can combine with water or flowers; the inspection did not establish which leads to the remaining goal.",
+    "reaction": "The two options leave the route uncertain.",
+    "step": 6,
+    "reason": "Flowers and seeds may lead to fruit, which could support an exchange with animals; this is a guess.",
+    "choice": {
+      "combine": "Seeds",
+      "with": "Flowers"
+    },
+    "expectation": "The combination may produce fruit or another structure involved in seed dispersal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Seeds",
+          "with": "Water"
+        },
+        "reason": "Water might germinate the seeds and advance forest growth instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Seeds and flowers produced fruit, suggesting an animal-mediated seed-dispersal exchange.",
+    "reaction": "The fruit result confirmed the guess and made the next connection clear.",
+    "step": 7,
+    "reason": "Limbed vertebrates may eat the fruit and carry its seeds elsewhere.",
+    "choice": {
+      "combine": "Fruit",
+      "with": "Limbed vertebrates"
+    },
+    "expectation": "Animals will eat the fruit and disperse its seeds, advancing the forest-of-exchanges goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fruit and limbed vertebrates produced seed dispersal, establishing another exchange that may enrich the forest.",
+    "reaction": "The result followed the fruit's hint, though it gave no further explanation.",
+    "step": 8,
+    "reason": "Combining seed dispersal with the renewing forest may bring the exchange into the forest.",
+    "choice": {
+      "combine": "Seed dispersal",
+      "with": "Renewing forest"
+    },
+    "expectation": "The forest may incorporate animal-mediated seed dispersal and advance the remaining goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Seed dispersal"
+        },
+        "reason": "I could check its partners, but the forest connection seems plausible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Seed dispersal and the renewing forest became a flowering forest, completing the remaining goal and connecting animal feeding to landscape renewal.",
+    "reaction": "The ending brought the earlier exchanges together satisfyingly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making pollination was most worthwhile: it explained how an insect seeking food can also carry pollen, making the exchange understandable rather than just naming it.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting seeds left two possible partners without clarifying which served the remaining goal, so the next choice was still a guess.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Combining seeds with flowers produced fruit; the result made the animal-dispersal route clearer.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Seeds plus flowers felt somewhat arbitrary before the fruit result, although the subsequent explanation gave it a purpose.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the connected exchanges made the living world feel like more than a collection of organisms, and I would be curious to see what follows.",
+        "steps": [
+          2,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

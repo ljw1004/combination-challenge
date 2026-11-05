@@ -1,0 +1,137 @@
+[
+  {
+    "step": 1,
+    "reason": "Shore plants are the starting point for both seed dispersal and plant exchanges, but the next evolutionary step is unclear.",
+    "choice": {
+      "inspect": "Shore plants"
+    },
+    "expectation": "The inspection should reveal which available ingredients can develop the plants.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Shore plants",
+          "with": "Air"
+        },
+        "reason": "Wind could disperse reproductive material, but the earlier chapter associated this pair with spores rather than seeds."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically produced flowers, suggesting insect pollination as the next step toward forest exchanges.",
+    "reaction": "The automatic flower creation was a useful surprise.",
+    "step": 2,
+    "reason": "Insects can visit flowers and carry pollen between them.",
+    "choice": {
+      "combine": "Flowers",
+      "with": "Insects"
+    },
+    "expectation": "This should establish pollination or a flower–insect partnership.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pollination establishes the flower–insect exchange and suggests a route toward seeds.",
+    "reaction": "The explanation makes the mutual benefit clear.",
+    "step": 3,
+    "reason": "Pollination can lead to seed production in flowering plants.",
+    "choice": {
+      "combine": "Pollination",
+      "with": "Flowers"
+    },
+    "expectation": "The pollinated flowers should produce seeds or fruit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pollination and flowers produced seeds, opening a direct route to wind dispersal.",
+    "reaction": "The explanation clearly distinguishes fertilization from seed development.",
+    "step": 4,
+    "reason": "Air can carry seeds away from their parent plants, matching the wind-dispersal goal.",
+    "choice": {
+      "combine": "Seeds",
+      "with": "Air"
+    },
+    "expectation": "The seeds should become wind-dispersed seeds and advance that goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Windborne seeds completed the dispersal goal; the remaining goal concerns forest exchanges.",
+    "reaction": "The wind-dispersal result was as expected.",
+    "step": 5,
+    "reason": "Flowers are now a hotspot, and checking their available interactions may reveal the next exchange.",
+    "choice": {
+      "inspect": "Flowers"
+    },
+    "expectation": "The inspection should show which available items can interact with the flowers.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Flowers and seeds produced fruit, suggesting animals can disperse its seeds.",
+    "reaction": "The fruit makes the plant–animal exchange clear.",
+    "step": 6,
+    "reason": "Limbed vertebrates could eat fruit and carry its seeds elsewhere.",
+    "choice": {
+      "combine": "Fruit",
+      "with": "Limbed vertebrates"
+    },
+    "expectation": "This should create an animal seed-dispersal relationship.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fruit and vertebrates produced seed dispersal, establishing another exchange that may enrich the forest.",
+    "reaction": "The result followed the expected plant–animal relationship.",
+    "step": 7,
+    "reason": "Seed dispersal in the renewing forest seems a plausible way to establish the forest of exchanges.",
+    "choice": {
+      "combine": "Seed dispersal",
+      "with": "Renewing forest"
+    },
+    "expectation": "This should bring seed-dispersing relationships into the forest and advance the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Seed dispersal transformed the renewing forest into a flowering forest, completing the remaining goal.",
+    "reaction": "It was satisfying to see the animal–plant exchange become part of the landscape.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making pollination was most worthwhile: it connected an insect seeking food with pollen transfer and explained how both partners can benefit.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Windborne seeds completed their goal without an explanation of how seeds are adapted for dispersal, making that passage less informative than the surrounding combinations.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting shore plants automatically created flowers; I hadn't expected the inspection itself to advance the chapter.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining shore plants with Sun to produce flowers was not obvious to me beforehand; the inspection supplied the connection rather than explaining why sunlight was the particular trigger.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see further ecological connections unfold, especially when the combinations explain relationships as clearly as pollination and seed dispersal did.",
+        "steps": [
+          2,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

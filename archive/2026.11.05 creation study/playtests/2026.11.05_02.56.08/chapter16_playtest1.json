@@ -1,0 +1,202 @@
+[
+  {
+    "step": 1,
+    "reason": "The planetary hotspot and Sun suggest a way to establish the relationship that produces seasons, though the exact combination is a guess.",
+    "choice": {
+      "combine": "Sun",
+      "with": "Rocky world"
+    },
+    "expectation": "This may establish the planet's orbit or seasonal relationship to its sun.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Rocky world"
+        },
+        "reason": "Inspecting the planet could reveal which ingredient the hotspot accepts."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Sun paired with Clouds to make a rainbow, not seasons; I still need to find the planetary hotspot's role.",
+    "reaction": "The rainbow was an unexpected detour.",
+    "step": 2,
+    "reason": "Inspecting the planet should reveal which available ingredients can act on it, rather than guessing another seasonal mechanism.",
+    "choice": {
+      "inspect": "Rocky world"
+    },
+    "expectation": "The hotspot will list compatible ingredients, possibly including one that helps establish seasons.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The planet and Air produced axial tilt, establishing the key ingredient for seasons.",
+    "reaction": "The tilt makes the seasonal mechanism clearer.",
+    "step": 3,
+    "reason": "Axial tilt changes how sunlight reaches the planet over its orbit, so the Sun is a plausible partner.",
+    "choice": {
+      "combine": "Axial tilt",
+      "with": "Sun"
+    },
+    "expectation": "The tilted planet's relationship with the Sun will produce seasons.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Axial tilt and the Sun made seasons, and a new goal asks for a dry country.",
+    "reaction": "The explanation clearly distinguishes tilt from distance as the main cause of Earth's seasons.",
+    "step": 4,
+    "reason": "Moving plates and a continent plausibly raise mountains, which could lead to the ice and downhill path in the remaining goal.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Continent"
+    },
+    "expectation": "The moving plates will raise mountains on the continent.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moving plates and the continent formed a mountain range, providing a likely setting for ice.",
+    "reaction": "The mountain-building step was straightforward.",
+    "step": 5,
+    "reason": "Mountains and seasons plausibly produce persistent snow and ice, advancing the goal of carving a path from ice.",
+    "choice": {
+      "combine": "Mountain range",
+      "with": "Seasons"
+    },
+    "expectation": "The mountains and seasons may produce snow or a glacier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Seasons did not combine with the mountain range; Clouds and Water are its available partners.",
+    "reaction": "The feedback narrows the route to ice without explaining which partner produces it.",
+    "step": 6,
+    "reason": "Clouds over mountains can bring snow, so this is a plausible route toward ice.",
+    "choice": {
+      "combine": "Mountain range",
+      "with": "Clouds"
+    },
+    "expectation": "Clouds may produce snow or ice on the mountains.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mountain range",
+          "with": "Water"
+        },
+        "reason": "Water might also lead to mountain ice or a carved landscape."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds and mountains produced a rain shadow, suggesting a route to the dry-country goal.",
+    "reaction": "The contrast between the mountain's two sides is clear and interesting.",
+    "step": 7,
+    "reason": "The rain shadow is relevant to the dry-country goal, but its available partner is unclear, so inspecting it should narrow the route.",
+    "choice": {
+      "inspect": "Rain shadow"
+    },
+    "expectation": "The inspection will reveal what can combine with the rain shadow to make a dry region.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mountain range",
+          "with": "Water"
+        },
+        "reason": "This could instead advance the ice-carving goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rain shadow combined automatically with the Sun to make a desert, completing the dry-country goal.",
+    "reaction": "The inspection efficiently resolved that branch.",
+    "step": 8,
+    "reason": "Water is the mountain range's other known partner and may lead toward the remaining ice-carving goal.",
+    "choice": {
+      "combine": "Mountain range",
+      "with": "Water"
+    },
+    "expectation": "The combination may create mountain ice or a glacier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mountain range and Water made a glacier, which can flow downhill and carve the landscape.",
+    "reaction": "The description makes the transition from accumulated snow to flowing ice clear.",
+    "step": 9,
+    "reason": "Gravity drives glacial flow, making it a plausible partner for carving a path downhill.",
+    "choice": {
+      "combine": "Glacier",
+      "with": "Gravity"
+    },
+    "expectation": "The glacier will move downhill and carve a valley.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity and the glacier made a valley, but the ice-path goal remains open.",
+    "reaction": "The distinction between ice and liquid water carving landscapes is useful.",
+    "step": 10,
+    "reason": "A river can follow a valley downhill, making it a plausible next step toward completing the path from the ice.",
+    "choice": {
+      "combine": "Valley",
+      "with": "Rivers"
+    },
+    "expectation": "The river will flow through the glacial valley and complete the path downhill.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Valley"
+        },
+        "reason": "Inspecting the valley could reveal its available partners before committing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The valley and rivers formed a braided river, completing the remaining goal and the chapter.",
+    "reaction": "The shifting channels were a satisfying conclusion to the glacier's downhill path.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the glacier, valley and braided river was the most worthwhile passage: the combinations connected accumulating ice, gravity and sediment to a changing landscape.",
+        "steps": [
+          8,
+          9,
+          10
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying seasons with the mountain range was the least worthwhile decision; it failed, although the compatibility feedback usefully narrowed the options.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Clouds and mountains produced a rain shadow rather than the snow I expected, showing how one range can create contrasting climates.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Air tipping the planet felt symbolic rather than physically clear, although the subsequent explanation of axial tilt and seasons made its purpose clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how these contrasting landscapes support life; the glacier sequence and rain shadow made the world's processes engaging without presenting the combinations as literal recipes.",
+        "steps": [
+          6,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

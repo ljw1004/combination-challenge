@@ -1,0 +1,165 @@
+[
+  {
+    "step": 1,
+    "reason": "The chorus is the old song, but the available pieces do not make clear how a new generation changes it.",
+    "choice": {
+      "inspect": "Chorus"
+    },
+    "expectation": "The compatibility list should show how the chorus can be carried forward or changed.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Chorus",
+          "with": "Social group"
+        },
+        "reason": "A community could pass the song on, but that pair already produced the chorus in the previous chapter."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chorus became a remembered song, establishing how the old pattern survives its first singers.",
+    "reaction": "The image of listeners preserving it is satisfying; how it changes remains unclear.",
+    "step": 2,
+    "reason": "The next generation's role is not yet obvious, so checking the remembered song's partners should guide the next step.",
+    "choice": {
+      "inspect": "Remembered song"
+    },
+    "expectation": "Its compatibility list will reveal a way to pass on or alter the song.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Remembered song",
+          "with": "Social group"
+        },
+        "reason": "The group might pass the song on, but I don't know if that changes it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remembered song has no available partner yet, so another part of the sequence must come first.",
+    "reaction": "That is a little surprising; preservation alone does not yet lead to a change.",
+    "step": 3,
+    "reason": "The social group may be needed to introduce the next generation, so its available partners should help identify the missing step.",
+    "choice": {
+      "inspect": "Social group"
+    },
+    "expectation": "Its compatibility list will show a way to develop the community or pass on the song.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The social group has no available combination yet, so it does not reveal the missing step.",
+    "reaction": "The second empty compatibility list is a little frustrating.",
+    "step": 4,
+    "reason": "Story may connect the preserved song to a new interpretation, so checking its partners could reveal the missing step.",
+    "choice": {
+      "inspect": "Story"
+    },
+    "expectation": "Its compatibility list may show what needs to happen before the song can change.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Question"
+        },
+        "reason": "A question might also prompt a new interpretation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Story and shared discovery produced teaching, suggesting a way to pass knowledge to the next generation.",
+    "reaction": "The connection between storytelling and teaching clarifies the missing step.",
+    "step": 5,
+    "reason": "Teaching could pass the remembered song to new singers, allowing them to change it.",
+    "choice": {
+      "combine": "Teaching",
+      "with": "Remembered song"
+    },
+    "expectation": "Teaching will pass the remembered song on, potentially producing a new version.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Teaching did not combine with the remembered song; it combined with Question to produce a new question, carrying curiosity forward.",
+    "reaction": "The unexpected turn is intriguing, though the route back to the song remains unclear.",
+    "step": 6,
+    "reason": "The new question may prompt a change to the remembered song, so I will try connecting them.",
+    "choice": {
+      "combine": "New question",
+      "with": "Remembered song"
+    },
+    "expectation": "The question may inspire a new interpretation of the old song.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "New question"
+        },
+        "reason": "Its partners could clarify its role, but the song connection seems worth trying directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new question changed the remembered song, showing how a learner can remake an inherited tradition.",
+    "reaction": "The specific image of trying a different ending is satisfying.",
+    "step": 7,
+    "reason": "The changed song appears to satisfy the goal, but the result did not report completion; checking its partners may reveal what remains.",
+    "choice": {
+      "inspect": "Changed song"
+    },
+    "expectation": "Its compatibility list may show the remaining step needed to complete the goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "look": true
+        },
+        "reason": "Refreshing the goals could clarify whether anything remains."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The changed song needed to be taken up by the social group; the children's chorus completed the goal and showed the song continuing beyond its original singers.",
+    "reaction": "The image of children carrying the altered song forward is satisfying, especially because its next change is left open.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the new question to the remembered song was most worthwhile: a specific question produced a different ending, making the shift from inheritance to creation clear.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the remembered song and social group yielded two empty lists in succession, which was repetitive and gave little direction.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Teaching combined with a question rather than directly with the remembered song; curiosity became the route back to changing it.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Story combining with shared discovery to make teaching was understandable in retrospect, but the need for that particular pairing was not clear beforehand.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how another generation changes what it inherits, although I would hope for clearer guidance than the empty compatibility lists provided here.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

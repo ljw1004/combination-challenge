@@ -1,0 +1,24 @@
+# Creation study — completed 5 November 2026
+
+**Creation** begins with Earth, Air, Fire and Water and asks whether a creator can make a world with a future of its own. Its 202 combinations span stars, oceans, living communities, catastrophe, recovery, minds and independent invention. The finished [manuscript](../../stories/creation/creation.md), [single active design brief](../../stories/creation/design-brief.md) and runtime artwork live in `stories/creation/`.
+
+This archive preserves the completed development project requested by the user: invention, approximately 200 combinations, independent review, repeated `--fast` revision, `--detailed` evaluation, circular artwork, coherent backgrounds, promotion, commit and GitHub push. Existing hosting and access settings remain unchanged.
+
+- [Working notes](working-notes.md): hypotheses, rejected approaches, changes, quantitative profiles and evidence limits.
+- [Research](research.md): primary scientific sources and boundaries between elemental myth and factual explanations.
+- [Artwork acceptance](art-review/2026.11.05_05.30.00/report.md): reviewer instructions, adopted repairs, recognition limits and browser outcomes.
+- [Production guide](production/README.md): exact built-in image requests, selected masters, necessary reference inputs, visual catalogue, export geometry and helpers.
+- [Playtest runner](tools/README.md): isolation, canonical protocol, model choices, pacing and execution instructions.
+
+Five fast campaigns and one full detailed campaign retain the requested response arrays, chapter reports and mechanically assembled reports:
+
+| Campaign | Condition and scope |
+|---|---|
+| [00.24.48](playtests/2026.11.05_00.24.48/report.md) | First fast draft, 75 assignments; three opening players deliberately stopped incomplete after diagnosing a progression defect, three actionless ending assignments. |
+| [01.25.59](playtests/2026.11.05_01.25.59/report.md) | Revised full fast campaign, all 81 assignments completed. |
+| [02.25.57](playtests/2026.11.05_02.25.57/report.md) | Thirteen revised chapters, all 39 fast assignments completed. |
+| [02.45.18](playtests/2026.11.05_02.45.18/report.md) | Revised catastrophe, all three fast assignments completed. |
+| [02.48.43](playtests/2026.11.05_02.48.43/report.md) | Revised cold passage, all three fast assignments completed. |
+| [02.56.08](playtests/2026.11.05_02.56.08/report.md) | Accepted text, all 81 detailed assignments across 27 playable chapters completed. |
+
+Each assignment uses a fresh tool-free Terra Medium player, independent Astra High grading and a fresh chapter synthesizer. These 282 assignments are chapter-checkpoint trials, not continuous human playthroughs. The narrative and combination acceptance is an editorial judgment supported by their actual responses and separate mechanical witnesses. Historical manuscript paths and hashes in retained reports are unchanged; their frozen runtime packets and detailed verification outputs were disposable and are not replayable evidence here. Scratch comparisons, captures and reviewer answers were removed after recording concise outcomes.

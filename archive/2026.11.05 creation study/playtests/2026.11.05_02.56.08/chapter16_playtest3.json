@@ -1,0 +1,167 @@
+[
+  {
+    "step": 1,
+    "reason": "The planet is the natural place to start, but the available pieces do not make the seasonal mechanism clear.",
+    "choice": {
+      "inspect": "Rocky world"
+    },
+    "expectation": "The inspection should show which ingredients can act on the planet.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sun",
+          "with": "Rocky world"
+        },
+        "reason": "Sunlight is involved in seasons, but the required planetary change is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air tipped the planet, creating axial tilt; combining it with the Sun now looks like a route to seasons.",
+    "reaction": "The automatic tilt was unexpected, but its connection to seasonal sunlight is clear.",
+    "step": 2,
+    "reason": "Axial tilt changes how sunlight reaches the planet over its orbit.",
+    "choice": {
+      "combine": "Axial tilt",
+      "with": "Sun"
+    },
+    "expectation": "This should give the planet seasons.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Axial tilt and sunlight produced seasons, and a new goal calls for a dry country.",
+    "reaction": "The clarification that seasons are mainly due to tilt rather than distance from the Sun is useful.",
+    "step": 3,
+    "reason": "Moving plates can raise mountains, a plausible starting point for a path down from ice.",
+    "choice": {
+      "combine": "Moving plates",
+      "with": "Continent"
+    },
+    "expectation": "The collision or movement of continental crust may raise mountains.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moving plates raised a mountain range, providing a likely setting for ice and a dry rain shadow.",
+    "reaction": "The mountain-building step was straightforward.",
+    "step": 4,
+    "reason": "Mountains can force moist air upward and create dry conditions on their sheltered side.",
+    "choice": {
+      "combine": "Mountain range",
+      "with": "Clouds"
+    },
+    "expectation": "Clouds meeting the mountains may produce a rain shadow or dry country.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mountain range",
+          "with": "Water"
+        },
+        "reason": "Water might instead begin the ice or erosion pathway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mountains and clouds produced a rain shadow, suggesting a route to dry country. The continent is no longer available as a separate item.",
+    "reaction": "The contrast between the wetter and drier sides of the mountains is clear.",
+    "step": 5,
+    "reason": "I’ll check what the rain shadow can combine with, since my intended land ingredient is unavailable.",
+    "choice": {
+      "inspect": "Rain shadow"
+    },
+    "expectation": "The inspection should reveal an available route toward dry country.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically combined the rain shadow with the Sun to make a desert, completing the dry-country goal.",
+    "reaction": "The automatic step resolved the uncertainty efficiently.",
+    "step": 6,
+    "reason": "The remaining goal suggests that seasonal cold on the mountain range may create ice.",
+    "choice": {
+      "combine": "Mountain range",
+      "with": "Seasons"
+    },
+    "expectation": "This may create mountain ice or a glacier, opening a route to carving a path downhill.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seasons guess was incompatible, but the automatic combination with water created a glacier.",
+    "reaction": "The feedback made the route to ice clear despite my wrong guess.",
+    "step": 7,
+    "reason": "Gravity drives glacier ice downhill, where it can carve a valley.",
+    "choice": {
+      "combine": "Glacier",
+      "with": "Gravity"
+    },
+    "expectation": "The glacier may move downhill and carve a path through the landscape.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity moved the glacier and produced a valley, but the goal has not yet been reported complete.",
+    "reaction": "The contrast between glacial and river-shaped landscapes is interesting.",
+    "step": 8,
+    "reason": "The remaining goal concerns a path down from the ice; rivers may extend the valley's drainage.",
+    "choice": {
+      "combine": "Valley",
+      "with": "Rivers"
+    },
+    "expectation": "The river may complete a route carrying water down from the glacial valley.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Valley"
+        },
+        "reason": "Checking its partners would clarify the next step, but rivers seem plausible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The river carried sediment through the glacial valley, forming braided channels and completing the final goal.",
+    "reaction": "The shifting channels were a satisfying connection between ice, erosion and flowing water.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the rain shadow was worthwhile: one mountain range created a clear contrast between wetter and drier climates.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the desert felt less informative than making the rain shadow; the automatic Sun combination completed the goal without explaining its particular role.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the planet automatically used Air to create axial tilt; the subsequent explanation clarified why tilt, rather than proximity to the Sun, drives Earth's seasons.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Air tipping the planet was not an obvious physical inference, even though the resulting explanation of tilt was clear.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the different landscapes support life; the connections among mountains, climate and glacial rivers made the world's unfolding interesting.",
+        "steps": [
+          4,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,169 @@
+[
+  {
+    "step": 1,
+    "reason": "Swimming animals are the most promising starting point for the land-vertebrate goal, but their next evolutionary step is not clear.",
+    "choice": {
+      "inspect": "Swimming animals"
+    },
+    "expectation": "This should reveal which available pieces can help develop a lineage toward land.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Swimming animals",
+          "with": "Variation"
+        },
+        "reason": "Variation might produce a new animal branch, but the specific connection is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Swimming animals and wetland produced air-breathing fish, establishing a starting point for the land-vertebrate branch.",
+    "reaction": "The automatic combination made the first transition clear.",
+    "step": 2,
+    "reason": "The next step from air-breathing fish is not obvious, so checking their partners should guide the land transition.",
+    "choice": {
+      "inspect": "Air-breathing fish"
+    },
+    "expectation": "The inspection should reveal an available partner for developing this lineage further.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Air-breathing fish",
+          "with": "Variation"
+        },
+        "reason": "Variation could suggest a further evolutionary change, but its role here is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Roots and air-breathing fish produced limbed vertebrates, advancing the land-animal lineage.",
+    "reaction": "The distinction between inherited changes and purposeful adaptation was useful.",
+    "step": 3,
+    "reason": "Membranes suggest a possible protective boundary for an egg suited to dry ground, so I will try them with the vertebrates.",
+    "choice": {
+      "combine": "Limbed vertebrates",
+      "with": "Membranes"
+    },
+    "expectation": "This may develop a protected egg or an intermediate toward one.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Limbed vertebrates"
+        },
+        "reason": "Checking partners would be safer if the egg connection is premature."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membranes produced a shelled egg and completed the dry-ground reproduction goal; the remaining goal is to populate the forest.",
+    "reaction": "The protective-membrane connection was satisfying and clear.",
+    "step": 4,
+    "reason": "The egg may lead to the land-animal branches needed for the forest, but its next partner is uncertain.",
+    "choice": {
+      "inspect": "Shelled egg"
+    },
+    "expectation": "The inspection should reveal how to develop an animal lineage from the egg.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Variation and the shelled egg produced reptiles, suggesting a branch toward the forest animals.",
+    "reaction": "The automatic transition clarified the next lineage.",
+    "step": 5,
+    "reason": "Reptiles are a plausible starting point for forest giants, but their available next step is unclear.",
+    "choice": {
+      "inspect": "Reptiles"
+    },
+    "expectation": "The inspection should reveal a partner that develops this lineage toward one of the forest animals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Reptiles can combine with Air or the First forest, offering two possible routes for the remaining goal.",
+    "reaction": "The branching options make me curious which forest animals appear first.",
+    "step": 6,
+    "reason": "The forest is the setting for the remaining goal, so using reptiles there is a plausible way to introduce a land-animal branch.",
+    "choice": {
+      "combine": "Reptiles",
+      "with": "First forest"
+    },
+    "expectation": "This may produce forest-dwelling reptiles or the giants needed for the goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reptiles",
+          "with": "Air"
+        },
+        "reason": "Air might lead toward a flying branch, but the forest connection seems more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Reptiles and the forest produced great browsers, giving the forest its giants; small mammals and birds remain.",
+    "reaction": "The giants' tracks and paths make their effect on the forest tangible.",
+    "step": 7,
+    "reason": "Reptiles can also combine with Air, which may lead toward the bird branch.",
+    "choice": {
+      "combine": "Reptiles",
+      "with": "Air"
+    },
+    "expectation": "This may develop a flying or bird-related lineage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Reptiles and Air produced birds, leaving small mammals as the apparent remaining part of the forest goal.",
+    "reaction": "The distinction between bird and insect flight was useful.",
+    "step": 8,
+    "reason": "Fallen wood suggests shelter for small animals, but I do not yet know how to create the mammal lineage, so checking its partners may help.",
+    "choice": {
+      "inspect": "Fallen wood"
+    },
+    "expectation": "The inspection should reveal whether fallen wood can help develop or shelter the small-mammal branch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood combined with limbed vertebrates to produce small furred animals, completing the forest goal and the chapter.",
+    "reaction": "The shelter connection was clearer after the result, and the hint of a great impact makes me curious.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making limbed vertebrates was worthwhile: the water's-edge setting connected the transition to inherited changes without implying that fish chose to grow legs.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting reptiles only listed two partners, so it felt less informative on its own than the subsequent combinations.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Fallen wood led directly from limbed vertebrates to small furred animals; I had expected to need a separate mammal lineage first.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Air producing birds from reptiles was a rather compressed leap, even though the result explained their dinosaur lineage.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The forest animals' effects on their habitat and the mention of a future impact make me curious how the world changes next.",
+        "steps": [
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

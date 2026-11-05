@@ -1,0 +1,192 @@
+[
+  {
+    "step": 1,
+    "reason": "The sun-fed cells are the chapter's starting point, but it is not clear which available ingredient releases the gas.",
+    "choice": {
+      "inspect": "Sun-fed cells"
+    },
+    "expectation": "The inspection should show which ingredients can act on the cells, and may automatically perform the only available operation.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Light",
+          "with": "Sun-fed cells"
+        },
+        "reason": "Light plausibly supports photosynthesis, but its compatibility is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water was the sole available partner for the sun-fed cells, producing oxygen; the next likely step is to record its effects in the sea.",
+    "reaction": "The water-splitting explanation clarified where the oxygen comes from.",
+    "step": 2,
+    "reason": "Heavy elements suggest iron, which could react with oxygen and leave a geological record.",
+    "choice": {
+      "combine": "Oxygen",
+      "with": "Heavy elements"
+    },
+    "expectation": "The oxygen may react with metals to produce material that can be recorded in sediment.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Oxygen"
+        },
+        "reason": "I could check its available partners instead of guessing the reaction."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen reacted with heavy elements to make a rusted seabed, suggesting sediment can preserve the change.",
+    "reaction": "The result fits the expected link between oxygen and metals.",
+    "step": 3,
+    "reason": "Sediment is the most plausible way to preserve the rusted seabed as a geological record.",
+    "choice": {
+      "combine": "Rusted seabed",
+      "with": "Sediment"
+    },
+    "expectation": "The combination should form a layered record of oxygen's effect in the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Banded iron completed the sea-record goal and revealed a goal to shield life from ultraviolet light.",
+    "reaction": "The explanation clarified why oxygen did not immediately accumulate in the atmosphere.",
+    "step": 4,
+    "reason": "Oxygen and air are a plausible starting point for forming the atmospheric shield.",
+    "choice": {
+      "combine": "Oxygen",
+      "with": "Air"
+    },
+    "expectation": "Oxygen may accumulate in the atmosphere or lead toward an ozone shield.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen accumulated in the sky, creating a possible precursor to an ultraviolet shield while threatening oxygen-free organisms.",
+    "reaction": "The crisis makes the new atmosphere feel less like an uncomplicated improvement.",
+    "step": 5,
+    "reason": "Light acting on atmospheric oxygen plausibly leads to an ozone shield.",
+    "choice": {
+      "combine": "Oxygen-rich sky",
+      "with": "Light"
+    },
+    "expectation": "Light may help form an ozone layer that shields life from ultraviolet radiation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ozone layer completed the ultraviolet-shield goal; keeping different ways of living remains.",
+    "reaction": "The qualification that ozone does not make everywhere safe was useful.",
+    "step": 6,
+    "reason": "A living cell and oxygen may lead to an oxygen-using way of life, though I am guessing how the game represents it.",
+    "choice": {
+      "combine": "Living cell",
+      "with": "Oxygen"
+    },
+    "expectation": "The combination may produce cells that use oxygen.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Living cell"
+        },
+        "reason": "Checking its partners could clarify the remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen-using cells now represent one way of living, but the goal of keeping different ways of living remains.",
+    "reaction": "The distinction between oxygen and food clarified what the cells use oxygen for.",
+    "step": 7,
+    "reason": "Microbial mats may offer a path to preserving organisms that live without oxygen; inspecting them will clarify their available partners.",
+    "choice": {
+      "inspect": "Microbial mats"
+    },
+    "expectation": "The inspection should show whether the mats can help establish another way of living.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Oxygen-using cells"
+        },
+        "reason": "Their available partners might also point toward the remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mats became sheltered microbes, preserving an oxygen-free way of life alongside oxygen-using cells.",
+    "reaction": "The idea of refuges beneath living layers makes the coexistence clearer.",
+    "step": 8,
+    "reason": "Combining the sheltered microbes with oxygen-using cells may bring the two ways of living together to complete the remaining goal.",
+    "choice": {
+      "combine": "Sheltered microbes",
+      "with": "Oxygen-using cells"
+    },
+    "expectation": "The combination may establish a community containing both oxygen-free and oxygen-using life.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sheltered microbes cannot be combined with anything, so bringing the two cell types together directly is not the next step.",
+    "reaction": "I was surprised that the apparent coexistence did not complete the goal.",
+    "step": 9,
+    "reason": "Inspecting oxygen-using cells may reveal what remains to keep different ways of living.",
+    "choice": {
+      "inspect": "Oxygen-using cells"
+    },
+    "expectation": "The inspection should show any available partners for the oxygen-using cells and may automatically perform a sole operation.",
+    "alternatives": [
+      {
+        "choice": {
+          "look": true
+        },
+        "reason": "Refreshing the board could help identify another route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting oxygen-using cells automatically paired them with a living cell, producing partnered cells and completing the remaining goal.",
+    "reaction": "The endosymbiosis connection was surprising, and the qualification about complex-cell origins was helpful.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making banded iron connected oxygen production to a geological record and explained why oxygen did not immediately accumulate in the atmosphere.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to combine sheltered microbes with oxygen-using cells was unproductive; their apparent coexistence seemed relevant, but the attempt gave no further direction.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The final goal was completed through partnered cells and endosymbiosis, rather than by directly combining the two ways of life I had identified.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The connection between partnered cells and the goal of keeping different ways of living was not clear to me before the inspection revealed it.",
+        "steps": [
+          9
+        ]
+      },
+      "continue": {
+        "text": "Yes. The chapter made the changing world feel consequential, especially by showing oxygen as both an opportunity and a threat, while explaining the science's limits.",
+        "steps": [
+          4,
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

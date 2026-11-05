@@ -1,0 +1,162 @@
+[
+  {
+    "step": 1,
+    "reason": "The forest is the central setting for both goals, but its available interactions are not yet clear.",
+    "choice": {
+      "inspect": "First forest"
+    },
+    "expectation": "The inspection should reveal what can be used at the forest to start recycling or burying its old growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air at the forest produced fallen wood, providing material for the recycling goal.",
+    "reaction": "The fallen branch makes the connection to feeding other organisms clear.",
+    "step": 2,
+    "reason": "Partnered cells may develop into decomposers that can use the fallen wood.",
+    "choice": {
+      "combine": "Partnered cells",
+      "with": "Fallen wood"
+    },
+    "expectation": "This may produce organisms that break down the wood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fallen wood",
+          "with": "Soil"
+        },
+        "reason": "The wood might also contribute directly to soil."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Partnered cells and fallen wood produced fungi, suggesting a route to decomposition.",
+    "reaction": "The clarification that wood did not spontaneously become life is useful.",
+    "step": 3,
+    "reason": "Fungi can break down fallen wood and help return its materials to the forest.",
+    "choice": {
+      "combine": "Fungi",
+      "with": "Fallen wood"
+    },
+    "expectation": "The fungi should decompose the wood, advancing the nutrient recycling goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fungi breaking down fallen wood produced decomposition, which can release nutrients for reuse.",
+    "reaction": "The link between decay and forest growth is clear.",
+    "step": 4,
+    "reason": "Combining decomposition with soil may return nutrients to the ground for new growth.",
+    "choice": {
+      "combine": "Decomposition",
+      "with": "Soil"
+    },
+    "expectation": "This should produce nutrient-rich soil or otherwise advance the recycling goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Decomposition and soil produced returned nutrients, which may now support plant growth.",
+    "reaction": "The recycling pathway is coming together clearly.",
+    "step": 5,
+    "reason": "Roots take up nutrients from soil, connecting decay to new growth.",
+    "choice": {
+      "combine": "Returned nutrients",
+      "with": "Roots"
+    },
+    "expectation": "The roots should use the returned nutrients, advancing the forest recycling goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Returned nutrients and roots created a renewing forest, completing the recycling goal and revealing a cloud-related goal.",
+    "reaction": "Closing the nutrient loop was satisfying, and the new goal suggests another connection between forest and atmosphere.",
+    "step": 6,
+    "reason": "A forest releases water vapor that can contribute to clouds, so the renewing forest and clouds are a plausible pair.",
+    "choice": {
+      "combine": "Renewing forest",
+      "with": "Clouds"
+    },
+    "expectation": "The combination may show forest moisture contributing to clouds.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fallen wood",
+          "with": "Wetland"
+        },
+        "reason": "Waterlogged conditions might help bury old plant material."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The renewing forest and clouds produced forest rain, completing the cloud goal and leaving the burial goal.",
+    "reaction": "The connection between transpiration and rainfall is a useful extension of the water cycle.",
+    "step": 7,
+    "reason": "Waterlogged wetlands can preserve and bury dead plant material, making fallen wood a plausible starting point.",
+    "choice": {
+      "combine": "Fallen wood",
+      "with": "Wetland"
+    },
+    "expectation": "The wood and wetland may produce buried organic matter, advancing the old sunlight goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood and wetland produced peat, a store of incompletely decayed plant material.",
+    "reaction": "The waterlogged setting makes the preservation of old growth clear.",
+    "step": 8,
+    "reason": "Buried peat can become coal under heat and pressure; Earth is a plausible gesture for burial and pressure.",
+    "choice": {
+      "combine": "Peat",
+      "with": "Earth"
+    },
+    "expectation": "This may bury or compress the peat toward coal, advancing the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Peat and Earth produced buried carbon, completing the final goal without requiring coal formation.",
+    "reaction": "The distinction between buried organic carbon and coal corrected my expectation.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Returning nutrients to roots closed the forest's decomposition loop and made the connection between old and new growth tangible.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making returned nutrients from decomposition and soil was a relatively plain transition, though it served the larger cycle.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The forest feeding clouds through transpiration extended the story beyond the nutrient cycle; I also expected peat burial to lead toward coal, but it produced buried carbon instead.",
+        "steps": [
+          6,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Using Earth to represent burial was a plausible gesture, though the precise result was a guess rather than obvious from the pieces.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. The connected nutrient, water and carbon pathways were satisfying, and I would be curious to see what the living world makes next.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

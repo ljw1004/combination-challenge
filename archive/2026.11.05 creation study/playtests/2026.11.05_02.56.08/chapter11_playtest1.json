@@ -1,0 +1,200 @@
+[
+  {
+    "step": 1,
+    "reason": "Algae at the living coast may provide a starting point for life spreading onto wet land.",
+    "choice": {
+      "combine": "Algae",
+      "with": "Living coast"
+    },
+    "expectation": "This may establish an early form of life at the wet margin.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Algae",
+          "with": "Weathered rock"
+        },
+        "reason": "Algae might instead colonize the rock directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Algae at the living coast became shore plants, giving me a starting point for colonizing land.",
+    "reaction": "The shift from algae to plants facing exposure is an interesting transition.",
+    "step": 2,
+    "reason": "Shore plants and weathered rock seem like a plausible starting point for developing soil, though this is a guess.",
+    "choice": {
+      "combine": "Shore plants",
+      "with": "Weathered rock"
+    },
+    "expectation": "The plants may help turn weathered rock into early soil.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Shore plants"
+        },
+        "reason": "I could check their available partners before guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shore plants and weathered rock made soil, providing a foundation for land vegetation.",
+    "reaction": "It's satisfying that the result distinguishes soil from merely wet rock.",
+    "step": 3,
+    "reason": "Shore plants growing in the new soil seem a plausible way to clothe the wet ground.",
+    "choice": {
+      "combine": "Shore plants",
+      "with": "Soil"
+    },
+    "expectation": "This may establish vegetation on the wet ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Combining shore plants with soil produced roots, suggesting a path toward taller land plants.",
+    "reaction": "The connection between underground support and plant height is clear.",
+    "step": 4,
+    "reason": "Roots are the newest development, but their next partner is not obvious, so checking compatibility should guide the forest goal.",
+    "choice": {
+      "inspect": "Roots"
+    },
+    "expectation": "The inspection should reveal what roots can combine with next.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Roots had only one available partner, Light, and automatically became ferns.",
+    "reaction": "The link between roots, light-gathering fronds and taller growth is clear.",
+    "step": 5,
+    "reason": "Ferns seem suited to clothing the wet ground, so I’ll try combining them with water.",
+    "choice": {
+      "combine": "Ferns",
+      "with": "Water"
+    },
+    "expectation": "This may establish fern growth on the wet ground.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Ferns"
+        },
+        "reason": "I could check their available partners instead of guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ferns currently have no available combinations, so water is not the next step for them.",
+    "reaction": "I’m a little surprised that the ferns have no available partners.",
+    "step": 6,
+    "reason": "The remaining route to clothing wet ground or growing a forest is unclear, so I’ll check what soil can still combine with.",
+    "choice": {
+      "inspect": "Soil"
+    },
+    "expectation": "The inspection should reveal any available soil combinations.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Shore plants"
+        },
+        "reason": "They might have another route toward wet-ground vegetation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Soil has no available combinations, so I need to investigate another route.",
+    "reaction": "The lack of a soil partner is unexpected.",
+    "step": 7,
+    "reason": "Shore plants may have another available combination leading to wet-ground vegetation.",
+    "choice": {
+      "inspect": "Shore plants"
+    },
+    "expectation": "The inspection should reveal any remaining partners for shore plants.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shore plants combined automatically with Air to create windblown spores, opening another route for plants to spread.",
+    "reaction": "The distinction between spores and seeds is useful.",
+    "step": 8,
+    "reason": "The spores' next destination is not clear, so checking their partners should identify how they can establish new growth.",
+    "choice": {
+      "inspect": "Windblown spores"
+    },
+    "expectation": "The inspection should reveal where the spores can be used.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Windblown spores combined with soil to make moss, completing the wet-ground goal.",
+    "reaction": "The spores finding suitable ground makes the progression clear.",
+    "step": 9,
+    "reason": "Moss may have a partner that advances the remaining forest goal, so I’ll check its options.",
+    "choice": {
+      "inspect": "Moss"
+    },
+    "expectation": "The inspection should reveal whether moss can contribute to the forest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moss and water automatically made a wetland, establishing another land habitat but not yet completing the forest goal.",
+    "reaction": "The waterlogged soil having little air is a useful detail.",
+    "step": 10,
+    "reason": "The wetland is the newest development, and its role in making a forest is not yet clear.",
+    "choice": {
+      "inspect": "Wetland"
+    },
+    "expectation": "The inspection should reveal any available next step from the wetland.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wetland combined automatically with ferns to make the first forest, completing the remaining goal.",
+    "reaction": "It was satisfying to see the apparently inactive ferns become useful, and the caveat about mosses not being unfinished trees was welcome.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making soil from shore plants and weathered rock was worthwhile: it made the transition onto land tangible while explaining that soil involves living and organic matter, not just wet rock.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying water with ferns and then inspecting soil felt unproductive; neither revealed a route forward, although both narrowed the search.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Ferns initially had no available combinations, but later joined the wetland to create a forest. The spore-versus-seed distinction also clarified the spreading route.",
+        "steps": [
+          5,
+          7,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "Roots combining with light to produce ferns felt like a compressed symbolic leap, even though the explanation connected roots and light-gathering fronds to taller growth.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the progression from shore plants to soil, spores, wetland and forest made the developing world interesting, and the scientific qualifications helped distinguish the myth from a literal evolutionary sequence.",
+        "steps": [
+          1,
+          2,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

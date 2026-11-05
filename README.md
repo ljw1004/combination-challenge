@@ -6,7 +6,7 @@
 
 ## Project
 
-Combination stories authored in Markdown, with complete artwork for Settlement, Cookbook, Mars, Cosmic and No Fixed Address. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Combination stories authored in Markdown, with complete artwork for Settlement, Cookbook, Mars, Cosmic, No Fixed Address and Creation. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -32,6 +32,8 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **No Fixed Address** follows a repairer, a discarded AI and a neighborhood preparing to lose its corporate service credentials at dawn: `/make-something.html?story=stories/cyberpunk/cyberpunk.md`. Its 219 combinations use 202 circular illustrations and nine backgrounds in a worn cyan-and-amber printshop style. See the [story](stories/cyberpunk/cyberpunk.md), [design brief](stories/cyberpunk/design-brief.md) and [completed development study](<archive/2026.11.05 cyberpunk study/README.md>).
 
+**Creation** gives you Earth, Air, Fire and Water to make stars, a living world and minds that begin creating for themselves: `/make-something.html?story=stories/creation/creation.md`. Its 202 combinations, 206 circular illustrations and 22 landscapes use a luminous painted celestial atlas. See the [story](stories/creation/creation.md), [design brief](stories/creation/design-brief.md) and [completed development study](<archive/2026.11.05 creation study/README.md>).
+
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
 | Player URL | Markdown fetched |
@@ -42,6 +44,7 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 | `/make-something.html?story=stories/mars/mars.md` | `/stories/mars/mars.md` |
 | `/make-something.html?story=stories/cosmic/cosmic.md` | `/stories/cosmic/cosmic.md` |
 | `/make-something.html?story=stories/cyberpunk/cyberpunk.md` | `/stories/cyberpunk/cyberpunk.md` |
+| `/make-something.html?story=stories/creation/creation.md` | `/stories/creation/creation.md` |
 | `/make-something.html` | `/story.md` (supply this file to use this route) |
 
 The `story` parameter points to a `.md` file on the same server. Relative paths resolve against the player page, so the same layout works under a website subdirectory; root-relative paths also work. Without the parameter, the player always requests `story.md` beside itself. A missing story displays an error. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.

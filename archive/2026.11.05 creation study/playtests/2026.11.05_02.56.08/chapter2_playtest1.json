@@ -1,0 +1,161 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal centers on the star, but the available ingredients do not make its next transformation clear.",
+    "choice": {
+      "inspect": "First star"
+    },
+    "expectation": "The inspection should reveal which ingredients can act on the star, or perform the action if only one is available.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "First star",
+          "with": "Gravity"
+        },
+        "reason": "Gravity might drive a star's collapse, but I cannot tell whether that is the intended action."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity transformed the star into a massive star, suggesting its evolution is the route to returning matter.",
+    "reaction": "The connection between greater mass and a shorter stellar life is interesting.",
+    "step": 2,
+    "reason": "The goal still calls for the star to give back its matter, but its next transformation is not yet clear.",
+    "choice": {
+      "inspect": "Massive star"
+    },
+    "expectation": "The inspection should reveal how the massive star can evolve, automatically proceeding if it has only one available operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The massive star became a fusing core, making heavier elements before the matter is returned.",
+    "reaction": "The fusion explanation makes this stage clearer, though its next step is uncertain.",
+    "step": 3,
+    "reason": "The core's available evolution is not evident from the remaining ingredients, so checking it should identify the next step.",
+    "choice": {
+      "inspect": "Fusing core"
+    },
+    "expectation": "The inspection should reveal the core's possible partners and automatically proceed if there is only one operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The core produced heavy elements still inside the star; an explosion could scatter them.",
+    "reaction": "The distinction between making elements and dispersing them is helpful.",
+    "step": 4,
+    "reason": "The goal requires returning the star's matter, and Fire is a plausible way to trigger the hinted explosion.",
+    "choice": {
+      "combine": "Heavy elements",
+      "with": "Fire"
+    },
+    "expectation": "Fire may trigger an explosion that scatters the heavy elements.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Heavy elements"
+        },
+        "reason": "Checking its partners would be safer, but the explosion hint makes Fire a plausible first try."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire was not the right trigger; Gravity produced a supernova through core collapse, bringing the star closer to scattering its matter.",
+    "reaction": "The collapse was a useful correction to my explosion guess.",
+    "step": 5,
+    "reason": "The supernova is the clear focus of the remaining goal, but its next interaction is not evident.",
+    "choice": {
+      "inspect": "Supernova"
+    },
+    "expectation": "The inspection should reveal how to release the scattered matter, automatically proceeding if only one operation is available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supernova became an expanding remnant, advancing the dispersal of its matter.",
+    "reaction": "The expansion follows naturally from the explosion, though the next interaction is unclear.",
+    "step": 6,
+    "reason": "The remnant is the current stage of the star's scattered matter, so checking its available interactions should reveal how to finish the goal.",
+    "choice": {
+      "inspect": "Expanding remnant"
+    },
+    "expectation": "The inspection should reveal its partners and automatically proceed if only one operation is available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The expanding remnant has two possible partners, so its next step requires a choice.",
+    "reaction": "The branching is intriguing after several automatic transformations.",
+    "step": 7,
+    "reason": "The heavy elements were made inside the star, and combining them with the remnant seems the clearest way to scatter its matter.",
+    "choice": {
+      "combine": "Expanding remnant",
+      "with": "Heavy elements"
+    },
+    "expectation": "The remnant should disperse the heavy elements into space.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Expanding remnant",
+          "with": "Fire"
+        },
+        "reason": "Fire is also available, but its role in returning the star's matter is less clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Combining the remnant with heavy elements produced enriched dust, suggesting the star's material has been dispersed but the goal may need another step.",
+    "reaction": "The result fits the idea of enriching material for future clouds.",
+    "step": 8,
+    "reason": "Enriched dust is the latest stage, but its next interaction is not clear.",
+    "choice": {
+      "inspect": "Enriched dust"
+    },
+    "expectation": "The inspection should reveal its available partners and automatically proceed if there is only one operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity gathered the enriched material into a new stellar nursery, completing the goal and connecting the star's destruction to future rocky worlds.",
+    "reaction": "The idea that destruction supplies a later generation was a satisfying conclusion.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the supernova was most worthwhile: core collapse corrected my guess that Fire would trigger the explosion and clarified one possible fate of a massive star.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The successive inspections of the supernova and remnant felt somewhat repetitive, even though they advanced the story.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the remnant had two possible partners after several single-option transformations; heavy elements led to enriched dust.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Earth transforming the fusing core into heavy elements felt symbolic rather than physically clear, although the accompanying explanation clarified stellar fusion.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The new stellar nursery suggests a compelling next chapter about how enriched material becomes rocky worlds, and the scientific qualifications made the myth more interesting.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

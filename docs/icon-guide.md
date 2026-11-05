@@ -90,6 +90,8 @@ For each generated request, provide the physical subjects and relevant story con
 
 If producing an atlas, specify an unambiguous order, generous gutters and complete objects within their cells. Keep labels and grid lines out of production artwork. Record extraction bounds and output dimensions. Inspect the extracted files individually at playing size: a good source sheet does not guarantee good crops.
 
+When later atlases replace earlier cells, select the winning source for each identity before exporting it. Constrain automatic crop detection to that cell; validate cached exports against the source content, crop geometry, processing version and output content. Assemble review sheets from the final selected exports only, so a stale cache or an earlier atlas cannot silently replace the repair being reviewed.
+
 Apply precise mechanical requirements through deterministic processing where appropriate. Cropping, resizing, padding, registration and an exact backing opacity should be inspectable operations. Review generated edits as new artwork even when the request was merely to isolate a foreground; such an edit can alter details.
 
 Follow the current [asset requirements](story-format-spec.md) for dimensions, transparency and overlays. Review at the resulting display size rather than treating a familiar source size as a universal standard. Avoid deciding the art's success from enlarged proofs alone.

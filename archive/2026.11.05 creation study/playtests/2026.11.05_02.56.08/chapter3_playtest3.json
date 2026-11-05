@@ -1,0 +1,256 @@
+[
+  {
+    "step": 1,
+    "reason": "The nursery is the starting location, but its available ingredients aren't obvious.",
+    "choice": {
+      "inspect": "New stellar nursery"
+    },
+    "expectation": "The inspection should reveal what can be used to begin forming a young sun or world.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "New stellar nursery",
+          "with": "Gravity"
+        },
+        "reason": "Gravity gathered the nursery, so it might also help form a star there."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity at the nursery produced the Sun, leaving enriched dust as a plausible ingredient for forming a world around it.",
+    "reaction": "The automatic combination was useful, and the remaining disk provides a clear next hook.",
+    "step": 2,
+    "reason": "The Sun's surrounding disk contains grains, so enriched dust is a plausible way to begin assembling a world.",
+    "choice": {
+      "combine": "Sun",
+      "with": "Enriched dust"
+    },
+    "expectation": "The dust should form a disk or an early stage of a rocky world around the Sun.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Sun"
+        },
+        "reason": "I could check its available partners if the dust connection is not enough."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enriched dust formed a planetary disk, suggesting that gravity can now gather its material into larger bodies.",
+    "reaction": "The progression from scattered dust to a disk feels clear and satisfying.",
+    "step": 3,
+    "reason": "Gravity is the most plausible way to gather material in the disk toward a world.",
+    "choice": {
+      "combine": "Planetary disk",
+      "with": "Gravity"
+    },
+    "expectation": "Gravity should help the disk's material collect into a larger body or an intermediate stage.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Planetary disk"
+        },
+        "reason": "I could check its partners, but gravity fits the goal and the previous gathering steps."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disk combined with Earth, not Gravity, to form planetesimals; those are the next stage toward a world.",
+    "reaction": "I was surprised gravity wasn't the direct partner, but the automatic combination kept progress moving.",
+    "step": 4,
+    "reason": "Gravity is a plausible way to gather planetesimals into a larger body.",
+    "choice": {
+      "combine": "Planetesimals",
+      "with": "Gravity"
+    },
+    "expectation": "The planetesimals should gather into a young planet or another larger body.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Planetesimals"
+        },
+        "reason": "I could check their partners, since my previous gravity guess was wrong."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity gathered the planetesimals into a rocky world, bringing the solid-face goal closer.",
+    "reaction": "The progression from small bodies to a planet is satisfying and clear.",
+    "step": 5,
+    "reason": "The world still needs a solid face and a moving core; I’ll check which operation is available rather than guess at the next stage.",
+    "choice": {
+      "inspect": "Rocky world"
+    },
+    "expectation": "The inspection should reveal how to develop the rocky world toward one of the goals.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rocky world",
+          "with": "Fire"
+        },
+        "reason": "Fire might represent the heat needed for a moving interior."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rocky world can combine with Fire or Air, leaving a meaningful choice between two possible developments.",
+    "reaction": "The two options make me curious about how the planet's interior and surface develop.",
+    "step": 6,
+    "reason": "Fire plausibly supplies the heat needed for the moving core and magnetic-field goal.",
+    "choice": {
+      "combine": "Rocky world",
+      "with": "Fire"
+    },
+    "expectation": "Fire should heat the rocky world or develop its interior toward a moving core.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rocky world",
+          "with": "Air"
+        },
+        "reason": "Air is also a confirmed partner and might develop the world's surface or atmosphere."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire created a magma ocean, suggesting the world needs to cool before it gains a solid face.",
+    "reaction": "The molten stage makes the planet's development feel more gradual.",
+    "step": 7,
+    "reason": "Air is a confirmed partner for the rocky world and may help it cool or develop a surface.",
+    "choice": {
+      "combine": "Rocky world",
+      "with": "Air"
+    },
+    "expectation": "Air may cool or otherwise develop the rocky world's surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Magma ocean"
+        },
+        "reason": "I could check how the molten stage develops instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air gave the rocky world an axial tilt rather than cooling its surface, so the magma ocean remains the more promising route to a solid face.",
+    "reaction": "The tilt was unexpected, but its effect on sunlight is a useful clue.",
+    "step": 8,
+    "reason": "I don't know which available ingredient will develop the magma ocean toward a solid surface, so checking its partners is useful.",
+    "choice": {
+      "inspect": "Magma ocean"
+    },
+    "expectation": "The inspection should reveal an available way to develop the molten world.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Magma ocean",
+          "with": "Air"
+        },
+        "reason": "Air might represent cooling, though the previous result makes that uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The magma ocean can combine with Gravity or Air, providing two possible routes for developing the planet.",
+    "reaction": "I'm curious which partner produces the solid surface.",
+    "step": 9,
+    "reason": "Air is a plausible, though symbolic, way to cool the magma ocean toward a solid face.",
+    "choice": {
+      "combine": "Magma ocean",
+      "with": "Air"
+    },
+    "expectation": "The magma ocean may cool and form a crust.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Magma ocean",
+          "with": "Gravity"
+        },
+        "reason": "Gravity might instead separate material and develop the planet's interior."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The magma ocean cooled into a stone crust, completing the solid-face goal; the remaining goal concerns the core and magnetic field.",
+    "reaction": "The cooling explanation made the symbolic Air combination clearer.",
+    "step": 10,
+    "reason": "Gravity is the other confirmed partner for the magma ocean and may separate its material into layers, including a core.",
+    "choice": {
+      "combine": "Magma ocean",
+      "with": "Gravity"
+    },
+    "expectation": "Gravity should develop the planet's interior toward a core.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity separated the molten planet by density, producing an iron core that may lead to the magnetic field.",
+    "reaction": "The density explanation makes the core's formation clear.",
+    "step": 11,
+    "reason": "The goal calls for a moving core; I'll check its available partners rather than guess how to set it in motion.",
+    "choice": {
+      "inspect": "Iron core"
+    },
+    "expectation": "The inspection should reveal how to develop the core toward a magnetic field.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Iron core",
+          "with": "Fire"
+        },
+        "reason": "Heat might help drive motion in the core, but its compatibility is unknown."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically combined the iron core with Air to create a magnetic field and complete the chapter. The explanation clarified that Air symbolized motion rather than gas entering the core.",
+    "reaction": "The dynamo explanation was satisfying and made the symbolic combination less misleading.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Forming the iron core was most worthwhile: the density explanation connected the mythic combination to how a planet separates into layers.",
+        "steps": [
+          10
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to combine the planetary disk with Gravity was a little confusing, although the automatic Earth combination kept it moving.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Combining the rocky world with Air produced axial tilt rather than cooling; its effect on sunlight was an unexpected direction.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Earth as the required partner for the planetary disk felt somewhat arbitrary; I expected Gravity to gather its material instead.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The progression from dust to a layered planet was satisfying, and the explanations of cooling and the dynamo made me curious about how the world might develop further.",
+        "steps": [
+          2,
+          4,
+          9,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,253 @@
+[
+  {
+    "step": 1,
+    "reason": "Fire and air suggest kindling, making them a plausible first attempt at light.",
+    "choice": {
+      "combine": "Fire",
+      "with": "Air"
+    },
+    "expectation": "The combination may produce a first light or something leading to it.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Fire"
+        },
+        "reason": "Checking fire's partners would clarify the available recipes, but the goal suggests a direct attempt."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire and air produced Light, completing the first goal and revealing a star as the next target.",
+    "reaction": "The image of light without an audience is intriguing.",
+    "step": 2,
+    "reason": "A star suggests concentrated fire and light, so I’ll try combining them.",
+    "choice": {
+      "combine": "Light",
+      "with": "Fire"
+    },
+    "expectation": "Light and fire may kindle a star.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Light"
+        },
+        "reason": "Checking its partners would be useful if the direct attempt fails."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Light has no available combinations, so it cannot be used to kindle the star directly.",
+    "reaction": "That was unexpected, since light seemed relevant to a star.",
+    "step": 3,
+    "reason": "Fire still seems relevant to kindling a star; checking its partners should show what is currently possible.",
+    "choice": {
+      "inspect": "Fire"
+    },
+    "expectation": "The inspection will reveal Fire's available partners and may point toward a star.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Earth",
+          "with": "Water"
+        },
+        "reason": "Those elements might create material for the world, but they are less directly connected to the star goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire has no available partners, so I need to work from the remaining elements rather than use it directly.",
+    "reaction": "That makes the star recipe less obvious than I expected.",
+    "step": 4,
+    "reason": "Earth and air might make dust, a plausible starting point for forming a star or galaxy.",
+    "choice": {
+      "combine": "Earth",
+      "with": "Air"
+    },
+    "expectation": "The combination may create dust or another ingredient useful for the cosmic goals.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Earth"
+        },
+        "reason": "Checking Earth’s partners would reduce uncertainty, but the dust idea is worth trying directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth and air made Dust, providing a plausible ingredient for the cosmic goals.",
+    "reaction": "The dust inference worked, which is satisfying.",
+    "step": 5,
+    "reason": "Dust could gather into the material for a star, but its available partners are not yet clear.",
+    "choice": {
+      "inspect": "Dust"
+    },
+    "expectation": "The inspection should reveal what Dust can combine with, possibly advancing the star or galaxy goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Dust and Earth automatically made Gravity, suggesting a way to gather matter for a star or galaxy.",
+    "reaction": "The mutual-pull explanation makes the next possibility clearer.",
+    "step": 6,
+    "reason": "Gravity could gather dust into a larger cosmic structure, so I’ll try them together.",
+    "choice": {
+      "combine": "Gravity",
+      "with": "Dust"
+    },
+    "expectation": "Gravity and Dust may form a star or material leading to one.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Gravity"
+        },
+        "reason": "Its available partners would clarify the next step, but gathering dust seems plausible enough to try."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity currently has no available combinations, so gathering Dust with it is not the next step.",
+    "reaction": "That is surprising given the description of gravity gathering matter.",
+    "step": 7,
+    "reason": "Earth has already helped make Dust and Gravity; inspecting it should reveal any remaining available route.",
+    "choice": {
+      "inspect": "Earth"
+    },
+    "expectation": "The inspection will show Earth's available partners, possibly leading toward a star.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Earth and Water automatically made Pigment, introducing a carried colour but no obvious route to a star yet.",
+    "reaction": "The mineral-colour explanation is clear, though the result surprised me.",
+    "step": 8,
+    "reason": "Pigment is the newest ingredient, and inspecting it may reveal what it can make or whether another route is needed.",
+    "choice": {
+      "inspect": "Pigment"
+    },
+    "expectation": "The inspection will show Pigment's available partners, if any.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Air"
+        },
+        "reason": "Air might have another available elemental combination relevant to the cosmic goals."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pigment has no available partners, so it does not currently advance the cosmic goals.",
+    "reaction": "Its lack of a use for now is a little puzzling.",
+    "step": 9,
+    "reason": "Air helped create both Light and Dust; inspecting it may reveal another available elemental route.",
+    "choice": {
+      "inspect": "Air"
+    },
+    "expectation": "The inspection will show Air's available partners, potentially advancing the star or galaxy goals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air and Water automatically made Mist, opening another possible route while the star and galaxy goals remain unresolved.",
+    "reaction": "Mist is a recognizable result, though its connection to the cosmic goals is not yet clear.",
+    "step": 10,
+    "reason": "Mist is the newest ingredient, so checking its partners may reveal the next available route.",
+    "choice": {
+      "inspect": "Mist"
+    },
+    "expectation": "The inspection will show Mist's available partners, if any.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mist and Dust automatically formed a Dense cloud, suggesting a possible route toward a star.",
+    "reaction": "The cloud makes the cosmic connection clearer, though its next use is uncertain.",
+    "step": 11,
+    "reason": "A dense cloud suggests material that gravity could gather toward star formation.",
+    "choice": {
+      "combine": "Dense cloud",
+      "with": "Gravity"
+    },
+    "expectation": "Gravity may collapse the cloud into a star or a precursor to one.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Dense cloud"
+        },
+        "reason": "Checking its partners would clarify the route, but gravity is a plausible direct attempt."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cloud combined with Fire instead of Gravity to make the First star, completing the star goal; the result distinguishes stellar fusion from ordinary flame.",
+    "reaction": "The correction is useful, and the first star feels like meaningful progress.",
+    "step": 12,
+    "reason": "The galaxy goal remains, and the First star is the most promising new ingredient to investigate.",
+    "choice": {
+      "inspect": "First star"
+    },
+    "expectation": "The inspection will reveal whether the star has a partner that can help create a galaxy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The First star and Air made a Starfield, suggesting a collection of stars is the next step toward a galaxy.",
+    "reaction": "The image of separate lights kindling across the dark is compelling.",
+    "step": 13,
+    "reason": "A starfield seems likely to be shaped into a galaxy by gravity.",
+    "choice": {
+      "combine": "Starfield",
+      "with": "Gravity"
+    },
+    "expectation": "Gravity may gather the stars into a galaxy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity gathered the Starfield into a Galaxy, completing the remaining goal and leaving a question about what stars can give besides light.",
+    "reaction": "The vast turning company is a satisfying culmination, and the question makes me curious about what follows.",
+    "step": 14,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the First star was most worthwhile: the cloud-to-star transformation felt consequential, and the explanation clearly distinguished nuclear fusion from an ordinary flame.",
+        "steps": [
+          11
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Checking Pigment after it appeared was the least rewarding passage: it had no available partners and did not visibly advance the cosmic goals.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Gravity could not combine directly with Dust, despite the description of gravity gathering matter; later, the Dense cloud used Fire rather than Gravity to become a star.",
+        "steps": [
+          6,
+          11
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the First star with Air to make a Starfield felt somewhat arbitrary. The resulting image was evocative, but the role of Air in producing more stars was not clear.",
+        "steps": [
+          12
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see what stars contribute beyond light and how the game develops its living world, especially if it keeps distinguishing mythic combinations from scientific explanations.",
+        "steps": [
+          11,
+          13
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

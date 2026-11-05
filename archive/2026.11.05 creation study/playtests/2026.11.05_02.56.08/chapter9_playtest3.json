@@ -1,0 +1,215 @@
+[
+  {
+    "step": 1,
+    "reason": "Partnered cells are the starting point for multicellular life, but their next combination is not clear from the board.",
+    "choice": {
+      "inspect": "Partnered cells"
+    },
+    "expectation": "The available partners should suggest how to begin building a multicellular body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Partnered cells combined with water to form cell colonies, providing a starting point for multicellular life.",
+    "reaction": "The automatic combination was a useful surprise.",
+    "step": 2,
+    "reason": "Cell colonies are the clearest next object to investigate for both body-building goals.",
+    "choice": {
+      "inspect": "Cell colonies"
+    },
+    "expectation": "Their available partners should suggest how the colonies develop further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cell colonies and membranes produced multicellular life, establishing a common starting point for the goals.",
+    "reaction": "The explanation of cells coordinating and dividing work made the transition clearer.",
+    "step": 3,
+    "reason": "Multicellular life is the natural next object to investigate, but its route toward plants or swimmers is not yet clear.",
+    "choice": {
+      "inspect": "Multicellular life"
+    },
+    "expectation": "Its available partners should reveal a way to develop one or both lineages.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Multicellular life can combine with Sun or Ocean, suggesting two possible developmental paths.",
+    "reaction": "The two options make the branching point clear, though their results remain unknown.",
+    "step": 4,
+    "reason": "Sun is a plausible starting point for growing photosynthetic sea plants.",
+    "choice": {
+      "combine": "Multicellular life",
+      "with": "Sun"
+    },
+    "expectation": "This may develop a sunlight-using multicellular lineage toward sea plants.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Multicellular life",
+          "with": "Ocean"
+        },
+        "reason": "The ocean might instead lead toward swimmers or marine life."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sun and multicellular life produced algae, completing the sea-plant goal and revealing a goal about traces in stone.",
+    "reaction": "The plant route was straightforward; the new fossil-like goal adds another direction.",
+    "step": 5,
+    "reason": "Ocean was the other known partner for multicellular life and may lead toward swimmers.",
+    "choice": {
+      "combine": "Multicellular life",
+      "with": "Ocean"
+    },
+    "expectation": "This may produce a marine animal lineage toward the swimmer goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Algae"
+        },
+        "reason": "Algae might offer a route toward preserving a trace of life."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ocean combination produced soft-bodied animals, suggesting a path toward swimmers.",
+    "reaction": "The second branch fits the swimmer goal, although its next step is unclear.",
+    "step": 6,
+    "reason": "Soft-bodied animals are the best lead toward giving swimmers a way to see, but their next partner is uncertain.",
+    "choice": {
+      "inspect": "Soft-bodied animals"
+    },
+    "expectation": "Their available partners should suggest how to develop the animal lineage.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Algae"
+        },
+        "reason": "Algae might help with the goal of leaving a trace in stone."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Soft-bodied animals can combine with oxygen or the mineral-rich sea, offering two possible paths.",
+    "reaction": "The options suggest different developments, but neither result is certain.",
+    "step": 7,
+    "reason": "The mineral-rich sea might help animals develop hard parts that could leave a trace in stone.",
+    "choice": {
+      "combine": "Soft-bodied animals",
+      "with": "Mineral-rich sea"
+    },
+    "expectation": "This may produce animals with mineralized structures useful for the trace-of-life goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Soft-bodied animals",
+          "with": "Oxygen"
+        },
+        "reason": "Oxygen might support a more active swimmer lineage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Soft-bodied animals and the mineral-rich sea produced shells, a plausible route to a preserved trace.",
+    "reaction": "The mineral connection paid off.",
+    "step": 8,
+    "reason": "Sediment can bury shells and preserve traces as rock forms.",
+    "choice": {
+      "combine": "Shells",
+      "with": "Sediment"
+    },
+    "expectation": "The shells and sediment may produce a fossil or another trace of life in stone.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Soft-bodied animals",
+          "with": "Oxygen"
+        },
+        "reason": "The other known animal combination might advance the swimmer goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shells and sediment produced fossils, completing the trace-of-life goal; the result also emphasizes that fossilization is uncommon.",
+    "reaction": "The incomplete stone archive is a satisfying qualification to the fossil discovery.",
+    "step": 9,
+    "reason": "Oxygen is the other known partner for soft-bodied animals and may advance the swimmer lineage.",
+    "choice": {
+      "combine": "Soft-bodied animals",
+      "with": "Oxygen"
+    },
+    "expectation": "This may produce more active animals on the way to swimmers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen and soft-bodied animals produced swimming animals, leaving the goal of giving them sight.",
+    "reaction": "The connection between oxygen, food energy and active swimming is clear.",
+    "step": 10,
+    "reason": "Light is a plausible ingredient for developing sight in swimming animals.",
+    "choice": {
+      "combine": "Swimming animals",
+      "with": "Light"
+    },
+    "expectation": "This may give the swimmers a way to sense light or see.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Swimming animals"
+        },
+        "reason": "I could check their available partners, but light is a plausible direct choice."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Light and swimming animals produced eyes, completing the final goal; the explanation clarified that eyes have varied evolutionary histories rather than one inevitable path.",
+    "reaction": "The direct combination was satisfying, and the qualification about different eyes made it more informative.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making shells and burying them in sediment was the most worthwhile passage: the physical inference led to fossils, while the explanation made clear how incomplete the fossil record is.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The opening inspections felt somewhat repetitive: each of the first two revealed just one partner and immediately combined it, although they did move the chapter forward.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The algae branch completed its goal but also revealed a new goal about preserving traces of life, expanding the chapter beyond the two original objectives.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Water turning partnered cells into colonies felt more like a mythic gesture than a clearly explained mechanism; the later account of cellular cooperation helped, but did not explain that particular combination.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. The branching animal and algae paths, the fossil detour, and the careful qualifications about evolution make me curious how the living world develops next.",
+        "steps": [
+          4,
+          5,
+          8,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

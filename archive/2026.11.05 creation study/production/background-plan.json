@@ -1,0 +1,1245 @@
+{
+  "schemaVersion": 1,
+  "title": "Creation background production map",
+  "authoringSnapshot": "c4ff6efebe2229d8e273d5109420a985b0c1b8d3540a5775f95cf0a78816a2c4",
+  "export": {
+    "dimensions": [
+      780,
+      1688
+    ],
+    "format": "WebP",
+    "quality": 92,
+    "method": 4,
+    "resampling": "LANCZOS",
+    "operation": "Split each atlas into exact equal logical cells, center-crop each cell to 780:1688, then resize uniformly to 780\u00d71688. Fractional source bounds avoid unequal rounded cells. No stretching or added image content.",
+    "boundsConvention": "Source pixel coordinates [left, top, right, bottom], right and bottom exclusive. Cell-local crop coordinates are also recorded."
+  },
+  "sources": [
+    {
+      "id": "backgrounds-01",
+      "file": "backgrounds-01.png",
+      "grid": [
+        3,
+        1
+      ],
+      "names": [
+        "void",
+        "galaxy",
+        "stellar-nursery"
+      ],
+      "status": "exported",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "aa342a867bca89679ee0bdd21ac7845fa4a7ee86e71367c82ceed9a3c9d91cef"
+    },
+    {
+      "id": "backgrounds-02",
+      "file": "backgrounds-02.png",
+      "grid": [
+        3,
+        1
+      ],
+      "names": [
+        "rocky-world",
+        "first-sea",
+        null
+      ],
+      "status": "exported",
+      "sourceDimensions": [
+        1478,
+        1064
+      ],
+      "sourceSha256": "04457de70989b8a2ec73fcb8b56654a31fe87f0df9e6378f0e8020bf99420731",
+      "supersededCells": [
+        {
+          "cellIndex": 2,
+          "formerBackground": "vent-world",
+          "replacementSource": "vent-world-deep.png",
+          "reason": "The standalone selected repair removes sunlight from the dark seafloor while preserving the chimney geography; the original atlas remains selected for its first two panels.",
+          "cellBounds": [
+            985.3333333333334,
+            0.0,
+            1478.0,
+            1064.0
+          ],
+          "cropBounds": [
+            985.8372827804108,
+            0.0,
+            1477.4960505529225,
+            1064.0
+          ],
+          "previousRuntimeSha256": "c804fd72fadbce10101d9e30e2cd43b8b5c05d8c9164f26c083a2fcd41b16062"
+        }
+      ]
+    },
+    {
+      "id": "backgrounds-03",
+      "file": "backgrounds-03.png",
+      "grid": [
+        3,
+        1
+      ],
+      "names": [
+        "microbial-shore",
+        "early-animal-coast",
+        "fern-forest"
+      ],
+      "status": "exported",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "61161068b1624f29591ae66e9f55c5449e0b3a42f116856e8c5b2c72cc823d33"
+    },
+    {
+      "id": "backgrounds-04",
+      "file": "backgrounds-04.png",
+      "grid": [
+        3,
+        1
+      ],
+      "names": [
+        "flowering-coast",
+        "many-biomes",
+        "green-shoots"
+      ],
+      "status": "exported",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "63a7f3a965945b22cc1cde18f1b077f6fae7a329160d66f2c9835e31e7db3c2f"
+    },
+    {
+      "id": "backgrounds-05",
+      "file": "backgrounds-05.png",
+      "grid": [
+        3,
+        1
+      ],
+      "names": [
+        "cold-heights",
+        "world-after-ice",
+        "moon-watchers"
+      ],
+      "status": "exported",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "ce22829dd7364fbc712c2a32be66128e7de7f2d1aaeb792cb4dc8a75473812f6"
+    },
+    {
+      "id": "backgrounds-06",
+      "file": "backgrounds-06.png",
+      "grid": [
+        3,
+        1
+      ],
+      "names": [
+        "cave-before-painting",
+        "cave-after-painting",
+        "open-horizon"
+      ],
+      "status": "exported",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "30507b86f6ab70a926636fa185aa4a8052793b9e6727fe3ab50fde776fee361b"
+    },
+    {
+      "id": "coast-sequence-01",
+      "file": "coast-sequence-01.png",
+      "grid": [
+        3,
+        1
+      ],
+      "names": [
+        "bare-coast",
+        "browsing-world",
+        "impact-winter"
+      ],
+      "status": "exported",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "aece65acbe7ebc447237bb2757a43c1a1e2ee1103bcc028377b423357de19082"
+    },
+    {
+      "id": "world-continues",
+      "file": "world-continues.png",
+      "grid": [
+        1,
+        1
+      ],
+      "names": [
+        "world-continues"
+      ],
+      "status": "exported",
+      "sourceDimensions": [
+        853,
+        1844
+      ],
+      "sourceSha256": "c4912aa80b95ff1d402dc7fa8040c6c695e96520579ef7da28bf496c5e301da3"
+    },
+    {
+      "id": "vent-world-deep",
+      "file": "vent-world-deep.png",
+      "grid": [
+        1,
+        1
+      ],
+      "names": [
+        "vent-world"
+      ],
+      "status": "exported",
+      "request": "requests/vent-world-deep.json",
+      "referenceInput": "inputs/vent-world-before.webp",
+      "sourceDimensions": [
+        853,
+        1844
+      ],
+      "sourceSha256": "df4e72f5bbfb629c7570a88bd1ea7a86f251ddc1b3bb9957ae861585ce70f199"
+    }
+  ],
+  "backgrounds": {
+    "void": {
+      "file": "assets/backgrounds/void.webp",
+      "chapters": [
+        "c01"
+      ],
+      "status": "exported",
+      "source": "backgrounds-01.png",
+      "cellIndex": 0,
+      "cellBounds": [
+        0.0,
+        0.0,
+        512.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "a393c8717f72a95cdaa2580c6410b9346ecdb2a5a54001360d02d9ad109765ba"
+    },
+    "galaxy": {
+      "file": "assets/backgrounds/galaxy.webp",
+      "chapters": [
+        "c02"
+      ],
+      "status": "exported",
+      "source": "backgrounds-01.png",
+      "cellIndex": 1,
+      "cellBounds": [
+        512.0,
+        0.0,
+        1024.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        531.4123222748815,
+        0.0,
+        1004.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "7e8e89f5194a98e66cbb397130808f1121185977bcf22bbc42ac24adc914ee15"
+    },
+    "stellar-nursery": {
+      "file": "assets/backgrounds/stellar-nursery.webp",
+      "chapters": [
+        "c03"
+      ],
+      "status": "exported",
+      "source": "backgrounds-01.png",
+      "cellIndex": 2,
+      "cellBounds": [
+        1024.0,
+        0.0,
+        1536.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        1043.4123222748815,
+        0.0,
+        1516.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "be65bbee955990038d53301e8e5cd7bebab74f6527d3c30f790ac0689f8e60f1"
+    },
+    "rocky-world": {
+      "file": "assets/backgrounds/rocky-world.webp",
+      "chapters": [
+        "c04"
+      ],
+      "status": "exported",
+      "source": "backgrounds-02.png",
+      "cellIndex": 0,
+      "cellBounds": [
+        0.0,
+        0.0,
+        492.6666666666667,
+        1064.0
+      ],
+      "cellDimensions": [
+        492.6666666666667,
+        1064.0
+      ],
+      "cropBounds": [
+        0.5039494470774173,
+        0.0,
+        492.16271721958924,
+        1064.0
+      ],
+      "cropBoundsWithinCell": [
+        0.5039494470774173,
+        0.0,
+        492.16271721958924,
+        1064.0
+      ],
+      "cropDimensions": [
+        491.65876777251185,
+        1064.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "17b98d418c6df1f0e7ae404514faa4747840528bb18a89db03f9b5921abb2e3e"
+    },
+    "first-sea": {
+      "file": "assets/backgrounds/first-sea.webp",
+      "chapters": [
+        "c05",
+        "c06"
+      ],
+      "status": "exported",
+      "source": "backgrounds-02.png",
+      "cellIndex": 1,
+      "cellBounds": [
+        492.6666666666667,
+        0.0,
+        985.3333333333334,
+        1064.0
+      ],
+      "cellDimensions": [
+        492.6666666666667,
+        1064.0
+      ],
+      "cropBounds": [
+        493.17061611374413,
+        0.0,
+        984.829383886256,
+        1064.0
+      ],
+      "cropBoundsWithinCell": [
+        0.5039494470774457,
+        0.0,
+        492.1627172195893,
+        1064.0
+      ],
+      "cropDimensions": [
+        491.65876777251185,
+        1064.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "3250c1512fd2d0e7717acfa51bc986a0c63cf30a05d5f8066fb0efbe29f5644c"
+    },
+    "vent-world": {
+      "file": "assets/backgrounds/vent-world.webp",
+      "chapters": [
+        "c07"
+      ],
+      "status": "exported",
+      "source": "vent-world-deep.png",
+      "cellIndex": 0,
+      "cellBounds": [
+        0.0,
+        0.0,
+        853.0,
+        1844.0
+      ],
+      "cellDimensions": [
+        853.0,
+        1844.0
+      ],
+      "cropBounds": [
+        0.4573459715639956,
+        0.0,
+        852.542654028436,
+        1844.0
+      ],
+      "cropBoundsWithinCell": [
+        0.4573459715639956,
+        0.0,
+        852.542654028436,
+        1844.0
+      ],
+      "cropDimensions": [
+        852.085308056872,
+        1844.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "dbd09e3fe9f1db72b5aa8d37b336aaa1bd6202e0d6041764dbe7c465183f2445"
+    },
+    "microbial-shore": {
+      "file": "assets/backgrounds/microbial-shore.webp",
+      "chapters": [
+        "c08",
+        "c09"
+      ],
+      "status": "exported",
+      "source": "backgrounds-03.png",
+      "cellIndex": 0,
+      "cellBounds": [
+        0.0,
+        0.0,
+        512.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "f89e488515770026a45484dc9aa1bf76e506eafd8c4569c829465c942dc2e070"
+    },
+    "early-animal-coast": {
+      "file": "assets/backgrounds/early-animal-coast.webp",
+      "chapters": [
+        "c10"
+      ],
+      "status": "exported",
+      "source": "backgrounds-03.png",
+      "cellIndex": 1,
+      "cellBounds": [
+        512.0,
+        0.0,
+        1024.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        531.4123222748815,
+        0.0,
+        1004.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "0e0dc3b872485cfcb95c4a739b08be31f039ac35c15c3eab71cba0c554aad229"
+    },
+    "fern-forest": {
+      "file": "assets/backgrounds/fern-forest.webp",
+      "chapters": [
+        "c12",
+        "c13",
+        "c14"
+      ],
+      "status": "exported",
+      "source": "backgrounds-03.png",
+      "cellIndex": 2,
+      "cellBounds": [
+        1024.0,
+        0.0,
+        1536.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        1043.4123222748815,
+        0.0,
+        1516.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "5dc5841192f0fc1de3049a393560fca7280afadcb103d7bc21ff3f3f59638a6e"
+    },
+    "flowering-coast": {
+      "file": "assets/backgrounds/flowering-coast.webp",
+      "chapters": [
+        "c16"
+      ],
+      "status": "exported",
+      "source": "backgrounds-04.png",
+      "cellIndex": 0,
+      "cellBounds": [
+        0.0,
+        0.0,
+        512.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "bcb87459e459e167ef324ac8db4cbd21d3c99409b6d07f35f9ed995b6c49ff1b"
+    },
+    "many-biomes": {
+      "file": "assets/backgrounds/many-biomes.webp",
+      "chapters": [
+        "c17",
+        "c18",
+        "c19"
+      ],
+      "status": "exported",
+      "source": "backgrounds-04.png",
+      "cellIndex": 1,
+      "cellBounds": [
+        512.0,
+        0.0,
+        1024.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        531.4123222748815,
+        0.0,
+        1004.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "d595d0fb9d06f0c449c7f9e45c91ec58ca4b174a75bc7d82f8ac7885f20c5d64"
+    },
+    "green-shoots": {
+      "file": "assets/backgrounds/green-shoots.webp",
+      "chapters": [
+        "c21"
+      ],
+      "status": "exported",
+      "source": "backgrounds-04.png",
+      "cellIndex": 2,
+      "cellBounds": [
+        1024.0,
+        0.0,
+        1536.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        1043.4123222748815,
+        0.0,
+        1516.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "daaff2d1aa2c579f69d2e7a3167fd96ddbdeffad24ca61f47ab679f278eadf19"
+    },
+    "cold-heights": {
+      "file": "assets/backgrounds/cold-heights.webp",
+      "chapters": [
+        "c22"
+      ],
+      "status": "exported",
+      "source": "backgrounds-05.png",
+      "cellIndex": 0,
+      "cellBounds": [
+        0.0,
+        0.0,
+        512.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "ea885e01773028915c367ed731772057a1e48e1dce1a944e0949400df98344f8"
+    },
+    "world-after-ice": {
+      "file": "assets/backgrounds/world-after-ice.webp",
+      "chapters": [
+        "c23"
+      ],
+      "status": "exported",
+      "source": "backgrounds-05.png",
+      "cellIndex": 1,
+      "cellBounds": [
+        512.0,
+        0.0,
+        1024.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        531.4123222748815,
+        0.0,
+        1004.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "b11cfb26ef2734b6ecc5d488a335af5b82484687c8e3788f9f48a9695c8caf34"
+    },
+    "moon-watchers": {
+      "file": "assets/backgrounds/moon-watchers.webp",
+      "chapters": [
+        "c24"
+      ],
+      "status": "exported",
+      "source": "backgrounds-05.png",
+      "cellIndex": 2,
+      "cellBounds": [
+        1024.0,
+        0.0,
+        1536.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        1043.4123222748815,
+        0.0,
+        1516.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "d46966f4d206dff706f3d4c3639508e6dd0eb63f94a95236d5ca01ca8cc54b2f"
+    },
+    "cave-before-painting": {
+      "file": "assets/backgrounds/cave-before-painting.webp",
+      "chapters": [
+        "c25"
+      ],
+      "status": "exported",
+      "source": "backgrounds-06.png",
+      "cellIndex": 0,
+      "cellBounds": [
+        0.0,
+        0.0,
+        512.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "bb823a578b4434c359b83977baa09a02061d5cbe81122a6ff15e36ecc81f83dd"
+    },
+    "cave-after-painting": {
+      "file": "assets/backgrounds/cave-after-painting.webp",
+      "chapters": [
+        "c26"
+      ],
+      "status": "exported",
+      "source": "backgrounds-06.png",
+      "cellIndex": 1,
+      "cellBounds": [
+        512.0,
+        0.0,
+        1024.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        531.4123222748815,
+        0.0,
+        1004.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "bdf5a763f1248639cdffaa2df8b7e16b0fe3cad01e93e860057af8e45c960547"
+    },
+    "open-horizon": {
+      "file": "assets/backgrounds/open-horizon.webp",
+      "chapters": [
+        "c27"
+      ],
+      "status": "exported",
+      "source": "backgrounds-06.png",
+      "cellIndex": 2,
+      "cellBounds": [
+        1024.0,
+        0.0,
+        1536.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        1043.4123222748815,
+        0.0,
+        1516.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "68e13f0bab3ff18cc9c7f8d5f1a168596086e4226e395fd0cda251b2ad74f1a9"
+    },
+    "bare-coast": {
+      "file": "assets/backgrounds/bare-coast.webp",
+      "chapters": [
+        "c11"
+      ],
+      "status": "exported",
+      "source": "coast-sequence-01.png",
+      "cellIndex": 0,
+      "cellBounds": [
+        0.0,
+        0.0,
+        512.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.412322274881518,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "202fe144d43fb80c5738ef05e304a00bc7742d7fbc8cdf4cfc89b482abbc42b9"
+    },
+    "browsing-world": {
+      "file": "assets/backgrounds/browsing-world.webp",
+      "chapters": [
+        "c15"
+      ],
+      "status": "exported",
+      "source": "coast-sequence-01.png",
+      "cellIndex": 1,
+      "cellBounds": [
+        512.0,
+        0.0,
+        1024.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        531.4123222748815,
+        0.0,
+        1004.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "4700d8817541b7d1ff1b05f4cd0c8c27848e572de293500288e2fbba2b2b5486"
+    },
+    "impact-winter": {
+      "file": "assets/backgrounds/impact-winter.webp",
+      "chapters": [
+        "c20"
+      ],
+      "status": "exported",
+      "source": "coast-sequence-01.png",
+      "cellIndex": 2,
+      "cellBounds": [
+        1024.0,
+        0.0,
+        1536.0,
+        1024.0
+      ],
+      "cellDimensions": [
+        512.0,
+        1024.0
+      ],
+      "cropBounds": [
+        1043.4123222748815,
+        0.0,
+        1516.5876777251185,
+        1024.0
+      ],
+      "cropBoundsWithinCell": [
+        19.41232227488149,
+        0.0,
+        492.5876777251185,
+        1024.0
+      ],
+      "cropDimensions": [
+        473.175355450237,
+        1024.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "78b405e1ab9960ec116d0f6da480b72a7326891dc3e2380a4851bb35ba47f0e8"
+    },
+    "world-continues": {
+      "file": "assets/backgrounds/world-continues.webp",
+      "chapters": [
+        "chapter:27"
+      ],
+      "status": "exported",
+      "source": "world-continues.png",
+      "cellIndex": 0,
+      "cellBounds": [
+        0.0,
+        0.0,
+        853.0,
+        1844.0
+      ],
+      "cellDimensions": [
+        853.0,
+        1844.0
+      ],
+      "cropBounds": [
+        0.4573459715639956,
+        0.0,
+        852.542654028436,
+        1844.0
+      ],
+      "cropBoundsWithinCell": [
+        0.4573459715639956,
+        0.0,
+        852.542654028436,
+        1844.0
+      ],
+      "cropDimensions": [
+        852.085308056872,
+        1844.0
+      ],
+      "outputDimensions": [
+        780,
+        1688
+      ],
+      "outputSha256": "00eed062354d4645dc05c6931ed78087e068977d6d11cdc4216cf54329ea9f9a"
+    }
+  },
+  "chapterBackgrounds": [
+    {
+      "chapter": "c01",
+      "background": "void"
+    },
+    {
+      "chapter": "c02",
+      "background": "galaxy"
+    },
+    {
+      "chapter": "c03",
+      "background": "stellar-nursery"
+    },
+    {
+      "chapter": "c04",
+      "background": "rocky-world"
+    },
+    {
+      "chapter": "c05",
+      "background": "first-sea"
+    },
+    {
+      "chapter": "c06",
+      "background": "first-sea"
+    },
+    {
+      "chapter": "c07",
+      "background": "vent-world"
+    },
+    {
+      "chapter": "c08",
+      "background": "microbial-shore"
+    },
+    {
+      "chapter": "c09",
+      "background": "microbial-shore"
+    },
+    {
+      "chapter": "c10",
+      "background": "early-animal-coast"
+    },
+    {
+      "chapter": "c11",
+      "background": "bare-coast"
+    },
+    {
+      "chapter": "c12",
+      "background": "fern-forest"
+    },
+    {
+      "chapter": "c13",
+      "background": "fern-forest"
+    },
+    {
+      "chapter": "c14",
+      "background": "fern-forest"
+    },
+    {
+      "chapter": "c15",
+      "background": "browsing-world"
+    },
+    {
+      "chapter": "c16",
+      "background": "flowering-coast"
+    },
+    {
+      "chapter": "c17",
+      "background": "many-biomes"
+    },
+    {
+      "chapter": "c18",
+      "background": "many-biomes"
+    },
+    {
+      "chapter": "c19",
+      "background": "many-biomes"
+    },
+    {
+      "chapter": "c20",
+      "background": "impact-winter"
+    },
+    {
+      "chapter": "c21",
+      "background": "green-shoots"
+    },
+    {
+      "chapter": "c22",
+      "background": "cold-heights"
+    },
+    {
+      "chapter": "c23",
+      "background": "world-after-ice"
+    },
+    {
+      "chapter": "c24",
+      "background": "moon-watchers"
+    },
+    {
+      "chapter": "c25",
+      "background": "cave-before-painting"
+    },
+    {
+      "chapter": "c26",
+      "background": "cave-after-painting"
+    },
+    {
+      "chapter": "c27",
+      "background": "open-horizon"
+    },
+    {
+      "chapter": "chapter:27",
+      "name": "The End",
+      "background": "world-continues"
+    }
+  ],
+  "cover": {
+    "background": "world-continues",
+    "file": "assets/backgrounds/world-continues.webp"
+  },
+  "catalogueThumbnail": {
+    "background": "world-continues",
+    "file": "world-continues-thumbnail.webp",
+    "dimensions": [
+      256,
+      256
+    ],
+    "operation": "Square crop of the upper 780\u00d7780 region of the full cover background, preserving the planet, galaxy and Moon; uniformly resized to 256\u00d7256 for the ordinary preamble Markdown image. The full portrait remains the cover and ending.",
+    "status": "exported",
+    "outputSha256": "cc970f092a65c1471f04c2dc85f4b4914bb0e42959c558a74ab70a9402a9ea63",
+    "cropBoundsWithinBackground": [
+      0,
+      0,
+      780,
+      780
+    ]
+  },
+  "hotspots": {
+    "defaultCentrePercent": [
+      50,
+      20
+    ],
+    "fixedIconDimensions": [
+      384,
+      384
+    ],
+    "note": "Final symbolic fixed contexts sit above the ordinary inventory. This keeps targets and their name badges clear at full-height and usable-height phone sizes; five viewport conditions are recorded in the artwork acceptance report."
+  },
+  "status": "Selected production artwork accepted; final geometry and promotion checks recorded in the artwork acceptance report."
+}

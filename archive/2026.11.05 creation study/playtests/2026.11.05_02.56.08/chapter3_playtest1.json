@@ -1,0 +1,168 @@
+[
+  {
+    "step": 1,
+    "reason": "Gravity gathered the previous stellar nursery, so it is a plausible way to begin forming a young sun there.",
+    "choice": {
+      "combine": "Gravity",
+      "with": "New stellar nursery"
+    },
+    "expectation": "Gravity will gather material in the nursery into a young star or a structure around one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity formed the Sun, and its remaining disk suggests a place for enriched dust to gather into a world.",
+    "reaction": "The disk is a useful, clear hook for the next step.",
+    "step": 2,
+    "reason": "Enriched dust is the available material most directly associated with forming rocky worlds around the Sun.",
+    "choice": {
+      "combine": "Enriched dust",
+      "with": "Sun"
+    },
+    "expectation": "The dust will form or contribute to a disk of planet-building material around the Sun.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enriched dust formed a planetary disk, where grains can gather into larger bodies.",
+    "reaction": "The description gives a clear next direction.",
+    "step": 3,
+    "reason": "Gravity is the available force for gathering material in the disk into a larger body.",
+    "choice": {
+      "combine": "Gravity",
+      "with": "Planetary disk"
+    },
+    "expectation": "Material in the disk will gather into a young planet or its building blocks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity has no available combination, so I need another way to develop the planetary disk.",
+    "reaction": "That was unexpected given gravity's earlier role in gathering matter.",
+    "step": 4,
+    "reason": "Inspecting the planetary disk should reveal what can help its material form larger bodies.",
+    "choice": {
+      "inspect": "Planetary disk"
+    },
+    "expectation": "The inspection will identify an available partner for the disk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disk combined automatically with Earth to make planetesimals, suggesting the next stage is gathering those bodies into a planet.",
+    "reaction": "Earth was less obvious than gravity, but the result fits the disk's description.",
+    "step": 5,
+    "reason": "Planetesimals are the new planet-building material, so checking their available partner should clarify how to assemble a world.",
+    "choice": {
+      "inspect": "Planetesimals"
+    },
+    "expectation": "The inspection will reveal how the planetesimals can develop further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity gathered the planetesimals into a rocky world, providing the basis for both remaining goals.",
+    "reaction": "It is satisfying to see the smaller bodies assemble into a planet.",
+    "step": 6,
+    "reason": "Fire may help develop the hot interior needed for a moving core.",
+    "choice": {
+      "combine": "Rocky world",
+      "with": "Fire"
+    },
+    "expectation": "The rocky world will gain a molten interior or become a hotter young world.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Rocky world"
+        },
+        "reason": "I could check its available partners, but its interior makes Fire a plausible first try."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fire turned the rocky world into a magma ocean, suggesting it must cool to acquire a solid surface.",
+    "reaction": "The molten stage makes the world's development clear.",
+    "step": 7,
+    "reason": "Air is a plausible way to cool the magma ocean and form a solid crust.",
+    "choice": {
+      "combine": "Magma ocean",
+      "with": "Air"
+    },
+    "expectation": "The magma ocean will cool into a solid surface or crust.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Magma ocean"
+        },
+        "reason": "I could check its partners, but cooling with air seems plausible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The magma ocean formed a stone crust, completing the solid-face goal while leaving a hot interior beneath it.",
+    "reaction": "The distinction between a cooled surface and a hot interior is clear.",
+    "step": 8,
+    "reason": "The magma ocean may have another role in developing the moving core, so checking its partners is useful.",
+    "choice": {
+      "inspect": "Magma ocean"
+    },
+    "expectation": "The inspection will reveal whether the magma ocean can contribute to the core or magnetic field.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity separated the magma ocean into an iron core, providing a basis for the remaining magnetic-field goal.",
+    "reaction": "The density-sorting explanation makes the core's formation clear.",
+    "step": 9,
+    "reason": "Inspecting the iron core should reveal how to give it the motion needed for a magnetic field.",
+    "choice": {
+      "inspect": "Iron core"
+    },
+    "expectation": "The inspection will identify a partner for developing the core or its magnetic field.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The iron core combined with Air to make a magnetic field, completing the chapter; the explanation clarified that Air represents motion rather than gas entering the core.",
+    "reaction": "The explicit distinction between the mythic gesture and a planetary dynamo was helpful.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Forming the iron core was most worthwhile: the density-sorting explanation made the planet's internal structure understandable while advancing the goal.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying gravity on the planetary disk was frustrating because gravity had previously gathered material, but was unavailable at that stage.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Earth rather than gravity first developed the disk into planetesimals; gravity then gathered those bodies into a rocky world.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Air cooling the magma ocean initially suggested a physical cooling mechanism, whereas the result says heat escapes into space. Its role felt somewhat symbolic rather than clear beforehand.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the world develops, especially because the chapter paired satisfying stages of assembly with clear explanations of the physical processes.",
+        "steps": [
+          5,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

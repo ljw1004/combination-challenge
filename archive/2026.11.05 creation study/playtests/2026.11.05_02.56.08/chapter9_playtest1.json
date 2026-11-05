@@ -1,0 +1,213 @@
+[
+  {
+    "step": 1,
+    "reason": "Partnered cells are the starting point for both goals, but their next combination is not clear from the board.",
+    "choice": {
+      "inspect": "Partnered cells"
+    },
+    "expectation": "The inspection should reveal which available pieces can develop these cells further.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Partnered cells",
+          "with": "Water"
+        },
+        "reason": "Water might support cells joining into larger organisms, but that is a guess."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Partnered cells combined with water to make cell colonies, suggesting a route toward multicellular bodies.",
+    "reaction": "The automatic combination made the next step clear without an extra guess.",
+    "step": 2,
+    "reason": "Cell colonies are the new starting point, but their next compatible partner is unclear.",
+    "choice": {
+      "inspect": "Cell colonies"
+    },
+    "expectation": "The inspection should reveal how the colonies can develop further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The colonies became multicellular life, providing a starting point for both sea plants and swimmers.",
+    "reaction": "The explanation clarified that multicellularity evolved more than once.",
+    "step": 3,
+    "reason": "Sunlight suggests a route from multicellular life to sea plants.",
+    "choice": {
+      "combine": "Multicellular life",
+      "with": "Sun"
+    },
+    "expectation": "This may produce a photosynthetic multicellular organism.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Multicellular life"
+        },
+        "reason": "I could check its partners, but sunlight is a plausible first attempt."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sun and multicellular life produced algae, completing the sea plants goal and revealing a goal to preserve a trace of life in stone.",
+    "reaction": "The new goal makes sediment seem useful for recording life.",
+    "step": 4,
+    "reason": "Sediment can bury organisms and eventually preserve traces of them, so algae are a plausible match.",
+    "choice": {
+      "combine": "Algae",
+      "with": "Sediment"
+    },
+    "expectation": "This may create a fossil or another sedimentary trace of life.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Algae"
+        },
+        "reason": "Checking compatibility would be safer, but sediment has a clear connection to preservation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Algae cannot currently combine with anything, so sediment is not yet a viable route to the trace-of-life goal.",
+    "reaction": "That was a surprising dead end given the preservation idea.",
+    "step": 5,
+    "reason": "Multicellular life may have another route toward swimmers, but its available partners are unclear.",
+    "choice": {
+      "inspect": "Multicellular life"
+    },
+    "expectation": "The inspection should reveal available ways to develop multicellular life.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Multicellular life combined with the ocean to make soft-bodied animals, opening a likely route toward swimmers.",
+    "reaction": "The automatic step gave the animal branch a clear starting point.",
+    "step": 6,
+    "reason": "Soft-bodied animals are the new lead for the swimmer goal, but their next partner is unclear.",
+    "choice": {
+      "inspect": "Soft-bodied animals"
+    },
+    "expectation": "The inspection should reveal how the animals can develop further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Soft-bodied animals can combine with oxygen or the mineral-rich sea, offering two possible developmental paths.",
+    "reaction": "The two options make the next branch less obvious.",
+    "step": 7,
+    "reason": "The mineral-rich sea may help animals develop hard parts that could leave traces in stone.",
+    "choice": {
+      "combine": "Soft-bodied animals",
+      "with": "Mineral-rich sea"
+    },
+    "expectation": "This may produce animals with mineralized structures that can be preserved.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Soft-bodied animals",
+          "with": "Oxygen"
+        },
+        "reason": "Oxygen might instead advance the swimmer branch."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineral-rich sea produced shells, a plausible source of preserved traces.",
+    "reaction": "The result fits the mineralization idea.",
+    "step": 8,
+    "reason": "Sediment can bury shells and preserve them as fossils.",
+    "choice": {
+      "combine": "Shells",
+      "with": "Sediment"
+    },
+    "expectation": "This may create a fossil trace in stone.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Shells"
+        },
+        "reason": "I could check compatibility first, but sediment is a plausible match."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shells and sediment produced fossils, completing the trace-of-life goal; the remaining known animal pathway uses oxygen.",
+    "reaction": "The fossil explanation usefully notes how incomplete the stone record is.",
+    "step": 9,
+    "reason": "Oxygen was the other known partner for soft-bodied animals and may lead toward swimmers.",
+    "choice": {
+      "combine": "Soft-bodied animals",
+      "with": "Oxygen"
+    },
+    "expectation": "This may produce a more active animal or an intermediate toward swimmers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen transformed the soft-bodied animals into swimming animals, leaving a way to see as the remaining goal.",
+    "reaction": "The link between oxygen, food energy and swimming makes the transition clearer.",
+    "step": 10,
+    "reason": "Light is a plausible partner for developing sight in swimming animals.",
+    "choice": {
+      "combine": "Swimming animals",
+      "with": "Light"
+    },
+    "expectation": "This may give the swimmers a way to detect light or see.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Swimming animals"
+        },
+        "reason": "I could check compatibility first, but light is a clear match for sight."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Light and swimming animals produced eyes, completing the last goal; the explanation makes clear that sight has multiple evolutionary histories.",
+    "reaction": "The qualification that eyes were not inevitable made the ending more interesting.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making fossils from shells and sediment connected the animal branch to a geological record, while explaining why that record is incomplete.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to combine algae with sediment was a disappointing dead end: preservation seemed plausible, but the result offered no explanation of what was missing.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that algae had no available combinations despite the newly revealed goal of preserving a trace of life.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining partnered cells with water to produce colonies felt like a hinted step rather than a connection I understood; the later membranes explanation made multicellularity clearer.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how life changes the world further; the fossil and swimming branches paired satisfying combinations with useful scientific qualifications.",
+        "steps": [
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

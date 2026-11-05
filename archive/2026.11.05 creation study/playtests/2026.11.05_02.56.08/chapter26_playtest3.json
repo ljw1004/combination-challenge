@@ -1,0 +1,177 @@
+[
+  {
+    "step": 1,
+    "reason": "A shared song and a social group suggest a way for another generation to learn it.",
+    "choice": {
+      "combine": "Chorus",
+      "with": "Social group"
+    },
+    "expectation": "The group will pass the chorus on or create a new generation of singers.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Chorus"
+        },
+        "reason": "Checking its partners could clarify how the song changes."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chorus needed memory, not the social group; the song now survives its original singers.",
+    "reaction": "The automatic combination clarified how the song is passed on.",
+    "step": 2,
+    "reason": "The remembered song is the clearest starting point, but its route to change is not yet obvious.",
+    "choice": {
+      "inspect": "Remembered song"
+    },
+    "expectation": "Its compatible partners should show how the next generation changes it.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Remembered song",
+          "with": "Question"
+        },
+        "reason": "A question might prompt a change, but that is only a guess."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Remembered song currently has no available partners, so another piece may need to change first.",
+    "reaction": "I am unsure what enables the next step.",
+    "step": 3,
+    "reason": "The social group may connect the remembered song to a new generation; checking its partners should clarify the route.",
+    "choice": {
+      "inspect": "Social group"
+    },
+    "expectation": "Its available partners may reveal how to bring in the next generation.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Question"
+        },
+        "reason": "A question might also lead to a change in the song."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The social group has no available partners either, so another item must open the route.",
+    "reaction": "The second dead end is confusing.",
+    "step": 4,
+    "reason": "A question may prompt a new interpretation of the song; inspecting it can reveal any available connection.",
+    "choice": {
+      "inspect": "Question"
+    },
+    "expectation": "Question may have a partner that starts the song's transformation.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Story"
+        },
+        "reason": "Story might also lead to a new interpretation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Question has no available partners, so it does not currently open the route.",
+    "reaction": "A third empty inspection is frustrating.",
+    "step": 5,
+    "reason": "Story is another plausible route to passing on or changing the song, though I am guessing.",
+    "choice": {
+      "inspect": "Story"
+    },
+    "expectation": "Story may have an available partner that advances the goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Shared discovery"
+        },
+        "reason": "It may instead connect the community to a new idea."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Story and shared discovery produced teaching, suggesting a way to pass the song to new singers.",
+    "reaction": "The automatic combination finally opened a promising route.",
+    "step": 6,
+    "reason": "Teaching the remembered song seems like the natural way to pass it to the next generation.",
+    "choice": {
+      "combine": "Teaching",
+      "with": "Remembered song"
+    },
+    "expectation": "The song will be passed on to new singers who can change it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Teaching combined with Question instead, producing a new question; the song still needs another step.",
+    "reaction": "The learner's new question is a promising but unexpected turn.",
+    "step": 7,
+    "reason": "A new question may prompt a change to the remembered song, though this is a guess.",
+    "choice": {
+      "combine": "New question",
+      "with": "Remembered song"
+    },
+    "expectation": "The question will give the next generation a way to change the song.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new question changed the remembered song, giving it a different ending; the goal has not yet been reported complete.",
+    "reaction": "The question's connection to creative change is satisfying.",
+    "step": 8,
+    "reason": "The changed song is the clearest lead, but its next use is not yet visible.",
+    "choice": {
+      "inspect": "Changed song"
+    },
+    "expectation": "Its available partners may reveal how to complete the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The changed song passed to the social group as a children's chorus, completing the goal and leaving room for further changes.",
+    "reaction": "The children carrying the altered song forward is a satisfying ending.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the new question with the remembered song made inheritance and creativity tangible: asking why prompted a different ending.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The consecutive inspections with no partners were confusing and repetitive, offering little guidance about what needed to happen first.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Teaching led to a new question rather than directly teaching the song; that question then became the means of changing it.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Story combining with shared discovery to make teaching was not obvious to me beforehand, although the result made sense as a way to pass knowledge on.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. The changed song and children's chorus suggest a world whose inhabitants can make things beyond my choices, and I would be curious to see what they do next.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

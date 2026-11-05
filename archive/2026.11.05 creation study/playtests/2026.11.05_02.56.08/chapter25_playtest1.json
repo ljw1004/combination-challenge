@@ -1,0 +1,197 @@
+[
+  {
+    "step": 1,
+    "reason": "The cave is central to both goals, so checking what can be used there should clarify how to begin.",
+    "choice": {
+      "inspect": "Sea cave"
+    },
+    "expectation": "The cave should list available ingredients for painting or making music.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Earth",
+          "with": "Water"
+        },
+        "reason": "Earth and water might make a pigment, but the cave may offer a more direct starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cave transformed the call into an echo, suggesting a starting point for the song. The call is no longer available.",
+    "reaction": "The reflected voice is a neat starting point for making music.",
+    "step": 2,
+    "reason": "The social group may respond to the echo together, though I am guessing at the next step.",
+    "choice": {
+      "combine": "Echo",
+      "with": "Social group"
+    },
+    "expectation": "The group may use the echo to make a shared sound.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Earth",
+          "with": "Water"
+        },
+        "reason": "These might make pigment for the painting goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Echo combined with Memory instead, producing Song; I can now try bringing separate voices into it.",
+    "reaction": "The remembered and changed echo makes a satisfying route to song, though my guess was wrong.",
+    "step": 3,
+    "reason": "The social group could add separate voices to the song.",
+    "choice": {
+      "combine": "Song",
+      "with": "Social group"
+    },
+    "expectation": "The group will sing together, potentially completing the song goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Earth",
+          "with": "Water"
+        },
+        "reason": "These might make pigment for the painting goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Song and the social group formed a chorus, completing the song goal. The remaining goal is the cave painting.",
+    "reaction": "It is satisfying that the song became a shared pattern rather than just another echo.",
+    "step": 4,
+    "reason": "Earth and water are plausible ingredients for a paint or pigment.",
+    "choice": {
+      "combine": "Earth",
+      "with": "Water"
+    },
+    "expectation": "They may make a usable pigment for the cave painting.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Earth"
+        },
+        "reason": "I could check its partners first, but the pigment guess seems plausible enough to try."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth and water made pigment; the remaining challenge is to give it a painter and an imagined subject.",
+    "reaction": "The pigment worked as expected, and the hint that it needs a painter clarifies the next step.",
+    "step": 5,
+    "reason": "The social group can provide the people to use the pigment.",
+    "choice": {
+      "combine": "Pigment",
+      "with": "Social group"
+    },
+    "expectation": "The group may use the pigment to begin making an image.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Pigment"
+        },
+        "reason": "Checking its partners could clarify how to make the painting."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pigment cannot combine directly with the group; its listed partner is the sea cave.",
+    "reaction": "The compatibility feedback makes the next step clear.",
+    "step": 6,
+    "reason": "The cave is the pigment's only listed partner and has walls that can hold an image.",
+    "choice": {
+      "combine": "Pigment",
+      "with": "Sea cave"
+    },
+    "expectation": "The pigment will be used to make an image on the cave wall.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pigment and the cave, together with Memory, created a cave painting. The remaining goal is to make an impossible creature.",
+    "reaction": "The automatic use of memory suggests the painting began with something remembered.",
+    "step": 7,
+    "reason": "Story may let the painting depict something imagined rather than merely remembered.",
+    "choice": {
+      "combine": "Cave painting",
+      "with": "Story"
+    },
+    "expectation": "The story may turn the painting into an image of an impossible creature.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cave painting"
+        },
+        "reason": "I could check its available partners if the connection to story is wrong."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Story transformed the cave painting into an imagined beast, completing that goal and revealing a new goal about colouring a sky.",
+    "reaction": "Joining remembered parts into an unseen creature is a satisfying extension of the painting.",
+    "step": 8,
+    "reason": "Starfield is the clearest available connection to a sky, so its partners may show how to colour one.",
+    "choice": {
+      "inspect": "Starfield"
+    },
+    "expectation": "Starfield may have a partner that lets the makers create or colour their own sky.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Starfield",
+          "with": "Imagined beast"
+        },
+        "reason": "The imagined beast might inspire a new figure in the sky, but its role is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting Starfield automatically combined it with the cave and pigment, producing a painted sky and completing the final goal.",
+    "reaction": "The cave's imagined stars were a fitting surprise, though the automatic use of pigment was not something I had predicted.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Turning the cave painting into an imagined beast was most worthwhile: familiar memories became something no one had seen, clearly showing the makers' imaginative independence.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying pigment directly with the social group was least worthwhile; the painter hint made that seem plausible, but the feedback redirected me to the cave.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the starfield automatically used the cave and pigment to create an imagined sky. I had not expected that combination.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Memory's automatic inclusion in the cave painting was not obvious beforehand, although the later explanation made its role in imagining the beast clearer.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see what else the world's inhabitants create independently; the imagined beast and painted sky made that possibility appealing.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

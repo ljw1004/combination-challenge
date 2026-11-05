@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The intro points to animals sheltering among fallen trees, so I’ll look for the small mammals in the forest.",
+    "choice": {
+      "combine": "Small furred animals",
+      "with": "First forest"
+    },
+    "expectation": "The forest may reveal small animals surviving the impact winter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The small furred animals currently have no available combinations, so I need another route to the survivors.",
+    "reaction": "That was unexpected given the chapter's emphasis on small animals.",
+    "step": 2,
+    "reason": "The forest is the chapter's only hotspot, so checking it may reveal what can be done there.",
+    "choice": {
+      "inspect": "First forest"
+    },
+    "expectation": "The inspection should identify available ingredients for a forest action.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Impact winter"
+        },
+        "reason": "The catastrophe might also suggest a route to finding survivors."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The impact winter transformed the forest; surviving seeds and sheltered patches suggest where to look next.",
+    "reaction": "The loss of whole communities makes the survivors feel consequential.",
+    "step": 3,
+    "reason": "The result specifically mentions surviving seeds, so I’ll try them with the fallen forest.",
+    "choice": {
+      "combine": "Seeds",
+      "with": "Fallen forest"
+    },
+    "expectation": "The seeds may preserve a beginning through the winter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Seeds have no available combination yet, so preserving them likely requires another intermediate step.",
+    "reaction": "The surviving seeds seemed like a direct lead, so that was surprising.",
+    "step": 4,
+    "reason": "The fallen forest is the newly transformed location and may reveal the next available operation.",
+    "choice": {
+      "inspect": "Fallen forest"
+    },
+    "expectation": "Its available partners should point toward finding survivors or preserving new growth.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Fungi"
+        },
+        "reason": "Fungi may help make use of the fallen forest."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fungi turned the fallen forest into a deadwood refuge, suggesting a place for small animals to survive.",
+    "reaction": "The decomposer-fed refuge makes the survival route clearer.",
+    "step": 5,
+    "reason": "The refuge shelters small lives, so the small furred animals are a plausible next match.",
+    "choice": {
+      "combine": "Small furred animals",
+      "with": "Deadwood refuge"
+    },
+    "expectation": "The animals may find shelter and food in the refuge, advancing the survivors goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deadwood refuge supported small mammal survivors and completed the first goal. The remaining goal is to keep a beginning alive.",
+    "reaction": "The reliance on stored energy in dead wood makes their survival feel plausible without suggesting it was inevitable.",
+    "step": 6,
+    "reason": "Seeds and soil are a plausible route to preserving or renewing plant life.",
+    "choice": {
+      "combine": "Seeds",
+      "with": "Soil"
+    },
+    "expectation": "The soil may protect or support the seeds as a beginning for future growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The small survivors carried seeds into a sheltered cache; the remaining goal may involve keeping that cache viable.",
+    "reaction": "The unintended possibility of future growth is a satisfying connection.",
+    "step": 7,
+    "reason": "The seed cache is the new lead for keeping a beginning alive, but its next use is not clear.",
+    "choice": {
+      "inspect": "Seed cache"
+    },
+    "expectation": "Its available partners should reveal how to preserve or establish new growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seed cache combined with soil to produce green shoots, completing the remaining goal while making clear that recovery cannot restore extinct lineages.",
+    "reaction": "The shoots are hopeful without erasing the loss.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the deadwood refuge was most worthwhile: it connected fungal decomposition and stored energy to a plausible food web during disrupted sunlight.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed seed attempt was frustrating because the fallen forest explicitly mentioned surviving seeds, yet they had no available combination at that point.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Seeds combined with the small survivors to make a cache, linking animal behavior to unintended future growth.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial small-mammal attempt felt unclear: the chapter pointed toward animals among fallen trees, but they had no operation until the forest had been transformed into a refuge.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. The decomposer-fed refuge and unintended seed cache made recovery feel interconnected, and I would be curious to see what develops from the shoots.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
