@@ -1,7 +1,8 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
+import {parseStory} from '../src/story/parser.ts';
 import {jumpToChapter, openDebugPanel} from './debug-helpers.ts';
-const chapter = (story: string, index: number) => [...readFileSync(`stories/${story}/${story}.md`, 'utf8').matchAll(/^## (.+)$/gm)][index][1];
+const chapter = (story: string, index: number) => parseStory(readFileSync(`stories/${story}/${story}.md`, 'utf8')).chapters[index].name;
 async function openMars(page:import('@playwright/test').Page){await page.goto('/#mars');await page.getByRole('button',{name:'Start',exact:true}).click();await page.getByRole('button',{name:'Begin',exact:true}).click();}
 test('real pointer combination transforms a fixed target, survives reload and resets without instructions',async({page})=>{
   await openMars(page);const patch=page.locator('[data-item="id:pressure-patch"]'),habitat=page.locator('[data-hotspot="id:deflated-habitat"]');const a=(await patch.boundingBox())!,b=(await habitat.boundingBox())!;
@@ -73,7 +74,7 @@ test('generated checkpoint has usable touch targets and loaded assets at phone w
   await expect(page.locator('.mobile-debug button')).toHaveCount(choices+1);
   await page.getByRole('button',{name:'Close debug panel'}).click();
   await expect(page.locator('.chapter-panel')).toHaveCount(1);
-  await jumpToChapter(page,chapter('mars',3),true);await page.getByRole('button',{name:'Begin',exact:true}).click();await expect(page.getByText('Generated checkpoint',{exact:true})).toHaveCount(0);
+  await jumpToChapter(page,'Fire',true);await page.getByRole('button',{name:'Begin',exact:true}).click();await expect(page.getByText('Generated checkpoint',{exact:true})).toHaveCount(0);
   await expect.poll(()=>page.locator('.scene-art').evaluateAll(images=>images.every(i=>(i as HTMLImageElement).complete&&(i as HTMLImageElement).naturalWidth>0))).toBe(true);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   const cards=page.locator('.chapter-panel').last().locator('.thing');
@@ -119,7 +120,7 @@ test('a card covering centered goals keeps native pointer precedence',async({pag
 });
 
 test('holding a described item does not read or obstruct a later drag; double-click still reads',async({page})=>{
-  await page.goto('/');await page.locator('[data-story="settlement/settlement.md"]').click();
+  await page.goto('/');await page.locator('[data-story="stories/settlement/settlement.md"]').click();
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   await jumpToChapter(page,chapter('settlement',18),true);await page.getByRole('button',{name:'Begin',exact:true}).click();

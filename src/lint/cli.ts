@@ -23,7 +23,7 @@ else for(const report of reports){
   console.log(`${report.story}: ${errors.length} errors, ${warnings.length} warnings; ${report.chapters} chapters, ${report.recipes} combinations`);
   const stats = report.opportunityAnalysis;
   if (stats) console.log(`  opportunities: ${stats.complete ? 'complete' : 'incomplete'}; ${stats.coveredItems}/${report.items} items covered; ${stats.constructionSets} construction sets evaluated; ${stats.transitions} engine operations; largest set of alternatives ${stats.peakFrontier}; ${(stats.elapsedMs / 1000).toFixed(2)}s`);
-  for(const d of report.diagnostics.filter(d=>d.severity==='error'||args.includes('--details'))) {
+  for(const d of report.diagnostics.filter(d=>d.severity==='error'||d.code==='fixed-analysis-limit'||args.includes('--details'))) {
     console.log(`  ${d.source.file}:${d.source.line} ${d.severity} ${d.code}: ${d.message}`);
     for (const location of d.related ?? []) console.log(`    ${location.file}:${location.line} ${location.message}`);
   }

@@ -61,7 +61,7 @@ The user accepted the 24-chapter **Mission to Mars** and requested promotion on 
 
 Evaluate continuous human play through survival, farm establishment, discovery and return. Check exact material recognition, small fittings, native touch and whether the shorter route retains enough substantial making; AI reviews and browser witnesses do not establish those results. The earlier 50-primitive ambition remains unmet and is not a mandatory target.
 
-The full fixed-state verifier still reaches its 20,000-state bound. A promotion-time profile reached only Fire: 6 states in Crash landing, 32 in Air, 288 in Water and 19,674 in Fire. Placement/retrieval histories dominate growth. Investigate a sound reduction that preserves old-board access, fixed status, required placements and continuation; do not erase location information, raise the cap or suppress the diagnostic merely to obtain a green build. Scoped branch and browser checks remain witnesses rather than exhaustive proof.
+The full fixed-state verifier still reaches its 20,000-state bound, reported under the [analysis-limit diagnostic policy](../docs/story-format-spec.md#continuation-and-analysis-failures). A promotion-time profile reached only Fire: 6 states in Crash landing, 32 in Air, 288 in Water and 19,674 in Fire. Placement/retrieval histories dominate growth. Investigate a sound reduction that preserves old-board access, fixed status, required placements and continuation; do not erase location information, raise the cap or suppress the diagnostic merely to obtain a green build. Scoped branch and browser checks remain witnesses rather than exhaustive proof.
 
 ## Logical playtest dialog parity
 

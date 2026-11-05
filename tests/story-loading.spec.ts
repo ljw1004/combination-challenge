@@ -14,6 +14,21 @@ Build a kit.
 - Frame [preserve] + Tool [preserve] -> Kit
 `;
 
+test('catalogue cards are usable HTML without JavaScript or a catalogue data request', async ({browser}) => {
+  const context = await browser.newContext({javaScriptEnabled: false});
+  try {
+    const page = await context.newPage();
+    const requests: string[] = [];
+    page.on('request', request => requests.push(request.url()));
+    await page.goto('/index.html');
+    const mars = page.locator('[data-story="stories/mars/mars.md"]');
+    await expect(mars).toBeVisible();
+    await expect(mars).toHaveAttribute('href', 'combinations.html?story=stories/mars/mars.md');
+    expect(requests.some(url => url.includes('stories.json'))).toBe(false);
+    await expect.poll(() => page.locator('.chooser img').evaluateAll(images => images.length > 0 && images.every(image => (image as HTMLImageElement).naturalWidth > 0))).toBe(true);
+  } finally { await context.close(); }
+});
+
 test('two manuscripts share assets but keep progress separate; adjacent and default routes load their own files', async ({ page }) => {
   await page.route(url => /^\/shared\/[^/]+\.md$/.test(url.pathname), route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
   await page.route('**/story.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
@@ -64,7 +79,8 @@ test('repository drafts and their artwork load relative to the player page witho
     await expect(page.getByRole('button',{name:'Start',exact:true})).toBeVisible();
     expect(decodeURIComponent((await page.locator('.scene-art').first().getAttribute('src'))!)).toContain('/'+path+'/assets/bg.svg');
     const absent=await request.get('/'+path+'/missing.md');expect(absent.status()).toBe(404);
-    const catalogue=await (await request.get('/stories.json')).json();
-    expect(catalogue.some((entry:{path:string})=>entry.path.includes(path))).toBe(false);
+    const catalogue=await (await request.get('/index.html')).text();
+    expect(catalogue).not.toContain(path+'/draft.md');
+    expect(catalogue).toContain('data-story="stories/mars/mars.md"');
   } finally {rmSync(folder,{recursive:true,force:true});}
 });

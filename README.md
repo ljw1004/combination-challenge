@@ -22,22 +22,20 @@ Open the local address printed by Vite. Drag things together; compatible partner
 
 Seven icon styles are retained as [reference collections](references/icon-sets/), each with its own description and preview.
 
-**Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement/settlement.md`.
+**Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=stories/settlement/settlement.md`.
 
-**Cookbook** teaches practical cooking through pen-and-wash illustrations, from breakfast through afternoon tea to dinner: `/combinations.html?story=cookbook/cookbook.md`. See its [design examples](stories/cookbook/design-examples.png) and lasting [design brief](stories/cookbook/design-brief.md). The completed [Cookbook study](<archive/2026.11.01 cookbook study/README.md>) retains the adaptation research, artistic directions and verdicts, comparisons, production source art and all 35 completed cookbook page PNGs.
+**Cookbook** teaches practical cooking through pen-and-wash illustrations, from breakfast through afternoon tea to dinner: `/combinations.html?story=stories/cookbook/cookbook.md`. See its [design examples](stories/cookbook/design-examples.png) and lasting [design brief](stories/cookbook/design-brief.md). The completed [Cookbook study](<archive/2026.11.01 cookbook study/README.md>) retains the adaptation research, artistic directions and verdicts, comparisons, production source art and all 35 completed cookbook page PNGs.
 
-**Mission to Mars** follows a solo astronaut from a crash through shelter, farming, an uncertain discovery and a return built with local iron: `/combinations.html?story=mars/mars.md`. The [live story](stories/mars/mars.md), [design brief](stories/mars/design-brief.md) and [three moments of play](stories/mars/design-exxamples.png) preserve its austere physical character. The active [Mars study](projects/mars-study/README.md) retains the unchanged v12 reference, earlier versions, production artwork and review outcomes.
+**Mission to Mars** follows a solo astronaut from a crash through shelter, farming, an uncertain discovery and a return built with local iron: `/combinations.html?story=stories/mars/mars.md`. The [live story](stories/mars/mars.md), [design brief](stories/mars/design-brief.md) and [three moments of play](stories/mars/design-exxamples.png) preserve its austere physical character. The active [Mars study](projects/mars-study/README.md) retains the unchanged v12 reference, earlier versions, production artwork and review outcomes.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
 | Player URL | Markdown fetched |
 |---|---|
-| `/combinations.html?story=settlement/settlement.md` | `/settlement/settlement.md` |
-| `/combinations.html?story=cookbook/cookbook.md` | `/cookbook/cookbook.md` |
-| `/combinations.html?story=theology/theology.md` | `/theology/theology.md` |
-| `/combinations.html?story=mars/mars.md` | `/mars/mars.md` |
-| `/mars/combinations.html?story=mars.md` | `/mars/mars.md` |
-| `/mars/combinations.html` | `/mars/story.md` (supply this file to use this route) |
+| `/combinations.html?story=stories/settlement/settlement.md` | `/stories/settlement/settlement.md` |
+| `/combinations.html?story=stories/cookbook/cookbook.md` | `/stories/cookbook/cookbook.md` |
+| `/combinations.html?story=stories/theology/theology.md` | `/stories/theology/theology.md` |
+| `/combinations.html?story=stories/mars/mars.md` | `/stories/mars/mars.md` |
 | `/combinations.html` | `/story.md` (supply this file to use this route) |
 
 The `story` parameter points to a `.md` file on the same server. Relative paths resolve against the player page, so the same layout works under a website subdirectory; root-relative paths also work. Without the parameter, the player always requests `story.md` beside itself. A missing story displays an error. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.
@@ -48,15 +46,23 @@ Mars now uses the accepted 24-chapter v12 story at the main route. Future edits 
 
 Chromium supports the browser tests and measures actual hotspot hit areas for `place:` lint. Only manuscripts containing `place:` entries launch it during lint/build. The [specification](docs/story-format-spec.md) owns placement syntax and validation.
 
-The build produces `dist/` with separate bundled JavaScript/CSS, ordinary story Markdown/artwork files, a catalogue, and a copy of `combinations.html` in each manuscript directory. Deploy the whole directory to a static web server; see [GitHub Pages publication](#github-pages-publication) for this repository's setup. The HTML currently depends on the shared `assets/` bundles; it is not a standalone file. Editing a deployed Markdown file or its artwork does not require rebuilding JavaScript. The catalogue's entries, titles and descriptions are generated at build time.
+The editable HTML sources are [`index-dev.html`](index-dev.html) and [`combinations-dev.html`](combinations-dev.html). Vite serves these templates at `/`, `/index.html` and `/combinations.html` during development, even when an older generated page exists. It serves manuscripts and artwork directly at their repository paths under `/stories/`. Development also provides adjacent player routes for draft previews, such as `/projects/example-study/combinations.html?story=draft.md`; these are not generated for publication.
+
+The build writes `index.html`, `combinations.html` and compiled JavaScript/CSS under `assets/` into the repository root. It renders the catalogue cards directly into `index.html`, with no separate `stories.json` request. The original `stories/` directory supplies Markdown and artwork; neither the stories nor adjacent player pages are copied into the build. The player still depends on its shared bundles and is not a standalone HTML file.
+
+Deploy the generated root pages, `assets/` and `stories/` together, preserving their layout. Editing a manuscript or its artwork does not require rebuilding JavaScript. Adding/removing a story or changing its catalogue title/description requires regenerating `index.html`. Development regenerates the catalogue on each page request. See [GitHub Pages publication](#github-pages-publication) for this repository's setup.
+
+Root output is intentional: Vite's warning that `build.outDir` equals the root is expected. The build requires `emptyOutDir: false` and never clears the repository. After successful output, it deletes only obsolete bundles listed in `assets/build-files.json` by the previous build. Keep that generated inventory in Git with the bundles; unrelated files are left alone. Edit the `-dev.html` templates and source code, then rebuild the generated pages.
 
 ### GitHub Pages publication
 
-Keep `dist/` in Git alongside the source. Configure GitHub **Settings → Pages → Build and deployment → Deploy from a branch**, selecting **main** and **/(root)**. Once published, the game is served at `https://ljw1004.github.io/combination-challenge/dist/`.
+Keep the generated `index.html`, `combinations.html` and `assets/` in Git alongside the source and original stories. Configure GitHub **Settings → Pages → Build and deployment → Deploy from a branch**, selecting **main** and **/(root)**. The catalogue is served at `https://ljw1004.github.io/combination-challenge/`; for example, Mars opens at `combinations.html?story=stories/mars/mars.md` beneath that address.
 
-The root [`_config.yml`](_config.yml) excludes everything except `dist/`, including documentation, source, tests, archives and project artwork. Add any new root files or directories to its exclusion list. It also disables Jekyll's theme and automatic Markdown-page generation, preserving the raw stories. Do not add a root `.nojekyll`: that would bypass the exclusions and publish the rest of the repository. The website root has no landing page; use the `/dist/` address.
+The root [`_config.yml`](_config.yml) excludes the two `-dev.html` templates, documentation, source, tests, archives, projects and the retired `dist/` directory. Add any new non-published root files or directories to its exclusion list. It also disables Jekyll's theme and automatic Markdown-page generation, preserving the raw manuscripts. Do not add a root `.nojekyll`: that would bypass the exclusions and publish the rest of the repository.
 
-Before publishing an update, run `npm run build`, then commit the matching source changes and all `dist/` changes (including removed bundles), and push to `main`. The build runs lint and type checking before bundling. GitHub handles publication of the committed output; there is no custom Actions workflow or separate publishing branch. Treat `dist/` as generated output: edit the source and rebuild instead of editing it directly.
+Before publishing an application or catalogue update, run `npm run build`, then commit the matching source and generated root pages/bundles (including removed bundles), and push to `main`. For manuscript/artwork changes that do not affect the catalogue, lint and commit those original files; rebuilding the application is unnecessary. GitHub handles publication of committed files; there is no custom Actions workflow or separate publishing branch. Access settings are independent of this layout.
+
+The former `/dist/` pages and flattened manuscript paths are retired. Browser saves, drafts and tutorial completion at those old Markdown URLs remain stored under their old keys; this layout change does not migrate or delete them. New URLs under `stories/` have their own state, following the [story identity rule](docs/ux.md#catalogue-and-story-identity).
 
 ## Edit a story live
 
@@ -97,7 +103,7 @@ stories/<slug>/assets/...
 
 Multiple manuscripts can share a directory and its artwork: for example, `stories/theology/theology.md` and `stories/theology/alternate.md` can both reference `assets/scene.webp` in `stories/theology/assets/`. Catalogue discovery finds `.md` manuscripts under `stories/`, excluding the reserved filename `design-brief.md` (case-insensitive). A story may keep its durable editorial and visual intent in that companion brief. Keep research, iteration notes and other non-story documentation in its project directory.
 
-The linter, checkpoint and playtesting tools accept the path relative to `stories/`, such as `theology/theology.md`, or a filename without `.md`, such as `theology`, when that short name is unique. `npm run play -- list` lists the full paths. The [analyzer](#story-analysis) takes explicit file paths relative to the current directory or absolute paths, and recognizes stories by content. The browser uses each Markdown URL for independent drafts and saves, including when manuscripts share a directory. Neither the path nor filename is the player-facing title. Vite serves the contents of `stories/` at the site root. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
+The linter, checkpoint and playtesting tools accept the path relative to `stories/`, such as `theology/theology.md`, or a filename without `.md`, such as `theology`, when that short name is unique. `npm run play -- list` lists the full paths. The [analyzer](#story-analysis) takes explicit file paths relative to the current directory or absolute paths, and recognizes stories by content. The browser uses each Markdown URL for independent drafts and saves, including when manuscripts share a directory. Neither the path nor filename is the player-facing title. Vite serves `stories/` at its repository path, matching the published layout. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
 
 Settlement (`settlement`) and Theology (`theology`) were renamed from Elements (`elements`) and Divinity (`divinity`) on 31 October 2026. The old story routes, including the earlier `elements-icons` route, are no longer served. Existing browser saves and drafts remain under their original URLs; the renames do not migrate or delete them.
 

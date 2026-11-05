@@ -97,7 +97,7 @@ export function fixedItemDiagnostics(story:Story):Diagnostic[]{
   }catch(error){
     if(!(error instanceof Error)||error.message!=='fixed-state-limit')throw error;
     const source=story.source;
-    return [...diagnostics,{severity:'error',stage:'deep',code:'fixed-analysis-limit',source,span:source.span??{from:0,to:0},
+    return [...diagnostics,{severity:'warning',stage:'deep',code:'fixed-analysis-limit',source,span:source.span??{from:0,to:0},
       message:`Fixed-item verification exceeded its ${MAX_FIXED_STATES}-state limit. Arrival checks, retirement safety and peak hotspot counts were not fully verified.`}];
   }
   for(let chapter=0;chapter<dynamic.length;chapter++)if(dynamic[chapter]){

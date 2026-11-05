@@ -172,7 +172,7 @@ export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagno
   options.onOpportunityAnalysis?.(report);
   if (!report.complete) {
     const location = story.chapters[report.stats.activeChapter]?.source ?? story.source;
-    return [{severity: 'error', code: 'opportunity-analysis-limit', stage: 'deep', source: location,
+    return [...fixedDiagnostics,{severity: 'error', code: 'opportunity-analysis-limit', stage: 'deep', source: location,
       span: location.span ?? {from: 0, to: 0},
       message: `${report.limit} Evaluated ${report.stats.constructionSets} construction sets; largest set of alternatives ${report.stats.peakFrontier}.`}];
   }

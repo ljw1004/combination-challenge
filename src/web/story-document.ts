@@ -63,7 +63,7 @@ export function resolveStoryURL(pageURL: string | URL): string {
   const path = selectors[0] ?? 'story.md';
   if (selectors.length > 1 || !/\.md$/i.test(path) || path !== path.trim() ||
     /[:\\?#\u0000-\u001f\u007f]/.test(path) || path.startsWith('//')) {
-    throw new Error('Choose a Markdown file path on this server, for example ?story=theology/theology.md.');
+    throw new Error('Choose a Markdown file path on this server, for example ?story=stories/theology/theology.md.');
   }
   return new URL(path, page).href;
 }
