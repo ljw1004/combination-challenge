@@ -124,17 +124,19 @@ For a two-item combination, A is the dragged item and B is the receiving item, r
 
 | Dragged A | Receiving B | What remains | Where C appears |
 |---|---|---|---|
-| preserve | preserve | A returns; B stays | Near the drop, clear of B |
+| preserve | preserve | A returns; B stays | At B's corner with a small overlap |
 | preserve | transform | A returns; B disappears | Replaces B in place |
 | preserve | consume | A returns; B disappears | Occupies B's vacated position |
-| transform | preserve | A disappears; B stays | Near the drop, clear of B |
+| transform | preserve | A disappears; B stays | At B's corner with a small overlap |
 | transform | transform | Both disappear | Replaces B in place |
 | transform | consume | Both disappear | Occupies B's vacated position |
-| consume | preserve | A disappears; B stays | Near the drop, clear of B |
+| consume | preserve | A disappears; B stays | At B's corner with a small overlap |
 | consume | transform | Both disappear | Replaces B in place |
 | consume | consume | Both disappear | Occupies B's vacated position |
 
-Centre a replacement on B's former centre, using the actual dimensions of both tiles and adjusting only enough to keep C on the board. When B survives, use nearby space clear of B and other available items, allowing room for the new icon's name; leave the player's other placements intact. This keeps a newly made ingredient from concealing a different ingredient needed for the next operation. Search nearby free space before accepting an overlap; if exceptionally large tiles leave no clear position, retain the result within the board. This applies equally to text cards and icons, including drops between visited chapter panels. Logical chapter and hotspot placement follow the [specification](story-format-spec.md).
+Centre a replacement on B's former centre, using the actual dimensions of both tiles and adjusting only enough to keep C on the board.
+
+When B survives, try C at its four diagonal corners. Overlap by 10% of the smaller width horizontally and 10% of the smaller height vertically; use the containing rectangles even for circular objects. This small shared corner keeps the creation visibly connected to its parent while leaving both accessible. Choose a position entirely within the visible board and clear of other available items, preferring the result centre closest to the usable board centre. If no diagonal qualifies, try the four side-centred positions with the same 10% overlap along the joining axis and the same inward preference. If all eight positions are blocked, fit them within the board and choose the least total intersected area with other items, including B; break ties towards the centre. Keep the player's existing placements intact. Reserve top-edge room for the new icon's name without including floating names in the overlap rectangles. This applies equally to text cards and icons, including drops between visited chapter panels. Logical chapter and hotspot placement follow the [specification](story-format-spec.md).
 
 Compound installation adds the component to the existing compound, which stays in place even when it was the dragged item. Single-item hotspot operations create their result at the receiving hotspot's chapter and location.
 

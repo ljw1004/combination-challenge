@@ -25,27 +25,26 @@ export function placeAtCentre(centre: {x:number;y:number}, size: {width:number;h
   return {x,y};
 }
 
-/** Fill a retired receiver's space, or put a new result beside a surviving receiver. */
+/** Fill a retired receiver's space, or overlap a surviving receiver's corner.
+ * Occupied rectangles exclude the receiver, whose small overlap is deliberate. */
 export function placeCreation(receiver:BoardRect,result:{width:number;height:number},replace:boolean,bounds=referenceBoard,occupied:BoardRect[]=[]){
   const x=receiver.x+(receiver.width-result.width)/2,y=receiver.y+(receiver.height-result.height)/2;
   const fit=(position:{x:number;y:number})=>fitOnBoard(position.x,position.y,result.width,result.height,bounds);
   if(replace)return fit({x,y});
-  // Leave room above a newly created icon for its transient name.
-  const candidates=[
-    {x,y:receiver.y+receiver.height+28},
-    {x:receiver.x+receiver.width+12,y},
-    {x:receiver.x-result.width-12,y},
-    {x,y:receiver.y-result.height-28},
-  ].map(fit);
-  const apart=(p:{x:number;y:number},r:BoardRect)=>p.x+result.width<=r.x || r.x+r.width<=p.x || p.y+result.height<=r.y || r.y+r.height<=p.y;
-  const clear=(p:{x:number;y:number})=>apart(p,receiver)&&occupied.every(r=>apart(p,r));
-  const neighbour=candidates.find(clear);
+  const overlapX=.1*Math.min(receiver.width,result.width),overlapY=.1*Math.min(receiver.height,result.height);
+  const left=receiver.x-result.width+overlapX,right=receiver.x+receiver.width-overlapX;
+  const top=receiver.y-result.height+overlapY,bottom=receiver.y+receiver.height-overlapY;
+  const centrality=(p:{x:number;y:number})=>(p.x+result.width/2-bounds.x-bounds.width/2)**2+(p.y+result.height/2-bounds.y-bounds.height/2)**2;
+  const inward=(a:{x:number;y:number},b:{x:number;y:number})=>centrality(a)-centrality(b);
+  const diagonals=[{x:left,y:top},{x:right,y:top},{x:left,y:bottom},{x:right,y:bottom}].sort(inward);
+  const sides=[{x:left,y},{x:right,y},{x,y:top},{x,y:bottom}].sort(inward);
+  const overlap=(p:{x:number;y:number},r:BoardRect)=>Math.max(0,Math.min(p.x+result.width,r.x+r.width)-Math.max(p.x,r.x))*Math.max(0,Math.min(p.y+result.height,r.y+r.height)-Math.max(p.y,r.y));
+  const clear=(p:{x:number;y:number})=>p.x>=bounds.x&&p.y>=bounds.y&&p.x+result.width<=bounds.x+bounds.width&&p.y+result.height<=bounds.y+bounds.height&&occupied.every(r=>overlap(p,r)<=1e-6);
+  const neighbour=diagonals.find(clear)??sides.find(clear);
   if(neighbour)return neighbour;
-  // Search near the drop before falling back to an overlap. Only the new
-  // result moves; every surviving ingredient retains its settled position.
-  const edges=[receiver,...occupied];
-  const xs=[bounds.x,bounds.x+bounds.width-result.width,x,...edges.flatMap(r=>[r.x-result.width-12,r.x+r.width+12])];
-  const ys=[Math.max(bounds.y,65),bounds.y+bounds.height-result.height,y,...edges.flatMap(r=>[r.y-result.height-28,r.y+r.height+28])];
-  const spaces=xs.flatMap(x=>ys.map(y=>fit({x,y}))).sort((a,b)=>Math.abs(a.x-x)+Math.abs(a.y-y)-Math.abs(b.x-x)-Math.abs(b.y-y));
-  return spaces.find(clear)??candidates.find(p=>apart(p,receiver))??candidates[0];
+  // In a crowded scene, compare all eight positions by total intersected area,
+  // including the parent. Fit only here: clamping can enlarge its 10% overlap.
+  const crowded=[...diagonals,...sides].map(fit).map(position=>({position,area:[receiver,...occupied].reduce((sum,r)=>sum+overlap(position,r),0)}));
+  crowded.sort((a,b)=>a.area-b.area||inward(a.position,b.position));
+  return crowded[0].position;
 }

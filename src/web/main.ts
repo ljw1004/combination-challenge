@@ -638,7 +638,7 @@ function commit(action: Action) { try {
           token = state.tokens[born]; element = tile(born)!;
         }
         const centre = hotspot && (!receiver||isFixed(story,receiver)) ? hotspotCentre(fixedPresentation(token.chapter,hotspot), activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry().bounds) : undefined;
-        const occupied=availableTokens(state).filter(t=>t.id!==born&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
+        const occupied=availableTokens(state).filter(t=>t.id!==born&&t.id!==receiver?.id&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
         const creationBounds=iconNames.creationBounds(element,boardGeometry().bounds);
         const position=preferred ?? (receivingRect&&receiver
           ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',creationBounds,occupied)

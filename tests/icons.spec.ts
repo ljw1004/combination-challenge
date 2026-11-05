@@ -178,11 +178,11 @@ Make the construction.
 - Input
   - icon: ![input](assets/window.svg)
 - Receiver
-  - icon: ![receiver](assets/mat.svg)
+  - icon: ![receiver](assets/mat.svg)${kind==='preserve'?' (circular)':''}
 - ${resultName}
-  - icon: ![result](assets/house-large.svg)
+  - icon: ![result](assets/house-large.svg)${kind==='protected'?' (circular)':''}
 **Combinations**
-- Input [transform] + Receiver [${kind==='protected'?'transform':kind}] -> ${resultName}
+- Input [${kind==='preserve'?'preserve':'transform'}] + Receiver [${kind==='protected'?'transform':kind}] -> ${resultName}
 ${kind==='protected'?`## Later
 ![room](assets/background.svg)
 **Goals**
@@ -201,13 +201,20 @@ ${kind==='protected'?`## Later
     const board=(await page.locator('.chapter-panel').boundingBox())!,scale=board.width/390,initial=(await receiver.boundingBox())!;
     await page.mouse.move(initial.x+5,initial.y+7);await page.mouse.down();
     await page.mouse.move(kind==='consume'?board.x+board.width-2:board.x+300*scale,kind==='consume'?board.y+board.height-2:board.y+530*scale,{steps:5});await page.mouse.up();
-    const target=(await receiver.boundingBox())!;
-    await input.dragTo(receiver);await expect(result).toBeVisible();await expect(input).toHaveCount(0);
+    const target=(await receiver.boundingBox())!,source=(await input.boundingBox())!;
+    await input.dragTo(receiver);await expect(result).toBeVisible();
+    if(kind==='preserve')expect(await input.boundingBox()).toEqual(source);
+    else await expect(input).toHaveCount(0);
     const created=(await result.boundingBox())!,survives=kind==='preserve'||kind==='protected';
     if(survives){
       expect(await receiver.boundingBox()).toEqual(target);
-      expect(created.x+created.width<=target.x+.1||created.x>=target.x+target.width-.1||created.y+created.height<=target.y+.1||created.y>=target.y+target.height-.1).toBe(true);
-      expect(Math.hypot(created.x+created.width/2-target.x-target.width/2,created.y+created.height/2-target.y-target.height/2)).toBeLessThan(200*scale);
+      const overlapX=Math.min(created.x+created.width,target.x+target.width)-Math.max(created.x,target.x);
+      const overlapY=Math.min(created.y+created.height,target.y+target.height)-Math.max(created.y,target.y);
+      // Layout dimensions use integer offset sizes; rendered cards can be fractional.
+      expect(overlapX).toBeCloseTo(.1*Math.min(created.width,target.width),0);
+      expect(overlapY).toBeCloseTo(.1*Math.min(created.height,target.height),0);
+      expect(created.x).toBeLessThan(target.x);
+      expect(created.y).toBeLessThan(target.y);
     }else{
       await expect(receiver).toHaveCount(0);
       expect(created.x).toBeCloseTo(Math.max(board.x,Math.min(board.x+board.width-created.width,target.x+(target.width-created.width)/2)),0);
@@ -531,7 +538,6 @@ test('Settlement carries exact placements into chapter two when no primitives ar
   await page.mouse.move(318,510,{steps:6});await page.mouse.up();
   await item('Earth').dragTo(item('Fire'));
   await expect(item('Stone')).toBeVisible();
-  expect(await item('Stone').evaluate(el=>(el as HTMLElement).offsetLeft)).toBeGreaterThan(300);
   await item('Earth').dragTo(item('Water'));
   await item('Clay').dragTo(item('Fire'));
   await expect(item('Brick')).toBeVisible();
