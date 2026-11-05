@@ -1,0 +1,90 @@
+[
+  {
+    "step": 1,
+    "reason": "Cooling the lava and rock directly addresses the goal of making the surface able to retain liquid water.",
+    "choice": 3,
+    "expectation": "I expect the surface to lose heat and produce cooler rock, though it may need further cooling.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cool air could help make rain, but I want to cool the surface first so water can stay."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cool rock can retain liquid water, so the remaining goal is to make rain.",
+    "reaction": "The contrast between cool rock and nearby lava makes the uneven cooling clear.",
+    "step": 2,
+    "reason": "This is the only offered combination and should advance the rain goal.",
+    "choice": 1,
+    "expectation": "I expect water vapor to condense in the cooler air, perhaps forming clouds or rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Condensation formed clouds; the remaining step is to bring their water to the ground.",
+    "reaction": "The distinction between clouds and a surface sea is useful.",
+    "step": 3,
+    "reason": "This is the only offered combination and should produce rain.",
+    "choice": 1,
+    "expectation": "I expect gravity to bring water from the clouds down as rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain is falling, but some can evaporate or boil, so I should direct it onto cool rock.",
+    "reaction": "The possibility of rain evaporating before reaching the ground adds a useful complication.",
+    "step": 4,
+    "reason": "Cool rock can retain liquid water, unlike the nearby lava.",
+    "choice": 2,
+    "expectation": "I expect some rain to reach the cool rock and remain liquid, though some may evaporate on the way.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Rain on hot lava could show the contrasting boiling process, but it seems less useful for retaining water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain remains liquid on cool rock, completing the chapter and making accumulation possible.",
+    "reaction": "It is satisfying to see the earlier cooling choice pay off.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Cooling the surface and then directing rain onto it made the conditions for liquid water clear.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making clouds and then rain felt fairly predictable, especially with only one combination offered each time.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Rain could evaporate in hot air or boil on lava even while nearby cool rock could retain it.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the offered combinations had clear purposes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how retained rain accumulates into a sea; the contrast between neighboring hot and cool surfaces was engaging.",
+        "steps": [
+          1,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,161 @@
+[
+  {
+    "step": 1,
+    "reason": "The chapter points to compression and changing fuel in the stellar core, but the first pairing is not certain. Inspecting the core hydrogen should reveal where to start.",
+    "choice": {
+      "inspect": "Hydrogen nuclei in the stellar core"
+    },
+    "expectation": "The inspection should show which available object advances hydrogen fusion in the star.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Hydrogen nuclei in the stellar core",
+          "with": "Compression in the stellar core"
+        },
+        "reason": "Compression may initiate the next stage, but its role is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen fusion has produced a helium-rich core; compression is a plausible next step toward the next fuel stage.",
+    "reaction": "The automatic combination clarified that the core changes within the same star.",
+    "step": 2,
+    "reason": "Compressing the helium-rich core may raise its temperature enough for helium fusion.",
+    "choice": {
+      "combine": "A helium-rich stellar core",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "The core will contract and advance toward helium fusion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression produced a helium-burning core, setting up the next fusion stage.",
+    "reaction": "The distinction between contraction-driven heating and ordinary chemical heat is useful.",
+    "step": 3,
+    "reason": "Inspecting the helium-burning core will identify what advances it, since the next pairing is not clear.",
+    "choice": {
+      "inspect": "A helium-burning core"
+    },
+    "expectation": "The inspection will reveal a partner for advancing stellar fusion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Helium burning produced carbon-rich stellar material through the triple-alpha process.",
+    "reaction": "The unstable intermediate makes the formation of carbon more interesting than a simple pairing suggests.",
+    "step": 4,
+    "reason": "Further compression may heat the carbon-rich material enough to begin the next fusion stage.",
+    "choice": {
+      "combine": "Carbon-rich stellar material",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "Compression will advance the carbon-rich core toward carbon burning.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression advanced the carbon-rich material into carbon-burning layers, producing several elements through different reaction channels.",
+    "reaction": "The multiple reaction products make this stage more complex than a single linear chain.",
+    "step": 5,
+    "reason": "The next pairing is not obvious, so inspecting the carbon-burning layers should identify how to advance.",
+    "choice": {
+      "inspect": "Carbon-burning layers"
+    },
+    "expectation": "The inspection will reveal a partner for the next stage of the stellar interior.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression advanced the star through neon and oxygen burning, producing oxygen-burning layers and heavier nuclei.",
+    "reaction": "The continuing surrounding shells help explain the layered interior.",
+    "step": 6,
+    "reason": "Further compression has advanced the previous burning stages and may do so again.",
+    "choice": {
+      "combine": "Oxygen-burning layers",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "Further heating will advance the stellar interior toward silicon burning.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Further compression produced silicon-burning material, where reactions move nuclei toward the iron group.",
+    "reaction": "The reaction network is more complex than a simple silicon fusion pair.",
+    "step": 7,
+    "reason": "Compression has advanced the preceding burning stages and may bring this material to the iron-rich endpoint.",
+    "choice": {
+      "combine": "Silicon-burning material",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "Further compression will advance silicon burning toward an iron-rich core.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression produced an iron-group core and completed the fusion-support goal; the layered interior goal remains.",
+    "reaction": "The loss of energy-producing fusion makes the approach to collapse clear.",
+    "step": 8,
+    "reason": "The iron-group core may have a remaining operation that completes the layered interior, so I will check its partners.",
+    "choice": {
+      "inspect": "An iron-group core"
+    },
+    "expectation": "The inspection will show how the core contributes to the layered star.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The iron-group core has no available combinations, so I need to work with the remaining layers instead.",
+    "reaction": "That rules out the core as the next step.",
+    "step": 9,
+    "reason": "The carbon-burning and oxygen-burning layers are plausible components of the layered interior.",
+    "choice": {
+      "combine": "Carbon-burning layers",
+      "with": "Oxygen-burning layers"
+    },
+    "expectation": "Combining the burning layers will help assemble the layered stellar interior.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Combining the carbon- and oxygen-burning layers completed the layered interior and the chapter; the shells represent coexisting reactions within one star.",
+    "reaction": "The onion metaphor was a satisfying way to bring the separate stages together, especially with the clarification that the shells are not chemically pure.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making carbon through helium burning was most worthwhile: the triple-alpha explanation showed why the apparent two-piece combination represents a more complicated process.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the iron-group core was least useful for progress: it had no available combinations, although that ruled out one possible route.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "I was struck that different burning regions can coexist in one star, rather than each new stage simply replacing all the earlier ones.",
+        "steps": [
+          5,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The neutral helium pairing was not obvious to me before inspecting the helium-burning core, though the triple-alpha explanation gave it a clear purpose afterward.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the iron-group core leads toward collapse; the chapter made the physical stages and their limits interesting.",
+        "steps": [
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

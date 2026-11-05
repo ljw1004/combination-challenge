@@ -1,0 +1,200 @@
+[
+  {
+    "step": 1,
+    "reason": "Sunlight can drive evaporation from the sea, starting the fresh-water cycle.",
+    "choice": {
+      "combine": "Sunlight",
+      "with": "An accumulating early sea"
+    },
+    "expectation": "Water should evaporate from the sea, leaving dissolved minerals behind.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation has begun, leaving dissolved minerals behind; the water can now cool and condense.",
+    "reaction": "The separation of water from dissolved minerals is a satisfying start to the cycle.",
+    "step": 2,
+    "reason": "Cooler air should help the evaporated water condense.",
+    "choice": {
+      "combine": "Water evaporating from the sea",
+      "with": "Cooler air high above the surface"
+    },
+    "expectation": "The water vapor should condense into cloud droplets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The evaporated water has condensed into a cloud, continuing the fresh-water cycle.",
+    "reaction": "The distinction between seawater and the droplets is useful.",
+    "step": 3,
+    "reason": "Wind may carry the cloud toward the rocky rise, where it could produce rain.",
+    "choice": {
+      "combine": "A cloud made from seawater",
+      "with": "Wind across the water"
+    },
+    "expectation": "The cloud should move toward the coast.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "A cloud made from seawater",
+          "with": "A rocky rise behind the shore"
+        },
+        "reason": "The rise might instead be the direct trigger for rainfall."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wind has carried the cloud over land, where the rocky rise may help produce rain.",
+    "reaction": "The transport step makes the connection between sea evaporation and inland rain clear.",
+    "step": 4,
+    "reason": "The rocky rise could lift the moist air and encourage rainfall.",
+    "choice": {
+      "combine": "A cloud carried over land",
+      "with": "A rocky rise behind the shore"
+    },
+    "expectation": "The cloud should produce rain over the rise.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain has fallen on the rise; the slope can now carry fresh water back toward the shore.",
+    "reaction": "The uplift provides a clear reason for rain to fall inland.",
+    "step": 5,
+    "reason": "Runoff should follow the slope toward the basin and shore.",
+    "choice": {
+      "combine": "Rain on the rocky rise",
+      "with": "A slope toward a broad basin"
+    },
+    "expectation": "Fresh rainwater should flow downhill toward the shore.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stream completes the fresh-water return; moonlight is the remaining goal.",
+    "reaction": "It is satisfying to see the water cycle return to the sea.",
+    "step": 6,
+    "reason": "The Moon reflects sunlight, which should provide the moonlight needed for the remaining goal.",
+    "choice": {
+      "combine": "Sunlight",
+      "with": "The Moon with a pale early crust"
+    },
+    "expectation": "Sunlight reflected by the Moon should produce moonlight.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Reflected sunlight is available to illuminate the water.",
+    "reaction": "The distinction between reflected sunlight and the Moon's formation heat is useful.",
+    "step": 7,
+    "reason": "The sheltered pools offer a still surface for the reflected light.",
+    "choice": {
+      "combine": "Sunlight reflected by the Moon",
+      "with": "Pools left behind by the tide"
+    },
+    "expectation": "Moonlight should appear in the still pools.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Reflected sunlight cannot currently be combined with the pools, so another step may be needed.",
+    "reaction": "I was surprised the direct pairing did not work.",
+    "step": 8,
+    "reason": "The cooling night may reveal how to set up moonlight on the water.",
+    "choice": {
+      "inspect": "A cooling night above the coast"
+    },
+    "expectation": "Its available partners should indicate how to prepare the nighttime scene.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Pools left behind by the tide"
+        },
+        "reason": "The pools might also reveal what they need."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically made a still pool at night, providing a better setting for the moonlight goal.",
+    "reaction": "The nighttime preparation explains why the earlier direct pairing failed.",
+    "step": 9,
+    "reason": "The Moon may now illuminate the prepared pool directly.",
+    "choice": {
+      "combine": "The Moon with a pale early crust",
+      "with": "A still pool at night"
+    },
+    "expectation": "Moonlight should appear in the still pool.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "A still pool at night"
+        },
+        "reason": "I could check its available partners if the direct pairing is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon cannot currently be combined directly with the still pool, so I need to check the pool's available partners.",
+    "reaction": "The second failed direct pairing is puzzling.",
+    "step": 10,
+    "reason": "Inspecting the prepared pool should reveal the required next step.",
+    "choice": {
+      "inspect": "A still pool at night"
+    },
+    "expectation": "The pool's compatibility list should indicate how to complete the moonlight scene.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the still pool automatically combined it with reflected sunlight, completing the moonlight goal and the chapter.",
+    "reaction": "The reflection is a satisfying ending, though I remain puzzled that the earlier direct pairing failed.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following evaporation through inland rain to a stream made the water cycle and its separation from dissolved minerals clear.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two failed attempts to put moonlight on the water were repetitive and puzzling.",
+        "steps": [
+          7,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "The reflected sunlight could combine with the prepared pool when the pool was inspected, despite the earlier direct attempt failing.",
+        "steps": [
+          7,
+          8,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "Needing to prepare a still pool at night made sense, but the failed direct pairings left the precise compatibility rules unclear.",
+        "steps": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "continue": {
+        "text": "Yes. The connected natural processes and concise explanations made discovery worthwhile, despite the confusing final pairings.",
+        "steps": [
+          1,
+          4,
+          5,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

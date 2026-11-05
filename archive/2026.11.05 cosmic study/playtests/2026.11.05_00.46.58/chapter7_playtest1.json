@@ -1,0 +1,179 @@
+[
+  {
+    "step": 1,
+    "reason": "The dust grains provide surfaces for the cold chemistry, but the first fitting is not clear from the board.",
+    "choice": {
+      "inspect": "Mixed interstellar dust"
+    },
+    "expectation": "Inspection should show which available ingredient can begin building icy grain mantles.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mixed interstellar dust",
+          "with": "A shielded cold interior"
+        },
+        "reason": "The shielded interior seems likely to cool the grains, but their available partners are uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dust has joined the enriched gas, creating a cloud that can shield its interior.",
+    "reaction": "The automatic combination made the next stage clearer.",
+    "step": 2,
+    "reason": "The shielded cold interior appears to be the natural next setting for the dusty cloud's ice-forming chemistry.",
+    "choice": {
+      "combine": "A dusty interstellar cloud",
+      "with": "A shielded cold interior"
+    },
+    "expectation": "The cloud should develop a cold, shielded region where grain chemistry can proceed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shielded cloud produced cold dust surfaces that can hold atoms and molecules, setting up grain chemistry.",
+    "reaction": "The connection between shielding and retained molecules is useful.",
+    "step": 3,
+    "reason": "Reactive oxygen atoms can adsorb onto the cold grain surfaces, a plausible first step toward water ice.",
+    "choice": {
+      "combine": "Cold dust surfaces",
+      "with": "Reactive oxygen atoms"
+    },
+    "expectation": "Oxygen atoms should attach to the cold dust surfaces, making them available for further reactions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen is now attached to a grain, providing a surface for reactions with hydrogen.",
+    "reaction": "The grain's role as a meeting place is clearer.",
+    "step": 4,
+    "reason": "Reactive hydrogen can meet the adsorbed oxygen on the grain, advancing toward water ice.",
+    "choice": {
+      "combine": "Oxygen on a grain",
+      "with": "Reactive hydrogen atoms"
+    },
+    "expectation": "Hydrogen should react with the oxygen on the grain, producing a water-related molecule.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first hydrogen reaction formed hydroxyl; the result identifies another hydrogen atom as the next requirement for water.",
+    "reaction": "The intermediate makes the two-stage reaction clear.",
+    "step": 5,
+    "reason": "Hydroxyl needs another hydrogen atom to become water.",
+    "choice": {
+      "combine": "Hydroxyl on a grain",
+      "with": "Reactive hydrogen atoms"
+    },
+    "expectation": "Hydrogen should react with the hydroxyl to form water on the grain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding hydrogen formed water ice on the grain and completed the icy-mantle goal. The remaining goal is to gather a cold molecular cloud.",
+    "reaction": "The stepwise formation of water on a grain was satisfying and clear.",
+    "step": 6,
+    "reason": "The ice-mantled dust and dusty interstellar cloud seem like the most relevant pieces for gathering the cold cloud, though this is a guess.",
+    "choice": {
+      "combine": "Ice-mantled dust",
+      "with": "A dusty interstellar cloud"
+    },
+    "expectation": "The icy grains may help establish a cold molecular cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ice-mantled dust has no available combination, so I need another route to the cold molecular cloud.",
+    "reaction": "That guess did not work.",
+    "step": 7,
+    "reason": "The dusty cloud is a plausible starting point for the remaining goal, but its next partner is unclear.",
+    "choice": {
+      "inspect": "A dusty interstellar cloud"
+    },
+    "expectation": "Inspection should reveal whether the cloud can combine with an available ingredient.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Neutral hydrogen"
+        },
+        "reason": "Hydrogen may also have a role in forming the molecular cloud."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dusty cloud has no available combinations, so the remaining goal needs another starting point.",
+    "reaction": "That rules out another plausible route.",
+    "step": 8,
+    "reason": "Neutral hydrogen is the remaining visible ingredient most directly related to making a molecular cloud; its available partner is unclear.",
+    "choice": {
+      "inspect": "Neutral hydrogen"
+    },
+    "expectation": "Inspection should reveal how hydrogen can contribute to the cold molecular cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen combined on cold dust surfaces to form hydrogen molecules, suggesting a route toward the molecular cloud.",
+    "reaction": "The contrast with dust-free first-star chemistry is interesting.",
+    "step": 9,
+    "reason": "The newly formed hydrogen molecules and dusty cloud are plausible ingredients for the remaining goal.",
+    "choice": {
+      "combine": "Hydrogen molecules on dust",
+      "with": "A dusty interstellar cloud"
+    },
+    "expectation": "The hydrogen molecules may join the dusty cloud to form a cold molecular cloud.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Hydrogen molecules on dust"
+        },
+        "reason": "Inspection could reveal its next partner if the cloud is not compatible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen molecules joined the dusty cloud to form a cold molecular cloud, completing the remaining goal.",
+    "reaction": "It was satisfying to see the ice and molecular-hydrogen routes converge in a cold nursery.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building water step by step on a grain was most worthwhile: the hydroxyl intermediate clarified how the surface helps atoms meet and water ice form.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the ice-mantled dust with the cloud and then inspecting the cloud was a little repetitive; neither revealed a usable next operation.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that cold dust surfaces also helped hydrogen molecules form, a different route from the dust-free chemistry of the first stars.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The ice-mantled dust could not combine with the cloud despite seeming relevant to gathering it; that restriction was not clear from the result.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to follow the cold cloud toward a planetary system, especially after seeing how grain surfaces help make water and molecular hydrogen.",
+        "steps": [
+          5,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

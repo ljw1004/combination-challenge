@@ -1,0 +1,186 @@
+[
+  {
+    "step": 1,
+    "reason": "The disk and hot inner orbits are the clearest starting point for tracing its rocky inner region.",
+    "choice": {
+      "combine": "A planet-forming solar disk",
+      "with": "Hot inner orbits"
+    },
+    "expectation": "This should identify or produce material in the hot inner disk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disk combined with the young Sun instead, producing a hot inner region; I can now follow the rocky material through it.",
+    "reaction": "The automatic pairing clarified the heating source after my initial guess failed.",
+    "step": 2,
+    "reason": "Rock-forming dust is the natural material to expose to the newly heated inner disk.",
+    "choice": {
+      "combine": "A disk with a hot inner region",
+      "with": "Rock-forming dust"
+    },
+    "expectation": "The dust should be altered by the inner disk's heat, advancing the rocky mixture goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hot inner region combined with hot inner orbits, producing vapor from evaporated grains; the rocky material needs to cool again.",
+    "reaction": "The evaporation step clarified how inherited dust can be reprocessed.",
+    "step": 3,
+    "reason": "Radiation escaping into space is the available cooling mechanism, so it may let the vapor condense into solids.",
+    "choice": {
+      "combine": "Hot inner-disk vapor",
+      "with": "Radiation escaping into space"
+    },
+    "expectation": "Cooling should condense the vapor into inner-disk rocky material.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Hot inner-disk vapor"
+        },
+        "reason": "I could check its partners first, but cooling is a plausible next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cooling the vapor produced refractory mineral grains, providing a component for the inner disk’s rocky mixture.",
+    "reaction": "The condensation step makes the contrast with ice preservation clearer.",
+    "step": 4,
+    "reason": "Iron-bearing metal grains are a plausible companion to the newly condensed minerals in a rocky mixture.",
+    "choice": {
+      "combine": "Refractory mineral grains",
+      "with": "Iron-bearing metal grains"
+    },
+    "expectation": "The mineral and metal grains should form an inner-disk rocky mixture.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The refractory grains joined rock-forming dust to make a rocky aggregate; metal was not the required partner.",
+    "reaction": "The mixed heating histories are an interesting detail, though my pairing was wrong.",
+    "step": 5,
+    "reason": "Brief intense heating is the remaining visible process likely to alter the rocky aggregate; I’m guessing it advances the inner-disk mixture.",
+    "choice": {
+      "combine": "A rocky dust aggregate",
+      "with": "Brief intense heating"
+    },
+    "expectation": "Heating may transform the aggregate into another component of the rocky mixture.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "A rocky dust aggregate"
+        },
+        "reason": "Checking its partners would avoid another uncertain pairing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Brief heating turned the rocky aggregate into molten droplets; cooling them is the likely next step.",
+    "reaction": "Leaving the disputed heating mechanism open is a useful distinction.",
+    "step": 6,
+    "reason": "Radiation escaping into space cooled the earlier vapor, so it is a plausible way to solidify these droplets too.",
+    "choice": {
+      "combine": "Molten rocky droplets",
+      "with": "Radiation escaping into space"
+    },
+    "expectation": "The droplets should cool into solid rocky grains.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cooling solidified the droplets into chondrules, which can now be combined with other inner-disk material.",
+    "reaction": "Their textures preserving evidence of heating and cooling is a useful detail.",
+    "step": 7,
+    "reason": "Iron-bearing metal grains are a plausible remaining ingredient for a rocky mixture containing chondrules.",
+    "choice": {
+      "combine": "Cooled chondrules",
+      "with": "Iron-bearing metal grains"
+    },
+    "expectation": "The chondrules and metal grains should form an inner-disk rocky mixture.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chondrules and metal formed the rocky mixture, completing the inner-disk goal. The remaining goal concerns ice in the outer disk.",
+    "reaction": "The distinction between assembled ingredients and a formed planet is useful.",
+    "step": 8,
+    "reason": "Ice-mantled dust and cold outer orbits are the clearest available pairing for storing ice beyond the snow line.",
+    "choice": {
+      "combine": "Ice-mantled dust",
+      "with": "Cold outer orbits"
+    },
+    "expectation": "The cold outer region should retain ice on the dust.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ice sublimated in hot inner orbits, leaving water vapor; the outer-disk goal remains.",
+    "reaction": "I expected the cold-orbit pairing to work, but the automatic result showed what happens to ice in the warm region.",
+    "step": 9,
+    "reason": "The water vapor may freeze again in cold outer orbits, advancing the remaining goal.",
+    "choice": {
+      "combine": "Water vapor in warm orbits",
+      "with": "Cold outer orbits"
+    },
+    "expectation": "Water should condense or freeze in the colder outer region.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water vapor became recondensed outer-disk ice, but the ice-storage goal has not yet been marked complete.",
+    "reaction": "The transport and recondensation of water adds a useful step to the picture.",
+    "step": 10,
+    "reason": "Inspecting the recondensed ice should reveal how to finish the remaining goal.",
+    "choice": {
+      "inspect": "Recondensed outer-disk ice"
+    },
+    "expectation": "Its available partners should show how the ice is stored beyond the snow line.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the recondensed ice automatically combined it with inherited ice-mantled dust, completing the outer-disk goal and the chapter.",
+    "reaction": "The final pairing nicely brought inherited and reprocessed ice together.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Heating the rocky aggregate and cooling the droplets into chondrules was most worthwhile: their textures preserve evidence of rapid heating and cooling, while the story acknowledges that the heating mechanism is disputed.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial hot-disk pairings were a little confusing: both guesses were redirected automatically to different partners, making the required sequence less clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Trying to put ice directly in cold outer orbits instead sent it through warm orbits and sublimation; the vapor then recondensed farther out.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The required detour through warm orbits felt somewhat arbitrary when cold outer orbits were already available, although it illustrated water reprocessing.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the contrast between inherited ice and material reprocessed in the disk made me curious how those ingredients become a world.",
+        "steps": [
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

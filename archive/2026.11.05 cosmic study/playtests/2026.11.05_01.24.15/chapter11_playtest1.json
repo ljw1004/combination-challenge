@@ -1,0 +1,166 @@
+[
+  {
+    "step": 1,
+    "reason": "Radioactive heating is the chapter’s stated mechanism for changing young bodies’ interiors, so I’ll start with a rocky planetesimal.",
+    "choice": {
+      "combine": "Rocky planetesimals",
+      "with": "Heat from short-lived radionuclides"
+    },
+    "expectation": "The heating should warm or melt a rocky body, beginning the separation of its materials.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rocky planetesimal has melted, making gravity-driven separation a plausible next step.",
+    "reaction": "The distinction that not all asteroids melt is useful.",
+    "step": 2,
+    "reason": "Gravity can separate dense metal from lighter rock inside a molten body.",
+    "choice": {
+      "combine": "A melting rocky planetesimal",
+      "with": "A rocky body’s gravity"
+    },
+    "expectation": "The body should differentiate into metal-rich and rocky layers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity separated metal from silicate, producing a differentiated small world.",
+    "reaction": "It is interesting that differentiation can happen before Earth finishes growing.",
+    "step": 3,
+    "reason": "Collisions could break the differentiated body and expose its stone and metal.",
+    "choice": {
+      "combine": "A small world with a metal core",
+      "with": "Collisions between small bodies"
+    },
+    "expectation": "The collision should expose fragments from the body's rocky and metallic layers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision exposed metal from the core; the goal may also require rocky fragments.",
+    "reaction": "The link to iron meteorites is interesting.",
+    "step": 4,
+    "reason": "Heating the icy planetesimals should begin the other goal's route toward water-altered rock.",
+    "choice": {
+      "combine": "Icy planetesimals",
+      "with": "Heat from short-lived radionuclides"
+    },
+    "expectation": "Radioactive heating should melt some ice within an icy body.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Fragments of an asteroid core"
+        },
+        "reason": "I could check whether the core fragments have a further role in exposing stone and metal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Internal heating produced liquid water confined within the icy body, ready to interact with rock.",
+    "reaction": "The possibility of liquid water beneath a frozen exterior is interesting.",
+    "step": 5,
+    "reason": "Water reacting with silicate grains is a plausible way to form water-altered rock.",
+    "choice": {
+      "combine": "Liquid water inside an icy body",
+      "with": "Silicate grains"
+    },
+    "expectation": "The water and silicates should form hydrated minerals that retain water in rock.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water reacting with silicates produced hydrated asteroid rock and completed the water-retention goal.",
+    "reaction": "It is useful to see how hydrogen can remain in rock after exposed ice is gone.",
+    "step": 6,
+    "reason": "The remaining goal also mentions stone, so I’ll check what further collisions can expose.",
+    "choice": {
+      "inspect": "Collisions between small bodies"
+    },
+    "expectation": "The compatibility report may identify a body that can yield rocky fragments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Collisions currently have no available operations, so another route must complete the remaining goal.",
+    "reaction": "That is surprising after the collision exposed the core.",
+    "step": 7,
+    "reason": "The exposed core fragments may have a remaining partner that reveals how to complete the stone-and-metal goal.",
+    "choice": {
+      "inspect": "Fragments of an asteroid core"
+    },
+    "expectation": "The compatibility report may identify the material needed to complete the goal.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The core fragments have no available operation, so the remaining goal likely needs another material.",
+    "reaction": "I’m unsure how to expose the stone after the collision.",
+    "step": 8,
+    "reason": "The differentiated world may have another available operation that produces rocky material.",
+    "choice": {
+      "inspect": "A small world with a metal core"
+    },
+    "expectation": "Its compatibility report may reveal a way to expose stone.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The differentiated body cooled and solidified, revealing a likely route to exposing its rocky exterior.",
+    "reaction": "Cooling before exposing the stone makes sense.",
+    "step": 9,
+    "reason": "A collision may break the cooled asteroid and expose its rocky material.",
+    "choice": {
+      "combine": "A cooled differentiated asteroid",
+      "with": "Collisions between small bodies"
+    },
+    "expectation": "The collision should expose rocky fragments from the asteroid's exterior.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision exposed the cooled asteroid’s rocky layers and completed the remaining goal, alongside the previously exposed core fragments.",
+    "reaction": "It was satisfying to finish both sides of the differentiated body’s story.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making water-bearing asteroid rock showed how water–rock reactions can retain hydrogen even after exposed ice is gone, a useful connection to Earth’s volatile inventory.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the collision and core fragments was unproductive: neither had an available operation, leaving the cooling step unclear.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the differentiated world needed to cool before a collision could expose its rocky layers; the earlier collision had already exposed its core.",
+        "steps": [
+          3,
+          8,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to cool the asteroid before obtaining rocky fragments was physically understandable once revealed, but it was not obvious from the remaining goal.",
+        "steps": [
+          6,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would choose to continue to see how these different materials contribute to a growing Earth; the water–rock chemistry was particularly interesting.",
+        "steps": [
+          5,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

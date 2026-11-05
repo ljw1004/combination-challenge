@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The chapter says rising melt releases dissolved volatiles, so this looks like a direct route toward the steam-rich atmosphere.",
+    "choice": {
+      "combine": "Volatiles dissolved in Earth’s melt",
+      "with": "Falling pressure in rising melt"
+    },
+    "expectation": "Lower pressure should let dissolved gases escape from the melt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lower pressure has released volatiles into bubbles; the next likely step is getting that gas into the atmosphere.",
+    "reaction": "The distinction between releasing volatiles and creating hydrogen is useful.",
+    "step": 2,
+    "reason": "I expect the bubbles to rise through the remade Earth’s molten material and contribute to its atmosphere.",
+    "choice": {
+      "combine": "Gas bubbles separating from melt",
+      "with": "Earth remade by falling debris"
+    },
+    "expectation": "The released gases should collect above the planet as an atmosphere.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Gas bubbles separating from melt"
+        },
+        "reason": "I could check the bubbles’ available partners first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bubbles have no available combination, so my proposed direct route to an atmosphere was wrong.",
+    "reaction": "That is surprising; I need to find the next available stage.",
+    "step": 3,
+    "reason": "Inspecting the remade Earth should reveal how to proceed with its cooling or outgassing.",
+    "choice": {
+      "inspect": "Earth remade by falling debris"
+    },
+    "expectation": "The inspection will show available partners for the planet, possibly including a way to release or collect gas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Convection transformed the remade Earth into upwelling rock, suggesting a route toward the cooling surface.",
+    "reaction": "The automatic combination clarified the next stage.",
+    "step": 4,
+    "reason": "The upwelling rock loses energy to space, which should help it cool and form solid surface rock.",
+    "choice": {
+      "combine": "Upwelling rock on the hot Earth",
+      "with": "Radiation escaping into space"
+    },
+    "expectation": "Heat loss should cool the upwelling rock and produce a solid surface layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Heat loss formed a young basaltic crust, advancing the solid-rock side of the coast goal.",
+    "reaction": "The contrast between the cooled crust and hotter material below is useful.",
+    "step": 5,
+    "reason": "The coast goal calls for both lava and solid rock, so the crust and upwelling rock look like a plausible pair.",
+    "choice": {
+      "combine": "A young basaltic crust",
+      "with": "Upwelling rock on the hot Earth"
+    },
+    "expectation": "Upwelling melt should meet the basaltic crust to form a lava-and-rock coast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Convection cracked the basaltic crust, creating routes for later water rather than the coast I expected.",
+    "reaction": "The compatibility feedback usefully revealed the next stage.",
+    "step": 6,
+    "reason": "Inspecting the cracked crust should identify its available partner without guessing another coast recipe.",
+    "choice": {
+      "inspect": "A cracked volcanic crust"
+    },
+    "expectation": "The inspection will show how the cracked crust can contribute to the coast or another goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cracked crust combined with upwelling rock to complete the lava-and-rock coast; the steam-rich atmosphere remains.",
+    "reaction": "It is satisfying that the coast combines hot lava and solid crust side by side.",
+    "step": 7,
+    "reason": "The bubbles had no available operation earlier, but the new surface may have opened a route for outgassing.",
+    "choice": {
+      "inspect": "Gas bubbles separating from melt"
+    },
+    "expectation": "The inspection will reveal whether the bubbles can now contribute to the atmosphere.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The bubbles escaped through upwelling rock to form volcanic gas plumes, providing a route toward the atmosphere.",
+    "reaction": "The connection between upwelling and gas release is clearer now.",
+    "step": 8,
+    "reason": "Gravity can retain volcanic gases around the planet, making it a plausible next step toward an atmosphere.",
+    "choice": {
+      "combine": "Volcanic gas plumes",
+      "with": "A rocky body’s gravity"
+    },
+    "expectation": "Gravity should help retain the released gases as an atmosphere.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity retained released gases as a steam-rich atmosphere, completing the chapter’s remaining goal.",
+    "reaction": "The progression from dissolved volatiles to bubbles, plumes and atmosphere made outgassing clearer.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the volatiles from melt into an atmosphere was worthwhile: it showed that outgassing releases existing material rather than creating water’s hydrogen.",
+        "steps": [
+          1,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to combine the bubbles directly with Earth was unproductive; they had no available operation at that point.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The bubbles initially could not combine with anything, but became usable with upwelling rock after the surface sequence.",
+        "steps": [
+          2,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial lack of any bubble operation felt a little opaque; it was not clear why upwelling had to be established first.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the steam-rich atmosphere and fractured crust lead to rain and a shore; the linked physical processes were interesting.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,189 @@
+[
+  {
+    "step": 1,
+    "reason": "Sunlight can drive evaporation from the sea, starting the return of fresh water to shore.",
+    "choice": {
+      "combine": "Sunlight",
+      "with": "An accumulating early sea"
+    },
+    "expectation": "Solar heating will move seawater into the air as water vapor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation leaves most dissolved minerals behind, so the water can continue through the air toward the shore.",
+    "reaction": "The separation of water from dissolved minerals is a useful detail.",
+    "step": 2,
+    "reason": "Cooler air should help the evaporated water condense into clouds.",
+    "choice": {
+      "combine": "Water evaporating from the sea",
+      "with": "Cooler air high above the surface"
+    },
+    "expectation": "Water vapor will condense into cloud droplets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The evaporated seawater has condensed into a cloud, ready to move toward land.",
+    "reaction": "The distinction between the water and the sea’s dissolved minerals is clear.",
+    "step": 3,
+    "reason": "Wind can carry the cloud toward the shore.",
+    "choice": {
+      "combine": "A cloud made from seawater",
+      "with": "Wind across the water"
+    },
+    "expectation": "The cloud will move inland toward the coast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wind has carried the cloud over land, positioning it to bring water back to the shore.",
+    "reaction": "The connection between sea evaporation and inland moisture is clear.",
+    "step": 4,
+    "reason": "The rocky rise may lift the cloud and encourage rainfall.",
+    "choice": {
+      "combine": "A cloud carried over land",
+      "with": "A rocky rise behind the shore"
+    },
+    "expectation": "Air rising over the rock will cool and produce rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cloud has produced rain on the rocky rise, ready to flow back toward the shore.",
+    "reaction": "The rising-air explanation makes the rainfall understandable.",
+    "step": 5,
+    "reason": "The slope should carry rainwater downhill toward the basin and shore.",
+    "choice": {
+      "combine": "Rain on the rocky rise",
+      "with": "A slope toward a broad basin"
+    },
+    "expectation": "Fresh rainwater will run downhill toward the shore.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rainwater has returned to the sea as a stream, completing the fresh-water goal; moonlight remains.",
+    "reaction": "It is satisfying to see the water cycle return to the sea.",
+    "step": 6,
+    "reason": "A calm night at the sheltered pool suggests a setting for moonlight reflected in the water.",
+    "choice": {
+      "combine": "The Moon with a pale early crust",
+      "with": "A calm night at the sheltered pool"
+    },
+    "expectation": "The Moon will illuminate the sheltered pool, possibly with the pool included automatically.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "The Moon with a pale early crust",
+          "with": "Pools left behind by the tide"
+        },
+        "reason": "The pools might be the direct surface for the Moon's reflection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon needed sunlight first; reflected sunlight is now available to illuminate the water.",
+    "reaction": "I overlooked that the moonlight needed to be made first.",
+    "step": 7,
+    "reason": "The calm night at the sheltered pool suggests a setting for the reflected moonlight.",
+    "choice": {
+      "combine": "Sunlight reflected by the Moon",
+      "with": "A calm night at the sheltered pool"
+    },
+    "expectation": "Moonlight will appear at the sheltered pool, possibly with the pools included automatically.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sunlight reflected by the Moon",
+          "with": "Pools left behind by the tide"
+        },
+        "reason": "The pools may be the direct surface for the reflection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reflected sunlight has no available combination as the first operand, so I need to approach the pool from another object.",
+    "reaction": "The failed attempt is a little confusing after making moonlight.",
+    "step": 8,
+    "reason": "The sheltered tidal pools are the intended reflective surface, so I’ll check what they can combine with.",
+    "choice": {
+      "inspect": "Pools left behind by the tide"
+    },
+    "expectation": "The inspection will reveal how to put moonlight on the pool, and may perform the operation if it is the only one available.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Pools left behind by the tide",
+          "with": "A calm night at the sheltered pool"
+        },
+        "reason": "The calm setting may be the next ingredient, but inspecting avoids guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tidal pool and calm night formed a still pool; the reflected sunlight may now work with it.",
+    "reaction": "The inspection clarified the missing preparation.",
+    "step": 9,
+    "reason": "The still pool is now a suitable surface for reflecting the moonlight already made.",
+    "choice": {
+      "combine": "A still pool at night",
+      "with": "Sunlight reflected by the Moon"
+    },
+    "expectation": "Moonlight will appear reflected in the still pool.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The still pool and reflected sunlight completed the moonlight goal, finishing the chapter.",
+    "reaction": "The quiet pool is a fitting contrast to the moving water cycle.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following seawater through evaporation, rain and runoff made the water cycle and the separation of dissolved minerals clear.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the reflected sunlight with the calm night was confusing because it had no available combination until the pool was prepared.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The Moon first had to reflect sunlight, and the pool needed a separate preparation before it could show the reflection.",
+        "steps": [
+          6,
+          8,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The calm night seemed like a plausible partner for moonlight, so needing to combine it with the pools first was not obvious.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see more natural processes explained through connected transformations, though the failed moonlight attempt interrupted the flow.",
+        "steps": [
+          1,
+          4,
+          5,
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

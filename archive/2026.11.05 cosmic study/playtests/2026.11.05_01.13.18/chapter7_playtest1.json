@@ -1,0 +1,136 @@
+[
+  {
+    "step": 1,
+    "reason": "Cold dust grains provide surfaces for the reactive atoms to meet, so I’ll start with oxygen on the dust.",
+    "choice": {
+      "combine": "Mixed interstellar dust",
+      "with": "Reactive oxygen atoms"
+    },
+    "expectation": "Oxygen atoms should attach to the grains or begin surface chemistry toward icy mantles.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reactive oxygen atoms",
+          "with": "Reactive hydrogen atoms"
+        },
+        "reason": "These are water’s ingredients, but the chapter emphasizes grain surfaces."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dust first combined with the enriched cloud, making a dusty interstellar cloud that can shield its interior.",
+    "reaction": "The automatic combination clarified the cloud-building sequence.",
+    "step": 2,
+    "reason": "The shielded cold interior looks like the next ingredient for making the cloud suitable for ice chemistry.",
+    "choice": {
+      "combine": "A dusty interstellar cloud",
+      "with": "A shielded cold interior"
+    },
+    "expectation": "The dusty cloud should become a colder, shielded cloud where ice can form.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shielded cloud produced cold dust surfaces that can hold atoms and molecules.",
+    "reaction": "That clarified why shielding comes before surface chemistry.",
+    "step": 3,
+    "reason": "The cold surfaces should now provide a place for reactive oxygen to stick.",
+    "choice": {
+      "combine": "Cold dust surfaces",
+      "with": "Reactive oxygen atoms"
+    },
+    "expectation": "Oxygen atoms will attach to the cold grains, starting the chemistry toward ice.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cold dust surfaces",
+          "with": "Reactive hydrogen atoms"
+        },
+        "reason": "Hydrogen might attach first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen is now attached to a cold grain, ready for further surface chemistry.",
+    "reaction": "The grain’s role as a meeting place is clearer.",
+    "step": 4,
+    "reason": "Reactive hydrogen can meet the oxygen on the grain and start forming water.",
+    "choice": {
+      "combine": "Oxygen on a grain",
+      "with": "Reactive hydrogen atoms"
+    },
+    "expectation": "Hydrogen will react with the grain-bound oxygen, moving toward a water-ice mantle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first hydrogen addition made hydroxyl; another hydrogen atom is needed to form water.",
+    "reaction": "The explicit intermediate makes the surface chemistry clear.",
+    "step": 5,
+    "reason": "The result identifies another reactive hydrogen atom as the next ingredient.",
+    "choice": {
+      "combine": "Hydroxyl on a grain",
+      "with": "Reactive hydrogen atoms"
+    },
+    "expectation": "Hydrogen will react with the hydroxyl to form water on the grain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second hydrogen addition formed ice-mantled dust and completed the icy-mantle goal.",
+    "reaction": "It is satisfying to see water form on grains before planets exist.",
+    "step": 6,
+    "reason": "The remaining goal is to gather a molecular cloud; I’ll check how the ice-mantled dust can contribute.",
+    "choice": {
+      "inspect": "Ice-mantled dust"
+    },
+    "expectation": "The inspection should reveal a compatible ingredient for assembling the cold molecular cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically combined the ice-mantled dust with the dusty cloud, completing the molecular-cloud goal and showing that ice retention and hydrogen molecule formation occur together.",
+    "reaction": "The automatic combination was convenient, and the parallel processes clarified the larger picture.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding hydrogen in two stages was most worthwhile: the hydroxyl intermediate made the formation of water on a grain understandable rather than a single unexplained leap.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial attempt to put oxygen directly on mixed dust was least clear: it instead automatically built the dusty cloud, so the need for shielding only became clear afterward.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was struck that water ice can form on interstellar grains before planets exist, and that some of it may survive solar-system formation.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial dust-and-oxygen attempt felt somewhat arbitrary until the automatic result and subsequent cooling step explained why the grains needed a shielded environment first.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would choose to continue to see how this pre-solar ice contributes to later worlds; the grain-surface chemistry gave that question a concrete starting point.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

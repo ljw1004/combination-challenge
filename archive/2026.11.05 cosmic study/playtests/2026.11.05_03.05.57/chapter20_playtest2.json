@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "Rain can absorb atmospheric carbon dioxide, providing a plausible starting point for weathering basalt.",
+    "choice": {
+      "combine": "Rain remaining on the ground",
+      "with": "Carbon dioxide in the air"
+    },
+    "expectation": "The water will take up carbon dioxide and become mildly acidic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rain is mildly acidic and can now help weather susceptible minerals in the basalt.",
+    "reaction": "The result confirms the expected first step toward chemical weathering.",
+    "step": 2,
+    "reason": "Acidic rain can react with the young basaltic crust, starting the transfer of dissolved material.",
+    "choice": {
+      "combine": "Rain with dissolved carbon dioxide",
+      "with": "A young basaltic crust"
+    },
+    "expectation": "The rain will weather minerals in the basalt and release dissolved material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basalt is changing under water and releasing dissolved constituents, which runoff may carry toward the sea.",
+    "reaction": "The result clarifies that weathering can occur without biological soil.",
+    "step": 3,
+    "reason": "Runoff is the visible route for moving weathered material toward the basin.",
+    "choice": {
+      "combine": "Basalt changing under water",
+      "with": "Runoff toward the basin"
+    },
+    "expectation": "Runoff will carry dissolved constituents away from the altered basalt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Runoff now carries dissolved ions from the weathered basalt, ready to enter the sea.",
+    "reaction": "It is striking that clear-looking water can carry material from rock.",
+    "step": 4,
+    "reason": "The accumulating sea is the destination for the dissolved material in runoff.",
+    "choice": {
+      "combine": "Dissolved material in runoff",
+      "with": "An accumulating early sea"
+    },
+    "expectation": "The runoff will deliver dissolved ions to the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Dissolved minerals have reached the sea, completing the first goal; fine sediment remains.",
+    "reaction": "The distinction between dissolved minerals and a ready-made supply of salt is useful.",
+    "step": 5,
+    "reason": "The altered basalt is a plausible source of sediment, but its next available partner is not clear.",
+    "choice": {
+      "inspect": "Basalt changing under water"
+    },
+    "expectation": "The inspection will show whether the altered basalt can produce material for sediment.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Runoff toward the basin"
+        },
+        "reason": "Runoff might also reveal a way to transport sediment."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically produced fine solid particles, a separate pathway from dissolved ions toward sediment.",
+    "reaction": "The contrast between transported particles and dissolved material is useful.",
+    "step": 6,
+    "reason": "Runoff can carry the loosened particles toward the basin.",
+    "choice": {
+      "combine": "Fine particles loosened from rock",
+      "with": "Runoff toward the basin"
+    },
+    "expectation": "The runoff will transport the fine particles toward the sea.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fine particles loosened from rock",
+          "with": "A sheltered patch of water"
+        },
+        "reason": "The particles might settle directly in sheltered water, but transport seems likely to come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fine particles are suspended in runoff and can now be deposited where the water slows.",
+    "reaction": "The distinction between cloudy suspended solids and dissolved material is clear.",
+    "step": 7,
+    "reason": "Sheltered water should slow the flow and let suspended sediment settle.",
+    "choice": {
+      "combine": "Sediment suspended in runoff",
+      "with": "A sheltered patch of water"
+    },
+    "expectation": "Fine particles will settle out and form sediment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The suspended particles settled in sheltered water, completing the sediment goal and the chapter.",
+    "reaction": "It was satisfying to see the transported particles become a sediment bed.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following weathered rock into dissolved ions and then solid sediment was worthwhile because it showed two distinct ways water transports material.",
+        "steps": [
+          2,
+          3,
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The delivery of dissolved material to the sea was a predictable step once the runoff carried it, though it completed the first goal.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The inspection automatically combined the altered basalt with rain to make fine particles, revealing a separate solid-particle pathway.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; inspecting the altered basalt was useful because its next partner was not obvious.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the sea and its surroundings change, especially after the clear distinction between dissolved and suspended material.",
+        "steps": [
+          3,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

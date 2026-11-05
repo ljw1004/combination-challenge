@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "Icy planetesimals are the available building blocks for an outer core, and gravitational focusing should help them accumulate.",
+    "choice": {
+      "combine": "Icy planetesimals",
+      "with": "Gravitational focusing"
+    },
+    "expectation": "The planetesimals should gather into a growing outer core.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The icy planetesimals formed a growing rock-and-ice core, providing the basis for gathering gas.",
+    "reaction": "The distinction between icy building material and a frozen modern interior was useful.",
+    "step": 2,
+    "reason": "The growing core and its gravity suggest the next stage is attracting gas from the disk.",
+    "choice": {
+      "combine": "A growing rock-and-ice core",
+      "with": "Gravity around a growing outer core"
+    },
+    "expectation": "The core should begin gathering a gas envelope.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The core now holds a gas envelope, which must cool and contract before it can gather more gas.",
+    "reaction": "The need to lose energy before gathering more gas is useful context.",
+    "step": 3,
+    "reason": "Open space previously allowed hot objects to radiate energy away, so it may help the envelope contract.",
+    "choice": {
+      "combine": "A core holding a gas envelope",
+      "with": "Open space"
+    },
+    "expectation": "The envelope should lose energy and contract, allowing further gas accumulation.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "A core holding a gas envelope"
+        },
+        "reason": "I could check its available partners if cooling into space is not the intended route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The envelope has cooled and contracted, so it can draw more gas from the surviving disk.",
+    "reaction": "The cooling step made the mechanism for further gas accumulation clearer.",
+    "step": 4,
+    "reason": "The result says the surrounding disk can replenish the envelope, so combining them is the natural next step.",
+    "choice": {
+      "combine": "A cooling, contracting envelope",
+      "with": "A planet-forming solar disk"
+    },
+    "expectation": "The envelope should gather more disk gas and grow toward a gas giant.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The contracting envelope gathered disk gas and became a gas giant, completing the first goal.",
+    "reaction": "The note that formation details remain under investigation was useful.",
+    "step": 5,
+    "reason": "The later-growing core and dispersing gas disk directly suggest the contrasting route to a world with less gas.",
+    "choice": {
+      "combine": "A later-growing outer core",
+      "with": "A dispersing gas disk"
+    },
+    "expectation": "The late core should acquire a smaller gas envelope as the disk disperses.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The late core first gathered rock and volatiles from the outer-disk store; it has not yet acquired its gas envelope.",
+    "reaction": "I had skipped the solid-gathering stage, but the compatibility feedback made it clear.",
+    "step": 6,
+    "reason": "The dispersing gas disk now seems relevant to the assembled late core and the remaining goal.",
+    "choice": {
+      "combine": "A late core rich in rock and volatiles",
+      "with": "A dispersing gas disk"
+    },
+    "expectation": "The late core should acquire less gas as the disk disperses, forming a volatile-rich world.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The depleted disk gave the late core a modest gas envelope, completing the contrasting volatile-rich world and the chapter.",
+    "reaction": "The distinction between a volatile-rich interior and ordinary frozen ice was useful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Cooling the gas envelope was most worthwhile: it explained why losing energy helps a growing core gather more gas.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "My premature attempt to use the dispersing disk was the least productive; the late core first needed to gather solid material.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that an envelope must radiate energy and contract before it can accumulate more gas.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary. My failed pairing reflected a missing formation stage, which the feedback identified.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the contrast between cooling-driven gas accumulation and a late core growing in a depleted disk made the planetary formation story interesting.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

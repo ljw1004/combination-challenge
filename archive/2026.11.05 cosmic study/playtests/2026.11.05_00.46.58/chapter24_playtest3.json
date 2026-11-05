@@ -1,0 +1,170 @@
+[
+  {
+    "step": 1,
+    "reason": "Sunlight can drive evaporation from the sea, starting the return of fresh water to shore.",
+    "choice": {
+      "combine": "Sunlight",
+      "with": "An accumulating early sea"
+    },
+    "expectation": "Solar heating will produce water vapor from the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation leaves most dissolved minerals behind, providing a path toward fresh water.",
+    "reaction": "The separation of water from dissolved minerals is satisfying.",
+    "step": 2,
+    "reason": "Cooler air should condense the evaporated water into droplets.",
+    "choice": {
+      "combine": "Water evaporating from the sea",
+      "with": "Cooler air high above the surface"
+    },
+    "expectation": "Water vapor will condense into clouds or droplets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The evaporated water has condensed into a cloud, leaving most dissolved minerals behind.",
+    "reaction": "The connection between evaporation and fresh water is clear.",
+    "step": 3,
+    "reason": "Wind may carry the cloud inland toward the shore.",
+    "choice": {
+      "combine": "A cloud made from seawater",
+      "with": "Wind across the water"
+    },
+    "expectation": "The cloud will move toward the coast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wind carried the cloud over land, bringing sea-derived moisture toward the shore.",
+    "reaction": "The water cycle is taking a clear path inland.",
+    "step": 4,
+    "reason": "The rocky rise may lift the moist air and help produce rain.",
+    "choice": {
+      "combine": "A cloud carried over land",
+      "with": "A rocky rise behind the shore"
+    },
+    "expectation": "Air rising over the rock will cool and produce rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cloud produced rain over the rocky rise, leaving a route for fresh water back toward the shore.",
+    "reaction": "The role of rising terrain in producing rain is clear.",
+    "step": 5,
+    "reason": "The slope should carry rainwater downhill toward the basin and shore.",
+    "choice": {
+      "combine": "Rain on the rocky rise",
+      "with": "A slope toward a broad basin"
+    },
+    "expectation": "Rainwater will run downhill toward the shore.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stream returns fresh runoff to the sea, completing the first goal.",
+    "reaction": "The water cycle has come together clearly.",
+    "step": 6,
+    "reason": "The Moon and a still tidal pool suggest a reflection that could satisfy the remaining goal.",
+    "choice": {
+      "combine": "The Moon with a pale early crust",
+      "with": "Pools left behind by the tide"
+    },
+    "expectation": "Moonlight will appear reflected in the pools.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "The Moon with a pale early crust",
+          "with": "A cooling night above the coast"
+        },
+        "reason": "Night might need to be established before moonlight can appear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon first needed sunlight to produce reflected moonlight; the attempted pool combination automatically supplied it.",
+    "reaction": "I missed that intermediate step, but the result makes the source of moonlight clear.",
+    "step": 7,
+    "reason": "The reflected sunlight can now reach the tidal pools to satisfy the remaining goal.",
+    "choice": {
+      "combine": "Sunlight reflected by the Moon",
+      "with": "Pools left behind by the tide"
+    },
+    "expectation": "Moonlight will appear in the still pools.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Reflected sunlight cannot currently combine with anything, so the pool needs another preparation or route.",
+    "reaction": "That was unexpected; I had assumed the moonlight was ready to use.",
+    "step": 8,
+    "reason": "The cooling night may reveal how to prepare the coast for the remaining moonlight goal.",
+    "choice": {
+      "inspect": "A cooling night above the coast"
+    },
+    "expectation": "Its available partners should clarify the next step, possibly preparing the pool.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The night prepared the tidal pool into a still pool, suggesting it can now receive the reflected moonlight.",
+    "reaction": "The missing preparation explains why my earlier attempt failed.",
+    "step": 9,
+    "reason": "The still pool at night is the remaining goal's natural setting for reflected moonlight.",
+    "choice": {
+      "combine": "A still pool at night",
+      "with": "Sunlight reflected by the Moon"
+    },
+    "expectation": "Moonlight will appear in the still pool.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The prepared still pool reflected moonlight, completing the remaining goal.",
+    "reaction": "The quiet reflection is a satisfying ending after the water cycle.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making rain over the rocky rise was most worthwhile: it connected wind, rising air and cooling to freshwater returning to the shore.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to combine reflected sunlight with the unprepared pool was frustrating because the failure did not explain what was missing.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The Moon first needed sunlight, and the pool then needed a separate nighttime preparation before it could show the reflection.",
+        "steps": [
+          6,
+          8,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to prepare a still pool at night made sense afterward, but it was not clear why reflected sunlight could not be used with the tidal pools directly.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the chapter made natural processes understandable through a connected water cycle, and the final reflection provided a calm payoff.",
+        "steps": [
+          1,
+          4,
+          5,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

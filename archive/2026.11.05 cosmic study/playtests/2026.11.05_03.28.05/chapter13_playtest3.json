@@ -1,0 +1,172 @@
+[
+  {
+    "step": 1,
+    "reason": "Gravitational focusing should help rocky planetesimals collide and grow into an embryo.",
+    "choice": {
+      "combine": "Rocky planetesimals",
+      "with": "Gravitational focusing"
+    },
+    "expectation": "The planetesimals will gather into a growing rocky body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted pairing was incompatible, but crossing orbits automatically produced accreting embryos; gravitational focusing may become useful later.",
+    "reaction": "The automatic correction was helpful, though the initial pairing was a guess.",
+    "step": 2,
+    "reason": "The embryos need volatile-bearing material to grow into a young Earth, and the asteroid rock contains water.",
+    "choice": {
+      "combine": "Accreting planetary embryos",
+      "with": "Water-bearing asteroid rock"
+    },
+    "expectation": "The embryos will incorporate hydrated rock and gain volatile material.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Accreting planetary embryos"
+        },
+        "reason": "I could check their available partners first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The embryos cannot yet combine with water-bearing rock; their available partners are gravitational focusing and rocky planetesimals.",
+    "reaction": "The compatibility feedback clarifies the next growth stage.",
+    "step": 3,
+    "reason": "Gravitational focusing should help the embryos attract more material and grow.",
+    "choice": {
+      "combine": "Accreting planetary embryos",
+      "with": "Gravitational focusing"
+    },
+    "expectation": "The embryos will grow into larger rocky bodies.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Accreting planetary embryos",
+          "with": "Rocky planetesimals"
+        },
+        "reason": "The listed planetesimals could also supply material for growth."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravitational focusing produced a strongly attracting embryo, which can potentially gather more material.",
+    "reaction": "The growth mechanism is clearer now.",
+    "step": 4,
+    "reason": "Rocky planetesimals are the available building material for a growing embryo.",
+    "choice": {
+      "combine": "A strongly attracting embryo",
+      "with": "Rocky planetesimals"
+    },
+    "expectation": "The embryo will accrete rocky material and grow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The embryo instead gathered asteroid fragments and became a rocky proto-Earth; it may now be ready to acquire water-bearing material.",
+    "reaction": "The automatic correction clarified which rocky material was needed.",
+    "step": 5,
+    "reason": "Water-bearing asteroid rock is a plausible source of volatiles for the proto-Earth.",
+    "choice": {
+      "combine": "A rocky proto-Earth",
+      "with": "Water-bearing asteroid rock"
+    },
+    "expectation": "The proto-Earth will incorporate hydrated rock and become volatile-bearing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proto-Earth now contains hydrated material, though that does not imply a surface ocean; the other embryo still needs attention.",
+    "reaction": "The distinction between hydrated rock and an ocean is useful.",
+    "step": 6,
+    "reason": "Rocky planetesimals were a listed partner for the accreting embryos and may help grow another rocky body.",
+    "choice": {
+      "combine": "Accreting planetary embryos",
+      "with": "Rocky planetesimals"
+    },
+    "expectation": "The embryos will gather rocky material toward another rocky embryo.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Accreting embryos and rocky planetesimals produced Theia, completing the second goal; the hydrated proto-Earth still needs further growth.",
+    "reaction": "Theia’s uncertain identity is a useful distinction.",
+    "step": 7,
+    "reason": "I’ll check what the hydrated proto-Earth can combine with to advance the remaining goal.",
+    "choice": {
+      "inspect": "Proto-Earth with hydrated material"
+    },
+    "expectation": "The inspection will reveal its available next growth ingredients.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hydrated proto-Earth has no available combination yet, so another ingredient must be prepared first.",
+    "reaction": "The lack of a direct next step is slightly surprising.",
+    "step": 8,
+    "reason": "Collisions between small bodies may produce additional material from the layered planetesimal.",
+    "choice": {
+      "inspect": "Collisions between small bodies"
+    },
+    "expectation": "The inspection will show whether collisions can expose material needed for the proto-Earth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision exposed metal-rich asteroid-core fragments, providing another ingredient for the hydrated proto-Earth.",
+    "reaction": "The link to iron meteorites is interesting.",
+    "step": 9,
+    "reason": "The proto-Earth may incorporate the newly exposed metal fragments to complete its growth.",
+    "choice": {
+      "combine": "Fragments of an asteroid core",
+      "with": "Proto-Earth with hydrated material"
+    },
+    "expectation": "The metal fragments will join the hydrated proto-Earth, producing a more developed young Earth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The metal fragments joined the hydrated proto-Earth, completing the volatile-bearing young Earth and the chapter. Their arrival order is not fixed, and other hydrogen sources may have contributed.",
+    "reaction": "It was satisfying to bring the metal and hydrated material together, with the uncertainties made clear.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Exposing asteroid-core fragments and adding them to the young Earth connected differentiated bodies and iron meteorites to planetary growth.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the hydrated proto-Earth returned no partners, so it offered little direction beyond showing that another ingredient had to be prepared.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Hydrated material could join the growing Earth without implying a cool planet or a surface ocean.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Using asteroid-layer fragments rather than rocky planetesimals for the strongly attracting embryo felt somewhat specific, although the automatic correction made the required pairing clear.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the connections between asteroid interiors, hydrated rock and planetary growth made me curious about how Earth and Theia's story unfolds.",
+        "steps": [
+          5,
+          6,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

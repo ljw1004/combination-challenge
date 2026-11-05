@@ -1,0 +1,137 @@
+[
+  {
+    "step": 1,
+    "reason": "Rain can collect in hollows in the volcanic rock, a natural first step toward a sea.",
+    "choice": {
+      "combine": "Rain remaining on the ground",
+      "with": "Hollows in the volcanic rock"
+    },
+    "expectation": "The rain will gather into pools in the hollows.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain has collected in pools, which can now move toward the basin.",
+    "reaction": "The pools are a satisfying first sign of water accumulating.",
+    "step": 2,
+    "reason": "The slope suggests a route for the pooled water toward the broad basin.",
+    "choice": {
+      "combine": "Pools on the cooling rock",
+      "with": "A slope toward a broad basin"
+    },
+    "expectation": "Water will flow downhill toward the basin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pools overflow into runoff, connecting low places on the way toward the basin.",
+    "reaction": "The downhill flow follows naturally from the landscape.",
+    "step": 3,
+    "reason": "The runoff is the clearest lead toward the sea, but its next partner is not obvious.",
+    "choice": {
+      "inspect": "Runoff toward the basin"
+    },
+    "expectation": "Inspection should reveal how the runoff can gather or interact with the rock.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Runoff can combine with either the hollows or the cracked crust, offering routes toward both goals.",
+    "reaction": "The two options clarify the next choices.",
+    "step": 4,
+    "reason": "The hollows are a plausible place for runoff to collect into a larger body of water.",
+    "choice": {
+      "combine": "Runoff toward the basin",
+      "with": "Hollows in the volcanic rock"
+    },
+    "expectation": "Runoff will accumulate in the low ground toward a sea.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Runoff toward the basin",
+          "with": "A cracked volcanic crust"
+        },
+        "reason": "This may instead reveal a route for water through the rock."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Runoff has joined the basins into an early sea, completing the first goal.",
+    "reaction": "It's satisfying to see the pools become a connected sea.",
+    "step": 5,
+    "reason": "Inspection showed that runoff can also combine with the cracked crust, suggesting a route through the rock.",
+    "choice": {
+      "combine": "Runoff toward the basin",
+      "with": "A cracked volcanic crust"
+    },
+    "expectation": "Some runoff will enter fractures in the crust.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Runoff enters fractures in the crust, revealing an underground route; the less permeable layer may shape where it goes next.",
+    "reaction": "The contrast between surface runoff and hidden water is interesting.",
+    "step": 6,
+    "reason": "Water moving through fractured rock may collect or flow along the less permeable layer.",
+    "choice": {
+      "combine": "Water entering fractured rock",
+      "with": "A less permeable layer"
+    },
+    "expectation": "The layer will redirect or retain the water underground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The less permeable layer diverts groundwater sideways, suggesting it may emerge elsewhere.",
+    "reaction": "The layer's effect makes the underground route clearer.",
+    "step": 7,
+    "reason": "The diverted groundwater is the clearest lead for completing the route through the rock, but its next partner is not obvious.",
+    "choice": {
+      "inspect": "Groundwater diverted sideways"
+    },
+    "expectation": "Inspection should reveal how the groundwater continues or reappears.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically completed the groundwater route: water emerged as a spring on the slope, completing the remaining goal.",
+    "reaction": "Seeing the hidden flow return to the surface was satisfying.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following runoff through fractured rock, along a less permeable layer and back out as a spring made the groundwater route understandable.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the runoff interrupted the flow a little, although it usefully revealed both possible routes.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The less permeable layer diverted groundwater sideways rather than simply stopping it, allowing it to reappear elsewhere.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the combinations followed the landscape and water's movement.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the new sea and shoreline change, especially if the next chapter connects those changes to natural processes as clearly as the groundwater route did.",
+        "steps": [
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

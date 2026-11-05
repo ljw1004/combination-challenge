@@ -1,0 +1,174 @@
+[
+  {
+    "step": 1,
+    "reason": "Wind blowing across the sea should generate waves that can work on the coast.",
+    "choice": {
+      "combine": "Wind across the water",
+      "with": "An accumulating early sea"
+    },
+    "expectation": "Waves form on the sea, providing a way to erode and transport shore material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wind produced waves that can now act on the coast.",
+    "reaction": "The distinction between moving water and a travelling disturbance is useful.",
+    "step": 2,
+    "reason": "Waves striking the fractured basalt headland should loosen rock for the shore.",
+    "choice": {
+      "combine": "Wind-driven waves",
+      "with": "A fractured basalt headland"
+    },
+    "expectation": "The waves will break or loosen basalt fragments at the headland.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The waves are now breaking against the headland, where they can exploit existing cracks.",
+    "reaction": "The shallow-water change makes the next erosion step clearer.",
+    "step": 3,
+    "reason": "The breaking waves can act on the headland’s existing fractures.",
+    "choice": {
+      "combine": "Waves breaking on the headland",
+      "with": "A fractured basalt headland"
+    },
+    "expectation": "Wave impacts will loosen basalt fragments from the headland.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The compatibility feedback showed that breaking waves act on the cracked crust, producing angular stones.",
+    "reaction": "The distinction between breaking and dissolving rock is useful, though the required partner was not obvious.",
+    "step": 4,
+    "reason": "The newly freed stones may have several possible roles in building the two shores, so checking their partners will guide the next step.",
+    "choice": {
+      "inspect": "Angular stones freed from the coast"
+    },
+    "expectation": "The inspection will show how the stones can be worked or deposited.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stones can be worked by either breaking waves or wind-driven waves.",
+    "reaction": "The two wave options make their distinct results worth exploring.",
+    "step": 5,
+    "reason": "Breaking waves at the headland should work the angular stones into coarser shore material.",
+    "choice": {
+      "combine": "Angular stones freed from the coast",
+      "with": "Waves breaking on the headland"
+    },
+    "expectation": "Wave action will wear or deposit the stones at the headland.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Angular stones freed from the coast",
+          "with": "Wind-driven waves"
+        },
+        "reason": "The broader wave action may instead help transport or wear the stones toward the bay."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Breaking waves abraded the angular stones into rounded pebbles, suggesting material for the coarse shore.",
+    "reaction": "The reminder that rounding takes repeated collisions is useful.",
+    "step": 6,
+    "reason": "The rounded pebbles seem suited to the coarse shore at the headland.",
+    "choice": {
+      "combine": "Rounded shore pebbles",
+      "with": "A fractured basalt headland"
+    },
+    "expectation": "The pebbles will form or contribute to a coarse shore at the headland.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Rounded shore pebbles"
+        },
+        "reason": "I could check their available uses if the intended placement is less direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pebbles formed the coarse headland shore, completing that goal; the dark beach remains.",
+    "reaction": "The sorting of heavier stones by weaker flows is a useful detail.",
+    "step": 7,
+    "reason": "The earlier inspection showed that wind-driven waves can also act on the angular stones, so I’ll follow that remaining route toward the beach.",
+    "choice": {
+      "combine": "Angular stones freed from the coast",
+      "with": "Wind-driven waves"
+    },
+    "expectation": "The waves will further move or wear the basalt material, helping produce material for the bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wave abrasion produced dark volcanic sand, providing material for the remaining beach goal.",
+    "reaction": "The note that sand grains can follow different routes is useful.",
+    "step": 8,
+    "reason": "The sheltered bend is the natural place for the dark sand to settle into a beach.",
+    "choice": {
+      "combine": "Dark sand from volcanic rock",
+      "with": "A sheltered bend in the coast"
+    },
+    "expectation": "The sand will accumulate in the sheltered bay to form a dark beach.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sand needed wave-driven transport before reaching the sheltered bay; it is now moving along the coast.",
+    "reaction": "The transport step makes the beach formation more physically clear.",
+    "step": 9,
+    "reason": "The moving sand can now accumulate at the sheltered bend.",
+    "choice": {
+      "combine": "Sand moving along the coast",
+      "with": "A sheltered bend in the coast"
+    },
+    "expectation": "Sand will settle in the sheltered bay and form a dark beach.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transported sand accumulated in the sheltered bay, completing the dark beach and the chapter’s remaining goal.",
+    "reaction": "It was satisfying to see the two different shores emerge from erosion, transport and sorting.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the coarse pebble shore was most worthwhile: it connected abrasion with the sorting that leaves heavier stones at the headland.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The extra transport step before depositing sand was initially confusing, although it clarified how the beach formed.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The sand had to move along the coast before it could accumulate in the sheltered bay; a beach is a moving store of sediment, not a permanent pile.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the cracked volcanic crust rather than the fractured headland to free stones felt unclear from the names, though compatibility feedback completed the action.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in another chapter that connects visible landscape features to physical processes as this one did.",
+        "steps": [
+          5,
+          6,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

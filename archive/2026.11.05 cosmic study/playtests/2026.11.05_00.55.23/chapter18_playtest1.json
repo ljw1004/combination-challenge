@@ -1,0 +1,144 @@
+[
+  {
+    "step": 1,
+    "reason": "Cooling the lava and rock seems like a direct way to make the surface able to retain liquid water.",
+    "choice": 3,
+    "expectation": "I expect heat to escape from the surface, leaving cooler rock, though further cooling may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cooler air might form rain, but I want to address surface cooling first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooler rock can retain liquid water, so the remaining goal is to make rain.",
+    "reaction": "The contrast between neighboring cool rock and hot lava makes the uneven cooling clear.",
+    "step": 2,
+    "reason": "Cool air above the surface seems likely to condense atmospheric water into clouds and rain.",
+    "choice": 2,
+    "expectation": "I expect water vapor to condense, perhaps forming clouds before rain reaches the ground.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Atmospheric heat loss might also help cooling, but cooler air seems more directly related to condensation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Condensation produced clouds; gravity may now bring their water down as rain.",
+    "reaction": "The distinction between clouds and a surface that can hold water is clear.",
+    "step": 3,
+    "reason": "Gravity acting on cloud droplets seems the direct next step toward rain reaching the ground.",
+    "choice": 2,
+    "expectation": "I expect droplets to fall as rain, though they may need to grow first.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Further atmospheric cooling might help, but the clouds are already available."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain is falling, but hot air and lava can return some of it to vapor before it collects.",
+    "reaction": "The evaporation makes the distinction between falling rain and retained water clearer.",
+    "step": 4,
+    "reason": "The offered rain-and-lava combination may show how water cycles back from the hot surface and advance the rain goal.",
+    "choice": 2,
+    "expectation": "I expect rain hitting the hot lava to boil into vapor, though it may reveal another step toward rain reaching cooler ground.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cooling the atmosphere could also help, but I want to see what happens to the falling rain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain on hot lava returns to the atmosphere as steam, while neighboring cool rock can retain water.",
+    "reaction": "The contrasting outcomes on nearby patches make the water cycle concrete.",
+    "step": 5,
+    "reason": "This is the only offered combination; atmospheric heat loss may help rain reach the ground.",
+    "choice": 1,
+    "expectation": "I expect the atmosphere to cool as infrared energy escapes, though I am unsure what this will produce.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The atmosphere cools slowly as energy escapes from its upper layers, coupling its cooling to the surface.",
+    "reaction": "The distinction between impeded and stopped heat loss is useful.",
+    "step": 6,
+    "reason": "This is the only offered combination and may let the recycled steam condense again.",
+    "choice": 1,
+    "expectation": "I expect the steam to cool and rejoin the rain cycle, though I am unsure whether rain will reach the ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steam has rejoined a cycle of evaporation and condensation, rather than immediately forming an ocean.",
+    "reaction": "Recycling the same water makes the repeated phase changes clear.",
+    "step": 7,
+    "reason": "This is the only offered combination; cooler air may condense the recycled water again.",
+    "choice": 1,
+    "expectation": "I expect renewed condensation and perhaps rain that can reach the ground, though another step may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cooling now lets more rain survive its descent; the cool rock may retain it.",
+    "reaction": "The model-dependent duration of early rainfall is a useful qualification.",
+    "step": 8,
+    "reason": "This is the only offered combination, and cool rock should allow the rain to collect.",
+    "choice": 1,
+    "expectation": "I expect liquid water to gather on the cool rock, though I do not know whether it will form a lasting body of water yet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain now stays liquid on cool rock and can accumulate in low ground; both chapter goals are complete.",
+    "reaction": "It is satisfying to see the earlier surface cooling finally allow water to collect.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making rain boil back into steam showed why rain alone does not guarantee a lasting body of water, especially beside cooler rock.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The sequence of recycled water and renewed condensation felt somewhat repetitive, even though it clarified the cycle.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The atmosphere could impede heat loss while still losing energy from its upper layers, coupling its cooling to the surface.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The later sequence was guided by single available combinations; their general purpose was clear, but I could not always predict what each would produce.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in seeing how the retained water accumulates, though I would hope for more meaningful choices than the final single-option sequence.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,177 @@
+[
+  {
+    "step": 1,
+    "reason": "Collisions among the orbiting debris are a plausible first step toward gathering the Moon or sending material back inward.",
+    "choice": {
+      "combine": "Orbiting Moon-forming debris",
+      "with": "Collisions among orbiting debris"
+    },
+    "expectation": "Collisions will change the debris into a more concentrated or sorted population.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Orbiting Moon-forming debris",
+          "with": "Beyond the tidal disruption region"
+        },
+        "reason": "Material beyond the disruption region may be able to gather into the Moon."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Collisions redistributed the debris into a spreading ring, which may now separate into inward- and outward-moving material.",
+    "reaction": "The distinction between a spreading disk and a solid ring is useful.",
+    "step": 2,
+    "reason": "Material spreading beyond the tidal disruption region should be able to gather into a Moon.",
+    "choice": {
+      "combine": "A spreading ring of rock",
+      "with": "Beyond the tidal disruption region"
+    },
+    "expectation": "The outer material will become available to clump together.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "A spreading ring of rock"
+        },
+        "reason": "I could check its available paths if the expected outward route is not compatible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The outer ring has produced growing moonlets that can survive tidal disruption and merge.",
+    "reaction": "It is satisfying to see why their location matters.",
+    "step": 3,
+    "reason": "Gravity within a dense swarm should help the moonlets merge into a larger body.",
+    "choice": {
+      "combine": "Growing moonlets",
+      "with": "Gravity within a dense swarm"
+    },
+    "expectation": "The moonlets will gather into a young Moon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The moonlets have gathered into a hot young Moon; it still needs to cool and form a crust.",
+    "reaction": "The Moon coming together is satisfying, though its early history remains uncertain.",
+    "step": 4,
+    "reason": "Radiation escaping into space should cool the young Moon and help its crust form.",
+    "choice": {
+      "combine": "A hot young Moon",
+      "with": "Radiation escaping into space"
+    },
+    "expectation": "The Moon will cool enough to develop a crust.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cooling produced lunar magma-ocean crystals, but the crust has not yet formed.",
+    "reaction": "The distinction between crystallization and crust formation is useful.",
+    "step": 5,
+    "reason": "Gravity can separate minerals by density, potentially allowing lighter crystals to form a crust.",
+    "choice": {
+      "combine": "Crystals in the lunar magma ocean",
+      "with": "A rocky body’s gravity"
+    },
+    "expectation": "The crystals will separate, with lighter minerals contributing to a lunar crust.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crystals combined with the young Moon to form a buoyant feldspar-rich layer; gravity was not the compatible partner.",
+    "reaction": "The compatibility feedback clarified that the crust forms within the Moon.",
+    "step": 6,
+    "reason": "The floating layer likely needs to lose heat to become a cooling crust.",
+    "choice": {
+      "combine": "A floating feldspar-rich layer",
+      "with": "Radiation escaping into space"
+    },
+    "expectation": "The layer will cool into a lunar crust.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "A floating feldspar-rich layer"
+        },
+        "reason": "I could check its compatible partners if cooling is not the next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The Moon now has a pale early crust; returning inward-falling debris to Earth remains.",
+    "reaction": "The distinction between the early crust and the later dark maria is useful.",
+    "step": 7,
+    "reason": "The spreading ring may supply debris that Earth's gravity pulls back inward.",
+    "choice": {
+      "combine": "A spreading ring of rock",
+      "with": "A rocky body’s gravity"
+    },
+    "expectation": "Some ring material will fall back toward Earth.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "A spreading ring of rock",
+          "with": "The surviving, remelted Earth"
+        },
+        "reason": "The surviving Earth may be the direct partner for returning debris."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth's gravity sent part of the spreading ring back toward the planet; the falling rock still needs to reach Earth.",
+    "reaction": "The split between Moon-forming and returning debris is clear.",
+    "step": 8,
+    "reason": "The falling rock should return to the surviving Earth.",
+    "choice": {
+      "combine": "Rock falling back toward Earth",
+      "with": "The surviving, remelted Earth"
+    },
+    "expectation": "The debris will rejoin Earth, completing the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The falling debris rejoined and reheated Earth, completing the remaining goal while leaving some of its volatile inventory intact.",
+    "reaction": "The returning material made a satisfying counterpart to the Moon-forming branch.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Sending the spreading ring beyond the tidal disruption region was most worthwhile: it connected the Moon’s growth to where self-gravitating clumps can survive.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final return to Earth was a fairly predictable completion step, though it clarified that reaccretion also adds heat.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Cooling first produced crystals rather than a finished crust; buoyant feldspar then helped form the outer layer.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the crystals with the young Moon rather than gravity was not obvious to me, although the feedback explained that the layer forms within the Moon.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would choose to continue because the branching paths and concise physical explanations made me curious about how the remade Earth develops.",
+        "steps": [
+          2,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

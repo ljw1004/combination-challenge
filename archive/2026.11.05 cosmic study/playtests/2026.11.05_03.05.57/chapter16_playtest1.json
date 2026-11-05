@@ -1,0 +1,156 @@
+[
+  {
+    "step": 1,
+    "reason": "The debris is hot, so cooling it seems a plausible first step toward forming the Moon.",
+    "choice": {
+      "combine": "Orbiting Moon-forming debris",
+      "with": "Radiation escaping into space"
+    },
+    "expectation": "The orbiting debris will lose heat and cool.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Orbiting Moon-forming debris"
+        },
+        "reason": "I could check its available partners instead, since the exact sequence is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cooling was not the available first step; collisions spread the debris into a ring instead.",
+    "reaction": "I was surprised the failed cooling attempt automatically advanced the debris.",
+    "step": 2,
+    "reason": "The ring must spread beyond the tidal disruption region for material to remain together and form the Moon.",
+    "choice": {
+      "combine": "A spreading ring of rock",
+      "with": "Beyond the tidal disruption region"
+    },
+    "expectation": "Some ring material will move far enough out to begin gathering into the Moon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ring produced growing moonlets beyond the disruptive tidal region; they can now gather into a larger body.",
+    "reaction": "It is satisfying to see why distance from Earth matters for the clumps’ survival.",
+    "step": 3,
+    "reason": "Gravity within a dense swarm is a plausible way to gather the moonlets into a Moon.",
+    "choice": {
+      "combine": "Growing moonlets",
+      "with": "Gravity within a dense swarm"
+    },
+    "expectation": "The moonlets will merge into a larger Moon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The moonlets have gathered into a hot young Moon, which now needs to cool.",
+    "reaction": "Seeing the moonlets become a substantial satellite is satisfying.",
+    "step": 4,
+    "reason": "Radiation can carry heat away from the young Moon and help its crust form.",
+    "choice": {
+      "combine": "A hot young Moon",
+      "with": "Radiation escaping into space"
+    },
+    "expectation": "The Moon will cool, allowing a crust to form.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cooling produced crystals in the lunar magma ocean, but the crust has not yet formed.",
+    "reaction": "The distinction between sinking and floating minerals makes me curious how the crust gathers.",
+    "step": 5,
+    "reason": "Gravity should help separate minerals by density, allowing lighter crystals to contribute to a crust.",
+    "choice": {
+      "combine": "Crystals in the lunar magma ocean",
+      "with": "A rocky body’s gravity"
+    },
+    "expectation": "The minerals will separate, with lighter crystals rising toward the lunar surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Crystals in the lunar magma ocean"
+        },
+        "reason": "I could check their partners because the next step is not certain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crystals combined with the young Moon to form a buoyant feldspar-rich layer; gravity was not the available partner.",
+    "reaction": "The floating plagioclase makes the crust-forming process clearer.",
+    "step": 6,
+    "reason": "The layer is the clearest lead toward a lunar crust, but its next partner is uncertain.",
+    "choice": {
+      "inspect": "A floating feldspar-rich layer"
+    },
+    "expectation": "The inspection should show how the layer can develop into a crust.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The feldspar-rich layer cooled into an early lunar crust, completing the Moon goal; the remaining goal is to return debris to Earth.",
+    "reaction": "The pale crust forming through further cooling is a satisfying conclusion to that sequence.",
+    "step": 7,
+    "reason": "The spreading ring contains debris that can fall inward, and the surviving Earth is the natural destination.",
+    "choice": {
+      "combine": "A spreading ring of rock",
+      "with": "The surviving, remelted Earth"
+    },
+    "expectation": "Inward-falling debris will return to Earth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity turned the spreading ring into rock falling back toward Earth; it still needs to reach the planet.",
+    "reaction": "The fallback path is clearer now, although my direct combination was premature.",
+    "step": 8,
+    "reason": "The surviving Earth is the destination of the falling rock.",
+    "choice": {
+      "combine": "Rock falling back toward Earth",
+      "with": "The surviving, remelted Earth"
+    },
+    "expectation": "The debris will return to Earth and complete the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The falling debris reaccreted onto Earth, adding heat and reworking the planet, and completed the remaining goal.",
+    "reaction": "It was satisfying to see the debris’s Earthward path resolved alongside the Moon’s formation.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Forming the floating feldspar-rich layer was most worthwhile: it connected mineral buoyancy to the Moon’s early crust.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial cooling attempt was less worthwhile because collisions had to happen first, though the automatic feedback kept it moving.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that a failed combination could automatically perform the sole available operation, first spreading the debris through collisions.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the crystals with the hot young Moon rather than gravity was not obvious to me, although the resulting buoyant layer had a clear physical explanation.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would choose to continue to see how the remade Earth cools and develops, especially after learning that reaccretion adds heat.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

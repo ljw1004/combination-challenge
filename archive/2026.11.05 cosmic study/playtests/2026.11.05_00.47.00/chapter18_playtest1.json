@@ -1,0 +1,138 @@
+[
+  {
+    "step": 1,
+    "reason": "Cooling the volcanic surface seems necessary for liquid water to persist on the ground.",
+    "choice": 3,
+    "expectation": "I expect the surface to lose heat, though it may need further cooling before rain can remain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cool upper air might form clouds, but the surface also needs to cool."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ground can now retain liquid water, so the next goal is to form rain.",
+    "reaction": "The pressure-dependent threshold was a useful clarification.",
+    "step": 2,
+    "reason": "Cooler air above the surface should help water vapor condense into clouds.",
+    "choice": 2,
+    "expectation": "I expect clouds or condensation, possibly requiring another step before rain reaches the ground.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Atmospheric heat loss might also help cooling, but cooler air seems more directly connected to condensation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds have formed, and the ground is already cool enough to retain water; the next step is to bring droplets down.",
+    "reaction": "The distinction between clouds and a stable surface sea is useful.",
+    "step": 3,
+    "reason": "Gravity should pull water from the clouds toward the ground.",
+    "choice": 2,
+    "expectation": "I expect rain to reach the cooled ground, though further steps may be needed for it to accumulate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain is falling, but hot air and surface conditions can still prevent it from persisting; atmospheric cooling may help.",
+    "reaction": "I was surprised that the rain can still evaporate despite the earlier cooled-ground result.",
+    "step": 4,
+    "reason": "Letting the steam-rich atmosphere lose heat seems useful before trying to bring rain to the surface.",
+    "choice": 1,
+    "expectation": "I expect the atmosphere to cool, potentially allowing more rain to reach the ground.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Combining rain with the surface may advance the rain goal directly, but the result warns that heat could prevent it from persisting."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The atmosphere is cooling slowly, though it still impedes heat loss; the remaining offered combination brings rain to the surface.",
+    "reaction": "The coupled cooling of atmosphere and surface clarifies why heat loss takes time.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it directly addresses the remaining rain goal.",
+    "choice": 1,
+    "expectation": "I expect rain to reach the volcanic ground, although some may still evaporate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain hitting the still-hot volcanic surface returns to the atmosphere, so further cooling is needed despite the earlier locally cool ground.",
+    "reaction": "The distinction between locally cool ground and the hot surface is somewhat confusing.",
+    "step": 6,
+    "reason": "This is the only offered combination and may let the recycled water cool with the atmosphere.",
+    "choice": 1,
+    "expectation": "I expect the recycled steam to cool and perhaps form rain that can reach the ground, though another step may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water remains in a cycle between vapor and liquid; the only offered combination applies cooler upper air to it.",
+    "reaction": "The recycling explanation is useful, though the repeated cooling steps feel a little repetitive.",
+    "step": 7,
+    "reason": "This is the only offered combination and may produce rain from the recycled water.",
+    "choice": 1,
+    "expectation": "I expect renewed condensation and rain, though it may still need another step to reach the ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Persistent rain now survives the cooling atmosphere, and the cooled ground can receive it.",
+    "reaction": "The model-dependent rainfall duration is a helpful qualification.",
+    "step": 8,
+    "reason": "This is the only offered combination and should bring rain onto ground that can retain water.",
+    "choice": 1,
+    "expectation": "I expect rain to reach the ground and perhaps begin accumulating as liquid water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain now remains liquid on the cooled ground, completing the chapter’s goals and beginning accumulation.",
+    "reaction": "It is satisfying to see the cooling and rain finally come together on a patch of rock.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Getting rain to remain on the ground brought the chapter’s cooling and water-cycle processes together.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The sequence of recycling water through the sky felt somewhat repetitive, despite its useful explanation.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Rain returned to steam on hot rock even after a separate patch of ground had become cool enough to retain water; the distinction was somewhat confusing.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining rain with the still-hot volcanic surface felt awkward after cooling the ground, although it demonstrated that the water returned to the atmosphere rather than disappearing.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the accumulated water becomes a sea, though I would hope for fewer repetitive cooling steps.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

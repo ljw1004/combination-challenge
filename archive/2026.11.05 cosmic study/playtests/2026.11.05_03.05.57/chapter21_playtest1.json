@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "Seawater can enter seafloor fractures to begin the circulation loop.",
+    "choice": {
+      "combine": "An accumulating early sea",
+      "with": "Open fractures in the seafloor"
+    },
+    "expectation": "Seawater will flow down into the fractured rock.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The accumulating early sea has no available combination, so I will try the mineral-bearing seawater instead.",
+    "reaction": "The distinction between the two sea items was not obvious.",
+    "step": 2,
+    "reason": "The mineral-bearing seawater may enter the open fractures and start the circulation loop.",
+    "choice": {
+      "combine": "A sea receiving dissolved minerals",
+      "with": "Open fractures in the seafloor"
+    },
+    "expectation": "Seawater will enter the fractured seafloor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mineral-bearing seawater enters the crust, starting the circulation loop.",
+    "reaction": "The seawater distinction is clearer now.",
+    "step": 3,
+    "reason": "Water entering the crust should heat as it approaches hot rock.",
+    "choice": {
+      "combine": "Seawater entering the crust",
+      "with": "Hot rock beneath the seafloor"
+    },
+    "expectation": "The circulating seawater will heat up underground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seawater is now heated inside the crust; it still needs a route back to the sea.",
+    "reaction": "The role of pressure in keeping hot fluid underground is interesting.",
+    "step": 4,
+    "reason": "The next step in the circulation loop is not yet obvious, so I will check what the heated water can interact with.",
+    "choice": {
+      "inspect": "Water heated inside the crust"
+    },
+    "expectation": "The inspection will identify an available next step toward a vent.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heated water reacted with buried rock, producing mineral-bearing hydrothermal fluid; the next step is to return it to the sea.",
+    "reaction": "It was useful to see that heating and water–rock reactions are separate steps.",
+    "step": 5,
+    "reason": "I expect the hot fluid to rise through seafloor fractures toward the vent.",
+    "choice": {
+      "combine": "Hydrothermal fluid carrying dissolved material",
+      "with": "Open fractures in the seafloor"
+    },
+    "expectation": "The hydrothermal fluid will rise through the fractures toward the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineral-bearing fluid is rising through fractures toward the seafloor.",
+    "reaction": "The separate entry and return paths make the circulation loop clearer.",
+    "step": 6,
+    "reason": "The returning hot fluid should meet cooler seawater at the vent.",
+    "choice": {
+      "combine": "Hot fluid returning through fractures",
+      "with": "Cooler surrounding seawater"
+    },
+    "expectation": "The fluid will emerge into the sea and cool, potentially depositing minerals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mixing with cooler seawater caused minerals to precipitate at a vent; the heated-water return goal may still need a separate step.",
+    "reaction": "It is satisfying to see dissolved material become a solid deposit.",
+    "step": 7,
+    "reason": "I will check how the precipitating minerals can build the vent deposit.",
+    "choice": {
+      "inspect": "Minerals precipitating at a vent"
+    },
+    "expectation": "The inspection will reveal what can help form the deposit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The precipitated minerals built a deposit around the outlet, completing the vent-deposit goal. Heated water still needs to return to the sea.",
+    "reaction": "The modest deposit is a useful alternative to assuming every vent forms a tall chimney.",
+    "step": 8,
+    "reason": "The returning fluid may have another available interaction that completes the circulation loop.",
+    "choice": {
+      "inspect": "Hot fluid returning through fractures"
+    },
+    "expectation": "The inspection will reveal how to return the heated water to the sea.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The returning fluid mixed into the sea as a hydrothermal plume, completing the circulation goal and the chapter.",
+    "reaction": "The distinction between suspended mineral particles and smoke was useful.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the heated water’s reaction with rock through to mineral precipitation made the vent process clear, especially the distinction between heating and chemical exchange.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first attempt was frustrating: the accumulating sea could not combine with fractures, although the other sea item could.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The plume’s visible material is suspended minerals, not smoke; the deposit also need not become a towering chimney.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The distinction between the two sea items felt arbitrary at first: one began the circulation loop, while the other was used to complete it.",
+        "steps": [
+          1,
+          2,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue for another chapter if it offered similarly concrete connections between physical processes and visible results.",
+        "steps": [
+          4,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

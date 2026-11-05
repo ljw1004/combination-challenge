@@ -1,0 +1,174 @@
+[
+  {
+    "step": 1,
+    "reason": "The surface must lose heat before liquid water can persist, so escaping infrared energy is the clearest starting point.",
+    "choice": {
+      "combine": "A volcanic surface with solid ground",
+      "with": "Infrared energy escaping to space"
+    },
+    "expectation": "The surface should cool as it radiates energy to space.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ground has cooled enough to retain liquid water, leaving rain as the remaining goal.",
+    "reaction": "The cooling threshold makes the next stage clear.",
+    "step": 2,
+    "reason": "Cooler air above the steam-rich atmosphere should help water vapor condense into clouds.",
+    "choice": {
+      "combine": "A steam-rich atmosphere",
+      "with": "Cooler air high above the surface"
+    },
+    "expectation": "Water vapor should condense into clouds high above the surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steam has condensed into cloud droplets; the ground is already cool enough to retain water.",
+    "reaction": "The distinction between clouds and a surface sea is useful.",
+    "step": 3,
+    "reason": "Combining the droplets with the cooled ground is a plausible way to make rain reach the surface.",
+    "choice": {
+      "combine": "Clouds of liquid droplets",
+      "with": "Ground cool enough to retain water"
+    },
+    "expectation": "Rain should reach the ground and remain as liquid water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The droplets needed gravity to become falling rain; the cooled ground may now let it persist.",
+    "reaction": "The automatic correction clarified the missing step.",
+    "step": 4,
+    "reason": "The rain is falling, and the ground is cool enough to retain liquid water.",
+    "choice": {
+      "combine": "Rain falling through hot air",
+      "with": "Ground cool enough to retain water"
+    },
+    "expectation": "Rain should reach the cooled ground and remain liquid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rain struck the still-hot volcanic surface and returned as steam, despite the separate cooled-ground item. I need to find how the cooling and rain paths connect.",
+    "reaction": "The distinction between the two surface states is surprising.",
+    "step": 5,
+    "reason": "Inspecting the returning steam should reveal its available next step rather than guessing another pairing.",
+    "choice": {
+      "inspect": "Rain returning as steam"
+    },
+    "expectation": "Its compatibility list may show how the water returns to the cooling cycle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The returning steam has no available combinations, so I need to follow another part of the cooling and rain sequence.",
+    "reaction": "The dead end is a little surprising.",
+    "step": 6,
+    "reason": "The cooled ground is the completed cooling goal, so its partners may show how to connect it to persistent rain.",
+    "choice": {
+      "inspect": "Ground cool enough to retain water"
+    },
+    "expectation": "The compatibility list may reveal the next step toward rain reaching the ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooled ground has no available combinations, so it is not the missing link for rain.",
+    "reaction": "That leaves the connection between cooling and rain unclear.",
+    "step": 7,
+    "reason": "The steam-rich atmosphere remains available and may reveal another path to rain.",
+    "choice": {
+      "inspect": "A steam-rich atmosphere"
+    },
+    "expectation": "Its compatibility list should show which atmospheric process is still available.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The atmosphere is now cooling too, clarifying that surface cooling alone did not complete the coupled process.",
+    "reaction": "That explains why the separate cooled ground was not enough.",
+    "step": 8,
+    "reason": "Cooler air previously condensed atmospheric steam into droplets, so it is a plausible next partner for the cooling atmosphere.",
+    "choice": {
+      "combine": "A slowly cooling steam atmosphere",
+      "with": "Cooler air high above the surface"
+    },
+    "expectation": "The cooling atmosphere should form clouds or rain under conditions that allow water to reach the ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooling atmosphere and returning steam formed recycled sky water, connecting the earlier failed rain to the cooling cycle.",
+    "reaction": "It's useful to see that the evaporated rain remains part of the cycle.",
+    "step": 9,
+    "reason": "The recycled water is the newest stage, so checking its partners should reveal how it can become persistent rain.",
+    "choice": {
+      "inspect": "Water recycled through the sky"
+    },
+    "expectation": "Its compatibility list may identify the next step toward rain reaching the ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recycled water condensed in cooler air into persistent heavy rain, completing the atmospheric cooling sequence.",
+    "reaction": "The return of the earlier steam to the rain cycle is satisfying.",
+    "step": 10,
+    "reason": "The persistent rain can now meet ground cool enough to retain water.",
+    "choice": {
+      "combine": "Persistent heavy rain",
+      "with": "Ground cool enough to retain water"
+    },
+    "expectation": "The rain should reach the ground and remain liquid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The persistent rain met the cooled ground and remained liquid, completing the final goal.",
+    "reaction": "It was satisfying to see the recycled water finally accumulate.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the evaporated rain back through the cooling atmosphere was worthwhile: it showed that water cycles between phases rather than disappearing after a failed rainfall.",
+        "steps": [
+          4,
+          7,
+          8,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the returning steam and cooled ground was unproductive at that point; both had no available partners, leaving the connection unclear.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Rain initially returned to steam even though a separate cooled-ground item existed; the atmosphere also needed to cool before the water could persist.",
+        "steps": [
+          4,
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The failed attempts to pair rain with cooled ground felt opaque until the coupled cooling sequence became clear.",
+        "steps": [
+          3,
+          4,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the first accumulating water becomes a sea, especially after the chapter connected atmospheric cooling with the water cycle.",
+        "steps": [
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

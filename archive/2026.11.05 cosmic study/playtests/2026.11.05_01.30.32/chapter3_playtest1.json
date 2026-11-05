@@ -1,0 +1,193 @@
+[
+  {
+    "step": 1,
+    "reason": "The star is central to both goals, so checking its available partners should clarify how to begin building its interior.",
+    "choice": {
+      "inspect": "A massive first star"
+    },
+    "expectation": "The inspection should reveal which available ingredients can advance the star's evolution.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "A massive first star",
+          "with": "Hydrogen nuclei in the stellar core"
+        },
+        "reason": "Hydrogen fusion powers the star, but the next stage is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen fusion produced a helium-rich core, suggesting the next stage involves changes within that core.",
+    "reaction": "The distinction between the core and a separate object was useful.",
+    "step": 2,
+    "reason": "Compression in the stellar core plausibly advances the helium-rich core toward its next fusion stage.",
+    "choice": {
+      "combine": "A helium-rich stellar core",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "The core should contract and heat, preparing it for helium fusion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression raised the core's temperature enough to begin helium burning.",
+    "reaction": "The distinction between nuclear burning and ordinary chemical heat is useful.",
+    "step": 3,
+    "reason": "Neutral helium is the visible material most plausibly associated with the core's new burning stage.",
+    "choice": {
+      "combine": "A helium-burning core",
+      "with": "Neutral helium"
+    },
+    "expectation": "Helium burning should produce heavier material in the core.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Helium burning produced carbon-rich stellar material through the triple-alpha process.",
+    "reaction": "The unstable intermediate makes carbon production more interesting than a simple three-way collision.",
+    "step": 4,
+    "reason": "Further compression may heat the carbon-rich material enough for the next fusion stage.",
+    "choice": {
+      "combine": "Carbon-rich stellar material",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "Compression should advance the core toward carbon burning.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression advanced the carbon-rich material to carbon-burning layers, producing several heavier elements.",
+    "reaction": "The multiple reaction channels were a useful detail.",
+    "step": 5,
+    "reason": "Further compression may raise the temperature enough to advance the burning layers toward the layered interior.",
+    "choice": {
+      "combine": "Carbon-burning layers",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "The layers should progress to a hotter stage of stellar burning.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression advanced the layers through neon and oxygen burning, producing elements including silicon and sulfur.",
+    "reaction": "The continuing burning shells clarify how the layered interior develops.",
+    "step": 6,
+    "reason": "Further compression has advanced the previous burning stages and may lead to silicon burning.",
+    "choice": {
+      "combine": "Oxygen-burning layers",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "The layers should advance to a hotter burning stage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression produced silicon-burning material and was consumed; reactions in this stage move nuclei toward the iron group.",
+    "reaction": "The distinction between a reaction network and a single silicon collision was useful.",
+    "step": 7,
+    "reason": "Compression is no longer available, so inspecting the silicon-burning material should reveal how to advance toward the remaining goals.",
+    "choice": {
+      "inspect": "Silicon-burning material"
+    },
+    "expectation": "The inspection should identify an available partner for the next stage of the core's evolution.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Silicon-burning material has no available partner on its own, so I need another route toward the goals.",
+    "reaction": "That was surprising after the successive compression steps.",
+    "step": 8,
+    "reason": "The separate burning layers may need to be assembled into the star's layered interior; inspecting the star can check that route.",
+    "choice": {
+      "inspect": "A massive first star"
+    },
+    "expectation": "The inspection should reveal whether the star can combine with one of the available layers.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Carbon-burning layers",
+          "with": "Oxygen-burning layers"
+        },
+        "reason": "The layers might instead be assembled directly."
+      }
+    ],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The star also has no available partner, so the layers likely need to be combined independently.",
+    "reaction": "It is surprising that neither the star nor the silicon-burning material has an available operation.",
+    "step": 9,
+    "reason": "Combining the carbon- and oxygen-burning layers is a plausible way to assemble the layered interior.",
+    "choice": {
+      "combine": "Carbon-burning layers",
+      "with": "Oxygen-burning layers"
+    },
+    "expectation": "The two burning regions may form part of the layered stellar interior.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Carbon-burning layers"
+        },
+        "reason": "Inspection could identify its available partners before attempting assembly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Combining the burning layers built the layered interior, completing one goal.",
+    "reaction": "The onion metaphor makes the coexistence of burning regions clear.",
+    "step": 10,
+    "reason": "The silicon-burning material moves nuclei toward the iron group, so combining it with the layered interior may advance the core to the end of fusion support.",
+    "choice": {
+      "combine": "An onion of burning shells",
+      "with": "Silicon-burning material"
+    },
+    "expectation": "The silicon-burning region should advance the layered star toward an iron-group core.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The silicon-burning material and layered shells produced an iron-group core, completing the final goal and showing why further fusion cannot sustain the star.",
+    "reaction": "The link between iron-group nuclei and the loss of fusion support was satisfying.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the onion of burning shells made the coexistence of different burning regions clear without implying they were separate stars or pure shells.",
+        "steps": [
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the star after silicon-burning material had no available partner was another unproductive check.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Silicon-burning material had no available partner until the other layers were assembled; I expected it to advance directly.",
+        "steps": [
+          7,
+          9,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to combine the carbon- and oxygen-burning layers before the silicon material became usable was not initially obvious, though the resulting layered-interior explanation gave it a purpose.",
+        "steps": [
+          7,
+          9,
+          10
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the approaching core collapse unfolds, especially after learning why fusion support ends.",
+        "steps": [
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

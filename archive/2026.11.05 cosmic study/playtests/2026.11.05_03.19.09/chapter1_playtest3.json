@@ -1,0 +1,178 @@
+[
+  {
+    "step": 1,
+    "reason": "The introduction says cooling lets electrons stay with nuclei, making neutral hydrogen abundant and freeing ancient light.",
+    "choice": {
+      "combine": "Hydrogen nuclei",
+      "with": "Electrons"
+    },
+    "expectation": "They will form neutral hydrogen, helping light travel freely.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Helium nuclei",
+          "with": "Electrons"
+        },
+        "reason": "Helium settles first, but hydrogen is explicitly linked to light traveling freely."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen nuclei and electrons formed neutral hydrogen; the light-travel goal still needs attention.",
+    "reaction": "The distinction between making an atom and making a new element is useful.",
+    "step": 2,
+    "reason": "Neutral hydrogen is linked in the introduction to ancient light traveling freely, so I’ll try it with the trapped radiation.",
+    "choice": {
+      "combine": "Neutral hydrogen",
+      "with": "Trapped radiation"
+    },
+    "expectation": "The radiation will be released to travel freely.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Trapped radiation"
+        },
+        "reason": "I could check its available partners if the connection is less direct than it seems."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Neutral hydrogen released the ancient light, completing the first goal; the remaining goal is to gather star-making gas.",
+    "reaction": "It is interesting that transparency arrived before the first stars shone.",
+    "step": 3,
+    "reason": "A denser patch seems like a natural place for neutral hydrogen to gather into star-making gas.",
+    "choice": {
+      "combine": "Neutral hydrogen",
+      "with": "A denser patch of the universe"
+    },
+    "expectation": "The hydrogen will gather in the denser patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Neutral hydrogen has no currently available combinations, so my guess about gathering it directly was wrong.",
+    "reaction": "That was unexpected; I need another route to the gas.",
+    "step": 4,
+    "reason": "The introduction says helium settles first, so I’ll try combining its nuclei with electrons.",
+    "choice": {
+      "combine": "Helium nuclei",
+      "with": "Electrons"
+    },
+    "expectation": "Electrons will join the helium nuclei to form neutral helium.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "A denser patch of the universe"
+        },
+        "reason": "Its available partners might reveal how to gather star-making gas."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Helium nuclei became neutral helium, but the route to gathering star-making gas remains unclear.",
+    "reaction": "The clarification that helium recombined earlier is useful.",
+    "step": 5,
+    "reason": "The denser patch seems relevant to gathering gas, but my direct hydrogen attempt failed, so checking its partners should clarify the route.",
+    "choice": {
+      "inspect": "A denser patch of the universe"
+    },
+    "expectation": "Its available partners may show how to gather the gas.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Neutral helium",
+          "with": "A denser patch of the universe"
+        },
+        "reason": "Neutral helium might gather there, but I lack evidence that this pair works."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The denser patch has no available partners yet, so another step must precede gathering gas.",
+    "reaction": "I’m unsure what unlocks it.",
+    "step": 6,
+    "reason": "Expanding space is the remaining untried starting piece and may reveal the next step.",
+    "choice": {
+      "inspect": "Expanding space"
+    },
+    "expectation": "Its available partners may point toward gathering the first gas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Expanding space and freely travelling light formed a cooling cosmic afterglow, but the route to gathering gas is still unclear.",
+    "reaction": "The stretching of ancient light into the cosmic microwave background is a useful connection.",
+    "step": 7,
+    "reason": "Neutral helium is newly formed and may now have an available partner that points toward the gas-gathering goal.",
+    "choice": {
+      "inspect": "Neutral helium"
+    },
+    "expectation": "Its compatibility list may reveal the next step toward gathering star-making gas.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "A cooling cosmic afterglow"
+        },
+        "reason": "The new afterglow might also have an available operation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Neutral helium and hydrogen formed primordial gas, which may now gather in the denser patch.",
+    "reaction": "The absence of rock and water in the primordial gas is a useful detail.",
+    "step": 8,
+    "reason": "The primordial gas and denser patch directly suggest gathering star-making material.",
+    "choice": {
+      "combine": "Primordial gas",
+      "with": "A denser patch of the universe"
+    },
+    "expectation": "The gas will gather in the denser patch, completing the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gravity gathered the primordial gas into a dense knot, completing the final goal; further contraction would require the knot to lose heat.",
+    "reaction": "The distinction between local gravitational binding and expansion elsewhere was illuminating.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Gathering the primordial gas was most worthwhile: it connected gravity, heat loss and cosmic expansion in one result.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the denser patch before it had any available partners was unproductive, although it clarified that another step was needed.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that expanding space stretched the ancient light toward what would become the cosmic microwave background.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining neutral hydrogen and helium to make primordial gas was not obvious to me after the direct attempt to gather hydrogen failed, though the resulting composition made sense.",
+        "steps": [
+          3,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The explanations made me curious how the gas cools and eventually forms stars and worlds.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

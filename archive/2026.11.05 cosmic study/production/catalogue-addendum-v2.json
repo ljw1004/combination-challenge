@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "catalogue_revision": 2,
+  "title": "Cosmic production catalogue supplement: final detailed-playtest corrections",
+  "scope": "Adds one illustrated identity and records five added recipes plus one replaced recipe. The original 193-recipe catalogue and story-lock remain unchanged as the art-design baseline; this supplement is not a replacement full manuscript inventory.",
+  "base_catalogue": {
+    "path": "catalogue.json",
+    "sha256": "5f31dc2f6166be0ab215d68e55aaf3d97213f66e8da3ebf0fe6917502e4bb66a",
+    "items": 244,
+    "recipes": 193
+  },
+  "source": {
+    "manuscript": "stories/cosmic/cosmic.md",
+    "recorded_location": "projects/cosmic-study/cosmic.md",
+    "sha256": "0cd5548f040875c112db7755062054c152646dab16de209a48f2e8e98257e9fd",
+    "items": 245,
+    "recipes": 198,
+    "playable_chapters": 24,
+    "ending_chapters": 1
+  },
+  "new_items": [
+    {
+      "id": "hydrated-embryo",
+      "name": "Proto-Earth with hydrated material",
+      "chapter_id": "chapter-13",
+      "chapter_number": 13,
+      "chapter_title": "Worlds from wreckage",
+      "physical_depiction": "The same charcoal growing Earth with amber fissures and a modest right-hand cutaway containing angular grey-brown stony clasts with thin pale mineral veins.",
+      "closest_visual_confusions": [
+        "proto-earth",
+        "metal-bearing-earth",
+        "young-earth",
+        "differentiated-earth"
+      ],
+      "avoidance": "The clasts remain stony, with no shiny metallic droplets or finished metal core. No surface ocean, liquid water, blue pools, ice, atmosphere, molecular diagram, modern continents or second planet.",
+      "symbolic_role": {
+        "kind": "body",
+        "meaning": "A cutaway view of the continuing growing Earth; hydrogen-bearing material is represented as rocky accretion, not visible free water."
+      },
+      "label_dependent_identity": true,
+      "continuity_families": [
+        "earth"
+      ],
+      "recipes_as_output": [
+        "chapter-13-revision-2-03"
+      ],
+      "recipes_as_input": [
+        "chapter-13-revision-2-04"
+      ],
+      "supplied_primitive": false,
+      "production_source": "masters/hydrated-embryo-v1.png",
+      "runtime": "stories/cosmic/assets/icons/hydrated-embryo.png"
+    }
+  ],
+  "recipe_changes": [
+    {
+      "change": "add",
+      "recipe": {
+        "id": "chapter-01-revision-2-01",
+        "chapter_id": "chapter-01",
+        "source_line": 98,
+        "inputs": [
+          {
+            "item_id": "hydrogen",
+            "mode": "transform"
+          },
+          {
+            "item_id": "trapped-light",
+            "mode": "consume"
+          }
+        ],
+        "output": "free-light"
+      }
+    },
+    {
+      "change": "add",
+      "recipe": {
+        "id": "chapter-09-revision-2-02",
+        "chapter_id": "chapter-09",
+        "source_line": 790,
+        "inputs": [
+          {
+            "item_id": "icy-dust",
+            "mode": "transform"
+          },
+          {
+            "item_id": "outer-orbits",
+            "mode": "consume"
+          }
+        ],
+        "output": "outer-solids"
+      }
+    },
+    {
+      "change": "add",
+      "recipe": {
+        "id": "chapter-13-revision-2-03",
+        "chapter_id": "chapter-13",
+        "source_line": 1113,
+        "inputs": [
+          {
+            "item_id": "proto-earth",
+            "mode": "transform"
+          },
+          {
+            "item_id": "water-rich-asteroids",
+            "mode": "consume"
+          }
+        ],
+        "output": "hydrated-embryo"
+      }
+    },
+    {
+      "change": "add",
+      "recipe": {
+        "id": "chapter-13-revision-2-04",
+        "chapter_id": "chapter-13",
+        "source_line": 1114,
+        "inputs": [
+          {
+            "item_id": "hydrated-embryo",
+            "mode": "transform"
+          },
+          {
+            "item_id": "metal-fragments",
+            "mode": "consume"
+          }
+        ],
+        "output": "young-earth"
+      }
+    },
+    {
+      "change": "add",
+      "recipe": {
+        "id": "chapter-21-revision-2-05",
+        "chapter_id": "chapter-21",
+        "source_line": 1737,
+        "inputs": [
+          {
+            "item_id": "early-sea",
+            "mode": "preserve"
+          },
+          {
+            "item_id": "seafloor-fractures",
+            "mode": "consume"
+          }
+        ],
+        "output": "descending-seawater"
+      }
+    },
+    {
+      "change": "replace",
+      "recipe": {
+        "id": "chapter-22-revision-2-06",
+        "chapter_id": "chapter-22",
+        "source_line": 1826,
+        "inputs": [
+          {
+            "item_id": "breaking-waves",
+            "mode": "transform"
+          },
+          {
+            "item_id": "rock-headland",
+            "mode": "consume"
+          }
+        ],
+        "output": "angular-stones"
+      },
+      "base_recipe_id": "chapter-22-r03"
+    }
+  ],
+  "existing_art_corrections": [
+    "Neutral hydrogen can release trapped light directly, using existing artwork.",
+    "Inherited icy dust can join cold outer-disk solids directly, using existing artwork.",
+    "The early sea can recharge seafloor fractures before its later surface states, using existing artwork.",
+    "Breaking waves erode the existing fractured basalt headland rather than the older cracked-crust identity; its existing icon remains selected."
+  ],
+  "new_branch": "Hydrogen-bearing rock may accrete before the separately represented metal-rich fragments. hydrated-embryo then accepts metal-fragments to reach the same young-earth result as the pre-existing metal-first route.",
+  "recognition_limit": "At 72px the added image distinguishes a rocky cutaway from the inherited-metal state; hydration and exact hydrogen-bearing chemistry depend on the normal name and reading. Art-review verdicts remain separate from this provenance supplement."
+}

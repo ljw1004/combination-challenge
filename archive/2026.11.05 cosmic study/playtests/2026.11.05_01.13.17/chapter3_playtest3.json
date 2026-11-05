@@ -1,0 +1,144 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and it should begin following the star’s core through its fuel stages.",
+    "choice": 1,
+    "expectation": "I expect hydrogen fusion to change the star or its core, though the resulting object is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen fusion has left a helium-rich core within the same star; compression looks like the next stage.",
+    "reaction": "The clarification that the core remains part of the same star is useful.",
+    "step": 2,
+    "reason": "This is the only offered combination and should advance the core's evolution.",
+    "choice": 1,
+    "expectation": "I expect compression to heat the helium-rich core, possibly enabling helium fusion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression has heated the core enough for helium burning, so helium is the next relevant ingredient.",
+    "reaction": "The distinction between nuclear burning and ordinary chemical heat is useful.",
+    "step": 3,
+    "reason": "This is the only offered combination and should advance the star's helium-burning stage.",
+    "choice": 1,
+    "expectation": "I expect helium burning to produce heavier material, though the precise result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Helium burning has produced carbon through the triple-alpha process; the carbon can now be combined with helium or compressed.",
+    "reaction": "The unstable intermediate makes the carbon-making step more interesting.",
+    "step": 4,
+    "reason": "Combining carbon with helium may continue building heavier material before advancing to compression.",
+    "choice": 1,
+    "expectation": "I expect helium to combine with carbon to form a heavier element, possibly oxygen.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Compression might advance the core to another burning stage, but I want to explore helium's role first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Carbon captured helium to make oxygen, giving me another material that can be compressed.",
+    "reaction": "The connection to later rock and water is useful.",
+    "step": 5,
+    "reason": "Compressing the carbon-rich material may advance the core to its next burning stage.",
+    "choice": 1,
+    "expectation": "I expect compression to heat the carbon-rich material and enable further nuclear burning, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Compressing the oxygen-rich material may also advance stellar evolution, but I expect carbon burning to come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression has produced carbon-burning layers with several reaction products; oxygen-rich material remains available for compression.",
+    "reaction": "The multiple reaction channels make this stage more interesting.",
+    "step": 6,
+    "reason": "This is the only offered combination and should advance the oxygen-rich material.",
+    "choice": 1,
+    "expectation": "I expect compression to heat the oxygen-rich material enough for another burning stage, though the result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen burning has produced heavier nuclei and distinct fuel shells; I can now combine the layers or compress the oxygen-burning layers further.",
+    "reaction": "The emergence of distinct shells makes the star’s layered structure clearer.",
+    "step": 7,
+    "reason": "Combining the carbon- and oxygen-burning layers seems directly relevant to building the layered interior.",
+    "choice": 1,
+    "expectation": "I expect a more complete layered stellar interior, though I’m unsure whether further stages will be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Further compression might advance the burning stages, but I want to assemble the existing layers first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The combined layers form an onion-like stellar interior, completing that goal; the remaining goal concerns the end of fusion support.",
+    "reaction": "The clarification that the shells are neither separate stars nor chemically pure is useful.",
+    "step": 8,
+    "reason": "This is the only offered combination and may advance the core toward the end of fusion support.",
+    "choice": 1,
+    "expectation": "I expect further compression to enable a hotter burning stage, though the precise result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Further compression produced silicon-burning material, whose reactions move nuclei toward the iron group.",
+    "reaction": "The clarification that silicon burning involves a reaction network is useful.",
+    "step": 9,
+    "reason": "This is the only offered combination and may bring the layered star closer to the end of fusion support.",
+    "choice": 1,
+    "expectation": "I expect silicon burning to add an iron-group core to the layered star, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The iron-group core completes the chapter and explains why fusion can no longer support it; collapse is approaching.",
+    "reaction": "The energy limit gives the sequence a clear, consequential endpoint.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the onion of burning shells was most worthwhile: it brought the stages together and clarified that different reactions coexist inside one star.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated compression actions felt somewhat procedural, particularly when only one combination was offered, although their explanations distinguished the burning stages.",
+        "steps": [
+          6,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The triple-alpha process makes carbon through an unstable intermediate, rather than a simple direct combination.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining silicon-burning material with the onion felt somewhat abstract, though the resulting iron-group core made its purpose clear.",
+        "steps": [
+          9
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the approaching collapse spreads the elements made in the star, though the mostly forced sequence made the decisions less engaging.",
+        "steps": [
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

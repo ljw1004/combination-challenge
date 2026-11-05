@@ -6,7 +6,7 @@
 
 ## Project
 
-Five combination stories authored in Markdown, with complete artwork for Settlement, Cookbook and Mars. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Six combination stories authored in Markdown, with complete artwork for Settlement, Cookbook, Mars and Cosmic. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -28,6 +28,8 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **Mission to Mars** follows a solo astronaut from a crash through shelter, farming, an uncertain discovery and a return built with local iron: `/make-something.html?story=stories/mars/mars.md`. The [live story](stories/mars/mars.md), [design brief](stories/mars/design-brief.md) and [three moments of play](stories/mars/design-exxamples.png) preserve its austere physical character. The active [Mars study](projects/mars-study/README.md) retains the unchanged v12 reference, earlier versions, production artwork and review outcomes.
 
+**Cosmic: A Sea Beneath the Moon** follows matter from early atoms through stars, worlds and water to an uninhabited shore: `/make-something.html?story=stories/cosmic/cosmic.md`. Its 198 combinations, 245 circular illustrations and 16 landscapes share an astronomical chromolithograph style. See the [story](stories/cosmic/cosmic.md), [design brief](stories/cosmic/design-brief.md) and [completed development study](<archive/2026.11.05 cosmic study/README.md>).
+
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
 | Player URL | Markdown fetched |
@@ -36,6 +38,7 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 | `/make-something.html?story=stories/cookbook/cookbook.md` | `/stories/cookbook/cookbook.md` |
 | `/make-something.html?story=stories/theology/theology.md` | `/stories/theology/theology.md` |
 | `/make-something.html?story=stories/mars/mars.md` | `/stories/mars/mars.md` |
+| `/make-something.html?story=stories/cosmic/cosmic.md` | `/stories/cosmic/cosmic.md` |
 | `/make-something.html` | `/story.md` (supply this file to use this route) |
 
 The `story` parameter points to a `.md` file on the same server. Relative paths resolve against the player page, so the same layout works under a website subdirectory; root-relative paths also work. Without the parameter, the player always requests `story.md` beside itself. A missing story displays an error. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.
@@ -98,7 +101,7 @@ Drafts use browser local storage, keyed by the full Markdown URL. Two player rou
 
 ## Story layout
 
-The five bundled manuscripts use their story names as filenames:
+The six bundled manuscripts use their story names as filenames:
 
 ```text
 stories/<slug>/<slug>.md

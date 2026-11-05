@@ -1,0 +1,140 @@
+[
+  {
+    "step": 1,
+    "reason": "Cooling the solid surface directly seems useful for allowing liquid water to persist.",
+    "choice": 3,
+    "expectation": "I expect the surface to lose heat, though it may need further cooling before water can remain liquid.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cooler upper air might form clouds, but the surface also needs to cool."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ground can now retain liquid water, so the remaining goal is to bring rain down.",
+    "reaction": "Satisfying to reach the cooling threshold directly.",
+    "step": 2,
+    "reason": "Cooler air above the surface seems likely to condense atmospheric steam into clouds.",
+    "choice": 2,
+    "expectation": "I expect clouds or condensed water to form, though another step may be needed for rain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Atmospheric heat loss may also help, but cooler upper air seems more directly related to condensation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds have formed, and the ground is already cool enough to retain water; the next step is to bring droplets down.",
+    "reaction": "The distinction between clouds aloft and water persisting on the ground is useful.",
+    "step": 3,
+    "reason": "Gravity can pull cloud droplets down as rain.",
+    "choice": 2,
+    "expectation": "I expect rainfall to reach the cooled ground, though further steps may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain is falling, but hot air may evaporate it before it reaches the ground.",
+    "reaction": "The intermediate step makes the cooling distinction clearer.",
+    "step": 4,
+    "reason": "Cooling the steam-rich atmosphere may let the rain survive its descent.",
+    "choice": 1,
+    "expectation": "I expect the atmosphere to lose heat, possibly allowing rain to reach the ground in a later step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered bringing rain to the surface directly, but the hot air may still prevent it from arriving."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The atmosphere is cooling slowly, clarifying that it and the surface cool together.",
+    "reaction": "The coupled cooling explanation is useful.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it may bring the rain to the ground.",
+    "choice": 1,
+    "expectation": "I expect some rain to reach the surface, though it may not all remain liquid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rain met hot rock and returned to the atmosphere, so further cooling is needed despite the earlier locally cool ground.",
+    "reaction": "The apparent contrast with the cooled ground is a little confusing, though the water cycle is clear.",
+    "step": 6,
+    "reason": "This is the only offered combination and may allow the returning water to cool again.",
+    "choice": 1,
+    "expectation": "I expect the recycled steam to cool and eventually form rain that can persist, though another step may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water remains in circulation rather than forming a lasting pool, so it needs to condense again.",
+    "reaction": "The recycled water explanation is clear, though the repeated cooling steps feel a little drawn out.",
+    "step": 7,
+    "reason": "This is the only offered combination; cooler upper air may condense the recycled water.",
+    "choice": 1,
+    "expectation": "I expect renewed condensation and possibly rain that can reach the cooled ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "More rain now survives as the atmosphere and surface cool, so it can meet the ground that retains water.",
+    "reaction": "The recycled water finally becoming persistent rain feels like progress.",
+    "step": 8,
+    "reason": "This is the only offered combination and should bring the rain onto the cooled ground.",
+    "choice": 1,
+    "expectation": "I expect water to accumulate on the ground and complete the rain goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain now remains liquid on the cooled ground, completing the chapter’s remaining goal.",
+    "reaction": "It is satisfying to see the recycled water finally accumulate.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following rain as it evaporated and recycled through the sky made clear that water can persist on the planet without immediately forming an ocean.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated cooling and recycling steps felt drawn out, especially when only one combination was offered.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Rain returned as steam even though an earlier step had established ground cool enough to retain water. The distinction between local cool ground and the hot surface was somewhat confusing.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining rain with the original volcanic surface after cooling the atmosphere felt unclear: the already-cooled ground was not an option for that step.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to continue to see how water accumulates into a sea, though I would hope for fewer repeated, forced steps.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

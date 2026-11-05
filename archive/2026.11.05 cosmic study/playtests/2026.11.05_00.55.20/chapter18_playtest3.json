@@ -1,0 +1,173 @@
+[
+  {
+    "step": 1,
+    "reason": "The surface needs to lose heat before it can retain liquid water, so escaping infrared energy is a plausible first step.",
+    "choice": {
+      "combine": "Hot lava among solid rock",
+      "with": "Infrared energy escaping to space"
+    },
+    "expectation": "The lava and surrounding rock will cool as they radiate energy away.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooler rock can retain liquid water, completing the surface-cooling goal; rain remains to be made.",
+    "reaction": "The contrast between cool rock and nearby boiling lava makes the uneven cooling clear.",
+    "step": 2,
+    "reason": "Cooler air above the surface should help water vapor condense into clouds.",
+    "choice": {
+      "combine": "A steam-rich atmosphere",
+      "with": "Cooler air high above the surface"
+    },
+    "expectation": "Water vapor will condense into clouds that can produce rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The atmosphere has formed liquid-droplet clouds; the remaining task is to bring rain to the ground.",
+    "reaction": "The distinction between clouds and a surface able to hold water is useful.",
+    "step": 3,
+    "reason": "Gravity should pull growing cloud droplets down as rain.",
+    "choice": {
+      "combine": "Clouds of liquid droplets",
+      "with": "A rocky body’s gravity"
+    },
+    "expectation": "Rain will fall from the clouds to the ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain is falling, but the goal is not yet complete; the cool rock should provide a surface it can reach and remain on.",
+    "reaction": "It is useful that falling rain does not automatically imply water collects at the surface.",
+    "step": 4,
+    "reason": "The cool rock can retain liquid water, unlike the nearby hot lava.",
+    "choice": {
+      "combine": "Rain falling through hot air",
+      "with": "Cool rock beside the lava"
+    },
+    "expectation": "Rain will reach the cool rock and remain liquid there.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain instead struck hot lava and returned to the atmosphere as steam; the ground-reaching rain goal remains open.",
+    "reaction": "I was surprised the attempted cool-rock pairing led automatically to the hot lava instead.",
+    "step": 5,
+    "reason": "The steam may need to cool aloft and rejoin the cloud cycle, so I’ll check its available interactions.",
+    "choice": {
+      "inspect": "Rain returning as steam"
+    },
+    "expectation": "The compatibility list may show how the steam returns to clouds or rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The returned steam has no available combinations, so I need another route to ground-reaching rain.",
+    "reaction": "The dead end is a little surprising because the steam remains part of the water cycle.",
+    "step": 6,
+    "reason": "Cool rock is the intended surface for retaining rain, but the direct rain pairing failed, so checking its available partners should reveal the next route.",
+    "choice": {
+      "inspect": "Cool rock beside the lava"
+    },
+    "expectation": "The compatibility list will show what can interact with the cool rock, possibly leading to ground-reaching rain.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Cool rock has no available partners, so it cannot currently advance the rain goal.",
+    "reaction": "The lack of a cool-rock interaction is confusing after the earlier description.",
+    "step": 7,
+    "reason": "The steam-rich atmosphere may offer a way to restart cloud formation or reveal another route to rain.",
+    "choice": {
+      "inspect": "A steam-rich atmosphere"
+    },
+    "expectation": "Its compatibility list may identify an available step toward rain reaching the ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The atmosphere can lose heat to space, opening a cooling route toward rain.",
+    "reaction": "I had overlooked the atmosphere’s own cooling.",
+    "step": 8,
+    "reason": "Cooler air above the surface previously condensed atmospheric vapor into clouds, so it is a plausible partner for the cooling steam atmosphere.",
+    "choice": {
+      "combine": "A slowly cooling steam atmosphere",
+      "with": "Cooler air high above the surface"
+    },
+    "expectation": "Further cooling will condense vapor and advance the rain goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooling atmosphere and returned steam have formed a recycled-water system; the remaining route to rain is still unclear.",
+    "reaction": "The automatic pairing clarified how the boiled rain reenters the cycle.",
+    "step": 9,
+    "reason": "Inspecting the recycled water should reveal how to advance toward rain reaching the ground.",
+    "choice": {
+      "inspect": "Water recycled through the sky"
+    },
+    "expectation": "Its available partner may lead to another descent of rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Recycled water cooled into persistent heavy rain, so it may now reach the cool surface.",
+    "reaction": "The cooling cycle finally produced rain that can survive the descent.",
+    "step": 10,
+    "reason": "Cool rock can retain liquid water, making it the natural destination for the persistent rain.",
+    "choice": {
+      "combine": "Persistent heavy rain",
+      "with": "Cool rock beside the lava"
+    },
+    "expectation": "The rain will reach the cool rock and remain liquid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Persistent rain remained liquid on the cool rock, completing the final goal and the chapter.",
+    "reaction": "It was satisfying to see the cooling cycle lead to water staying on the ground.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following rain from boiling on lava through atmospheric cooling and recycling was most worthwhile: it showed why cooling both surface and atmosphere matters.",
+        "steps": [
+          4,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the returned steam and cool rock was unproductive; neither had an available partner, despite their apparent relevance.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The attempted rain-and-cool-rock combination instead automatically sent the rain onto hot lava, returning it as steam.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial rain could not be paired with cool rock even though the description said that rock could retain water. The later need for persistent rain became clearer after the cooling cycle, but the restriction initially felt arbitrary.",
+        "steps": [
+          4,
+          9,
+          10
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the retained rain accumulates, though I would hope future interactions make their prerequisites clearer.",
+        "steps": [
+          4,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

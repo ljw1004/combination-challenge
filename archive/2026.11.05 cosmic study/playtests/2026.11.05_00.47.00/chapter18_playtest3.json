@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "Letting the solid surface lose heat directly seems useful for reaching the liquid-water goal.",
+    "choice": 3,
+    "expectation": "I expect the surface to cool, though it may take further steps before water can persist.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cooler upper air could form clouds, but the introduction says clouds can precede lasting rain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The surface is now cool enough to retain liquid water, completing the first goal; I can focus on making rain.",
+    "reaction": "It was satisfying to reach the cooling threshold directly.",
+    "step": 2,
+    "reason": "Cooler upper air may condense atmospheric steam into clouds, a plausible step toward rain.",
+    "choice": 2,
+    "expectation": "I expect clouds or condensed water to form aloft, though further cooling may be needed for rain to reach the ground.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Atmospheric heat loss could also help cooling, but upper-air condensation seems more directly connected to rain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds have formed, and the ground is already cool enough to retain water; I can now try to bring the droplets down.",
+    "reaction": "The distinction between clouds and a surface able to hold water is useful.",
+    "step": 3,
+    "reason": "Gravity should pull cloud droplets toward the ground, advancing the rain goal.",
+    "choice": 2,
+    "expectation": "I expect rain to fall, though the droplets may need further growth first.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Further atmospheric heat loss might help, but bringing down the existing droplets seems more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Droplets have grown into rain, but hot air or ground may prevent some from persisting; the cooled ground may matter next.",
+    "reaction": "The possibility of rain evaporating before reaching the surface is an interesting complication.",
+    "step": 4,
+    "reason": "Combining the rain with the surface directly addresses the remaining goal of rain reaching the ground.",
+    "choice": 2,
+    "expectation": "I expect rain to reach the volcanic ground, though some may evaporate or boil.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Further atmospheric heat loss could help, but the rain is already falling."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rain hit rock still too hot to retain it, so I need another cooling step despite having already made ground cool enough for water.",
+    "reaction": "That distinction between the available surfaces is somewhat confusing.",
+    "step": 5,
+    "reason": "This is the only offered combination; atmospheric heat loss may allow rain to persist.",
+    "choice": 1,
+    "expectation": "I expect the atmosphere to cool, possibly enabling rain to reach cooler ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The atmosphere is cooling as a coupled system with the surface, providing a way to revisit the evaporating rain.",
+    "reaction": "The explanation helps clarify why atmospheric cooling matters alongside surface cooling.",
+    "step": 6,
+    "reason": "This is the only offered combination and connects the returning steam with the cooling atmosphere.",
+    "choice": 1,
+    "expectation": "I expect the water to condense and fall again, perhaps reaching the ground this time.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water is cycling between vapor and condensate, so another encounter with cool upper air is the next available step.",
+    "reaction": "The recycling explanation makes the failed pool more understandable.",
+    "step": 7,
+    "reason": "This is the only offered combination and may condense the recycled water into rain again.",
+    "choice": 1,
+    "expectation": "I expect renewed condensation and perhaps rain that can reach the cooled ground.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Persistent rain now survives the cooling atmosphere, and the cooled ground can receive it.",
+    "reaction": "The water cycle leading back to lasting rain makes sense, though it took several sequential steps.",
+    "step": 8,
+    "reason": "This is the only offered combination and directly connects the rain with ground cool enough to retain it.",
+    "choice": 1,
+    "expectation": "I expect rain to reach the ground and remain as liquid, completing the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rain now remains liquid on the cooled ground, completing the chapter’s remaining goal.",
+    "reaction": "It was satisfying to see the cooling and water-cycle sequence culminate in liquid water on the surface.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Recycling rain that returned as steam made the movement of the same water between phases clear, and set up the eventual lasting rain.",
+        "steps": [
+          4,
+          6,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The sequence of only-offered combinations became somewhat repetitive after the rain returned as steam.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Rain could fall yet evaporate or boil rather than form a lasting pool; clouds and rainfall alone do not establish a sea.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Sending rain to a still-hot volcanic surface felt confusing after I had already created ground cool enough to retain water. The later distinction between surfaces was not clear at first.",
+        "steps": [
+          1,
+          4,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the first persistent water accumulates into a sea, though I would hope for more meaningful choices than the final linear sequence offered.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

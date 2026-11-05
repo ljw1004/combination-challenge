@@ -1,0 +1,95 @@
+[
+  {
+    "step": 1,
+    "reason": "The only available action brings Theia toward Earth and starts the encounter.",
+    "choice": 1,
+    "expectation": "I expect crossing orbits to put Theia on a collision course, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Theia is now on a collision course, so the oblique encounter is the next available gameplay action.",
+    "reaction": "The reminder that the orbit is a chosen scenario, not a recovered fact, is useful.",
+    "step": 2,
+    "reason": "The only offered combination advances the encounter.",
+    "choice": 1,
+    "expectation": "I expect an angled impact or its immediate setup, though the result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The impactor is now set up for a glancing collision, whose geometry affects the debris and angular momentum.",
+    "reaction": "The distinction between a glancing and head-on collision is useful.",
+    "step": 3,
+    "reason": "The only offered combination brings the prepared impactor together with Earth.",
+    "choice": 1,
+    "expectation": "I expect the giant impact to alter Earth and throw some material into orbit, though the immediate result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The impact leaves a remelted Earth and silicate-rich debris, so both the surviving planet and orbital material can now be followed.",
+    "reaction": "The clarification that Earth survives rather than disappearing makes the result easier to picture.",
+    "step": 4,
+    "reason": "I’ll follow gravity’s effect on the surviving Earth first, addressing the first goal.",
+    "choice": 1,
+    "expectation": "I expect gravity to gather or stabilize the surviving planet, though the precise result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I also considered gathering the debris into bound orbits, but chose to follow Earth first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Earth survives as a hot, rapidly rotating planet, completing the first goal; the remaining combination follows the debris.",
+    "reaction": "The fallback of material helps clarify why Earth survives the impact.",
+    "step": 5,
+    "reason": "The only offered combination addresses the remaining goal of gathering rock into orbit.",
+    "choice": 1,
+    "expectation": "I expect some impact debris to settle into Earth-bound orbits, perhaps forming a disk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The debris enters bound orbits, completing the remaining goal; the result also distinguishes disk accretion from more direct satellite-formation models.",
+    "reaction": "The alternative formation route adds a useful qualification to the scenario.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The giant impact was the strongest moment: it connected the collision to both a surviving, remelted Earth and outward-thrown debris.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Setting up Theia’s path and angle felt a little procedural, with only one combination offered at each step.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Some simulations form a large satellite more directly rather than through the disk-accretion route followed here.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Preparing an angled impactor felt somewhat like a staging step, though the explanation made the geometry’s purpose clear.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I’d be curious to see how the orbiting debris becomes the Moon, especially given the uncertainty about the route.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

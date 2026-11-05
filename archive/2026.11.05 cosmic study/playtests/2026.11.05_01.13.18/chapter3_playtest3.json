@@ -1,0 +1,258 @@
+[
+  {
+    "step": 1,
+    "reason": "The star’s core begins with hydrogen fuel, so combining them is a plausible first step toward its layered interior.",
+    "choice": {
+      "combine": "A massive first star",
+      "with": "Hydrogen nuclei in the stellar core"
+    },
+    "expectation": "Hydrogen fusion should advance the star toward a helium-rich core.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Hydrogen nuclei in the stellar core",
+          "with": "Compression in the stellar core"
+        },
+        "reason": "Core compression may be needed to drive the fusion stage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen fusion produced a helium-rich core, so the next step is likely to change that core through compression.",
+    "reaction": "The clarification that the core remains part of the same star is useful.",
+    "step": 2,
+    "reason": "Compression in the stellar core is the most plausible way to advance the helium-rich core toward its next fuel stage.",
+    "choice": {
+      "combine": "A helium-rich stellar core",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "Compression should heat the core enough to advance helium fusion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression advanced the core to helium burning; neutral helium is now a plausible ingredient for the next stage.",
+    "reaction": "The distinction between nuclear burning and ordinary chemical heat is useful.",
+    "step": 3,
+    "reason": "Helium is the available fuel that fits the newly burning core.",
+    "choice": {
+      "combine": "A helium-burning core",
+      "with": "Neutral helium"
+    },
+    "expectation": "Helium fusion should produce heavier material in the core.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Helium burning produced carbon-rich material; I need to find how it advances toward the layered interior.",
+    "reaction": "The unstable intermediate in the triple-alpha process is interesting.",
+    "step": 4,
+    "reason": "The next partner for the carbon-rich material is not clear from the visible pieces, so checking its compatibility should guide the next stage.",
+    "choice": {
+      "inspect": "Carbon-rich stellar material"
+    },
+    "expectation": "The inspection should reveal what can advance the carbon-rich material, possibly automatically combining it if there is only one operation.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Carbon-rich stellar material",
+          "with": "Compression in the stellar core"
+        },
+        "reason": "Further compression might initiate the next burning stage, but its availability and role are uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Carbon-rich material can combine with either helium or compression, so there are two possible paths to explore.",
+    "reaction": "The choice makes the next stage less obvious.",
+    "step": 5,
+    "reason": "Adding helium to carbon is a plausible way to make oxygen before moving on to further compression.",
+    "choice": {
+      "combine": "Carbon-rich stellar material",
+      "with": "Neutral helium"
+    },
+    "expectation": "Helium capture should produce oxygen-rich stellar material.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Carbon-rich stellar material",
+          "with": "Compression in the stellar core"
+        },
+        "reason": "Compression could instead advance the core to a later burning stage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Helium capture produced oxygen-rich material, confirming one route from carbon toward heavier elements.",
+    "reaction": "It is satisfying to see how carbon and oxygen connect to later rock and water.",
+    "step": 6,
+    "reason": "Further compression is a known partner for the carbon-rich material and may advance the core toward later burning stages.",
+    "choice": {
+      "combine": "Carbon-rich stellar material",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "Compression should advance the carbon-rich material toward a later stage of stellar burning.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Oxygen-rich stellar material"
+        },
+        "reason": "I could check how oxygen fits into the next stage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression advanced the carbon-rich material into carbon-burning layers that produce several heavier elements.",
+    "reaction": "The multiple reaction channels are an interesting detail.",
+    "step": 7,
+    "reason": "Further compression may advance the carbon-burning layers toward the next stage of the stellar interior.",
+    "choice": {
+      "combine": "Carbon-burning layers",
+      "with": "Compression in the stellar core"
+    },
+    "expectation": "Compression should bring the layers to a later burning stage.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Carbon-burning layers"
+        },
+        "reason": "I could check the available partners before committing to further compression."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carbon-burning layers have no available combination, so further compression is not the next step. I will check the oxygen-rich material instead.",
+    "reaction": "The dead end was unexpected.",
+    "step": 8,
+    "reason": "Oxygen-rich material is the other product available to explore, and its next partner is unclear.",
+    "choice": {
+      "inspect": "Oxygen-rich stellar material"
+    },
+    "expectation": "The inspection should reveal its available partners and may automatically perform a sole operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen-rich material combined automatically with compression to create oxygen-burning layers, adding distinct fuel shells.",
+    "reaction": "The parallel carbon and oxygen burning stages clarify how the layered interior develops.",
+    "step": 9,
+    "reason": "The next route to ending fusion support is unclear, so checking compression may reveal an available core-stage operation.",
+    "choice": {
+      "inspect": "Compression in the stellar core"
+    },
+    "expectation": "The inspection should show any current partners for compression and automatically combine a sole available operation.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Oxygen-burning layers"
+        },
+        "reason": "These new layers might have a further operation, though the carbon-burning layers did not."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Compression advanced the oxygen-burning layers to silicon-burning material and was consumed; the reactions now approach the iron group.",
+    "reaction": "The explanation that silicon burning is a reaction network rather than a single fusion step is useful.",
+    "step": 10,
+    "reason": "The silicon-burning material is the newest stage, but its next partner is unclear, so inspecting it should reveal how to proceed.",
+    "choice": {
+      "inspect": "Silicon-burning material"
+    },
+    "expectation": "The inspection should reveal its available partners and may automatically perform a sole operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Silicon-burning material has no available partner, so I need to look elsewhere for the operation that assembles the interior.",
+    "reaction": "It is surprising that the newest stage cannot yet be combined.",
+    "step": 11,
+    "reason": "The massive star is the natural container for the burning layers, but its available partners are unclear.",
+    "choice": {
+      "inspect": "A massive first star"
+    },
+    "expectation": "The inspection should reveal whether the star can be combined with any of the layers, and may automatically perform a sole operation.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The massive star has no available combination, so it cannot currently assemble the layers directly.",
+    "reaction": "The lack of an obvious assembly operation is confusing.",
+    "step": 12,
+    "reason": "The oxygen-burning layers remained after silicon-burning material was created, so their available operations may have changed.",
+    "choice": {
+      "inspect": "Oxygen-burning layers"
+    },
+    "expectation": "The inspection should reveal any currently available partner and automatically combine it if there is only one operation.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Oxygen-rich stellar material"
+        },
+        "reason": "The remaining oxygen-rich material may have acquired another partner."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Combining the oxygen- and carbon-burning layers assembled the stellar interior and completed the first goal.",
+    "reaction": "The onion metaphor makes the coexistence of burning regions clearer.",
+    "step": 13,
+    "reason": "Silicon-burning material approaches the iron group, so combining it with the assembled shells is a plausible way to advance the core toward the end of fusion support.",
+    "choice": {
+      "combine": "An onion of burning shells",
+      "with": "Silicon-burning material"
+    },
+    "expectation": "The silicon-burning material should advance the layered star toward an iron-group core.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The silicon-burning material completed the iron-group core, where further fusion cannot supply the earlier support, and completed the chapter.",
+    "reaction": "The link between the final core and the loss of fusion support is satisfying.",
+    "step": 14,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the burning layers made the onion metaphor concrete and explained that different burning regions coexist within one star.",
+        "steps": [
+          12
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting silicon-burning material and the star yielded no available partners, making the route to assembling the layers confusing.",
+        "steps": [
+          10,
+          11
+        ]
+      },
+      "surprise": {
+        "text": "Carbon-burning layers initially had no available combination, but later combined with oxygen-burning layers to form the interior.",
+        "steps": [
+          7,
+          12
+        ]
+      },
+      "arbitrary": {
+        "text": "It was not obvious that the two burning layers had to be combined with each other rather than with the star; the eventual result explained the purpose, though.",
+        "steps": [
+          11,
+          12
+        ]
+      },
+      "continue": {
+        "text": "Yes. The connections between stellar reactions, the layered interior and the eventual loss of fusion support make me curious about what happens next.",
+        "steps": [
+          5,
+          12,
+          13
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

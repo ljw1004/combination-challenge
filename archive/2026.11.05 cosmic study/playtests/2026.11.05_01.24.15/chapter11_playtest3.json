@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "Radioactive heating should develop the interior of a rocky planetesimal, which is relevant to exposing stone and metal.",
+    "choice": {
+      "combine": "Rocky planetesimals",
+      "with": "Heat from short-lived radionuclides"
+    },
+    "expectation": "The rocky bodies will heat internally, potentially allowing their materials to separate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rocky planetesimal has melted, making separation of its interior materials a plausible next step.",
+    "reaction": "The qualification that not all asteroids melt is useful.",
+    "step": 2,
+    "reason": "Gravity should help dense metal sink within the melting body, separating it from the rock.",
+    "choice": {
+      "combine": "A melting rocky planetesimal",
+      "with": "A rocky body’s gravity"
+    },
+    "expectation": "The body will develop distinct metal-rich and rocky layers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The melted body differentiated into a metal core and silicate material; collisions may now expose those layers.",
+    "reaction": "The early differentiation of a small body is a useful detail.",
+    "step": 3,
+    "reason": "Collisions between small bodies should break open the differentiated world and expose its interior.",
+    "choice": {
+      "combine": "A small world with a metal core",
+      "with": "Collisions between small bodies"
+    },
+    "expectation": "The collision will expose fragments of stone and metal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision exposed metal core fragments, but the stone and water-related goals remain to be pursued.",
+    "reaction": "The connection to iron meteorites is interesting.",
+    "step": 4,
+    "reason": "Radioactive heating could melt ice within an icy planetesimal, allowing water to interact with its rock.",
+    "choice": {
+      "combine": "Icy planetesimals",
+      "with": "Heat from short-lived radionuclides"
+    },
+    "expectation": "The icy body will warm enough for some of its ice to melt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Internal heating produced liquid water inside the icy body, making water–rock interaction the next likely step.",
+    "reaction": "The possibility of liquid water beneath a frozen exterior is interesting.",
+    "step": 5,
+    "reason": "Silicate grains provide rock for the liquid water to interact with, matching the altered-rock goal.",
+    "choice": {
+      "combine": "Liquid water inside an icy body",
+      "with": "Silicate grains"
+    },
+    "expectation": "Water will react with the silicate rock, producing water-bearing altered minerals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water reacted with silicates to make hydrated asteroid rock, completing the water goal. The stone-and-metal goal remains.",
+    "reaction": "It's useful to see how hydrogen can remain bound in rock after exposed ice disappears.",
+    "step": 6,
+    "reason": "The core fragments exposed metal but did not complete the other goal; inspecting them may reveal how to obtain the needed stone as well.",
+    "choice": {
+      "inspect": "Fragments of an asteroid core"
+    },
+    "expectation": "The inspection will show available partners that might help complete the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The core fragments have no available combinations, so the remaining stone must be exposed by another route.",
+    "reaction": "That rules out combining the fragments further.",
+    "step": 7,
+    "reason": "Inspecting the collisions should reveal which remaining bodies they can break apart.",
+    "choice": {
+      "inspect": "Collisions between small bodies"
+    },
+    "expectation": "The report will identify a collision partner that can expose rocky material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Collisions have no currently available partners, so exposing stone requires another route.",
+    "reaction": "That is surprising after the collision exposed the core.",
+    "step": 8,
+    "reason": "The differentiated small world may have another available operation that exposes its rocky material.",
+    "choice": {
+      "inspect": "A small world with a metal core"
+    },
+    "expectation": "The inspection will identify any remaining partners for the differentiated body.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The differentiated asteroid has cooled and solidified, making it a new candidate for a disruptive collision.",
+    "reaction": "Cooling the rocky exterior first clarifies the missing step.",
+    "step": 9,
+    "reason": "A collision may now break the cooled asteroid and expose its rocky and metal-rich layers.",
+    "choice": {
+      "combine": "A cooled differentiated asteroid",
+      "with": "Collisions between small bodies"
+    },
+    "expectation": "The collision will produce fragments exposing stone and metal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision exposed fragments of the asteroid’s rocky layers and completed the remaining goal.",
+    "reaction": "It was satisfying to see the rocky fragments complement the earlier exposed core metal.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making water-bearing asteroid rock showed how hydrogen can remain in hydrated minerals even after exposed ice is gone.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the core fragments and collisions yielded no available partners, leaving the route to the remaining goal unclear.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The differentiated asteroid had to cool before another collision could expose its rocky layers; the earlier collision had already exposed core fragments.",
+        "steps": [
+          3,
+          8,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "Cooling before exposing rocky fragments made sense once explained, but it was not obvious why the earlier collision exposed only core material.",
+        "steps": [
+          3,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the links between asteroid interiors, meteorites and water-bearing minerals made me curious about how those materials contribute to Earth.",
+        "steps": [
+          3,
+          5,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

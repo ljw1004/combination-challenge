@@ -1,0 +1,193 @@
+[
+  {
+    "step": 1,
+    "reason": "The dense knot must lose heat before it can contract into a star, but the available cooling mechanism is not obvious.",
+    "choice": {
+      "inspect": "A dense knot of primordial gas"
+    },
+    "expectation": "The inspection should reveal which available ingredient can help the knot progress.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dense knot has no available operation yet, so another ingredient must be prepared first.",
+    "reaction": "I’m curious what enables the cooling process.",
+    "step": 2,
+    "reason": "Free electrons may help neutral hydrogen form a molecule that can cool the gas, though I’m guessing at the game’s recipe.",
+    "choice": {
+      "combine": "Neutral hydrogen",
+      "with": "A few free electrons"
+    },
+    "expectation": "This may start forming a cooling ingredient.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "A few free electrons"
+        },
+        "reason": "Checking their partners could reveal the intended preparation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Electron-assisted reactions produced molecular hydrogen, which may enable the dense knot to cool.",
+    "reaction": "The bundled chemistry clarified why the free electrons mattered.",
+    "step": 3,
+    "reason": "Molecular hydrogen can help primordial gas lose heat, allowing the dense knot to contract.",
+    "choice": {
+      "combine": "Molecular hydrogen",
+      "with": "A dense knot of primordial gas"
+    },
+    "expectation": "The molecular hydrogen will cool the knot and help it contract toward a star.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Molecular hydrogen enabled the knot to radiate energy and contract further.",
+    "reaction": "The cooling mechanism makes the next stage of collapse clearer.",
+    "step": 4,
+    "reason": "The cooled knot is the clearest route toward the first star, but its next partner is not obvious.",
+    "choice": {
+      "inspect": "A knot that can cool"
+    },
+    "expectation": "The inspection should reveal how to advance the knot toward forming a star.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The knot combined automatically with open space, forming a collapsing gas core as radiation carried heat away.",
+    "reaction": "The interplay of cooling and gravitational heating is clearer now.",
+    "step": 5,
+    "reason": "The collapsing core is the direct path toward the first star, but its next available operation is not apparent.",
+    "choice": {
+      "inspect": "A collapsing gas core"
+    },
+    "expectation": "The inspection should reveal how the core progresses toward ignition.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collapsing core gathered primordial gas into a massive protostar, which shines before stable hydrogen fusion begins.",
+    "reaction": "The distinction between gravitationally powered light and fusion is useful.",
+    "step": 6,
+    "reason": "The protostar is the next stage toward ignition, but its required partner is not apparent.",
+    "choice": {
+      "inspect": "A massive protostar"
+    },
+    "expectation": "The inspection should reveal how to ignite the protostar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protostar became a massive first star, completing the ignition goal through sustained hydrogen fusion.",
+    "reaction": "The distinction between nuclear fusion and chemical bonding is useful.",
+    "step": 7,
+    "reason": "The remaining goal concerns the star’s light reaching surrounding gas, so primordial gas is a plausible partner.",
+    "choice": {
+      "combine": "A massive first star",
+      "with": "Primordial gas"
+    },
+    "expectation": "The star’s light will reach and affect the surrounding gas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Primordial gas was not compatible; the star can instead combine with open space or neutral hydrogen.",
+    "reaction": "I was surprised the surrounding primordial gas was not the direct partner.",
+    "step": 8,
+    "reason": "Neutral hydrogen is a plausible stand-in for surrounding gas that the star's light can affect.",
+    "choice": {
+      "combine": "A massive first star",
+      "with": "Neutral hydrogen"
+    },
+    "expectation": "The star's light will reach and affect the hydrogen.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "A massive first star",
+          "with": "Open space"
+        },
+        "reason": "Open space might instead let the starlight travel outward."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Combining the star with neutral hydrogen produced a helium-rich stellar core rather than completing the starlight goal.",
+    "reaction": "I was surprised the combination advanced fusion inside the star instead.",
+    "step": 9,
+    "reason": "Open space is the star's other known partner and plausibly lets its light travel outward.",
+    "choice": {
+      "combine": "A massive first star",
+      "with": "Open space"
+    },
+    "expectation": "The star's light will travel outward toward the surrounding gas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The star combined with open space to produce starlight, but the goal of reaching surrounding gas remains.",
+    "reaction": "The distinction between new starlight and the cosmic afterglow is useful.",
+    "step": 10,
+    "reason": "Primordial gas is the available surrounding gas, so it is a plausible target for the starlight.",
+    "choice": {
+      "combine": "Starlight",
+      "with": "Primordial gas"
+    },
+    "expectation": "The starlight will reach and affect the surrounding gas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Starlight ionized the surrounding gas, but no goal completion was reported.",
+    "reaction": "It is useful to see how the first star changes its birth cloud.",
+    "step": 11,
+    "reason": "The ionized gas is the latest result related to the remaining goal, so checking its available operations may reveal what is still needed.",
+    "choice": {
+      "inspect": "Ionized surrounding gas"
+    },
+    "expectation": "The inspection should show whether the ionized gas has a next step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ionized gas automatically combined with electrons to form a glowing nebula, completing the remaining goal.",
+    "reaction": "The gas emitting its own light as electrons rejoin ions was a satisfying conclusion.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making molecular hydrogen and using it to cool the dense knot explained how gas can contract toward star formation.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the dense knot initially yielded no available partners, so it did little beyond indicating that preparation was needed.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Combining the star with neutral hydrogen made a helium-rich core rather than sending light into the surrounding gas.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The protostar's required neutral-hydrogen partner was not apparent beforehand; the inspection supplied it automatically, though the result explained accretion and fusion.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the story connects stellar processes to the formation of rock and water; the cooling and nebula explanations made this chapter worthwhile.",
+        "steps": [
+          3,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The iron-group core has lost fusion support, so gravity is the natural next step toward collapse.",
+    "choice": {
+      "combine": "An iron-group core",
+      "with": "Gravity without fusion support"
+    },
+    "expectation": "The core should collapse under gravity.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The iron-group core has collapsed into dense, neutron-rich matter; pressure may now affect the infall.",
+    "reaction": "The formation of neutrons during collapse is a useful detail.",
+    "step": 2,
+    "reason": "Pressure in dense neutron-rich matter is the most plausible next influence on the collapsing core.",
+    "choice": {
+      "combine": "A collapsing stellar core",
+      "with": "Pressure in dense neutron-rich matter"
+    },
+    "expectation": "The dense matter's pressure should halt or rebound the core's collapse.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collapsing core became a neutron star, completing the central-remnant goal; the enriched layers still need to be scattered.",
+    "reaction": "The distinction between a neutron star and a more massive black-hole remnant is useful.",
+    "step": 3,
+    "reason": "The neutrino flood may help drive an explosion through the star's layered interior.",
+    "choice": {
+      "combine": "An onion of burning shells",
+      "with": "A flood of neutrinos"
+    },
+    "expectation": "The neutrinos will help propel the enriched layers outward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The layered interior currently has no available combination, so I need another route to scattering it.",
+    "reaction": "The failed attempt is a little surprising; neutrinos alone were not enough in this pairing.",
+    "step": 4,
+    "reason": "Inspecting the neutrino flood may reveal how it can contribute to the explosion.",
+    "choice": {
+      "inspect": "A flood of neutrinos"
+    },
+    "expectation": "Its available partners may point toward the next stage of the explosion.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "A neutron star"
+        },
+        "reason": "The remnant might also have a role in driving the explosion."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neutrino flood acted on the collapsing core to produce an outward supernova shock, suggesting a way to scatter the stellar layers.",
+    "reaction": "The distinction between energy deposition and a guaranteed explosion is useful.",
+    "step": 5,
+    "reason": "The outward shock is the natural mechanism to drive the enriched layers outward.",
+    "choice": {
+      "combine": "An outward supernova shock",
+      "with": "An onion of burning shells"
+    },
+    "expectation": "The shock should scatter the star's enriched layers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shock scattered the enriched layers as expanding ejecta, completing the remaining goal while leaving the neutron star behind.",
+    "reaction": "It was satisfying to see the shock connect the collapse to the dispersal of newly made nuclei.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Inspecting the neutrino flood revealed how energy deposition could help drive an outward shock, connecting the collapse to the explosion.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to combine neutrinos directly with the stellar layers was less productive, although it prompted a useful inspection.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The collapsing core remained available to interact with neutrinos after producing a neutron star; that interaction created the outward shock.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The direct neutrino-and-layers pairing initially seemed plausible, but the feedback did not explain why it failed; the subsequent inspection clarified the intended interaction.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The chapter connected neutron-star formation and element dispersal through concise physical explanations, and I would be curious to follow the ejecta further.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

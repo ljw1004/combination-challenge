@@ -1,0 +1,136 @@
+[
+  {
+    "step": 1,
+    "reason": "Radioactive heating should change the interiors of the rocky planetesimals, helping expose their stone and metal.",
+    "choice": {
+      "combine": "Rocky planetesimals",
+      "with": "Heat from short-lived radionuclides"
+    },
+    "expectation": "The rocky bodies heat internally, potentially allowing metal and rock to separate.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Icy planetesimals",
+          "with": "Heat from short-lived radionuclides"
+        },
+        "reason": "Heating icy bodies may also advance the water-bearing rock goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rocky planetesimal has melted, making separation of its materials plausible.",
+    "reaction": "The distinction that not all asteroids melt is useful.",
+    "step": 2,
+    "reason": "Gravity can drive dense metal inward in a molten body, separating it from rock.",
+    "choice": {
+      "combine": "A melting rocky planetesimal",
+      "with": "A rocky body’s gravity"
+    },
+    "expectation": "The body will differentiate into metal-rich and rocky regions.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "A melting rocky planetesimal",
+          "with": "Collisions between small bodies"
+        },
+        "reason": "Collisions might expose material, but separation likely comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Metal and silicate have separated; the rocky layers need to cool before collisions can expose fragments.",
+    "reaction": "The cooling requirement makes the sequence clear.",
+    "step": 3,
+    "reason": "Escaping radiation should cool and solidify the layered body.",
+    "choice": {
+      "combine": "A hot, layered planetesimal",
+      "with": "Radiation escaping into space"
+    },
+    "expectation": "The planetesimal cools, leaving solid rocky layers around its metal-rich interior.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The asteroid has cooled and solidified, so collisions can now expose its differentiated materials.",
+    "reaction": "The sequence from melting to solidification is clear.",
+    "step": 4,
+    "reason": "Collisions can break the cooled asteroid and expose its rocky and metal-rich layers.",
+    "choice": {
+      "combine": "A cooled differentiated asteroid",
+      "with": "Collisions between small bodies"
+    },
+    "expectation": "The collision produces exposed stone and metal fragments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision produced rocky-layer fragments and completed the stone-and-metal goal; the remaining goal concerns water in altered rock.",
+    "reaction": "The goal completion also accounts for metal, though this result specifically describes rocky fragments.",
+    "step": 5,
+    "reason": "Heating icy planetesimals may melt their ice and allow water to alter rock.",
+    "choice": {
+      "combine": "Icy planetesimals",
+      "with": "Heat from short-lived radionuclides"
+    },
+    "expectation": "The icy bodies warm internally, potentially producing liquid water that can react with rock.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Internal heating produced liquid water inside the icy body, making water–rock reactions possible.",
+    "reaction": "The contrast between a frozen exterior and liquid water inside is interesting.",
+    "step": 6,
+    "reason": "Silicate grains provide rock for the liquid water to alter.",
+    "choice": {
+      "combine": "Liquid water inside an icy body",
+      "with": "Silicate grains"
+    },
+    "expectation": "Water reacts with silicate rock, producing water-bearing altered minerals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water reacted with silicates to form hydrated rock, completing the remaining goal and showing how hydrogen can be carried even after exposed ice disappears.",
+    "reaction": "That connection between water–rock reactions and Earth's volatile inventory was interesting.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Heating the icy body and reacting its liquid water with silicates was most worthwhile: it showed a plausible way water-derived hydrogen can be retained in rock.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The collision result was somewhat confusing: it described rocky fragments while completing a goal that also mentioned exposed metal.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "A frozen-looking body can contain liquid water, and its rock can retain hydrogen after exposed ice is gone.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the metal part of the collision goal was not explicit in the result.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how these differentiated and water-bearing bodies contribute to a growing Earth; the physical explanations made their formation engaging.",
+        "steps": [
+          2,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
