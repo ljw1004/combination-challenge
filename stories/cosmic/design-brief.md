@@ -1,5 +1,19 @@
 # Cosmic: A Sea Beneath the Moon
 
+## Current redevelopment requirements
+
+Redevelop the story from a compelling literary premise before expanding combinations or producing replacement artwork. Human feedback found the delivered game hard to follow: too many unfamiliar astrophysics primitives and steps, insufficiently relatable stakes, and confusing visual equivalence between processes and material things. The earlier AI reviews and completion records do not establish that these problems were solved.
+
+The [active narrative study](../../projects/cosmic-study/README.md) explores approximately 1,000-word prose stories with a steady causal implication of things combining. At each substantive creative iteration, make two or three substantially different candidates that incorporate the preceding findings through different solutions. Apply this both to narrative and subsequent conceptual combinations. Use fresh reviewers to examine narrative drive, coherence, accessibility, causal contributions and the difference between literary satisfaction and playable participation. Compare alternatives before choosing; do not let the first plausible premise become the only one developed.
+
+The existing endpoint, cosmological range, chapter count and approximately 200-combination target do not constrain these experiments. Select the phenomena that serve the story. Repeated small changes of scientific state must earn their place through an understandable consequence. Introduce unfamiliar knowledge through a concrete reason to care, rather than requiring expertise to interpret the inventory.
+
+The cosmos itself is the subject and source of attachment. Aim for the accessible scientific wonder, scale, causal clarity and philosophical resonance associated with Carl Sagan's cosmic storytelling. Do not equate relatability with a human protagonist, domestic frame, hand-sized keepsake or a human observer as the destination. A clear cosmic question, a consequential reversal and a changed understanding can carry the story. Human-scale framing is not the chosen solution.
+
+For eventual artwork, distinguish material things from processes or fixed contexts. Circular object icons remain appropriate for things; processes need a distinct treatment, with Cookbook's line-drawn receiving places as one useful reference. The precise treatment remains a prototype question. First resolve what the player actually handles and what each gesture means.
+
+The sections below describe the published baseline, whose manuscript and artwork remain in place while alternatives are developed. Proposed new narrative choices belong in the study until deliberately adopted here.
+
 ## Purpose and attitude
 
 Follow matter from a cooling universe to an uninhabited shore. The player brings physical ingredients and circumstances together, learning why some arrangements become stars, minerals, worlds and water. There is no builder, cosmic intention or inevitable march toward people. Destruction supplies later creation; a place worth looking at can be an ending in itself.
