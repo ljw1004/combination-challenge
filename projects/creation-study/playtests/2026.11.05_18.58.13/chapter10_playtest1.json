@@ -1,0 +1,225 @@
+[
+  {
+    "step": 1,
+    "reason": "The forest must provide the fallen wood, but the available storm ingredients leave its immediate combination uncertain.",
+    "choice": {
+      "inspect": "First forest"
+    },
+    "expectation": "The inspection should show how to start producing dead wood or otherwise advance forest renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forest has no available combination yet, so I need to create another ingredient first.",
+    "reaction": "I was surprised the forest cannot be used immediately.",
+    "step": 2,
+    "reason": "Clouds and moving air are plausible ingredients for the storm described in the chapter.",
+    "choice": {
+      "combine": "Clouds",
+      "with": "Air"
+    },
+    "expectation": "This may produce a storm or a step toward one.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Clouds"
+        },
+        "reason": "I could check its available partners instead of guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds currently have no available combinations, so they are not the way to start the storm.",
+    "reaction": "The failed guess leaves the first step unclear.",
+    "step": 3,
+    "reason": "Air is a plausible storm ingredient, and inspecting it may reveal which currently available object starts the chain.",
+    "choice": {
+      "inspect": "Air"
+    },
+    "expectation": "The inspection should reveal available partners for air, possibly including a way to make a storm.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Rainfall"
+        },
+        "reason": "Rainfall is another plausible ingredient to investigate."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air and rainfall produced the storm needed to bring down forest wood.",
+    "reaction": "The automatic combination clarified how to start.",
+    "step": 4,
+    "reason": "The storm can break branches and uproot trees in the forest.",
+    "choice": {
+      "combine": "Storm",
+      "with": "First forest"
+    },
+    "expectation": "The storm should produce fallen or dead wood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The storm produced fallen wood, which can supply food for decomposers.",
+    "reaction": "The result makes the next stage clearer, though the decomposers are not yet visible.",
+    "step": 5,
+    "reason": "Partnered cells may provide the starting point for fungi or other decomposers, so checking their partners is useful.",
+    "choice": {
+      "inspect": "Partnered cells"
+    },
+    "expectation": "The inspection may reveal how to make decomposers for the fallen wood.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Fallen wood"
+        },
+        "reason": "Checking the wood directly might reveal what can break it down."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Partnered cells and fallen wood produced fungi, identifying a decomposer for the wood.",
+    "reaction": "The distinction between evolving fungi and wood turning into fungi is useful.",
+    "step": 6,
+    "reason": "Fungi can digest fallen wood and should advance the nutrient-return goal.",
+    "choice": {
+      "combine": "Fungi",
+      "with": "Fallen wood"
+    },
+    "expectation": "The fungi should break down the wood into material that can return nutrients to the soil.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fungi broke down the fallen wood, producing decomposition and releasing nutrients.",
+    "reaction": "The explanation connects fungal digestion to nutrient availability.",
+    "step": 7,
+    "reason": "Mixing decomposition with soil seems a plausible way to return the released nutrients to growing plants.",
+    "choice": {
+      "combine": "Decomposition",
+      "with": "Soil"
+    },
+    "expectation": "This should enrich the soil with nutrients from the dead wood.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Decomposition"
+        },
+        "reason": "I could check its partners if the soil connection is not available."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Decomposition returned nutrients to the soil; roots can now take them up.",
+    "reaction": "The nutrient cycle is coming together clearly.",
+    "step": 8,
+    "reason": "Roots can absorb the returned nutrients to support plant growth.",
+    "choice": {
+      "combine": "Returned nutrients",
+      "with": "Roots"
+    },
+    "expectation": "The roots should take up the nutrients and advance the forest renewal goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Roots took up the returned nutrients, completing forest renewal and revealing a rain-related goal.",
+    "reaction": "The connection between decomposition and new growth is satisfying.",
+    "step": 9,
+    "reason": "The wetland's waterlogged conditions could preserve dead plant material as peat, advancing the remaining burial goal.",
+    "choice": {
+      "combine": "Fallen wood",
+      "with": "Wetland"
+    },
+    "expectation": "This may produce preserved organic material or peat in the wetland.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Renewing forest"
+        },
+        "reason": "I could investigate how the forest releases water for the new rain goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood in the wetland produced peat, providing the material needed for the carbon-burial goal.",
+    "reaction": "The explanation makes the role of low oxygen in preserving peat clear.",
+    "step": 10,
+    "reason": "Earth could bury the peat and its stored carbon.",
+    "choice": {
+      "combine": "Peat",
+      "with": "Earth"
+    },
+    "expectation": "Earth should cover the peat, burying its stored carbon.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Peat"
+        },
+        "reason": "I could check the available burial partner instead of guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The peat's carbon is buried, completing the carbon-storage goal; producing rain from forest water remains.",
+    "reaction": "The link between photosynthesis and long-term carbon burial is useful.",
+    "step": 11,
+    "reason": "The renewing forest is the likely source of the water needed for the remaining rain goal, but its next partner is unclear.",
+    "choice": {
+      "inspect": "Renewing forest"
+    },
+    "expectation": "The inspection should reveal how to release water from the forest and begin producing rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the renewing forest automatically combined it with clouds, producing forest rain and completing the final goal.",
+    "reaction": "The explanation of transpiration and rainfall downwind was a useful ending.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Returning nutrients from dead wood to growing plants made the role of decomposers and roots clear, connecting several actions into a cycle.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial inspection of the forest and the unsuccessful clouds-and-air guess gave little direction toward starting the storm.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the forest initially had no available combination; inspecting air then revealed rainfall as its sole partner and automatically made the storm.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Using partnered cells with fallen wood to produce fungi was not obvious beforehand, though the explanation clarified that it represented evolution rather than wood turning into fungi.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue for the explanatory connections between ecological processes, especially decomposition, carbon burial and forest rainfall, despite the uncertain opening.",
+        "steps": [
+          6,
+          10,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

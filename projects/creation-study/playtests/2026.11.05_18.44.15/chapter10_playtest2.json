@@ -1,0 +1,266 @@
+[
+  {
+    "step": 1,
+    "reason": "The forest is the likely starting point for obtaining dead wood, but its available partners are not obvious.",
+    "choice": {
+      "inspect": "First forest"
+    },
+    "expectation": "Inspection should reveal how the forest can contribute to decomposition or peat formation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forest currently has no available combinations, so I need another starting point.",
+    "reaction": "That was unexpected given the forest-floor goal.",
+    "step": 2,
+    "reason": "Partnered cells may lead to decomposers, but their available partners are unclear.",
+    "choice": {
+      "inspect": "Partnered cells"
+    },
+    "expectation": "Inspection may reveal a route to organisms that break down dead wood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Partnered cells have no available combinations either, so I need to try another route.",
+    "reaction": "The second empty inspection is frustrating.",
+    "step": 3,
+    "reason": "Waterlogged wetland material is a plausible starting point for forming peat.",
+    "choice": {
+      "inspect": "Wetland"
+    },
+    "expectation": "Inspection may reveal a partner for producing peat or dead plant material.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Soil"
+        },
+        "reason": "Soil might instead lead toward decomposition."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wetland also has no available combinations, so it does not yet provide a route to peat.",
+    "reaction": "A third empty inspection is frustrating.",
+    "step": 4,
+    "reason": "Soil is relevant to decomposition and might reveal an available starting point.",
+    "choice": {
+      "inspect": "Soil"
+    },
+    "expectation": "Inspection may identify a partner that starts the decomposition or nutrient cycle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Soil also has no available combinations, leaving the starting route unclear.",
+    "reaction": "Four empty inspections are frustrating.",
+    "step": 5,
+    "reason": "Clouds and rainfall suggest a possible weather-related starting point, though this is a guess.",
+    "choice": {
+      "inspect": "Clouds"
+    },
+    "expectation": "Inspection may reveal an available weather combination.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds have no available combinations, so the starting route remains unclear.",
+    "reaction": "Another empty inspection is frustrating.",
+    "step": 6,
+    "reason": "Rainfall is a remaining weather-related candidate; I am guessing it may reveal a way to affect the forest.",
+    "choice": {
+      "inspect": "Rainfall"
+    },
+    "expectation": "Inspection may reveal an available combination that starts forest renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rainfall and air produced a storm, suggesting a way to bring down forest wood.",
+    "reaction": "The storm's explanation makes the starting route clearer.",
+    "step": 7,
+    "reason": "The storm can break branches and leave dead wood on the forest floor.",
+    "choice": {
+      "combine": "Storm",
+      "with": "First forest"
+    },
+    "expectation": "The storm should produce fallen branches or dead wood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The storm produced fallen wood, providing the material needed for decomposition.",
+    "reaction": "The result connects the weather to the forest-floor goal clearly.",
+    "step": 8,
+    "reason": "Fallen wood is central to both goals, but its available partners are not yet clear.",
+    "choice": {
+      "inspect": "Fallen wood"
+    },
+    "expectation": "Inspection may reveal how to start decomposition or form peat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fallen wood",
+          "with": "Wetland"
+        },
+        "reason": "Waterlogged wood might contribute to peat formation, but compatibility is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood can combine with partnered cells or wetland, suggesting routes to decomposition and peat.",
+    "reaction": "The two clear options are helpful after the earlier empty inspections.",
+    "step": 9,
+    "reason": "Partnered cells may produce the fungi or other decomposers needed to return nutrients from the wood.",
+    "choice": {
+      "combine": "Fallen wood",
+      "with": "Partnered cells"
+    },
+    "expectation": "This should start the decomposition route, perhaps by producing fungi.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fallen wood",
+          "with": "Wetland"
+        },
+        "reason": "This could advance the peat goal instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood and partnered cells produced fungi, identifying a decomposer for the nutrient cycle.",
+    "reaction": "The explanation clarifies that the wood feeds fungi rather than literally becoming them.",
+    "step": 10,
+    "reason": "Fungi are the next likely step in decomposition, but their available partners are unclear.",
+    "choice": {
+      "inspect": "Fungi"
+    },
+    "expectation": "Inspection should reveal how the fungi can break down wood or return nutrients to plants.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fungi combined with fallen wood to create decomposition, releasing nutrients that other organisms can use.",
+    "reaction": "The breakdown process makes the nutrient route clearer.",
+    "step": 11,
+    "reason": "Roots absorb nutrients, so combining them with decomposition is a plausible way to return those nutrients to growing plants.",
+    "choice": {
+      "combine": "Decomposition",
+      "with": "Roots"
+    },
+    "expectation": "The released nutrients should become available to plants through their roots.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fallen wood",
+          "with": "Wetland"
+        },
+        "reason": "The previously revealed pairing could advance the peat goal instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Decomposition combined with soil to return nutrients, which roots can take up for new growth.",
+    "reaction": "The automatic soil combination clarified the missing link.",
+    "step": 12,
+    "reason": "Fallen wood and wetland were previously shown to be compatible, and waterlogged material can form peat.",
+    "choice": {
+      "combine": "Fallen wood",
+      "with": "Wetland"
+    },
+    "expectation": "This should advance the peat and carbon burial goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood in the wetland formed peat because waterlogging slows decomposition.",
+    "reaction": "The explanation connects peat accumulation to low-oxygen conditions clearly.",
+    "step": 13,
+    "reason": "Peat is the material whose stored carbon needs to be buried, but the burial mechanism is not yet clear.",
+    "choice": {
+      "inspect": "Peat"
+    },
+    "expectation": "Inspection should reveal an available way to bury the peat or advance carbon storage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Peat combined with Earth to bury its stored carbon, completing the peat goal.",
+    "reaction": "The connection between photosynthesis and long-term carbon burial is useful.",
+    "step": 14,
+    "reason": "Returned nutrients are in the soil, and roots can take them up to support plant growth.",
+    "choice": {
+      "combine": "Returned nutrients",
+      "with": "Roots"
+    },
+    "expectation": "The roots should absorb the returned nutrients and advance the forest renewal goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Roots took up returned nutrients, completing the forest renewal goal and revealing a new rain goal.",
+    "reaction": "The nutrient cycle now connects clearly back to plant growth.",
+    "step": 15,
+    "reason": "The renewing forest is the likely source of the water needed for the new goal, but its available partners are unclear.",
+    "choice": {
+      "inspect": "Renewing forest"
+    },
+    "expectation": "Inspection should reveal how the forest releases water into the air.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The renewing forest combined with clouds to produce rain, completing the final goal and showing how transpiration can contribute to rainfall.",
+    "reaction": "The link between forest growth and rain was a satisfying conclusion.",
+    "step": 16,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The decomposition-to-renewal sequence was most worthwhile: it showed how fungi release nutrients into soil and roots take them up for new growth.",
+        "steps": [
+          10,
+          11,
+          14
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The opening run of empty inspections was repetitive and frustrating, especially because several objects seemed relevant to the goals.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that rainfall and air made the storm needed to bring down wood; the forest itself initially had no available combinations.",
+        "steps": [
+          1,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial route to a storm was hard to infer from the decomposition and peat goals, although its role became clear once the storm was made.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the connected explanations of nutrient cycling, carbon burial and forest rainfall made the discovery worthwhile despite the slow start.",
+        "steps": [
+          11,
+          13,
+          15
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

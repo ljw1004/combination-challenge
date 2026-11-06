@@ -1,0 +1,158 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, so I'll use it to advance the chapter.",
+    "choice": 1,
+    "expectation": "Rainfall and air may produce a weather-related ingredient useful for forest renewal, though its role is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The storm can provide fallen wood for the decomposition goal.",
+    "reaction": "The connection to forest renewal is clearer now.",
+    "step": 2,
+    "reason": "Combining the storm with the forest is the only offered gameplay action and should produce dead wood.",
+    "choice": 1,
+    "expectation": "The storm will break or uproot trees, leaving wood on the forest floor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood provides material for both decomposition and peat-related goals.",
+    "reaction": "The storm-to-fallen-wood connection was straightforward.",
+    "step": 3,
+    "reason": "I'll combine partnered cells with the wood to pursue decomposers and nutrient return.",
+    "choice": 1,
+    "expectation": "This may produce fungi or other organisms that break down the wood.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The wetland might preserve the wood, but I'll pursue decomposition first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fungi are now available to break down the fallen wood and pursue nutrient return.",
+    "reaction": "The distinction that wood feeds fungi rather than becoming fungi is helpful.",
+    "step": 4,
+    "reason": "Combine fungi with fallen wood to advance decomposition.",
+    "choice": 1,
+    "expectation": "The fungi will digest the wood, potentially releasing nutrients into the soil.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The wetland may help preserve carbon, but I want to follow the decomposition route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Decomposition releases nutrients from the wood, so adding it to soil may make them available to plants.",
+    "reaction": "The explanation of fungi breaking down wood was clear.",
+    "step": 5,
+    "reason": "Combine decomposition with soil to advance the nutrient-return goal.",
+    "choice": 1,
+    "expectation": "The soil may become enriched with nutrients that growing plants can use.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The wetland route may address buried carbon, but I'll finish following nutrient return first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nutrients are back in the soil and can now be taken up by roots.",
+    "reaction": "The connection between decomposition and plant growth is clear.",
+    "step": 6,
+    "reason": "Combine the nutrients with roots to complete their return to growing plants.",
+    "choice": 1,
+    "expectation": "Roots will absorb the returned nutrients and support plant growth.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This may advance carbon burial, but I'll finish the nutrient cycle first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nutrient-return goal is complete, and a new goal concerns rain from forest-released water.",
+    "reaction": "The explanation ties decomposition back to new growth clearly.",
+    "step": 7,
+    "reason": "I'll combine the renewing forest with clouds to pursue the newly revealed rain goal.",
+    "choice": 2,
+    "expectation": "Water released by the forest may contribute to clouds and eventually rainfall.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "This may advance peat formation, but I'll follow the newly revealed forest-water goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Forest transpiration can contribute water vapour to clouds and rainfall, completing the new goal.",
+    "reaction": "The connection between forest water release and downwind rain is interesting.",
+    "step": 8,
+    "reason": "The only offered gameplay action may advance the remaining peat and carbon-burial goal.",
+    "choice": 1,
+    "expectation": "Fallen wood in the wetland may be preserved in waterlogged conditions and contribute to peat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Waterlogged, low-oxygen conditions have produced peat by slowing decomposition; the remaining goal is to bury its carbon.",
+    "reaction": "The contrast with the faster decomposition route is clear.",
+    "step": 9,
+    "reason": "Peat plus earth is the only offered gameplay action and seems suited to burial.",
+    "choice": 1,
+    "expectation": "Earth will cover the peat, burying some of its stored carbon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sediment buried the peat and its stored plant carbon, completing the final goal and showing how carbon can remain underground for long periods.",
+    "reaction": "The contrast between nutrient recycling and long-term carbon burial was satisfying.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following fallen wood through fungal decomposition to renewed growth made nutrient recycling clear and connected.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial rainfall-and-air combination was less engaging because its connection to the goals was not yet clear, and it was the only gameplay option.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Forest transpiration can contribute to clouds and rainfall far downwind.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Rainfall plus air felt somewhat arbitrary before the result explained that it represented a wind-driven storm.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue: the contrasting decomposition and peat routes made the environmental processes interesting to follow.",
+        "steps": [
+          4,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

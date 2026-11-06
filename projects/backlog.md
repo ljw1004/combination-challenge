@@ -12,6 +12,8 @@ Ideas are options to test, not obligations to implement. The current engine rema
 | Ideas | Intellectual connections across time; methods become useful through evidence, comparison and application. Distinguish a proposed method, an actual observation and a tested result. |
 | Theology | A desk of arguments, cases and attributed texts; disagreements remain substantive. Do not silently equate distinct traditions or hide an essential story event in an unread primitive explanation. |
 
+Creation’s chapter-ten Storm route has a narrow discoverability issue: all three players in the clearer-intro detailed cohort tried Clouds + Air before inspecting to discover Rainfall + Air. All completed; this is not a dead end. If revisiting that recipe, compare the expected pair directly rather than adding more explanatory prose. See the [current outcome](creation-study/production/art-revision-outcome.md#logical-iteration-during-artwork).
+
 Editorial priorities:
 
 1. The [authenticity implementation pass](<../archive/2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md>) is complete: 42 original findings changed, 24 retained after review and four absent-edition findings recorded separately. Consult those historical outcomes and evidence before reopening an issue; original ratings are not current test results.

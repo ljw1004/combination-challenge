@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, so I’ll use it to advance the chapter.",
+    "choice": 1,
+    "expectation": "Rainfall and air may produce a weather-related result, though its connection to decomposition or peat is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The storm explains how dead wood could accumulate in the forest, so I’ll apply it there.",
+    "reaction": "The connection to the decomposition goal is clearer now.",
+    "step": 2,
+    "reason": "Storm plus forest is the only offered combination and should produce fallen wood.",
+    "choice": 1,
+    "expectation": "The storm will break or uproot trees, leaving dead wood for decomposition.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood can feed decomposers, suggesting a route toward returning nutrients to plants.",
+    "reaction": "The storm-to-fallen-wood connection makes practical sense.",
+    "step": 3,
+    "reason": "I'll combine partnered cells with fallen wood to pursue decomposition.",
+    "choice": 1,
+    "expectation": "This may produce fungi or other decomposers that break down the wood, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The wetland may help preserve wood as peat, but I'll pursue decomposition first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fungi evolved as wood-feeding organisms, so I can now use them to pursue decomposition.",
+    "reaction": "The clarification that wood does not turn into fungi is helpful.",
+    "step": 4,
+    "reason": "Combine fungi with fallen wood to break it down and move toward returning nutrients.",
+    "choice": 1,
+    "expectation": "The fungi will decompose the wood, potentially releasing nutrients into the soil.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Wetland and fallen wood may advance the peat goal, but I'll finish the decomposition route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Decomposition releases nutrients from the wood, so combining it with soil looks like the next step toward feeding plants.",
+    "reaction": "The explanation of fungi breaking down wood before absorbing it was useful.",
+    "step": 5,
+    "reason": "Combine decomposition with soil to return the released nutrients to the forest floor.",
+    "choice": 1,
+    "expectation": "The soil may become nutrient-rich and support plant growth.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This may advance the peat goal, but I want to continue the nutrient-return route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nutrients are now in the soil, ready for uptake by roots.",
+    "reaction": "The link from dead wood back to plant growth is clear.",
+    "step": 6,
+    "reason": "Combine returned nutrients with roots to complete the nutrient-return route.",
+    "choice": 1,
+    "expectation": "Roots will absorb the nutrients and support new plant growth.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This may advance the peat goal, but I'll finish returning nutrients first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nutrient-return goal is complete, and a new goal connects the forest to rainfall.",
+    "reaction": "It's useful to see that new growth also requires water, carbon dioxide and light.",
+    "step": 7,
+    "reason": "Combine the renewing forest with clouds to pursue the newly revealed rain goal.",
+    "choice": 2,
+    "expectation": "Water released by the forest may contribute to clouds and eventually rain, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "This may advance the peat goal, but I'll follow the newly revealed forest-water route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Forest transpiration contributed to rain, completing the newly revealed goal; the peat goal remains.",
+    "reaction": "The connection between forest water release and rainfall downwind is interesting.",
+    "step": 8,
+    "reason": "Wetland plus fallen wood is the only offered combination and may advance the peat goal.",
+    "choice": 1,
+    "expectation": "Waterlogged conditions may slow decomposition and preserve dead material, potentially forming peat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Peat has formed, leaving its burial as the remaining goal.",
+    "reaction": "The explanation of low oxygen slowing decomposition makes sense.",
+    "step": 9,
+    "reason": "Peat plus earth is the only offered combination and should bury the stored carbon.",
+    "choice": 1,
+    "expectation": "Earth will cover the peat, burying some of its stored carbon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Burying peat completed the remaining goal and showed how plant carbon can stay underground rather than quickly returning to the atmosphere.",
+    "reaction": "The connection back to carbon dioxide captured by photosynthesis was useful.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making decomposition was most worthwhile: it explained how fungi break down wood and release nutrients that plants can use again.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate soil and roots steps felt a little repetitive once the nutrient-return pathway was clear.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that water released by forests can contribute to rainfall far downwind.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Rainfall plus air initially felt disconnected from the goals, although the resulting storm explained how wood reaches the forest floor.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the links between decomposition, forest renewal and carbon storage made the chapter educational, even though some steps were predictable.",
+        "steps": [
+          4,
+          6,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "step": 1,
+    "reason": "The forest is central to returning nutrients from fallen wood, but the available pieces do not clearly show how to bring wood down.",
+    "choice": {
+      "inspect": "First forest"
+    },
+    "expectation": "Its compatible partners should indicate how to produce fallen wood or advance forest renewal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Clouds",
+          "with": "Air"
+        },
+        "reason": "Clouds and moving air might produce a storm, but that is less certain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forest currently has no available combination, so I need to create something else first.",
+    "reaction": "I was surprised that the forest has no partners yet.",
+    "step": 2,
+    "reason": "Clouds and air are plausible ingredients for the storm mentioned in the chapter introduction.",
+    "choice": {
+      "combine": "Clouds",
+      "with": "Air"
+    },
+    "expectation": "They may produce a storm that can bring down wood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds currently have no available combination, so that storm guess did not advance the plan.",
+    "reaction": "The lack of a cloud combination is surprising given the storm introduction.",
+    "step": 3,
+    "reason": "Inspecting Air may reveal how to make the wind or storm needed to bring down wood.",
+    "choice": {
+      "inspect": "Air"
+    },
+    "expectation": "Its available partners may point toward a storm or another useful first step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air and rainfall produced the storm needed to bring down forest wood.",
+    "reaction": "The automatic combination resolved the storm step neatly.",
+    "step": 4,
+    "reason": "The storm can break branches and uproot trees in the forest.",
+    "choice": {
+      "combine": "Storm",
+      "with": "First forest"
+    },
+    "expectation": "The storm should produce fallen wood for decomposition.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The storm produced fallen wood, which now needs decomposers to release its nutrients.",
+    "reaction": "The storm-to-fallen-wood connection was straightforward.",
+    "step": 5,
+    "reason": "Partnered cells may help create fungi or other decomposers in the soil, though this is a guess.",
+    "choice": {
+      "combine": "Partnered cells",
+      "with": "Soil"
+    },
+    "expectation": "This may produce soil decomposers that can break down the fallen wood.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Fallen wood"
+        },
+        "reason": "I could check whether the wood already has an available partner."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Partnered cells combined automatically with fallen wood to create fungi, providing the decomposers needed for forest renewal.",
+    "reaction": "The compatibility feedback made the failed soil guess useful.",
+    "step": 6,
+    "reason": "Fungi digest fallen wood, so combining them should advance decomposition.",
+    "choice": {
+      "combine": "Fungi",
+      "with": "Fallen wood"
+    },
+    "expectation": "The fungi should break down the wood and help release its nutrients.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fungi decomposed the fallen wood, releasing nutrients that plants can use.",
+    "reaction": "The breakdown and nutrient release make the forest renewal pathway clear.",
+    "step": 7,
+    "reason": "Roots absorb nutrients from soil, so combining them with decomposition may return those nutrients to growing plants.",
+    "choice": {
+      "combine": "Decomposition",
+      "with": "Roots"
+    },
+    "expectation": "The released nutrients should become available to the forest's plants through their roots.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Decomposition combined with soil to make returned nutrients, which roots can take up.",
+    "reaction": "The soil was the missing intermediate in my guess.",
+    "step": 8,
+    "reason": "Roots can absorb the returned nutrients and support new plant growth.",
+    "choice": {
+      "combine": "Returned nutrients",
+      "with": "Roots"
+    },
+    "expectation": "The roots should take up the nutrients, advancing forest renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Roots took up the returned nutrients, completing forest renewal and revealing a goal involving water released by the forest.",
+    "reaction": "The nutrient cycle came together clearly.",
+    "step": 9,
+    "reason": "Waterlogged wetlands can preserve dead plant material, so fallen wood may help form peat.",
+    "choice": {
+      "combine": "Wetland",
+      "with": "Fallen wood"
+    },
+    "expectation": "This may produce peat or an intermediate toward burying carbon.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Renewing forest"
+        },
+        "reason": "Its partners might reveal how to produce rain from forest water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fallen wood in the wetland formed peat, giving me the material needed for the carbon-burial goal.",
+    "reaction": "The waterlogged, low-oxygen explanation makes the peat formation understandable.",
+    "step": 10,
+    "reason": "Earth may bury the peat and its stored carbon.",
+    "choice": {
+      "combine": "Peat",
+      "with": "Earth"
+    },
+    "expectation": "The earth may cover the peat, completing or advancing the carbon-burial goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Peat"
+        },
+        "reason": "I could check its available partners, but burial with earth seems plausible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Burying peat completed the carbon-storage goal; producing rain from forest water remains.",
+    "reaction": "The explanation connected stored carbon to photosynthesis and slow decomposition.",
+    "step": 11,
+    "reason": "Inspecting the renewing forest may reveal how it releases water into the air.",
+    "choice": {
+      "inspect": "Renewing forest"
+    },
+    "expectation": "Its available partners may lead to water vapour or rain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the renewing forest automatically combined it with clouds, producing forest rain and completing the remaining goal.",
+    "reaction": "The transpiration explanation connected forest renewal to rainfall in a useful way.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Returning nutrients from decomposed wood to the forest made the nutrient cycle clear, from fungal breakdown through soil to root uptake.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the forest and trying clouds with air produced no progress; the storm route was not yet clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Air combined with rainfall, rather than clouds, to make a storm; the inspection performed that combination automatically.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Using fallen wood with partnered cells to produce fungi was not obvious to me. The result explained that it represented evolution, not wood turning into an organism.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. The linked nutrient, carbon and water cycles were understandable and made me curious about what the next chapter might connect.",
+        "steps": [
+          8,
+          10,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

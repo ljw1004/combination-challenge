@@ -63,3 +63,29 @@ Retain a selected new master and its exact request here under `masters/` and `re
 Bounds use source-pixel edge coordinates, with right and bottom exclusive. They must describe a positive square contained in the source. Every pixel in that selected square must be fully opaque; translucent sources are rejected. A square can also select an explicitly authored cell in a larger opaque atlas. The exporter uniformly maps that square to the output and applies the same centered frame and alpha mask, without detecting a painted border or using generated alpha to infer geometry.
 
 For recovered atlas art, `kind: "ellipse"` instead requires an explicit `center: [x, y]` and `radii: [rx, ry]`. Edit these only after inspecting the source and the resulting edge coverage; do not copy bounds from the earlier cropped runtime image. Changing a selected source requires deliberately updating its hash and re-exporting before verification can pass.
+
+## Landscape exports
+
+The [scene inventory](background-scene-plan.md) maps the current background production pass. Selected full paintings live in `background-masters/`; [background-requests.json](background-requests.json) retains their exact accepted requests and reference provenance without rejected paintings or tool-output dumps. An unretained edit predecessor is identified by its generation ID and hash. The [manifest](background-manifest.json) selects masters, output paths, chapter uses and framing; [background-exports.json](background-exports.json) records actual source/output dimensions, exact crop, uniform scale, hashes and encoding versions.
+
+```sh
+uv run projects/creation-study/production/export-backgrounds.py
+uv run projects/creation-study/production/export-backgrounds.py --verify
+```
+
+Ordinary landscapes use an opaque 780×1688 WebP, Pillow LANCZOS and quality 92/method 6. Centered cover cropping preserves painted proportions; only a narrow edge strip is removed from the selected portrait masters. A manifest entry may supply a different size or an explicit `sourceBox` for registered special scenes, but the exporter rejects nonuniform scaling. Add new scenes to the same manifest; `--ids ID ...` exports or verifies only those entries while preserving other export records. The script validates all selected sources and renders before writing, leaves matching output bytes in place, and never edits the manuscript. Changes to ordinary chapter background references are separate authoring edits.
+
+The [integration outcome](background-integration.md) records source framing, deterministic output bytes, loaded ordinary chapter arrivals at phone and desktop sizes, icon contrast and a drag followed by reload. These are informed integration checks, not independent art acceptance or a fresh playthrough. Hotspot registration and changing cave/ice states require their separate contextual checks.
+
+## Registered scene changes
+
+The [special-scene requests](special-scene-requests.json) retain selected opening, cave, gathering, finale and molten-world icon prompts. [Scene-state layout](scene-state-layout.json) owns source framing, the planet’s circular extraction and transparent placement, alpha masks and output geometry; [exports](scene-state-exports.json) bind the generated masters to runtime files. Run `uv run projects/creation-study/production/export-scene-states.py` and add `--verify` for byte reproduction.
+
+The changing upper scenery uses a common 1560×3376 source canvas at the 390×844 reference scale, with independent receiving rectangles. Lower playing fields are transparent: the full painted master is a production reference, not an opaque overlay over the goals or following chapter. Smooth alpha transitions end above that area. The planet is a separate clean circular extraction, so interacting with the Void cannot repaint or conceal it. The initial molten sphere is offset within a padded transparent canvas; the steadied sphere uses a separate centered transparent painting with a spin axis and small top loop. The shared artwork anchor keeps hotspot replacement registered. Earlier ice/cave candidate records describe superseded art; current manuscript references and the scene-state layout select the adopted assets.
+
+The [cave-art reference and outcome](cave-art-reference.md) records the later Paleolithic pigment treatment and its two-state continuity check.
+
+The [Variation artwork](variation-art/README.md) has its own transparent emblem and habitat placements. The active brief owns its meaning. Browser checks must inspect visible goals, short-screen chapter transitions, actual drops, saved reloads and source registration; presence in the DOM alone does not establish visibility.
+
+
+The opening uses the same outer nebula painting in both states. `sharedOuterSource` in the background manifest restricts the generated pre-opening infill to a feathered ellipse; a slightly larger registered Void extraction covers that change. Outside this local region the underlying image remains unchanged. This prevents a second painting from shifting the pillars or changing the lower brush texture. The [lava reference note](lava-world-reference.md) distinguishes observed lava-lake material from speculative lava-planet imagery.

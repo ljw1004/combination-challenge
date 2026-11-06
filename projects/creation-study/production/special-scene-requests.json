@@ -1,0 +1,147 @@
+{
+  "date": "2026-11-05",
+  "requests": [
+    {
+      "id": "c01-deep",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/c01-deep.png",
+      "sourceSha256": "0ac9bb356f05e3382edec0ee13494c0d055a9ea9a39e8f5515c72d546929186f",
+      "prompt": "Use case: precise-object-edit. Edit this exact tall portrait nebula painting. This is the PRECEDING moment, before the central empty cavity has opened. Fill ONLY the dark cavity in the upper-middle, around x50 percent y32 percent, with dense opaque interstellar dust and gas: deep cobalt/slate smoky column interiors and incandescent gold/coral swept illuminated edges, in exactly the energetic painted style of the surrounding nebula. The formerly black area must now feel full of thick nebula, not a dark hollow. Continue the neighboring wisps and pillar forms coherently across this filled area. Absolutely preserve the rest of the painting, every outer dust pillar, lower region, color, position and detail. Preserve the fiery less-grainy brush language of the existing upper half. No new empty cavity or black hole anywhere; no planet, moon, sun, stars, water waves, ground, horizon, text, symbols, UI or borders. Same aspect ratio and camera. This is a localized fill of the existing black opening, not a redesigned image.",
+      "references": [
+        "projects/creation-study/production/background-masters/c01-void.png"
+      ],
+      "notes": "Generated cavity infill. Runtime export retains the exact c01-void master outside the registered fill mask; see background-manifest.json. Only the localized opening changes between states.",
+      "generationId": "exec-7901363b-60a1-46de-98a3-b626a27dd2df.png"
+    },
+    {
+      "id": "c01-void",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/c01-void.png",
+      "sourceSha256": "36c4e4d311dc36a2ff67e83e51854185fe45976dac98314d292f04620a71f066",
+      "prompt": "Use case: precise-object-edit. This supplied image is the approved dark-void molten-world scene. Create the preceding empty-void state by removing ONLY the small orange molten planet. Continue the surrounding near-black space smoothly across the removed ball. Preserve exactly the same dark central void, soft indigo fading edges, wisps, displaced dust rims, nebula pillars, texture, lighting, portrait composition and framing. Absolutely no new planet, stars, Moon, halo, bright spot, other object or text. Do not lighten the empty centre. One whole portrait painting, same proportions.\n",
+      "references": [
+        "projects/creation-study/production/background-masters/c01-world.png"
+      ],
+      "notes": "Selected output only. Some exact edit requests refer to earlier discarded candidates; their generated originals remain in the tool output directory. Deterministic exports use the selected master, not those predecessors."
+    },
+    {
+      "id": "c01-world",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/c01-world.png",
+      "sourceSha256": "81ad36cd759e5a7f567d948f07ee7bbb6937b1c55f4409b963d74266c951b3dd",
+      "prompt": "Use case: precise-object-edit. Edit the supplied portrait watercolour nebula with its small finely mottled molten rocky planet. Change ONLY two things: (1) the opened void should fade naturally into deep near-black space toward the central half of the cavity; keep a softly graded indigo transition, atmospheric depth and wisps toward the irregular displaced dust rim. Do not make a flat black disk or a hard-edged circle. (2) Remove ALL outer glow, orange halo, bloom and luminous haze around the planet. It should be just a clean-edged molten rocky ball hanging freely against dark empty space. Keep incandescent fine orange/red mottling ON the ball itself, and preserve its dark rocky patches, small diameter, exact position and spherical silhouette. Keep every outer nebula pillar, dust curl, colour, framing and painterly texture unchanged. No Moon, rings, axis diagram, stars, satellite, extra objects or text. It is a small dark rock ball lit by its own molten surface, with absolutely no atmospheric corona or glow beyond the physical edge. Preserve full portrait proportions.\n",
+      "references": [],
+      "notes": "Selected output only. Some exact edit requests refer to earlier discarded candidates; their generated originals remain in the tool output directory. Deterministic exports use the selected master, not those predecessors."
+    },
+    {
+      "id": "c25-unlit",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/c25-unlit.png",
+      "sourceSha256": "0be5adf5cbe37c6b1570df85e5f11123b765a6308d1dca03d7a614bc4e397ca1",
+      "prompt": "Use case: precise-object-edit. Lift the very dark shadows of this exact bare cave a SMALL further amount so the player can readily find the wall, diagonal mineral seam, left ledge and floor, while details remain dim and the room still clearly needs a torch. Aim for dark umber/charcoal rather than nearly black: roughly one stop brighter in the wall and floor than this reference, with soft low contrast. The chamber should remain much darker than an amber torchlit cave. Preserve its exact dry-wall geometry, left ledge silhouette, diagonal seam, composition, empty foreground and Ravilious-like fine watercolor/pencil marks. Absolutely no flame, torch, glow pool, new light source, daylight, outdoor view, entrance, cave paintings, stars, person, text, border or symbols. Same full portrait. Change only subtle shadow visibility, not the scene.\n",
+      "references": [],
+      "notes": "Selected image edit; exact request retained. Input predecessor remains in the image generation cache.",
+      "generationId": "exec-103a71eb-e09d-4892-8826-d52a349d16a3.png",
+      "editInputGenerationId": "exec-bd16943d-834d-4b31-aaf1-9f052204d2c7.png",
+      "replacedSourceSha256": "e9d796204c1d3af99f3e2dcb2a4241959c81ebebab613efca958d67cbf0ec89b"
+    },
+    {
+      "id": "c25-lit",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/c25-lit.png",
+      "sourceSha256": "e52f67a476e19051eb7033533bb3ea59b97cd5925d722bc7e90904e4b6c5a13f",
+      "prompt": "Use case: lighting-weather and precise-object-edit. This is the exact initial cave interior. Create its LIT state, same camera, geometry and portrait dimensions. Add one small primitive bundled-wood torch leaning securely in a natural crevice on the left stone shelf, flame at approximately x18%, y36%. No metal bracket, no fabricated torch holder. Its flame illuminates the broad central dry wall in a rich warm amber pool, strongest beside the flame, catching the existing pale diagonal mineral seam and bulging rock texture, falling away into deep cool shadow under the ceiling and at the edges. Keep all rock contours, seam, shelf and floor exactly in place. Maintain quiet lower-floor working space with restrained warm reflected light above and cool grey-brown below. Entirely enclosed deep chamber: NO entrance, outdoor view, daylight, moon, people or pictures. Do not yet add any animal, star, handprint, pigment stroke or painting. This edit reveals the room through firelight; illumination must feel forceful and localized, not a flat overall orange filter. Keep the Ravilious-style dry-brush watercolour and directional pencil grain.\n",
+      "references": [
+        "projects/creation-study/production/background-masters/c25-unlit.png"
+      ],
+      "notes": "Selected output only. Some exact edit requests refer to earlier discarded candidates; their generated originals remain in the tool output directory. Deterministic exports use the selected master, not those predecessors."
+    },
+    {
+      "id": "c25-painted",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/c25-painted.png",
+      "sourceSha256": "f10a749ddb7a320b411a940fe65bb8a023229520f6e79127751afc9d970569aa",
+      "prompt": "Use case: precise-object-edit. Image 1 is the exact approved torchlit cave interior to edit. Images 2 and 3 are actual Paleolithic cave paintings: the Lascaux stag and Altamira hind, supplied ONLY as references for the painted animal's line, pigment handling, shape and relationship to stone.\nAdd ONE red-deer stag painting to the bare central wall of image 1, facing right, within approximately x29\u201384%, y24\u201345% of the full tall portrait. Leave the upper wall above y23% bare for a later step. This should look like accomplished Upper Paleolithic parietal art directly applied to the rock, with a distinct material language from the surrounding Ravilious-style illustrated cave. Draw from the economical bold Lascaux stag reference and the broad rusty ochre fields of Altamira, not a modern natural-history illustration.\nThe stag: one energetic, sweeping back-and-neck contour, a compact elongated body, small pointed muzzle, tiny simple dark eye mark, slender tapering legs rendered with a few spare strokes, and large asymmetric branching antlers spread in a legible fan. Express observation and movement with confident economy. Use strong irregular charcoal-dark contours that vary in pressure and thickness, some broken by the grain of the wall; thin reddish-brown ochre rubbed or dabbed over parts of the shoulder/body, with substantial unpainted stone remaining inside the silhouette. Pigment is dry, granular and matte, catching the wall's pits, not a smoothly shaded colored animal sticker. Let the existing stone bulge and seam contribute to the body's form. It is freshly made cave art, not artificially aged with new cracks.\nThe visible animal must be anatomically identifiable as a deer with coherent head, neck, body and four legs, but reduce internal detail to a few essential marks. No modeled musculature, fur rendering, glossy eye, eyelashes, elegant wildlife-poster finish, gradient shading, clean uniform vector outlines, decorative border or cartoon clumsiness. Skillful and powerful Paleolithic mark-making.\nABSOLUTELY preserve image 1's existing cave geometry, wall seam, ledge, torch and flame, lighting, all rock contours, floor, camera and framing. The only change is pigment applied flat to the central wall. No stars, dots, other animals, people, handprints, text, entrance or outdoor view yet. Preserve exact tall portrait proportions and all background colors. Do not copy the reference photographs' pale limestone background or other markings.",
+      "references": [
+        "projects/creation-study/production/background-masters/c25-lit.png",
+        "https://archeologie.culture.gouv.fr/lascaux/en/mediatheque/der-hirsch",
+        "https://www.cultura.gob.es/mnaltamira/cueva-altamira/arte.html"
+      ],
+      "notes": "Paleolithic-style revision informed by actual Lascaux stag and Altamira hind photographs. Mineral pigment and economical contours replace modern wildlife illustration. Added pigment dots stand for stars in this fictional scene, without assigning known celestial meaning to actual archaeological signs.",
+      "generationId": "exec-24524797-cdcc-4d9e-a25a-5903bbea8169.png",
+      "replacedSourceSha256": "a030e43693cc951532bdfd68bd806c6a33da77085fa83c77b4ac46d6fd2911fb"
+    },
+    {
+      "id": "c25-stars",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/c25-stars.png",
+      "sourceSha256": "4d543415b63773e1c5a76d1731474d42a35db1e2aefa057ae16e8532e75c2724",
+      "prompt": "Use case: precise-object-edit. The first supplied image is the selected Paleolithic-style deer painted on the approved torchlit cave wall. The second is an actual Lascaux stag with pigment dots, provided as a reference for the MATERIAL AND HAND-MADE CHARACTER of small pigment dabs only.\nMake the next game state by adding a sparse group of about eleven irregular charcoal and red-ochre DOTS on the bare wall ABOVE the stag, around x32\u201373%, y17\u201322% of the full portrait. Arrange them loosely across a shallow irregular band, not a straight evenly spaced row or a recognizable modern constellation. Vary the sizes (roughly 10\u201318 pixels diameter at an 854px-wide image), spacing, round/oval shape and pigment density. The dots are fingertip- or swab-applied matte mineral pigment, flat ON the rock: granular edges, interrupted by the existing stone grain, a mix of deep brown-black and muted rusty red. They stand for remembered stars in this invented story; no assertion about the meaning of real archaeological signs is required.\nSTRICTLY no four-point, five-point or six-point starbursts, crosses, asterisks, drawn rays, sparkle shapes, connecting lines, circles, halos or luminescence. NO modern decorative celestial pattern. Just a small compelling group of simple irregular pigment points.\nPreserve the entire deer EXACTLY: every contour, all antler branches, head, eye, legs, body pigment and bare-rock gaps. Preserve the entire cave, stone seam, torch, flame, light, floor, camera, proportions and color unchanged. Add dots only to the blank space clear of all antlers; no dot may cross or alter an antler or animal. Do not add other animals, handprints, people, text or marks. Same tall portrait, same Ravilious-style cave scenery and Paleolithic pigment marks.",
+      "references": [
+        "projects/creation-study/production/background-masters/c25-painted.png",
+        "https://archeologie.culture.gouv.fr/lascaux/en/mediatheque/der-hirsch"
+      ],
+      "notes": "Paleolithic-style revision informed by actual Lascaux stag and Altamira hind photographs. Mineral pigment and economical contours replace modern wildlife illustration. Added pigment dots stand for stars in this fictional scene, without assigning known celestial meaning to actual archaeological signs.",
+      "generationId": "exec-c6c3086f-5765-4b1b-987b-65c8f8601aab.png",
+      "replacedSourceSha256": "3391af9df5451e9af599b2d25935d074d8f434d64b6b226b41740c577d900a9a"
+    },
+    {
+      "id": "c26-rest",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/c26-rest.png",
+      "sourceSha256": "d54f8d141cf77d3d8796417c58991d7c92b343037c8d92f9f0c9e010f134f352",
+      "prompt": "Use case: precise-object-edit. Edit ONLY THE SKY in the FIRST supplied image, the approved prehistoric campfire watercolor. Second and third images are real European Southern Observatory photographs used ONLY as references for the Milky Way's astronomical structure, not the telescopes/landscape/colors/exposure.\nThe FIRST image's composition is approved and must remain EXACTLY unchanged. Keep all five people and their faces, positions, clothing, campfire, firelight, terrain, stones, cave, cave torch, river, hills, vegetation, framing and dark blue night palette unchanged. Do not move or enlarge the gathering. All terrain and people from the horizon down remain unchanged.\nImprove the Milky Way in the upper sky only: replace the current thin fairly uniform blue diagonal streak with a more authentic BROADER, softly feathered, irregular band of unresolved MILKY STAR CLOUDS, crossed by clearly legible branching DARK DUST LANES (the Great Rift). Study the supplied ESO photos: asymmetrical billowing star-density patches, gaps, forked charcoal dark lanes cutting through the glow, lumpy broad concentrations rather than a smooth narrow stripe. Follow the current lower-left to upper-right diagonal across the upper sky, but vary its width and brightness considerably. Its widest cloudy area should occupy roughly one fifth of the image width, with diffuse outskirts farther out; one broad cream-grey concentration can be more luminous, while other regions fade almost into the indigo. The individual brighter stars remain sparse natural points, with the myriad distant stars merging into a soft milky haze. Keep the overall sky dark, with muted blue-grey and faint ivory-grey glow, not vivid photographic pink/brown colors or a bright white floodlight. The campfire remains the strongest warm light in the painting. This is our galaxy seen from INSIDE, a star band in the night sky, not a separate spiral galaxy, nebula closeup, comet tail, aurora, arc portal or glowing swoosh. Keep the original restrained watercolor/pencil medium. No moon, new object, text, symbols, frame or UI. Do not add horizon glow or alter any part of the landscape. Same tall portrait proportions.\n",
+      "references": [
+        "https://www.nhm.ac.uk/discover/bringing-a-neanderthal-to-life-the-making-of-our-model.html",
+        "https://www.nhm.ac.uk/discover/cheddar-man-mesolithic-britain-blue-eyed-boy.html",
+        "https://www.eso.org/public/images/potw2607a/",
+        "https://www.eso.org/public/images/santerne-3_6-milkyway/"
+      ],
+      "notes": "Early Homo sapiens facial variety informed by museum reconstructions; not a reconstruction of a named population. Two women and three men, small beneath Milky Way. Selected final composition moves the fire to the middle of the page. Final sky edit uses ESO photographs for broad irregular star clouds and dark dust lanes; retains approved people and composition. Artistic night scene, not a dated/location-specific sky reconstruction or calibrated naked-eye rendering.",
+      "generationId": "exec-159c33fb-5964-494e-ac01-26698c205d2c.png",
+      "replacedSourceSha256": "0ab3ff51be73aba7301cd05f0313c4e7e8dcadb47c6df801170dc2881b5df282",
+      "editInputGenerationId": "exec-2d7f37f2-3892-4093-a932-f345abf0dc92.png",
+      "compositionPrompt": "Use case: illustration-story. Recompose the FIRST supplied image, the approved deep-blue nighttime campfire watercolor, into a grander final resting scene. The two other images are scientific museum reconstructions used ONLY to inform unidealized early Homo sapiens appearance, NOT their poses, nudity, body paint, museum settings or photographic medium.\nPreserve the approved image's Ravilious-inspired simplified watercolor and pencil texture, midnight indigo darkness, golden welcoming campfire glow and tiny distant torch glow deep in a cave. Tall portrait 854x1840 proportions. Move the campfire gathering DOWN to the VERTICAL CENTER of the entire canvas: fire centered x50%, y51%, the seated people around it extending roughly x27-73%,y48-59%. Keep five adults small in the landscape, exactly TWO women and THREE men, in practical irregular hide wraps, everyone clothed, sitting naturally and peacefully. Make their faces recognizably early Homo sapiens informed by museum reconstructions: individual broad/narrow facial variation, lived-in weathered faces, unstyled dark wavy or curly hair, medium to deep brown skin warmly lit, one older adult woman with greying hair and another adult woman at the sides of the group; varied ages and ordinary lean/robust physiques. Do not depict glamorous young models, identical smooth narrow faces, styled hairstyles or idealized white European storybook people. Do not make ape-like caricatures, hunched brutes or blend in diagnostic Neanderthal anatomy. Keep features simple at this small illustrative scale, with human dignity and warmth.\nThe upper HALF is now a vast dark night sky: many small stars, and a faint broad irregular Milky Way band with soft luminous blue-grey star clouds and darker branching dust lanes sweeping diagonally across it. This should quietly echo cosmic dust from the beginning of creation, suggest wonder and vastness, but look like the Milky Way seen by naked eye, not a close-up blazing nebula, not aurora, not a portal. Keep it darker than the fire, with NO MOON anywhere. Leave the stars open to view rather than filling the top with tree branches.\nLow distant wooded hills and a winding river sit BELOW the sky around y40-48%; dry rocky terrace at center. The SAME modest irregular cave opening is farther back on the RIGHT at x80%,y44%, small and unobtrusive, unevenly dark with just one tiny warm torch far inside, no visible paintings at the entrance. People are well away from the cave. Lower area is an actual softly varied dark rocky terrace leading toward the group, unobtrusive stones/plant silhouettes near the edges; no huge empty flat grey field or designed blank panel. Keep enough low-contrast dark ground at the bottom for just two small game tokens, but this scene is primarily a complete composition of small humanity under a vast sky. No border, text, UI, buildings, modern objects, extra people or daytime light. Preserve the beautiful strong blue-night versus localized amber-fire contrast exactly.\n"
+    },
+    {
+      "id": "ending-song",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/ending-song.png",
+      "sourceSha256": "7bf19a14c0dbb513c3004848d37bed0da79cf234141e61e3920bed01fd7d77a7",
+      "prompt": "Use case: stylized-concept. Create an ABSTRACT final painting for a game called Creation, portrait approximately1024x2208, full bleed with no blank playing area and no text. Anchor the composition CLOSELY in the supplied Pluscarden tapestry reference: several tall adjacent interwoven fields, deep blue vertical structure, irregular blocks of colour and intricate angular braided ribbons that travel through and across the fields. This is an original nonfigurative watercolour response to that textile, using Ravilious-like translucent washes, dry pencil hatching, layered paper texture and restrained sculpted colour planes. The painting should feel like a song or many voices interweaving, not an illustrated recap. Use indigo, cobalt, muted teal, moss green, ochre, rust-red and warm ivory; luminous pale threads catch against deeper colours. Four loosely defined vertical streams can suggest the reference's panel rhythm, but allow ribbons and colour fragments to cross between them; avoid black photograph gaps or literal wooden frames. Dense small passages alternate with broad calm translucent colour planes. Ambiguous traces and half-seen shapes may arise from the interweaving, but NOTHING should resolve into a clear depicted thing. No recognisable people, faces, animals, plants, mountains, sea, river, cave, fire, planet, stars, galaxies, Moon or landscape horizon. No vignettes, panels containing scenes, thumbnails of achievements or inventory objects. No literal musical notes, lettering, Hebrew text, runes, crosses, figures of gods, angels or other explicit religious symbols. Do not copy the reference's identifiable motifs or text. Let interwoven colour, rhythm, vertical movement, tension and luminous texture carry the emotion and scale. Hand-painted, irregular, quiet but powerful, not a glossy digital kaleidoscope or neat corporate vector pattern.\n",
+      "references": [],
+      "notes": "User-directed revision: nearly dark initial cave, restrained distant cave gathering, or abstract Pluscarden-inspired final painting. Supersedes the earlier selected candidate."
+    },
+    {
+      "id": "molten-world-icon",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/background-masters/molten-world-icon.png",
+      "sourceSha256": "b69c0614ec5fd221f7ebb894262ccbfda7cbd411da899a7d690a82a69fb91b8d",
+      "prompt": "Use case: precise-object-edit and illustration-story. Make the large movable Rocky world ICON, based on the small molten rocky ball in the supplied nebula painting. Output a full-bleed SQUARE painting, 1024x1024, with a single clean spherical molten world centred and occupying about 72 percent of the square width. Its surface is evenly distributed fine irregular charcoal-dark cooling rock with red/orange molten fissures and small yellow-hot patches, like the supplied ball, simplified in the same painted gouache/watercolour language. Maintain a solid rocky character: NO broad stripes, giant swirls, continents, oceans, mountains, craters, moons, rings or satellites. NO atmospheric rim, outer glow or halo. The ball hangs crisply in quiet uniform deep-indigo space. Entire square opaque; no frame, circular border, medallion, writing or labels: a deterministic circular frame will be applied later. Keep all important details within the central 80 percent. This is the same hot young world before water cools it into a crust.\n",
+      "references": [
+        "projects/creation-study/production/background-masters/c01-world.png"
+      ],
+      "notes": "Selected output only. Some exact edit requests refer to earlier discarded candidates; their generated originals remain in the tool output directory. Deterministic exports use the selected master, not those predecessors."
+    },
+    {
+      "id": "axial-tilt-no-orbit",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/masters/axial-tilt-no-orbit.png",
+      "sourceSha256": "c6b7d23e9b242ec79771213110572098649d46b6c9e4b8ad41899509506dfaf4",
+      "prompt": "Use case: precise-object-edit. Edit this game icon into a full-bleed OPAQUE SQUARE icon source. Preserve the blue-green ocean and ochre-continent planet, its warm cream tilted rotation axis (upper end leaning right), and the small curved loop around the TOP end of that axis. REMOVE the large dotted elliptical orbital-looking ring that passes around the equator and extends to both sides of the globe; fill its former pixels with the same deep navy background. There must be NO equatorial circle, no orbital ellipse, no surrounding ring of any kind. Keep only the straight tilted axis segments and the small top loop, as in the reference. Remove the exterior circular frame/border and extend the dark navy painted ground to all square corners; the deterministic game frame will be added later. Keep every meaningful element comfortably inside the future circle, including both axis tips; move or shrink the complete motif slightly inward if needed for margin. Hand-painted gouache texture and clear small-icon shapes. No moon, star, labels, text or new symbols. Square1024x1024.\n",
+      "references": [],
+      "generationId": "exec-94462d46-b131-47ea-b4b2-ff4b613a0af2.png",
+      "notes": "Selected image edit; exact request retained. Input predecessor remains in the image generation cache."
+    },
+    {
+      "id": "molten-world-steady-axis",
+      "tool": "image_gen.imagegen",
+      "source": "projects/creation-study/production/masters/molten-world-steady-axis.png",
+      "sourceSha256": "1ab953ef83d4d9704e6c1d2e53b26297e00d96847be344496b6f9cdb7c3a1604",
+      "prompt": "Use case: precise-object-edit. Image1 is the small molten rocky world to preserve. Image2 supplies ONLY the visual language for its rotation axis: a thin warm cream tilted straight line emerging at both poles, with a small curved loop at the TOP end. Create a transparent-background square cutout of the molten planet from image1, beautifully spherical and centered, with that same axis cue leaning slightly right at the top. Keep the ball's fine irregular bright orange-red molten mottling across dark rock, NO broad sweeping surface bands, oceans, continents, craters, mountains or exterior glow. Do not add a moon. The planet should occupy about68% of the square width; leave room for a fine axis extension at each pole within the canvas. The axis can be hidden through the opaque body and re-emerge at the lower pole. The small top loop is the ONLY circle other than the sphere silhouette. In particular, NO wide equatorial ellipse, dotted ring, orbital ring, halo, circular token frame, extra background or diagram labels. Preserve genuinely transparent space around planet and axis. Crisp but hand-painted, matching the game's gouache planet and restrained cream linework. Output approximately1024x1024 with intact alpha. This is an isolated landscape state overlay, not a framed inventory icon.\n",
+      "references": [],
+      "generationId": "exec-d4d12d55-5090-4250-ab37-cfed7cecd18a.png",
+      "notes": "Selected image edit; exact request retained. Input predecessor remains in the image generation cache."
+    }
+  ]
+}

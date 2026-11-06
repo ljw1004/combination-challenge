@@ -1,0 +1,214 @@
+[
+  {
+    "step": 1,
+    "reason": "The chapter suggests a storm will bring down wood, and wind interacting with clouds is a plausible starting point.",
+    "choice": {
+      "combine": "Clouds",
+      "with": "Air"
+    },
+    "expectation": "The clouds and air may produce a storm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clouds currently have no available combinations, so I need another route to fallen wood.",
+    "reaction": "The failed guess was mildly surprising.",
+    "step": 2,
+    "reason": "Inspecting the forest should reveal how to produce fallen wood or otherwise advance its renewal.",
+    "choice": {
+      "inspect": "First forest"
+    },
+    "expectation": "The inspection will show available partners for the forest, potentially including a way to bring down wood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forest has no available partners yet, so another ingredient must be developed first.",
+    "reaction": "The lack of a forest combination is a little surprising.",
+    "step": 3,
+    "reason": "Partnered cells may be a starting point for the decomposers needed to break down wood; inspecting them will reveal their available uses.",
+    "choice": {
+      "inspect": "Partnered cells"
+    },
+    "expectation": "The inspection may reveal a route to decomposer organisms.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Partnered cells have no available combinations yet, so they do not currently offer a route to decomposers.",
+    "reaction": "I am unsure which ingredient starts this chapter.",
+    "step": 4,
+    "reason": "Air may have an available use related to the storm mentioned in the introduction.",
+    "choice": {
+      "inspect": "Air"
+    },
+    "expectation": "The inspection may reveal a way to create stormy conditions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Air and rainfall produced a storm, providing the missing way to bring down forest wood.",
+    "reaction": "The automatic combination resolved my uncertainty about starting the storm.",
+    "step": 5,
+    "reason": "The storm can break branches and uproot trees in the forest.",
+    "choice": {
+      "combine": "Storm",
+      "with": "First forest"
+    },
+    "expectation": "The storm will produce fallen wood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The storm produced fallen wood, which can feed decomposers.",
+    "reaction": "The result fits the storm's described effect.",
+    "step": 6,
+    "reason": "Partnered cells may develop into fungi when combined with the wood they can decompose.",
+    "choice": {
+      "combine": "Partnered cells",
+      "with": "Fallen wood"
+    },
+    "expectation": "This may produce fungi or another decomposer.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Fallen wood"
+        },
+        "reason": "I could check its available partners if the decomposer route is unclear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Partnered cells and fallen wood produced fungi, providing a decomposer for forest renewal.",
+    "reaction": "The explanation usefully distinguishes fungal evolution from wood turning into fungi.",
+    "step": 7,
+    "reason": "Fungi can digest fallen wood and begin returning its nutrients to the forest.",
+    "choice": {
+      "combine": "Fungi",
+      "with": "Fallen wood"
+    },
+    "expectation": "The fungi will decompose the wood, producing material that can enrich the soil.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fungi decomposed the wood, releasing nutrients that can support other organisms.",
+    "reaction": "The result clearly explains the fungi's role in nutrient cycling.",
+    "step": 8,
+    "reason": "Combining decomposition with soil may make the released nutrients available to plants.",
+    "choice": {
+      "combine": "Decomposition",
+      "with": "Soil"
+    },
+    "expectation": "The decomposition will enrich the soil with nutrients.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Decomposition has returned nutrients to the soil, where roots can take them up.",
+    "reaction": "The result makes the next step in nutrient cycling clear.",
+    "step": 9,
+    "reason": "Roots can absorb the returned nutrients to support plant growth.",
+    "choice": {
+      "combine": "Returned nutrients",
+      "with": "Roots"
+    },
+    "expectation": "The roots will take up the nutrients and support renewed growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Roots took up the returned nutrients, completing forest renewal; the new goal concerns water released by the forest.",
+    "reaction": "The nutrient cycle came together clearly.",
+    "step": 10,
+    "reason": "I am guessing the renewing forest combined with air may represent water released from leaves into the atmosphere.",
+    "choice": {
+      "combine": "Renewing forest",
+      "with": "Air"
+    },
+    "expectation": "This may produce water vapour through transpiration, a step toward rain.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Renewing forest"
+        },
+        "reason": "Its available partners could clarify how the game represents transpiration."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The failed pairing automatically combined the renewing forest with clouds, producing forest rain and completing that goal.",
+    "reaction": "The transpiration explanation clarified how forests can contribute to rainfall.",
+    "step": 11,
+    "reason": "The remaining goal is to bury carbon stored in peat, so inspecting the wetland should clarify how to form it.",
+    "choice": {
+      "inspect": "Wetland"
+    },
+    "expectation": "The wetland may have a partner that produces peat from dead plant material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wetland and fallen wood automatically produced peat, leaving its burial as the remaining goal.",
+    "reaction": "The explanation makes clear why waterlogged ground slows decomposition.",
+    "step": 12,
+    "reason": "Earth is a plausible material for burying the peat and its stored carbon.",
+    "choice": {
+      "combine": "Peat",
+      "with": "Earth"
+    },
+    "expectation": "Earth will bury the peat and its stored carbon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Burying the peat stored its carbon underground and completed the final goal.",
+    "reaction": "The explanation connected photosynthesis, slow decomposition and long-term carbon storage well.",
+    "step": 13,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Returning nutrients from fallen wood to growing plants was most worthwhile: the sequence made decomposition and nutrient uptake understandable as a cycle.",
+        "steps": [
+          7,
+          8,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The opening was frustrating: the initial storm guess failed, and two inspections found no available partners before Air revealed the starting combination.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that combining the renewing forest with air failed, but the compatibility feedback automatically combined it with clouds to produce forest rain.",
+        "steps": [
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial route to a storm felt somewhat opaque: clouds had no available combinations, although air and rainfall could make one. The later explanation gave that pairing a clear purpose.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in another chapter because the forest renewal and peat sequences connected satisfying combinations with useful explanations, despite the slow start.",
+        "steps": [
+          7,
+          8,
+          9,
+          11,
+          12
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
