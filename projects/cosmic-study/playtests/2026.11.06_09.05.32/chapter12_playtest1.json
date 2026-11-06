@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "The giant previously redirected icy bodies outward, so it is the natural place to follow their later journey.",
+    "choice": {
+      "combine": "Icy bodies beyond the planets",
+      "with": "Giant planet with rings"
+    },
+    "expectation": "The giant will redirect some of the distant icy bodies inward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The giant sent icy bodies inward; their next encounter may reveal what happens to their ice.",
+    "reaction": "The result followed the expected path.",
+    "step": 2,
+    "reason": "The inward-bound bodies now have a clear destination in the warm space between the rocky worlds.",
+    "choice": {
+      "combine": "Icy bodies sent toward the star",
+      "with": "Warm space between the rocky worlds"
+    },
+    "expectation": "Their ice will warm and some may turn to gas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inward-bound ice releases gas and dust in warm space, leaving a possible cold remnant.",
+    "reaction": "The direct transition from ice to gas is a useful detail.",
+    "step": 3,
+    "reason": "The intro says leftover fragments cross the giant's rings, so this is a plausible way to follow matter that missed the worlds.",
+    "choice": {
+      "combine": "Fragments of a shattered small body",
+      "with": "Giant planet with rings"
+    },
+    "expectation": "The fragments will encounter the rings and contribute to or alter their debris.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fragments of a shattered small body",
+          "with": "Moon-bearing world after the impacts"
+        },
+        "reason": "The fragments also cross the rocky worlds' orbits."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rocky fragments striking the giant's rings produce an ice spray, showing one fate for material crossing the system.",
+    "reaction": "The impact producing an icy spray was a small surprise.",
+    "step": 4,
+    "reason": "The inward-bound icy bodies also cross the rocky worlds' orbits, so their encounter with the moon-bearing world may advance the remaining goal.",
+    "choice": {
+      "combine": "Icy bodies sent toward the star",
+      "with": "Moon-bearing world after the impacts"
+    },
+    "expectation": "Some icy material will strike or interact with the rocky world.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fragments of a shattered small body",
+          "with": "Moon-bearing world after the impacts"
+        },
+        "reason": "The rocky fragments also cross the inner worlds' orbits."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The icy bodies cratered the rocky world and completed the old-ice goal; the fate of matter that missed the worlds remains open.",
+    "reaction": "It was useful to see that an icy impact does not necessarily deliver an ocean.",
+    "step": 5,
+    "reason": "The shattered fragments also cross the inner worlds' orbits, making an encounter with the newly cratered world plausible.",
+    "choice": {
+      "combine": "Fragments of a shattered small body",
+      "with": "Moon-bearing world with new craters"
+    },
+    "expectation": "The rocky fragments will strike the world or scatter around it.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Fragments of a shattered small body"
+        },
+        "reason": "Checking its available partners could clarify the remaining path."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fragments could not strike the world this way, but their automatic collision in warm space produced fine dust; the remaining goal is still open.",
+    "reaction": "The compatibility feedback usefully redirected the attempt.",
+    "step": 6,
+    "reason": "The newly formed dust is the clearest lead for following matter that missed the worlds, but its next interaction is not obvious.",
+    "choice": {
+      "inspect": "Fine dust from colliding stones"
+    },
+    "expectation": "The inspection should reveal where the dust can go or what it can interact with.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dust inspection automatically combined rocky and icy grains into a faint glow, completing the remaining goal.",
+    "reaction": "It was satisfying to see the two strands of leftover material come together.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the two kinds of debris to their shared dust glow connected the separate outcomes and showed how grains make otherwise sparse space visible.",
+        "steps": [
+          2,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the rocky fragments against the cratered world was less worthwhile: the pair did not work, although the feedback still advanced the story.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "A rocky impact produced an icy spray from the giant's rings, rather than simply adding rocky debris.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The inspection of fine dust automatically included dust and gas from warming ice; that third ingredient was not apparent from the inspection choice, though the resulting mixture made sense.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue: tracing material through different encounters was engaging, particularly when the rocky and icy debris came together.",
+        "steps": [
+          2,
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

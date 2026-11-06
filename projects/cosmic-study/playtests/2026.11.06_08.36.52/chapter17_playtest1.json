@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "The swept-up shell is approaching the returning galaxy, making its extended gas a plausible next encounter.",
+    "choice": {
+      "combine": "Swept-up shell beyond the cluster",
+      "with": "Extended gas in the returning galaxy"
+    },
+    "expectation": "The shell material will mix with or join gas in the returning galaxy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shell has joined returning gas that can feed central star formation or a smaller black-hole flow.",
+    "reaction": "The two possible inward paths are intriguing.",
+    "step": 2,
+    "reason": "The gathered gas is moving inward, so the dense central disk is a plausible next encounter.",
+    "choice": {
+      "combine": "Gas gathered by the returning encounter",
+      "with": "Dense gas disk near the common centre"
+    },
+    "expectation": "Some gathered gas will join the central disk and contribute to star formation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gathered gas has no currently available combination, so I will try another route into the central disk.",
+    "reaction": "That was an unexpected dead end.",
+    "step": 3,
+    "reason": "The cold cloud is described as moving inward, making the central gas disk a plausible destination.",
+    "choice": {
+      "combine": "Disk material in a cold cloud",
+      "with": "Dense gas disk near the common centre"
+    },
+    "expectation": "The cold cloud will join the central gas and possibly contribute to new stars.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cold cloud formed new central stars, completing the returning-gas goal; their effect on the remaining cloud is next.",
+    "reaction": "It is satisfying to see material lost from the disk contribute to new stars.",
+    "step": 4,
+    "reason": "The new central stars and nearby gas clouds directly match the remaining goal.",
+    "choice": {
+      "combine": "New stars near the shared centre",
+      "with": "Gas clouds near the common centre"
+    },
+    "expectation": "The stars will heat or disperse some of the remaining gas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The central stars heated the remaining gas and drove some above the disk, completing the final goal.",
+    "reaction": "The contrast between the bright nursery and faint outflow was satisfying.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the cold cloud into the central disk was most worthwhile: material lost from the planetary disk helped form new stars.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to combine the gathered returning gas with the central disk was a dead end, despite its described inward path.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The returning gas could feed the centre in the story, but had no available combination when I tried it.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The failed central-disk combination felt unclear: the description suggested an inward route, but the result did not explain why it was unavailable.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: tracing familiar material into new stars and an outflow was interesting, though I would hope for clearer feedback on dead ends.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

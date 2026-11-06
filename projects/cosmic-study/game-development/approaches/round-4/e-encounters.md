@@ -1,0 +1,9 @@
+# Three treatments of ice with a new host
+
+The fresh scientific/forward-comprehension review of the nine-operation encounter module found the joint outer ejection and capture plausible, but the separate thermal sequel required retained volatile-rich interiors after the earlier giant encounter. Distant dust release needed more explanation still.
+
+1. **Keep a cold, venting body.** Establish protected easily vaporized interior ice, an insulating porous crust and a new orbit receiving stronger starlight. Follow gas loss without promising dust release. This is physically plausible under the reviewed bounds, but adds specialist prerequisites to a scene whose strong new event is a changed stellar host.
+2. **End with the transfer.** Keep the actual ice in orbit around its new star. The rubble world loses a sun while another portion acquires one; position and motion, rather than composition, explain the differing outcomes. This preserves the new relation without a second use of the same star to repeat familiar sublimation.
+3. **Braid transfer with the existing warm-comet passage.** Move the existing original-host warming scene alongside the capture, showing old ice heating near one sun while other ice gains a new host farther out. This avoids inventing a new thermal history but adds another backward camera switch and requires substantial reordering of the system branch.
+
+**Choose 2.** Remove one recipe and one derived endpoint. The module now has eight operations across three scenes. The same review also motivates visible approach captions, consistent heavier/lighter language, a slow outer passage, and explicit orbital reasons for the two small-body outcomes. Chapter-dependent names retain the actual rubble body and escaping star identities. Fresh play must still test whether those distinctions are understood.

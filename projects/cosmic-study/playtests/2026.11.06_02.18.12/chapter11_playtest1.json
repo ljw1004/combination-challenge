@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The returned disk material and the cold neighbouring cloud are explicitly connected in the chapter introduction.",
+    "choice": {
+      "combine": "Disk material returned to the surroundings",
+      "with": "Cold dusty cloud beside the nursery"
+    },
+    "expectation": "The expelled disk material will join or mix with the cold cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The returned disk material joined a cold cloud, completing the expelled-material goal; the remaining goal concerns the young stars' effects outside their birthplace.",
+    "reaction": "The growth of dust grains in the new cloud was an interesting continuation of the material's journey.",
+    "step": 2,
+    "reason": "The young stars at the tail's base are the clearest starting point for the remaining goal, and the long-tail gas is nearby material they might affect.",
+    "choice": {
+      "combine": "Young stars at the tail's base",
+      "with": "Gas in the long tail"
+    },
+    "expectation": "The young stars will change or illuminate some of the tail gas.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Young stars at the tail's base"
+        },
+        "reason": "Checking their available partners would be useful if the tail gas is not the right target."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tail-base stars ionize nearby gas, but the remaining goal is not yet complete.",
+    "reaction": "It is satisfying to see the new stars illuminate material that never became part of them.",
+    "step": 3,
+    "reason": "The small clouds crossing the tail are another likely encounter for the tail-base stars.",
+    "choice": {
+      "combine": "Young stars at the tail's base",
+      "with": "Small clouds crossing the tail"
+    },
+    "expectation": "The stars will alter the crossing clouds, perhaps heating or dispersing them.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Young stars at the tail's base"
+        },
+        "reason": "I could check their remaining partners before choosing another encounter."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tail-base stars have no available combinations now, so I need to look elsewhere for the remaining goal.",
+    "reaction": "The failed attempt was a little surprising; the crossing clouds seemed like a plausible target.",
+    "step": 4,
+    "reason": "The small clouds may interact with another available item, so checking their partners can guide the next move.",
+    "choice": {
+      "inspect": "Small clouds crossing the tail"
+    },
+    "expectation": "The inspection will identify any available encounters involving the crossing clouds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glowing gas and crossing clouds formed a swept-up shell, extending the stars' influence beyond their birthplace, but the goal remains open.",
+    "reaction": "The cloudlets were relevant after all, through the glowing gas rather than directly through the stars.",
+    "step": 5,
+    "reason": "The newly formed shell may have a further encounter needed to complete the remaining goal; its next partner isn't obvious.",
+    "choice": {
+      "inspect": "Swept-up shell beyond the cluster"
+    },
+    "expectation": "The inspection will reveal any available next step involving the shell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The swept-up shell has no available combinations, so the remaining goal must involve another part of the board.",
+    "reaction": "I had expected the shell might lead to another step, so its lack of partners was surprising.",
+    "step": 6,
+    "reason": "The nursery outflow is another way young stars affect surrounding material, but its next encounter is not clear.",
+    "choice": {
+      "inspect": "Gas flowing out of the nursery"
+    },
+    "expectation": "The inspection will show whether the outflow has an available encounter.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The nursery outflow's encounter with the cold cloud formed another generation of stars and completed the remaining goal.",
+    "reaction": "It was interesting that an outflow which cleared one nursery could help another gathering form stars.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The final outflow encounter was most worthwhile: it connected the clearing of one nursery to star formation in another cloud.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the swept-up shell led nowhere, despite its apparent relevance to the unfinished goal.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The crossing clouds interacted with glowing gas rather than directly with the young stars.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The need for a separate nursery-outflow encounter to complete the stars' influence goal was not obvious from the goal wording, though its result had a clear physical explanation.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue: following material between stellar nurseries and seeing how outflows can trigger new star formation was interesting, despite a few unclear connections.",
+        "steps": [
+          1,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

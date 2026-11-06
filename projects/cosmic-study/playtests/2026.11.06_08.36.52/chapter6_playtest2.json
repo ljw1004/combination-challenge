@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "Dust falling into the disk belongs at the young star’s dusty disk, which should begin the grain-gathering process.",
+    "choice": {
+      "combine": "Dust falling into the disk",
+      "with": "Young star with a dusty disk"
+    },
+    "expectation": "The infalling dust will join the disk and make material available for grain collisions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dust has settled into the disk, providing material for the grain-gathering goal.",
+    "reaction": "The role of gas drag in settling the grains is interesting.",
+    "step": 2,
+    "reason": "Slowly meeting grains suggest a gentle collision that could let dust stick together.",
+    "choice": {
+      "combine": "Dust settled into the disk",
+      "with": "Slowly meeting grains"
+    },
+    "expectation": "The grains will stick together and begin forming larger rocky particles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gentle collisions produced fragile clumps, but they are not yet rocky pebbles.",
+    "reaction": "The contrast between sticking and destructive collisions is interesting.",
+    "step": 3,
+    "reason": "The clumps may have more than one useful next step, so checking their partners will help distinguish growth from a hard collision.",
+    "choice": {
+      "inspect": "Fluffy grain clumps"
+    },
+    "expectation": "The inspection will reveal whether the clumps can grow further or collide with faster grains.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fluffy grain clumps",
+          "with": "Fast crossing grains"
+        },
+        "reason": "A fast collision might address the second goal, but I would first check the clumps' options."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fast collision shattered the clumps into smaller grains and completed the hard-collision goal.",
+    "reaction": "I was surprised the inspection automatically triggered the collision.",
+    "step": 4,
+    "reason": "Ice-coated grains moving inward are likely to change in the warm inner disk, which may help produce rocky pebbles.",
+    "choice": {
+      "combine": "Ice-coated grains moving inward",
+      "with": "Warm inner disk"
+    },
+    "expectation": "The ice will warm and leave rocky material in the inner disk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warm disk removed the ice, leaving rocky grains available for the pebble goal.",
+    "reaction": "The distinction between evaporated ice and vanished material is useful.",
+    "step": 5,
+    "reason": "The stripped grains are the clearest starting point for making rocky pebbles, but their next partner is not obvious.",
+    "choice": {
+      "inspect": "Grains stripped of their ice"
+    },
+    "expectation": "The inspection will show how the rocky grains can gather or grow.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Grains stripped of their ice",
+          "with": "Slowly meeting grains"
+        },
+        "reason": "Gentle encounters might promote sticking, but their compatibility is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically combined the dry grains with slowly meeting grains, producing rocky pebbles and completing the final goal.",
+    "reaction": "It was satisfying to see gentle collisions build pebbles, with the qualification that sticking alone cannot make planets.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The final pebble formation connected ice loss with gentle grain growth, while distinguishing pebbles from planets.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial dust-settling step was straightforward setup and less engaging than the collision outcomes.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the fluffy clumps automatically caused their only available collision, shattering them rather than merely listing options.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the automatic collision during inspection was unexpected.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see what processes can take the pebbles beyond the limits of simple sticking.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

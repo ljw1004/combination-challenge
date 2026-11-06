@@ -1,0 +1,112 @@
+[
+  {
+    "step": 1,
+    "reason": "The neighbouring stars and the other galaxy's outskirts appear relevant to what happens to the orange light during the collision.",
+    "choice": {
+      "combine": "Stars around an old orange star",
+      "with": "Outskirts of the other galaxy"
+    },
+    "expectation": "The encounter will show what happens to the old star and its neighbours.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The orange star survives in a stream beyond the spiral; the remaining goal concerns the gas.",
+    "reaction": "The distinction between changing stellar paths and destroying stars is interesting.",
+    "step": 2,
+    "reason": "The two gas flows meet at the dark lane, making them a plausible pair for finding out where the gas goes.",
+    "choice": {
+      "combine": "Dense gas in the dark lane",
+      "with": "Gas crossing the dark lane"
+    },
+    "expectation": "The crossing gas will interact with the dense gas and reveal what happens to it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gas collision compressed and heated the clouds, which then cooled and gathered; the gas goal remains open.",
+    "reaction": "The contrast with the stars passing between one another is interesting.",
+    "step": 3,
+    "reason": "The crowded gas is the new result, but its next role is not yet clear, so checking its partners should guide the next move.",
+    "choice": {
+      "inspect": "Gas crowded into the dark lane"
+    },
+    "expectation": "The inspection will show which available objects or hotspot can interact with the crowded gas.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Gas crowded into the dark lane",
+          "with": "Thin gas beside the dark lane"
+        },
+        "reason": "The nearby gas might interact with the crowded cloud, but that is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crowded gas has no available partners, so I need to investigate another part of the cloud.",
+    "reaction": "I’m curious why the gas goal remains open.",
+    "step": 4,
+    "reason": "The cloud beyond the gas crossing may lead to the remaining goal, but its role is not clear.",
+    "choice": {
+      "inspect": "A cloud beyond the gas crossing"
+    },
+    "expectation": "The inspection will reveal any available partners for the cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The outer cloud was drawn out with the stars rather than joining the main collision; the gas goal is still open.",
+    "reaction": "The different fate of the outer cloud is interesting.",
+    "step": 5,
+    "reason": "The thin gas is the remaining unexplored portion, so checking its available interactions may reveal where it goes.",
+    "choice": {
+      "inspect": "Thin gas beside the dark lane"
+    },
+    "expectation": "The inspection will show its available partners and may resolve its fate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The thin gas formed a broad hot bridge with the crossing gas, completing the remaining goal and showing another fate for gas in the encounter.",
+    "reaction": "The contrast between the diffuse bridge and the denser, cooling cloud was interesting.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The gas collision was most worthwhile: its compression and cooling provided a clear contrast with the stars passing between one another.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the crowded gas was least useful because it had no available partners and did not explain what remained to complete the goal.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The outer cloud missed the main collision and was drawn outward by the approaching galaxy instead.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to inspect the thin gas and pair it with the crossing gas was not obvious to me, though the resulting hot bridge had a clear explanation.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue: the distinct fates of the stars and gas made me curious about what happens to the cloud next.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

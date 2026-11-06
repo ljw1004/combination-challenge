@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "The cloud lies directly across the stream, making their collision a clear way to investigate its disturbance.",
+    "choice": {
+      "combine": "Narrow stream of fast charged gas",
+      "with": "Gas cloud across the narrow stream"
+    },
+    "expectation": "The stream will strike the cloud and create a broader disturbance.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jet has heated and fragmented the cloud; I need to find how that disturbance develops.",
+    "reaction": "The cloud breaking apart makes the jet's effect tangible.",
+    "step": 2,
+    "reason": "Inspecting the broken cloud should reveal how it can contribute to the wider disturbance.",
+    "choice": {
+      "inspect": "Hot broken cloud across the jet"
+    },
+    "expectation": "It may interact with surrounding gas or the cold clouds.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Hot broken cloud across the jet",
+          "with": "Cold clouds beside the expanding flow"
+        },
+        "reason": "The cold clouds might meet the disturbed gas, but their connection is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The broken cloud expanded into surrounding gas, forming a wide hot cavity and completing the first goal.",
+    "reaction": "The expansion makes the scale of the jet's indirect effect clear.",
+    "step": 3,
+    "reason": "The cold clouds beside the expanding flow are the clearest starting point for following gas carried outward.",
+    "choice": {
+      "inspect": "Cold clouds beside the expanding flow"
+    },
+    "expectation": "The report should reveal how the cold clouds interact with the flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cold clouds currently have no available operation, so another part of the flow needs attention first.",
+    "reaction": "That was unexpected given the remaining goal.",
+    "step": 4,
+    "reason": "The jet's path is an unexplored hotspot that may lead to the outward flow needed to involve the clouds.",
+    "choice": {
+      "combine": "Narrow stream of fast charged gas",
+      "with": "Thin gas along the jet's outward path"
+    },
+    "expectation": "The jet will interact with the thin gas and produce a further outward-flowing structure.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Wide hot cavity in the surrounding gas"
+        },
+        "reason": "The cavity might instead reveal the next stage of the outflow."
+      }
+    ],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The jet inflated a broad bubble in the thin gas, providing a possible expanding flow for the cold clouds.",
+    "reaction": "The bubble offers a clearer next step after the clouds had no available operation.",
+    "step": 5,
+    "reason": "The cold clouds lie beside an expanding flow, so the new bubble may carry them outward.",
+    "choice": {
+      "combine": "Expanding bubble filled by the fast stream",
+      "with": "Cold clouds beside the expanding flow"
+    },
+    "expectation": "The expanding bubble will interact with and carry the cold clouds outward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The expanding bubble carried dense clouds outward while their interiors stayed cold.",
+    "reaction": "The survival of cold gas within the outflow is interesting.",
+    "step": 6,
+    "reason": "The outer reaches are the natural place to follow the carried clouds and see whether they remain in the galaxy.",
+    "choice": {
+      "combine": "Cold clouds carried outward by the expanding flow",
+      "with": "Outer reaches of the merging galaxies"
+    },
+    "expectation": "The clouds will reach the outer galaxy, revealing whether their gas remains bound or escapes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clouds remained bound and began falling back toward the centre, completing the remaining goal.",
+    "reaction": "Their return makes the outflow's longer-term consequence clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the bubble as it carried cold clouds outward and then seeing them return made the gas's journey and survival concrete.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the cold clouds before creating the bubble yielded no available operation, making it the least useful decision.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The dense cloud interiors could remain cold within an outflow driven by hot gas, and the clouds later fell back rather than escaping.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The clouds' initial lack of any available operation was unclear until the separate bubble was created, though the subsequent interaction had a clear purpose.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to follow the returning gas and see how its earlier journey affects what happens next.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

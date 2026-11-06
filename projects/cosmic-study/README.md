@@ -1,14 +1,24 @@
-# Cosmic: narrative redevelopment
+# Cosmic: The Lights That Remain — development
+
+The user has authorized turning the galaxy encounter into a complete combination game, aiming for approximately 200 combinations, with repeated fresh reviews and fast/detailed playtests before artwork. Follow the [active design brief](design-brief.md) and [working notes](working-notes.md). Three [game architecture candidates](game-development/approaches/round-1/a-ensemble.md) led to two competing playable treatments. The fuller material-history game was selected for its worlds, moons, rings and changing stellar companions, with substantial cuts to repeated preparation.
+
+The current playable draft is [galaxies.md](galaxies.md): **Cosmic: The Lights That Remain**, with **113 combinations, 157 item identities and 22 playable chapters plus the ending**; its canonical completion uses 80 combinations. Several fast and detailed revision cycles are complete, including full chapter campaigns, competing-game tests, focused gesture repairs and the final copy retests. The [latest results](working-notes.md#refined-text-complete-chapter-campaigns) preserve every tested chapter's scores, version identities and remaining issues. AI completion and attributed story value do not establish human enjoyment.
+
+Artwork is complete: **145 circular appearances, 21 open line-drawn receiving regions and 13 backgrounds**. The [three-direction comparison](artwork/visual-plan.md) selected luminous pastel material circles and scenes, with charcoal contours distinguishing fixed surroundings. The [artwork directory](artwork/README.md) records selected sources, exact requests, extraction geometry and contact sheets. A fresh [complete-set continuity review](art-review/2026.11.06_09.44.00/report.md) accepted all 179 final exports; final recognition and browser outcomes are linked in the [verification record](working-notes.md#completed-artwork-and-final-verification).
+
+Preview locally with `npm run dev` at `/make-something.html?story=projects/cosmic-study/galaxies.md`. This project remains outside the published catalogue and hosted files.
+
+The sections below preserve the preceding narrative study and its recommendations. Their unresolved game and artwork questions describe that earlier phase; the current illustrated game is the manuscript linked above.
 
 The [unreleased manuscript](cosmic.md), its artwork under `assets/` and its [single active design brief](design-brief.md) are the baseline being reconsidered. They have returned from `stories/cosmic` because the story is not ready for release. The [original development record](<../../archive/2026.11.05 cosmic study/README.md>) remains historical evidence, including the original brainstorming.
 
-Preview locally with `npm run dev` at `/make-something.html?story=projects/cosmic-study/cosmic.md`. This project is excluded from the published catalogue and hosted files. The former published URL's browser saves and drafts remain under that URL; they are not migrated to this preview.
+The baseline remains separately previewable at `/make-something.html?story=projects/cosmic-study/cosmic.md`. The former published URL's browser saves and drafts remain under that URL; they are not migrated to either project preview.
 
 Human feedback overturned the earlier acceptance: the game was hard to follow, introduced too many unfamiliar primitives and astrophysical mechanisms, confused processes with things, and lacked a relatable narrative hook. More artwork polish or successful chapter completion would not answer that criticism.
 
-**Current prose recommendation:** [What the Darkness Kept](narrative/round-3/i-late-light.md), a 965-word mystery about a young star in an old, dark galaxy. [Before the Cloud Grew Thin](narrative/round-3/h-dust.md) is the strongest alternative. A fresh narrative reviewer recommended both; a separate scientist found no required correction within their selected scenarios.
+**Pre-game prose recommendation:** [What the Darkness Kept](narrative/round-3/i-late-light.md), a 965-word mystery about a young star in an old, dark galaxy. [Before the Cloud Grew Thin](narrative/round-3/h-dust.md) is the strongest alternative. A fresh narrative reviewer recommended both; a separate scientist found no required correction within their selected scenarios.
 
-**Current play recommendation:** test [G's changed behaviour across encounters](concepts/round-2/g-encounter.md), with the disclosure correction below. This differs from the prose ranking. Nine complete prose candidates and six conceptual adaptations have been developed through three prose rounds and two concept rounds. The result is a reviewed narrative/design study; a satisfying full game, its scope and its replacement artwork remain unresolved. The retained baseline manuscript has not been replaced by these narrative drafts.
+**Pre-game play recommendation:** test [G's changed behaviour across encounters](concepts/round-2/g-encounter.md), with the disclosure correction below. This differs from the prose ranking. Nine complete prose candidates and six conceptual adaptations have been developed through three prose rounds and two concept rounds. The result is a reviewed narrative/design study; a satisfying full game, its scope and its replacement artwork remain unresolved. The retained baseline manuscript has not been replaced by these narrative drafts.
 
 ## Working method
 

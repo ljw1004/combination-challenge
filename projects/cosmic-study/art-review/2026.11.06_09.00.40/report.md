@@ -1,0 +1,11 @@
+# Style and recognition pilot
+
+The directory timestamp uses the final recognition record's completion time, 6 November 2026 at 09:00:40 PST; exact assignment start times were not retained. Follow the [icon review method](../../../../docs/icon-guide.md#6-run-separate-recognition-and-art-direction-reviews).
+
+Inputs were three generated 4 × 3 atlases with the same twelve intended subjects, extracted at 64, 80 and 96 pixels. Exact requests are in [pilot-prompts.json](../../artwork/pilot-prompts.json); A is luminous pastel, B flat screenprint and C observatory engraving. Source orientations were not perfectly identical. The retained style comparison is a design reference, not an approved production set.
+
+Fresh agent `cosmic_pilot_recognition` first saw only anonymous sheets, with no names, manuscript, answer key, style brief or previous verdict. It gave physical guesses, confidence, alternatives and visible features for all 36 images. C most consistently separated the paired patterns; B also made star arrangements clear. A best conveyed diffuse gas but its pale neighboring stars were weak. All three distinguished the ringed planet, rocky body, world with a companion and dark-centered disk. The young stellar disk was initially mistaken for a galaxy; luminous streams could resemble lightning. Subsequent ordinary chapter introductions clarified interstellar clouds and the narrow-stream/disturbance relationship, without establishing exact state or cause from pictures alone. The first answers remained separate from contextual recovery.
+
+Fresh informed agent `cosmic_pilot_direction` received the brief, catalogue, source references and three paired background studies. It favored A's volume, light and scene coherence, with B a credible clarity alternative. Required repairs concerned the old-star arrangement, young-disk scale, lightning-like jet and prematurely lit nuclear background; it also flagged lane crowding and rubble aggregation for full-family inspection. All three original nuclear panels were rejected.
+
+Author choice: luminous pastel with clearer compact stellar points and stronger material silhouettes, paired with open charcoal fixed contexts. Subsequent repair and production reviews own their acceptance. These are qualitative AI observations, not human recognition speed, preference or enjoyment measurements.

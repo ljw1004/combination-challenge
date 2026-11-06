@@ -1,0 +1,13 @@
+# Final copy choice
+
+The selected material-history manuscript keeps its existing graph. This pass compares three treatments of the disk material joining the neighbouring cloud; the choice governs the remaining readings.
+
+1. **Physical account:** “Escaping disk gas and dust mix with the dense neighbouring cloud. The mixture radiates heat; surviving grains collect atoms.” Clear and brief, but it loses the connection to the worlds just made.
+2. **Image-led account:** “Beyond the worlds, the disk's scattered grains enter a colder darkness. There, sheltered in a larger cloud, they begin to grow again.” More atmospheric, but the image obscures the dense mixing and heat loss that make survival possible.
+3. **Material history:** “Gas and dust escaping the small planetary disk meet the dense neighbouring cloud. The mixture radiates the added heat, allowing some disk grains to survive. Atoms gather on these and other surviving seeds. Matter that passed the growing planets has joined another cold gathering.” The physical event carries the connection to the earlier worlds.
+
+Choose **material history**: usually two to four concrete sentences, beginning with what meets and what changes, then retaining the significant consequence or ancestry. Keep scientific contrasts where they explain the encounter. Remove prose about recipe bookkeeping, compulsory actions and duplicated identities. State the early disk branch's timing alongside star birth, while preserving the later returns to other times and the long dispersal and regathering of galactic gas. This is an author copy decision, not an independent review or a new claim of player comprehension.
+
+Applied across [material-refined.md](material-refined.md). The large-impactor name now makes the population's differing approach angles visible, and the later debris scene identifies paths through the giant's rings. Player descriptions and chapter prose decreased from 6,109 to 5,660 whitespace-delimited words.
+
+Verification: parsed both versions with the shared `parseStory` and compared recipes, goals including wording, chapter order and identities, supplies, fixed items, item identities and structural properties, presentation rules and tutorial metadata, excluding source offsets. All match: 113 recipes, 43 goals, 23 chapters and 157 items; no parser diagnostics. Author notes and background metadata also match exactly. The sole item-name change is “Large worlds approaching at different angles.” This establishes copy-only scope, not new scientific or playtest approval. Final manuscript SHA-256: `a63389f87a9e042ac2009ba767ccb6718a03d44eb925b1b5da29f9e788e6c4ab`.

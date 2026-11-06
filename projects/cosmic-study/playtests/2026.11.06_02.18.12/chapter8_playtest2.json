@@ -1,0 +1,162 @@
+[
+  {
+    "step": 1,
+    "reason": "The cold ring is where icy solids collect, so frost-coated dust is a plausible starting ingredient.",
+    "choice": {
+      "combine": "Frost-coated dust",
+      "with": "Cold ring where icy solids collect"
+    },
+    "expectation": "The dust should gather into icy solids that can help build the outer body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dust combined with the stones automatically, producing icy pebbles; the cold ring was not the right partner for the dust.",
+    "reaction": "The compatibility feedback made the failed guess useful.",
+    "step": 2,
+    "reason": "The icy pebbles seem suited to the cold ring where solids collect.",
+    "choice": {
+      "combine": "Icy pebbles",
+      "with": "Cold ring where icy solids collect"
+    },
+    "expectation": "The pebbles will gather into a larger outer-disk body.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Icy pebbles"
+        },
+        "reason": "I could check their partners first, but the ring looks like a plausible destination."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cold ring concentrated the icy pebbles into a large body, ready to encounter surrounding gas.",
+    "reaction": "The formation model makes the jump from pebbles to a large body clearer.",
+    "step": 3,
+    "reason": "The goal calls for the large outer body to encounter the disk's gas.",
+    "choice": {
+      "combine": "A large ice-and-rock body",
+      "with": "Cold gas around the outer body"
+    },
+    "expectation": "The body will gather surrounding gas and begin becoming a giant.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The solid body became a young gas giant, completing the first goal; I can now follow material around it.",
+    "reaction": "It is satisfying to see the earlier solid body remain inside the giant.",
+    "step": 4,
+    "reason": "Slow ice-rich pieces around the giant seem likely to gather into orbiting bodies.",
+    "choice": {
+      "combine": "A young gas giant",
+      "with": "Slow ice-rich pieces around the giant"
+    },
+    "expectation": "The ice-rich pieces will gather into a moon or other orbiting material.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "A young gas giant",
+          "with": "Icy bodies passing near the giant"
+        },
+        "reason": "The passing bodies may instead show what travels beyond the giant."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slow ice-rich pieces do not combine directly with the giant; the feedback identifies passing icy bodies as an available partner.",
+    "reaction": "I was surprised the slower pieces were not the immediate route to material around the giant.",
+    "step": 5,
+    "reason": "The compatibility feedback points to the passing icy bodies, which may reveal what travels beyond the giant.",
+    "choice": {
+      "combine": "A young gas giant",
+      "with": "Icy bodies passing near the giant"
+    },
+    "expectation": "The giant will scatter some icy bodies farther outward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The giant redirected the icy bodies into a distant reservoir, following the outward-traveling branch of the goal.",
+    "reaction": "The distinction between scattered bodies and material orbiting the giant is clearer now.",
+    "step": 6,
+    "reason": "The slow ice-rich pieces may help form something around the giant, but their direct pairing with it failed, so I’ll check their partners.",
+    "choice": {
+      "inspect": "Slow ice-rich pieces around the giant"
+    },
+    "expectation": "The inspection should reveal what the slow pieces can combine with, possibly automatically performing a sole operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slow ice-rich pieces have no available partner yet, so another formation step is needed first.",
+    "reaction": "That narrows the route, though it doesn't show the missing step.",
+    "step": 7,
+    "reason": "The giant's compatibility list included cold gas, which may create material around it.",
+    "choice": {
+      "combine": "A young gas giant",
+      "with": "Cold gas around the outer body"
+    },
+    "expectation": "The gas may form a surrounding disk where the slow icy pieces can gather.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cold gas formed a disk around the young giant, providing a possible gathering place for solids.",
+    "reaction": "The separate disk explains why the slow pieces could not combine directly with the giant.",
+    "step": 8,
+    "reason": "The slow ice-rich pieces may now gather within the gas circling the giant.",
+    "choice": {
+      "combine": "Gas circling the young giant",
+      "with": "Slow ice-rich pieces around the giant"
+    },
+    "expectation": "The icy pieces will gather into a moon or its building blocks around the giant.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slow icy pieces gathered in the giant's disk into a loose rubble moon, completing the remaining goal.",
+    "reaction": "It was satisfying to see why the disk had to form before the moon could gather.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Forming the giant's gas disk and then its rubble moon was most worthwhile: the intermediate step clarified how material gathers around the planet.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the slow ice-rich pieces yielded no partners and did not identify the missing step, though it narrowed the search.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The slow pieces could not combine directly with the giant; they needed a surrounding gas disk first.",
+        "steps": [
+          4,
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial attempt to put frost-coated dust in the cold ring felt like a reasonable guess, but the game instead paired it with stones automatically.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: following the same material into a giant, a distant reservoir and a moon made the different outcomes interesting.",
+        "steps": [
+          3,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

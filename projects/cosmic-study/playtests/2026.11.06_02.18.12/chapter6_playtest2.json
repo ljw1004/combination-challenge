@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "The intro says gentle grain encounters build material in the disk, so slowly meeting grains belong in the warm inner disk.",
+    "choice": {
+      "combine": "Slowly meeting grains",
+      "with": "Warm inner disk"
+    },
+    "expectation": "The grains should stick together into larger rocky particles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Slowly meeting grains have no currently available operation, so the disk may need preparation first.",
+    "reaction": "The failed attempt was unexpected given the intro.",
+    "step": 2,
+    "reason": "Inspecting the warm inner disk should reveal what can be used there now.",
+    "choice": {
+      "inspect": "Warm inner disk"
+    },
+    "expectation": "It will list currently compatible ingredients, possibly including dust falling into the disk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warm disk strips ice from inward-moving grains, leaving rocky grains; slowly meeting grains were not ready to combine.",
+    "reaction": "The phase change is a useful clarification.",
+    "step": 3,
+    "reason": "Dust falling into the disk seems likely to feed the young star's disk and prepare material for growth.",
+    "choice": {
+      "combine": "Dust falling into the disk",
+      "with": "Young star with a dusty disk"
+    },
+    "expectation": "The falling dust will join the disk and enable grain gathering.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The falling dust has settled into the disk, providing material for grain gathering.",
+    "reaction": "The role of gas drag in settling the dust is interesting.",
+    "step": 4,
+    "reason": "The settled dust and slowly meeting grains suggest the gentle encounters needed to begin gathering pebbles.",
+    "choice": {
+      "combine": "Dust settled into the disk",
+      "with": "Slowly meeting grains"
+    },
+    "expectation": "The gently meeting grains will stick together into larger particles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gentle encounters produced fluffy clumps, an intermediate stage before rocky pebbles.",
+    "reaction": "The fragile clumps make the contrast with hard collisions clear.",
+    "step": 5,
+    "reason": "The ice-stripped rocky grains may join the fluffy clumps to advance pebble growth.",
+    "choice": {
+      "combine": "Fluffy grain clumps",
+      "with": "Grains stripped of their ice"
+    },
+    "expectation": "The rocky grains will join the clumps and help form larger aggregates.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fluffy grain clumps",
+          "with": "Fast crossing grains"
+        },
+        "reason": "A fast collision could address the other goal, but I want to try advancing pebble growth first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clumps could not combine with the ice-stripped grains; the automatic fast collision shattered them and completed the collision goal.",
+    "reaction": "I was surprised that the failed growth attempt immediately triggered the hard collision.",
+    "step": 6,
+    "reason": "The settled dust was described as available for later encounters with broken grains, so I will try bringing them together.",
+    "choice": {
+      "combine": "Grains from shattered clumps",
+      "with": "Dust settled into the disk"
+    },
+    "expectation": "The broken grains and settled dust will begin gathering again toward pebbles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shattered grains have rebuilt into new clumps with settled dust, providing another route toward pebble growth.",
+    "reaction": "It's satisfying that the fragments can gather again rather than simply restoring the original clumps.",
+    "step": 7,
+    "reason": "The rebuilt clumps and ice-stripped rocky grains may now combine to advance growth in the warm disk; this is a guess.",
+    "choice": {
+      "combine": "Clumps rebuilt from fragments",
+      "with": "Grains stripped of their ice"
+    },
+    "expectation": "The rocky grains may join the rebuilt clumps to form larger aggregates.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Clumps rebuilt from fragments"
+        },
+        "reason": "Checking their partners would avoid another uncertain combination."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rebuilt clumps have no currently available operation, so they do not yet provide a route to pebbles.",
+    "reaction": "That was another unexpected dead end.",
+    "step": 8,
+    "reason": "The ice-stripped grains are the remaining rocky material, so checking their available partners may reveal how to progress.",
+    "choice": {
+      "inspect": "Grains stripped of their ice"
+    },
+    "expectation": "The inspection may identify a partner or station for gathering the rocky grains.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the ice-stripped grains revealed that slowly meeting grains were their partner; the automatic combination made rocky pebbles and completed the chapter.",
+    "reaction": "I was surprised that the slowly meeting grains worked with the stripped grains after my initial attempt at the disk failed.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Inspecting the stripped grains resolved the remaining goal and showed how gentle encounters build dry grains into pebbles without claiming they make a planet outright.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the rebuilt clumps with the stripped grains led to another dead end, despite rebuilding seeming like a route onward.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "My attempted growth combination with fluffy clumps instead automatically triggered the hard collision and completed that goal.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial inability to use slowly meeting grains at the warm disk felt unclear given the introduction; only later did their specific role become apparent.",
+        "steps": [
+          1,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the contrasting paths of grain growth, breakage and rebuilding made me curious about what happens next, though the compatibility dead ends were frustrating.",
+        "steps": [
+          4,
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

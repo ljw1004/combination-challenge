@@ -1,0 +1,179 @@
+[
+  {
+    "step": 1,
+    "reason": "The giant previously redirected icy bodies outward, and the chapter suggests it can now send some inward.",
+    "choice": {
+      "combine": "Icy bodies beyond the planets",
+      "with": "Giant planet with rings"
+    },
+    "expectation": "The giant will redirect some distant icy bodies toward the inner system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The giant sent icy bodies inward, where they can encounter warmer space or debris.",
+    "reaction": "The redirection matched the chapter's hint.",
+    "step": 2,
+    "reason": "The inward-bound ice is now approaching the warm region, making the hotspot a natural next encounter.",
+    "choice": {
+      "combine": "Icy bodies sent toward the star",
+      "with": "Warm space between the rocky worlds"
+    },
+    "expectation": "Some of the ice will warm and release gas as the bodies approach the star.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warming ice released gas and dust, showing one destination for the inward-bound material.",
+    "reaction": "The distinction between ice turning to gas and melting was interesting.",
+    "step": 3,
+    "reason": "The remaining goal concerns fragments that missed the worlds; inspecting them should reveal their available encounters.",
+    "choice": {
+      "inspect": "Fragments of a shattered small body"
+    },
+    "expectation": "The report will show where the fragments can travel or what they can encounter.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fragments of a shattered small body",
+          "with": "Giant planet with rings"
+        },
+        "reason": "The introduction says fragments cross the giant's rings, but I am unsure whether that is the next relevant encounter."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fragments can encounter inward-bound ice, the giant's rings, or warm inner space.",
+    "reaction": "The inspection clarified several possible paths without revealing their outcomes.",
+    "step": 4,
+    "reason": "The introduction explicitly says the fragments cross the giant's rings, so that is a well-supported encounter.",
+    "choice": {
+      "combine": "Fragments of a shattered small body",
+      "with": "Giant planet with rings"
+    },
+    "expectation": "The fragments will interact with material in the giant's rings.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fragments of a shattered small body",
+          "with": "Warm space between the rocky worlds"
+        },
+        "reason": "The fragments also cross the inner system, so this could follow another path."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fragments strike the rings and raise an icy spray, showing one fate for material that missed the worlds.",
+    "reaction": "The impact made the rings' continual motion tangible.",
+    "step": 5,
+    "reason": "The inward-bound icy bodies can also encounter the fragments, and neither goal has yet been reported complete.",
+    "choice": {
+      "combine": "Fragments of a shattered small body",
+      "with": "Icy bodies sent toward the star"
+    },
+    "expectation": "The rocky fragments and incoming icy bodies will interact along their crossing paths.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fragments of a shattered small body",
+          "with": "Warm space between the rocky worlds"
+        },
+        "reason": "The fragments can also enter the warm inner system."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision scattered mixed ice and stone across the inner system; some pieces may warm or strike a world.",
+    "reaction": "The collision reveals another route for the incoming ice.",
+    "step": 6,
+    "reason": "The new pieces still contain ice and may warm further, so the warm-space hotspot is a natural next encounter.",
+    "choice": {
+      "combine": "Broken pieces of ice and stone",
+      "with": "Warm space between the rocky worlds"
+    },
+    "expectation": "The ice in some pieces will release gas and dust as it warms.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Broken pieces of ice and stone",
+          "with": "Moon-bearing world after the impacts"
+        },
+        "reason": "The result also says some pieces may strike a world."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pieces struck the rocky world automatically, completing the old-ice goal; the impact vaporized ice without guaranteeing an ocean.",
+    "reaction": "I was surprised that warming the pieces was unavailable despite the earlier hint.",
+    "step": 7,
+    "reason": "The fragments can also enter warm space, an unexplored path relevant to matter that missed the worlds.",
+    "choice": {
+      "combine": "Fragments of a shattered small body",
+      "with": "Warm space between the rocky worlds"
+    },
+    "expectation": "The fragments will undergo another change or encounter in the inner system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Collisions ground the leftover stones into fine dust, but the goal has not yet been reported complete.",
+    "reaction": "The fragments have taken a different path from the ones that struck the rings.",
+    "step": 8,
+    "reason": "The new dust may have a further destination; inspecting it should reveal the available next step.",
+    "choice": {
+      "inspect": "Fine dust from colliding stones"
+    },
+    "expectation": "The report will show what the fine dust can interact with.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically combined the stone dust with material released from warming ice, completing the remaining goal as a faint dust glow.",
+    "reaction": "It was satisfying to see the two material paths come together.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The final dust glow brought together material from both warming ice and colliding stones, showing how matter that missed the worlds still affects the system.",
+        "steps": [
+          2,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The attempted warming of the broken pieces was confusing: the previous result said some would warm further, but that interaction was unavailable.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Trying to warm the broken pieces instead automatically sent them into the rocky world, where their ice vaporized without necessarily producing an ocean.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The unavailable warming interaction felt somewhat arbitrary given the preceding hint, though the automatic world impact was also foreshadowed.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: tracing separate paths of ice and rock into a shared dust glow was interesting, despite the confusing warming interaction.",
+        "steps": [
+          2,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

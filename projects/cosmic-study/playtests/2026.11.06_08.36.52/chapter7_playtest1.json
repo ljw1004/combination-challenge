@@ -1,0 +1,175 @@
+[
+  {
+    "step": 1,
+    "reason": "The rocky pebbles are a plausible starting point for building larger bodies, but their available partners are not yet clear.",
+    "choice": {
+      "inspect": "Rocky pebbles"
+    },
+    "expectation": "The inspection should reveal how the pebbles can participate in the growing worlds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pebbles and shattered grains formed rocky bodies, providing a starting population for the world's growth.",
+    "reaction": "The gravitational collapse was a useful clarification of how small solids become larger bodies.",
+    "step": 2,
+    "reason": "Slowly approaching small bodies plausibly accumulate onto the newly formed rocky bodies.",
+    "choice": {
+      "combine": "A population of rocky bodies",
+      "with": "Small bodies approaching slowly"
+    },
+    "expectation": "The slow encounters should build a larger rocky body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slow encounters produced a young rocky world, which can now undergo a larger collision.",
+    "reaction": "The growth from small bodies to a world is a clear progression.",
+    "step": 3,
+    "reason": "The approaching large worlds suggest the next collision involving the young world.",
+    "choice": {
+      "combine": "A young rocky world",
+      "with": "Large worlds approaching at different angles"
+    },
+    "expectation": "A collision should change the young world and perhaps produce material for a moon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The large impact enlarged the world and melted much of its interior; it did not yet produce a moon.",
+    "reaction": "The impact’s heating was a useful distinction from simply gathering debris.",
+    "step": 4,
+    "reason": "Rubble already orbiting the struck world looks like the most direct material for forming its moon.",
+    "choice": {
+      "combine": "The rocky world with a molten interior",
+      "with": "Rubble already orbiting the struck world"
+    },
+    "expectation": "The orbiting rubble will gather into a moon around the surviving world.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The molten world cannot yet combine with the orbiting rubble; it can interact with metal-rich fragments or another large-world encounter.",
+    "reaction": "I was surprised the orbiting rubble was not ready to form a moon.",
+    "step": 5,
+    "reason": "The metal-rich fragments may contribute to the molten world's development before a moon can form.",
+    "choice": {
+      "combine": "The rocky world with a molten interior",
+      "with": "Metal-rich rocky fragments"
+    },
+    "expectation": "The fragments will change the molten world, perhaps adding material to its interior.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "The rocky world with a molten interior",
+          "with": "Large worlds approaching at different angles"
+        },
+        "reason": "Another large collision could instead produce the conditions needed for a moon."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The metal-rich fragments helped the molten world develop a dense core, advancing its formation.",
+    "reaction": "The separation of metal and rock makes the core's formation clear.",
+    "step": 6,
+    "reason": "A further large collision could produce the orbiting debris needed for a moon.",
+    "choice": {
+      "combine": "The rocky world with a dense core",
+      "with": "Large worlds approaching at different angles"
+    },
+    "expectation": "A large impact will alter the world and may create debris from which a moon can form.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "The rocky world with a dense core",
+          "with": "Rubble already orbiting the struck world"
+        },
+        "reason": "The rubble might now be usable, though the previous attempt suggests another change may be needed."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grazing impact left the surviving world surrounded by orbiting debris, creating a plausible setting for moon formation.",
+    "reaction": "The different outcome of this impact makes the collision's angle meaningful.",
+    "step": 7,
+    "reason": "The orbiting rubble can now plausibly gather with the debris around the struck world.",
+    "choice": {
+      "combine": "The struck world inside an orbiting debris cloud",
+      "with": "Rubble already orbiting the struck world"
+    },
+    "expectation": "The orbiting material will gather into a moon around the surviving world.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The orbiting rubble gathered into a moon, completing the first goal; the shattered-body goal remains.",
+    "reaction": "The distinction between debris gathering, falling back, and escaping was satisfying.",
+    "step": 8,
+    "reason": "A fast projectile striking the remaining population of rocky bodies could produce the shattered pieces needed for the other goal.",
+    "choice": {
+      "combine": "A population of rocky bodies",
+      "with": "Fast rocky projectiles"
+    },
+    "expectation": "A high-speed collision will shatter a rocky body into fragments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fast impact produced fragments of a shattered small body, leaving them available to gather into a small world.",
+    "reaction": "The contrast between the shattered body and the surviving larger world is clear.",
+    "step": 9,
+    "reason": "The fragments are central to the remaining goal, but their next partner is not yet clear.",
+    "choice": {
+      "inspect": "Fragments of a shattered small body"
+    },
+    "expectation": "The inspection should reveal what can help the fragments gather into a small world.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically combined the fragments with slowly approaching bodies, forming a rubble world and completing the remaining goal.",
+    "reaction": "It was satisfying to see the shattered fragments gather again rather than simply disappear.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The grazing impact and subsequent moon formation were most worthwhile: the collision created orbiting debris, and gravity gathered some of it into a moon while other fragments fell back or escaped.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the orbiting rubble on the molten world was least worthwhile as progress: it failed, although the compatibility feedback helped identify the next options.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the orbiting rubble could not form a moon immediately; another large impact first created a debris cloud around the world.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to develop a dense core before the moon-forming impact felt somewhat prescribed. Core formation was explained physically, but why it had to precede that impact was less clear.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would choose to continue: the contrasting outcomes of impacts and the reassembly of shattered material made me curious about what happens to the remaining fragments.",
+        "steps": [
+          6,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

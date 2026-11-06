@@ -1,0 +1,33 @@
+# Return: three possible final acts
+
+These are authoring alternatives for the current galaxy encounter, following the atlas candidate's useful finding: a comparison earns space when its result changes subsequent play. They are not evaluations or adopted rules.
+
+1. **The crowded centre.** Follow returning gas into a central disk and a feeding black hole. The climax would distinguish gas that loses orbital energy from stars that cross intact. This offers substantial material action, but a new black-hole spectacle could displace the orange star and the cloud-made stars just when their histories should meet.
+2. **The lives in the outskirts.** Remain with tail clouds, newly born clusters and diffuse gas. End with a long-lived cluster beyond the remnant. This gives earlier tail material a strong consequence and avoids repeated crossings, but can leave the old star and the planetary excursion without enough final work.
+3. **What returns, and what remains.** Develop tail gas and nursery outflow into different physical descendants; use the already-created ice, debris and giant planet inside the same young system. Gas encounters gas earlier in the return. The old star and the planetary system continue through the narrative; the single final stellar gesture brings the actual lane-born population into the returning galaxy.
+
+**Choose 3.** The act uses the outskirts and central gas only where existing material can continue into them. It does not offer a free-roaming atlas, manufacture a galaxy from population tokens, or rename the same orbit several times. The important late goal asks players to predict what the lane-born stars will do before revealing their return-crossing result. A single physical result can accept several appropriate gas sources; those alternatives add useful compatibility without inventing more intermediate states.
+
+The manuscript is a first playable hypothesis. Its difficult assumptions are complete-operation abstraction, reservoir identity, the optional planetary ring discovery, and the accessibility of the central gas sequence. It needs stitched continuity checks and fresh fast/detailed playtests. Recipe count is subordinate to those checks; no claim of completed evaluation or enjoyment follows from authoring it.
+
+## Additional scope: three contrasting expansions
+
+The first manuscript contains 42 combinations. Expanding the same cloud-compression or orbital-state chains would make it longer without changing participation. Three different additions were considered after the first pilot found value in the gas-to-stars behavioral transfer and less value in repeated old-star crossings.
+
+| Expansion | New contribution | Main cost |
+|---|---|---|
+| A stronger central starburst | The merger gathers gas into a conspicuous new population whose outflows affect the remnant. | The draft already enacts this; another nursery would mostly repeat known behavior. |
+| An external black-hole disk and its wider effects | Gas can shine outside a dark hole, enter it, or join an outward plasma stream; distant clouds can be disrupted, carried outward or later return. These outcomes reuse an earlier cold cloud and alter the central gas story. | Requires careful distinction between hole, external disk and outflow; must not turn the climax into jargon or imply a universal vacuum cleaner. |
+| A tail-born dwarf galaxy | Material pulled from a large galaxy can become a small bound galaxy, shifting the ending from survival toward a new neighbour. | Demands a second enduring galactic identity and more tail-cloud assembly, while drawing attention away from the established two populations and their shared ending. |
+
+**Choose the external disk and wider effects.** Three additional chapters contribute 17 recipes, including two alternative producers for each useful returned-gas outcome. The new physical subjects are orbiting gas, nearby clouds, dust and a fast stream of charged gas. The black hole remains fixed; Gravity, Cooling, Spin, Accretion and Time never become inventory objects. No recipe assembles a black hole or galaxy from symbolic pieces.
+
+The expansion initially made 60 recipes. Subsequent cuts replace the second tail-star birth with the actual `a-tail-stars` made in Act I, remove the repeated old-star and planetary-system crossings, and remove the final pair of light-on-dust gestures. Accretion into the same black hole remains part of the complete disk operation; a separate renamed black-hole state was removed to avoid unnecessary unique-object state and a bounded-verification limit. The resulting act has 53 recipes across ten playable chapters and a text-only ending. This is an authored scope, not a meaningfulness score. The central expansion should be cut or condensed if fresh play treats its radiating/obscuring stages as labels to clear, or if the gas fountain obscures the more important prediction about lane-born stars. Its strongest new work is the contrast between matter entering darkness and matter outside that boundary changing a much larger volume, followed by actual reuse of displaced gas.
+
+Three final-action treatments were compared after that pilot feedback: repeat crossings for each survivor (clear continuity, weak new work); let old and young stars illuminate one dust cloud (physical, but mainly decorative repetition); or make the lane-born population's changed behavior the final playable event. The third treatment wins because it resolves the opening question using material the player actually transformed. Other survivors remain in the ending without requiring duplicate gestures.
+
+## Authoring verification
+
+Act III SHA-256 `4c6ef560248c5f492f50ffecc63e7c85a0088fee68f80b051dc56b1d938bbff1` contains 53 recipes, ten playable chapters and its ending. An in-memory standalone fixture adds a temporary title/tutorial and treats the imports as supplied: full semantic lint reports no errors, no analysis-limit warning, and one intentional mixed-fate warning for the tail population that first affects gas and later becomes the surviving cluster. The legal route uses 44 combinations, with at most seven starting items.
+
+An in-memory stitch of the current three acts contains 148 recipes and completes a legal 129-combination route, also with at most seven starting items. Image-path checks pass against the intended `projects/cosmic-study/galaxies.md` location. Full lint reports no errors, four mixed-fate warnings and the global 20,000-state fixed-item analysis limit; that combined fixed-item verification remains incomplete. These are authoring checks, not fresh playtests or scientific acceptance. No scratch manuscript or detailed run output was retained.

@@ -1,0 +1,98 @@
+[
+  {
+    "step": 1,
+    "reason": "The introduction says the disk's departing material reaches the cold cloud beside the nursery.",
+    "choice": {
+      "combine": "Disk material returned to the surroundings",
+      "with": "Cold dusty cloud beside the nursery"
+    },
+    "expectation": "The departing disk material will mix with or otherwise change the cold cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The departing disk material joined the cold cloud, completing that goal. The remaining goal concerns how young stars change material outside their birthplace.",
+    "reaction": "It is interesting that disk grains can survive and join another cold cloud.",
+    "step": 2,
+    "reason": "The tail-base stars and gas in the long tail are the clearest available pair for following the stars' effects outside their birthplace.",
+    "choice": {
+      "combine": "Young stars at the tail's base",
+      "with": "Gas in the long tail"
+    },
+    "expectation": "The young stars will heat or otherwise alter some of the tail gas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tail stars swept nearby gas into a dense shell, but the remaining goal is not yet complete.",
+    "reaction": "The expanding shell shows how the cluster can affect gas farther along the tail.",
+    "step": 3,
+    "reason": "The shell is a new result, and its next role is not clear from the visible names, so checking its partners should guide the remaining goal.",
+    "choice": {
+      "inspect": "Swept-up shell beyond the cluster"
+    },
+    "expectation": "The inspection will reveal whether the shell can interact with another available object.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Gas flowing out of the nursery",
+          "with": "Gas in the long tail"
+        },
+        "reason": "The introduction also points to the nursery outflow changing material during the separation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shell has no available partners, so I will follow the nursery outflow instead.",
+    "reaction": "The shell appears to be an endpoint for now.",
+    "step": 4,
+    "reason": "The introduction points to the outflow changing material, and the long-tail gas is a plausible place for it to encounter.",
+    "choice": {
+      "combine": "Gas flowing out of the nursery",
+      "with": "Gas in the long tail"
+    },
+    "expectation": "The outflow will interact with and change some of the tail gas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted tail-gas combination revealed the cold cloud as the outflow's partner and automatically formed stars, completing the remaining goal.",
+    "reaction": "I was surprised that the outflow helped start another generation of stars after clearing the earlier nursery.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the nursery outflow into the cold cloud was most worthwhile: it connected the clearing of one gathering to star formation in another.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the swept-up shell was least useful because it had no available partners, although checking seemed reasonable at the time.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The outflow formed stars in the neighboring cloud rather than interacting with the tail gas I had selected.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary, though I guessed at the outflow and tail-gas pairing and the compatibility feedback redirected it.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how material cycles between clouds and stars; the outflow's unexpected role made that progression interesting.",
+        "steps": [
+          1,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

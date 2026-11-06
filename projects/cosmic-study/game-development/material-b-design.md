@@ -1,0 +1,11 @@
+# Playable B: follow the departing material
+
+This candidate implements the [material framing](approaches/round-5/b-material-frame.md) beside the unchanged 118-combination `../galaxies.md`, so its substantial making can be compared with the more concentrated remnant candidate. It is a proposed game, not an acceptance verdict.
+
+The changes preserve the world, moon, ring and close-encounter contrasts. They shorten the earlier comet preparation into one collision of actual rocky fragments with fast stones; the later icy-body episode still reveals sublimation, impacts and borrowed light. Gas and dust from the actual planetary disk must enter the next cold cloud. That handoff can no longer be satisfied by an alternative source. The orange star returns as a landmark when the galaxies approach again, and openings follow actual departing material into the wider setting.
+
+The resumed fast tests also identified repeated ionization in the nursery-return scene and a misleading result label. Three responses were considered: move that scene into the initial nursery, compress its first two operations, or cut its secondary star-formation branch. Moving it earlier would break the disk handoff; removing the new stars would lose the contrast between dispersal and a new gathering. The selected complete operation lets the actual tail cluster heat and sweep its existing surrounding gas into a shell. It removes an extra glowing-gas state and cloudlet supply. Stars born from the nursery outflow are now named for that actual outflow, not for the separately created tail shell.
+
+The result has 113 combinations and 158 item identities (64 primitives), with an 82-combination canonical completion. It still has the fullest range of construction and the greater cumulative naming burden. It must be evaluated as a competing implementation; plausible individual operations do not establish that the long excursion sustains attention.
+
+The late cold-cloud alternatives remain because they are optional material routes, not extra mandatory steps. Their retention is open to evidence from actual trajectories. The full baseline review's criticism of manuscript repetition is not by itself evidence that every player executes every alternative.

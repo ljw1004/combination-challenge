@@ -1,0 +1,159 @@
+[
+  {
+    "step": 1,
+    "reason": "Rocky pebbles and slowly approaching bodies suggest a gentle gathering that could begin building the worlds.",
+    "choice": {
+      "combine": "Rocky pebbles",
+      "with": "Small bodies approaching slowly"
+    },
+    "expectation": "The solids will gather into a larger rocky body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted pair was incompatible, but the automatic combination revealed that pebbles and fragments form a population of rocky bodies.",
+    "reaction": "The automatic recovery was useful; I had guessed the wrong partner.",
+    "step": 2,
+    "reason": "The new rocky bodies and slowly approaching small bodies suggest a next stage of growth.",
+    "choice": {
+      "combine": "A population of rocky bodies",
+      "with": "Small bodies approaching slowly"
+    },
+    "expectation": "Slow encounters will build a larger rocky world.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Slow encounters grew a young rocky world, providing a likely target for the larger collision.",
+    "reaction": "The growth followed the expected path.",
+    "step": 3,
+    "reason": "The young world and approaching large worlds suggest the collision that could produce moon-forming debris.",
+    "choice": {
+      "combine": "A young rocky world",
+      "with": "Large worlds approaching at different angles"
+    },
+    "expectation": "A major collision will leave the surviving world and debris that could form a moon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision enlarged the world and melted much of its interior, but did not yet produce moon-forming debris.",
+    "reaction": "I expected debris already, so the molten interior was a surprise.",
+    "step": 4,
+    "reason": "Inspecting the molten world should clarify its available next step toward a moon.",
+    "choice": {
+      "inspect": "The rocky world with a molten interior"
+    },
+    "expectation": "The compatibility list will show what can happen to the molten world next.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "The rocky world with a molten interior",
+          "with": "Large worlds approaching at different angles"
+        },
+        "reason": "Another large impact might produce debris, but its compatibility is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The molten world can combine with metal-rich fragments or encounter another large world.",
+    "reaction": "Another large collision remains possible, as suspected.",
+    "step": 5,
+    "reason": "A further large impact is a plausible way to create debris around the surviving world and advance the moon goal.",
+    "choice": {
+      "combine": "The rocky world with a molten interior",
+      "with": "Large worlds approaching at different angles"
+    },
+    "expectation": "The collision will produce orbiting debris or otherwise advance the world toward acquiring a moon.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "The rocky world with a molten interior",
+          "with": "Metal-rich rocky fragments"
+        },
+        "reason": "The fragments are also compatible and might change the world's composition."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grazing collision produced an orbiting debris cloud around the surviving world, advancing the moon goal.",
+    "reaction": "The contrasting outcome of this impact is satisfying.",
+    "step": 6,
+    "reason": "The existing orbiting rubble may join the new debris cloud to form a moon.",
+    "choice": {
+      "combine": "The struck world inside an orbiting debris cloud",
+      "with": "Rubble already orbiting the struck world"
+    },
+    "expectation": "The orbiting material will gather into a moon around the world.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The orbiting rubble and impact debris gathered into a moon, completing the first goal.",
+    "reaction": "It was satisfying to see the debris become a moon.",
+    "step": 7,
+    "reason": "A fast impact may shatter a body for the remaining goal, but its target is unclear.",
+    "choice": {
+      "inspect": "Fast rocky projectiles"
+    },
+    "expectation": "The compatibility list will identify what the projectiles can strike.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The projectiles shattered a small rocky body, leaving fragments that may gather into the second goal's small world.",
+    "reaction": "The inspection automatically made the needed impact, which was useful.",
+    "step": 8,
+    "reason": "The shattered fragments are the clearest starting point for gathering a small world, but their partner is not yet clear.",
+    "choice": {
+      "inspect": "Fragments of a shattered small body"
+    },
+    "expectation": "The compatibility list will show how the fragments can gather again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fragments gathered through slow collisions and gravity into a rubble world, completing the remaining goal.",
+    "reaction": "The automatic combination was useful, and the contrast with the shattering impact was satisfying.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The grazing impact and subsequent gathering of orbiting rubble were most worthwhile: they made the moon's origin clear and connected two different collision outcomes.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the molten world was less rewarding because it only listed partners; I still had to choose which collision to try.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The first large impact melted the world's interior rather than immediately producing the moon-forming debris I expected.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial pebble-and-small-body pairing felt unclear: it failed, though the compatibility feedback automatically combined the pebbles with fragments instead.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the contrasting effects of gentle and violent collisions made the material's changing history interesting.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

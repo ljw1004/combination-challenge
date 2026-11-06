@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "Dust falling into the disk plausibly belongs at the young star’s dusty disk, beginning the grain-gathering process.",
+    "choice": {
+      "combine": "Dust falling into the disk",
+      "with": "Young star with a dusty disk"
+    },
+    "expectation": "The falling dust will join the disk and become available for grain growth.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Slowly meeting grains",
+          "with": "Warm inner disk"
+        },
+        "reason": "Slow collisions in the warm disk also seem likely to help form pebbles."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The falling dust has settled into the disk, setting up grain encounters.",
+    "reaction": "The role of gas drag in concentrating the grains is interesting.",
+    "step": 2,
+    "reason": "Slowly meeting grains seem most likely to stick to the settled dust and begin building pebbles.",
+    "choice": {
+      "combine": "Dust settled into the disk",
+      "with": "Slowly meeting grains"
+    },
+    "expectation": "Gentle encounters will produce larger grain aggregates.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Slowly meeting grains",
+          "with": "Warm inner disk"
+        },
+        "reason": "The warm disk may instead be the location for grain growth."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gentle collisions produced fluffy clumps, which may grow further or break apart in harder encounters.",
+    "reaction": "The contrast between fragile clumps and rocky pebbles is useful.",
+    "step": 3,
+    "reason": "The fluffy clumps are the clearest starting point for both goals, but their next compatible partners are uncertain.",
+    "choice": {
+      "inspect": "Fluffy grain clumps"
+    },
+    "expectation": "Inspection should reveal how the clumps can grow or undergo a hard collision.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fluffy grain clumps",
+          "with": "Fast crossing grains"
+        },
+        "reason": "Fast grains might produce the hard collision, but checking the clumps could reveal other useful paths."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clumps shattered into smaller grains, completing the hard-collision goal; rocky pebbles remain to be gathered.",
+    "reaction": "The reversal of the clumps’ growth was a clear contrast with their gentle formation.",
+    "step": 4,
+    "reason": "Ice-coated grains moving inward are likely to change in the warm inner disk and contribute to rocky pebble formation.",
+    "choice": {
+      "combine": "Ice-coated grains moving inward",
+      "with": "Warm inner disk"
+    },
+    "expectation": "The warmth will remove the ice coating, leaving rocky material in the inner disk.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Grains from shattered clumps"
+        },
+        "reason": "The fragments might also have a route toward pebble growth."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inward-moving grains have lost their ice, leaving rocky grains in the warm disk.",
+    "reaction": "The distinction between evaporating ice and disappearing material is useful.",
+    "step": 5,
+    "reason": "The rocky grains are the clearest lead toward pebbles, but their next partner is uncertain.",
+    "choice": {
+      "inspect": "Grains stripped of their ice"
+    },
+    "expectation": "Inspection should reveal how the rocky grains can gather into pebbles.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Grains stripped of their ice",
+          "with": "Grains from shattered clumps"
+        },
+        "reason": "The two populations of grains might gather together."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Gentle encounters gathered the ice-stripped grains into rocky pebbles, completing the remaining goal; the result also clarified that further sticking alone cannot make planets.",
+    "reaction": "It was satisfying to see the dry grains become pebbles, with a clear limit on what that growth explains.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The hard collision was most worthwhile: seeing fragile clumps break back into smaller grains made the contrast between gentle and fast encounters clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final inspection was less engaging as a decision because it revealed only one partner and automatically completed the combination.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that inspecting the fluffy clumps immediately triggered their shattering, rather than leaving a choice between growth and collision.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly purposeless, though I needed compatibility feedback to learn how the ice-stripped grains would become pebbles.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would choose to continue to see what processes beyond grain sticking lead toward rocky worlds; the chapter made that an open question.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

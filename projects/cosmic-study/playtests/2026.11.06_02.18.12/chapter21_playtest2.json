@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "The cold stream is entering the diffuse outskirts, so the hotspot is a natural place to test whether it survives there.",
+    "choice": {
+      "combine": "Cold gas arriving along an outer stream",
+      "with": "Diffuse gas around the shared galaxy"
+    },
+    "expectation": "The encounter will show what happens to the cold gas in the surrounding diffuse medium.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cold stream does not interact directly with the hotspot, but it can meet either of two dispersed materials.",
+    "reaction": "The compatibility feedback clarified the next step.",
+    "step": 2,
+    "reason": "The mixed outer-galaxy gas seems like the clearest test of whether cold material survives an encounter with the outskirts.",
+    "choice": {
+      "combine": "Cold gas arriving along an outer stream",
+      "with": "Mixed gas dispersed into the outer galaxy"
+    },
+    "expectation": "The cold stream will interact with the dispersed gas, revealing what survives the encounter.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cold gas arriving along an outer stream",
+          "with": "Dusty cloud carrying the cluster's lost material"
+        },
+        "reason": "The cold stream can also meet the dusty cloud, but the mixed gas more directly matches the outskirts goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stream formed a sheltered cold cloud and completed the first goal; the remaining goal concerns the cluster's light.",
+    "reaction": "The contrast between the cold pocket and the larger hot surroundings is interesting.",
+    "step": 3,
+    "reason": "The surviving cluster and the newly formed cold cloud are natural candidates for the illumination goal.",
+    "choice": {
+      "combine": "Tail cluster with long-lived stars",
+      "with": "Cold cloud among the remnant's outskirts"
+    },
+    "expectation": "The cluster's light may illuminate the cold cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cluster has no currently available combination, so the new cold cloud is not a direct illumination partner.",
+    "reaction": "That was an unexpected dead end.",
+    "step": 4,
+    "reason": "The dusty cloud may need another preparation before the cluster can illuminate something; inspecting it will reveal its available partners.",
+    "choice": {
+      "inspect": "Dusty cloud carrying the cluster's lost material"
+    },
+    "expectation": "The inspection should show how the dusty cloud can interact with the remaining material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dusty cloud can interact with either the diffuse outskirts or the cold stream; the cluster is not yet a partner.",
+    "reaction": "The two possible paths leave the illumination mechanism unclear.",
+    "step": 5,
+    "reason": "The dusty cloud carries material from the cluster, and placing it in the diffuse outskirts may advance the remaining goal.",
+    "choice": {
+      "combine": "Dusty cloud carrying the cluster's lost material",
+      "with": "Diffuse gas around the shared galaxy"
+    },
+    "expectation": "The cloud will interact with the surrounding diffuse gas, possibly revealing what the cluster can illuminate.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Dusty cloud carrying the cluster's lost material",
+          "with": "Cold gas arriving along an outer stream"
+        },
+        "reason": "The cold stream is another known partner, but its connection to illumination is less clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dusty cloud dispersed its stellar material into the wider gas, but the illumination goal remains open.",
+    "reaction": "The material's continued journey is clear, though its connection to illumination is not yet clear.",
+    "step": 6,
+    "reason": "Surviving grains are plausible material for the cluster's light to illuminate, but their available interactions are unknown.",
+    "choice": {
+      "inspect": "Surviving grains in the outer gas"
+    },
+    "expectation": "The inspection will show which available objects or locations can interact with the grains.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grains joined the cold pocket to make a dusty cloud beside the cluster, suggesting a way to complete the illumination goal.",
+    "reaction": "The automatic combination clarified why the grains mattered.",
+    "step": 7,
+    "reason": "The new cloud is beside the surviving cluster, and the result says its dust can borrow starlight.",
+    "choice": {
+      "combine": "Dusty cloud beside the surviving cluster",
+      "with": "Tail cluster with long-lived stars"
+    },
+    "expectation": "The cluster's light will illuminate the dusty cloud.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cluster illuminated the prepared dusty cloud, completing the remaining goal without forming new stars.",
+    "reaction": "The scattered light tied the surviving cluster and the cloud's history together satisfyingly.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Preparing the dusty cloud and illuminating it was most worthwhile: it showed how existing stars can make nearby dust visible without a new nursery.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The unsuccessful attempt to combine the cluster directly with the cold cloud was a dead end and left the required preparation unclear.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the cold pocket survived in much hotter surroundings, and that it needed surviving grains before the cluster could illuminate it.",
+        "steps": [
+          2,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Dispersing the enriched dusty cloud into the outer gas did not have a clear connection to the remaining illumination goal when I chose it.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: following material through the cold pocket to reflected starlight made me curious about its later history, despite some unclear combinations.",
+        "steps": [
+          2,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

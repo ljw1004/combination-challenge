@@ -2,7 +2,7 @@
 
 This index describes live projects only. Each project keeps its briefs, research, plans and retained supporting material together throughout its development.
 
-- [Cosmic narrative redevelopment](cosmic-study/README.md): unreleased manuscript, artwork and active brief, alongside contrasting literary stories and conceptual combination designs responding to human feedback about clarity, primitive overload and the missing narrative hook.
+- [Cosmic: The Lights That Remain](cosmic-study/README.md): an illustrated galaxy-encounter game with 113 combinations, developed through competing narratives, repeated fast/detailed playtests and fresh scientific, mechanical and visual reviews. The completed development pass remains unpublished for user review; the earlier manuscript and artwork are retained as a baseline.
 
 - [The Travelling Harbour](cyberpunk-study/README.md): an illustrated cyberspace game with 186 combinations, developed through fresh fast/detailed playthroughs and story, continuity and visual reviews. The completed development pass remains unpublished for user review; the earlier No Fixed Address manuscript and assets are retained as a baseline.
 

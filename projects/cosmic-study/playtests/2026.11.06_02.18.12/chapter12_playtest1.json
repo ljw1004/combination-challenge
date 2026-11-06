@@ -1,0 +1,161 @@
+[
+  {
+    "step": 1,
+    "reason": "The giant's gravity previously redirected icy bodies, so it is the clearest way to follow the old ice inward.",
+    "choice": {
+      "combine": "Icy bodies beyond the planets",
+      "with": "Giant planet with rings"
+    },
+    "expectation": "The giant will redirect some of the distant icy bodies toward the inner system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The giant has sent a population of icy bodies inward, where separate members can interact with the inner system.",
+    "reaction": "The result matched my expectation; I am curious how the scattered material changes.",
+    "step": 2,
+    "reason": "The scattered ice is heading into warmer regions, so the warm space is a natural next encounter.",
+    "choice": {
+      "combine": "Icy bodies sent toward the star",
+      "with": "Warm space between the rocky worlds"
+    },
+    "expectation": "Some of the icy bodies will shed gas and dust as they warm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inward ice releases gas and dust in warm space, leaving possible cold remnants.",
+    "reaction": "The contrast between a small remnant and its immense thin cloud is striking.",
+    "step": 3,
+    "reason": "The released material may join the debris already between the planets, helping trace matter that missed the worlds.",
+    "choice": {
+      "combine": "Dust and gas released from warming ice",
+      "with": "Debris left between the planets"
+    },
+    "expectation": "The released grains and gas will interact with the existing planetary debris.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Icy bodies sent toward the star",
+          "with": "Young star with rocky worlds"
+        },
+        "reason": "Other members of the icy population might strike the rocky worlds."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The released dust and gas have no available combination, so I will follow the remaining icy bodies instead.",
+    "reaction": "The failed combination was unexpected.",
+    "step": 4,
+    "reason": "The result at step 1 said members of the scattered population can strike rocky worlds.",
+    "choice": {
+      "combine": "Icy bodies sent toward the star",
+      "with": "Young star with rocky worlds"
+    },
+    "expectation": "Some inward-scattered icy bodies will strike the rocky worlds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The scattered ice cratered the rocky worlds, completing the first goal; the remaining goal concerns matter between the planets.",
+    "reaction": "The distinction between delivering ice and creating an ocean is useful.",
+    "step": 5,
+    "reason": "The debris left between the planets directly matches the remaining goal, but its next interaction is unclear.",
+    "choice": {
+      "inspect": "Debris left between the planets"
+    },
+    "expectation": "Inspection should reveal how the leftover debris can be followed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The debris can interact with either the giant planet or warm space, giving two ways to follow its fate.",
+    "reaction": "I am curious how the giant changes the leftover debris.",
+    "step": 6,
+    "reason": "The giant can gravitationally redirect small bodies, so I will try it with the debris.",
+    "choice": {
+      "combine": "Debris left between the planets",
+      "with": "Giant planet with rings"
+    },
+    "expectation": "The giant will scatter some debris onto different orbits.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Debris left between the planets",
+          "with": "Warm space between the rocky worlds"
+        },
+        "reason": "Warm space may reveal another fate for the debris."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The debris struck the giant's rings, producing an ice spray rather than being scattered onto different orbits.",
+    "reaction": "That collision was an unexpected fate for the rocky debris.",
+    "step": 7,
+    "reason": "Inspection showed the debris also interacts with warm space, so I will follow that remaining known path.",
+    "choice": {
+      "combine": "Debris left between the planets",
+      "with": "Warm space between the rocky worlds"
+    },
+    "expectation": "The debris will undergo another change in the inner system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Collisions among leftover stones produced fine dust, but the remaining goal has not yet completed.",
+    "reaction": "The debris has a quieter fate than I expected.",
+    "step": 8,
+    "reason": "I will check whether the newly produced dust has a further available interaction.",
+    "choice": {
+      "inspect": "Fine dust from colliding stones"
+    },
+    "expectation": "Inspection will show whether the fine dust can be followed further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically brought the two sources of dust together in warm space, producing a faint glow and completing the remaining goal.",
+    "reaction": "It was satisfying to see the previously uncombinable material acquire a purpose alongside the collision dust.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the debris into colliding stones and then a shared dust glow brought the rocky and icy histories together in a clear conclusion.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to combine the released gas and dust directly with the debris was unproductive, although it clarified that the material had no available operation at that point.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The debris striking the giant's rings produced an ice spray rather than the orbital scattering I expected.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The direct dust-and-debris combination failed even though their material ultimately mingled; the need for collision dust and the warm-space interaction was not clear to me beforehand.",
+        "steps": [
+          3,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: tracing separate material histories into a shared outcome was interesting, especially when the results challenged my expectations.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The grazing collision should advance the goal of following the struck world and its debris.",
+    "choice": 1,
+    "expectation": "I expect the impact to change the world and eject some rock into orbit, though the immediate result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This could advance the smaller-fragment goal, but I want to follow the world first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collision left the tracked world surrounded by debris, so I can now follow what happens to that orbiting material.",
+    "reaction": "The survivor and its debris staying together as one result makes the aftermath clear.",
+    "step": 2,
+    "reason": "Adding the orbiting rubble should advance the struck-world and debris goal.",
+    "choice": 1,
+    "expectation": "I expect the orbiting material to gather or interact with the debris cloud, perhaps beginning to form a moon.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This advances the separate fragment path, but I want to follow the impact aftermath first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The impact debris formed a moon, completing the struck-world goal; the smaller fragments remain to be followed.",
+    "reaction": "It is satisfying to see the same world retain a moon formed from the collision debris.",
+    "step": 3,
+    "reason": "This is the only offered combination and addresses the remaining fragment goal.",
+    "choice": 1,
+    "expectation": "I expect the fast-crossing bodies to collide with or redistribute the fragments, though the outcome is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fast impacts ground some fragments into a dusty stream, which can now meet crossing rubble.",
+    "reaction": "The smaller-body path shows a contrasting, destructive outcome to the moon-forming collision.",
+    "step": 4,
+    "reason": "This is the only offered combination and continues following the fragments.",
+    "choice": 1,
+    "expectation": "I expect the crossing rubble to interact with the dusty stream, though I am unsure whether it will gather or scatter the material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rubble has swept up some fragments and can now encounter another rocky body.",
+    "reaction": "It is satisfying to see debris from destruction become material on another body.",
+    "step": 5,
+    "reason": "This is the only offered combination and continues the remaining fragment goal.",
+    "choice": 1,
+    "expectation": "I expect the rubble and its collected fragments to interact with the rocky body, perhaps adding material to it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossing body broke some coated rubble apart, leaving fragments that can meet more rubble.",
+    "reaction": "I expected possible growth, so the renewed fragmentation was a small surprise.",
+    "step": 6,
+    "reason": "This is the only offered combination and continues the remaining fragment goal.",
+    "choice": 1,
+    "expectation": "I expect the fragments to interact with the crossing rubble, possibly being swept up again, though the outcome is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Slow encounters gathered some fragments into larger aggregates while leaving smaller debris, completing the remaining goal.",
+    "reaction": "The mix of growth and surviving debris is a satisfying conclusion to the fragment path.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the grazing impact into a moon was most worthwhile: the same world survived while orbiting debris gathered into a companion.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The later fragment path felt somewhat repetitive, with rubble collecting material and then breaking apart again.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I expected the coated rubble might add to the crossing body, but the encounter broke some of it apart instead.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt entirely purposeless, though the repeated fragment encounters were largely guided by the only offered combination rather than a choice I understood in advance.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue, mainly to see what becomes of the world and moon, though I would hope for more meaningful choices than the largely linear fragment sequence.",
+        "steps": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
