@@ -193,8 +193,10 @@ dialog button,dialog select{min-height:44px}
 .reading-indicator{display:none;position:absolute;left:50%;top:-8px;transform:translateX(-50%);pointer-events:none;line-height:0;opacity:.7;filter:saturate(.3)}
 .reading-indicator .open-book{width:12.5px;height:11.5px}
 .thing.reading-selected .reading-indicator{display:block;animation:book-entrance .18s ease-out}
+/* Pointer feedback marks the hovered/focused item, without marking its partners. */
+@media(hover:hover){.thing.pressed .reading-indicator{display:block;animation:book-entrance .18s ease-out}}
 @keyframes book-entrance{from{opacity:0;scale:.75;translate:0 3px}to{opacity:1;scale:1;translate:0 0}}
-@media(prefers-reduced-motion:reduce){.thing.reading-selected .reading-indicator{animation:none}}
+@media(prefers-reduced-motion:reduce){.thing:is(.reading-selected,.pressed) .reading-indicator{animation:none}}
 
 /* On narrow screens the facing-page sliver ends at a straight inner edge.
    Only the active page's outside corners curve; the fold travels with it. */

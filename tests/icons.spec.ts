@@ -258,11 +258,14 @@ test('touches use the expanded small-icon target and cancellation keeps the orig
   await context.close();
 });
 
-test('described icons retain the pressed book cue and hold-to-drag without opening a reading', async ({page}) => {
+test('described icons show the book on hover and retain it through hold-to-drag without opening a reading', async ({page}) => {
   const described = manuscript.replace('- Mat\n', '\n  A plain four-pane window.\n\n- Mat\n');
   await openFixture(page, described);
   const window = page.locator('[data-item="name:Window"]'), book = window.locator('.reading-indicator');
+  await expect(book).toBeHidden();
   await window.hover();
+  await expect(book).toBeVisible();
+  await page.mouse.move(5, 700);
   await expect(book).toBeHidden();
   const before = (await window.boundingBox())!;
   await page.mouse.move(before.x + 8, before.y + 12); await page.mouse.down();

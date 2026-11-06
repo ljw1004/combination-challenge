@@ -197,12 +197,16 @@ test('retired discoveries unlock the manual encyclopedia; reading, Index, page-l
   await expect(page.getByRole('button', { name: 'Encyclopedia', exact: true })).toHaveCount(0);
 });
 
-test('only pressed described items get a book, through drag and lingering release, including below unlock threshold', async ({ page }) => {
+test('hovered and pressed described items get a book, through drag and lingering release, including below unlock threshold', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await openFixture(page);
   const grain = page.locator('[data-item="name:Grain"]'), stone = page.locator('[data-item="name:Stone"]');
   const book = grain.locator('.reading-indicator');
+  await expect(book).toBeHidden();
   await grain.hover();
+  await expect(book).toBeVisible();
+  await expect(stone.locator('.reading-indicator')).toBeHidden();
+  await page.mouse.move(5, 700);
   await expect(book).toBeHidden();
   const box = (await grain.boundingBox())!;
   await page.mouse.move(box.x + 20, box.y + 20); await page.mouse.down();
