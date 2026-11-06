@@ -6,7 +6,7 @@ background: ![Creation](assets/backgrounds/c01-deep.webp)
 
 Create a world from Earth, Air, Fire and Water. Make its Sun and Moon, form oceans and continents, and develop life that eventually learns to create things of its own.
 
-## `c01` Create the heavens and the earth
+## Create the heavens and the earth
 
 background: ![The primordial waters](assets/backgrounds/c01-deep.webp)
 
@@ -109,7 +109,7 @@ Water fills everything. Use Air, Earth and Fire to open a space within it, form 
 - Sun [transform] + Steadied world [preserve] -> Light
 - Moon [transform] + `primordial-world` [transform] -> Steadied world
 
-## `c04` Rain, oceans and tides
+## Rain, oceans and tides
 
 background: ![Rocky world](assets/backgrounds/c04-rocky-world.webp)
 
@@ -175,7 +175,7 @@ The world is still hot. Bring water from the surrounding deep onto its surface t
 - Moon [transform] + Ocean [transform] -> Tides
 - Ocean [transform] + Tides [transform] -> Tidal shore
 
-## `c05` The water cycle
+## The water cycle
 
 background: ![Water cycle](assets/backgrounds/c05-water-cycle.webp)
 
@@ -239,7 +239,7 @@ Sunlight heats the ocean, and rain carries water back onto land. Create rivers t
 - Rainfall [transform] + Sun [transform] -> Rainbow
 - Rivers [transform] + Sun [transform] -> Water cycle
 
-## `c06` Moving plates and continents
+## Moving plates and continents
 
 background: ![River coast](assets/backgrounds/c06-river-coast.webp)
 
@@ -298,7 +298,7 @@ Heat inside the world helps move its rocky plates. Form continents and volcanoes
 - Weathered rock [transform] + Rivers [transform] -> Mineral-rich sea
 - Volcano [transform] + Ocean [transform] -> Volcanic island
 
-## `c07` The first living cells
+## The first living cells
 
 background: ![Underwater mineral pool](assets/backgrounds/c07-vent-world.webp)
 
@@ -370,7 +370,7 @@ The ocean contains chemicals and energy sources, but no living cells. Create cel
 - Sun-fed cells [transform] + Stone crust [transform] -> Microbial mats
 - Microbial mats [transform] + Tidal shore [transform] -> Stromatolites
 
-## `c08` Oxygen changes the ocean and air
+## Oxygen changes the ocean and air
 
 background: ![Microbial shore](assets/backgrounds/c08-microbial-shore.webp)
 
@@ -432,7 +432,7 @@ Some photosynthetic cells release oxygen into the water and air. Oxygen supports
 - Oxygen-using cells [transform] + Living cell [transform] -> Partnered cells
 - Oxygen-rich sky [transform] + Microbial mats [transform] -> Sheltered microbes
 
-## `c09` Multicellular life
+## Multicellular life
 
 background: ![Microbial shore](assets/backgrounds/c08-microbial-shore.webp)
 
@@ -486,7 +486,7 @@ Make organisms whose cells stay together and perform different functions. In the
 - Soft-bodied animals [transform] + Mineral-rich sea [transform] -> Shells
 - Shells [transform] + Sediment [transform] -> Fossils
 
-## `c10` Kelp forests and coral reefs
+## Kelp forests and coral reefs
 
 background: ![Microbial shore](assets/backgrounds/c08-microbial-shore.webp)
 
@@ -536,7 +536,7 @@ Create kelp forests and coral reefs that provide food and shelter for marine ani
 - Waves
   - icon: ![Waves](assets/icons/waves.webp) (circular)
 - `cave` Sea cave
-  - from chapter `c25`: Dark cave
+  - from chapter `dark-cave-chapter`: Dark cave
   - icon: ![Sea cave](assets/icons/sea-cave.webp) (circular)
   Repeated waves erode cracks in coastal rock until they widen into a cave. Its lower entrance meets the sea, while an upper shelf and the walls above it remain dry above the usual reach of the tide.
 
@@ -553,7 +553,7 @@ Create kelp forests and coral reefs that provide food and shelter for marine ani
 - Ocean [transform] + Air -> Waves
 - Waves [transform] + Stone crust [transform] -> `cave`
 
-## `c11` Plants spread onto land
+## Plants spread onto land
 
 background: ![Bare coast](assets/backgrounds/c11-bare-coast.webp)
 
@@ -612,7 +612,7 @@ The continents have exposed rock but little soil. Establish plants along the wet
 - Roots [transform] + Light [transform] -> Ferns
 - Ferns [transform] + Wetland [transform] -> First forest
 
-## `c12` Decomposition and forest renewal
+## Decomposition and forest renewal
 
 background: ![Coastal fern forest](assets/backgrounds/c12-coastal-fern-forest.webp)
 
@@ -675,7 +675,7 @@ A storm can bring down branches and trees. Return the nutrients in fallen wood t
 - Peat [transform] + Earth -> Buried carbon
 - Renewing forest [transform] + Clouds [transform] -> Forest rain
 
-## `c13` Insects in the forest
+## Insects in the forest
 
 background: ![Coastal fern forest](assets/backgrounds/c12-coastal-fern-forest.webp)
 
@@ -717,7 +717,7 @@ Begin with the marine ancestors of arthropods, then follow a branch onto land. P
 - Insects [transform] + Air -> Winged insects
 - Winged insects [transform] + First forest -> Canopy life
 
-## `c14` Vertebrates move onto land
+## Vertebrates move onto land
 
 background: ![Coastal fern forest](assets/backgrounds/c12-coastal-fern-forest.webp)
 
@@ -781,7 +781,7 @@ Plants provide food and shelter on land. Develop vertebrates that can breathe ai
 - Reptiles [transform] + First forest -> Great browsers
 - Limbed vertebrates [transform] + Fallen wood [transform] -> Small furred animals
 
-## `c15` Flowers, fruit and seed dispersal
+## Flowers, fruit and seed dispersal
 
 background: ![Browsing world](assets/backgrounds/c15-browsing-world.webp)
 
@@ -838,7 +838,7 @@ Flowering plants reproduce through flowers and seeds. Establish a forest where i
 - Fruit [transform] + Limbed vertebrates [transform] -> Seed dispersal
 - Seed dispersal [transform] + Renewing forest [transform] -> Flowering forest
 
-## `c16` Seasons and landscapes
+## Seasons and landscapes
 
 background: ![Flowering coast](assets/backgrounds/c16-flowering-coast.webp)
 
@@ -899,7 +899,7 @@ Sunlight, height and rainfall produce different climates across the world. Make 
 - Glacier [transform] + Stone crust [transform] -> Valley
 - Valley [transform] + Rivers [transform] -> Braided river
 
-## `c17` Grassland food webs
+## Grassland food webs
 
 background: ![Open grassland](assets/backgrounds/c17-open-grassland.webp)
 
@@ -955,7 +955,7 @@ Plants feed grazers, hunters eat other animals, and decomposers return nutrients
 - Fertile grassland [transform] + Predator and prey [transform] -> Food web
 - Grazing herds [transform] + Water -> Watering place
 
-## `c18` Bird migration and island life
+## Bird migration and island life
 
 background: ![Separated coasts](assets/backgrounds/c18-separated-coasts.webp)
 
@@ -999,7 +999,7 @@ Birds can cross mountains and seas to reach new feeding and nesting grounds. Est
 - Island life [transform] @ Variation [preserve] -> Different songs
 - Different songs [transform] + Food web [transform] -> Many-voiced world
 
-## `c19` Asteroid impact
+## Asteroid impact
 
 background: ![Inhabited valley](assets/backgrounds/c19-inhabited-valley.webp)
 
@@ -1032,7 +1032,7 @@ One of the asteroids strikes the inhabited world, blocking sunlight and disrupti
 - Impact winter [transform] + Great browsers [transform] -> Last tracks
 - Last tracks [transform] + Sediment [transform] -> Fossil footprints
 
-## `c20` Surviving the impact winter
+## Surviving the impact winter
 
 background: ![Impact winter](assets/backgrounds/c20-impact-winter.webp)
 
@@ -1076,7 +1076,7 @@ The impact has killed many trees and reduced the food available to animals. Use 
 - Small survivors [transform] + Seeds [transform] -> Seed cache
 - Seed cache [transform] + Soil [transform] -> Green shoots
 
-## `c21` Forest recovery and mammal diversity
+## Forest recovery and mammal diversity
 
 background: ![First regrowth](assets/backgrounds/c21-first-regrowth.webp)
 
@@ -1139,7 +1139,7 @@ As sunlight returns, surviving plants regrow and insects resume pollination. Reb
 - Returning pollinators [transform] + Spreading mammals [transform] -> New food web
 - New food web [transform] + Pioneer woodland [transform] -> Recovering world
 
-## `c22` Surviving an ice age
+## Surviving an ice age
 
 background: ![Cold foothills](assets/backgrounds/c22-cold-foothills.webp)
 
@@ -1208,7 +1208,7 @@ The climate cools over many generations, allowing glaciers to expand. Help wildl
 - Sheltered oasis [transform] + Cold-adapted populations [transform] -> Surviving lineages
 - Surviving lineages [transform] + Sun [transform] -> World after the ice
 
-## `c27` New forests
+## New forests
 
 background: ![Land after ice](assets/backgrounds/c27-land-after-ice.webp)
 
@@ -1247,7 +1247,7 @@ The ice has retreated, leaving open ground. Spread seeds into suitable soil and 
 - Scattered seeds [transform] + Soil [transform] -> Young grove
 - Young grove [transform] + World after the ice [preserve] -> New forests
 
-## `c23` Learning and shared warnings
+## Learning and shared warnings
 
 background: ![New forests](assets/backgrounds/c23-new-forests.webp)
 
@@ -1309,7 +1309,7 @@ In the new forests, tree-dwelling animals learn where to find food and where to 
 - Call [transform] + Memory [transform] -> Shared warning
 - Shared warning [transform] + Safety [transform] -> Social group
 
-## `c24` Language and discovery
+## Language and discovery
 
 background: ![Night shore](assets/backgrounds/c24-night-shore.webp)
 
@@ -1399,7 +1399,7 @@ A community develops language, shares stories and watches the night sky. Help it
 - Observed spring tide [transform] + Language [transform] -> Shared discovery
 - Moon [transform] + Eyes [transform] -> Night vision
 
-## `c25` Pictures, songs and teaching
+## `dark-cave-chapter` Pictures, songs and teaching
 
 background: ![Deep inside the cave](assets/backgrounds/c25-unlit.webp)
 
@@ -1474,7 +1474,7 @@ Enter the cave to paint, make a song and pass on what the community has learned.
 - Echo [transform] + Memory [transform] -> Song
 - Shared discovery [transform] + Story [transform] -> Teaching
 
-## `c26` A day of rest
+## A day of rest
 
 background: ![People gathered outside the cave](assets/backgrounds/c26-rest.webp)
 
