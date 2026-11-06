@@ -2,23 +2,23 @@
 
 background: ![Creation](assets/backgrounds/c01-deep.webp)
 
-![A world that keeps creating](assets/backgrounds/c01-deep.webp)
-
-Create a world from Earth, Air, Fire and Water. Make its Sun and Moon, form oceans and continents, and develop life that eventually learns to create things of its own.
+Create the world, and every living creature that moves.
 
 ## Create the heavens and the earth
 
 background: ![The primordial waters](assets/backgrounds/c01-deep.webp)
 
-Water fills everything. Use Air, Earth and Fire to open a space within it, form a rocky world and give that world a Sun, a Moon and stars.
+In the beginning, the Earth was without form, and void.
+
+*Let there be a vault in the heavens*
 
 **Goals**
-- Let there be a void in the waters -- Void
-- next: Let there be land in the void -- `primordial-world`
-- next: Let daylight reach the world -- Light
-- next: Make a rocky Moon to light the night -- Moon
-- next: Let the Moon steady the tilted world -- Steadied world
-- next: Fill the sky with stars -- Stars
+- Let there be a vault in the heavens -- Void
+- next: Let the dry ground appear -- `primordial-world`
+- next: Let there be light -- Light
+- next: Let there be a moon to rule the night -- Moon
+- next: Let the Moon steady the shattered world -- Steadied world
+- Let the skies be filled with stars -- Stars
 
 **Hotspots**
 - (three hotspots are a lot but okay here because the surrounding waters, opened sky and world are distinct parts of one creation scene)
@@ -58,46 +58,27 @@ Water fills everything. Use Air, Earth and Fire to open a space within it, form 
   Water surrounds the whole creation scene. Its currents carry loose pieces of rock apart.
 - Void
   - icon: ![Void](assets/icons/air.webp) (circular)
-  Air pushes the surrounding water apart, opening a space where you can form the world and its Sun.
-
-  *Void*
+  *Let the dry ground appear*
 - `primordial-world` Rocky world
   - icon: ![Rocky world](assets/icons/large-rocky-world.webp) (circular)
-  Rock gathers within the void and forms a rotating world. Its surface is dark rock with glowing cracks, and its interior remains hot.
-
-  *Rocky world*
 - Sun
   - icon: ![Sun](assets/icons/large-first-star.webp) (circular)
-  Fire gathers in the void to form the Sun. It will supply the world with heat and light.
-
-  *Sun*
+  *The greater light to rule the day*
 - Asteroids
   - icon: ![Asteroids](assets/icons/planetesimals.webp) (circular)
-  The currents scatter rock through the deep, forming many separate rocky bodies. Some can collide with the world.
-
-  *Asteroids*
 - Moon
   - icon: ![Moon](assets/icons/moon.webp) (circular)
-  A massive rocky body strikes the young world at an angle. The collision tilts the world's rotation and throws rock into orbit. This debris gathers into the Moon.
+  A massive asteroid strikes. The Earth is wrecked, and the debris in orbit form the Moon.
 
-  The Moon reflects sunlight, so it can light the night without producing its own light.
-
-  *Moon*
+  *The lesser light ruled the night.*
 - Steadied world
   - icon: ![Steadied world](assets/icons/large-rocky-world.webp) (circular)
-  The collision left the world's rotation axis tilted. The Moon's gravity helps limit changes in that tilt over long periods. The angle can still vary; it is not fixed forever.
-
-  *Steadied world*
+  The Earth is steadied by the Moon's tidal pull.
 - Stars
   - icon: ![Stars](assets/icons/starfield.webp) (circular)
-  Fire spreads through the waters of the deep and forms many distant stars. Each star produces its own light.
-
-  *Stars*
 - Light
   - icon: ![Light](assets/icons/light.webp) (circular)
-  Sunlight illuminates the world's surface.
-
-  *Light*
+  *And there was light*
 
 **Combinations**
 - Air @ Waters of the deep [preserve] -> Void (tutorial)
@@ -114,14 +95,14 @@ Water fills everything. Use Air, Earth and Fire to open a space within it, form 
 
 background: ![Rocky world](assets/backgrounds/c04-rocky-world.webp)
 
-The world is still hot. Bring water from the surrounding deep onto its surface to cool it, form rain and fill an ocean.
+The Earth is a fiery ball of magma. Rain cools it, and pools into the oceans.
 
 [If skipped] The world's surface has cooled, rain has filled an ocean, and tides now cover and expose its shore.
 
 **Goals**
-- Let rain reach the ground -- First rain
-- next: Gather an ocean -- Ocean
-- Form a coast with rising and falling tides -- Tidal shore
+- Make it rain -- First rain
+- next: Fill the oceans -- Ocean
+- Make coastal shores from ocean tides -- Tidal shore
 
 > NOTE: Water and Rocky world are separate primitive identities supplied here. They represent the same water and world seen in the creation scene, now as movable symbols. The three opening hotspots remain in that scene; no identity needs to become unfixed.
 
@@ -134,37 +115,23 @@ The world is still hot. Bring water from the surrounding deep onto its surface t
   The world you gathered within the void, still molten from its making. Bring water to its hot surface.
 - Stone crust
   - icon: ![Stone crust](assets/icons/stone-crust.webp) (circular)
-  Water cools the world's hot surface until it hardens into solid rock. The interior remains hot.
-
-  *Stone crust*
 - Steam cloud
   - icon: ![Steam cloud](assets/icons/mist.webp) (circular)
-  More water meets the still-hot crust and rises as invisible vapour. As it cools, tiny liquid droplets form the white cloud you can see.
 - First rain
   - icon: ![First rain](assets/icons/first-rain.webp) (circular)
-  Rising air carries the cloud into cooler conditions. Droplets join and grow large enough to fall as rain.
-
-  *First rain*
+  Rising air carries the cloud into cooler conditions. Droplets join and grow large enough to fall as rain. *The first rain.*
 - Rain-filled hollows
   - icon: ![Rain-filled hollows](assets/icons/rain-filled-hollows.webp) (circular)
   Rainwater collects in hollows between the ridges of the stone crust.
-
-  *Rain-filled hollows*
 - Ocean
   - icon: ![Ocean](assets/icons/ocean.webp) (circular)
   As more water fills the low basins, separate pools join into a continuous ocean.
-
-  *Ocean*
 - Tides
   - icon: ![Tides](assets/icons/tides.webp) (circular)
-  The Moon pulls unevenly on different parts of the world. This helps produce tides: the regular rise and fall of sea level. The Sun's gravity contributes too.
-
-  *Tides*
 - Tidal shore
   - icon: ![Tidal shore](assets/icons/tidal-shore.webp) (circular)
-  Rising tides cover part of the coast; falling tides expose it again. This strip between high and low tide provides both wet and dry conditions for coastal life.
+  The strip between high and low tide provides both wet and dry conditions for coastal life.
 
-  *Tidal shore*
 
 **Combinations**
 - Rocky world [transform] + Water -> Stone crust
@@ -180,7 +147,7 @@ The world is still hot. Bring water from the surrounding deep onto its surface t
 
 background: ![Water cycle](assets/backgrounds/c05-water-cycle.webp)
 
-Sunlight heats the ocean, and rain carries water back onto land. Create rivers that return water and sediment to the sea.
+Sunlight heats the oceans, rain falls on land, rivers flow, and sunlight evaporates it again. *The water cycle*.
 
 **Goals**
 - Build a delta from river sediment -- Delta
@@ -189,35 +156,22 @@ Sunlight heats the ocean, and rain carries water back onto land. Create rivers t
 **Items**
 - Evaporation
   - icon: ![Evaporation](assets/icons/evaporation.webp) (circular)
-  Sunlight warms the ocean. Water leaves its surface as invisible vapour, while dissolved salts stay behind.
 - Clouds
   - icon: ![Clouds](assets/icons/clouds.webp) (circular)
-  Rising moist air cools and water vapour condenses. A visible cloud contains tiny droplets or ice crystals; the vapour itself is invisible.
-
-  *Clouds*
 - Rainfall
   - icon: ![Rainfall](assets/icons/rainfall.webp) (circular)
-  More water gathers in the cloud. Droplets or ice particles grow heavy enough to fall, bringing a shower to the land.
-
-  *Rainfall*
+  Water precipitates in the clouds. It rains.
 - Storm
   - icon: ![Storm](assets/icons/first-storm.webp) (circular)
-  Strong winds drive rain across the land. Storms can break branches and uproot trees, leaving wood on the ground. This combination represents a wind-driven rainstorm, not every kind of storm.
-
-  *Storm*
 - Rivers
   - icon: ![Rivers](assets/icons/rivers.webp) (circular)
-  Gravity carries rainwater downhill into rivers. Flowing water gradually changes the landscape by eroding rock and depositing sediment.
-
-  *Rivers*
+  Rainfall flows downhill into rivers, which erode rock and carry sediment.
 - Sediment
   - icon: ![Sediment](assets/icons/sediment.webp) (circular)
   Flowing water loosens and carries grains of sand, silt and broken rock. These transported particles are called sediment.
 - Delta
   - icon: ![Delta](assets/icons/delta.webp) (circular)
-  A river carries sediment to its mouth, where the flow slows and drops its load. Over time, deposits build outward and divide the river into branching channels: new land made from what the water carried.
-
-  *Delta*
+  A river carries sediment to its mouth, where it drops and forms river deltas.
 - Rainbow
   - icon: ![Rainbow](assets/icons/rainbow.webp) (circular)
   Sunlight bends, reflects and separates into colours inside raindrops, producing a rainbow.
@@ -225,9 +179,7 @@ Sunlight heats the ocean, and rain carries water back onto land. Create rivers t
   *Rainbow*
 - Water cycle
   - icon: ![Water cycle](assets/icons/water-cycle.webp) (circular)
-  Water evaporates from the ocean, condenses into clouds and falls as precipitation. Rivers carry it back to the sea. Sunlight supplies energy for evaporation, and gravity brings water down.
-
-  *Water cycle*
+  Sunlight heats the oceans, rain falls on land, rivers flow, and sunlight evaporates it again. *The water cycle*.
 
 **Combinations**
 - Ocean [transform] + Sun [transform] -> Evaporation
@@ -244,7 +196,9 @@ Sunlight heats the ocean, and rain carries water back onto land. Create rivers t
 
 background: ![River coast](assets/backgrounds/c06-river-coast.webp)
 
-Heat inside the world helps move its rocky plates. Form continents and volcanoes, then let rain and rivers wear down the land.
+The Earth's crust shifts slowly over hot rock.
+
+Contents are formed. Mountain ranges rise. Volcanoes erupt, on land and under the oceans. Rain and rivers wear down the land.
 
 **Goals**
 - Open a hot spring on the seafloor -- Hydrothermal vent
@@ -254,14 +208,9 @@ Heat inside the world helps move its rocky plates. Form continents and volcanoes
 **Items**
 - Moving plates
   - icon: ![Moving plates](assets/icons/moving-plates.webp) (circular)
-  Fire supplies heat beneath the solid crust, which divides into moving plates. On Earth, internal heat, sinking slabs and other forces drive plate motion. The plates move over slowly deforming rock, not a global ocean of liquid magma.
-
-  *Moving plates*
 - Continent
   - icon: ![Continent](assets/icons/continent.webp) (circular)
-  Plate movement gathers and reshapes continental crust into a broad landmass. Continental crust is generally thicker and less dense than oceanic crust.
-
-  *Continent*
+  Shifting plates build great masses of rock into thick continents.
 - Trench
   - icon: ![Trench](assets/icons/trench.webp) (circular)
   A plate bends beneath another at an underwater boundary, forming a deep ocean trench. This sinking of one plate beneath another is called subduction.
@@ -269,20 +218,14 @@ Heat inside the world helps move its rocky plates. Form continents and volcanoes
   *Trench*
 - Volcano
   - icon: ![Volcano](assets/icons/volcano.webp) (circular)
-  Some rock melts near the plate boundary. Magma rises through openings in the crust and erupts. Repeated eruptions can build volcanic mountains on land or beneath the sea.
 - Hydrothermal vent
   - icon: ![Hydrothermal vent](assets/icons/hydrothermal-vent.webp) (circular)
-  Seawater enters cracks in volcanically heated rock and returns through vents on the seafloor, carrying dissolved chemicals. Reactions between these chemicals and the surrounding seawater can provide energy for living organisms without sunlight.
-
-  *Hydrothermal vent*
+  Deep under the oceans, volcanic heat drives scalding water up through the seabed.
 - Weathered rock
   - icon: ![Weathered rock](assets/icons/weathered-rock.webp) (circular)
-  Rain and flowing water break down exposed rock and dissolve some of its minerals. The remaining fragments can contain coloured minerals used as pigments.
 - Mineral-rich sea
   - icon: ![Mineral-rich sea](assets/icons/mineral-rich-sea.webp) (circular)
-  Rivers carry dissolved minerals and rock fragments from the weathered continent into the sea.
-
-  *Mineral-rich sea*
+  Rivers carry rich minerals from land into the sea.
 
 **Combinations**
 - Stone crust [transform] + Fire -> Moving plates
@@ -297,32 +240,25 @@ Heat inside the world helps move its rocky plates. Form continents and volcanoes
 
 background: ![Underwater mineral pool](assets/backgrounds/c07-vent-world.webp)
 
-The ocean contains chemicals and energy sources, but no living cells. Create cells that reproduce and pass on inherited differences; the first step from chemistry to life is an invention in this story, because science has not established how it happened.
+In the oceans' chemical soup, powered by hydrothermal vents and light, the first stirrings of life appear.
+
+Organic molecules assemble into primitive cells. *Evolution begins*.
 
 [If skipped] Living cells reproduce, and some inherited changes pass to their descendants. Photosynthetic microbes grow in layers along the shore and form stromatolites by trapping sediment.
 
 **Goals**
-- Make reproducing cells with inherited variation
-  - and: Dividing cells
-  - and: Variation
-- Form stromatolites from layers of microbes and sediment -- Stromatolites
+- Make cells reproduce -- Dividing cells
+- next: Ultraviolet light causes mutation -- Variation
+- Make microbial mats in tidepools -- Stromatolites
 
 **Items**
 - Organic molecules
   - icon: ![Organic molecules](assets/icons/organic-molecules.webp) (circular)
-  Seawater supplies dissolved chemicals, while a hydrothermal vent supplies heat and chemical energy. Such environments are studied as possible sites where organic molecules formed before life existed. Organic molecules are carbon-containing compounds; they are not necessarily produced by organisms, and they are not alive. No agreed pathway from chemistry to the first cell is known.
-
-  *Organic molecules*
 - Membranes
   - icon: ![Membranes](assets/icons/membranes.webp) (circular)
-  Some organic molecules assemble into thin membranes in water. A membrane can enclose a small volume and separate its contents from the surrounding sea. This separation is one requirement for a cell, but a membrane alone is not alive.
-
-  *Membranes*
+  Some organic molecules assemble into thin membranes. For the first time, there's an *inside* and *outside*.
 - Chemical fuel
   - icon: ![Chemical fuel](assets/icons/chemical-fuel.webp) (circular)
-  Light drives reactions that store some of its energy in organic molecules. Other reactions can release that stored energy. These processes are studied in research on life's origins, but a source of chemical energy does not by itself explain a living cell.
-
-  *Chemical fuel*
 - Living cell
   - icon: ![Living cell](assets/icons/large-living-cell.webp) (circular)
   The membrane encloses the cell, and chemical fuel supplies energy for its reactions. A living cell also needs linked processes that maintain it and pass inherited information to descendants. This combination invents those missing steps; it is not a scientific explanation of how life began.
@@ -533,9 +469,6 @@ Create kelp forests and coral reefs that provide food and shelter for marine ani
 - `cave` Sea cave
   - from chapter `dark-cave-chapter`: Dark cave
   - icon: ![Sea cave](assets/icons/sea-cave.webp) (circular)
-  Repeated waves erode cracks in coastal rock until they widen into a cave. Its lower entrance meets the sea, while an upper shelf and the walls above it remain dry above the usual reach of the tide.
-
-  *Sea cave*
 
 **Combinations**
 - Algae [transform] + Stone crust [transform] -> Kelp forest
@@ -855,6 +788,7 @@ Sunlight, height and rainfall produce different climates across the world. Make 
   *Seasons*
 - Mountain range
   - icon: ![Mountain range](assets/icons/mountain-range.webp) (circular)
+  Continents collide. The crust buckles, pushing up towering mountain rages.
 - Islands
   - icon: ![Islands](assets/icons/islands.webp) (circular)
   The sea floods the low ground between the mountains, leaving their higher slopes and peaks as separate islands. These rocky islands were once joined by land.
@@ -1355,9 +1289,7 @@ A community develops language, shares stories and watches the night sky. Help it
   *Question*
 - Lunar rhythm
   - icon: ![Lunar rhythm](assets/icons/lunar-rhythm.webp) (circular)
-  Observers compare the Moon's phases with the difference between high and low tide. Larger tidal ranges recur around full and new Moons, giving them a repeating pattern to investigate.
-
-  *Lunar rhythm*
+  The Moon makes a repeating pattern of high and low tides.
 - Lunar hypothesis
   - icon: ![Lunar hypothesis](assets/icons/lunar-hypothesis.webp) (circular)
   The observers propose that the Moon's cycle is connected to changes in tidal range. If the connection is reliable, they should be able to predict when the difference between high and low tide will grow. A prediction gives them something to check, including the possibility that they are wrong.
