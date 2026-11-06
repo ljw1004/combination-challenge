@@ -62,6 +62,8 @@ dialog button,dialog select{min-height:44px}
 
 /* Chapter-entry grouping is scenery, not a tile, goal, or interaction target. */
 .arrival-divider{position:absolute;left:8px;right:8px;height:1px;border-top:1px dotted #9a8b70;pointer-events:none;z-index:2;text-align:center;color:#716858;font-size:10px;line-height:16px}.arrival-divider span{position:relative;top:-9px;padding:0 8px;background:#f3eddf}
+/* Temporarily hide the divider; retain its markup, styling and layout calculations. */
+.arrival-divider{display:none}
 
 /* Rare invention celebrations step outside the board without replacing its object.
    Native dialog supplies focus containment; the single explicit action is always available. */
