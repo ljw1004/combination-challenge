@@ -17,7 +17,7 @@ In the beginning, the Earth was without form, and void.
 - next: Let the dry ground appear -- `primordial-world`
 - next: Let there be light upon the earth -- Light
 - next: Let there be a moon to rule the night -- Moon
-- next: Let the Moon steady the shattered world -- Steadied world
+- next: Let the Moon steady the shattered Earth -- Steadied world
 - Let the skies be filled with stars -- Stars
 
 **Hotspots**
