@@ -8,7 +8,7 @@ import { readingBody } from './presentation.ts';
 /** Stable facing pages support both a sliding mobile view and a full spread. */
 export function encyclopediaBook(story: Story, state: State, selected: string | undefined, detail: boolean, asset: (path: string) => string): string {
   const entries = encyclopediaEntries(story, state), chapters = [...new Set(entries.map(entry => entry.chapter))];
-  const text = selected ? readings(story, state, selected).map(reading => reading.markdown).join('\n\n') : '';
+  const text = selected ? readings(story, state, selected).map(reading => reading.encyclopedia).filter(Boolean).join('\n\n') : '';
   const close = '<button class="encyclopedia-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button>';
   return `<div class="encyclopedia-pages ${detail ? 'show-detail' : ''}"><div class="encyclopedia-track">
       <nav class="encyclopedia-index" aria-label="Encyclopedia index"><header class="encyclopedia-header"><h1>Index</h1>${close}</header><div class="encyclopedia-list">${chapters.map(chapter => `<section class="encyclopedia-chapter"><h2>${escape(chapter === null ? 'Earlier discoveries' : story.chapters[chapter]?.name ?? 'Earlier discoveries')}</h2><ul>${entries.filter(entry => entry.chapter === chapter).map(entry => `<li><a href="#encyclopedia-detail" data-command="encyclopedia-read" data-reading="${escape(entry.id)}"${entry.id === selected ? ' aria-current="true"' : ''}>${escape(entry.name)}</a></li>`).join('')}</ul></section>`).join('')}</div></nav>

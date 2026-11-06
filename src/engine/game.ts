@@ -109,7 +109,7 @@ export function readings(story: Story, state: State, id: string) { const token =
 function queueWonders(story: Story, state: State, id: string) {
   for (const w of readings(story,state,id)) {
     const key = `wonder:${id}:${w.source.line}`;
-    if (!state.seen.includes(key) && !state.pending.some(n => n.key === key)) state.pending.push({ key, kind:'wonder', item:id, markdown:w.markdown });
+    if (w.popup && !state.seen.includes(key) && !state.pending.some(n => n.key === key)) state.pending.push({ key, kind:'wonder', item:id, markdown:w.popup });
   }
 }
 /** Abstract clients can allow additional retirement possibilities without

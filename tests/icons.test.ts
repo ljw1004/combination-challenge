@@ -33,7 +33,7 @@ test('item icons and aligned slot overlays retain source spans without creating 
   assert.equal(house.slots[0].accepts, 'name:Glass, clear');
   assert.equal(house.slots[0].icon?.url, 'assets/window.png');
   assert.equal(house.slots[1].icon?.url, 'https://example.com/mat.png?size=224,224');
-  assert.deepEqual(house.wonders.map(wonder => wonder.markdown), ['A shelter with room for two fittings.']);
+  assert.deepEqual(house.wonders.map(wonder => wonder.popup), ['A shelter with room for two fittings.']);
   assert.deepEqual(story.recipes.map(recipe => recipe.installation), ['name:Glass, clear', 'name:Mat']);
   for (const icon of [house.icon!, ...house.slots.map(slot => slot.icon!)]) {
     assert.equal(icon.source.file, 'workshop/story.md');

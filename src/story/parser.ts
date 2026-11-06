@@ -219,11 +219,21 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     return result;
   }
   function wonder(item: Item, prose: Line[], line: number) {
-    let markdown = prose.map(part => part.text).join('\n').trim(); if (!markdown) return;
-    const first = prose.find(part => part.text.trim())!;
-    const qualified = /^\[([^\]]+)\]\s*/.exec(markdown), requires = qualified ? splitLocated(qualified[1], ',').map(part => ref(part.text, first.line, 'item', 'reference', 'reading', startOf(first.text, first.line) + 1 + part.from).id) : [];
-    if (qualified) markdown = markdown.slice(qualified[0].length);
-    if (!item.wonders.some(w => w.markdown === markdown && JSON.stringify(w.requires) === JSON.stringify(requires))) item.wonders.push({ markdown, requires, source: source(line) });
+    const first = prose.find(part => part.text.trim()); if (!first) return;
+    const content = prose.slice(prose.indexOf(first));
+    const qualified = /^\[([^\]]+)\]\s*/.exec(content.map(part => part.text).join('\n')), requires = qualified ? splitLocated(qualified[1], ',').map(part => ref(part.text, first.line, 'item', 'reference', 'reading', startOf(first.text, first.line) + 1 + part.from).id) : [];
+    const halves: string[][] = [[], []]; let divided = false, prefix = qualified?.[0].length ?? 0;
+    for (const part of content) {
+      const text = part.text.slice(prefix);
+      prefix = Math.max(0, prefix - part.text.length - 1);
+      if (text.trim() === '---') {
+        if (divided) error('wonder-divider', 'A wonder may contain at most one standalone --- divider.', part.line, '---');
+        divided = true;
+      } else halves[divided ? 1 : 0].push(text);
+    }
+    const popup = halves[0].join('\n').trim(), encyclopedia = divided ? halves[1].join('\n').trim() : popup;
+    if (!popup && !encyclopedia) return;
+    if (!item.wonders.some(w => w.popup === popup && w.encyclopedia === encyclopedia && JSON.stringify(w.requires) === JSON.stringify(requires))) item.wonders.push({ popup, encyclopedia, requires, source: source(line) });
   }
   function icon(raw: string, line: number, itemPosition = false): Icon | undefined {
     const match = /^icon:\s*!\[[^\]]*\]\(([^)]+)\)(.*)$/.exec(raw);

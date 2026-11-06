@@ -29,7 +29,7 @@ test('chapter progress resolves independent names and icons in story order, incl
     assert.equal(label(story, replay(story, state.actions), 'id:array'), name);
     assert(board(story, state).includes(name));
     assert(detailedObjects(story, state).some(object => object.id === 'id:array' && object.name === name));
-    assert.deepEqual(story.items['id:array'].wonders.map(w => w.markdown), ['A permanent account of the array.']);
+    assert.deepEqual(story.items['id:array'].wonders.map(w => w.popup), ['A permanent account of the array.']);
   }
   let storm = checkpoint(story, 1);
   while (storm.pending.length) storm = act(story, storm, {type:'dismiss'});

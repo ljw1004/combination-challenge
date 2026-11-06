@@ -12,7 +12,7 @@ export interface SymbolHover {
   symbol: SymbolIdentity;
   declaration: boolean;
   definitions: readonly ReferenceLocation[];
-  descriptions: readonly {text: string; requires: readonly string[]}[];
+  descriptions: readonly {text: string; requires: readonly string[]; purpose?: 'Popup' | 'Encyclopedia'}[];
   properties: readonly string[];
   createdBy: readonly HoverRule[];
   usedBy: readonly HoverRule[];
@@ -137,7 +137,13 @@ export class StoryLanguageDocument implements StoryLanguageService {
     return {
       kind: 'symbol',
       range: reference.source.span, symbol, declaration: reference.declaration, definitions: this.definition(position),
-      descriptions: item?.wonders.map(wonder => ({text: wonder.markdown, requires: wonder.requires.map(name)})) ?? [],
+      descriptions: item?.wonders.flatMap(wonder => {
+        const requires = wonder.requires.map(name);
+        return wonder.popup === wonder.encyclopedia ? [{text: wonder.popup, requires}] : [
+          {text: wonder.popup, requires, purpose: 'Popup' as const},
+          {text: wonder.encyclopedia, requires, purpose: 'Encyclopedia' as const},
+        ].filter(description => description.text);
+      }) ?? [],
       properties,
       createdBy: rules.filter(({recipe}) => recipe.result.id === symbol.id).map(rule => rule.info),
       usedBy: rules.filter(({recipe}) => recipe.hotspot === symbol.id || has(recipe.a.ref) || !!recipe.b && has(recipe.b.ref)).map(rule => rule.info),

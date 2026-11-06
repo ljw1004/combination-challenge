@@ -6,7 +6,7 @@ import {sourceMap} from '../story/source-map.ts';
 /** Filesystem checks belong to CLI lint; browser diagnostics never fetch artwork. */
 export function lintStoryImages(story: Story, markdown: string): Diagnostic[] {
   const items = Object.values(story.items);
-  const prose = [story.description, ...story.chapters.flatMap(chapter => [chapter.intro, chapter.skipped]), ...items.flatMap(item => item.wonders.map(wonder => wonder.markdown))];
+  const prose = [story.description, ...story.chapters.flatMap(chapter => [chapter.intro, chapter.skipped]), ...items.flatMap(item => item.wonders.flatMap(wonder => [wonder.popup, wonder.encyclopedia]))];
   const images = new Set([
     ...(story.cover ? [story.cover] : []),
     ...story.chapters.flatMap(chapter => chapter.image ? [chapter.image] : []),

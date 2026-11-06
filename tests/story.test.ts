@@ -13,7 +13,7 @@ const combine=(s:Story,state:ReturnType<typeof newGame>,a:string,b:string)=>act(
 
 test('Markdown shorthands compile with source locations, scoped hotspots and hidden author notes',()=>{
   const s=fixture(`A room.\n\n> NOTE: not for players\n> secret continuation\n\n**Goals**\n- Make C -- C\n**Hotspots**\n- Bench (at 25%, 75%)\n  - A [preserve] + B [preserve] -> C\n**Items**\n- Bench\n- A\n  + ignored prose\n- B\n- C\n\n  A useful explanation.`);
-  assert.equal(s.recipes[0].hotspot,'name:Bench');assert.equal(s.hotspots['name:Bench'].x,.25);assert(!s.chapters[0].intro.includes('secret'));assert.equal(s.items['name:C'].wonders[0].markdown,'A useful explanation.');assert(s.recipes[0].source.line>1);
+  assert.equal(s.recipes[0].hotspot,'name:Bench');assert.equal(s.hotspots['name:Bench'].x,.25);assert(!s.chapters[0].intro.includes('secret'));assert.equal(s.items['name:C'].wonders[0].popup,'A useful explanation.');assert(s.recipes[0].source.line>1);
   assert.deepEqual(s.diagnostics,[]);
 });
 test('nested recipes, quoted punctuation, backtick declarations and compound qualifiers',()=>{

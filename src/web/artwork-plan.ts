@@ -76,7 +76,7 @@ export function resultArtwork(story: Story, state: State, action: Action): strin
   const changed = changedHotspotArtwork(story,state,after);
   return [...changed, ...(fixedIcon?[fixedIcon]:[]), ...itemImages(story, state.chapter, ref), ...story.items[ref.id].wonders
     .filter(wonder => wonder.requires.every(slot => ref.slots.includes(slot)) && !state.seen.includes(`wonder:${ref.id}:${wonder.source.line}`))
-    .flatMap(wonder => readingImages(wonder.markdown))];
+    .flatMap(wonder => readingImages(wonder.popup))];
 }
 
 /** Restored scrollback sizes are filled in after the current chapter is usable. */

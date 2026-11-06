@@ -110,7 +110,7 @@ function matchNotices(before: Story, after: Story, chapters: Map<number, number>
     for (const [i, wonder] of old.entries()) {
       const required = JSON.stringify(wonder.requires.map(id => items.get(id) ?? id).sort());
       const candidates = next.filter(w => !used.has(w) && JSON.stringify([...w.requires].sort()) === required);
-      const candidate = candidates.find(w => w.markdown === wonder.markdown) ?? (candidates.includes(next[i]) ? next[i] : candidates[0]);
+      const candidate = candidates.find(w => w.popup === wonder.popup && w.encyclopedia === wonder.encyclopedia) ?? (candidates.includes(next[i]) ? next[i] : candidates[0]);
       if (candidate) { used.add(candidate); result.set(wonderKey(oldId, wonder), wonderKey(nextId, candidate)); }
     }
   }
@@ -198,7 +198,7 @@ export function reconcileLiveStory(previous: Story, next: Story, current: State)
     } else {
       const id = notice.item ? items.get(notice.item) : undefined;
       const wonder = id ? next.items[id].wonders.find(w => wonderKey(id, w) === key && w.requires.every(slot => state.tokens[id]?.slots.includes(slot))) : undefined;
-      if (id && wonder) state.pending.push({ key, kind: 'wonder', item: id, markdown: wonder.markdown });
+      if (id && wonder?.popup) state.pending.push({ key, kind: 'wonder', item: id, markdown: wonder.popup });
     }
   }
   if (chapterRemoved && current.pending.some(n => n.kind === 'chapter') && !state.pending.some(n => n.kind === 'chapter')) {

@@ -67,7 +67,7 @@ test('installed resources remain readable; repeated identities, empty and unmet 
   assert.equal(state.tokens['name:Motor'].status, 'installed');
   assert.deepEqual(encyclopediaEntries(compound, state).map(e => e.id), ['name:Box', 'name:Motor']);
   state.tokens.alias = state.tokens['name:Motor'];
-  compound.items['name:Blank'].wonders.push({ ...compound.items['name:Motor'].wonders[0], markdown: '   ' });
+  compound.items['name:Blank'].wonders.push({ ...compound.items['name:Motor'].wonders[0], encyclopedia: '   ' });
   assert.equal(encyclopediaEntries(compound, state).length, 2);
 });
 

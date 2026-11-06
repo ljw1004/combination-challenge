@@ -61,7 +61,7 @@ test('detail renders every applicable reading with story-relative artwork, not j
   const multiple = structuredClone(story), state = newGame(multiple);
   multiple.items['name:Stone'].wonders.push({
     ...multiple.items['name:Stone'].wonders[0],
-    markdown: '![Stone detail](assets/stone.png)\n\nA second explanation.',
+    encyclopedia: '![Stone detail](assets/stone.png)\n\nA second explanation.',
   });
   const html = encyclopediaBook(multiple, state, 'name:Stone', true, path => '/story-folder/' + path);
   assert.match(html, /A stone explanation/);

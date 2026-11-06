@@ -98,6 +98,7 @@ function hoverCard(view: EditorView, info: SymbolHover): HTMLElement {
   const dom = element('section', 'editor-symbol-hover'); dom.setAttribute('aria-label', `${info.symbol.name} information`);
   dom.append(element('h3', '', info.symbol.name), element('div', 'editor-symbol-kind', `${info.symbol.kind}${info.symbol.id.startsWith('id:') ? ` · \`${info.symbol.id.slice(3)}\`` : ''}`));
   for (const description of info.descriptions) {
+    if (description.purpose) dom.append(element('h4', '', description.purpose));
     if (description.requires.length) dom.append(element('h4', '', `With ${description.requires.join(', ')}`));
     dom.append(element('p', 'editor-symbol-description', description.text));
   }

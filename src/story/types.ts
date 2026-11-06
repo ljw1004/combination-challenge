@@ -18,7 +18,7 @@ export interface Ingredient { ref: Ref; fate: Fate; explicit: boolean }
 export interface FateSite { item: string; fate: Fate; edit?: {span: TextSpan; prefix: string; suffix: string} }
 export interface Icon { url: string; circular: boolean; position?: {x: number; y: number}; source: Source }
 export interface Slot { name?: string; accepts: string; icon?: Icon; source: Source }
-export interface Wonder { markdown: string; requires: string[]; source: Source }
+export interface Wonder { popup: string; encyclopedia: string; requires: string[]; source: Source }
 export interface ChapterReference { kind: 'id' | 'name'; value: string; source: Source }
 export interface ItemPresentation { chapter: ChapterReference; name?: string; icon?: Icon; source: Source }
 export interface Item {

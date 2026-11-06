@@ -38,6 +38,42 @@ async function openFixture(page: Page, text = manuscript) {
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
 }
 
+for (const variant of [
+  {name: 'split', popup: 'Freshly milled.', entry: 'A longer explanation with a [source](https://example.com/flour).'},
+  {name: 'encyclopedia only', popup: '', entry: 'A longer explanation with a [source](https://example.com/flour).'},
+  {name: 'popup only', popup: 'Freshly milled.', entry: ''},
+]) {
+  test(`${variant.name} wonders keep creation, rereading and encyclopedia unlock independent`, async ({page}) => {
+    const reading = `${variant.popup}\n\n---\n\n${variant.entry}`.split('\n').join('\n  ');
+    await openFixture(page, manuscript.replace('A flour explanation.', reading));
+    await page.locator('[data-item="name:Grain"]').dragTo(page.locator('[data-item="name:Stone"]'));
+    const flour = page.locator('[data-item="name:Flour"]');
+    await expect(flour).toBeVisible();
+    if (variant.popup) {
+      await expect(page.locator('dialog.wonder .reading-text')).toHaveText(variant.popup);
+      await page.reload();
+      await expect(page.locator('dialog.wonder .reading-text')).toHaveText(variant.popup);
+      await page.getByRole('button', {name: 'Continue', exact: true}).click();
+    } else {
+      await expect(page.locator('dialog')).toHaveCount(0);
+    }
+    await expect(flour.locator('.reading-indicator')).toHaveCount(variant.entry ? 1 : 0);
+    await flour.dblclick();
+    if (variant.entry) {
+      await expect(page.locator('.encyclopedia-reading')).toHaveText('A longer explanation with a source.');
+      await expect(page.locator('.encyclopedia-reading a')).toHaveAttribute('href', 'https://example.com/flour');
+      await expect(page.locator('.encyclopedia-list a')).toHaveText(['Grain', 'Stone', 'Flour']);
+      await page.getByRole('button', {name: 'Close', exact: true}).click();
+    } else {
+      await expect(page.locator('dialog')).toHaveCount(0);
+    }
+    await page.reload();
+    await expect(page.locator('dialog')).toHaveCount(0);
+    await page.getByRole('button', {name: 'Read this chapter'}).click();
+    await expect(page.getByRole('button', {name: 'Encyclopedia', exact: true})).toHaveCount(variant.entry ? 1 : 0);
+  });
+}
+
 test('only the reopened chapter dismisses on backdrop clicks, with a top-right Close and right-aligned recovery', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 600 });
   await page.route('**/library-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: manuscript }));
