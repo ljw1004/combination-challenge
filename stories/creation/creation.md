@@ -1,287 +1,195 @@
 # Creation
 
-background: ![A world that keeps creating](assets/backgrounds/world-continues.webp)
+background: ![Creation](assets/backgrounds/c01-deep.webp)
 
-![A world that keeps creating](assets/backgrounds/world-continues-thumbnail.webp)
+![A world that keeps creating](assets/backgrounds/c01-deep.webp)
 
-Begin with Earth, Air, Fire and Water. Kindle stars, raise oceans and bring a living world into being—then discover what it can make without you.
+Create a world from Earth, Air, Fire and Water. Make its Sun and Moon, form oceans and continents, and develop life that eventually learns to create things of its own.
 
-## `c01` Let there be somewhere
+## Create the heavens and the earth
 
-background: ![void](assets/backgrounds/void.webp)
+background: ![The primordial waters](assets/backgrounds/c01-deep.webp)
 
-You have no throne, no worshippers, and nowhere to stand. Only Earth, Air, Fire and Water: matter, motion, energy and change.
-
-This is a creation myth. Your gestures can span a billion years; they are not laboratory recipes. Make something worth looking at.
+Water fills everything. Use Air, Earth and Fire to open a space within it, form a rocky world and give that world a Sun, a Moon and stars.
 
 **Goals**
-- Kindle the first light -- Light
-- next: Kindle a star -- First star
-- Give the darkness a galaxy -- Galaxy
+- Let there be a void in the waters -- Void
+- next: Let there be land in the void -- `primordial-world`
+- next: Let daylight reach the world -- Light
+- next: Make a rocky Moon to light the night -- Moon
+- next: Let the Moon steady the tilted world -- Steadied world
+- next: Fill the sky with stars -- Stars
+
+**Hotspots**
+- (three hotspots are a lot but okay here because the surrounding waters, opened sky and world are distinct parts of one creation scene)
+- Waters of the deep (at 51%, 31%)
+  - icon: ![The primordial waters](assets/hotspots/receiver.png)
+  - hitbox: (at 51%, 31%) (size 94%, 52%)
+  - place: Stars (at 85%, 14%)
+  - place: Asteroids (at 15%, 36%)
+- Void (at 50%, 50%)
+  - icon: ![The open void](assets/hotspots/c01-void.webp)
+  - hitbox: (at 51%, 31%) (size 62%, 23%)
+  - place: Sun (at 33%, 25.5%)
+- `primordial-world` (at 50.82%, 32.72%)
+  - icon: ![Rocky world before the impact](assets/hotspots/c01-world.png)
+  - icon after creating Moon: ![Molten world displaced by the impact](assets/hotspots/c01-impact-world.png)
+  - hitbox: (at 54.5%, 33.5%) (size 44%, 15%)
+  - place: Moon (at 64.5%, 27.7%)
+  - place: Light (at 36.5%, 38%)
+- Steadied world (at 50.82%, 32.72%)
+  - icon: ![The steadied molten world](assets/hotspots/c01-steady-world.png)
+  - hitbox: (at 54.5%, 33.5%) (size 44%, 15%)
+  - place: Moon (at 64.5%, 27.7%)
+  - place: Light (at 36.5%, 38%)
 
 **Items**
 - Earth
   - icon: ![Earth](assets/icons/earth.webp) (circular)
-  Matter: what can have weight, form and substance.
+  Pieces of rock that you can gather together or scatter through the deep.
 - Air
   - icon: ![Air](assets/icons/air.webp) (circular)
-  Motion: what can travel, stir and open space.
+  Air that can push water aside and fill the space it leaves.
 - Fire
   - icon: ![Fire](assets/icons/fire.webp) (circular)
-  Energy: what can shine, warm and transform.
-- Water
+  Fire provides heat and light.
+- Waters of the deep
   - icon: ![Water](assets/icons/water.webp) (circular)
-  Change: what can flow, join and find another shape.
-- Light
-  - icon: ![Light](assets/icons/light.webp) (circular)
-  The first light finds nothing to illuminate. You will have to make its audience.
+  Water surrounds the whole creation scene. Its currents carry loose pieces of rock apart.
+- Void
+  - icon: ![Void](assets/icons/air.webp) (circular)
+  Air pushes the surrounding water apart, opening a space where you can form the world and its Sun.
 
-  *Light*
-- Dust
-  - icon: ![Dust](assets/icons/dust.webp) (circular)
-- Mist
-  - icon: ![Mist](assets/icons/mist.webp) (circular)
-- Gravity
-  - icon: ![Gravity](assets/icons/gravity.webp) (circular)
-  You give matter a mutual pull. Gravity will gather worlds, but it will also bring things crashing together.
-
-  *Gravity*
-- Dense cloud
-  - icon: ![Dense cloud](assets/icons/dense-cloud.webp) (circular)
-- First star
-  - icon: ![First star](assets/icons/first-star.webp) (circular)
-  You gather and ignite the cloud. A real star shines through nuclear fusion in its core, not through a flame eating air.
-
-  For the first time, there is a light from which a shadow could fall.
-
-  *First star*
-- Starfield
-  - icon: ![Starfield](assets/icons/starfield.webp) (circular)
-  You let the first pattern happen again, far across the dark. Separate lights kindle in places that have never met.
-
-  *Starfield*
-- Galaxy
-  - icon: ![Galaxy](assets/icons/galaxy.webp) (circular)
-  Gravity gathers the stars into a vast turning company. The lights no longer look lonely.
-
-  What can a star give besides light?
-
-  *Galaxy*
-
-**Combinations**
-- Fire + Air -> Light (tutorial)
-- Earth + Air -> Dust
-- Water + Air -> Mist
-- Earth + Dust [transform] -> Gravity
-- Mist [transform] + Dust [transform] -> Dense cloud
-- Dense cloud [transform] + Fire -> First star
-- First star [transform] + Air -> Starfield
-- Starfield [transform] + Gravity [transform] -> Galaxy
-
-## `c02` The gift inside a star
-
-background: ![galaxy](assets/backgrounds/galaxy.webp)
-
-A star can shine for ages and still have a last day. Let one of your great lights change what the universe can be made of.
-
-**Goals**
-- Let a star give its matter back -- New stellar nursery
-
-**Hotspots**
-- First star (at 50%, 20%)
-  - icon: ![First star](assets/icons/fixed-first-star.webp) (circular)
-
-**Items**
-- Massive star
-  - icon: ![Massive star](assets/icons/massive-star.webp) (circular)
-  Gravity gathers more gas into this star. Its greater mass makes a hotter furnace—and a shorter-lived light.
-
-  *Massive star*
-- Fusing core
-  - icon: ![Fusing core](assets/icons/fusing-core.webp) (circular)
-  Inside massive stars, fusion builds many heavier elements from lighter nuclei. The star is making new material while it shines.
-
-  *Fusing core*
-- Supernova
-  - icon: ![Supernova](assets/icons/supernova.webp) (circular)
-  The core collapses; the outer layers blast outward. This is one possible ending for a massive star, not the fate of every star.
-
-  You cannot keep this light and receive its scattered gift unchanged.
-
-  *Supernova*
-- Heavy elements
-  - icon: ![Heavy elements](assets/icons/heavy-elements.webp) (circular)
-  The stellar furnace fuses lighter nuclei into heavier ones, including carbon, oxygen and iron. These elements are still inside the star; an explosion can later scatter them into new clouds.
-
-  *Heavy elements*
-- Expanding remnant
-  - icon: ![Expanding remnant](assets/icons/expanding-remnant.webp) (circular)
-- Glowing nebula
-  - icon: ![Glowing nebula](assets/icons/glowing-nebula.webp) (circular)
-  You excite the thin gas; it glows as it gives energy back. A nebula is a cloud, not a new substance: this one is the visible remains of a star.
-
-  *Glowing nebula*
-- Enriched dust
-  - icon: ![Enriched dust](assets/icons/enriched-dust.webp) (circular)
-- New stellar nursery
-  - icon: ![New stellar nursery](assets/icons/new-stellar-nursery.webp) (circular)
-  Gravity gathers gas and enriched dust into a new cloud. The next generation can inherit ingredients for rocky worlds.
-
-  Destruction has not returned you to nothing.
-
-  *New stellar nursery*
-
-**Combinations**
-- Gravity [transform] @ First star [transform] -> Massive star
-- Massive star [transform] + Fire -> Fusing core
-- Heavy elements [transform] + Gravity [transform] -> Supernova
-- Fusing core [transform] + Earth -> Heavy elements
-- Supernova [transform] + Air -> Expanding remnant
-- Expanding remnant [transform] + Fire -> Glowing nebula
-- Heavy elements [transform] + Expanding remnant [transform] -> Enriched dust
-- Enriched dust [transform] + Gravity [transform] -> New stellar nursery
-
-## `c03` A restless world
-
-background: ![stellar nursery](assets/backgrounds/stellar-nursery.webp)
-
-Choose one young sun among the many. Around it, give the scattered matter somewhere to gather—and an interior that will refuse to sit still.
-
-**Goals**
-- Make a world with a solid face -- Stone crust
-- Give its moving core a magnetic field -- Magnetic field
-
-**Hotspots**
-- New stellar nursery (at 50%, 20%)
-  - icon: ![New stellar nursery](assets/icons/fixed-new-stellar-nursery.webp) (circular)
-
-**Items**
-- Sun
-  - icon: ![Sun](assets/icons/sun.webp) (circular)
-  A new star shines with material from earlier generations. Around it, a disk still holds grains that could become something other than another star.
-
-  *Sun*
-- Planetary disk
-  - icon: ![Planetary disk](assets/icons/planetary-disk.webp) (circular)
-  Around the young sun, dust and gas share a turning disk. Countless grains cross one another's paths; some meetings will make larger things.
-
-  *Planetary disk*
-- Planetesimals
-  - icon: ![Planetesimals](assets/icons/planetesimals.webp) (circular)
-- Rocky world
-  - icon: ![Rocky world](assets/icons/rocky-world.webp) (circular)
-  Small rocky bodies collide and gather into a planet. Your new world is assembled from many smaller meetings, not carved from a finished globe.
+  *Void*
+- `primordial-world` Rocky world
+  - icon: ![Rocky world](assets/icons/large-rocky-world.webp) (circular)
+  Rock gathers within the void and forms a rotating world. Its surface is dark rock with glowing cracks, and its interior remains hot.
 
   *Rocky world*
-- Magma ocean
-  - icon: ![Magma ocean](assets/icons/magma-ocean.webp) (circular)
-- Iron core
-  - icon: ![Iron core](assets/icons/iron-core.webp) (circular)
-  Dense metal sinks inward while lighter rocky material remains above it. The planet sorts itself by density.
+- Sun
+  - icon: ![Sun](assets/icons/large-first-star.webp) (circular)
+  Fire gathers in the void to form the Sun. It will supply the world with heat and light.
 
-  *Iron core*
-- Magnetic field
-  - icon: ![Magnetic field](assets/icons/magnetic-field.webp) (circular)
-  You set the liquid metal moving. In a planet with a conducting, convecting, rotating interior, a dynamo can sustain a magnetic field. Air is your gesture of motion here, not gas blown into the core.
+  *Sun*
+- Asteroids
+  - icon: ![Asteroids](assets/icons/planetesimals.webp) (circular)
+  The currents scatter rock through the deep, forming many separate rocky bodies. Some can collide with the world.
 
-  *Magnetic field*
-- Stone crust
-  - icon: ![Stone crust](assets/icons/stone-crust.webp) (circular)
-  Heat escapes into space; a skin of rock hardens. Beneath it, the world remains hot enough to change its own face.
-
-  *Stone crust*
-- Aurora
-  - icon: ![Aurora](assets/icons/aurora.webp) (circular)
-  Charged particles from the Sun can be guided into a planet's upper atmosphere by its magnetic field. Collisions excite atmospheric gases, which glow.
-
-  Even your invisible field can leave colours in the dark.
-
-  *Aurora*
-
-**Combinations**
-- Gravity [transform] @ New stellar nursery [transform] -> Sun
-- Enriched dust [transform] + Sun [transform] -> Planetary disk
-- Planetary disk [transform] + Earth -> Planetesimals
-- Planetesimals [transform] + Gravity [transform] -> Rocky world
-- Rocky world + Fire -> Magma ocean
-- Magma ocean [transform] + Gravity [transform] -> Iron core
-- Iron core [transform] + Air -> Magnetic field
-- Magma ocean [transform] + Air -> Stone crust
-- Magnetic field [transform] + Sun [transform] -> Aurora
-
-## `c04` A companion and a shore
-
-background: ![rocky world](assets/backgrounds/rocky-world.webp)
-
-Another body crosses the young world's path. Let the meeting remake the sky, then give the cooling planet a sea.
-
-**Goals**
-- Gather a moon -- Moon
-- Make a shore that never quite stays put -- Tidal shore
-
-**Hotspots**
-- Rocky world (at 50%, 20%)
-  - icon: ![Rocky world](assets/icons/fixed-rocky-world.webp) (circular)
-
-**Items**
-- Air
-- Giant impact
-  - icon: ![Giant impact](assets/icons/giant-impact.webp) (circular)
-  A violent collision throws material into orbit. A giant impact is the leading explanation for our Moon, though the details remain debated.
-
-  Your world survives with a changed future.
-
-  *Giant impact*
+  *Asteroids*
 - Moon
   - icon: ![Moon](assets/icons/moon.webp) (circular)
-- Tides
-  - icon: ![Tides](assets/icons/tides.webp) (circular)
-  The Moon's uneven gravitational pull helps raise tides; the Sun contributes too. A companion can touch a sea without entering it.
+  A massive rocky body strikes the young world at an angle. The collision tilts the world's rotation and throws rock into orbit. This debris gathers into the Moon.
 
-  *Tides*
+  The Moon reflects sunlight, so it can light the night without producing its own light.
+
+  *Moon*
+- Steadied world
+  - icon: ![Steadied world](assets/icons/large-rocky-world.webp) (circular)
+  The collision left the world's rotation axis tilted. The Moon's gravity helps limit changes in that tilt over long periods. The angle can still vary; it is not fixed forever.
+
+  *Steadied world*
+- Stars
+  - icon: ![Stars](assets/icons/starfield.webp) (circular)
+  Fire spreads through the waters of the deep and forms many distant stars. Each star produces its own light.
+
+  *Stars*
+- Light
+  - icon: ![Light](assets/icons/light.webp) (circular)
+  Sunlight illuminates the world's surface.
+
+  *Light*
+
+**Combinations**
+- Air @ Waters of the deep [preserve] -> Void (tutorial)
+- Earth @ Void [preserve] -> `primordial-world`
+- Fire @ Void [preserve] -> Sun
+- Earth @ Waters of the deep [preserve] -> Asteroids
+- Asteroids [transform] @ `primordial-world` [preserve] -> Moon
+- Fire @ Waters of the deep [preserve] -> Stars
+- Sun [transform] + `primordial-world` [preserve] -> Light
+- Sun [transform] + Steadied world [preserve] -> Light
+- Moon [transform] + `primordial-world` [transform] -> Steadied world
+
+## Rain, oceans and tides
+
+background: ![Rocky world](assets/backgrounds/c04-rocky-world.webp)
+
+The world is still hot. Bring water from the surrounding deep onto its surface to cool it, form rain and fill an ocean.
+
+[If skipped] The world's surface has cooled, rain has filled an ocean, and tides now cover and expose its shore.
+
+**Goals**
+- Let rain reach the ground -- First rain
+- next: Gather an ocean -- Ocean
+- Form a coast with rising and falling tides -- Tidal shore
+
+> NOTE: Water and Rocky world are separate primitive identities supplied here. They represent the same water and world seen in the creation scene, now as movable symbols. The three opening hotspots remain in that scene; no identity needs to become unfixed.
+
+**Items**
+- Water
+  - icon: ![Water](assets/icons/water.webp) (circular)
+  Water from the surrounding deep, ready to flow over your world.
+- Rocky world
+  - icon: ![Rocky world](assets/icons/large-rocky-world.webp) (circular)
+  The world you gathered within the void, still molten from its making. Bring water to its hot surface.
+- Stone crust
+  - icon: ![Stone crust](assets/icons/stone-crust.webp) (circular)
+  Water cools the world's hot surface until it hardens into solid rock. The interior remains hot.
+
+  *Stone crust*
+- Steam cloud
+  - icon: ![Steam cloud](assets/icons/mist.webp) (circular)
+  More water meets the still-hot crust and rises as invisible vapour. As it cools, tiny liquid droplets form the white cloud you can see.
 - First rain
   - icon: ![First rain](assets/icons/first-rain.webp) (circular)
-  Steam cools above the world's hardened surface and condenses. For the first time, falling water reaches ground that can hold it.
+  Rising air carries the cloud into cooler conditions. Droplets join and grow large enough to fall as rain.
 
   *First rain*
 - Rain-filled hollows
   - icon: ![Rain-filled hollows](assets/icons/rain-filled-hollows.webp) (circular)
-  Rain gathers in low places that already exist in the crust. It can erode a landscape, but rain alone did not excavate Earth's ocean basins.
+  Rainwater collects in hollows between the ridges of the stone crust.
 
   *Rain-filled hollows*
 - Ocean
   - icon: ![Ocean](assets/icons/ocean.webp) (circular)
-  Water collects across the planet's low places. You have made a sea too large to see from one shore.
+  As more water fills the low basins, separate pools join into a continuous ocean.
 
   *Ocean*
+- Tides
+  - icon: ![Tides](assets/icons/tides.webp) (circular)
+  The Moon pulls unevenly on different parts of the world. This helps produce tides: the regular rise and fall of sea level. The Sun's gravity contributes too.
+
+  *Tides*
 - Tidal shore
   - icon: ![Tidal shore](assets/icons/tidal-shore.webp) (circular)
-  Water advances and retreats over the same ground. A boundary has become a recurring invitation.
+  Rising tides cover part of the coast; falling tides expose it again. This strip between high and low tide provides both wet and dry conditions for coastal life.
 
   *Tidal shore*
 
 **Combinations**
-- Planetesimals [transform] @ Rocky world -> Giant impact
-- Giant impact [transform] + Gravity [transform] -> Moon
-- Moon [transform] + Water -> Tides
-- Mist [transform] @ Rocky world -> First rain
+- Rocky world [transform] + Water -> Stone crust
+- Water + Stone crust [transform] -> Steam cloud
+- Steam cloud [transform] + Air -> First rain
 - First rain [transform] + Stone crust [transform] -> Rain-filled hollows
 - Rain-filled hollows [transform] + Water -> Ocean
+- Moon [transform] + Water -> Tides
+- Moon [transform] + Ocean [transform] -> Tides
 - Ocean [transform] + Tides [transform] -> Tidal shore
 
-## `c05` Water learns the way home
+## The water cycle
 
-background: ![first sea](assets/backgrounds/first-sea.webp)
+background: ![Water cycle](assets/backgrounds/c05-water-cycle.webp)
 
-A full ocean is a beginning. Lift its water into the sky and see where the land sends it back.
+Sunlight heats the ocean, and rain carries water back onto land. Create rivers that return water and sediment to the sea.
 
 **Goals**
-- Let rivers build a delta -- Delta
-- Keep the water travelling -- Water cycle
+- Build a delta from river sediment -- Delta
+- Complete the water cycle -- Water cycle
 
 **Items**
 - Evaporation
   - icon: ![Evaporation](assets/icons/evaporation.webp) (circular)
+  Sunlight warms the ocean. Water leaves its surface as invisible vapour, while dissolved salts stay behind.
 - Clouds
   - icon: ![Clouds](assets/icons/clouds.webp) (circular)
   Rising moist air cools and water vapour condenses. A visible cloud contains tiny droplets or ice crystals; the vapour itself is invisible.
@@ -289,168 +197,165 @@ A full ocean is a beginning. Lift its water into the sky and see where the land 
   *Clouds*
 - Rainfall
   - icon: ![Rainfall](assets/icons/rainfall.webp) (circular)
-  Droplets or ice particles grow within a cloud until gravity carries them down. The same pull that gathered worlds can bring a shower to the ground.
+  More water gathers in the cloud. Droplets or ice particles grow heavy enough to fall, bringing a shower to the land.
 
   *Rainfall*
+- Storm
+  - icon: ![Storm](assets/icons/first-storm.webp) (circular)
+  Strong winds drive rain across the land. Storms can break branches and uproot trees, leaving wood on the ground. This combination represents a wind-driven rainstorm, not every kind of storm.
+
+  *Storm*
 - Rivers
   - icon: ![Rivers](assets/icons/rivers.webp) (circular)
-  Gravity carries water downhill. Rivers find routes through a landscape and gradually alter those routes by erosion and deposition.
+  Gravity carries rainwater downhill into rivers. Flowing water gradually changes the landscape by eroding rock and depositing sediment.
 
   *Rivers*
 - Sediment
   - icon: ![Sediment](assets/icons/sediment.webp) (circular)
+  Flowing water loosens and carries grains of sand, silt and broken rock. These transported particles are called sediment.
 - Delta
   - icon: ![Delta](assets/icons/delta.webp) (circular)
-  Where a river slows, some of its sediment settles. Over time, carried fragments can become new land.
+  A river carries sediment to its mouth, where the flow slows and drops its load. Over time, deposits build outward and divide the river into branching channels: new land made from what the water carried.
 
   *Delta*
 - Rainbow
   - icon: ![Rainbow](assets/icons/rainbow.webp) (circular)
-  Sunlight bends, reflects and separates into colours inside water droplets. Your first ornament belongs to no single place.
+  Sunlight bends, reflects and separates into colours inside raindrops, producing a rainbow.
 
   *Rainbow*
 - Water cycle
   - icon: ![Water cycle](assets/icons/water-cycle.webp) (circular)
-  Water evaporates, condenses and returns as precipitation and runoff. The Sun supplies energy; gravity brings water down.
-
-  You need not pour the ocean again each morning.
+  Water evaporates from the ocean, condenses into clouds and falls as precipitation. Rivers carry it back to the sea. Sunlight supplies energy for evaporation, and gravity brings water down.
 
   *Water cycle*
 
 **Combinations**
 - Ocean [transform] + Sun [transform] -> Evaporation
 - Evaporation [transform] + Air -> Clouds
-- Clouds [transform] + Gravity [transform] -> Rainfall
-- Rainfall [transform] + Gravity [transform] -> Rivers
+- Clouds [transform] + Water -> Rainfall
+- Rainfall [transform] + Stone crust [transform] -> Rivers
 - Rivers [transform] + Earth -> Sediment
-- Sediment [transform] + Ocean [transform] -> Delta
-- Clouds [transform] + Sun [transform] -> Rainbow
+- Sediment [transform] + Rivers [transform] -> Delta
+- Rainfall [transform] + Air -> Storm
+- Rainfall [transform] + Sun [transform] -> Rainbow
 - Rivers [transform] + Sun [transform] -> Water cycle
 
-## `c06` The stone is not finished
+## Moving plates and continents
 
-background: ![first sea](assets/backgrounds/first-sea.webp)
+background: ![River coast](assets/backgrounds/c06-river-coast.webp)
 
-The solid face looks permanent from a shore. Beneath it, heat is still moving the world.
+Heat inside the world helps move its rocky plates. Form continents and volcanoes, then let rain and rivers wear down the land.
 
 **Goals**
 - Open a hot spring on the seafloor -- Hydrothermal vent
-- Bring rock minerals into the sea -- Mineral-rich sea
+- Raise a continent -- Continent
+- next: Let rivers carry its minerals to sea -- Mineral-rich sea
 
 **Items**
 - Moving plates
   - icon: ![Moving plates](assets/icons/moving-plates.webp) (circular)
-  You divide the outer shell into moving plates. Earth's plate motion involves a complex exchange of forces and heat; it is not a crust floating on a global liquid ocean.
+  Fire supplies heat beneath the solid crust, which divides into moving plates. On Earth, internal heat, sinking slabs and other forces drive plate motion. The plates move over slowly deforming rock, not a global ocean of liquid magma.
 
   *Moving plates*
 - Continent
   - icon: ![Continent](assets/icons/continent.webp) (circular)
-  Moving plates gather and reshape buoyant continental crust. You raise a broad mass of land; it will spend its long life being remade.
+  Plate movement gathers and reshapes continental crust into a broad landmass. Continental crust is generally thicker and less dense than oceanic crust.
 
   *Continent*
 - Trench
   - icon: ![Trench](assets/icons/trench.webp) (circular)
-  You fold a boundary downward beneath the sea. Deep ocean trenches form where one plate bends into a zone of subduction beneath another.
+  A plate bends beneath another at an underwater boundary, forming a deep ocean trench. This sinking of one plate beneath another is called subduction.
 
   *Trench*
 - Volcano
   - icon: ![Volcano](assets/icons/volcano.webp) (circular)
+  Some rock melts near the plate boundary. Magma rises through openings in the crust and erupts. Repeated eruptions can build volcanic mountains on land or beneath the sea.
 - Hydrothermal vent
   - icon: ![Hydrothermal vent](assets/icons/hydrothermal-vent.webp) (circular)
-  Seawater enters cracks, heats within rock and returns carrying dissolved chemicals. On a dark seafloor, chemical differences can supply energy.
+  Seawater enters cracks in volcanically heated rock and returns through vents on the seafloor, carrying dissolved chemicals. Reactions between these chemicals and the surrounding seawater can provide energy for living organisms without sunlight.
 
   *Hydrothermal vent*
 - Weathered rock
   - icon: ![Weathered rock](assets/icons/weathered-rock.webp) (circular)
+  Rain and flowing water break down exposed rock and dissolve some of its minerals. The remaining fragments can contain coloured minerals used as pigments.
 - Mineral-rich sea
   - icon: ![Mineral-rich sea](assets/icons/mineral-rich-sea.webp) (circular)
-  Flowing water carries dissolved minerals and fragments from land to sea. A continent is giving away parts of itself.
+  Rivers carry dissolved minerals and rock fragments from the weathered continent into the sea.
 
   *Mineral-rich sea*
-- Volcanic island
-  - icon: ![Volcanic island](assets/icons/volcanic-island.webp) (circular)
-  Repeated eruptions build a mountain from the seafloor until its summit breaks the surface. An island begins with no forest, no animals and no memory of either.
-
-  *Volcanic island*
 
 **Combinations**
 - Stone crust [transform] + Fire -> Moving plates
 - Moving plates [transform] + Earth -> Continent
 - Moving plates [transform] + Water -> Trench
 - Moving plates [transform] + Fire -> Volcano
-- Volcano [transform] + Water -> Hydrothermal vent
+- Volcano [transform] + Ocean [transform] -> Hydrothermal vent
 - Continent [transform] + Rainfall [transform] -> Weathered rock
 - Weathered rock [transform] + Rivers [transform] -> Mineral-rich sea
-- Volcano [transform] + Ocean [transform] -> Volcanic island
 
-## `c07` The first inside
+## The first living cells
 
-background: ![vent world](assets/backgrounds/vent-world.webp)
+background: ![Underwater mineral pool](assets/backgrounds/c07-vent-world.webp)
 
-The ocean contains ingredients and energy, but no one is alive. Here your myth must cross a gap that science has not yet explained: give matter an inside that can keep itself going.
+The ocean contains chemicals and energy sources, but no living cells. Create cells that reproduce and pass on inherited differences; the first step from chemistry to life is an invention in this story, because science has not established how it happened.
+
+[If skipped] Living cells reproduce, and some inherited changes pass to their descendants. Photosynthetic microbes grow in layers along the shore and form stromatolites by trapping sediment.
 
 **Goals**
-- Make life that can copy and vary
+- Make reproducing cells with inherited variation
   - and: Dividing cells
   - and: Variation
-- Let living layers change a shore -- Stromatolites
-
-**Hotspots**
-- Hydrothermal vent (at 50%, 20%)
-  - icon: ![Hydrothermal vent](assets/icons/fixed-hydrothermal-vent.webp) (circular)
+- Form stromatolites from layers of microbes and sediment -- Stromatolites
 
 **Items**
 - Organic molecules
   - icon: ![Organic molecules](assets/icons/organic-molecules.webp) (circular)
-  Hot mineral environments are one setting studied in research on life's origins. Organic molecules alone are not alive, and no agreed pathway from chemistry to the first cell is known.
+  Seawater supplies dissolved chemicals, while a hydrothermal vent supplies heat and chemical energy. Such environments are studied as possible sites where organic molecules formed before life existed. Organic molecules are carbon-containing compounds; they are not necessarily produced by organisms, and they are not alive. No agreed pathway from chemistry to the first cell is known.
 
   *Organic molecules*
 - Membranes
   - icon: ![Membranes](assets/icons/membranes.webp) (circular)
-  Some molecules gather into thin boundaries in water. A small space can now hold a different mixture from the sea around it.
+  Some organic molecules assemble into thin membranes in water. A membrane can enclose a small volume and separate its contents from the surrounding sea. This separation is one requirement for a cell, but a membrane alone is not alive.
 
   *Membranes*
 - Chemical fuel
   - icon: ![Chemical fuel](assets/icons/chemical-fuel.webp) (circular)
-  You let sunlight drive reactions that store some of its energy in molecules. Such chemistry is part of origin-of-life research; energetic molecules still do not explain a living cell.
+  Light drives reactions that store some of its energy in organic molecules. Other reactions can release that stored energy. These processes are studied in research on life's origins, but a source of chemical energy does not by itself explain a living cell.
 
   *Chemical fuel*
 - Living cell
-  - icon: ![Living cell](assets/icons/living-cell.webp) (circular)
-  A boundary and an energy source are not enough to explain life. Here you supply the missing miracle: a cell that maintains itself and can pass on an inherited organization.
-
-  Something now has an inside to protect.
+  - icon: ![Living cell](assets/icons/large-living-cell.webp) (circular)
+  The membrane encloses the cell, and chemical fuel supplies energy for its reactions. A living cell also needs linked processes that maintain it and pass inherited information to descendants. This combination invents those missing steps; it is not a scientific explanation of how life began.
 
   *Living cell*
 - Dividing cells
   - icon: ![Dividing cells](assets/icons/dividing-cells.webp) (circular)
-  One cell passes its inherited organization into descendants. Your creation can now make more living cells.
+  In water, living cells grow and divide into descendants that inherit their genetic information. Water provides a medium for their chemical reactions; growth and division also require nutrients, energy and working cellular processes.
 
   *Dividing cells*
 - Variation
   - icon: ![Variation](assets/icons/variation.webp) (circular)
-  The copying that passes life onward need not make identical descendants. In this gesture, ultraviolet light changes inherited information; real variation has several sources and does not arise because an organism needs it.
-
-  Your first family already contains possibilities you did not specify.
+  Ultraviolet light can change a cell's genetic information. When a changed cell reproduces, some changes pass to its descendants. Copying errors and other processes also produce inherited differences. Such genetic changes are called mutations. They do not arise because an organism needs them, and their effects can be helpful, harmful or neutral.
 
   *Variation*
 - Sun-fed cells
-  - icon: ![Sun-fed cells](assets/icons/sun-fed-cells.webp) (circular)
-  You let some cells capture sunlight. In this lineage, photosynthesis uses light energy to build organic matter; later descendants will change the air itself.
+  - icon: ![Sun-fed cells](assets/icons/large-sun-fed-cells.webp) (circular)
+  Some descendants of the dividing cells use sunlight to make organic matter through photosynthesis. Sunlight supplies the energy; the cells need the structures and chemical processes that capture it. This combination represents the evolution of that ability over many generations.
 
   *Sun-fed cells*
 - Microbial mats
   - icon: ![Microbial mats](assets/icons/microbial-mats.webp) (circular)
+  Microbes grow together in dense layers on wet rock. These layers are called microbial mats, and they can trap sediment.
+
+  *Microbial mats*
 - Stromatolites
   - icon: ![Stromatolites](assets/icons/stromatolites.webp) (circular)
-  Layers of microbes trap sediment and build layered structures. Some stromatolites preserve evidence of very ancient life.
-
-  Small lives can leave a landscape behind them.
+  Microbial mats on the tidal shore trap sediment. As the microbes grow over each new deposit, layers accumulate into structures called stromatolites. Some ancient stromatolites preserve evidence of early life.
 
   *Stromatolites*
 
 **Combinations**
-- Mineral-rich sea [transform] @ Hydrothermal vent [transform] -> Organic molecules
+- Mineral-rich sea [transform] + Hydrothermal vent [transform] -> Organic molecules
 - Organic molecules [transform] + Water -> Membranes
 - Organic molecules [transform] + Light [transform] -> Chemical fuel
 - Membranes [transform] + Chemical fuel [transform] -> Living cell
@@ -460,67 +365,61 @@ The ocean contains ingredients and energy, but no one is alive. Here your myth m
 - Sun-fed cells [transform] + Stone crust [transform] -> Microbial mats
 - Microbial mats [transform] + Tidal shore [transform] -> Stromatolites
 
-## `c08` A dangerous new sky
+## Oxygen changes the ocean and air
 
-background: ![microbial shore](assets/backgrounds/microbial-shore.webp)
+background: ![Microbial shore](assets/backgrounds/c08-microbial-shore.webp)
 
-The sun-fed cells release a gas. What is waste to one kind of life can become power—or poison—to another.
+Some photosynthetic cells release oxygen into the water and air. Oxygen supports new ways of obtaining energy from food, but it is harmful to many organisms adapted to oxygen-free conditions.
 
 **Goals**
-- Let the sea record the change -- Banded iron
-- next: Give life a shield against ultraviolet light -- Ozone layer
-- Keep different ways of living
+- Form iron-rich deposits on the seabed -- Banded iron
+- next: Form an ozone layer that absorbs ultraviolet light -- Ozone layer
+- Make cells with smaller cells inside, and shelter microbes harmed by oxygen
   - and: Partnered cells
   - and: Sheltered microbes
-
-**Hotspots**
-- Sun-fed cells (at 50%, 20%)
-  - icon: ![Sun-fed cells](assets/icons/fixed-sun-fed-cells.webp) (circular)
 
 **Items**
 - Oxygen
   - icon: ![Oxygen](assets/icons/oxygen.webp) (circular)
-  Oxygen-producing photosynthesis splits water and releases oxygen. Earth's earliest life did not require an oxygen-rich atmosphere.
+  Some cells use sunlight to split water molecules and release oxygen during photosynthesis. The oxygen enters the surrounding water and can reach the air. Earth's earliest life did not require an oxygen-rich atmosphere.
 
   *Oxygen*
 - Rusted seabed
   - icon: ![Rusted seabed](assets/icons/rusted-seabed.webp) (circular)
 - Banded iron
   - icon: ![Banded iron](assets/icons/banded-iron.webp) (circular)
-  Oxygen reacted with dissolved iron and helped leave iron-rich deposits. Much early oxygen was consumed by such reactions before it accumulated in the atmosphere.
+  Oxygen reacts with dissolved iron, forming minerals that settle on the seabed. These iron-rich deposits accumulate with other sediment in bands. Such reactions consumed much of Earth's early oxygen before it accumulated in the atmosphere.
 
   *Banded iron*
 - Oxygen-rich sky
   - icon: ![Oxygen-rich sky](assets/icons/oxygen-rich-sky.webp) (circular)
-  Oxygen eventually accumulates faster than it is removed. For organisms adapted to oxygen-free conditions, the changed environment can be deadly.
-
-  Your flourishing creation has made a crisis for other lives.
+  Oxygen released by photosynthetic cells accumulates in the air when its supply exceeds the amount removed by chemical reactions and living organisms. Oxygen can damage cells that lack ways to cope with it, making the changed environment deadly for many microbes.
 
   *Oxygen-rich sky*
 - Ozone layer
   - icon: ![Ozone layer](assets/icons/ozone-layer.webp) (circular)
-  Sunlight drives reactions that form ozone high in the atmosphere. Ozone absorbs much harmful ultraviolet radiation; it does not make every place safe.
+  Sunlight drives reactions involving oxygen high in the atmosphere, producing ozone. The ozone layer absorbs much of the Sun's harmful ultraviolet radiation before it reaches the surface, though some ultraviolet radiation still gets through.
 
   *Ozone layer*
 - Oxygen-using cells
   - icon: ![Oxygen-using cells](assets/icons/oxygen-using-cells.webp) (circular)
-  Some cells use oxygen to obtain usable energy from food. Oxygen is not food itself; it participates in reactions that release energy stored in food molecules.
+  Some cells use oxygen in reactions that release usable energy from food molecules. The cells supply the necessary chemical processes; oxygen participates in those reactions. Oxygen is not itself a food or an energy source.
 
   *Oxygen-using cells*
 - Partnered cells
   - icon: ![Partnered cells](assets/icons/partnered-cells.webp) (circular)
-  One cell takes another into a lasting partnership. This myth compresses endosymbiosis: mitochondria descend from bacteria that became part of other cells. It is not a complete explanation of how complex cells originated.
+  An oxygen-using cell becomes established inside another cell. The inner cell supplies usable energy, while the host provides a protected environment and nutrients. This combination compresses endosymbiosis: mitochondria descend from bacteria that became permanent parts of other cells. It does not explain every step in the origin of complex cells.
 
   *Partnered cells*
 - Sheltered microbes
   - icon: ![Sheltered microbes](assets/icons/sheltered-microbes.webp) (circular)
-  Oxygen-free pockets can remain beneath living layers and in sediments. A transformed world can still hold refuges for older ways of living.
+  Even as oxygen accumulates in the air, oxygen-free pockets remain beneath microbial mats and in sediments. Microbes that cannot tolerate oxygen survive in these habitats, where overlying organisms and chemical reactions consume oxygen before it reaches them.
 
   *Sheltered microbes*
 
 **Combinations**
-- Water @ Sun-fed cells [transform] -> Oxygen
-- Oxygen [transform] + Heavy elements [transform] -> Rusted seabed
+- Water + Sun-fed cells [transform] -> Oxygen
+- Oxygen [transform] + Mineral-rich sea [transform] -> Rusted seabed
 - Rusted seabed [transform] + Sediment [transform] -> Banded iron
 - Oxygen [transform] + Air -> Oxygen-rich sky
 - Oxygen-rich sky [transform] + Light [transform] -> Ozone layer
@@ -528,23 +427,26 @@ The sun-fed cells release a gas. What is waste to one kind of life can become po
 - Oxygen-using cells [transform] + Living cell [transform] -> Partnered cells
 - Oxygen-rich sky [transform] + Microbial mats [transform] -> Sheltered microbes
 
-## `c09` More than a single cell
+## Multicellular life
 
-background: ![microbial shore](assets/backgrounds/microbial-shore.webp)
+background: ![Microbial shore](assets/backgrounds/c08-microbial-shore.webp)
 
-An inside can shelter partners. Now let cells stay together and discover what a body can do.
+Make organisms whose cells stay together and perform different functions. In the sea, these organisms include algae and animals with muscles, eyes and shells.
 
 **Goals**
-- Grow sea plants -- Algae
-- next: Let stone keep a trace of life -- Fossils
-- Give swimmers a way to see -- Eyes
+- Grow multicellular algae -- Algae
+- next: Preserve shells as fossils -- Fossils
+- Give swimming animals eyes -- Eyes
 
 **Items**
 - Cell colonies
   - icon: ![Cell colonies](assets/icons/cell-colonies.webp) (circular)
+  Cells multiply in water and remain grouped together. A colony contains individual cells; it is not necessarily a single multicellular organism.
+
+  *Cell colonies*
 - Multicellular life
-  - icon: ![Multicellular life](assets/icons/multicellular-life.webp) (circular)
-  Cells keep contact, exchange signals and divide their work. Their membranes are living interfaces as well as boundaries. Multicellularity evolved independently in several lineages; this is one imagined passage through that possibility.
+  - icon: ![Multicellular life](assets/icons/large-multicellular-life.webp) (circular)
+  Cells in a colony become a coordinated organism. Their membranes support contact and chemical signalling, and different cells perform different functions. This combination represents changes over many generations. Multicellularity evolved independently in several lineages.
 
   *Multicellular life*
 - Algae
@@ -553,19 +455,19 @@ An inside can shelter partners. Now let cells stay together and discover what a 
   - icon: ![Soft-bodied animals](assets/icons/soft-bodied-animals.webp) (circular)
 - Swimming animals
   - icon: ![Swimming animals](assets/icons/swimming-animals.webp) (circular)
-  Oxygen helps these animals release energy from food. Muscles can spend that energy pushing against the water; a drifting life becomes an active pursuit.
+  These soft-bodied animals use oxygen to release energy from food. Their muscles use that energy to push against water, allowing them to swim instead of drifting with the current.
 
   *Swimming animals*
 - Eyes
   - icon: ![Eyes](assets/icons/eyes.webp) (circular)
-  Light-sensitive structures can help an animal find food, avoid danger or orient itself. Eyes have many forms and evolutionary histories; sight is not a single inevitable invention.
+  Light-sensitive structures detect light and help swimming animals find food, avoid danger or orient themselves. Over many generations, some lineages develop eyes that distinguish the direction of light or form images. Eyes evolved in different forms across several animal lineages.
 
   *Eyes*
 - Shells
   - icon: ![Shells](assets/icons/shells.webp) (circular)
 - Fossils
   - icon: ![Fossils](assets/icons/fossils.webp) (circular)
-  Sediment can bury remains that later mineralize or leave impressions. Most lives leave no fossil; the stone archive will always be incomplete.
+  Sediment buries shells, which may be preserved, replaced by minerals or leave impressions as the sediment becomes rock. Most organisms leave no fossil, so the fossil record contains only part of life's history.
 
   *Fossils*
 
@@ -579,60 +481,59 @@ An inside can shelter partners. Now let cells stay together and discover what a 
 - Soft-bodied animals [transform] + Mineral-rich sea [transform] -> Shells
 - Shells [transform] + Sediment [transform] -> Fossils
 
-## `c10` Cities without streets
+## Kelp forests and coral reefs
 
-background: ![early animal coast](assets/backgrounds/early-animal-coast.webp)
+background: ![Microbial shore](assets/backgrounds/c08-microbial-shore.webp)
 
-You could fill the sea with isolated creatures. Instead, make places where one life becomes shelter for another.
+Create kelp forests and coral reefs that provide food and shelter for marine animals. Along the rocky coast, waves can also erode a sea cave.
 
 **Goals**
-- Raise an underwater forest -- Kelp forest
-- next: Let waves hollow a cave -- Sea cave
-- Make a coast crowded with life -- Living coast
+- Grow a kelp forest -- Kelp forest
+- next: Hollow a sea cave with waves -- `cave`
+- Let tides carry nutrients and young animals between coastal habitats -- Living coast
 
 **Items**
 - Kelp forest
   - icon: ![Kelp forest](assets/icons/kelp-forest.webp) (circular)
-  Large brown algae anchor to rock and grow toward the light. Their underwater forests offer shelter and feeding places to many other organisms.
+  Kelp are large brown algae that anchor to submerged rock and grow toward the light. Dense kelp forests provide shelter and feeding places for many other organisms.
 
   *Kelp forest*
 - Coral
   - icon: ![Coral](assets/icons/coral.webp) (circular)
-  Small polyps settle on submerged rock along the coast. Their tentacles catch passing food; these rooted-looking lives are animals.
+  Coral polyps are small, soft-bodied animals that attach to submerged rock along the coast. Their tentacles catch passing food. Many corals grow in colonies of connected polyps.
 
   *Coral*
 - Reef partnership
   - icon: ![Reef partnership](assets/icons/reef-partnership.webp) (circular)
-  Many reef-building corals host tiny photosynthetic algae. The coral offers shelter; the algae share products of photosynthesis. Stress can break this partnership.
+  Many reef-building corals contain tiny photosynthetic algae within their tissues. The algae supply food made through photosynthesis, while the coral provides shelter and nutrients. Stress can cause corals to lose their algae, a process called bleaching.
 
   *Reef partnership*
 - Coral reef
   - icon: ![Coral reef](assets/icons/coral-reef.webp) (circular)
-  Corals draw dissolved mineral ingredients from seawater to build calcium carbonate skeletons. Generations of skeletons become a vast reef: both living community and inherited architecture.
+  Corals draw dissolved mineral ingredients from seawater to build calcium carbonate skeletons. As new corals grow on older skeletons, a reef accumulates over many generations. Its crevices and surfaces provide habitats for many other organisms.
 
   *Coral reef*
 - Nursery waters
   - icon: ![Nursery waters](assets/icons/nursery-waters.webp) (circular)
-  Young swimmers hide among the kelp's fronds. A larger life has made small spaces where another can survive long enough to grow.
+  Young swimming animals shelter among kelp fronds. The kelp provides hiding places from predators and supports organisms they can eat, helping the young animals survive and grow.
 
   *Nursery waters*
 - Coastal mosaic
   - icon: ![Coastal mosaic](assets/icons/coastal-mosaic.webp) (circular)
-  Across a vast coast, cooler kelp beds and warmer reefs offer different kinds of shelter and food. Within each region, animals can use several neighbouring habitats over a lifetime.
+  This long coastline includes kelp beds in cooler water and coral reefs in warmer water. Both provide food and shelter, though they support different communities. Within each region, animals may use several neighbouring habitats as they grow.
 
   *Coastal mosaic*
 - Living coast
   - icon: ![Living coast](assets/icons/living-coast.webp) (circular)
-  Tides move water and nutrients through a patchwork of habitats. The coast's wealth is in its connections, not simply its number of creatures.
+  Tides move water, nutrients and small organisms between coastal habitats. Animals feed and shelter in these connected areas, while some young animals disperse with the moving water.
 
   *Living coast*
 - Waves
   - icon: ![Waves](assets/icons/waves.webp) (circular)
-- Sea cave
+- `cave` Sea cave
+  - from chapter `dark-cave-chapter`: Dark cave
   - icon: ![Sea cave](assets/icons/sea-cave.webp) (circular)
-  Waves exploit cracks in coastal rock and hollow out a cave. Above the wash of the tide, its dry walls hold the marks of stone and time.
-
-  A place can wait a very long time for a visitor.
+  Repeated waves erode cracks in coastal rock until they widen into a cave. Its lower entrance meets the sea, while an upper shelf and the walls above it remain dry above the usual reach of the tide.
 
   *Sea cave*
 
@@ -645,65 +546,59 @@ You could fill the sea with isolated creatures. Instead, make places where one l
 - Nursery waters [transform] + Coral reef [transform] -> Coastal mosaic
 - Coastal mosaic [transform] + Tides [transform] -> Living coast
 - Ocean [transform] + Air -> Waves
-- Waves [transform] + Stone crust [transform] -> Sea cave
+- Waves [transform] + Stone crust [transform] -> `cave`
 
-## `c11` The bare continents
+## Plants spread onto land
 
-background: ![bare coast](assets/backgrounds/bare-coast.webp)
+background: ![Bare coast](assets/backgrounds/c11-bare-coast.webp)
 
-From above, the continents are enormous and almost empty. Bring life across the wet margin without pretending dry stone is already soil.
+The continents have exposed rock but little soil. Establish plants along the wet shore, develop soil and roots, and grow a forest.
 
 **Goals**
-- Clothe the wet ground -- Moss
+- Grow moss on damp soil -- Moss
 - Make a forest on land -- First forest
-
-**Hotspots**
-- Living coast (at 50%, 20%)
-  - icon: ![Living coast](assets/icons/fixed-living-coast.webp) (circular)
 
 **Items**
 - Shore plants
   - icon: ![Shore plants](assets/icons/shore-plants.webp) (circular)
-  Along the wet margin, descendants of green algae begin living out of the water. Holding moisture and surviving exposure become new demands.
+  Descendants of green algae establish themselves on the wet coast. Living out of water requires ways to retain moisture and survive exposure to air. This combination represents adaptations developing over many generations.
 
   *Shore plants*
 - Soil
   - icon: ![Soil](assets/icons/soil.webp) (circular)
-  Living growth, weathering and the accumulation of organic matter begin making soil. Wet rock alone is not fertile earth.
+  Plant remains mix with particles of weathered rock. As organic matter accumulates and organisms break it down, soil develops with spaces that hold water and air. This gives plants access to water and nutrients beyond the bare rock surface.
 
   *Soil*
 - Windblown spores
   - icon: ![Windblown spores](assets/icons/windblown-spores.webp) (circular)
-  Air carries tiny reproductive cells away from the parent growth. A spore can begin a new plant in a suitable place; it is different from a seed with an embryo and food reserves.
+  Wind carries tiny reproductive cells called spores away from the parent plant. A spore can grow in a suitable place and continue the plant's reproductive cycle. Unlike a seed, it contains no embryo with a stored food supply.
 
   *Windblown spores*
 - Moss
   - icon: ![Moss](assets/icons/moss.webp) (circular)
 - Wetland
   - icon: ![Wetland](assets/icons/wetland.webp) (circular)
-  Low ground holds water among the mosses. The soaked ground becomes a habitat of its own, with little air reaching the soil beneath it.
+  Water collects in low ground among the mosses. The waterlogged soil contains little oxygen, creating conditions for plants and microbes adapted to wetlands.
 
   *Wetland*
 - Roots
   - icon: ![Roots](assets/icons/roots.webp) (circular)
-  Roots anchor plants and help them acquire water and nutrients. Underground work makes above-ground height possible.
+  Roots anchor plants in soil and absorb water and dissolved nutrients. This combination represents descendants of early land plants evolving roots over many generations. Roots help support larger plants and supply their growth above ground.
 
   *Roots*
 - Ferns
   - icon: ![Ferns](assets/icons/ferns.webp) (circular)
-  Roots supply water and nutrients while broad fronds gather light. Across generations, this branch can rise above the low growth and spread spores from a taller body.
+  Ferns have roots that supply water and nutrients, and fronds that capture light for photosynthesis. Their fronds also produce spores. Their appearance here represents evolutionary changes over many generations; sunlight supplies the energy for their growth.
 
   *Ferns*
 - First forest
-  - icon: ![First forest](assets/icons/first-forest.webp) (circular)
-  Across many generations, tall plants fill the wet ground. This imagined forest compresses a long, branching history; living mosses are not unfinished trees.
-
-  The wind has something new to move through.
+  - icon: ![First forest](assets/icons/large-first-forest.webp) (circular)
+  Tall plants, including tree-sized ferns, grow in the wetland and form a forest. Wet soil supplies water, while roots and stronger stems support growth above the low vegetation. This imagined forest compresses a long evolutionary history with many branches. Modern mosses and ferns are distinct plant lineages, not stages on a single path toward trees.
 
   *First forest*
 
 **Combinations**
-- Algae [transform] @ Living coast [transform] -> Shore plants
+- Algae [transform] + Living coast [transform] -> Shore plants
 - Shore plants [transform] + Weathered rock [transform] -> Soil
 - Shore plants [transform] + Air -> Windblown spores
 - Windblown spores [transform] + Soil [transform] -> Moss
@@ -712,62 +607,61 @@ From above, the continents are enormous and almost empty. Bring life across the 
 - Roots [transform] + Light [transform] -> Ferns
 - Ferns [transform] + Wetland [transform] -> First forest
 
-## `c12` Nothing lives on light alone
+## Decomposition and forest renewal
 
-background: ![fern forest](assets/backgrounds/fern-forest.webp)
+background: ![Coastal fern forest](assets/backgrounds/c12-coastal-fern-forest.webp)
 
-The forest grows, and the ground fills with what it sheds. Give the fallen material somewhere to go.
+A storm can bring down branches and trees. Return the nutrients in fallen wood to the forest, and preserve some dead material in waterlogged ground.
 
 **Goals**
-- Let old growth nourish new growth -- Renewing forest
-- next: Let the forest feed the clouds -- Forest rain
-- Bury some of the old sunlight -- Buried carbon
-
-**Hotspots**
-- First forest (at 50%, 20%)
-  - icon: ![First forest](assets/icons/fixed-first-forest.webp) (circular)
+- Return nutrients from dead wood to growing plants -- Renewing forest
+- next: Produce rain from water released by the forest -- Forest rain
+- Bury carbon stored in peat -- Buried carbon
 
 **Items**
 - Fallen wood
   - icon: ![Fallen wood](assets/icons/fallen-wood.webp) (circular)
-  Wind brings down an old branch. The forest has made its first gift to lives that cannot feed on sunlight.
+  Strong winds in the storm break branches and topple trees. Fallen wood supplies food for fungi and other decomposers. Trees also shed branches and die from other causes; storms are one way wood reaches the forest floor.
 
   *Fallen wood*
 - Fungi
   - icon: ![Fungi](assets/icons/fungi.webp) (circular)
-  A branch of complex life grows by absorbing food from its surroundings. This fungal lineage can feed on wood; wet wood has not spontaneously turned into life.
+  Descendants of complex cells evolve into fungi that absorb food from their surroundings. Fallen wood provides food for this fungal lineage. The combination represents the evolution of organisms that can digest wood; the wood itself does not turn into a living organism.
 
   *Fungi*
 - Decomposition
   - icon: ![Decomposition](assets/icons/decomposition.webp) (circular)
-  Fungi and other decomposers break down dead organic matter. Decay releases nutrients for reuse; it is part of the forest's life, not an interruption of it.
+  Fungi release substances that break down dead wood, then absorb the products as food. Fungi and other decomposers release nutrients from dead organic matter, making those nutrients available to other organisms.
 
   *Decomposition*
 - Returned nutrients
   - icon: ![Returned nutrients](assets/icons/returned-nutrients.webp) (circular)
+  Decomposition releases nutrients from dead plants into the soil. Roots can take them up again to support new growth.
+
+  *Returned nutrients*
 - Renewing forest
-  - icon: ![Renewing forest](assets/icons/renewing-forest.webp) (circular)
-  Roots take up nutrients returned through decomposition. New growth draws on material from lives that have ended.
+  - icon: ![Renewing forest](assets/icons/large-renewing-forest.webp) (circular)
+  Roots absorb nutrients released into the soil by decomposition. Plants use those nutrients, along with water, carbon dioxide and light, to grow new leaves, roots and wood.
 
   *Renewing forest*
 - Peat
   - icon: ![Peat](assets/icons/peat.webp) (circular)
-  Dead plant material accumulates in waterlogged ground faster than it fully decays. A dark, soft store of old growth thickens beneath the living surface.
+  Fallen wood and other dead plant material accumulate in the wetland. Waterlogged ground contains little oxygen, slowing decomposition so that partly decayed material builds up as peat.
 
   *Peat*
 - Buried carbon
   - icon: ![Buried carbon](assets/icons/buried-carbon.webp) (circular)
-  Waterlogged conditions can slow decomposition. Some accumulated organic carbon is buried for immense periods, keeping part of old photosynthesis out of the air.
+  Sediment buries the peat and the carbon in its partly decayed plants. The plants originally took this carbon from carbon dioxide during photosynthesis. Some of it can remain underground for millions of years instead of returning quickly to the atmosphere through decomposition.
 
   *Buried carbon*
 - Forest rain
   - icon: ![Forest rain](assets/icons/forest-rain.webp) (circular)
-  Plants return water to the air through transpiration. In some regions, forests help sustain rainfall far beyond the individual tree.
+  Roots take up water, and leaves release water vapour through transpiration. That vapour can contribute to clouds and later rainfall. In some regions, water released by forests helps sustain rain far downwind.
 
   *Forest rain*
 
 **Combinations**
-- Air @ First forest -> Fallen wood
+- Storm [transform] + First forest -> Fallen wood
 - Partnered cells [transform] + Fallen wood [transform] -> Fungi
 - Fungi [transform] + Fallen wood [transform] -> Decomposition
 - Decomposition [transform] + Soil [transform] -> Returned nutrients
@@ -776,94 +670,100 @@ The forest grows, and the ground fills with what it sheds. Give the fallen mater
 - Peat [transform] + Earth -> Buried carbon
 - Renewing forest [transform] + Clouds [transform] -> Forest rain
 
-## `c13` Small wings over a continent
+## Insects in the forest
 
-background: ![fern forest](assets/backgrounds/fern-forest.webp)
+background: ![Coastal fern forest](assets/backgrounds/c12-coastal-fern-forest.webp)
 
-The forest offers leaves, food and shelter. Let a small branch of animal life explore the spaces between them.
+Begin with the marine ancestors of arthropods, then follow a branch onto land. Plants provide food and shelter as insects develop wings and establish themselves among the forest's leaves and branches.
 
 **Goals**
-- Fill the canopy with movement -- Canopy life
+- Establish flying insects in the forest canopy -- Canopy life
 
 **Hotspots**
-- First forest (at 50%, 20%)
-  - icon: ![First forest](assets/icons/fixed-first-forest.webp) (circular)
+- Variation (at 25%, 39%)
+  - icon: ![Variation in this habitat](assets/hotspots/variation-c13.svg)
+  - hitbox: (at 25%, 39%) (size 43%, 17%)
 
 **Items**
 - Arthropods
   - icon: ![Arthropods](assets/icons/arthropods.webp) (circular)
-  This branch gains jointed limbs and an external skeleton. Arthropods and vertebrates are separate branches with deeper shared animal ancestry.
+  Arthropod ancestors diversified in the sea. Inherited variation produces differences among descendants of early animals; across many generations, one lineage develops jointed limbs and an external skeleton. Arthropods and vertebrates have a shared animal ancestry but form separate branches.
 
   *Arthropods*
 - Insects
   - icon: ![Insects](assets/icons/insects.webp) (circular)
-  Among the land-dwelling arthropods, a six-legged branch finds food and shelter among plants. The plants offer a habitat; they do not become part of an insect's ancestry.
+  Insects are a six-legged branch of the arthropods. Plants provide food and shelter as their ancestors establish themselves on land. This combination joins animals with their habitat; insects are not descended from plants.
 
   *Insects*
 - Winged insects
   - icon: ![Winged insects](assets/icons/winged-insects.webp) (circular)
-  Wings open the air above the leaves. Insects took flight long before birds; their wings developed along a different evolutionary path from vertebrate forelimbs.
+  Across many generations, some insects develop wings that push against the air and allow flight. Insects flew long before birds. Their wings evolved separately from the forelimbs that became bird wings.
 
   *Winged insects*
 - Canopy life
   - icon: ![Canopy life](assets/icons/canopy-life.webp) (circular)
-  Flying insects move among leaves, branches and shelter above the ground. The forest has acquired another inhabited layer.
+  Winged insects live among the forest's upper leaves and branches, a layer called the canopy. Flight helps them move between feeding and breeding sites without returning to the ground.
 
   *Canopy life*
 
 **Combinations**
-- Soft-bodied animals [transform] + Variation [transform] -> Arthropods
+- Soft-bodied animals [transform] @ Variation [preserve] -> Arthropods
 - Arthropods [transform] + Shore plants [transform] -> Insects
 - Insects [transform] + Air -> Winged insects
 - Winged insects [transform] + First forest -> Canopy life
 
-## `c14` The shore is crossed again
+## Vertebrates move onto land
 
-background: ![fern forest](assets/backgrounds/fern-forest.webp)
+background: ![Coastal fern forest](assets/backgrounds/c12-coastal-fern-forest.webp)
 
-The land has food and shelter, but living there asks new things of a body. Let different branches of animal life find different ways across.
+Plants provide food and shelter on land. Develop vertebrates that can breathe air, move on limbs and reproduce away from open water, then follow several branches into reptiles, birds and mammals.
+
+[If skipped] Vertebrate descendants have established themselves on land. Great plant-eating reptiles, small mammals and birds now occupy different habitats alongside insects.
 
 **Goals**
-- Give land vertebrates an egg for dry ground -- Shelled egg
-- Give the forest giants, small mammals and birds
+- Make an egg that can develop on land -- Shelled egg
+- Establish giant browsing reptiles, small mammals and birds
   - and: Great browsers
   - and: Small furred animals
   - and: Birds
 
 **Hotspots**
-- First forest (at 50%, 20%)
-  - icon: ![First forest](assets/icons/fixed-first-forest.webp) (circular)
+- Variation (at 70%, 39%)
+  - icon: ![Variation in this habitat](assets/hotspots/variation-c14.svg)
+  - hitbox: (at 70%, 39%) (size 45%, 17%)
 
 **Items**
 - Air-breathing fish
   - icon: ![Air-breathing fish](assets/icons/air-breathing-fish.webp) (circular)
+  Some fish in the wetland can breathe air as well as take oxygen from water. Air breathing helps them survive where warm, still water contains little dissolved oxygen.
 - Limbed vertebrates
   - icon: ![Limbed vertebrates](assets/icons/limbed-vertebrates.webp) (circular)
-  A fish lineage explores a tangle at the water's edge. Across generations, inherited changes to paired appendages contribute to limbs. No fish grows legs because it decides to leave a pond.
+  Air-breathing fish live among roots in shallow water. Across many generations, inherited changes to paired fins contribute to limbs that support movement through shallow habitats and eventually on land. The roots provide a habitat; they do not directly cause fish to grow legs.
 
   *Limbed vertebrates*
 - Shelled egg
   - icon: ![Shelled egg](assets/icons/shelled-egg.webp) (circular)
-  The amniotic egg surrounds an embryo with protective membranes. In shelled forms, it permits reproduction away from open water. Other land animals keep different solutions.
+  Some descendants of limbed vertebrates evolve eggs with membranes that protect and support the developing embryo. A shell reduces water loss while allowing gases to pass through. These amniotic eggs can develop away from open water; other land animals reproduce in different ways.
 
   *Shelled egg*
 - Reptiles
   - icon: ![Reptiles](assets/icons/reptiles.webp) (circular)
+  Over many generations, descendants of land-breeding vertebrates diversify into reptile lineages. Inherited differences affect how they feed, move and survive in their habitats.
+
+  *Reptiles*
 - Birds
   - icon: ![Birds](assets/icons/birds.webp) (circular)
-  In one dinosaur lineage, feathered forelimbs become wings. Birds belong to that branching history; their flight evolved independently of insect flight.
+  In one dinosaur lineage, feathered forelimbs evolve into wings. Their shape and movement generate lift as air passes over them. Birds are descendants of that lineage, and their flight evolved independently of insect flight.
 
   *Birds*
 - Great browsers
   - icon: ![Great browsers](assets/icons/great-browsers.webp) (circular)
-  Huge plant-eating reptiles move among the trees. Their feeding opens paths and their heavy steps leave tracks in the wet ground.
-
-  Give these particular giants a place in your memory.
+  The forest provides food for a lineage of huge plant-eating reptiles. These long-necked browsers eat leaves and other vegetation, opening gaps as they move through the forest. Their heavy steps leave tracks in wet ground.
 
   *Great browsers*
 - Small furred animals
   - icon: ![Small furred animals](assets/icons/small-furred-animals.webp) (circular)
-  Another vertebrate branch includes small mammals. They find food and shelter among fallen wood long before the great impact. Smallness is one way of living, not a promise of survival.
+  A separate branch of land vertebrates gives rise to mammals with fur. These small mammals find food and shelter among fallen wood. Their lineage exists alongside the great browsing reptiles; mammals do not first appear after the giants disappear.
 
   *Small furred animals*
 
@@ -871,40 +771,36 @@ The land has food and shelter, but living there asks new things of a body. Let d
 - Swimming animals [transform] + Wetland [transform] -> Air-breathing fish
 - Air-breathing fish [transform] + Roots [transform] -> Limbed vertebrates
 - Limbed vertebrates [transform] + Membranes [transform] -> Shelled egg
-- Shelled egg [transform] + Variation [transform] -> Reptiles
+- Shelled egg [transform] @ Variation [preserve] -> Reptiles
 - Reptiles [transform] + Air -> Birds
 - Reptiles [transform] + First forest -> Great browsers
 - Limbed vertebrates [transform] + Fallen wood [transform] -> Small furred animals
 
-## `c15` A bargain in colour
+## Flowers, fruit and seed dispersal
 
-background: ![browsing world](assets/backgrounds/browsing-world.webp)
+background: ![Browsing world](assets/backgrounds/c15-browsing-world.webp)
 
-A plant cannot walk to a mate or carry its offspring far away. Let it make offers that other lives have reasons to accept.
+Flowering plants reproduce through flowers and seeds. Establish a forest where insects pollinate flowers and animals spread seeds by eating fruit.
 
 **Goals**
 - Send seeds on the wind -- Windborne seeds
-- Make a forest of exchanges -- Flowering forest
-
-**Hotspots**
-- Flowers (at 50%, 20%)
-  - icon: ![Flowers](assets/icons/fixed-flowers.webp) (circular)
+- Establish flowering plants through animal seed dispersal -- Flowering forest
 
 **Items**
 - Water
 - Flowers
   - icon: ![Flowers](assets/icons/flowers.webp) (circular)
-  Across many generations, one branch of land plants develops flowers: structures for reproduction that can also offer food, scent and colour to visitors.
+  Over many generations, one branch of land plants evolves flowers, structures in which reproduction takes place. Sunlight supplies energy for the plants' growth. Some flowers produce nectar, scent and bright colours that attract animals carrying pollen.
 
   *Flowers*
 - Pollination
   - icon: ![Pollination](assets/icons/pollination.webp) (circular)
-  An insect seeking food can carry pollen between flowers. Each partner pursues its own needs; the relationship can benefit both.
+  An insect visits a flower to collect nectar or pollen as food. Pollen sticks to its body and may rub off on another flower, allowing the plant to reproduce. The insect gains food while the plant gains a means of moving pollen.
 
   *Pollination*
 - Seeds
   - icon: ![Seeds](assets/icons/seeds.webp) (circular)
-  Compatible pollen allows fertilization; an embryo and its food supply develop inside a protective seed coat.
+  When compatible pollen reaches a flower's stigma, its pollen-receiving surface, fertilization can follow. A plant embryo and its food supply develop inside a protective seed coat. The resulting seed can begin a new plant when conditions allow it to germinate.
 
   *Seeds*
 - Seedling
@@ -913,20 +809,23 @@ A plant cannot walk to a mate or carry its offspring far away. Let it make offer
   - icon: ![Windborne seeds](assets/icons/windborne-seeds.webp) (circular)
 - Fruit
   - icon: ![Fruit](assets/icons/fruit.webp) (circular)
-  The flowering plant encloses its seeds in fleshy tissue. Food can recruit an animal to carry what the plant cannot move itself.
+  After fertilization, the flower's ovary grows into a fruit around its developing seeds. In this plant, the fruit is fleshy and edible. Animals that eat it may carry the seeds away before dropping or passing them.
 
   *Fruit*
 - Seed dispersal
   - icon: ![Seed dispersal](assets/icons/seed-dispersal.webp) (circular)
+  Animals eat fruit and carry its seeds away from the parent plant. Seeds dropped or passed undamaged can reach new places where plants may grow.
+
+  *Seed dispersal*
 - Flowering forest
-  - icon: ![Flowering forest](assets/icons/flowering-forest.webp) (circular)
-  Animals carry seeds into new places. Feeding and being fed have become a way for the landscape to renew itself.
+  - icon: ![Flowering forest](assets/icons/large-flowering-forest.webp) (circular)
+  Animals carry seeds of flowering plants to new parts of the forest. Seeds that reach suitable ground germinate, and their roots draw on nutrients returned by decomposition. Over generations, flowering plants become part of the renewing forest.
 
   *Flowering forest*
 
 **Combinations**
 - Shore plants [transform] + Sun [transform] -> Flowers
-- Insects [transform] @ Flowers -> Pollination
+- Insects [transform] + Flowers -> Pollination
 - Pollination [transform] + Flowers -> Seeds
 - Seeds [transform] + Water -> Seedling
 - Seeds [transform] + Air -> Windborne seeds
@@ -934,81 +833,81 @@ A plant cannot walk to a mate or carry its offspring far away. Let it make offer
 - Fruit [transform] + Limbed vertebrates [transform] -> Seed dispersal
 - Seed dispersal [transform] + Renewing forest [transform] -> Flowering forest
 
-## `c16` One sun, many worlds
+## Seasons and landscapes
 
-background: ![flowering coast](assets/backgrounds/flowering-coast.webp)
+background: ![Flowering coast](assets/backgrounds/c16-flowering-coast.webp)
 
-The same sunlight reaches a world of unequal heights and uneven rain. Give life places that ask different things of it.
+Sunlight, height and rainfall produce different climates across the world. Make seasons, dry lowlands and glacial valleys to provide different habitats for life.
 
 **Goals**
-- Give the planet seasons -- Seasons
-- next: Make a dry country -- Desert
-- Carve a path down from the ice -- Braided river
-
-**Hotspots**
-- Rocky world (at 50%, 20%)
-  - icon: ![Rocky world](assets/icons/fixed-rocky-world.webp) (circular)
+- Make seasons -- Seasons
+- next: Make a desert -- Desert
+- Form a braided river below a glacier -- Braided river
 
 **Items**
-- Axial tilt
-  - icon: ![Axial tilt](assets/icons/axial-tilt.webp) (circular)
-  You tip the turning planet. The direction of its axis will make sunlight arrive differently over an orbit.
-
-  *Axial tilt*
+- Steady axial tilt
+  - icon: ![Steady axial tilt](assets/icons/axial-tilt.webp) (circular)
+  The world's axis has remained tilted since the collision that formed the Moon. The Moon's gravity helps limit changes in that tilt. As the world orbits the Sun, each hemisphere receives different angles and lengths of daylight.
 - Seasons
   - icon: ![Seasons](assets/icons/seasons.webp) (circular)
-  A tilted planet changes the angle and duration of sunlight during its orbit. Earth's seasons mainly come from axial tilt, not from being much nearer the Sun in summer.
+  As the tilted world orbits the Sun, the hemisphere tilted toward it receives longer days and more direct sunlight. The other hemisphere receives shorter days and less direct sunlight. These patterns reverse during the orbit, producing seasons. Earth's seasons also come mainly from axial tilt, rather than its changing distance from the Sun.
 
   *Seasons*
 - Mountain range
   - icon: ![Mountain range](assets/icons/mountain-range.webp) (circular)
+- Islands
+  - icon: ![Islands](assets/icons/islands.webp) (circular)
+  The sea floods the low ground between the mountains, leaving their higher slopes and peaks as separate islands. These rocky islands were once joined by land.
+
+  *Islands*
 - Rain shadow
   - icon: ![Rain shadow](assets/icons/rain-shadow.webp) (circular)
-  Moist air rises over mountains, cools and loses water. The far side can receive much less rain. One mountain range can help make two different climates.
+  Moist air rises over the mountain range and cools. Water condenses into clouds and falls as rain or snow. The far side receives less rain, creating a dry region called a rain shadow.
 
   *Rain shadow*
 - Desert
   - icon: ![Desert](assets/icons/desert.webp) (circular)
+  Beyond the mountains, little rain arrives. Sunlight drives evaporation, leaving this ground drier still. A desert is defined by its dryness; it need not be hot.
 - Oasis
   - icon: ![Oasis](assets/icons/oasis.webp) (circular)
 - Grassland
   - icon: ![Grassland](assets/icons/grassland.webp) (circular)
 - Glacier
   - icon: ![Glacier](assets/icons/glacier.webp) (circular)
-  On the cold heights, snow accumulates faster than it melts. Compacted over many years, it becomes ice that can flow under its own weight.
+  Water falls as snow on the cold mountains. Where snowfall exceeds melting over many years, buried snow compacts into ice. The growing mass flows downhill under its own weight.
 
   *Glacier*
 - Valley
   - icon: ![Valley](assets/icons/valley.webp) (circular)
-  Moving ice scours and reshapes rock over long periods. Gravity works with both liquid and frozen water, but they leave different landscapes.
+  A glacier moves over the rocky crust, grinding and carrying away stone. Over long periods it widens and deepens a valley. Rivers can later follow the same low ground.
 
   *Valley*
 - Braided river
   - icon: ![Braided river](assets/icons/braided-river.webp) (circular)
-  Water carries sand and gravel down the glacial valley. Deposits divide the flow into shifting channels that separate and meet again.
+  Rivers carry sand and gravel down the glacial valley. Deposited sediment builds bars that divide the flow into several shifting channels. These channels split and join, forming a braided river.
 
   *Braided river*
 
 **Combinations**
-- Rocky world + Air -> Axial tilt
-- Axial tilt [transform] + Sun [transform] -> Seasons
+- Steady axial tilt [transform] + Sun [transform] -> Seasons
 - Continent [transform] + Moving plates [transform] -> Mountain range
+- Mountain range [transform] + Ocean [transform] -> Islands
 - Mountain range [transform] + Clouds [transform] -> Rain shadow
 - Rain shadow [transform] + Sun [transform] -> Desert
 - Desert [transform] + Water -> Oasis
 - Rain shadow [transform] + Shore plants [transform] -> Grassland
 - Mountain range [transform] + Water -> Glacier
-- Glacier [transform] + Gravity [transform] -> Valley
+- Glacier [transform] + Stone crust [transform] -> Valley
 - Valley [transform] + Rivers [transform] -> Braided river
 
-## `c17` Hunger belongs here too
+## Grassland food webs
 
-background: ![many biomes](assets/backgrounds/many-biomes.webp)
+background: ![Open grassland](assets/backgrounds/c17-open-grassland.webp)
 
-Abundance does not mean that every creature can live without eating another. Connect feeding, waste and new growth across the grassland.
+Plants feed grazers, hunters eat other animals, and decomposers return nutrients to the soil. Connect these relationships into a grassland food web.
 
 **Goals**
-- Connect the eaters and the eaten -- Food web
+- Link grassland plants, grazers and hunters in a food web -- Food web
 
 **Items**
 - Water
@@ -1016,35 +915,33 @@ Abundance does not mean that every creature can live without eating another. Con
   - icon: ![Grazing herds](assets/icons/grazing-herds.webp) (circular)
 - Scent tracking
   - icon: ![Scent tracking](assets/icons/scent-tracking.webp) (circular)
-  Air brings traces of other animals. A mammal can follow the changing scent toward food or away from danger.
+  Air carries scent from other animals. A mammal's sense of smell lets it follow that scent toward food or detect a nearby predator.
 
   *Scent tracking*
 - Hunting mammals
   - icon: ![Hunting mammals](assets/icons/hunting-mammals.webp) (circular)
 - Predator and prey
   - icon: ![Predator and prey](assets/icons/predator-and-prey.webp) (circular)
-  Hunters pursue food; prey respond to danger. These encounters affect other lives throughout the community. Neither side exists simply to balance your design.
+  Hunting mammals feed on the grazing herds. The hunters depend on finding enough prey, while grazers survive by avoiding or escaping them. Changes in either population can also affect the plants the grazers eat.
 
   *Predator and prey*
 - Dung
   - icon: ![Dung](assets/icons/dung.webp) (circular)
 - Dung beetles
   - icon: ![Dung beetles](assets/icons/dung-beetles.webp) (circular)
-  Some insects specialize in dung as food and a place to raise young. The grazers' waste has become another lineage's opportunity.
+  Some insects use the grazers' dung as food and a place to raise young. Dung beetles break up or bury this waste, helping return its nutrients to the soil.
 
   *Dung beetles*
 - Fertile grassland
   - icon: ![Fertile grassland](assets/icons/fertile-grassland.webp) (circular)
 - Food web
   - icon: ![Food web](assets/icons/food-web.webp) (circular)
-  Food, nutrients and energy pass through overlapping relationships. Remove one connection and others may change; a food web is not a set of obedient pieces.
-
-  The world is doing things you did not command one by one.
+  Fertile soil supports grass, grazing animals eat the grass, and hunters eat the grazers. Dung beetles and other decomposers return nutrients from waste and dead organisms to the soil. Together these feeding relationships form a food web: a change in one population can affect several others.
 
   *Food web*
 - Watering place
   - icon: ![Watering place](assets/icons/watering-place.webp) (circular)
-  Herds gather at the water's edge. The water they need also draws hunters; a place of relief can become a place of danger.
+  Grazing herds gather at the water's edge to drink. Hunters also visit because prey are concentrated here. The same water supply supports both groups and brings them into contact.
 
   *Watering place*
 
@@ -1059,118 +956,117 @@ Abundance does not mean that every creature can live without eating another. Con
 - Fertile grassland [transform] + Predator and prey [transform] -> Food web
 - Grazing herds [transform] + Water -> Watering place
 
-## `c18` The long journeys
+## Bird migration and island life
 
-background: ![many biomes](assets/backgrounds/many-biomes.webp)
+background: ![Separated coasts](assets/backgrounds/c18-separated-coasts.webp)
 
-Life can leave the place where it began. Give creatures ways to cross distance, and let separation change what their descendants become.
+Birds can cross mountains and seas to reach new feeding and nesting grounds. Establish migrating flocks and island populations whose songs can change over generations.
 
 **Goals**
-- Fill the world with different voices -- Many-voiced world
+- Support migrating flocks and island bird populations with food webs -- Many-voiced world
+
+**Hotspots**
+- Variation (at 76%, 27%)
+  - icon: ![Variation in this habitat](assets/hotspots/variation-c18.svg)
+  - hitbox: (at 76%, 27%) (size 40%, 18%)
 
 **Items**
 - Far-ranging birds
   - icon: ![Far-ranging birds](assets/icons/far-ranging-birds.webp) (circular)
+  Birds cross mountain barriers to reach feeding and breeding grounds. Their flights connect places that are difficult for animals on foot to reach.
 - Seasonal journeys
   - icon: ![Seasonal journeys](assets/icons/seasonal-journeys.webp) (circular)
-  As food and daylight shift with the seasons, birds follow recurring routes. A distant place can become part of a life's ordinary year.
+  As daylight and food supplies change through the year, far-ranging birds travel between seasonal feeding and breeding grounds. These repeated journeys are migrations; many birds return along similar routes each year.
 
   *Seasonal journeys*
 - Island life
   - icon: ![Island life](assets/icons/island-life.webp) (circular)
+  Birds reach the islands during their seasonal journeys. Some stay to breed, establishing populations separated from birds on the mainland.
 - Different songs
   - icon: ![Different songs](assets/icons/different-songs.webp) (circular)
-  Separated bird populations can diverge across generations. Inherited changes and learned traditions can both affect their songs. The calls across the water are no longer quite the same.
+  Birds breeding on the island are separated from other populations. Inherited variation and learned song traditions can both produce differences across generations. The island birds' songs gradually become distinct from those of their mainland relatives.
 
   *Different songs*
 - Many-voiced world
-  - icon: ![Many-voiced world](assets/icons/many-voiced-world.webp) (circular)
-  The continents and islands hold different living communities. From far above, their calls would blur together; down among them, each place sounds like itself.
-
-  There is now something particular to lose.
+  - icon: ![Many-voiced world](assets/icons/large-many-voiced-world.webp) (circular)
+  Bird populations with different songs are part of larger communities of plants, grazers, hunters and decomposers. Different communities occupy the continents and islands, each with its own food web. The variety of calls reflects some of this variety in animal life.
 
   *Many-voiced world*
 
 **Combinations**
 - Birds [transform] + Mountain range [transform] -> Far-ranging birds
 - Far-ranging birds [transform] + Seasons [transform] -> Seasonal journeys
-- Seasonal journeys [transform] + Volcanic island [transform] -> Island life
-- Island life [transform] + Variation [transform] -> Different songs
+- Seasonal journeys [transform] + Islands [transform] -> Island life
+- Island life [transform] @ Variation [preserve] -> Different songs
 - Different songs [transform] + Food web [transform] -> Many-voiced world
 
-## `c19` What the sky takes back
+## Asteroid impact
 
-background: ![many biomes](assets/backgrounds/many-biomes.webp)
+background: ![Inhabited valley](assets/backgrounds/c19-inhabited-valley.webp)
 
-Not every remnant of planet-building has found a quiet orbit. The gravity that gathered your world can also bring a catastrophe. Keep a trace of what this world is about to lose.
+One of the asteroids strikes the inhabited world, blocking sunlight and disrupting its food supply. The giant plant-eating reptiles die out; preserve their last footprints in sediment.
+
+[If skipped] An asteroid impact has darkened the sky and disrupted food supplies. The giant plant-eating reptiles are extinct, and their footprints are preserved in sediment.
 
 **Goals**
-- Keep the giants' last tracks -- Fossil footprints
-
-**Hotspots**
-- Many-voiced world (at 50%, 20%)
-  - icon: ![Many-voiced world](assets/icons/fixed-many-voiced-world.webp) (circular)
+- Preserve the giant plant-eating reptiles' footprints as fossils -- Fossil footprints
 
 **Items**
 - Impact winter
-  - icon: ![Impact winter](assets/icons/impact-winter.webp) (circular)
-  The impact sends debris and aerosols into the sky, reducing sunlight and disrupting food webs. Your world is vulnerable to the wider universe that gave it matter.
+  - icon: ![Impact winter](assets/icons/large-impact-winter.webp) (circular)
+  An asteroid strikes the inhabited world. Dust and other particles thrown into the atmosphere reduce the sunlight reaching the surface. Temperatures fall, plants grow less, and the loss of food disrupts food webs across the world.
 
   *Impact winter*
 - Last tracks
   - icon: ![Last tracks](assets/icons/last-tracks.webp) (circular)
-  In this world, the great browsing lineage dies out as its food disappears. Its paths end. Surviving reptiles and birds cannot bring those particular giants back.
+  During the impact winter, the giant plant-eating reptiles lose their food supply. This lineage becomes extinct. Its last footprints remain in the ground, but no living descendants of these animals survive.
 
   *Last tracks*
 - Fossil footprints
   - icon: ![Fossil footprints](assets/icons/fossil-footprints.webp) (circular)
-  Sediment preserves a trace of the lost giants. Stone can keep evidence of a life without keeping the life itself.
+  Sediment fills and covers the giant plant-eating reptiles' footprints. Over time, the buried layers harden into rock, preserving the shape of the tracks. These fossils provide evidence of animals whose lineage is now extinct.
 
   *Fossil footprints*
 
 **Combinations**
-- Planetesimals [transform] @ Many-voiced world [transform] -> Impact winter
+- Asteroids [transform] + Many-voiced world [transform] -> Impact winter
 - Impact winter [transform] + Great browsers [transform] -> Last tracks
 - Last tracks [transform] + Sediment [transform] -> Fossil footprints
 
-## `c20` Life in the dark
+## Surviving the impact winter
 
-background: ![impact winter](assets/backgrounds/impact-winter.webp)
+background: ![Impact winter](assets/backgrounds/c20-impact-winter.webp)
 
-The giants' paths have fallen silent. Among the fallen trees, look for lives that can endure without the old abundance.
+The impact has killed many trees and reduced the food available to animals. Use shelter and stored food in the fallen forest to help small mammals and seeds survive.
 
 **Goals**
-- Find survivors -- Small survivors
-- Keep a beginning alive -- Green shoots
-
-**Hotspots**
-- First forest (at 50%, 20%)
-  - icon: ![First forest](assets/icons/fixed-first-forest.webp) (circular)
+- Help small mammals survive -- Small survivors
+- Grow new plants from surviving seeds -- Green shoots
 
 **Items**
 - Fallen forest
-  - icon: ![Fallen forest](assets/icons/fallen-forest.webp) (circular)
-  Much of the forest loses its supply of energy. Some seeds, roots and sheltered patches survive; whole communities do not.
+  - icon: ![Fallen forest](assets/icons/large-fallen-forest.webp) (circular)
+  With less sunlight during the impact winter, many forest plants cannot make enough food to survive. Trees die and fall. Some seeds, roots and sheltered patches remain alive, but much of the old forest is lost.
 
   *Fallen forest*
 - Deadwood refuge
   - icon: ![Deadwood refuge](assets/icons/deadwood-refuge.webp) (circular)
-  Fungi draw on energy stored in fallen wood. Damp trunks shelter small lives and feed a web of decomposers and their eaters while fresh growth falters.
+  Fungi break down fallen wood, using the energy stored in it before the impact. Damp trunks also provide shelter. Decomposers and the animals that eat them can survive on this dead material while little new vegetation grows.
 
   *Deadwood refuge*
 - Small survivors
   - icon: ![Small survivors](assets/icons/small-survivors.webp) (circular)
-  Shelter and food webs based on dead matter help some small mammals endure disrupted sunlight. Survival is uneven, not a prize for being the best creature.
+  Some small mammals shelter among fallen trunks and find food in the community of fungi, insects and other decomposers. This food supply depends on dead material, so it can support them when reduced sunlight limits plant growth. Many other animals still die.
 
   *Small survivors*
 - Seed cache
   - icon: ![Seed cache](assets/icons/seed-cache.webp) (circular)
-  Small mammals carry seeds into sheltered stores. Some are eaten; others remain, holding a future the animals did not intend to plant.
+  Surviving small mammals carry seeds into sheltered food stores. They eat some of the seeds, but others remain uneaten and can later germinate.
 
   *Seed cache*
 - Green shoots
   - icon: ![Green shoots](assets/icons/green-shoots.webp) (circular)
-  Seeds that survived begin to grow. Recovery starts from what remains; ash and hope cannot recreate an extinct lineage.
+  Uneaten seeds lie in soil where they can take root. As conditions improve, they germinate and produce new shoots. The new plants descend from those that survived the impact.
 
   *Green shoots*
 
@@ -1181,27 +1077,23 @@ The giants' paths have fallen silent. Among the fallen trees, look for lives tha
 - Small survivors [transform] + Seeds [transform] -> Seed cache
 - Seed cache [transform] + Soil [transform] -> Green shoots
 
-## `c21` A different green
+## Forest recovery and mammal diversity
 
-background: ![green shoots](assets/backgrounds/green-shoots.webp)
+background: ![First regrowth](assets/backgrounds/c21-first-regrowth.webp)
 
-Light returns. New feet cross the giants' old paths; help surviving lives meet one another in a changed forest.
+As sunlight returns, surviving plants regrow and insects resume pollination. Rebuild the forest's food web and follow mammal descendants into the trees, ocean and air.
 
 **Goals**
-- Reconnect a recovering world -- Recovering world
-- Reach the branches, sea and sky
+- Rebuild a forest ecosystem -- Recovering world
+- Develop tree dwellers, whales and bats
   - and: Tree dwellers
   - and: Whales
   - and: Bats
 
-**Hotspots**
-- Flowers (at 50%, 20%)
-  - icon: ![Flowers](assets/icons/fixed-flowers.webp) (circular)
-
 **Items**
 - Pioneer woodland
-  - icon: ![Pioneer woodland](assets/icons/pioneer-woodland.webp) (circular)
-  Fungi break down the old wood around the new shoots, returning nutrients to the soil. Young growth draws on a world that has not finished decaying.
+  - icon: ![Pioneer woodland](assets/icons/large-pioneer-woodland.webp) (circular)
+  Fungi break down old wood around the surviving shoots, returning nutrients to the soil. Young trees use these nutrients as they grow in the open ground. This early stage of forest regrowth is pioneer woodland.
 
   *Pioneer woodland*
 - Returning pollinators
@@ -1210,29 +1102,30 @@ Light returns. New feet cross the giants' old paths; help surviving lives meet o
   - icon: ![Returning fruit](assets/icons/returning-fruit.webp) (circular)
 - Spreading mammals
   - icon: ![Spreading mammals](assets/icons/spreading-mammals.webp) (circular)
-  Surviving mammal lineages diversify into new opportunities. Their earlier ancestors lived alongside the lost giants; the impact did not invent mammals.
+  Fruit provides food for the small mammals that survived the impact. As forests recover, their descendants spread and diversify over many generations. These mammals descend from ancestors that already lived alongside the great browsers.
 
   *Spreading mammals*
 - Tree dwellers
   - icon: ![Tree dwellers](assets/icons/tree-dwellers.webp) (circular)
+  Some mammal descendants live and feed among the branches of the recovering forest. Climbing lets them reach fruit, insects and shelter above the ground.
 - Whales
   - icon: ![Whales](assets/icons/whales.webp) (circular)
-  Across many generations, some mammal lineages return to the water. Whales breathe air and nurse their young; a new habitat does not erase their ancestry.
+  Over many generations, some descendants of land mammals become adapted to feeding and moving in the ocean. These lineages give rise to whales. Whales retain lungs for breathing air and feed their young with milk, as other mammals do.
 
   *Whales*
 - Bats
   - icon: ![Bats](assets/icons/bats.webp) (circular)
-  Another independent route to powered flight opens among mammals. A bat's wing is a modified forelimb, not an insect wing attached to a new owner.
+  Over many generations, some mammal descendants evolve the ability to fly through the air. A bat's wing is a modified forelimb, with a skin membrane supported by long fingers. Bats evolved powered flight separately from birds and insects.
 
   *Bats*
 - New food web
   - icon: ![New food web](assets/icons/new-food-web.webp) (circular)
-  Pollinators help plants set fruit; mammals eat and scatter it, browse new growth and hunt other animals. Feeding paths reconnect through the changed woodland.
+  Returning insects pollinate flowers, allowing plants to produce fruit and seeds. Spreading mammals eat fruit, scatter seeds, browse vegetation and hunt other animals. These feeding relationships form a new food web in the recovering woodland.
 
   *New food web*
 - Recovering world
-  - icon: ![Recovering world](assets/icons/recovering-world.webp) (circular)
-  Pollination, fruit, feeding and dispersal link survivors into new arrangements. The great browsers are absent. Recovery is making another world, not undoing the loss.
+  - icon: ![Recovering world](assets/icons/large-recovering-world.webp) (circular)
+  The pioneer woodland now supports pollination, seed dispersal and interconnected feeding relationships. Plants, insects, mammals and decomposers form a forest ecosystem again. Its populations differ from those of the old forest, and the great browsers remain extinct.
 
   *Recovering world*
 
@@ -1247,53 +1140,62 @@ Light returns. New feet cross the giants' old paths; help surviving lives meet o
 - Returning pollinators [transform] + Spreading mammals [transform] -> New food web
 - New food web [transform] + Pioneer woodland [transform] -> Recovering world
 
-## `c22` When the ice advances
+## Surviving an ice age
 
-background: ![cold heights](assets/backgrounds/cold-heights.webp)
+background: ![Cold foothills](assets/backgrounds/c22-cold-foothills.webp)
 
-Ages pass. The cold heights have kept their glaciers. Now long changes in climate favour snow that survives the summer. As the ice spreads, give different lives more than one way through it.
+The climate cools over many generations, allowing glaciers to expand. Help wildlife survive through migration to warmer refuges and inherited adaptations to the cold.
+
+[If skipped] Some animals survived the ice age in warmer refuges; others descended from populations adapted to the cold. As the ice retreats, these survivors spread into newly exposed land.
 
 **Goals**
-- Carry life through an ice age -- World after the ice
+- Help wildlife survive until the ice retreats -- World after the ice
+
+**Hotspots**
+- Advancing ice (at 50%, 50%)
+  - icon: ![Glacier front](assets/hotspots/c22-advancing-ice.webp)
+  - hitbox: (at 65.4%, 27.5%) (size 38.46%, 12.44%)
+- Variation (at 23%, 31%)
+  - icon: ![Variation in the foothills](assets/hotspots/variation-c22.svg)
+  - hitbox: (at 23%, 31%) (size 34%, 14%)
 
 **Items**
 - Snowfall
   - icon: ![Snowfall](assets/icons/snowfall.webp) (circular)
-  Clouds meet the cold air above the glacier. Ice crystals grow and fall as snow; some will remain after the next summer.
+  Snow forms in the cold clouds above the glacier. Ice crystals grow and fall, adding to the snow already on the ground. Some of this snow remains through the summer.
 
   *Snowfall*
 - Advancing ice
   - icon: ![Advancing ice](assets/icons/advancing-ice.webp) (circular)
-  More snow accumulates than melts. Over long periods it compacts into ice, and the glacier grows outward. An ice age requires a sustained change in this balance, not just one ordinary winter.
+  Repeated snowfall adds more snow to the glacier than melts each year. Over long periods, the accumulated snow compacts into ice and the glacier expands. An ice age requires this balance to persist over many years.
 
   *Advancing ice*
 - River migration
   - icon: ![River migration](assets/icons/river-migration.webp) (circular)
-  River valleys connect feeding grounds with lower, warmer country. Wildlife follows those corridors around the cold heights; a scattered world begins finding routes through the change.
+  Animals in the recovering ecosystems follow river valleys toward lower, warmer land. These valleys provide routes around the cold mountains, with water and feeding grounds along the way.
 
   *River migration*
 - Sheltered oasis
   - icon: ![Sheltered oasis](assets/icons/sheltered-oasis.webp) (circular)
-  Some travellers reach a warmer spring-fed grove, with water, food and dense cover. Moving helps only when a usable route and a suitable destination remain.
+  Migrating animals reach an oasis in a warmer region. A spring supplies water, and the grove provides food and dense cover. This refuge can support animals that could not remain near the advancing ice.
 
   *Sheltered oasis*
 - Varied survivors
   - icon: ![Varied survivors](assets/icons/varied-survivors.webp) (circular)
-  Even within this small lineage, coats differ in thickness. Such inherited differences can matter when conditions change; variation does not wait for the cold to arrive.
+  The surviving small mammals have inherited differences, including variation in coat thickness. These differences are already present before severe cold arrives. They can affect which animals survive and reproduce as the climate changes.
 
   *Varied survivors*
 - Cold-adapted populations
   - icon: ![Cold-adapted populations](assets/icons/cold-adapted-populations.webp) (circular)
-  In these populations, inherited differences affect survival and reproduction over many generations. An individual does not will itself a winter coat, and no useful trait is best in every climate.
+  Near the advancing ice, mammals with thicker inherited coats can survive the cold and reproduce more successfully. Over many generations, those traits become more common in the population. Traits that help in cold conditions may be less useful in warmer climates.
 
   *Cold-adapted populations*
 - Surviving lineages
   - icon: ![Surviving lineages](assets/icons/surviving-lineages.webp) (circular)
+  Migration to warmer refuges and adaptation to colder conditions allow different animal lineages to survive the ice age.
 - World after the ice
-  - icon: ![World after the ice](assets/icons/world-after-the-ice.webp) (circular)
-  You return the Sun's warmth to the cold land. As the ice retreats, surviving lineages spread into the opening ground. Some moved; some descendants changed; others were lost.
-
-  There was no single solution for every living thing.
+  - icon: ![World after the ice](assets/icons/large-world-after-the-ice.webp) (circular)
+  As the climate warms, the Sun's heat melts more ice than snowfall replaces. Glaciers retreat, and surviving populations spread into the exposed land. These include descendants of animals that migrated to refuges and of mammals adapted to the cold. Lost lineages remain extinct.
 
   *World after the ice*
 
@@ -1302,63 +1204,104 @@ Ages pass. The cold heights have kept their glaciers. Now long changes in climat
 - Snowfall [transform] + Glacier [transform] -> Advancing ice
 - Recovering world [transform] + Rivers [transform] -> River migration
 - River migration [transform] + Oasis [transform] -> Sheltered oasis
-- Variation [transform] + Small survivors [transform] -> Varied survivors
-- Varied survivors [transform] + Advancing ice [transform] -> Cold-adapted populations
+- Small survivors [transform] @ Variation [preserve] -> Varied survivors
+- Varied survivors [transform] @ Advancing ice [preserve] -> Cold-adapted populations
 - Sheltered oasis [transform] + Cold-adapted populations [transform] -> Surviving lineages
 - Surviving lineages [transform] + Sun [transform] -> World after the ice
 
-## `c23` Yesterday inside a creature
+## New forests
 
-background: ![world after ice](assets/backgrounds/world-after-ice.webp)
+background: ![Land after ice](assets/backgrounds/c27-land-after-ice.webp)
 
-Look closely at one community among the branches. Let its members remember a place and share a warning before another animal reaches it.
+The ice has retreated, leaving open ground. Spread seeds into suitable soil and establish woodland where animals can find food and shelter.
+
+[If skipped] Woodland has spread across suitable ground exposed by the retreating ice, providing food and shelter for returning wildlife.
 
 **Goals**
-- Let experience guide a return -- Learned path
-- Let a warning help another life -- Social group
+- Grow new forests on the land left by the ice -- New forests
 
-**Hotspots**
-- Tree dwellers (at 50%, 20%)
-  - icon: ![Tree dwellers](assets/icons/fixed-tree-dwellers.webp) (circular)
+**Items**
+- Dormant seeds
+  - icon: ![Dormant seeds](assets/icons/dormant-seeds.webp) (circular)
+  Some seeds remain alive without growing through a cold or dry season. They can germinate when suitable conditions return, although many will die or be eaten before then.
+
+  *Dormant seeds*
+- Scattered seeds
+  - icon: ![Scattered seeds](assets/icons/scattered-seeds.webp) (circular)
+  Animals carry seeds away from the parent trees. Seeds dropped or left in droppings reach new patches of ground, where they may remain dormant until conditions allow them to grow.
+
+  *Scattered seeds*
+- Young grove
+  - icon: ![Young grove](assets/icons/young-grove.webp) (circular)
+  Scattered seeds germinate in soil where warmth and moisture are suitable. The seedlings put down roots and grow leaves, forming a young group of trees.
+
+  *Young grove*
+- New forests
+  - icon: ![New forests](assets/icons/large-forest-beyond-the-horizon.webp) (circular)
+  Trees spread from the young grove onto suitable ground exposed by the retreating ice. Their roots hold soil, their fruit and seeds feed animals, and their branches offer shelter. These woods can support the communities that will live here.
+
+  *New forests*
+
+**Combinations**
+- Seeds [transform] + Seasons [transform] -> Dormant seeds
+- Dormant seeds [transform] + Seed dispersal [transform] -> Scattered seeds
+- Scattered seeds [transform] + Soil [transform] -> Young grove
+- Young grove [transform] + World after the ice [preserve] -> New forests
+
+## Learning and shared warnings
+
+background: ![New forests](assets/backgrounds/c23-new-forests.webp)
+
+In the new forests, tree-dwelling animals learn where to find food and where to hide. Help them remember a route and warn companions about danger.
+
+**Goals**
+- Remember a route to fruit -- Learned path
+- Share warnings within a group -- Social group
 
 **Items**
 - Attention
   - icon: ![Attention](assets/icons/attention.webp) (circular)
+  An animal among the branches focuses on a moving shape instead of every leaf around it. Attention helps it select what to respond to. This scene represents behaviour; it does not explain how conscious experience arises.
+
+  *Attention*
 - Fear
   - icon: ![Fear](assets/icons/fear.webp) (circular)
+  An animal notices a predator and prepares to flee or hide. Recognizing a threat can change what it does before the predator reaches it.
+
+  *Fear*
 - Safety
   - icon: ![Safety](assets/icons/safety.webp) (circular)
-  An animal learns where dense cover conceals it from hunters. The grove offers shelter as well as warmth; safety depends on the danger being faced.
+  A frightened animal takes cover in the sheltered grove. Dense growth can conceal it from a predator, although the same hiding place will not protect it from every danger.
 
   *Safety*
 - Memory
   - icon: ![Memory](assets/icons/memory.webp) (circular)
-  A familiar season returns, and a creature recognizes something it has experienced before. The past can change what it does next. This myth gives memory a single moment of arrival, though learning and memory have many forms and evolutionary histories.
+  A creature recognizes signs of a season it has experienced before and responds using what it learned. Memory lets earlier experience affect its present behaviour. This myth shows memory arriving in one step; in real animals, different forms of learning and memory evolved over long periods.
 
   *Memory*
 - Learned path
   - icon: ![Learned path](assets/icons/learned-path.webp) (circular)
-  Fruit ripens again in a remembered place. An animal returns along a route it learned before the food was visible from here.
+  An animal remembers where it found fruit and follows the same route when fruit ripens again. It can reach a feeding place before the food is close enough to see.
 
   *Learned path*
 - Call
   - icon: ![Call](assets/icons/call.webp) (circular)
-  A frightened animal sends a call through the air. A signal can reach companions that cannot see the danger.
+  A frightened animal calls out, and the sound travels through the air. Companions can hear the signal even when the predator is hidden from them.
 
   *Call*
 - Shared warning
   - icon: ![Shared warning](assets/icons/shared-warning.webp) (circular)
-  Through experience, other animals learn to recognize the alarm. A remembered association lets a sound carry information about danger.
+  Other animals learn to associate a particular call with danger. When they hear it again, they can seek cover without first seeing the predator themselves.
 
   *Shared warning*
 - Social group
   - icon: ![Social group](assets/icons/social-group.webp) (circular)
-  A signal can let one creature benefit from another's experience. Social life also brings conflict; cooperation is an achievement, not automatic harmony.
+  Animals respond to one another's warnings and take shelter together. Living in a group can help them avoid danger, even though members may also compete for food or shelter.
 
   *Social group*
 
 **Combinations**
-- Eyes [transform] @ Tree dwellers [transform] -> Attention
+- Eyes [transform] + Tree dwellers [transform] -> Attention
 - Attention [transform] + Predator and prey [transform] -> Fear
 - Fear [transform] + Sheltered oasis [transform] -> Safety
 - Attention [transform] + Seasons [transform] -> Memory
@@ -1367,68 +1310,88 @@ Look closely at one community among the branches. Let its members remember a pla
 - Call [transform] + Memory [transform] -> Shared warning
 - Shared warning [transform] + Safety [transform] -> Social group
 
-## `c24` The sky looks back
+## Language and discovery
 
-background: ![moon watchers](assets/backgrounds/moon-watchers.webp)
+background: ![Night shore](assets/backgrounds/c24-night-shore.webp)
 
-A creature looks up at the night sky. Give it a way to ask about the lights—and a way to test an answer.
+A community develops language, shares stories and watches the night sky. Help its members track the seasons, then test whether the Moon's phases can help them predict the tides.
+
+[If skipped] A community has used a calendar to predict a larger tidal range near the full Moon, checked the prediction at the shore and shared what it found.
 
 **Goals**
-- Read a year in the sky -- Calendar
-- Let an explanation meet the shore -- Shared discovery
+- Track the seasons with a calendar -- Calendar
+- Test and share a prediction about the tides -- Shared discovery
 
 **Items**
 - Language
-  - icon: ![Language](assets/icons/language.webp) (circular)
-  Here your myth gives shared symbols to a community. The origins of human language remain uncertain; no single signal explains the whole transition.
+  - icon: ![Language](assets/icons/large-language.webp) (circular)
+  Members of a community use words and combine them to express ideas. They can communicate about things that are absent as well as dangers nearby. This myth compresses a major change into one step; the origins of human language remain uncertain, and alarm calls alone do not explain them.
 
   *Language*
 - Story
   - icon: ![Story](assets/icons/story.webp) (circular)
+  Someone describes a remembered event in words, telling others what happened and in what order. Listeners can learn about an experience they did not share and retell it later.
+
+  *Story*
 - Constellations
   - icon: ![Constellations](assets/icons/constellations.webp) (circular)
+  People connect groups of stars with figures from their stories. Named patterns help them recognize and describe parts of the night sky; the figures depend on how people choose to group the stars.
+
+  *Constellations*
 - Calendar
   - icon: ![Calendar](assets/icons/calendar.webp) (circular)
+  People notice which star patterns are visible in the evening as the seasons change. They use these repeating appearances to track the year and anticipate seasonal changes in weather and food.
+
+  *Calendar*
 - Wonder
   - icon: ![Wonder](assets/icons/wonder.webp) (circular)
+  Looking at the stars, people feel amazement and become curious about the world around them. They want to keep watching and understand what they see.
+
+  *Wonder*
 - Question
   - icon: ![Question](assets/icons/question.webp) (circular)
+  Language lets someone put curiosity into words: do changes in the Moon help predict changes at the shore? Other people can understand the question and help investigate it.
+
+  *Question*
 - Lunar rhythm
   - icon: ![Lunar rhythm](assets/icons/lunar-rhythm.webp) (circular)
+  Observers compare the Moon's phases with the difference between high and low tide. Larger tidal ranges recur around full and new Moons, giving them a repeating pattern to investigate.
+
+  *Lunar rhythm*
 - Lunar hypothesis
   - icon: ![Lunar hypothesis](assets/icons/lunar-hypothesis.webp) (circular)
-  The changing tidal range seems connected to the Moon's phases. An explanation should risk a prediction that observation could contradict.
+  The observers propose that the Moon's cycle is connected to changes in tidal range. If the connection is reliable, they should be able to predict when the difference between high and low tide will grow. A prediction gives them something to check, including the possibility that they are wrong.
 
   *Lunar hypothesis*
 - Spring-tide prediction
   - icon: ![Spring-tide prediction](assets/icons/spring-tide-prediction.webp) (circular)
-  Predict a larger difference between high and low tide around the next full Moon than around the quarter Moon. The name spring tide describes the larger range, not the season.
+  Using the Moon cycle they have observed and their calendar, the observers choose dates around the next full Moon. They predict a larger difference between high and low tide than around the quarter Moon. This larger range is called a spring tide; the name does not refer to the season.
 
   *Spring-tide prediction*
 - Observed spring tide
   - icon: ![Observed spring tide](assets/icons/observed-spring-tide.webp) (circular)
-  The observers return to this shore and compare its tidal range over the predicted days. Here the range grows as expected. Local geography affects timing and height; agreement supports a pattern without proving every detail of an explanation.
+  The observers return to the same shore and compare the difference between high and low tide over the predicted days. The range grows as expected. This supports their prediction, though repeated checks are needed and local geography affects the tides' timing and height.
 
   *Observed spring tide*
 - Shared discovery
   - icon: ![Shared discovery](assets/icons/shared-discovery.webp) (circular)
-  The observers tell others what they expected and what they found. Others can return to the same shore, check the claim and ask a harder question.
+  The observers explain their prediction and describe the tides they actually saw. Other people can repeat the observation at the same shore, check the result and use it to make further predictions.
 
-  An answer about your world can travel without passing through you.
+  The community can now investigate the world and share discoveries without waiting for you to provide an answer.
 
   *Shared discovery*
 - Night vision
   - icon: ![Night vision](assets/icons/night-vision.webp) (circular)
-  You let a lineage make better use of dim light. Moonlight can illuminate its path, but sensitivity in the eyes makes the difference; the Moon does not lend an animal its sight.
+  An animal with eyes sensitive to dim light can see by moonlight. The Moon illuminates its surroundings, while the animal's eyes detect the faint reflected light. The combination represents seeing in moonlight; sensitivity to dim light is a trait of the animal's eyes.
 
   *Night vision*
 
 **Combinations**
 - Social group [transform] + Call [transform] -> Language
 - Language [transform] + Memory [transform] -> Story
-- Story [transform] + Starfield [transform] -> Constellations
+- Story [transform] + Stars [transform] -> Constellations
 - Constellations [transform] + Seasons [transform] -> Calendar
-- Eyes [transform] + Starfield [transform] -> Wonder
+- Eyes [transform] + Stars [transform] -> Wonder
 - Wonder [transform] + Language [transform] -> Question
 - Tides [transform] + Moon [transform] -> Lunar rhythm
 - Question [transform] + Lunar rhythm [transform] -> Lunar hypothesis
@@ -1437,147 +1400,114 @@ A creature looks up at the night sky. Give it a way to ask about the lights—an
 - Observed spring tide [transform] + Language [transform] -> Shared discovery
 - Moon [transform] + Eyes [transform] -> Night vision
 
-## `c25` Things you did not imagine
+## `dark-cave-chapter` Pictures, songs and teaching
 
-background: ![cave before painting](assets/backgrounds/cave-before-painting.webp)
+background: ![Deep inside the cave](assets/backgrounds/c25-unlit.webp)
 
-Return to the sea cave your waves carved long ago. Its dry walls can hold an image; its chambers can send a voice back.
+Enter the cave to paint, make a song and pass on what the community has learned. Bring fire into its dark interior to light the painting wall.
 
 **Goals**
-- Let them paint an impossible creature -- Imagined beast
-- next: Let them colour a sky of their own -- Painted sky
-- Let separate voices make a song -- Chorus
+- Light the cave for painting -- Cave
+- next: Paint an animal from memory -- Painted cave
+- next: Add stars to the painting -- Painted cave with stars
+- Make a song -- Song
+- Pass on what the community has learned -- Teaching
+- (three goals are a lot but okay here because painting, song and teaching are independent achievements that can be pursued in any order)
 
 **Hotspots**
-- Sea cave (at 50%, 20%)
-  - icon: ![Sea cave](assets/icons/fixed-sea-cave.webp) (circular)
+- `cave` (at 50%, 50%)
+  - icon: ![Dark cave](assets/hotspots/receiver.png)
+  - hitbox: (at 54%, 30%) (size 78%, 30%)
+- Cave (at 50%, 50%)
+  - icon: ![Cave](assets/hotspots/c25-lit.webp)
+  - hitbox: (at 54%, 30%) (size 78%, 30%)
+- Painted cave (at 50%, 50%)
+  - icon: ![Painted cave](assets/hotspots/c25-painted.webp)
+  - hitbox: (at 54%, 30%) (size 78%, 30%)
+- Painted cave with stars (at 50%, 50%)
+  - icon: ![Painted cave with stars](assets/hotspots/c25-stars.webp)
+  - hitbox: (at 54%, 30%) (size 78%, 30%)
 
 **Items**
+- Cave
+  Torchlight reveals the cave's dry inner walls. People can see the rock surface and the marks they paint on it.
+
+  *Cave*
 - Pigment
   - icon: ![Pigment](assets/icons/pigment.webp) (circular)
-  Coloured mineral earth mixed with water can leave a mark. You have made a colour that can be carried; it has no painter yet.
+  Weathered rock supplies fine coloured grains. Mixed with water, these grains make a paint that can leave a coloured mark on the cave wall.
 
   *Pigment*
-- Cave painting
-  - icon: ![Cave painting](assets/icons/cave-painting.webp) (circular)
-- Imagined beast
-  - icon: ![Imagined beast](assets/icons/imagined-beast.webp) (circular)
-  Memory supplies familiar parts; a story joins them into a creature no one has seen. Your makers have made something you never put in their forest.
+- Painted cave
+  Using rock pigment, a painter puts the shape of a remembered animal on the cave's dry upper wall. Other people can look at the image and recognize an animal that is not there.
 
-  *Imagined beast*
+  *Painted cave*
+- Painted cave with stars
+  The painters add dots to stand for stars around the animal already on the wall. The picture now brings together things they have seen on the land and in the night sky.
+
+  *Painted cave with stars*
+
 - Echo
   - icon: ![Echo](assets/icons/echo.webp) (circular)
-  The rock sends a voice back. An ordinary reflected sound can become something its listeners choose to repeat.
+  A call reflects from the cave walls and returns to the caller after a short delay. The listener hears the sound again as an echo.
 
   *Echo*
 - Song
   - icon: ![Song](assets/icons/song.webp) (circular)
-  A listener remembers the returning phrase, changes its rhythm and sings it again. The cave gives back an echo; the singer gives back a pattern worth repeating.
+  A listener remembers the echoed sounds and repeats them in a chosen rhythm. The singer can repeat the pattern, change it and teach it to someone else.
 
   *Song*
-- Chorus
-  - icon: ![Chorus](assets/icons/chorus.webp) (circular)
-  Separate voices keep a shared pattern alive. The music belongs to their listening as much as to any one singer.
-
-  *Chorus*
-- Painted sky
-  - icon: ![Painted sky](assets/icons/painted-sky.webp) (circular)
-  Their sky can carry impossible stars. A picture can answer to imagination as well as to observation.
-
-  *Painted sky*
-
-**Combinations**
-- Earth + Water -> Pigment
-- Pigment [transform] + Memory [transform] @ Sea cave -> Cave painting
-- Cave painting [transform] + Story [transform] -> Imagined beast
-- Call [transform] @ Sea cave -> Echo
-- Echo [transform] + Memory [transform] -> Song
-- Song [transform] + Social group [transform] -> Chorus
-- Pigment [transform] + Starfield [transform] @ Sea cave -> Painted sky
-
-## `c26` The next verse
-
-background: ![cave after painting](assets/backgrounds/cave-after-painting.webp)
-
-Listen to what a new generation does with an old song.
-
-**Goals**
-- Let the next generation change the song -- Children's chorus
-
-**Items**
 - Teaching
   - icon: ![Teaching](assets/icons/teaching.webp) (circular)
-- New question
-  - icon: ![New question](assets/icons/new-question.webp) (circular)
-  A learner receives an answer and finds something else to ask. Teaching has carried curiosity forward, not completed it.
+  People explain a discovery by telling how they made their prediction and checked it. They also pass on skills, showing others what to do and letting them practise.
 
-  *New question*
-- Remembered song
-  - icon: ![Remembered song](assets/icons/remembered-song.webp) (circular)
-  The first singers fall silent, but their listeners keep the pattern. A song can outlive the breath that began it.
-
-  *Remembered song*
-- Changed song
-  - icon: ![Changed song](assets/icons/changed-song.webp) (circular)
-  Someone asks why the song must always end the same way, then tries a different ending. What they inherited has become material for a new creation.
-
-  *Changed song*
-- Children's chorus
-  - icon: ![Children's chorus](assets/icons/childrens-chorus.webp) (circular)
-  Children learn the changed song and sing it together. It will be remembered differently, and changed again.
-
-  You did not choose the next verse.
-
-  *Children's chorus*
+  *Teaching*
 
 **Combinations**
+- Fire @ `cave` [transform] -> Cave
+- Weathered rock [transform] + Water -> Pigment
+- Pigment [transform] + Memory [transform] @ Cave [transform] -> Painted cave
+- Stars [transform] @ Painted cave [transform] -> Painted cave with stars
+- Call [transform] @ `cave` -> Echo
+- Call [transform] @ Cave -> Echo
+- Call [transform] @ Painted cave -> Echo
+- Call [transform] @ Painted cave with stars -> Echo
+- Echo [transform] + Memory [transform] -> Song
 - Shared discovery [transform] + Story [transform] -> Teaching
-- Teaching [transform] + Question [transform] -> New question
-- Memory [transform] + Chorus [transform] -> Remembered song
-- Remembered song [transform] + New question [transform] -> Changed song
-- Changed song [transform] + Social group [transform] -> Children's chorus
 
-## `c27` The hand opens
+## A day of rest
 
-background: ![open horizon](assets/backgrounds/open-horizon.webp)
+background: ![People gathered outside the cave](assets/backgrounds/c26-rest.webp)
 
-You can still move mountains. Watch instead where a seed goes next.
+The work is done. The people gather around a campfire outside the cave to rest and sing.
 
 **Goals**
-- Let growth continue beyond your view -- Forest beyond the horizon
+- Sing together -- Shared song
+- next: Sing about creation -- Song of creation
 
 **Hotspots**
-- World after the ice (at 50%, 20%)
-  - icon: ![World after the ice](assets/icons/fixed-world-after-the-ice.webp) (circular)
+- Social group (at 50%, 56%)
+  - icon: ![Gathered people](assets/hotspots/receiver.png)
+  - hitbox: (at 50%, 56%) (size 76%, 14%)
 
 **Items**
-- Dormant seeds
-  - icon: ![Dormant seeds](assets/icons/dormant-seeds.webp) (circular)
-  Some seeds can wait through unfavourable conditions. Dormancy is a living pause, not a promise that every seed will survive.
+- Shared song
+  - icon: ![Shared song](assets/icons/chorus.webp) (circular)
+  One singer starts; others learn the song and join in. By listening to one another and adjusting their timing, they bring their voices together.
 
-  *Dormant seeds*
-- Scattered seeds
-  - icon: ![Scattered seeds](assets/icons/scattered-seeds.webp) (circular)
-- Young grove
-  - icon: ![Young grove](assets/icons/young-grove.webp) (circular)
-- Forest beyond the horizon
-  - icon: ![Forest beyond the horizon](assets/icons/forest-beyond-the-horizon.webp) (circular)
-  Trees establish beyond the edge of your view. Their seeds will travel too; their fallen wood will feed lives you are no longer arranging.
+  *Shared song*
+- Song of creation
+  - icon: ![Song of creation](assets/icons/large-changed-song.webp) (circular)
+  They sing about the world and their place in it, as they understand it.
 
-  You open your hand. Something keeps growing.
-
-  *Forest beyond the horizon*
+  *Song of creation*
 
 **Combinations**
-- Seeds [transform] + Seasons [transform] -> Dormant seeds
-- Dormant seeds [transform] + Seed dispersal [transform] -> Scattered seeds
-- Scattered seeds [transform] + Soil [transform] -> Young grove
-- Young grove [transform] @ World after the ice -> Forest beyond the horizon
+- Song [transform] @ Social group -> Shared song
+- Shared song [transform] + Wonder [transform] -> Song of creation
 
 ## The End
 
-background: ![A world that keeps creating](assets/backgrounds/world-continues.webp)
+background: ![Creation](assets/backgrounds/ending-song.webp)
 
-The stars have not stopped forging elements. Water is still finding the sea. Somewhere, a creature is learning a song you have never heard.
-
-You began with four gifts. You leave a world that can give.
+You began with Earth, Air, Fire and Water. Now, in the world you made, people sing their song of creation.

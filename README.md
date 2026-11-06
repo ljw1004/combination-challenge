@@ -32,7 +32,7 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **No Fixed Address** follows a repairer, a discarded AI and a neighborhood preparing to lose its corporate service credentials at dawn: `/make-something.html?story=stories/cyberpunk/cyberpunk.md`. Its 219 combinations use 202 circular illustrations and nine backgrounds in a worn cyan-and-amber printshop style. See the [story](stories/cyberpunk/cyberpunk.md), [design brief](stories/cyberpunk/design-brief.md) and [completed development study](<archive/2026.11.05 cyberpunk study/README.md>).
 
-**Creation** gives you Earth, Air, Fire and Water to make stars, a living world and minds that begin creating for themselves: `/make-something.html?story=stories/creation/creation.md`. Its 202 combinations, 206 circular illustrations and 22 landscapes use a luminous painted celestial atlas. See the [story](stories/creation/creation.md), [design brief](stories/creation/design-brief.md) and [completed development study](<archive/2026.11.05 creation study/README.md>).
+**Creation** gives you Earth, Air, Fire and Water to make stars, a living world and minds that begin creating for themselves: `/make-something.html?story=stories/creation/creation.md`. Its 187 combinations across 26 chapters use 182 circular illustrations, 22 painted backgrounds and evolving landscape hotspots. See the [story](stories/creation/creation.md), [design brief](stories/creation/design-brief.md) and [completed revision study](<archive/2026.11.05 creation revision/README.md>).
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 

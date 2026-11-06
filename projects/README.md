@@ -4,8 +4,6 @@ This index describes live projects only. Each project keeps its briefs, research
 
 - [Cosmic narrative redevelopment](cosmic-study/README.md): contrasting literary stories and conceptual combination designs in response to human feedback about clarity, primitive overload and the missing narrative hook.
 
-- [Creation revision](creation-study/README.md): original elemental mythology, movable large symbols, a landscape cave, process clarity and clean deterministic icon framing, developed through fresh playtests and audits after human feedback.
-
 - [Cyberpunk reconsideration](cyberpunk-study/README.md): divergent futuristic story concepts whose narrative follows the continuing lives of combined creations, with successive fresh reviews after human play feedback.
 
 - [Theology study](theology-study/README.md): continuing development of Theology: Disputed Questions, with two completed revision/evaluation cycles, structured player responses, graded chapter reports and current recommendations.
