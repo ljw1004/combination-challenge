@@ -2,7 +2,7 @@ import type {Ref, Story} from '../story/types.ts';
 import type {Action, State} from '../engine/types.ts';
 import {activeHotspots, background, chapterNeeds, indexStory} from '../engine/analysis.ts';
 import {availableTokens, chapterComplete, legalActions, recipeFor} from '../engine/game.ts';
-import {itemPresentation} from '../engine/presentation.ts';
+import {hotspotIconVariants, hotspotPresentation, itemPresentation} from '../engine/presentation.ts';
 import {markdown} from './markdown.ts';
 import {hotspotDefinition, presentHotspots} from '../engine/fixed-items.ts';
 
@@ -15,9 +15,9 @@ function readingImages(text: string): string[] {
   markdown(text, path => { paths.push(path); return path; });
   return paths;
 }
-function sceneImages(story: Story, chapter: number, state?: State): string[] {
-  const ids = state ? presentHotspots(story,state,chapter) : activeHotspots(story,chapter);
-  return [background(story, chapter), ...ids.map(id => hotspotDefinition(story,chapter,id).icon?.url)].filter((url): url is string => !!url);
+function sceneImages(story: Story, chapter: number, state: State, declared = false): string[] {
+  const ids = declared ? activeHotspots(story,chapter) : presentHotspots(story,state,chapter);
+  return [background(story, chapter), ...ids.map(id => hotspotPresentation(story,state,chapter,id).icon?.url)].filter((url): url is string => !!url);
 }
 
 export function coverArtwork(story: Story): string[] {
@@ -32,19 +32,31 @@ export function currentArtwork(story: Story, state: State): string[] {
     ...readingImages(state.pending[0]?.markdown ?? '')];
 }
 
+/** A discovery or newly supplied primitive can change an earlier board too. */
+export function changedHotspotArtwork(story: Story, before: State, after: State): string[] {
+  return after.visited.flatMap(chapter => presentHotspots(story,after,chapter).flatMap(id => {
+    const previous = hotspotPresentation(story,before,chapter,id).icon?.url, next = hotspotPresentation(story,after,chapter,id).icon?.url;
+    return next && next !== previous ? [next] : [];
+  }));
+}
+
 export function lookaheadArtwork(story: Story, state: State, started: boolean): string[] {
   if (!started) return currentArtwork(story, state);
   const paths = legalActions(story, state).flatMap(action => resultArtwork(story, state, action));
   let chapter = state.chapter + 1;
   while (chapter < story.chapters.length && story.chapters[chapter].goals.length && chapterComplete(story, state, chapter)) chapter++;
   if (chapter < story.chapters.length) {
-    paths.push(...sceneImages(story, chapter), ...readingImages(story.chapters[chapter].intro));
     const primitives = indexStory(story).primitives;
+    const arriving = {...state, chapter, tokens: {...state.tokens}};
     for (const id of chapterNeeds(story, state, chapter)) {
-      if (primitives.has(id) && !state.tokens[id] && !state.excluded.includes(id)) paths.push(...itemImages(story, chapter, {id, slots: []}));
+      if (primitives.has(id) && !state.tokens[id] && !state.excluded.includes(id)) {
+        paths.push(...itemImages(story, chapter, {id, slots: []}));
+        arriving.tokens[id] = {id, slots: [], chapter, status: 'available', x: 0, y: 0};
+      }
       const token = state.tokens[id];
       if (token?.status === 'available' && itemPresentation(story, chapter, id).icon?.url !== itemPresentation(story, state.chapter, id).icon?.url) paths.push(...itemImages(story, chapter, token));
     }
+    paths.push(...sceneImages(story, chapter, arriving, true), ...readingImages(story.chapters[chapter].intro));
   }
   return paths;
 }
@@ -56,8 +68,13 @@ export function resultArtwork(story: Story, state: State, action: Action): strin
   const ref = {id: recipe.result.id, slots: [...recipe.result.slots,
     ...(recipe.installation ? state.tokens[recipe.result.id]?.slots ?? [] : [])]};
   const receivingChapter=state.tokens[action.b??action.hotspot??action.a].chapter;
-  const fixedIcon=activeHotspots(story,receivingChapter).includes(ref.id)?hotspotDefinition(story,receivingChapter,ref.id).icon?.url:undefined;
-  return [...(fixedIcon?[fixedIcon]:[]), ...itemImages(story, state.chapter, ref), ...story.items[ref.id].wonders
+  // Project only creation/fitting for artwork. No cleanup or continuation search is needed.
+  const after = {...state, tokens: {...state.tokens, [ref.id]: {
+    ...(recipe.installation ? state.tokens[ref.id] : {chapter: receivingChapter, x: 0, y: 0}), ...ref, status: 'available' as const,
+  }}};
+  const fixedIcon=activeHotspots(story,receivingChapter).includes(ref.id)?hotspotPresentation(story,after,receivingChapter,ref.id).icon?.url:undefined;
+  const changed = changedHotspotArtwork(story,state,after);
+  return [...changed, ...(fixedIcon?[fixedIcon]:[]), ...itemImages(story, state.chapter, ref), ...story.items[ref.id].wonders
     .filter(wonder => wonder.requires.every(slot => ref.slots.includes(slot)) && !state.seen.includes(`wonder:${ref.id}:${wonder.source.line}`))
     .flatMap(wonder => readingImages(wonder.markdown))];
 }
@@ -71,7 +88,7 @@ export function scrollbackArtwork(story: Story, state: State): string[] {
 /** Geometry lint only needs declared placement surfaces, and runs when the editor is open. */
 export function placementArtwork(story: Story): string[] {
   return story.chapters.flatMap((c, chapter) => c.hotspots.flatMap(id => {
-    const h = hotspotDefinition(story,chapter,id), icon=h.icon??itemPresentation(story,chapter,id).icon;
-    return h.placements?.length ? [background(story,chapter),icon?.url].filter((url):url is string=>!!url) : [];
+    const h = hotspotDefinition(story,chapter,id);
+    return h.placements?.length ? [background(story,chapter), ...hotspotIconVariants(story,chapter,id).map(icon => icon?.url)].filter((url):url is string=>!!url) : [];
   }));
 }

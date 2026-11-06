@@ -76,7 +76,8 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     story.sourceReferences.push(reference);
     options.onReference?.(reference);
   }
-  function ref(raw: string, line: number, kind: 'item' | 'hotspot' = 'item', mode: 'reference' | 'hotspot-declaration' | 'placement' = 'reference', role: ReferenceRole = 'reference', from = startOf(raw, line)): Ref {
+  function ref(raw: string, line: number, kind: 'item' | 'hotspot' = 'item', mode: 'reference' | 'hotspot-declaration' | 'placement' | 'appearance' = 'reference', role: ReferenceRole = 'reference', from = startOf(raw, line)): Ref {
+    const referenceOnly = mode === 'placement' || mode === 'appearance';
     let text = unquote(raw.trim()), exclusive: string | undefined, compound = false;
     from += Math.max(0, raw.indexOf(text));
     let exclusiveFrom = from;
@@ -95,17 +96,17 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     let slots: string[] = [];
     if ((match = /\[([^\[\]]*)\]$/.exec(text))) {
       const slotsFrom = from + match.index + 1;
-      slots = match[1].trim() ? splitLocated(match[1], ',').map(part => ref(part.text, line, 'item', mode === 'placement' ? mode : 'reference', 'fitted', slotsFrom + part.from).id) : [];
+      slots = match[1].trim() ? splitLocated(match[1], ',').map(part => ref(part.text, line, 'item', referenceOnly ? mode : 'reference', 'fitted', slotsFrom + part.from).id) : [];
       text = text.slice(0, match.index);
     }
     const unquoted = unquote(text); from += Math.max(0, text.indexOf(unquoted)); text = unquoted;
     const named = /^`([^`]+)`(?:\s+(.+))?$/.exec(text), id = named ? `id:${named[1]}` : `name:${text}`;
     const name = named ? unquote(named[2] ?? named[1]) : text;
-    const declaration = mode !== 'placement' && (!!named?.[2] || (!named && role === 'declaration'));
+    const declaration = !referenceOnly && (!!named?.[2] || (!named && role === 'declaration'));
     record(id, kind, role === 'declaration' && !declaration ? 'reference' : role, from, from + text.length, declaration);
     if (!text) error('empty-reference', 'Expected a named item or hotspot.', line);
-    if (mode === 'placement') {
-      if (named?.[2] || exclusive || compound) error('place-syntax', 'place: accepts an item reference, not an item declaration or qualifier.', line, raw);
+    if (referenceOnly) {
+      if (named?.[2] || exclusive || compound) error(mode === 'placement' ? 'place-syntax' : 'conditional-icon-syntax', `${mode === 'placement' ? 'place:' : 'icon after creating'} accepts an item reference, not an item declaration or qualifier.`, line, raw);
       return {id, slots};
     }
     if (named?.[2]) {
@@ -274,6 +275,10 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     }
   }
   function itemNode(node: Bullet, parent?: Ref, at?: string, topLevelItem = false): Ref | undefined {
+    if (/^icon\s+after\b/.test(node.text)) {
+      error('conditional-icon-context', 'icon after creating belongs directly beneath a Hotspots declaration.', node.line, node.text);
+      return;
+    }
     if (/^hitbox\s*:/.test(node.text)) {
       error('hitbox-context', 'hitbox: belongs directly beneath a Hotspots declaration.', node.line, node.text);
       return;
@@ -468,6 +473,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       }
       if (/^place\s*:/.test(node.text)) { error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
       if (/^hitbox\s*:/.test(node.text)) { error('hitbox-context', 'hitbox: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
+      if (/^icon\s+after\b/.test(node.text)) { error('conditional-icon-context', 'icon after creating belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
       if (/^(?:from|after)\s+chapter\b/.test(node.text)) { error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration.', node.line, node.text); continue; }
       const h = ref(node.text, node.line, 'hotspot', 'hotspot-declaration', 'declaration'); chapter.hotspots.push(h.id);
       const coordinate = /\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(node.text);
@@ -477,7 +483,23 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
         ...(coordinate ? {x: +coordinate[1] / 100, y: +coordinate[2] / 100} : {})};
       wonder(story.items[h.id], node.prose, node.line);
       for (const child of node.children) {
-        if (/^icon\s*:/.test(child.text)) assignIcon(definition, child);
+        if (/^icon\s+after\b/.test(child.text)) {
+          const prefix = 'icon after creating ', rest = child.text.slice(prefix.length), parts = splitLocated(rest, ':');
+          if (!child.text.startsWith(prefix) || parts.length !== 2 || !parts[0].text || !parts[1].text || child.children.length || child.prose.some(part => part.text.trim())) {
+            error('conditional-icon-syntax', 'Use icon after creating Reference: ![icon](path), optionally followed by (circular), without nested content.', child.line, child.text);
+            continue;
+          }
+          const after = ref(parts[0].text, child.line, 'item', 'appearance', 'appearance', startOf(child.text, child.line) + prefix.length + parts[0].from);
+          const value = icon(`icon: ${parts[1].text}`, child.line);
+          if (value) {
+            value.source = source(child.line, child.text);
+            (definition.iconChanges ??= []).push({after, icon: value, source: value.source});
+          }
+        }
+        else if (/^icon\s*:/.test(child.text)) {
+          if (definition.iconChanges?.length) error('hotspot-icon-order', 'The ordinary hotspot icon must precede its conditional icons, including across repeated declarations in this chapter.', child.line, child.text);
+          else assignIcon(definition, child);
+        }
         else if (/^hitbox\s*:/.test(child.text)) {
           const match = /^hitbox:\s*\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)\s*\(size (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(child.text);
           if (!match || child.children.length || child.prose.some(part => part.text.trim())) {

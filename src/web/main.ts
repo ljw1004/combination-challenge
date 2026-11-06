@@ -5,9 +5,9 @@ import './item-artwork.css';
 import { parseStory } from '../story/parser.ts';
 import type { Story } from '../story/types.ts';
 import { newGame, act, availableTokens, label, chapterComplete, readings, matches, recipeFor } from '../engine/game.ts';
-import {hotspotDefinition, isFixed, presentHotspots} from '../engine/fixed-items.ts';
+import {isFixed, presentHotspots} from '../engine/fixed-items.ts';
 import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
-import { itemPresentation } from '../engine/presentation.ts';
+import { hotspotPresentation, itemPresentation } from '../engine/presentation.ts';
 import type { State, Action } from '../engine/types.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
 import { LiveDiagnostics } from './live-diagnostics.ts';
@@ -26,7 +26,7 @@ import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
 import { IconNames } from './icon-names.ts';
-import {coverArtwork, currentArtwork, lookaheadArtwork, placementArtwork, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
+import {coverArtwork, currentArtwork, changedHotspotArtwork, lookaheadArtwork, placementArtwork, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
 import { arrivalLayout } from './arrival-layout.ts';
 import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard, sceneSize } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
@@ -590,7 +590,7 @@ function refreshDialog() {
 }
 function preferredPosition(id: string, hotspot: string | undefined, chapter: number) {
   if (!hotspot) return;
-  const h = hotspotDefinition(story,chapter,hotspot), token = state.tokens[id], el = tile(id);
+  const h = fixedPresentation(chapter,hotspot), token = state.tokens[id], el = tile(id);
   const place = h?.placements?.find(p => p.item.id === id && matches(token, p.item));
   const location = [...(panel(chapter)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(el => el.dataset.hotspot === hotspot);
   if (!place || !el || !location) return;
@@ -616,7 +616,7 @@ function commit(action: Action) { try {
   }
   if (isNoopMove(state, action)) { inputTrace?.record('commit:noop',{action}); render(); return; }
   const before = state, previous = state.chapter, next = act(story, state, action);
-  withArtwork([...currentArtwork(story, next), ...resultArtwork(story, before, action)], () => {
+  withArtwork([...currentArtwork(story, next), ...resultArtwork(story, before, action), ...changedHotspotArtwork(story, before, next)], () => {
     const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
     const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
     state = next; noteChapterAction(chapterSession, before, action);
@@ -755,9 +755,7 @@ function restartChapter() {
   });
 }
 function fixedPresentation(chapter:number,id:string){
-  const definition=hotspotDefinition(story,chapter,id),token=state.tokens[id];
-  return {...definition,name:name(id),icon:definition.icon??itemPresentation(story,state.chapter,id).icon,
-    ...(token.fixedPosition?token.fixedPosition:{})};
+  return hotspotPresentation(story,state,chapter,id);
 }
 function fixedHTML(chapter:number,id:string){
   const h=fixedPresentation(chapter,id),item=story.items[id],token=state.tokens[id];
@@ -837,7 +835,7 @@ function dropTargets(scene:HTMLElement,chapter:number):DropTarget<HTMLElement>[]
       const rect=el.getBoundingClientRect();
       // Stations share the circle/rectangle and minimum-touch-area geometry used by lint/layout.
       const region=el.dataset.hotspot
-        ? hotspotRect(hotspotDefinition(story,chapter,el.dataset.hotspot),0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')},boardGeometry(chapter).cover?1:1/boardGeometry(chapter).scale)
+        ? hotspotRect(fixedPresentation(chapter,el.dataset.hotspot),0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')},boardGeometry(chapter).cover?1:1/boardGeometry(chapter).scale)
         : {x:rect.x,y:rect.y,width:rect.width,height:rect.height};
       if(el.dataset.hotspot){region.x=rect.x+(rect.width-region.width)/2;region.y=rect.y+(rect.height-region.height)/2;}
       return {value:el,item:el.dataset.item,hotspot:el.dataset.hotspot,chapter,region,zIndex:Number(getComputedStyle(el).zIndex)||0};

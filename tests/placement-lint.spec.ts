@@ -35,6 +35,14 @@ ${icon ? `  - icon: ![area](${icon})\n` : ''}  - place: A (at ${x}%, 50%)
     const diagnostics=await checker.lint(repeated);
     expect(diagnostics.map(d=>d.code)).toEqual(['place-outside-hotspot']);
     expect(diagnostics[0].message).toContain('Second');
+    // Conditional artwork must be checked at its own size, even before its
+    // trigger has been created. The initial wider icon alone would pass.
+    const conditional = story('hit.svg',60);
+    const source = conditional.hotspots['name:H'].source;
+    conditional.hotspots['name:H'].iconChanges = [{after:{id:'name:A',slots:[]},icon:{url:'tiny.svg',circular:false,source},source}];
+    const conditionalDiagnostics = await checker.lint(conditional);
+    expect(conditionalDiagnostics.map(d=>d.code)).toEqual(['place-outside-hotspot']);
+    expect(conditionalDiagnostics[0].message).toContain('tiny.svg');
     // A wide scene has a shorter coordinate space; vertical placement lint
     // must use its natural aspect ratio, just like the visible receiver.
     writeFileSync(join(directory,'wide.svg'),'<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768"></svg>');

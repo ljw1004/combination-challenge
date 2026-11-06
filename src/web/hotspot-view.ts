@@ -1,13 +1,13 @@
 import type {Hotspot, Story} from '../story/types.ts';
 import {escape} from './markdown.ts';
 import {activeHotspots, hotspotDefinition} from '../engine/fixed-items.ts';
-import {itemPresentation} from '../engine/presentation.ts';
+import {hotspotIconVariants, itemPresentation} from '../engine/presentation.ts';
 import {referenceBoard} from './board-geometry.ts';
 import {validHitbox} from '../story/hotspot-hitbox.ts';
 
 export interface Rect {x: number; y: number; width: number; height: number}
 export interface HotspotRegion extends Rect {circular?: boolean}
-export interface HotspotMeasurement {id: string; chapter: number; width: number; height: number; circular?: boolean; scene?: {width:number;height:number}}
+export interface HotspotMeasurement {id: string; chapter: number; variant?: number; width: number; height: number; circular?: boolean; scene?: {width:number;height:number}}
 export interface HotspotVisual {className: string; style: string; html: string}
 
 export function iconDimensions(width: number, height: number, fixed = false) {
@@ -59,11 +59,14 @@ export function hotspotHTML(h: Hotspot, index: number, visual: HotspotVisual, bo
   return `<div class="hotspot ${visual.className}${box?' hotspot-hitbox':''}" data-hotspot="${escape(h.id)}" tabindex="0" role="img" aria-label="${escape(h.name)}" style="left:${x-bounds.x}px;top:${y}px;${visual.style}${receivingStyle}">${visual.html}</div>`;
 }
 
-/** All declared surfaces, including unvisited ones, at the canonical 390px width. */
+/** All declared surfaces and artwork variants at the canonical 390px width. */
 export function hotspotProbeHTML(story: Story, visual: (h: Hotspot) => HotspotVisual, size: (chapter:number) => {width:number;height:number} = () => referenceBoard) {
   return story.chapters.map((chapter, i) => `<section class="chapter-panel" data-chapter="${i}" data-scene-height="${size(i).height}">${[...new Set(chapter.hotspots)].filter(id => hotspotDefinition(story,i,id).placements?.length).map(id => {
-    const definition=hotspotDefinition(story,i,id), item=itemPresentation(story,i,id), h={...definition,name:item.name,icon:definition.icon??item.icon};
-    return hotspotHTML(h, activeHotspots(story,i).indexOf(id), visual(h), {...referenceBounds,...size(i)}, size(i));
+    const definition=hotspotDefinition(story,i,id), item=itemPresentation(story,i,id);
+    return hotspotIconVariants(story,i,id).map((icon, variant) => {
+      const h={...definition,name:item.name,icon};
+      return `<div data-icon-variant="${variant}">${hotspotHTML(h, activeHotspots(story,i).indexOf(id), visual(h), {...referenceBounds,...size(i)}, size(i))}</div>`;
+    }).join('');
   }).join('')}</section>`).join('');
 }
 
@@ -71,6 +74,6 @@ export function hotspotProbeHTML(story: Story, visual: (h: Hotspot) => HotspotVi
 export function measureHotspots(root: ParentNode): HotspotMeasurement[] {
   return [...root.querySelectorAll<HTMLElement>('[data-hotspot]')].map(el => {
     const {width, height} = el.getBoundingClientRect();
-    return {id: el.dataset.hotspot!, chapter: Number(el.closest<HTMLElement>('[data-chapter]')!.dataset.chapter), width, height, circular: el.classList.contains('hotspot-circular'), scene: {width:390,height:Number(el.closest<HTMLElement>('[data-chapter]')!.dataset.sceneHeight)||844}};
+    return {id: el.dataset.hotspot!, chapter: Number(el.closest<HTMLElement>('[data-chapter]')!.dataset.chapter), variant: Number(el.closest<HTMLElement>('[data-icon-variant]')?.dataset.iconVariant ?? 0), width, height, circular: el.classList.contains('hotspot-circular'), scene: {width:390,height:Number(el.closest<HTMLElement>('[data-chapter]')!.dataset.sceneHeight)||844}};
   });
 }

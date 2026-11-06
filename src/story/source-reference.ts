@@ -1,6 +1,6 @@
 import type { Source, TextSpan } from './types.ts';
 
-export type ReferenceRole = 'declaration' | 'reference' | 'reagent' | 'result' | 'goal' | 'context' | 'slot' | 'fitted' | 'exclusion' | 'placement' | 'reading';
+export type ReferenceRole = 'declaration' | 'reference' | 'reagent' | 'result' | 'goal' | 'context' | 'slot' | 'fitted' | 'exclusion' | 'placement' | 'reading' | 'appearance';
 
 /** Authored occurrences, independent of recipe deduplication and editor state. */
 export interface SourceReference {
