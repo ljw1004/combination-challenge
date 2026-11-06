@@ -90,7 +90,7 @@ The completed [pencil-station rollout](<../archive/2026.11.01 cookbook study/pen
 
 ## Story ideas worth retaining
 
-Cosmic's first production was completed as [A Sea Beneath the Moon](../stories/cosmic/cosmic.md); its [archived study](<../archive/2026.11.05 cosmic study/README.md>) preserves that work. Subsequent human feedback found primitive overload, confusing process/object representation and insufficient narrative drive. The [active narrative redevelopment](cosmic-study/README.md) now compares divergent cosmic prose and conceptual combinations before further production. The outstanding question is whether the new narrative can support understandable, worthwhile participation; earlier AI completion does not resolve it.
+Cosmic's first production was completed as [A Sea Beneath the Moon](cosmic-study/cosmic.md); its [archived study](<../archive/2026.11.05 cosmic study/README.md>) preserves that work. The manuscript, artwork and brief have returned to the active project because the story is not ready for release. Subsequent human feedback found primitive overload, confusing process/object representation and insufficient narrative drive. The [active narrative redevelopment](cosmic-study/README.md) now compares divergent cosmic prose and conceptual combinations before further production. The outstanding question is whether the new narrative can support understandable, worthwhile participation; earlier AI completion does not resolve it.
 
 | Idea | Useful question or operation | Source and caution |
 |---|---|---|

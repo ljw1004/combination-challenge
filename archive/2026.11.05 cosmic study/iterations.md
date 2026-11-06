@@ -1,6 +1,6 @@
 # Cosmic development outcomes
 
-The user authorized autonomous invention, roughly 200 combinations, numerous fast iterations, detailed playtesting, artwork with circular icons and continuity reviews, promotion to `stories/cosmic`, commit and GitHub push on 5 November 2026. The active [design brief](../../stories/cosmic/design-brief.md) owns intent; this file records outcomes, not additional rules.
+The user authorized autonomous invention, roughly 200 combinations, numerous fast iterations, detailed playtesting, artwork with circular icons and continuity reviews, promotion to `stories/cosmic`, commit and GitHub push on 5 November 2026. The active [design brief](../../projects/cosmic-study/design-brief.md) owns intent; this file records outcomes, not additional rules.
 
 ## Opening prototype — first fast cycle
 

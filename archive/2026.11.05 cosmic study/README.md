@@ -1,6 +1,6 @@
 # Cosmic: A Sea Beneath the Moon — completed study
 
-The finished [story](../../stories/cosmic/cosmic.md), [single active design brief](../../stories/cosmic/design-brief.md) and runtime artwork live in `stories/cosmic`. Play it at [`make-something.html?story=stories/cosmic/cosmic.md`](../../make-something.html?story=stories/cosmic/cosmic.md). Development began in `projects/cosmic-study`; the completed supporting material moved here on 5 November 2026.
+This archive records the first completed development pass. The [unreleased story](../../projects/cosmic-study/cosmic.md), [single active design brief](../../projects/cosmic-study/design-brief.md) and runtime artwork have since returned to the [active study](../../projects/cosmic-study/README.md) because the story is not ready for release. The study provides its local preview route. Development began in `projects/cosmic-study`; the completed supporting material moved here on 5 November 2026.
 
 The story follows matter through early atoms, stellar generations, a solar disk, rocky and icy worlds, the Earth–Moon encounter, then rain, rock and an uninhabited sea. It contains 198 authored combinations, 245 distinct items, 24 playable chapters and a text-only ending. Its 245 circular illustrations and 16 backgrounds use an astronomical chromolithograph/chalk treatment, retaining the same Earth, early Moon and basalt shore.
 

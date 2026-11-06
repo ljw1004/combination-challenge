@@ -1,6 +1,6 @@
 # No Fixed Address backgrounds
 
-Nine selected opaque paintings follow the [active brief](../../../../stories/cyberpunk/design-brief.md) and the [production direction](../README.md): six night locations, two dawn lighting variants and the title cover. Runtime artwork is in [assets/scenes](../../../../stories/cyberpunk/assets/scenes). The manuscript and scene assignment are maintained separately.
+Nine selected opaque paintings follow the [active brief](../../../../projects/cyberpunk-study/design-brief.md) and the [production direction](../README.md): six night locations, two dawn lighting variants and the title cover. Runtime artwork is in [assets/scenes](../../../../projects/cyberpunk-study/assets/scenes). The manuscript and scene assignment are maintained separately.
 
 | Export | Place and purpose |
 | --- | --- |

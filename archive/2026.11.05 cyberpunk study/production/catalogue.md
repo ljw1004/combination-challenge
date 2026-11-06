@@ -1,6 +1,6 @@
 # No Fixed Address — visual production catalogue
 
-The [catalogue.json](catalogue.json) owns the complete item-by-item plan for the [manuscript](../../../stories/cyberpunk/cyberpunk.md): authored names/readings, chapter and source line, physical depiction, visible distinctions, representative-token status, exact-image assignment and creating/using recipe references. Follow the [active brief](../../../stories/cyberpunk/design-brief.md) and [icon guide](../../../docs/icon-guide.md).
+The [catalogue.json](catalogue.json) owns the complete item-by-item plan for the [manuscript](../../../projects/cyberpunk-study/cyberpunk.md): authored names/readings, chapter and source line, physical depiction, visible distinctions, representative-token status, exact-image assignment and creating/using recipe references. Follow the [active brief](../../../projects/cyberpunk-study/design-brief.md) and [icon guide](../../../docs/icon-guide.md).
 
 **331 item identities, including one fixed hotspot; 219 recipes; 202 drawings in 13 production batches.** Every identity has exactly one drawing. Exact reuse avoids 129 unnecessary per-state images. The production lead accepted 202 instead of the preliminary 100–160 estimate to preserve visible parts and partial assemblies.
 

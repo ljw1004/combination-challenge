@@ -2,7 +2,7 @@
 
 The original artwork was designed against the accepted 193-recipe, 244-item text. Detailed-playtest corrections brought the delivered story to **198 recipes and 245 items**: five recipes were added and one existing recipe was revised. Light release, inherited cold ice, sea recharge and fractured-headland erosion use existing art. The alternate Earth-accretion order adds the `hydrated-embryo` icon and two recipes, allowing hydrogen-bearing rock to arrive before metal-rich fragments. The [revision-two catalogue supplement](catalogue-addendum-v2.json) records these changes; the original catalogue and text-lock retain their planning identity.
 
-Production and selection are complete: **245 circular icons and 16 portrait backgrounds**. The [selected asset manifest](selected-assets.json) maps every runtime file to its retained source, request, extraction record and SHA-256 hashes, including all fourteen replacements of original atlas cells and the additional hydrated-embryo icon. The live artwork belongs in [the story's assets](../../../stories/cosmic/assets/); intent lives in its [design brief](../../../stories/cosmic/design-brief.md).
+Production and selection are complete: **245 circular icons and 16 portrait backgrounds**. The [selected asset manifest](selected-assets.json) maps every runtime file to its retained source, request, extraction record and SHA-256 hashes, including all fourteen replacements of original atlas cells and the additional hydrated-embryo icon. The runtime artwork is retained in [the unreleased story's assets](../../../projects/cosmic-study/assets/); intent lives in its [design brief](../../../projects/cosmic-study/design-brief.md).
 
 This record follows the [icon workflow](../../../docs/icon-guide.md). All illustration generation used the built-in image tool exclusively. Mechanical processing cropped, masked, resampled and encoded that raster artwork; it also assembled a necessary shore reference. Model identifiers and per-generation timestamps were not recorded and are not inferred. Scientific, recognition and art-direction review verdicts are recorded separately in the study.
 
@@ -35,12 +35,12 @@ Original requests and extraction records remain unchanged, including historical 
 | `runs/cosmic/art/pilot-icons/tidal-pools.png` | `masters/tidal-pools-anchor.png` |
 | `runs/cosmic/art/pilot-icons/pale-moon.png` | `masters/pale-moon-reference.png` |
 
-The thirteen space backgrounds' actual sent arguments in `background-extraction-space.json` take precedence over their earlier request plans. Its original generated-image cache paths and rejected-candidate paths are historical provenance; the selected source bytes are retained in `masters/`. Required generation references resolve to retained production inputs or existing selected runtime assets. The hydrated-embryo request's historical `projects/cosmic-study/assets/icons/` references resolve to the matching `stories/cosmic/assets/icons/` files through the manifest; their bytes are also mechanically reproducible from retained sources. The added pilot reference record preserves the two necessary original extraction entries without retaining the disposable pilot test run.
+The thirteen space backgrounds' actual sent arguments in `background-extraction-space.json` take precedence over their earlier request plans. Its original generated-image cache paths and rejected-candidate paths are historical provenance; the selected source bytes are retained in `masters/`. Required generation references resolve to retained production inputs or existing selected runtime assets. The hydrated-embryo request's historical `projects/cosmic-study/assets/icons/` references again resolve at that path after the story returned to development; their bytes are also mechanically reproducible from retained sources. The added pilot reference record preserves the two necessary original extraction entries without retaining the disposable pilot test run.
 
 [export-selected.py](export-selected.py) verifies retained record/source hashes and current runtime coverage, hashes, dimensions and modes. With `--output`, it replays recorded bounds directly, without circle detection or generation. Run from the repository root after archival:
 
 ```sh
-uv run --with pillow==13.0.0 python "archive/2026.11.05 cosmic study/production/export-selected.py" --verify-assets stories/cosmic/assets
+uv run --with pillow==13.0.0 python "archive/2026.11.05 cosmic study/production/export-selected.py" --verify-assets projects/cosmic-study/assets
 uv run --with pillow==13.0.0 python "archive/2026.11.05 cosmic study/production/export-selected.py" --output runs/cosmic/production-replay
 ```
 

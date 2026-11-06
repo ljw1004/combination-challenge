@@ -1,6 +1,6 @@
 # No Fixed Address
 
-**Development status, 5 November 2026:** human play feedback found this version difficult because many small icons represented subtle distinctions. Its approach is set aside for the [active reconsideration](../../projects/cyberpunk-study/README.md). The sections below describe the published version, not constraints on the new concepts: its plot, AI curriculum, item count and circular-token direction are all open to replacement. Proposed alternatives remain in the study until a new direction is adopted.
+**Development status, 5 November 2026:** this story is not ready for release. Human play feedback found this version difficult because many small icons represented subtle distinctions. Its approach is set aside for the [active reconsideration](README.md), with the manuscript and artwork retained here as an unreleased baseline. The sections below describe that baseline, not constraints on the new concepts: its plot, AI curriculum, item count and circular-token direction are all open to replacement. Proposed alternatives remain in the study until a new direction is adopted.
 
 ## Purpose and player promise
 
@@ -14,7 +14,7 @@ Target curious teenagers and adults. Assume no coding background. Teach transfer
 
 The story has 219 authored combinations in 24 playable chapters plus an ending; the reference completion route takes 171 combinations. Many alternatives accept sensible assembly orders rather than adding required gestures. Keep varied short constructions, investigation, physical repair, optional pleasures and later payoffs. Count is never a reason to keep filler. Accept independent assembly operations in either order where the fiction permits, converging to one final device. Two independent working threads are an available rhythm, not a template; vary chapter length and structure according to the work. Use at most two simultaneous fixed targets and ordinary two-input combinations primarily; no invented resource accounting or timed failure. Narrated clock pressure is dramatic, never a hidden mechanical timer.
 
-This is the single active brief for the live story and future study iterations. Follow [story authoring](../../docs/story-authoring.md), [format](../../docs/story-format-spec.md), [evaluation](../../docs/fun-and-evaluation.md) and [graphics](../../docs/icon-guide.md). The completed [development record](<../../archive/2026.11.05 cyberpunk study/README.md>) preserves research, six fast/detailed campaigns, concise reviews and selected production sources. Story logic and repeated fresh-agent playtesting preceded artwork production.
+This is the single active brief for the unreleased story and future study iterations. Follow [story authoring](../../docs/story-authoring.md), [format](../../docs/story-format-spec.md), [evaluation](../../docs/fun-and-evaluation.md) and [graphics](../../docs/icon-guide.md). The completed [development record](<../../archive/2026.11.05 cyberpunk study/README.md>) preserves research, six fast/detailed campaigns, concise reviews and selected production sources. Story logic and repeated fresh-agent playtesting preceded artwork production.
 
 ## Story spine
 

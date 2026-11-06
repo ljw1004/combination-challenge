@@ -1,12 +1,14 @@
 # Cosmic: narrative redevelopment
 
-The current [published game](../../stories/cosmic/cosmic.md) is the baseline being reconsidered. Its [single active design brief](../../stories/cosmic/design-brief.md) governs this study. The [original development record](<../../archive/2026.11.05 cosmic study/README.md>) remains historical evidence, including the original brainstorming.
+The [unreleased manuscript](cosmic.md), its artwork under `assets/` and its [single active design brief](design-brief.md) are the baseline being reconsidered. They have returned from `stories/cosmic` because the story is not ready for release. The [original development record](<../../archive/2026.11.05 cosmic study/README.md>) remains historical evidence, including the original brainstorming.
+
+Preview locally with `npm run dev` at `/make-something.html?story=projects/cosmic-study/cosmic.md`. This project is excluded from the published catalogue and hosted files. The former published URL's browser saves and drafts remain under that URL; they are not migrated to this preview.
 
 Human feedback overturned the earlier acceptance: the game was hard to follow, introduced too many unfamiliar primitives and astrophysical mechanisms, confused processes with things, and lacked a relatable narrative hook. More artwork polish or successful chapter completion would not answer that criticism.
 
 **Current prose recommendation:** [What the Darkness Kept](narrative/round-3/i-late-light.md), a 965-word mystery about a young star in an old, dark galaxy. [Before the Cloud Grew Thin](narrative/round-3/h-dust.md) is the strongest alternative. A fresh narrative reviewer recommended both; a separate scientist found no required correction within their selected scenarios.
 
-**Current play recommendation:** test [G's changed behaviour across encounters](concepts/round-2/g-encounter.md), with the disclosure correction below. This differs from the prose ranking. Nine complete prose candidates and six conceptual adaptations have been developed through three prose rounds and two concept rounds. The result is a reviewed narrative/design study; a satisfying full game, its scope and its replacement artwork remain unresolved. The published game has not been replaced by these drafts.
+**Current play recommendation:** test [G's changed behaviour across encounters](concepts/round-2/g-encounter.md), with the disclosure correction below. This differs from the prose ranking. Nine complete prose candidates and six conceptual adaptations have been developed through three prose rounds and two concept rounds. The result is a reviewed narrative/design study; a satisfying full game, its scope and its replacement artwork remain unresolved. The retained baseline manuscript has not been replaced by these narrative drafts.
 
 ## Working method
 

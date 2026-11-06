@@ -2,7 +2,7 @@
 
 ## 5 November 2026 — Initial intent and premise review
 
-User requested autonomous development, approximately 200 combinations, repeated fast and detailed playtests, circular artwork after story acceptance, visual continuity review, promotion, commit and GitHub push. The follow-up offered a choice between literal scene-integrated equipment and iconic representative objects. Chosen: consistently iconic tokens with atmospheric backgrounds; adopted guidance is in [UX](../../docs/ux.md#item-artwork), with story choices in the [active brief](../../stories/cyberpunk/design-brief.md).
+User requested autonomous development, approximately 200 combinations, repeated fast and detailed playtests, circular artwork after story acceptance, visual continuity review, promotion, commit and GitHub push. The follow-up offered a choice between literal scene-integrated equipment and iconic representative objects. Chosen: consistently iconic tokens with atmospheric backgrounds; adopted guidance is in [UX](../../docs/ux.md#item-artwork), with story choices in the [active brief](../../projects/cyberpunk-study/design-brief.md).
 
 A fresh independent concept reviewer received only the current brief, project philosophy and authoring guidance. Verdict: repair and belonging offer a strong premise, but 200 worthwhile combinations and sustained curiosity are unproven. Adopted adjustments: vary chapter structure, make repeated investigations change the concrete job, attach AI distinctions to continuing service problems, seed later pressures, and establish recurring residents' ordinary projects. This review did not inspect a manuscript or establish playability/enjoyment.
 
