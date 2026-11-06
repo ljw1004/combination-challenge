@@ -4,7 +4,7 @@ This index describes live projects only. Each project keeps its briefs, research
 
 - [Cosmic narrative redevelopment](cosmic-study/README.md): unreleased manuscript, artwork and active brief, alongside contrasting literary stories and conceptual combination designs responding to human feedback about clarity, primitive overload and the missing narrative hook.
 
-- [Cyberpunk reconsideration](cyberpunk-study/README.md): unreleased No Fixed Address manuscript, artwork and active brief, alongside divergent futuristic story concepts whose narrative follows the continuing lives of combined creations, with successive fresh reviews after human play feedback.
+- [The Travelling Harbour](cyberpunk-study/README.md): an illustrated cyberspace game with 186 combinations, developed through fresh fast/detailed playthroughs and story, continuity and visual reviews. The completed development pass remains unpublished for user review; the earlier No Fixed Address manuscript and assets are retained as a baseline.
 
 - [Theology study](theology-study/README.md): continuing development of Theology: Disputed Questions, with two completed revision/evaluation cycles, structured player responses, graded chapter reports and current recommendations.
 - [Ideas study](ideas-study/README.md): ancient-to-modern connections, worthwhile independent discoveries, a whole-story teaching audit and successive chapter evaluations.
