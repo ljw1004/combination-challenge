@@ -266,7 +266,7 @@ The Earth is a fiery ball of magma. Rain cools it, and pools into the oceans.
 
 background: ![Water cycle](assets/backgrounds/c05-water-cycle.webp)
 
-Sunlight turns ocean water into vapour. Clouds form, rain falls on land, and rivers carry the water back to sea.
+Sunlight turns ocean water into vapour. Clouds form, rain falls on land, and rivers carry the water back to sea. The rivers too evaporate in the sun. *The water cycle.*
 
 **Goals**
 - Build a delta from river sediment -- Delta
@@ -1514,7 +1514,7 @@ The Earth's tilt changes how sunlight falls through the year. Moving plates rais
 - Desert [transform] + Water -> Oasis
 - Rain shadow [transform] + Shore plants [transform] -> Grassland
 - Mountain range [transform] + Water -> Glacier
-- Glacier [transform] + Stone crust [transform] -> Valley
+- Glacier [preserve] + Stone crust [transform] -> Valley
 - Valley [transform] + Rivers [transform] -> Braided river
 
 ## Grassland food webs
@@ -1944,11 +1944,13 @@ Fungi return nutrients to the soil around new shoots. Insects pollinate the grow
 - Returning pollinators [transform] + Spreading mammals [transform] -> New food web
 - New food web [transform] + Pioneer woodland [transform] -> Recovering world
 
-## Surviving an ice age
+## An ice age
 
 background: ![Cold foothills](assets/backgrounds/c22-cold-foothills.webp)
 
-Snow builds up on glaciers as the climate cools. Animals can follow rivers to warmer refuges; inherited differences help some populations survive the cold. Later, warmer conditions let sunlight melt the ice back.
+Millennia pass.
+
+Cycles in the Earth's orbit leave northern summers too weak to melt all the winter snow. Glaciers grow. Some animals adapt, and others seek warmer refuge.
 
 [If skipped] Some animals survived in warmer refuges; others were adapted to the cold. Their descendants spread into land left by the melting ice.
 
@@ -1956,10 +1958,13 @@ Snow builds up on glaciers as the climate cools. Animals can follow rivers to wa
 - Help wildlife survive until the ice retreats -- World after the ice
 
 **Hotspots**
+- Glacier (at 50%, 50%)
+  - icon: ![Mountain glacier](assets/hotspots/receiver.png)
+  - hitbox: (at 65.4%, 20.5%) (size 38.46%, 12.44%)
 - Advancing ice (at 50%, 50%)
   - icon: ![Glacier front](assets/hotspots/c22-advancing-ice.webp)
-  - hitbox: (at 65.4%, 27.5%) (size 38.46%, 12.44%)
-- Variation (at 23%, 31%)
+  - hitbox: (at 68.5%, 36.5%) (size 51%, 19%)
+- Variation (at 11%, 25%)
   - icon: ![Variation in the foothills](assets/hotspots/variation-c22.svg)
   - hitbox: (at 23%, 31%) (size 34%, 14%)
 
@@ -1981,7 +1986,7 @@ Snow builds up on glaciers as the climate cools. Animals can follow rivers to wa
 
   A glacier gains mass when accumulating snow exceeds losses from melting and other processes. Buried snow gradually compacts into ice, and the ice flows under its own weight. A growing glacier can extend farther into lower ground.
 
-  An ice age involves sustained conditions across many years, not one severe winter.
+  An advancing front can reach living grassland or forest. Sediment pushed ahead can bury plants; the ice can uproot or break trees. Vegetation need not disappear everywhere ahead of the ice. [National Park Service: forests in the path of advancing glaciers](https://www.nps.gov/articles/000/psv39n1_one-way-to-see-the-future-of-alaska-s-unparalleled-forests-look-at-their-past.htm).
 - River migration
   - icon: ![River migration](assets/icons/river-migration.webp) (circular)
 
@@ -2040,13 +2045,13 @@ Snow builds up on glaciers as the climate cools. Animals can follow rivers to wa
 
   **World after the ice**
 
-  Glaciers retreat when losses exceed the snow and ice added to them. Plants and animals can spread into newly exposed ground, including descendants of populations that survived in warmer refuges or adapted to colder conditions.
-
-  Earth's past glacial cycles involved changes in the distribution of sunlight linked to orbit and tilt, amplified by changes in ice cover and greenhouse gases. [NASA: orbital cycles and climate](https://science.nasa.gov/science-research/earth-science/climate-science/milankovitch-orbital-cycles-and-their-role-in-earths-climate/).
+  Snow and ice reflect much of the sunlight that reaches them. Depending on where sunlight falls, it may reflect off ice or be absorbed more readily by darker oceans and land. Earth's tilted axis determines where the sun falls over the seasons of the year, and longer-term cycles in the Earth's orbit will change these patterns over thousands of years.
+  
+  If there's enough summer sunshine to melt the winter's snow, then the ice retreats. [NASA: orbital cycles and climate](https://science.nasa.gov/science-research/earth-science/climate-science/milankovitch-orbital-cycles-and-their-role-in-earths-climate/).
 
 **Combinations**
-- Clouds [transform] + Glacier [transform] -> Snowfall
-- Snowfall [transform] + Glacier [transform] -> Advancing ice
+- Clouds [transform] + Glacier [preserve] -> Snowfall
+- Snowfall [transform] @ Glacier [transform] -> Advancing ice
 - Recovering world [transform] + Rivers [transform] -> River migration
 - River migration [transform] + Oasis [transform] -> Sheltered oasis
 - Small survivors [transform] @ Variation [preserve] -> Varied survivors
