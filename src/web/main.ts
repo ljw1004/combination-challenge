@@ -610,9 +610,13 @@ function commit(action: Action) { try {
   if (pendingArtwork) return;
   inputTrace?.record('commit:start',{action});
   flushPreview();
-  if (action.type === 'move') {
-    const position = preferredPosition(action.item, action.hotspot, action.chapter);
-    if (position) action = {...action, ...position};
+  if (action.type === 'move' && action.hotspot) {
+    const token = state.tokens[action.item];
+    // Apply authored positions on entry; let existing occupants be rearranged.
+    if (token?.hotspot !== action.hotspot || token?.chapter !== action.chapter) {
+      const position = preferredPosition(action.item, action.hotspot, action.chapter);
+      if (position) action = {...action, ...position};
+    }
   }
   if (isNoopMove(state, action)) { inputTrace?.record('commit:noop',{action}); render(); return; }
   const before = state, previous = state.chapter, next = act(story, state, action);

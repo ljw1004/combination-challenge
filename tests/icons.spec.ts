@@ -590,7 +590,37 @@ for (const onto of ['hotspot','occupant']) test(`authored placement snaps a cont
   expect(await itemCentre(page,'Risen dough')).toEqual(result);
 });
 
-test('an occupied destination falls back, an unrelated card does not mask the hotspot, and redropping after completion snaps again', async ({page}) => {
+test('rearranging an occupant preserves its released position and hotspot membership across reload', async ({page}) => {
+  await openFixture(page, placedCellar);
+  const dough = page.locator('[data-item="name:Dough"]'), cellar = page.locator('[data-hotspot="name:Warm cellar"]');
+  const board = (await page.locator('.chapter-panel').boundingBox())!;
+  const membership = () => page.evaluate(() => {
+    const state = JSON.parse(Object.entries(localStorage).find(([key]) => key.startsWith('combination-progress-v2:'))![1]).state;
+    const token = state.tokens['name:Dough'];
+    return {chapter: token.chapter, hotspot: token.hotspot};
+  });
+  await dough.dragTo(cellar);
+  const anchor = await itemCentre(page, 'Dough');
+  expect(anchor.x).toBeCloseTo(390*.70,0); expect(anchor.y).toBeCloseTo(844*.65,0);
+  await dragToPoint(page,dough,board.x+anchor.x+32,board.y+anchor.y+12);
+  const moved = await itemCentre(page, 'Dough');
+  expect(moved.x).toBeCloseTo(anchor.x+32,0); expect(moved.y).toBeCloseTo(anchor.y+12,0);
+  expect(await membership()).toEqual({chapter:0,hotspot:'name:Warm cellar'});
+  await page.reload(); await expect(dough).toBeVisible();
+  expect(await itemCentre(page, 'Dough')).toEqual(moved);
+  expect(await membership()).toEqual({chapter:0,hotspot:'name:Warm cellar'});
+
+  // Crossing the boundary without releasing does not make this a new entry.
+  const box = (await dough.boundingBox())!;
+  await page.mouse.move(box.x+box.width/2,box.y+box.height/2); await page.mouse.down();
+  await page.mouse.move(board.x+100,board.y+350,{steps:6});
+  await page.mouse.move(board.x+anchor.x+12,board.y+anchor.y-12,{steps:6}); await page.mouse.up();
+  const returned = await itemCentre(page, 'Dough');
+  expect(returned.x).toBeCloseTo(anchor.x+12,0); expect(returned.y).toBeCloseTo(anchor.y-12,0);
+  expect(await membership()).toEqual({chapter:0,hotspot:'name:Warm cellar'});
+});
+
+test('an occupied destination falls back, an unrelated card does not mask the hotspot, and re-entering after completion snaps again', async ({page}) => {
   const text = placedCellar.replace('- Let the dough rise -- Risen dough','- Place dough -- Dough @ Warm cellar').replace('- Wild starter [preserve] + Dough [transform] @ Warm cellar -> Risen dough','');
   await openFixture(page,text);
   const cellar = page.locator('[data-hotspot="name:Warm cellar"]'), dough = page.locator('[data-item="name:Dough"]'), salt = page.locator('[data-item="name:Salt"]');
