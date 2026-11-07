@@ -2526,9 +2526,9 @@ The work is done. It is time to rest, and sing.
 
   *Artwork sources.*
 
-  The closing watercolour draws its interwoven colour and vertical forms from the tapestry at Pluscarden Abbey, Scotland. The tapestry bears the question “Where were you when I laid the foundations of the world?” from the Book of Job. [The abbey describes its tapestry](https://www.pluscardenabbey.org/newsandevents/2016/10/31/daily-homilies-at-the-arundel-and-brighton-clergy-retreat-309).
+  The "Song of Creation" artwork is based on a tapestry in Pluscarden Abbey, Scotland, "Where were you when I laid the foundations of the world?" [The abbey describes its tapestry](https://www.pluscardenabbey.org/newsandevents/2016/10/31/daily-homilies-at-the-arundel-and-brighton-clergy-retreat-309).
 
-  The sky above the campfire is adapted from [The Milky Way panorama](https://www.eso.org/public/images/eso0932a/), credited to ESO/S. Brunier under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The photograph was cropped, rotated and adjusted in brightness and contrast, then combined with the painted landscape.
+  The sky above the campfire includes elements from [The Milky Way panorama](https://www.eso.org/public/images/eso0932a/), credited to ESO/S. Brunier under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 **Combinations**
 - Song [transform] @ Social group -> Shared song
