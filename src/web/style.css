@@ -1,6 +1,19 @@
 :root{font-family:system-ui,sans-serif;color:#35382f;background:#f3eddf;font-synthesis:none}
 *{box-sizing:border-box}[hidden]{display:none!important}
 body{margin:0;min-width:0;overflow:hidden}
+/* iOS samples a fixed top edge to replace its Home Screen blur with a colour.
+   The empty text clip supplies Canvas without painting over the game. 11px
+   clears WebKit's sampling threshold; iOS owns the actual status-bar height. */
+.status-bar-color{display:none}
+@supports (-webkit-touch-callout:none){
+  @media (display-mode:standalone){
+    .status-bar-color{
+      display:block;position:fixed;top:0;left:0;right:0;height:11px;
+      z-index:2147483647;pointer-events:none;color-scheme:light dark;
+      background-color:Canvas;-webkit-background-clip:text;background-clip:text;
+    }
+  }
+}
 /* The game owns presses and double-taps. Apply pan-y at every scroll surface,
    including nested readers, so scrolling never opts back into browser zoom. */
 :where(#app, #app *, .mobile-debug, .mobile-debug *){
