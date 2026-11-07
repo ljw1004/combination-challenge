@@ -6,7 +6,7 @@ Five rounds of contrasting proposals under `approaches/` explore ensemble versus
 
 [Material B](material-b.md) and [Remnant C](remnant-c.md) preserve the substantially different full and short playable alternatives, with their [B](material-b-design.md) and [C](remnant-c-design.md) design rationales. The three `act-*.md` files and `encounters.md` are the original authored modules used to build and reconsider the fuller candidate. [Material refined](material-refined.md) preserves the subsequent copy treatment explained in [final copy choice](final-copy-choice.md); later gesture and trajectory corrections live only in the current game.
 
-These candidates retain actual creative alternatives requested by the user. They are not frozen copies of every tested runtime. Required playtest response arrays and reports live in [playtests](../playtests/); temporary run inputs and detailed verification output are discarded under the [retention policy](../../../docs/engineering.md#verification-records).
+These candidates retain actual creative alternatives requested by the user. They are not frozen copies of every tested runtime. Required playtest response arrays and reports live in [playtests](../playtests); temporary run inputs and detailed verification output are discarded under the [retention policy](../../../docs/engineering.md#verification-records).
 
 ## Module path maintenance
 

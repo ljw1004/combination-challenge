@@ -2,6 +2,8 @@
 
 The question is what makes performing these combinations worth the player's attention, across a passage of play. This is a revisable design hypothesis, not a validated psychological scale. Human enjoyment remains a separate question from agent reports.
 
+Apply the [worthwhile-hook requirement and Cosmic/Cyberpunk cautionary tale](story-authoring.md#require-a-worthwhile-hook) when deciding whether to develop or retain a story. The action-level Worthwhile metric below does not establish that the subject or the accumulated experience earns the player's attention; successful execution and attributed interest must not override that authoring bar.
+
 ## Several kinds of value
 
 Look for informed and consequential choices; learning and usable predictions; satisfying construction; comfortable progress; discovery and wonder; narrative or philosophical resonance; and a valued conclusion. A familiar action can remain enjoyable. A short insight followed by straightforward enactment can be a complete puzzle. Satisfied stopping is not failure to continue indefinitely.

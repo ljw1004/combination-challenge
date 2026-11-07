@@ -52,4 +52,4 @@ The selected style uses softly blended luminous pastel and chalk-gouache forms o
 
 Recurring stars, clouds, disks, worlds and galactic landmarks retain identifying forms through permitted changes. Show chapter-entry conditions in the backgrounds, leaving discoveries to the player. Do not paint completed results into an earlier setting or use busy cosmic texture where the player needs working space. Follow the [icon guide](../../docs/icon-guide.md), including separate recognition and continuity reviews and browser inspection of actual combinations.
 
-This is the single active design brief. Earlier drafts, findings and production methods retain their historical scope in the [original study](<../../archive/2026.11.05 cosmic study/README.md>).
+This is the single active design brief. Earlier drafts, findings and production methods retain their historical scope in the [original study](<README.md>).

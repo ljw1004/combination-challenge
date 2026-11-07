@@ -1,6 +1,6 @@
 # Story catalogue icons
 
-Completed 6 November 2026. Eight current manuscripts now use ordinary Markdown heading images. Shared rules live in [UX](../../docs/ux.md#catalogue-and-story-identity), the [format specification](../../docs/story-format-spec.md#specification) and the [icon guide](../../docs/icon-guide.md). The six published stories appear in the catalogue; the two current study drafts remain unpublished.
+Completed 6 November 2026. Eight manuscripts received ordinary Markdown heading images. Shared rules live in [UX](../../docs/ux.md#catalogue-and-story-identity), the [format specification](../../docs/story-format-spec.md#specification) and the [icon guide](../../docs/icon-guide.md). The six published stories appear in the catalogue; Cosmic and The Travelling Harbour were subsequently abandoned and their icons moved into their study archives. The manifest's export destinations and links below follow those retained files.
 
 ## Selected artwork
 
@@ -12,8 +12,8 @@ Completed 6 November 2026. Eight current manuscripts now use ordinary Markdown h
 | Creation | [icon.png](../../stories/creation/icon.png) | Radiant light, deep water, fertile earth and emerging life in a circular mosaic. |
 | History of ideas | [icon.png](../../stories/ideas/icon.png) | Brass armillary sphere on a book. |
 | Theology | [icon.png](../../stories/theology/icon.png) | Open manuscript, quill and illuminated cross. |
-| Cosmic | [icon.png](../../projects/cosmic-study/icon.png) | Two interacting spiral galaxies. |
-| The Travelling Harbour | [icon.png](../../projects/cyberpunk-study/icon.png) | A ship and harbour inside a bottle. |
+| Cosmic | [icon.png](../2026.11.05%20cosmic%20study/icon.png) | Two interacting spiral galaxies. |
+| The Travelling Harbour | [icon.png](../2026.11.05%20cyberpunk%20study/icon.png) | A ship and harbour inside a bottle. |
 
 All runtime exports are 256 × 256 PNGs with alpha. This pass prepares identity artwork; it does not add home-screen installation or platform-specific manifests.
 

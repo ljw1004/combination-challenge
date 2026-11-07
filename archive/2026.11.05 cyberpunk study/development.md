@@ -72,7 +72,7 @@ A fresh structured `--detailed` test of chapter 19 (`harbour-seat-v3`, with guid
 
 ### Artwork pilot
 
-The [production record](production/README.md) defines the paper-theatre direction and retained prompts. Painted settings use the built-in image generator; exact repeated objects use shared SVG components. This choice preserves the same hull, flag, tree fork, cradle and enclosure through changing combinations. The first pilot deliberately includes the difficult three-layer reversal, three related trees, two routes, the earlier garden/theatre copies and the evolved stage. It is inspected at 80/112/160 CSS pixels before full expansion. Larger transformation pictures supplement the circles.
+The [production record](harbour-production/README.md) defines the paper-theatre direction and retained prompts. Painted settings use the built-in image generator; exact repeated objects use shared SVG components. This choice preserves the same hull, flag, tree fork, cradle and enclosure through changing combinations. The first pilot deliberately includes the difficult three-layer reversal, three related trees, two routes, the earlier garden/theatre copies and the evolved stage. It is inspected at 80/112/160 CSS pixels before full expansion. Larger transformation pictures supplement the circles.
 
 ### Artwork expansion and continuity
 
@@ -82,7 +82,7 @@ Three fresh informed reviews then covered the full catalogue in separate assignm
 
 The route review caught an important contradiction: illustration geometry changed when two motion segments changed order. All diagrams now compose the same Up (90 units), Across (110 units) and Around (radius 54) segments, translated without scaling. Solid outward paths, dashed retracing and marked stops show both halves of the journey. A fresh targeted repair reviewer accepted the fifteen repaired icons but caught unequal outer scaling in the large route comparison; both sides now use the same scale. Later panel inspection checked the final arrangement.
 
-The selected direction combines five built-in image-generator paintings with exact native SVG object geometry. It includes **215 portable circular icons, 16 fixed variants, 56 object-reading illustrations, nine full explanatory plates and 17 separate runtime reading panels**. Including the five backgrounds, this is **318 runtime assets**. The [production record](production/README.md) retains authoring geometry, exact prompts, necessary generation inputs and the illustrated catalogue. Family authors' own inspections are author checks, separate from the fresh reviews above.
+The selected direction combines five built-in image-generator paintings with exact native SVG object geometry. It includes **215 portable circular icons, 16 fixed variants, 56 object-reading illustrations, nine full explanatory plates and 17 separate runtime reading panels**. Including the five backgrounds, this is **318 runtime assets**. The [production record](harbour-production/README.md) retains authoring geometry, exact prompts, necessary generation inputs and the illustrated catalogue. Family authors' own inspections are author checks, separate from the fresh reviews above.
 
 ### Browser presentation repairs
 
@@ -98,7 +98,7 @@ The [chapter 19 player responses and assembled report](playtests/2026.11.06_02.0
 
 ### Final verification and limits
 
-The final manuscript SHA-256 is `fcab0ec07e7005755fffa8f2a9882406739e7e925f38eaa91df5350282ada782`. Final whitespace cleanup changed no prose or semantics from the reviewed `7129f4…` version. The aggregate runtime-art SHA-256 is `390c8e90b4e467d3543a8f7a9730a87deb408e453849f4f1e7af15e3e98bb523`, computed from sorted relative filenames, a NUL separator and each file's bytes. Executable checks and reproduction commands are in [production](production/README.md).
+The final manuscript SHA-256 is `fcab0ec07e7005755fffa8f2a9882406739e7e925f38eaa91df5350282ada782`. Final whitespace cleanup changed no prose or semantics from the reviewed `7129f4…` version. The aggregate runtime-art SHA-256 is `390c8e90b4e467d3543a8f7a9730a87deb408e453849f4f1e7af15e3e98bb523`, computed from sorted relative filenames, a NUL separator and each file's bytes. Executable checks and reproduction commands are in [production](harbour-production/README.md).
 
 - Final lint: **zero errors, seven warnings**. Six warnings concern intentional preserve/copy versus transform/install uses; the fixed-item analysis reaches its 20,000-state bound. This is not an exhaustive fixed-state proof.
 - Final exact checkpoint replay: **94 combinations, completed**, with the replayed state equal to the checkpoint. Every one of the 215 identities has artwork, and all **318 runtime files decode in Chromium**.

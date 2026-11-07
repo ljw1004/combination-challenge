@@ -18,7 +18,7 @@ For C, disk growth belongs to the first millions of years; later rocky impacts o
 
 The narrative review inspected manuscript SHA-256 `4778c3c4c28978a9a0bfcb13f424d58f755e0fba11e4c8611609967460c79c51`, 148 recipes across 26 playable chapters. It found that the planetary stretch dominated attention while the meaningful final crossing would work without most of its intermediate steps. Its particularly useful positive finding was “a change of physical form changes what the next encounter can do to that matter.” The revised system should supply recognizable compact survivors and contrasting debris, not merely another catalogue of changes.
 
-The completed reports below belong to [the frozen fast run](../../../playtests/2026.11.06_01.31.51/), story SHA-256 `85ea5ec89323f3d1b5cd53b2615c8fe435498c3497fe91b2c2adfa7d190cac26`. They precede D's primitive consolidations and alternate routes, so they do not test those amendments. Each chapter used fresh checkpoint players; these are local reports, not continuous whole-story attachment.
+The completed reports below belong to [the frozen fast run](../../../playtests/2026.11.06_01.31.51), story SHA-256 `85ea5ec89323f3d1b5cd53b2615c8fe435498c3497fe91b2c2adfa7d190cac26`. They precede D's primitive consolidations and alternate routes, so they do not test those amendments. Each chapter used fresh checkpoint players; these are local reports, not continuous whole-story attachment.
 
 ```text
 Chapter and former purpose              Fun           Worthwhile  Hook

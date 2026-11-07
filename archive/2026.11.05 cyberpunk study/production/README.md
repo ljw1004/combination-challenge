@@ -1,6 +1,6 @@
 # No Fixed Address artwork production
 
-The single active [design brief](../../../projects/cyberpunk-study/design-brief.md) governs this collection. Follow the [icon-development workflow](../../../docs/icon-guide.md). This production phase began after the 219-combination manuscript was accepted at SHA-256 `0962c4f7930bce857c83ddabb4725d8d76c632eca3fb2e756462b69ecb8f0f15`; artwork metadata must preserve its game semantics.
+The single active [design brief](../design-brief.md) governs this collection. Follow the [icon-development workflow](../../../docs/icon-guide.md). This production phase began after the 219-combination manuscript was accepted at SHA-256 `0962c4f7930bce857c83ddabb4725d8d76c632eca3fb2e756462b69ecb8f0f15`; artwork metadata must preserve its game semantics.
 
 ## Visual research and selected language
 
@@ -12,7 +12,7 @@ All movable artwork is symbolic. Large infrastructure uses the same token scale 
 
 ## Production and export
 
-Use the built-in image-generation tool. Selected source atlases, exact requests, input references and extraction geometry belong here; game-ready exports live in [the story assets](../../../projects/cyberpunk-study/assets/). Portable illustrations are exported at 256×256 RGBA for nominal 64px circles at the 390×844 reference viewport; the fixed migration monitor is 384×384 for 96px. Mechanical crop, padding, resizing and alpha cleanup preserve the generated drawing; creative repairs use the image tool. Backgrounds are uniformly cropped/resized to 780×1688, with original masters retained. No runtime tint is added.
+Use the built-in image-generation tool. Selected source atlases, exact requests, input references and extraction geometry belong here; game-ready exports live in [the story assets](../assets). Portable illustrations are exported at 256×256 RGBA for nominal 64px circles at the 390×844 reference viewport; the fixed migration monitor is 384×384 for 96px. Mechanical crop, padding, resizing and alpha cleanup preserve the generated drawing; creative repairs use the image tool. Backgrounds are uniformly cropped/resized to 780×1688, with original masters retained. No runtime tint is added.
 
 The pilot atlas is a style/identity anchor, not a guarantee of all depicted meanings. Recognition and informed art-direction reviews are separate fresh assignments. Their concise outcomes are in [art-review](../art-review/); raw guesses, browser captures and review packets are disposable scratch. Selected contact sheets are retained deliverables.
 

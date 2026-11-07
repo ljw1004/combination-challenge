@@ -4,6 +4,32 @@ This is the guide to designing, writing and revising stories. Start from the [ga
 
 Before revising a story, read its active `design-brief.md`. It owns the story’s lasting purpose, voice, pacing, physical premises and visual direction. This guide owns the development process and reusable story techniques; the [icon guide](icon-guide.md) owns detailed graphics production, and [UX](ux.md) owns interface behavior. The [repository layout](../README.md#story-layout) reserves the brief filename outside manuscript discovery.
 
+## Require a worthwhile hook
+
+**Make Something Worthwhile is the acceptance criterion.** Before developing a premise, identify something the player would have reason to make or understand beyond completing this game's recipes. Name the substance of that value: a useful construction, a recognisable real-world process, a durable idea, or a compelling story whose experience earns the attention it asks for. A setting, a combination mechanic, an educational label and a target recipe count do not supply that hook.
+
+State the hook concretely in the design brief and demonstrate it through representative combinations. Explain what the player makes or understands, why that is worth their time, and why this is a useful level of abstraction. Scientifically correct subdivisions can still be fiddly and unhelpful. Prefer concepts the player can retain and use over a large vocabulary of intermediate states whose main purpose is to distinguish the manuscript's recipes. Assess whether the hook can sustain the proposed passage and whole story before expanding it or commissioning artwork.
+
+**An AI author must push back when it cannot identify a worthwhile hook.** Say plainly, for example: “Sorry, I can't make a worthwhile story from this premise yet: I can't identify what would make these constructions or ideas worth your time.” Explain the missing value and stop development on that premise. Offer a different direction only when it has a concrete hook of its own. Do not invent more objects, prose, recipes or review rounds to disguise the absence of one, and do not treat a request for a story as an obligation to manufacture a weak one.
+
+This bar applies throughout revision. Coherent recipes, factual accuracy, attractive artwork, completed playthroughs and positive AI assessments cannot compensate for content that is not worth making or understanding. Easy, predictable combinations can earn their place through substantial making or insight; difficult decisions are not required at every step. Fiction must earn investment in its invented objects and rules through the actual quality of the story or imaginative experience. Merely describing their internal significance does not do that work.
+
+### Cautionary tale: Cosmic and Cyberpunk
+
+The user abandoned **Cosmic: The Lights That Remain** and **The Travelling Harbour**, the replacement Cyberpunk story, after roughly ten chapters despite extensive development, artwork, AI playtesting and mechanical checks. Their diagnosis was that the things being made did not feel worthwhile: there were too many arbitrary game objects, and the invented fiction did not provide a sufficiently good story to justify them. Internal coherence had too often served as a substitute for worthwhile subject matter.
+
+Their comparisons identify what the failed stories lacked:
+
+| Story the user valued | Why it earned attention |
+| --- | --- |
+| Creation, compared with Cosmic | Recognisable real-world things, without fiddly subdivisions, taught at a useful level of abstraction. |
+| Mars, compared with Cyberpunk | Clearly real, relatable objects whose practical purposes make constructing them meaningful. |
+| Theology and Ideas | Reading that offers worthwhile, durable ideas; substantial text is welcome when its substance earns the effort. |
+
+Do not recast this failure as difficulty finding a valid move or simply too much reading. The user could readily find the next move through the normal names and compatible-partner highlights and regarded the text playtest as a reasonable approximation of that experience. Their enjoyment of Theology and Ideas directly qualified the earlier reading-burden hypothesis. The authoring failure concerned the value of the content being enacted. Better pacing, clearer icons or easier combinations alone would not establish that value.
+
+The [Cosmic archive](<../archive/2026.11.05 cosmic study/README.md>) and [Cyberpunk archive](<../archive/2026.11.05 cyberpunk study/README.md>) retain both development histories and the failed works as lessons, not pending redevelopment. The [dated decision record](../notes.md#6-november-2026--worthwhile-hook-and-retirement-of-cosmic-and-cyberpunk) preserves the user's conclusion and the limits of the earlier diagnosis. Apply this bar to future proposals; do not revive these abandoned studies merely because earlier AI reviews were positive.
+
 ## Keep one active design brief
 
 For a story in `stories/<story>/`, its companion `design-brief.md` is the authority for accepted intent, including work performed in a study directory. Link to it from the active study index and production instructions. Read it at the start of each new assignment; do not infer current intent from the nearest old draft or generation prompt. Update it when a decision is adopted, alongside affected work. Refer to the applicable techniques in this guide and record the story's choices and exceptions, rather than copying the universal instructions.
@@ -30,7 +56,7 @@ Satisfying construction and curiosity about the unfolding story are two useful h
 
 Scale this loop to the change. A prose correction need not reopen the art direction, and an intellectual story may be revised entirely in logical/text space. Keep the applicable checks explicit without turning the process into mandatory artwork generation or repeated full campaigns.
 
-1. **Establish intent and scope.** Read the active brief; identify the manuscript being changed, its audience, player role, purpose and applicable techniques below. For a revision, state the problem and the observable improvement sought. Separate accepted constraints from hypotheses and fictional allowances.
+1. **Establish intent and scope.** Apply the [worthwhile-hook requirement](#require-a-worthwhile-hook) before committing to development. Read the active brief; identify the manuscript being changed, its audience, player role, concrete hook and applicable techniques below. For a revision, state the problem and the observable improvement sought. Separate accepted constraints from hypotheses and fictional allowances.
 2. **Trace the work before decorating it.** Sketch the motives and actual combinations. For each operation, identify what each input contributes, what changes, why that matters now and what would be lost if the operation were removed or bundled. Follow important objects, ideas and capabilities across chapters. A plausible explanation does not establish that a step is useful.
 3. **Prototype the difficult sequences.** Use text or placeholders to make the combinations playable. Test representative problems such as a recurring place, independent construction orders, a resource-dependent machine or an abstract argument. Resolve dependencies and motives before expanding an expensive artwork family. A familiar easy icon alone is an inadequate pilot for a story whose difficult scenes are assemblies.
 4. **Review the relevant questions.** Choose assignments from the review table below. Use the current artifact and appropriate context, following [reviewer independence](fun-and-evaluation.md#reviewer-independence). Assess findings rather than automatically implementing them. Seek user evaluation of meaningful creative choices and the playable result; routine inconsistencies should be investigated before delivery.

@@ -26,7 +26,7 @@ The completed review sequence and final hashes are in [development outcomes](../
 
 ## Deliverables and geometry
 
-The [visual catalogue](gallery.html) presents the complete collection. [Catalogue data](catalogue.json) specifies all 215 identities and their ancestry; [catalogue notes](catalogue-notes.md) explain the invariants. [Artwork metadata](artwork.json) records the exported filenames and tiers. Native source lives under [drawings](drawings/).
+The [visual catalogue](gallery.html) presents the complete collection. [Catalogue data](catalogue.json) specifies all 215 identities and their ancestry; [catalogue notes](catalogue-notes.md) explain the invariants. [Artwork metadata](artwork.json) records the exported filenames and tiers. Native source lives under [drawings](drawings).
 
 The 318 runtime files comprise 215 circular portable drawings, 16 fixed variants, 56 ordinary object-reading pictures, nine full explanatory plates, 17 runtime comparison panels and five painted backgrounds. Portable source tiers 320/448/640 display at 80/112/160 CSS pixels on a 390-pixel-wide phone. Five fixed stages use 576-pixel canvases; the other fixed constructions use 768. All fixed placements are centred at 50%, 13%, leaving the working surface below available.
 

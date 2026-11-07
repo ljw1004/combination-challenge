@@ -56,7 +56,7 @@ Use ignored `runs/` for unselected/rejected scene panels and verification output
 
 ## Production updates
 
-The [production records](../production/) select cells and sources independently of the root-owned subject and generation plans. `selected: false` skips a nonselected occupied source cell; it is different from a genuinely blank `null` cell. `output.flat: true` writes final identities directly under `icons/` and refuses duplicate selected filenames. `recordFile` keeps extraction metadata beside its manifest while PNGs go to the runtime directory. Scene panels can supply `outputFile`; `comparison: false` prevents review sheets from entering runtime assets.
+The [production records](../production) select cells and sources independently of the root-owned subject and generation plans. `selected: false` skips a nonselected occupied source cell; it is different from a genuinely blank `null` cell. `output.flat: true` writes final identities directly under `icons/` and refuses duplicate selected filenames. `recordFile` keeps extraction metadata beside its manifest while PNGs go to the runtime directory. Scene panels can supply `outputFile`; `comparison: false` prevents review sheets from entering runtime assets.
 
 After inspecting a new circular master, stage root-recorded batches and export the selected files:
 

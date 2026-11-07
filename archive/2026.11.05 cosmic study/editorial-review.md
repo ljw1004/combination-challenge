@@ -13,7 +13,7 @@ All reviews below occurred on 5 November 2026. Each used a fresh informed agent 
 | Stellar shortcuts; same source | Two added contraction routes through advanced burning. Result readings supply intervening nuclear stages; both pass at the declared abstraction. | Retained the routes and explicit stage explanations. |
 | Final opportunity audit;192 recipes, `84e6b430ffc2d7c1af0c0a5aae3da734f35ec950a17e1fd80a951f5f9bad8e65` | Reproduced three warnings and the reported disappearing-compression route. Distinguishes deterministic opportunity order from actual runtime fate. | Preserved compression in all seven uses; ordered silicon producer before shell assembly; carried radiation into remnant scene. The 193rd cavity/sunlight recipe was subsequently covered by normal lint and fresh paired playtests. |
 
-The successive [playtest reports](playtests/) and [iteration outcomes](iterations.md) preserve adopted decisions and remaining friction. The final manuscript has 198 recipes, not the counts of these historical review inputs. Exact source hashes remain historical after promotion. None of these informed reviews is a blind discovery trial, an exhaustive scientific literature audit or evidence of human enjoyment or learning retention.
+The successive [playtest reports](playtests/) and [iteration outcomes](2026.11.05-iterations.md) preserve adopted decisions and remaining friction. The final manuscript has 198 recipes, not the counts of these historical review inputs. Exact source hashes remain historical after promotion. None of these informed reviews is a blind discovery trial, an exhaustive scientific literature audit or evidence of human enjoyment or learning retention.
 
 ## Final opening affordance
 

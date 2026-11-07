@@ -4,6 +4,8 @@
 
 **Make Something Worthwhile** is part game but part educational toy: playing can leave you with real understanding of how things are made and how ideas work. Treat players as capable of serious learning, from proper culinary technique and practical construction to master's-level theology and intellectual history made approachable to high-schoolers. In the spirit of *Why Don't You?*, invite curiosity, making and discovery through enjoyable play, with knowledge and skills worth carrying into life beyond the game.
 
+The [authoring guide's worthwhile-hook requirement](docs/story-authoring.md#require-a-worthwhile-hook) makes this the bar for accepting a premise, including when an AI author must decline to develop one.
+
 ## Project
 
 Combination stories authored in Markdown, with complete artwork for Settlement, Cookbook, Mars and Creation. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
@@ -29,8 +31,6 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 **Mission to Mars** follows a solo astronaut from a crash through shelter, farming, an uncertain discovery and a return built with local iron: `/make-something.html?story=stories/mars/mars.md`. The [live story](stories/mars/mars.md), [design brief](stories/mars/design-brief.md) and [three moments of play](stories/mars/design-exxamples.png) preserve its austere physical character. The completed [Mars study](archive/2026.11.01%20mars%20study/README.md) retains the unchanged v12 reference, earlier versions, production artwork and review outcomes.
 
 **Creation** gives you Earth, Air, Fire and Water to make stars, a living world and minds that begin creating for themselves: `/make-something.html?story=stories/creation/creation.md`. Its 187 combinations across 26 chapters use 182 circular illustrations, 22 painted backgrounds and evolving landscape hotspots. See the [story](stories/creation/creation.md), [design brief](stories/creation/design-brief.md), [three moments of play](stories/creation/design-examples.png), [supplied art references](<archive/2026.11.05 creation study/inspiration/README.md>) and [completed Creation study](<archive/2026.11.05 creation study/README.md>).
-
-**Cosmic** and **No Fixed Address (Cyberpunk)** are not ready for release. Their manuscripts, artwork and design briefs belong to the active [Cosmic study](projects/cosmic-study/README.md) and [Cyberpunk study](projects/cyberpunk-study/README.md), which provide local preview routes. They are excluded from the published catalogue and hosted files.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 

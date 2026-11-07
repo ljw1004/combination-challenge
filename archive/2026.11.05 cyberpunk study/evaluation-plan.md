@@ -1,6 +1,6 @@
 # Evaluation assignments
 
-This archived record preserves the study's questions, assignments and completion scope. The [evaluation guide](../../docs/fun-and-evaluation.md) owns the reusable methods, rubrics, independent participants and report format; these are not additional universal rules. Continuing work belongs to the [unreleased manuscript](../../projects/cyberpunk-study/cyberpunk.md) and [active brief](../../projects/cyberpunk-study/design-brief.md).
+This archived record preserves the study's questions, assignments and completion scope. The [evaluation guide](../../docs/fun-and-evaluation.md) owns the reusable methods, rubrics, independent participants and report format; these are not additional universal rules. Continuing work belongs to the [unreleased manuscript](cyberpunk.md) and [active brief](design-brief.md).
 
 ## Story hypotheses
 
