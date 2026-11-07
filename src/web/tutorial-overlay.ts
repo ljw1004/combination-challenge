@@ -33,7 +33,14 @@ export class TutorialOverlay {
     this.outline.setAttribute('class', 'tutorial-target'); this.outline.setAttribute('rx', '9');
     this.svg.append(this.outline);
     this.gesture.className = 'tutorial-gesture';
-    this.gesture.innerHTML = '<svg viewBox="-20 -20 64 64"><circle class="tutorial-contact" r="12"/><path class="tutorial-cursor" d="M0 0 0 27 7 20 13 33 19 30 13 18 23 18Z"/></svg>';
+    this.gesture.innerHTML = `<svg viewBox="-20 -20 64 64">
+      <circle class="tutorial-ripple" r="26"/>
+      <g class="tutorial-pointer">
+        <circle class="tutorial-contact" r="12"/>
+        <path class="tutorial-cursor" d="M0 0 0 27 7 20 13 33 19 30 13 18 23 18Z"/>
+        <path class="tutorial-hand" transform="rotate(-18)" d="M-4 24V4a4 4 0 0 1 8 0v13c0-5 8-5 8 1v1c0-5 8-3 8 2v2c0-5 8-3 8 2v6c0 6-4 10-7 13H5c-4 0-7-2-9-5l-9-11c-3-4 2-8 5-5l4 4ZM4 17v8m8-6v7m8-3v5"/>
+      </g>
+    </svg>`;
     this.root.append(this.svg, this.gesture); host.append(this.root);
   }
 
@@ -163,9 +170,10 @@ export class TutorialOverlay {
         copy.style.transform = `scale(${source.width / parseFloat(copy.style.width)},${source.height / parseFloat(copy.style.height)})`;
       });
       this.gesture.style.transform = `translate(${gesturePosition.x}px,${gesturePosition.y}px)`;
-      this.gesture.style.opacity = String(opacity);
-      this.gesture.classList.toggle('tutorial-press', cue.kind === 'goals' ? phase >= .2 && phase < .38 : phase >= .12 && phase < .6);
-      this.outline.style.opacity = String(reduced || this.interacting ? .65 : .45 + opacity * .4);
+      // CSS coordinates the goals tap and ripple independently of the longer drag demonstration.
+      this.gesture.style.opacity = String(cue.kind === 'goals' ? 1 : opacity);
+      this.gesture.classList.toggle('tutorial-press', cue.kind !== 'goals' && phase >= .12 && phase < .6);
+      this.outline.style.opacity = String(reduced || this.interacting || cue.kind === 'goals' ? .65 : .45 + opacity * .4);
     }
     this.frame = requestAnimationFrame(this.draw);
   };
