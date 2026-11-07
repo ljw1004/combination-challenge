@@ -383,7 +383,14 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     else if (chapterLines.length) chapterLines.at(-1)!.lines.push(line);
     else preamble.push(line);
   }
-  const title = preamble.find(l => /^# /.test(l.text)); story.title = title?.text.slice(2).trim() ?? options.id ?? 'Untitled story';
+  const title = preamble.find(l => /^# /.test(l.text));
+  story.heading = title?.text.slice(2).trim();
+  story.titleImages = [];
+  story.title = story.heading?.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (image, alt, url) => {
+    if (url.trim()) story.titleImages!.push({url: url.trim(), alt, source: source(title!.line, image)});
+    return '';
+  }).replace(/\s+/g, ' ').trim() || options.id || 'Untitled story';
+  if (title) story.source = source(title.line);
   if (!title) error('missing-title', 'A story needs a # title.', 1);
   const cover = extractBackground(preamble.filter(l => l !== title), title);
   story.description = cover.content.map(l => l.text).join('\n').trim();

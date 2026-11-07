@@ -23,10 +23,12 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
   try {
     mkdirSync(join(root, 'stories/shared/assets'), {recursive: true});
     mkdirSync(join(root, 'assets'));
+    mkdirSync(join(root, 'src/web'), {recursive: true});
+    write('src/web/style.css', '.chooser img{display:inline;vertical-align:baseline}');
     write('stories/shared/story.md', '# First title\n\nbackground: ![start](assets/start.svg)\n\n![cover](assets/cover.svg)\n\n## Workshop\n');
     write('stories/shared/design-brief.md', '# Excluded brief\n');
     write('stories/shared/assets/cover.svg', '<svg xmlns="http://www.w3.org/2000/svg"/>');
-    const index = '<!doctype html><div id="app"><!-- story-catalogue --></div><script type="module" src="/catalogue.js"></script>';
+    const index = '<!doctype html><head><!-- catalogue-styles --></head><body><div id="app"><!-- story-catalogue --></div><script type="module" src="/catalogue.js"></script></body>';
     const player = '<!doctype html><body data-catalogue="./index.html"><div>Player template</div><script type="module" src="/player.js"></script></body>';
     write('index-dev.html', index); write('make-something-dev.html', player);
     write('catalogue.js', 'document.body.dataset.catalogue = "one";');
@@ -34,6 +36,8 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     write('keep.txt', 'unrelated root file'); write('assets/keep.js', 'unrelated asset');
     await runBuild();
     assert.match(read('index.html'), /First title/);
+    assert.match(read('index.html'), /<style>\.chooser img\{display:inline;vertical-align:baseline\}<\/style>/);
+    assert.doesNotMatch(read('index.html'), /rel="stylesheet"|catalogue-styles/);
     assert.match(read('index.html'), /href="make-something.html\?story=stories\/shared\/story.md"/);
     assert.match(read('index.html'), /src="stories\/shared\/assets\/cover.svg"/);
     assert.doesNotMatch(read('index.html'), /background:|start\.svg/);
@@ -73,6 +77,7 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     for (const path of ['', 'index.html', 'index-dev.html']) {
       const html = await (await fetch(new URL(path, base))).text();
       assert.match(html, /Updated title/);
+      assert.match(html, /<style>\.chooser img\{display:inline;vertical-align:baseline\}<\/style>/);
       assert.match(html, /@vite\/client/);
       assert.doesNotMatch(html, /First title/);
     }

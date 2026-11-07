@@ -6,7 +6,7 @@ import {lintStory, lintStoryAnalysis} from '../src/lint/lint.ts';
 import {newGame} from '../src/engine/game.ts';
 import {chapterSupplies} from '../src/engine/analysis.ts';
 
-const fixture = `# 📻 Radio
+const fixture = `# ![icon](https://example.com/icon.png) 📻 Radio
 ## Workshop
 background: ![room](room.webp)
 **Goals**

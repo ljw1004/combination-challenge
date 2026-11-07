@@ -12,6 +12,10 @@ Keep proposed departures and unresolved questions in the study's working notes. 
 
 Keep dated decisions and verification outcomes in notes or project records. Production commands must identify their actual input and output paths: moving the manuscript or changing a documentation link does not retarget a script. Preserve frozen references, and adapt historical tools before using them on current work.
 
+## Give the story a catalogue identity
+
+Give the manuscript an ordinary heading image, such as `# ![A mixing bowl](icon.png) Cookbook`, followed by its catalogue description. Choose a subject that conveys the story at a glance and keeps its character when small. `icon.png` beside the manuscript is a convenient filename for transparent artwork. The [specification](story-format-spec.md#specification) owns required shape and syntax, and [UX](ux.md#catalogue-and-story-identity) owns display size and layout. Description illustrations and the opening cover remain separate choices.
+
 ## Choose a premise that works through combination
 
 Find the essential act of combining before committing to a setting. Cooking naturally joins ingredients into something satisfying; settlement-building can grow from a few raw materials; intellectual history can join inherited ideas with a new experience or argument. Other forms are welcome, but the premise must make the player's repeated act worthwhile.

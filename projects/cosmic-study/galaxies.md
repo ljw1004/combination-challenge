@@ -1,4 +1,4 @@
-# Cosmic: The Lights That Remain
+# ![Two interacting spiral galaxies](icon.png) Cosmic: The Lights That Remain
 
 The old orange star will outlive its spiral. Follow the matter beside it through a collision that changes what it can become.
 

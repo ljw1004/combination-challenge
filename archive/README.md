@@ -66,3 +66,7 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 ### Creation glacier
 
 [`2026.11.06 creation glacier/`](<2026.11.06 creation glacier/README.md>) retains the selected advancing-glacier master, exact final generation request, export script, scientific references and review criteria. The revision brings the ice front forward, adds regional snow and cold light, and replaces repetitive grooves with broader snowy surfaces and irregular crevasses. The live manuscript owns the landscape receiver and extended hitbox; its encyclopedia explains ice reflectivity and greenhouse warming. Earlier candidates and temporary verification output were discarded.
+
+### Story catalogue icons
+
+[`2026.11.06 story icons/`](<2026.11.06 story icons/README.md>) retains eight selected catalogue-icon masters, exact generation requests, necessary edit references, runtime export paths and concise verification outcomes. The six published stories and two current unpublished drafts use transparent 256px PNGs beside their manuscripts. Creation uses a luminous mosaic following the user's art references and further sacred-art research; Settlement keeps its tree in front of the house, and Theology retains the book with an illuminated cross. The [UX contract](../docs/ux.md#catalogue-and-story-identity) owns baseline alignment and sizing; the [specification](../docs/story-format-spec.md#specification) owns square-image validation. Temporary verification output was discarded.

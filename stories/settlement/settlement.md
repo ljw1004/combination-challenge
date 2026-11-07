@@ -1,4 +1,4 @@
-# Settlement: A River Worth Returning To
+# ![An apple tree in front of a timber cottage](icon.png) Settlement: A River Worth Returning To
 
 Starting from four storybook elements, travel from an orchard to a coastal gathering in rustic coloured woodcuts. Make useful things for people you meet. The world remembers what you leave behind.
 

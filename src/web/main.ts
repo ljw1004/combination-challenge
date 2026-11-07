@@ -278,7 +278,8 @@ function checkText(parsed: Story, text: string) {
     (results, phase) => authoring?.setDiagnostics(results, phase),
     message => authoring?.setPreviewStatus(message),
   );
-  const prepared = itemArtwork.prepare(placementArtwork(parsed), asset);
+  const titleImages = parsed.titleImages ?? [];
+  const prepared = itemArtwork.prepare([...placementArtwork(parsed), ...titleImages.map(image => image.url)], asset);
   if (prepared) {
     diagnostics.check(parsed, text);
     void prepared.then(() => {
@@ -291,7 +292,7 @@ function checkText(parsed: Story, text: string) {
   probe.style.cssText = 'position:fixed;left:-10000px;top:0;width:390px;--board-scale:1;visibility:hidden;pointer-events:none';
   probe.innerHTML = hotspotProbeHTML(parsed, h => itemArtwork.hotspot(h, asset), chapter => sceneSize(itemArtwork.dimensions(background(parsed, chapter), asset)));
   document.body.append(probe);
-  try { diagnostics.check(parsed, text, measureHotspots(probe)); }
+  try { diagnostics.check(parsed, text, measureHotspots(probe), titleImages.map(image => ({url: image.url, ...itemArtwork.dimensions(image.url, asset) ?? {width: 0, height: 0}}))); }
   finally { probe.remove(); }
 }
 function schedulePreview() {

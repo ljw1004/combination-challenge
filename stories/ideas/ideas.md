@@ -1,4 +1,4 @@
-# History of ideas
+# ![A brass armillary sphere on a book](icon.png) History of ideas
 
 Follow questions across centuries: what explains an eclipse, what makes a life good, and when should a rule change? Combine evidence, arguments and inventions to discover how ideas meet—and what each encounter makes possible.
 

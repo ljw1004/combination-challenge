@@ -1,4 +1,4 @@
-export const conditionalWorld = `# A changing world
+export const conditionalWorld = `# ![icon](default.svg) A changing world
 ## Formation
 background: ![space](space.svg)
 Make a moon and light the world.

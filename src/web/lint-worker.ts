@@ -3,6 +3,7 @@ import {lintStory, lintStoryAnalysis} from '../lint/lint.ts';
 import type {Diagnostic} from '../story/types.ts';
 import {lintPlacementGeometry} from '../lint/placement.ts';
 import type {HotspotMeasurement} from './hotspot-view.ts';
+import type {StoryIconMeasurement} from '../lint/story-icons.ts';
 
 export interface LintWorkerRequest {
   revision: number;
@@ -10,6 +11,7 @@ export interface LintWorkerRequest {
   id: string;
   file: string;
   hotspotMeasurements?: HotspotMeasurement[];
+  storyIconMeasurements?: StoryIconMeasurement[];
 }
 
 export interface LintWorkerResponse {
@@ -32,7 +34,7 @@ async function run(): Promise<void> {
     pending = undefined;
     try {
       const story = parseStory(request.text, {id: request.id, file: request.file});
-      const fast = [...lintStory(story, {analysis: false}), ...lintPlacementGeometry(story, request.hotspotMeasurements ?? [])];
+      const fast = [...lintStory(story, {analysis: false, storyIconMeasurements: request.storyIconMeasurements}), ...lintPlacementGeometry(story, request.hotspotMeasurements ?? [])];
       scope.postMessage({revision: request.revision, phase: 'fast', diagnostics: fast});
       // Let newer buffers replace queued work before starting global analysis.
       await new Promise<void>(resolve => setTimeout(resolve, 0));

@@ -48,6 +48,8 @@ Use Memory directly once in the song branch: Echo plus Memory makes a repeatable
 
 ## Visual intent
 
+The catalogue identity uses the selected mosaic to convey the gravity and wonder of Genesis: light, waters, fertile earth and emerging life within one world. Preserve its broad, luminous forms and integrated plant and animal shapes. Rich saturated colours belong to its glass and glaze treatment and give the icon its desired intensity. Avoid a cute miniature paradise or a globe topped with a sprout. This identity has its own treatment, separate from the in-game landscape language below.
+
 The story and combinations are accepted for the artwork pass. Develop and review backgrounds, changing hotspots and the concept treatment of Variation against the current manuscript. Use circular symbolic icons throughout; they are windows onto phenomena, not literal objects on a workbench. Choose and pilot a coherent visual language suited to cosmic and ecological scale. Backgrounds should show the world's progression while leaving calm working space for the symbols. The same planet, moon and principal coastline must remain recognizable through later states. No buildings or settlements as the dominant image.
 
 The [authoring guide](../../docs/story-authoring.md), [evaluation guide](../../docs/fun-and-evaluation.md) and [icon guide](../../docs/icon-guide.md) govern development. This single active brief governs the manuscript and any subsequent study iterations.
@@ -55,6 +57,8 @@ The [authoring guide](../../docs/story-authoring.md), [evaluation guide](../../d
 ### Adopted visual language: Ravilious-inspired painted landscapes
 
 The [design examples](design-examples.png) show actual gameplay in the opening creation scene, the flowering-plant chapter and the painted cave.
+
+The supplied [inspiration collection](<../../archive/2026.11.05 creation revision/inspiration/>) is retained in the completed revision archive, including the [Ravilious landscape](<../../archive/2026.11.05 creation revision/inspiration/eric ravilious - chalk paths 1935.jpeg>), [four-scene style study](<../../archive/2026.11.05 creation revision/inspiration/eric ravilious - ideas in his style.png>) and [Pillars of Creation study](<../../archive/2026.11.05 creation revision/inspiration/eric ravilious - pillars of creation in his style.png>).
 
 Use the supplied Ravilious landscape and four-scene study as the main background references: sculpted landforms, clear planes, directional pencil and dry-brush marks, translucent watercolour and a restrained range of related colours. Preserve atmospheric depth and distinct silhouettes. Volcanoes, glaciation and primordial waters need elemental force, using scale, displacement, weather and light. Calm scenes may be spacious without becoming domestic or uniformly pastoral. Keep the existing circular gouache icons legible against the new backgrounds; they can carry richer colour than the scenery.
 

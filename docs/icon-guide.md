@@ -6,6 +6,8 @@ This guide owns the art-development workflow. Use [UX](ux.md#item-artwork) for c
 
 ## 1. Establish the brief
 
+For a catalogue identity, choose one subject or composition that carries the whole story. An ordinary image in the manuscript heading supplies it; [UX](ux.md#catalogue-and-story-identity) owns its display treatment and the [specification](story-format-spec.md#specification) owns validation. Review it at the actual catalogue size, with the title, on both light and dark surfaces. Transparent PNG keeps an isolated silhouette; 256 × 256 is a useful runtime export, while the selected larger master remains available for future uses. Broad forms and strong light/dark relationships matter more than small decorative details. This identity need not use the same medium as every in-game illustration.
+
 Describe the story's setting, tone, objects and intended audience. Decide what the artwork should contribute: immediate recognition, a particular atmosphere, pleasure in discovering objects, visible construction, or clearer preparation states. Name the specific appearances to pursue or avoid and explain why they suit this story.
 
 Define the recognition task as well. Does the player need to distinguish an object family, its material, its contents, or its stage of preparation? Identify the information normally available alongside the picture. If the aim is recognition as quick as text, plan a comparison with text that measures time and errors; an untimed guessing exercise answers a narrower question.

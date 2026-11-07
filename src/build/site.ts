@@ -62,11 +62,15 @@ export function sitePages(): Plugin {
       // Insert artwork after Vite's HTML processing so it stays an ordinary URL.
       order: 'post',
       handler(html) {
+        if (html.includes('<!-- catalogue-styles -->')) {
+          const css = readFileSync(resolve(root, 'src/web/style.css'), 'utf8');
+          html = html.replace('<!-- catalogue-styles -->', () => `<style>${css}</style>`);
+        }
         if (!html.includes('<!-- story-catalogue -->')) return html;
         const stories = resolve(root, 'stories');
         const entries = storyIds(stories).map(path => {
           const { story } = loadStory(resolve(stories, path));
-          return { path: `stories/${path}`, title: story.title, description: story.description };
+          return { path: `stories/${path}`, title: story.title, heading: story.heading, description: story.description };
         });
         return html.replace('<!-- story-catalogue -->', () => renderCatalogue(entries));
       },

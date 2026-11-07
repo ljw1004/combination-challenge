@@ -1,4 +1,4 @@
-# Cookbook
+# ![A mixing bowl with dough and a wooden spoon](icon.png) Cookbook
 
 Write a cookbook. Make doughs, sauces, fillings, pastries and cakes.
 

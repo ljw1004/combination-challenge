@@ -1,4 +1,4 @@
-# Mission to Mars
+# ![A repaired expedition lander](icon.png) Mission to Mars
 
 background: ![The delivered habitat before arrival](assets/live-feedback/cover-before-crash.webp)
 

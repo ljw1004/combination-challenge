@@ -8,6 +8,7 @@ export function lintStoryImages(story: Story, markdown: string): Diagnostic[] {
   const items = Object.values(story.items);
   const prose = [story.description, ...story.chapters.flatMap(chapter => [chapter.intro, chapter.skipped]), ...items.flatMap(item => item.wonders.flatMap(wonder => [wonder.popup, wonder.encyclopedia]))];
   const images = new Set([
+    ...(story.titleImages ?? []).map(image => image.url),
     ...(story.cover ? [story.cover] : []),
     ...story.chapters.flatMap(chapter => chapter.image ? [chapter.image] : []),
     ...prose.flatMap(text => [...text.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)].map(match => match[1])),

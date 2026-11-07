@@ -1,4 +1,4 @@
-# Theology: Disputed Questions
+# ![An open manuscript with a cross and quill](icon.png) Theology: Disputed Questions
 
 A manuscript desk, not a test of faith. Follow a wound, a failed promise, bread, a hungry household and a request for prayer through changing arguments. Build what each writer is claiming, test it against a case, and leave real disagreements open. New chapters reuse distinctions you have made. Each item has a short explanation you can revisit.
 

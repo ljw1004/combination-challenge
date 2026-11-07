@@ -17,6 +17,7 @@ export interface Ingredient { ref: Ref; fate: Fate; explicit: boolean }
 /** Authored uses are retained separately from deduplicated logical recipes. */
 export interface FateSite { item: string; fate: Fate; edit?: {span: TextSpan; prefix: string; suffix: string} }
 export interface Icon { url: string; circular: boolean; position?: {x: number; y: number}; source: Source }
+export interface HeadingImage { url: string; alt: string; source: Source }
 export interface Slot { name?: string; accepts: string; icon?: Icon; source: Source }
 export interface Wonder { popup: string; encyclopedia: string; requires: string[]; source: Source }
 export interface ChapterReference { kind: 'id' | 'name'; value: string; source: Source }
@@ -54,6 +55,8 @@ export interface Recipe {
 }
 export interface Story {
   id: string; title: string; description: string; cover?: string; chapters: Chapter[];
+  /** Authored H1 content and its ordinary Markdown images; title remains text-only. */
+  heading?: string; titleImages?: HeadingImage[];
   items: Record<string, Item>; hotspots: Record<string, Hotspot>; recipes: Recipe[];
   diagnostics: Diagnostic[]; source: Source; fateSites?: FateSite[];
   /** Exact authored occurrences shared by declaration lint and language operations. */

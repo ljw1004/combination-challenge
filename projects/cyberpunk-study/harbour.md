@@ -1,4 +1,4 @@
-# The Travelling Harbour
+# ![A ship and its harbour inside a bottle](icon.png) The Travelling Harbour
 background: ![The Travelling Harbour](harbour-assets/backgrounds/cover-v2.png)
 
 Make a little ship, turn its world inside out, and find out what else a borrowed movement can do.

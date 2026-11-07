@@ -7,7 +7,7 @@ import {act, newGame, replay} from '../src/engine/game.ts';
 import {hotspotDrop} from '../src/engine/hotspot-drop.ts';
 import {placeAtCentre} from '../src/web/board-geometry.ts';
 
-const source = `# Placement
+const source = `# ![icon](https://example.com/icon.png) Placement
 ## Work
 background: ![room](room.svg)
 **Goals**

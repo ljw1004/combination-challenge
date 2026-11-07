@@ -3,11 +3,11 @@ import {mkdtempSync, writeFileSync, rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {parseStory} from '../src/story/parser.ts';
-import {PlacementBrowser} from '../src/lint/placement-browser.ts';
+import {ArtworkBrowser} from '../src/lint/artwork-browser.ts';
 
 test('CLI placement lint measures transparent, fractional, small, and text hotspot rectangles using the player CSS', async () => {
   const directory = mkdtempSync(join(tmpdir(),'combination-placement-'));
-  const checker = new PlacementBrowser();
+  const checker = new ArtworkBrowser();
   try {
     writeFileSync(join(directory,'room.svg'),'<svg xmlns="http://www.w3.org/2000/svg" width="780" height="1688"></svg>');
     writeFileSync(join(directory,'hit.svg'),'<svg xmlns="http://www.w3.org/2000/svg" width="321" height="320"></svg>');

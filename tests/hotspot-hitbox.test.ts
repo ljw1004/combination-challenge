@@ -5,7 +5,7 @@ import {lintStory} from '../src/lint/lint.ts';
 import {lintPlacementGeometry} from '../src/lint/placement.ts';
 import {hotspotCentre, hotspotHTML, hotspotRect} from '../src/web/hotspot-view.ts';
 
-const source = `# Receiving geometry
+const source = `# ![icon](https://example.com/icon.png) Receiving geometry
 ## Work
 background: ![room](room.svg)
 **Goals**
@@ -68,7 +68,7 @@ test('receiving rectangle governs placements, minimum touch size and invalid-pre
 });
 
 test('circular compatibility uses effective artwork from the receiver chapter onward',()=>{
-  const inherited=`# Evolving artwork
+  const inherited=`# ![icon](https://example.com/icon.png) Evolving artwork
 ## Work
 background: ![room](room.svg)
 **Goals**

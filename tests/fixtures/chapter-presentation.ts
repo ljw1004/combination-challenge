@@ -1,4 +1,4 @@
-export const changingArray = `# Changing array
+export const changingArray = `# ![icon](assets/clean.svg) Changing array
 ## Landing
 background: ![room](assets/room.svg)
 

@@ -1,4 +1,3 @@
-import './style.css';
 import { escape } from './markdown.ts';
 const app = document.querySelector<HTMLDivElement>('#app')!;
 const selected = location.hash.slice(1);

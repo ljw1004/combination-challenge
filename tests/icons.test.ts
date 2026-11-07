@@ -8,7 +8,7 @@ import {lintStory} from '../src/lint/lint.ts';
 import {lintStoryImages} from '../src/lint/images.ts';
 import {newGame} from '../src/engine/game.ts';
 
-const manuscript = (body: string) => `# Icon workshop\n## Start\nbackground: ![room](https://example.com/room.webp)\n\n${body}`;
+const manuscript = (body: string) => `# ![icon](https://example.com/icon.png) Icon workshop\n## Start\nbackground: ![room](https://example.com/room.webp)\n\n${body}`;
 const iconErrors = (text: string) => lintStory(parseStory(text), {analysis: false}).filter(diagnostic => diagnostic.code.includes('icon'));
 
 test('item icons and aligned slot overlays retain source spans without creating references or wonders', () => {

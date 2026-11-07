@@ -9,7 +9,7 @@ import {observe} from '../src/playtest/observe.ts';
 import {detailedObjects} from '../src/playtest/detailed.ts';
 import {startAdventure, renderFrame, choices} from '../src/playtest/adventure.ts';
 
-const parse = (text:string) => parseStory(`# Fixed items\n## Opening\nbackground: ![scene](scene.png)\n${text}`);
+const parse = (text:string) => parseStory(`# ![icon](https://example.com/icon.png) Fixed items\n## Opening\nbackground: ![scene](scene.png)\n${text}`);
 const errors = (text:string) => lintStory(parse(text),{analysis:false}).filter(d=>d.severity==='error');
 const advance = (story:ReturnType<typeof parse>, state:ReturnType<typeof newGame>) => {
   while(state.pending.length) state=act(story,state,{type:'dismiss'});

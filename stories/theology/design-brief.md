@@ -2,6 +2,10 @@
 
 An educational combination story for curious high-school and adult readers. Reconstruct theological arguments through concrete examples, understand why someone could find them persuasive, and discover what a reply answers or leaves open. The player need not share any writer’s faith. The [shared authoring guide](../../docs/story-authoring.md) and [evaluation method](../../docs/fun-and-evaluation.md) govern development.
 
+## Catalogue identity
+
+The catalogue icon is an open manuscript with a quill and a prominent illuminated cross. Preserve the book as the central image while making the story's Christian theological subject explicit.
+
 ## Let the arguments earn their force
 
 Present the dilemmas as live questions. A reader familiar with a tradition’s conclusions but unfamiliar with its history should be able to find an opposing argument reasonable before encountering a reply. A Catholic reader finding the Cathar argument persuasive, then reconsidering it through Aquinas, would be a meaningful possible outcome. It is a design hypothesis, not an observed result or a requirement that every reader reach the same judgment.

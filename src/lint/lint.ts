@@ -12,15 +12,17 @@ import {recipeIngredients} from '../engine/fixed-items.ts';
 import {dynamicHotspotChapter,fixedItemDiagnostics} from './fixed-items.ts';
 import {validHitbox} from '../story/hotspot-hitbox.ts';
 import {hotspotIconVariants} from '../engine/presentation.ts';
+import {storyIconDiagnostics, type StoryIconMeasurement} from './story-icons.ts';
 
 export interface LintOptions {
   analysis?: boolean;
   /** Focused semantic tests may omit opportunity enumeration; normal lint always includes it. */
   opportunities?: OpportunityOptions | false;
   onOpportunityAnalysis?: (report: OpportunityReport) => void;
+  storyIconMeasurements?: StoryIconMeasurement[];
 }
 export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[] {
-  const diagnostics = [...story.diagnostics, ...declarationDiagnostics(story), ...presentationDiagnostics(story), ...recipeConflictDiagnostics(story)];
+  const diagnostics = [...story.diagnostics, ...storyIconDiagnostics(story, options.storyIconMeasurements), ...declarationDiagnostics(story), ...presentationDiagnostics(story), ...recipeConflictDiagnostics(story)];
   const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => diagnostics.push({severity,code,message,source,span:source.span??{from:0,to:0},stage:'fast',...(related?.length?{related}:{}),...(fixes?.length?{fixes,fixTitle}:{})});
   const error = (code:string,message:string,source:Source) => add('error',code,message,source);
   const warning = (code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => add('warning',code,message,source,related,fixes,fixTitle);
@@ -145,7 +147,8 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
 
 /** Potentially expensive global reachability/exclusivity analysis. Run in the browser worker. */
 export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagnostic[] = lintStory(story, {analysis: false}), options: LintOptions = {}): Diagnostic[] {
-  if (fastDiagnostics.some(diagnostic => diagnostic.severity === 'error')) return [];
+  // Catalogue artwork cannot change logical reachability, including in unfinished drafts.
+  if (fastDiagnostics.some(diagnostic => diagnostic.severity === 'error' && !['missing-story-icon', 'story-icon-square', 'story-icon-image'].includes(diagnostic.code))) return [];
   const error = (code: string, message: string): Diagnostic[] => [{
     severity: 'error', code, message, source: story.source,
     span: story.source.span ?? {from: 0, to: 0}, stage: 'deep',
