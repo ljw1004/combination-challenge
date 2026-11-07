@@ -16,7 +16,7 @@
   inset: auto; left: 50%; top: 50%; translate: -50% -50%; border-radius: 50%;
   width: min(var(--icon-width), var(--icon-height)); height: min(var(--icon-width), var(--icon-height));
 }
-.icon-thing:is(.pressed, .possible, .dragging, :focus-visible)::after {
+.icon-thing:is(.pressed, .possible, .dragging)::after {
   border: 2px dotted #fffaf0; box-shadow: 0 0 0 1px #142a36bf, 0 0 6px #142a36;
 }
 .icon-thing:is(.will-create, .will-place)::after {
@@ -29,9 +29,9 @@
   background: #080d14bf; color: #fff; font: calc(12px * var(--label-scale, 1))/1.2 Arial, Helvetica, sans-serif;
   white-space: normal; overflow-wrap: anywhere; text-align: center; pointer-events: none;
 }
-.icon-thing:is(.pressed, .possible, .dragging, .will-create, :focus-visible) .icon-name { display: block; }
+.icon-thing:is(.pressed, .possible, .dragging, .will-create) .icon-name { display: block; }
 .icon-thing.newly-created .icon-name { display: block; animation: creation-name 1.7s linear forwards; }
-.icon-thing:is(.pressed, .possible, .dragging, .will-create, :focus-visible) .icon-name { opacity: 1 !important; }
+.icon-thing:is(.pressed, .possible, .dragging, .will-create) .icon-name { opacity: 1 !important; }
 @keyframes creation-name { 0%, 88.235294% { opacity: 1; } 100% { opacity: 0; } }
 /* The reading cue sits just inside the icon so it cannot cover its name above. */
 .icon-thing .reading-indicator { top: 0; }
@@ -67,8 +67,8 @@
   border-radius: 50%; pointer-events: auto;
 }
 .hotspot-icon::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
-.hotspot-icon:is(:hover, :active, :focus-visible, .pressed, .possible, .will-create, .will-place)::after {
+.hotspot-icon:is(:hover, :active, .pressed, .possible, .will-create, .will-place)::after {
   border: 2px dotted #000; box-shadow: none;
 }
 .hotspot-icon:is(.will-create, .will-place)::after { border: 3px solid #fff1b5; box-shadow: 0 0 0 2px #a75a0e, 0 0 14px 4px #ffce65; }
-.hotspot-icon:is(:hover, :active, :focus-visible, .pressed, .possible, .will-create, .will-place) .icon-name { display: block; }
+.hotspot-icon:is(:hover, :active, .pressed, .possible, .will-create, .will-place) .icon-name { display: block; }

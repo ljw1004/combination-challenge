@@ -57,8 +57,10 @@ test('icons use intrinsic quarter sizes, partner name badges and circular select
   await expect(house.locator('.icon-name')).toBeVisible();
   await expect(house.locator('.icon-name')).toBeHidden({timeout: 1500});
   await house.focus();
-  await expect(house.locator('.icon-name')).toBeVisible();
-  await expect(window.locator('.icon-name')).toBeVisible();
+  await expect(house.locator('.icon-name')).toBeHidden();
+  await expect(window.locator('.icon-name')).toBeHidden();
+  await expect(house).not.toHaveClass(/pressed/);
+  expect(await house.evaluate(element => getComputedStyle(element, '::after').borderStyle)).toBe('none');
 });
 
 test('automatic arrivals avoid an upper station, while a deliberate placement there survives reload', async ({page}) => {
@@ -385,7 +387,9 @@ for(const icons of [true,false])test(`${icons?'icon':'text'} hotspot hints conne
   await cellar.hover();await expect(dough).toHaveClass(/possible/);await expect(starter).toHaveClass(/possible/);
   if(icons){await expect(dough.locator('.icon-name')).toBeVisible();await expect(starter.locator('.icon-name')).toBeVisible();}
   await page.mouse.move(5,700);await expect(dough).not.toHaveClass(/possible/);
-  await cellar.focus();await expect(dough).toHaveClass(/possible/);await expect(starter).toHaveClass(/possible/);
+  await cellar.focus();await expect(dough).not.toHaveClass(/possible/);await expect(starter).not.toHaveClass(/possible/);
+  await expect(cellar).toHaveCSS('outline-style','none');
+  if(icons)await expect(cellar.locator('.icon-name')).toBeHidden();
   const starterPosition=(await starter.boundingBox())!;
   await starter.dragTo(dough);await expect(risen).toHaveCount(0);
   // The incompatible drop now covers Dough; move Starter aside to reach it.

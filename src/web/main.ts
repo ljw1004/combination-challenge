@@ -969,8 +969,6 @@ app.addEventListener('lostpointercapture',e=>{
 });
 app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));}});
 app.addEventListener('pointerout',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const next=e.relatedTarget instanceof Element?e.relatedTarget.closest<HTMLElement>('[data-item],[data-hotspot]'):null;feedback.hover(next&&app.contains(next)?feedbackKey(next):undefined);}});
-app.addEventListener('focusin',e=>{const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!drag&&!hotspotPress&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));});
-app.addEventListener('focusout',e=>{if(!drag&&!hotspotPress){const next=e.relatedTarget instanceof Element?e.relatedTarget.closest<HTMLElement>('[data-item],[data-hotspot]'):null;feedback.hover(next&&app.contains(next)?feedbackKey(next):undefined);}});
 app.addEventListener('click',e=>{
   if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
   const element=e.target as Element;

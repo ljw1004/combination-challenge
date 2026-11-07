@@ -160,7 +160,7 @@ test('the compact chapter row opens the book through either its icon or label an
   await expect(body).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(book).toBeFocused();
-  expect(await book.evaluate(el => getComputedStyle(el).outlineStyle)).toBe('solid');
+  expect(await book.evaluate(el => getComputedStyle(el).outlineStyle)).toBe('none');
   await page.keyboard.press('Enter');
   await expect(page.getByRole('dialog', { name: 'Encyclopedia', exact: true })).toBeVisible();
 });
@@ -504,30 +504,28 @@ test('keyboard activation opens the same entry below threshold; Index and Escape
   await expect(page.locator('dialog')).toHaveCount(0);
 });
 
-test('book focus has no rectangle while keyboard controls and links keep a visible text cue', async ({ page }) => {
+test('book controls and links stay undecorated even during keyboard navigation', async ({ page }) => {
   await openFixture(page);
   await page.locator('[data-item="name:Grain"]').dblclick();
   const index = page.getByRole('button', { name: 'Index', exact: true });
   const close = page.getByRole('button', { name: 'Close', exact: true });
-  const noRectangle = async (control: typeof index) => {
+  const noDecoration = async (control: typeof index) => {
     expect(await control.evaluate(el => getComputedStyle(el).outlineStyle)).toBe('none');
     expect(await control.evaluate(el => getComputedStyle(el).boxShadow)).toBe('none');
+    expect(await control.evaluate(el => getComputedStyle(el).textDecorationLine)).toBe('none');
   };
   await expect(index).toBeFocused();
-  await noRectangle(index);
+  await noDecoration(index);
   await page.keyboard.press('Tab');
   await expect(close).toBeFocused();
-  await noRectangle(close);
-  expect(await close.evaluate(el => getComputedStyle(el).textDecorationLine)).toContain('underline');
+  await noDecoration(close);
   await page.keyboard.press('Shift+Tab');
   await expect(index).toBeFocused();
-  await noRectangle(index);
-  expect(await index.evaluate(el => getComputedStyle(el).textDecorationLine)).toContain('underline');
+  await noDecoration(index);
   await page.keyboard.press('Enter');
   const entry = page.getByRole('link', { name: 'Grain', exact: true });
   await expect(entry).toBeFocused();
-  await noRectangle(entry);
-  expect(await entry.evaluate(el => getComputedStyle(el).textDecorationLine)).toContain('underline');
+  await noDecoration(entry);
   await page.keyboard.press('Escape');
   await expect(page.locator('dialog')).toHaveCount(0);
 });

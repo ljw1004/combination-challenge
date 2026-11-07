@@ -31,12 +31,13 @@ A **workshop** introduction.
 - Flour [preserve] + Tool [preserve] -> Final
 `;
 
-async function openFixture(page: Page) {
+async function openFixture(page: Page, touch = false) {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.route('**/input-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: manuscript }));
   await page.route('**/input-fixture/illustration.svg', route => route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="80" height="30"><rect width="80" height="30" fill="#765"/></svg>' }));
   await page.goto('/make-something.html?story=input-fixture/story.md');
-  await page.getByRole('button', { name: 'Start', exact: true }).click();
+  const start = page.getByRole('button', { name: 'Start', exact: true });
+  if (touch) await start.tap(); else await start.click();
 }
 
 async function selectedByDoubleClick(page: Page, target: Locator) {
@@ -105,6 +106,41 @@ test('Safari gesture guards preserve reading selection and single touches, inclu
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await page.locator('.debug-toggle').click();
   expect(await defaults(page.locator('.mobile-debug h2'))).toEqual(blocked);
+});
+
+test('touch-opened readings and chapter picker have no focus decorations', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  try {
+    const page = await context.newPage();
+    await openFixture(page, true);
+    const undecorated = async (control: Locator) => {
+      await expect(control).toBeFocused();
+      await expect(control).toHaveCSS('outline-style', 'none');
+      await expect(control).toHaveCSS('text-decoration-line', 'none');
+    };
+    const begin = page.getByRole('button', { name: 'Begin', exact: true });
+    await undecorated(begin);
+    await begin.tap();
+    const goals = page.getByRole('button', { name: 'Read this chapter' });
+    await goals.tap();
+    const close = page.getByRole('button', { name: 'Close', exact: true });
+    await undecorated(close);
+    await expect(page.locator('.recovery-action')).toHaveCSS('text-decoration-line', 'underline');
+    await page.getByRole('button', { name: 'Encyclopedia', exact: true }).tap();
+    const grain = page.getByRole('link', { name: 'Grain', exact: true });
+    await undecorated(grain);
+    await grain.tap();
+    await undecorated(page.getByRole('button', { name: 'Index', exact: true }));
+    await close.tap();
+    await page.getByRole('button', { name: 'Toggle debug panel' }).tap();
+    await undecorated(page.locator('.mobile-debug [aria-current]'));
+    await page.keyboard.press('Escape');
+    await goals.focus();
+    await page.keyboard.press('Enter');
+    await undecorated(close);
+    await close.tap();
+    await expect(page.locator('dialog')).toHaveCount(0);
+  } finally { await context.close(); }
 });
 
 test('touch double-taps and pinches keep the viewport scale while item double-taps still open readings', async ({ browser, browserName }) => {
