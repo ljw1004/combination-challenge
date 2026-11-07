@@ -70,3 +70,7 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 ### App icon
 
 [`2026.11.06 app icon/`](<2026.11.06 app icon/README.md>) retains the original circular mosaic sun and the later [shared square-icon pass](<2026.11.06 app icon/2026.11.06-shared-icons/README.md>): selected teal app and Creation masters, the requested ivory comparison, exact generation requests, export commands and concise outcomes. The root [icon.png](../icon.png) is the opaque 256px favicon shared by the catalogue and player and used for the catalogue's home-screen icon; the [UX identity contract](../docs/ux.md#catalogue-and-story-identity) owns its current use.
+
+### Builder study
+
+[`2026.11.07 builder study/`](<2026.11.07 builder study/README.md>) preserves the completed original **A Fair in the Air** project: twenty manuscript iterations, mechanism research, ten fast/detailed playtest batches, canonical Blender geometry and production tools, review instructions and concise independent mechanical/visual outcomes. The [live story](../stories/builder/builder.md), runtime artwork and [single active brief](../stories/builder/design-brief.md) remain outside the archive. Actual-size toys, receiving/service geometry and later pose/detail repairs are recorded with their evidence limits. Animations were deferred; temporary verification bundles were discarded.

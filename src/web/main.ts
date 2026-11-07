@@ -482,10 +482,11 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   dialog.className = kind;
   const scroll = dialog.scrollTop;
   reconcile(dialog, content);
-  dialog.scrollTop = changing ? 0 : scroll;
   dialogContext = context; dialogLayer.hidden = false; surface.inert = true;
   updateTutorial();
   if (!dialog.open) dialog.show();
+  // Native dialog focusing can scroll long readings while opening them.
+  dialog.scrollTop = changing ? 0 : scroll;
   dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : 'Story reading');
   if (context.kind === 'encyclopedia') {
     bookResize.observe(dialog); syncBookLayout();

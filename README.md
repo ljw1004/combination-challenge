@@ -8,7 +8,7 @@ The [authoring guide's worthwhile-hook requirement](docs/story-authoring.md#requ
 
 ## Project
 
-Combination stories authored in Markdown, with complete artwork for Settlement, Cookbook, Mars and Creation. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Combination stories authored in Markdown, with complete artwork for Settlement, Cookbook, Mars, Creation and Builder. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -28,9 +28,11 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **Cookbook** teaches practical cooking through pen-and-wash illustrations, from breakfast through afternoon tea to dinner: `/make-something.html?story=stories/cookbook/cookbook.md`. See its [design examples](stories/cookbook/design-examples.png) and lasting [design brief](stories/cookbook/design-brief.md). The completed [Cookbook study](<archive/2026.11.01 cookbook study/README.md>) retains the adaptation research, artistic directions and verdicts, comparisons, production source art and all 35 completed cookbook page PNGs.
 
-**Mission to Mars** follows a solo astronaut from a crash through shelter, farming, an uncertain discovery and a return built with local iron: `/make-something.html?story=stories/mars/mars.md`. The [live story](stories/mars/mars.md), [design brief](stories/mars/design-brief.md) and [three moments of play](stories/mars/design-exxamples.png) preserve its austere physical character. The completed [Mars study](archive/2026.11.01%20mars%20study/README.md) retains the unchanged v12 reference, earlier versions, production artwork and review outcomes.
+**Mission to Mars** follows a solo astronaut from a crash through shelter, farming, an uncertain discovery and a return built with local iron: `/make-something.html?story=stories/mars/mars.md`. The [live story](stories/mars/mars.md), [design brief](stories/mars/design-brief.md) and [three moments of play](stories/mars/design-examples.png) preserve its austere physical character. The completed [Mars study](archive/2026.11.01%20mars%20study/README.md) retains the unchanged v12 reference, earlier versions, production artwork and review outcomes.
 
 **Creation** gives you Earth, Air, Fire and Water to make stars, a living world and minds that begin creating for themselves: `/make-something.html?story=stories/creation/creation.md`. Its 187 combinations across 26 chapters use 182 circular illustrations, 22 painted backgrounds and evolving landscape hotspots. See the [story](stories/creation/creation.md), [design brief](stories/creation/design-brief.md), [three moments of play](stories/creation/design-examples.png), [supplied art references](<archive/2026.11.05 creation study/inspiration/README.md>) and [completed Creation study](<archive/2026.11.05 creation study/README.md>).
+
+**A Fair in the Air** follows a child and Aunt Jo from working garden toys to a tethered flying fair: `/make-something.html?story=stories/builder/builder.md`. Its 181 combinations across 30 chapters use original Blender construction diagrams and fourteen garden rewards. The [story](stories/builder/builder.md), [design brief](stories/builder/design-brief.md) and [completed Builder study](<archive/2026.11.07 builder study/README.md>) preserve the playable edition, intent, model sources and repeated playtest/continuity outcomes. Animation is deferred.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
@@ -41,6 +43,7 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 | `/make-something.html?story=stories/theology/theology.md` | `/stories/theology/theology.md` |
 | `/make-something.html?story=stories/mars/mars.md` | `/stories/mars/mars.md` |
 | `/make-something.html?story=stories/creation/creation.md` | `/stories/creation/creation.md` |
+| `/make-something.html?story=stories/builder/builder.md` | `/stories/builder/builder.md` |
 | `/make-something.html` | `/story.md` (supply this file to use this route) |
 
 The `story` parameter points to a `.md` file on the same server. Relative paths resolve against the player page, so the same layout works under a website subdirectory; root-relative paths also work. Without the parameter, the player always requests `story.md` beside itself. A missing story displays an error. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.

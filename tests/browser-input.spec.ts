@@ -31,14 +31,50 @@ A **workshop** introduction.
 - Flour [preserve] + Tool [preserve] -> Final
 `;
 
-async function openFixture(page: Page, touch = false) {
+async function openFixture(page: Page, touch = false, source = manuscript) {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.route('**/input-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: manuscript }));
+  await page.route('**/input-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: source }));
   await page.route('**/input-fixture/illustration.svg', route => route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="80" height="30"><rect width="80" height="30" fill="#765"/></svg>' }));
   await page.goto('/make-something.html?story=input-fixture/story.md');
   const start = page.getByRole('button', { name: 'Start', exact: true });
   if (touch) await start.tap(); else await start.click();
 }
+
+test('long introductions and rewards open at the beginning and preserve board scroll', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 664 });
+  const reading = `![Opening illustration](large-illustration.svg)\n\nRead from the beginning. ${'The moving parts make a useful new toy. '.repeat(35)}`;
+  const source = manuscript.replace('Finish -- Final', 'Finish -- Flour')
+    .replace('A **workshop** introduction.', reading)
+    + `\n## Next workshop\nTry the finished tool.\n\n**Goals**\n- Finish -- Final\n\n**Items**\n- Final\n\n  ${reading.replaceAll('\n', '\n  ')}\n`;
+  await page.route('**/input-fixture/large-illustration.svg', route => route.fulfill({
+    contentType: 'image/svg+xml',
+    body: '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="400" height="300" fill="#376"/></svg>',
+  }));
+  async function expectReadingStart(button: string) {
+    const dialog = page.locator('dialog');
+    const illustration = dialog.locator('img').first();
+    await illustration.evaluate(image => (image as HTMLImageElement).decode());
+    await expect.poll(() => dialog.evaluate(element => element.scrollTop)).toBe(0);
+    const imageBox = (await illustration.boundingBox())!;
+    const dialogBox = (await dialog.boundingBox())!;
+    expect(imageBox.y).toBeGreaterThanOrEqual(dialogBox.y);
+    await expect(page.getByRole('button', { name: button, exact: true })).toBeFocused();
+  }
+  await openFixture(page, false, source);
+  await expectReadingStart('Begin');
+  await page.getByRole('button', { name: 'Begin', exact: true }).click();
+  await page.locator('[data-item="name:Grain"]').dragTo(page.locator('[data-item="name:Stone"]'));
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await page.getByRole('button', { name: 'Continue story', exact: true }).click();
+  await page.getByRole('button', { name: 'Begin', exact: true }).click();
+  const viewport = page.locator('.viewport');
+  const before = await viewport.evaluate(element => element.scrollTop);
+  expect(before).toBeGreaterThan(0);
+  await page.locator('[data-item="name:Flour"]').last().dragTo(page.locator('[data-item="name:Tool"]').last());
+  await expectReadingStart('Continue');
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  expect(await viewport.evaluate(element => element.scrollTop)).toBe(before);
+});
 
 async function selectedByDoubleClick(page: Page, target: Locator) {
   await page.evaluate(() => getSelection()?.removeAllRanges());

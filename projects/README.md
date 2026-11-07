@@ -4,6 +4,5 @@ This index describes live projects only. Each project keeps its briefs, research
 
 - [Theology study](theology-study/README.md): continuing development of Theology: Disputed Questions, with two completed revision/evaluation cycles, structured player responses, graded chapter reports and current recommendations.
 - [Ideas study](ideas-study/README.md): ancient-to-modern connections, worthwhile independent discoveries, a whole-story teaching audit and successive chapter evaluations.
-- [Builder study](builder-study/README.md): an original construction story for age ten, progressing from working toys to a fictional flying fair, with repeated story and assembly-continuity evaluation.
 
 The [editorial and research backlog](backlog.md) tracks unresolved work and ideas across the repository. Temporary downloads and disposable output belong in ignored scratch space such as `runs/`.
