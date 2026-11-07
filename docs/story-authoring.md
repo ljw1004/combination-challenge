@@ -40,7 +40,7 @@ Keep dated decisions and verification outcomes in notes or project records. Prod
 
 ## Give the story a catalogue identity
 
-Give the manuscript an ordinary heading image, such as `# ![A mixing bowl](icon.png) Cookbook`, followed by its catalogue description. Choose a subject that conveys the story at a glance and keeps its character when small. `icon.png` beside the manuscript is a convenient filename for transparent artwork. The [specification](story-format-spec.md#specification) owns required shape and syntax, and [UX](ux.md#catalogue-and-story-identity) owns display size and layout. Description illustrations and the opening cover remain separate choices.
+Give the manuscript an ordinary heading image, such as `# ![A mixing bowl](icon.png) Cookbook`, followed by its catalogue description. Choose a subject that conveys the story at a glance and keeps its character when small. `icon.png` beside the manuscript is a convenient filename for its identity artwork. The [specification](story-format-spec.md#specification) owns required shape and syntax, and [UX](ux.md#catalogue-and-story-identity) owns display size, layout and shared home-screen use. Description illustrations and the opening cover remain separate choices.
 
 ## Choose a premise that works through combination
 

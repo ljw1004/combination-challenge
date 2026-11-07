@@ -9,13 +9,13 @@ Completed 6 November 2026. Eight manuscripts received ordinary Markdown heading 
 | Cookbook | [icon.png](../../stories/cookbook/icon.png) | Dough, bowl and wooden spoon in a warm drawn treatment. |
 | Settlement | [icon.png](../../stories/settlement/icon.png) | Rustic woodcut cottage with a complete apple tree rooted in front. |
 | Mission to Mars | [icon.png](../../stories/mars/icon.png) | A repaired expedition lander. |
-| Creation | [icon.png](../../stories/creation/icon.png) | Radiant light, deep water, fertile earth and emerging life in a circular mosaic. |
+| Creation | [icon.png](../../stories/creation/icon.png) | Radiant light, deep water, fertile earth and emerging life in an opaque square mosaic, revised in the later shared-icon pass. |
 | History of ideas | [icon.png](../../stories/ideas/icon.png) | Brass armillary sphere on a book. |
 | Theology | [icon.png](../../stories/theology/icon.png) | Open manuscript, quill and illuminated cross. |
 | Cosmic | [icon.png](../2026.11.05%20cosmic%20study/icon.png) | Two interacting spiral galaxies. |
 | The Travelling Harbour | [icon.png](../2026.11.05%20cyberpunk%20study/icon.png) | A ship and harbour inside a bottle. |
 
-All runtime exports are 256 × 256 PNGs with alpha. This pass prepares identity artwork; it does not add home-screen installation or platform-specific manifests.
+The original pass produced 256 × 256 PNGs with alpha. Later on 6 November, the user selected [Creation's opaque square extension](<../2026.11.06 app icon/2026.11.06-shared-icons/README.md>) for both catalogue and home-screen use. Its new master and exact request live with that shared app/story revision; the manifest's current master path now exports it, while `original_master` and the original requests preserve this pass's provenance. The other icons retain their alpha. This original pass prepared identity artwork; it did not add home-screen installation or platform-specific manifests.
 
 The subsequent [Creation watercolour experiment](../2026.11.05%20creation%20study/production/2026.11.06-catalogue-icon/README.md) retains the mosaic composition in the backgrounds' Ravilious-inspired medium, then explores the mosaic's intensity before settling on a requested halfway colour treatment. It remains a separate comparison asset; the live catalogue still uses the mosaic.
 

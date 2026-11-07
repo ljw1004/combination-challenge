@@ -2,7 +2,7 @@ import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 
-// Run on macOS from any directory. Keep generated alpha while reducing the square masters.
+// Run on macOS from any directory. Preserve each square master's transparency or opacity.
 const entries = JSON.parse(readFileSync(new URL('manifest.json', import.meta.url), 'utf8'));
 for (const entry of entries) {
   const master = fileURLToPath(new URL(entry.master, import.meta.url));

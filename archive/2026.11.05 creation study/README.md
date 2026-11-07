@@ -6,6 +6,8 @@ This is Creation's single archive, named for its first completed study on **5 No
 
 ## Development record
 
+The later [shared square-icon pass](<../2026.11.06 app icon/2026.11.06-shared-icons/README.md>) extends the accepted mosaic into a full opaque square for catalogue and home-screen use. Its selected master and exact request remain with that shared app/story work; the original circular master is preserved in the story-icon archive.
+
 | Date | Work and retained material |
 |---|---|
 | 5 November 2026 | [First edition](2026.11.05-first-edition.md): scientific/artistic [research](research.md), [working notes](2026.11.05-first-edition-notes.md), 202 combinations, six fast/detailed campaigns and [original production sources](production/README.md). |
