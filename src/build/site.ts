@@ -39,6 +39,7 @@ export function sitePages(): Plugin {
             if (player) {
               const prefix = '../'.repeat(path.split('/').length - 2);
               html = html.replace('data-catalogue="./index.html"', `data-catalogue="${prefix || './'}index.html"`);
+              html = html.replace('href="./icon.png"', `href="${prefix || './'}icon.png"`);
             }
             response.setHeader('Content-Type', 'text/html');
             response.end(await server.transformIndexHtml(path, html));

@@ -40,9 +40,12 @@ import {tutorialAction, hotspotTutorials, completesHotspotTutorial} from '../eng
 import {TutorialProgress} from './tutorial-progress.ts';
 import {TutorialOverlay} from './tutorial-overlay.ts';
 import { guardGameInput } from './game-input.ts';
+import {addStoryHome, setHomeScreenIdentity} from './home-screen.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 guardGameInput(app);
+const catalogueURL = new URL(document.body.dataset.catalogue ?? './index.html', location.href);
+addStoryHome(app, catalogueURL.href);
 const iconNames = new IconNames();
 let inputTrace:DragTrace|undefined;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
@@ -314,6 +317,7 @@ function flushPreview() {
 }
 function applyText(text: string) {
   const parsed = parse(text), next = recoverPreviewStory(parsed);
+  updateHomeScreenIdentity(parsed);
   checkText(parsed, text);
   cancelGesture('story-preview'); feedback.clear(); clearCreationLabels();
   if (!storyStarted) {
@@ -356,6 +360,15 @@ function anchorScroll() {
 }
 function scrollToCurrentChapter() { setScroll(Math.max(0, (state.visited.length - 1) * app.clientHeight)); }
 
+function updateHomeScreenIdentity(parsed: Story) {
+  const startURL = new URL(location.href);
+  startURL.search = ''; startURL.hash = '';
+  startURL.searchParams.set('story', new URL(documentURL).pathname);
+  setHomeScreenIdentity({
+    name: parsed.title, icon: parsed.titleImages?.[0] && asset(parsed.titleImages[0].url),
+    id: documentURL, startURL: startURL.href, scope: new URL('./', catalogueURL).href, themeColor: '#172830',
+  });
+}
 async function start() {
   starting = true;
   surface.innerHTML = '<div class="load-error"><p>Loading story…</p></div>';
@@ -382,6 +395,7 @@ async function start() {
     });
     previewText = document.text; hash = fingerprint(previewText);
     const parsed = parse(previewText); story = recoverPreviewStory(parsed);
+    updateHomeScreenIdentity(parsed);
     state = newGame(story); chapterSession = captureChapter(state);
     let loaded = false;
     try {

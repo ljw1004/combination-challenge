@@ -70,3 +70,7 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 ### Story catalogue icons
 
 [`2026.11.06 story icons/`](<2026.11.06 story icons/README.md>) retains eight selected catalogue-icon masters, exact generation requests, necessary edit references, runtime export paths and concise verification outcomes. The six published stories and two current unpublished drafts use transparent 256px PNGs beside their manuscripts. Creation uses a luminous mosaic following the user's art references and further sacred-art research; Settlement keeps its tree in front of the house, and Theology retains the book with an illuminated cross. The [UX contract](../docs/ux.md#catalogue-and-story-identity) owns baseline alignment and sizing; the [specification](../docs/story-format-spec.md#specification) owns square-image validation. Temporary verification output was discarded.
+
+### App icon
+
+[`2026.11.06 app icon/`](<2026.11.06 app icon/README.md>) retains the selected mosaic-sun master, exact generation request, export command and concise verification outcome. The root [icon.png](../icon.png) is the transparent 256px favicon shared by the catalogue and player; the [UX identity contract](../docs/ux.md#catalogue-and-story-identity) owns its current use.
