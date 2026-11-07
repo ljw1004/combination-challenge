@@ -17,6 +17,7 @@ import { markdown, escape } from './markdown.ts';
 import { reconcile } from './reconcile.ts';
 import { saveProgress } from './persistence.ts';
 import { encyclopediaBook } from './encyclopedia-book.ts';
+import { EncyclopediaSwipe } from './encyclopedia-swipe.ts';
 import { encyclopediaEntries, openBook, restoreEncyclopediaHistory, remapEncyclopediaHistory, type EncyclopediaHistory } from './encyclopedia.ts';
 import { ItemFeedback } from './item-feedback.ts';
 import { restoreItemOrder } from './item-order.ts';
@@ -453,6 +454,7 @@ async function start() {
   }
 }
 function closeDialog() {
+  bookSwipe.cancel();
   if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialogLayer.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
   bookResize.disconnect();
   dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = false; dialogContext = undefined;
@@ -461,6 +463,7 @@ function closeDialog() {
   updateTutorial();
 }
 function modal(content: string, kind = 'ordinary', context: DialogContext = { kind: 'error' }) {
+  bookSwipe.cancel();
   feedback.clear(); settleGoalEntrance();
   let dialog = dialogLayer.querySelector('dialog');
   const focused = document.activeElement as HTMLElement | null;
@@ -507,7 +510,10 @@ function chapterContent() {
 }
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries, item positions and tutorial progress. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
-const bookResize = new ResizeObserver(() => syncBookLayout());
+const bookSwipe = new EncyclopediaSwipe(dialogLayer,
+  () => dialogContext?.kind === 'encyclopedia' && dialogContext.item && !bookIsSpread() ? !!dialogContext.detail : undefined,
+  detail => { flushPreview(); if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, detail); });
+const bookResize = new ResizeObserver(() => { bookSwipe.cancel(); syncBookLayout(); });
 function bookIsSpread() {
   const dialog = dialogLayer.querySelector('dialog');
   return !!dialog && getComputedStyle(dialog).getPropertyValue('--book-spread').trim() === '1';
