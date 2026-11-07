@@ -1,24 +1,28 @@
-# Creation study — completed 5 November 2026
+# Creation study
 
-**Creation** begins with Earth, Air, Fire and Water and asks whether a creator can make a world with a future of its own. Its 202 combinations span stars, oceans, living communities, catastrophe, recovery, minds and independent invention. The finished [manuscript](../../stories/creation/creation.md), [single active design brief](../../stories/creation/design-brief.md) and runtime artwork live in `stories/creation/`.
+This is Creation's single archive, named for its first completed study on **5 November 2026**. Later work stays here as dated records and production passes. The [live manuscript](../../stories/creation/creation.md) and its [single design brief](../../stories/creation/design-brief.md) own the current story and intent.
 
-This archive preserves the completed development project requested by the user: invention, approximately 200 combinations, independent review, repeated `--fast` revision, `--detailed` evaluation, circular artwork, coherent backgrounds, promotion, commit and GitHub push. Existing hosting and access settings remain unchanged.
+**[Supplied inspiration images](inspiration/README.md)** — all eleven originals are preserved here, including the Ravilious landscape and style studies, Pluscarden Abbey, Blake, Burne-Jones and manuscript illustrations. They match the earlier checkout byte for byte; the collection index records provenance and links every file.
 
-- [Working notes](working-notes.md): hypotheses, rejected approaches, changes, quantitative profiles and evidence limits.
-- [Research](research.md): primary scientific sources and boundaries between elemental myth and factual explanations.
-- [Artwork acceptance](art-review/2026.11.05_05.30.00/report.md): reviewer instructions, adopted repairs, recognition limits and browser outcomes.
-- [Production guide](production/README.md): exact built-in image requests, selected masters, necessary reference inputs, visual catalogue, export geometry and helpers.
-- [Playtest runner](tools/README.md): isolation, canonical protocol, model choices, pacing and execution instructions.
+## Development record
 
-Five fast campaigns and one full detailed campaign retain the requested response arrays, chapter reports and mechanically assembled reports:
-
-| Campaign | Condition and scope |
+| Date | Work and retained material |
 |---|---|
-| [00.24.48](playtests/2026.11.05_00.24.48/report.md) | First fast draft, 75 assignments; three opening players deliberately stopped incomplete after diagnosing a progression defect, three actionless ending assignments. |
-| [01.25.59](playtests/2026.11.05_01.25.59/report.md) | Revised full fast campaign, all 81 assignments completed. |
-| [02.25.57](playtests/2026.11.05_02.25.57/report.md) | Thirteen revised chapters, all 39 fast assignments completed. |
-| [02.45.18](playtests/2026.11.05_02.45.18/report.md) | Revised catastrophe, all three fast assignments completed. |
-| [02.48.43](playtests/2026.11.05_02.48.43/report.md) | Revised cold passage, all three fast assignments completed. |
-| [02.56.08](playtests/2026.11.05_02.56.08/report.md) | Accepted text, all 81 detailed assignments across 27 playable chapters completed. |
+| 5 November 2026 | [First edition](2026.11.05-first-edition.md): scientific/artistic [research](research.md), [working notes](2026.11.05-first-edition-notes.md), 202 combinations, six fast/detailed campaigns and [original production sources](production/README.md). |
+| 5 November 2026 | [Accepted revision](2026.11.05-revision.md): [working notes](2026.11.05-revision-notes.md), 187 combinations across 26 chapters, [revised artwork production](production/2026.11.05-revision/README.md), supplied inspiration and the [promotion record](promotion.md). |
+| 6 November 2026 | [Approved night sky](production/2026.11.06-night-sky/README.md): final painting, photographic composition settings, exact retained request, accumulated review criteria and export. |
+| 6 November 2026 | [Encyclopedia](2026.11.06-encyclopedia.md): source revisions, editorial selection, 183 nonfiction entries, artwork credits and review outcomes. |
+| 6 November 2026 | [Advancing glacier](production/2026.11.06-glacier/README.md): selected master, final request, export, scientific sources and review criteria. |
+| 6 November 2026 | [Catalogue-icon comparison](production/2026.11.06-catalogue-icon/README.md): requested Ravilious-style alternatives; the user retained the mosaic from the shared [story-icon project](<../2026.11.06 story icons/README.md>). |
 
-Each assignment uses a fresh tool-free Terra Medium player, independent Astra High grading and a fresh chapter synthesizer. These 282 assignments are chapter-checkpoint trials, not continuous human playthroughs. The narrative and combination acceptance is an editorial judgment supported by their actual responses and separate mechanical witnesses. Historical manuscript paths and hashes in retained reports are unchanged; their frozen runtime packets and detailed verification outputs were disposable and are not replayable evidence here. Scratch comparisons, captures and reviewer answers were removed after recording concise outcomes.
+The original and revised campaigns share [playtests/](playtests/) and [art-review/](art-review/), retaining their existing timestamped directories. [Original runner instructions](tools/README.md) and [revision runner instructions](tools/2026.11.05-revision/README.md) describe their respective historical versions. The retained [revision manuscript](creation.md) and adjacent `assets/` are the completed 5 November study reference; edit the live story for subsequent changes.
+
+## Preservation and provenance
+
+Consolidated on 6 November 2026 from the former Creation study, revision, sky, encyclopedia and glacier archives, plus the Creation-only icon comparison. All retained files were inventoried before relocation. Artwork, inspiration, frozen playtest reports, source prompts and historical production records are preserved; navigation links and the supported sky/glacier export locations were updated. The original production paths remain in place for the revision's source-art references.
+
+Historical `projects/creation-study` paths, request input paths, source hashes and commands describe their original checkouts. Resolve them through the dated records rather than treating them as current regeneration instructions. The icon comparison's original `archive/2026.11.06 story icons/creation-ravilious-experiment/` inputs now live in `production/2026.11.06-catalogue-icon/`; its inspiration inputs now live in `inspiration/`. Exact requests remain unchanged. The shared mosaic master remains in the story-icon archive.
+
+The [night-sky reference record](production/2026.11.06-night-sky/review-brief.md) distinguishes the supplied conversation attachments, which had no retained local originals or URLs, from the eleven checked-in inspiration files. Its survey downloads and intermediate composition inputs were deliberately discarded during that earlier work; this consolidation does not recover those materials. The final artwork and its photographic attribution are retained.
+
+Reports retain their original evidence limits and are not continuous human playthroughs or replayable sessions. Unresolved work stays in the [backlog](../../projects/backlog.md). Future additions follow the [archive policy](../README.md#project-evidence).

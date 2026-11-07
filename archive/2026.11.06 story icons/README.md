@@ -17,7 +17,7 @@ Completed 6 November 2026. Eight current manuscripts now use ordinary Markdown h
 
 All runtime exports are 256 × 256 PNGs with alpha. This pass prepares identity artwork; it does not add home-screen installation or platform-specific manifests.
 
-The subsequent [Creation watercolour experiment](creation-ravilious-experiment/README.md) retains the mosaic composition in the backgrounds' Ravilious-inspired medium, then explores the mosaic's intensity before settling on a requested halfway colour treatment. It remains a separate comparison asset; the live catalogue still uses the mosaic.
+The subsequent [Creation watercolour experiment](../2026.11.05%20creation%20study/production/2026.11.06-catalogue-icon/README.md) retains the mosaic composition in the backgrounds' Ravilious-inspired medium, then explores the mosaic's intensity before settling on a requested halfway colour treatment. It remains a separate comparison asset; the live catalogue still uses the mosaic.
 
 ## Production and inspiration
 
