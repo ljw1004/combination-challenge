@@ -11,8 +11,8 @@ Try making things.
 - Make F -- F
 - next: Make G -- G
 **Hotspots**
-- Bench (at 35%, 24%)
-- Pan (at 75%, 24%)
+- Bench (center 136.5px, 202.56px)
+- Pan (center 292.5px, 202.56px)
 **Items**
 - Bench
 - Pan

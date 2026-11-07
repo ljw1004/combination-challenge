@@ -19,7 +19,7 @@ background: ![wide](wide.svg)
 - Probe
 - Station
 **Hotspots**
-- Station (at 75%, 25%)
+- Station (center 768px, 192px)
 **Combinations**
 - Kit [preserve] + Probe [preserve] -> Final
 `;
@@ -71,7 +71,7 @@ test('phones fill all portrait widths, desktops enlarge the full scene and its c
   expect((await box(page,'[data-item="name:Tool"]'))!.width).toBeCloseTo(112*390/844,1);
 });
 
-test('landscape artwork always fits and places percentage anchors on the image',async({page})=>{
+test('landscape artwork always fits and places background-pixel centers on the image',async({page})=>{
   await open(page,true);
   for(const size of [{width:390,height:844},{width:1200,height:800}]){
     await page.setViewportSize(size);

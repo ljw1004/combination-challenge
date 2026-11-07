@@ -24,11 +24,12 @@ export function presentHotspots(story: Story, state: State, chapter: number): st
   });
 }
 
-export function fixedCentre(story: Story, token: Token): {x: number; y: number} {
+export function fixedCentre(story: Story, token: Token): NonNullable<Token['fixedPosition']> {
   if (token.fixedPosition) return token.fixedPosition;
   const h = hotspotDefinition(story, token.chapter, token.id);
   const index = activeHotspots(story, token.chapter).indexOf(token.id);
-  return {x: h.x ?? .19 + index % 3 * .31, y: h.y ?? .70 + Math.floor(index / 3) * .13};
+  return h.x !== undefined && h.y !== undefined ? {x: h.x, y: h.y}
+    : {x: .19 + index % 3 * .31, y: .70 + Math.floor(index / 3) * .13, relativePosition: true};
 }
 
 export function recipeIngredients(recipe: Recipe): Ingredient[] {

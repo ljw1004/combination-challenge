@@ -25,8 +25,8 @@ Arrange the pieces.
 **Items**
 ${['A', 'B', 'D', ...(obstructDebug ? ['Antenna'] : [])].map(id => `- ${id}${icons ? `\n  - icon: ![${id}](tile.svg)` : ''}`).join('\n')}
 **Hotspots**
-- Bench (at 85%, 95%)
-${obstructDebug ? '- Antenna (at 85%, 3%)' : ''}
+- Bench (center 331.5px, 801.8px)
+${obstructDebug ? '- Antenna (center 331.5px, 25.32px)' : ''}
 **Combinations**
 - A [preserve] + B [preserve] -> D
 `;

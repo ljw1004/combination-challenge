@@ -27,10 +27,11 @@ export interface Item {
   icon?: Icon; exclusiveWith?: string; presentations: ItemPresentation[]; source: Source;
 }
 export interface Placement { item: Ref; x: number; y: number; source: Source }
-/** A scene-relative receiving rectangle, independent of registered artwork. */
+/** A receiving rectangle in background-image pixels, independent of artwork. */
 export interface HotspotHitbox { x: number; y: number; width: number; height: number; source: Source }
 export interface ConditionalIcon { after: Ref; icon: Icon; source: Source }
-export interface Hotspot { id: string; name: string; x?: number; y?: number; icon?: Icon; iconChanges?: ConditionalIcon[]; hitbox?: HotspotHitbox; placements?: Placement[]; source: Source }
+/** x/y are background pixels. relativePosition is internal metadata for inherited automatic anchors only. */
+export interface Hotspot { id: string; name: string; x?: number; y?: number; relativePosition?: true; icon?: Icon; iconChanges?: ConditionalIcon[]; hitbox?: HotspotHitbox; placements?: Placement[]; source: Source }
 export interface Condition { item: Ref; hotspot?: string; source: Source }
 export interface Goal {
   id: string; text: string; next: boolean; operator: 'and' | 'or'; conditions: Condition[]; source: Source;

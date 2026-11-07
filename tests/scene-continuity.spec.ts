@@ -14,7 +14,7 @@ background: ![ground](ground.svg)
 - Build here -- Built
 
 **Hotspots**
-- Site (at 50%, 30%)
+- Site (center 390px, 506.4px)
   - icon: ![same ground](patch.svg)
 
 **Items**

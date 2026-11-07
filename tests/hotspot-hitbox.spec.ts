@@ -7,17 +7,17 @@ Fit the lead, then charge at the panels.
 **Goals**
 - Charge the battery -- Charged
 **Hotspots**
-- Panels (at 50%, 30%)
+- Panels (center 390px, 506.4px)
   - icon: ![panels](panels.svg)
-  - hitbox: (at 25%, 30%) (size 20%, 12%)
+  - hitbox: (center 195px, 506.4px) (size 156px, 202.56px)
 **Items**
 - Panels (compound)
   - icon: ![panels](panels.svg)
   - unnamed slot: accepts Cable, icon: ![long connected cable](cable-fitted.svg)
 - Cable
-  - icon: ![cable](cable.svg) (at 70%, 65%)
+  - icon: ![cable](cable.svg) (center 546px, 1097.2px)
 - Battery
-  - icon: ![battery](battery.svg) (at 45%, 65%)
+  - icon: ![battery](battery.svg) (center 351px, 1097.2px)
 - Charged
   - icon: ![charged](battery.svg)
 **Combinations**
@@ -78,7 +78,7 @@ for(const width of [390,320])test(`receiving bounds remain independent from cabl
 });
 
 test('small authored receivers retain a 44px target and invalid rectangles fall back to artwork',async({page})=>{
-  await openFixture(page,manuscript.replace('(size 20%, 12%)','(size 1%, 1%)'));
+  await openFixture(page,manuscript.replace('(size 156px, 202.56px)','(size 7.8px, 16.88px)'));
   const station=page.locator('[data-hotspot="name:Panels"]');
   const box=(await station.boundingBox())!;
   expect(box.width).toBe(44);expect(box.height).toBe(44);
@@ -87,7 +87,7 @@ test('small authored receivers retain a 44px target and invalid rectangles fall 
   const context=await page.context().browser()!.newContext({baseURL:'http://127.0.0.1:5173',viewport:{width:390,height:844}});
   try{
     const invalid=await context.newPage();
-    await openFixture(invalid,manuscript.replace('(size 20%, 12%)','(size -1%, 12%)'));
+    await openFixture(invalid,manuscript.replace('(size 156px, 202.56px)','(size -7.8px, 202.56px)'));
     const fallback=invalid.locator('[data-hotspot="name:Panels"]');
     await expect(fallback).not.toHaveClass(/hotspot-hitbox/);
     const fallbackBox=(await fallback.boundingBox())!;

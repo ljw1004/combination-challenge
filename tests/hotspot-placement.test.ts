@@ -13,9 +13,9 @@ background: ![room](room.svg)
 **Goals**
 - Make C -- C @ H
 **Hotspots**
-- H (at 50%, 50%)
-  - place: A (at 45%, 50%)
-  - place: C (at 55%, 50%)
+- H (center 195px, 422px)
+  - place: A (center 175.5px, 422px)
+  - place: C (center 214.5px, 422px)
 **Items**
 - H
 - A
@@ -23,7 +23,7 @@ background: ![room](room.svg)
 **Combinations**
 - C
 - A [transform] + B [consume] @ H -> C (tutorial)`;
-const errors = (text: string) => lintStory(parseStory(text), {analysis:false}).filter(d => d.severity === 'error');
+const errors = (text: string) => lintStory(parseStory(text), {analysis:false,backgroundMeasurements:[{chapter:0,width:390,height:844}]}).filter(d => d.severity === 'error');
 
 test('place references resolve forwards without supplying items or defining misspelled identities', () => {
   const story = parseStory(source);
@@ -40,26 +40,26 @@ test('place references resolve forwards without supplying items or defining miss
 
 test('placement syntax, conflicts and coordinates have source-located errors without relocating hotspot references', () => {
   for (const [before, after, code] of [
-    ['place: C (at 55%, 50%)', 'place: C (at 101%, 50%)', 'place-position'],
-    ['place: C (at 55%, 50%)', 'place: C (at fifty%, 50%)', 'place-syntax'],
-    ['place: C (at 55%, 50%)', 'place: A (at 55%, 50%)', 'conflicting-place'],
-    ['- Make C -- C @ H', '- Make C -- C @ H (at 90%, 90%)', 'coordinate-context'],
+    ['place: C (center 214.5px, 422px)', 'place: C (center 393.9px, 422px)', 'place-position'],
+    ['place: C (center 214.5px, 422px)', 'place: C (at fifty%, 50%)', 'place-syntax'],
+    ['place: C (center 214.5px, 422px)', 'place: A (center 214.5px, 422px)', 'conflicting-place'],
+    ['- Make C -- C @ H', '- Make C -- C @ H (center 351px, 759.6px)', 'coordinate-context'],
   ]) {
     const text = source.replace(before, after).replaceAll('\n','\r\n');
     const diagnostic = errors(text).find(d => d.code === code);
     assert(diagnostic, code); assert(text.slice(diagnostic.span.from, diagnostic.span.to).length > 0);
   }
-  const misplaced = source.replace('- A\n', '- A\n  - place: B (at 50%, 50%)\n');
+  const misplaced = source.replace('- A\n', '- A\n  - place: B (center 195px, 422px)\n');
   assert(errors(misplaced).some(d => d.code === 'place-context'));
-  const parsed = parseStory(source + '\n- B [preserve] @ H (at 90%, 90%) -> D');
-  assert.equal(parsed.hotspots['name:H'].x, .5); assert.equal(parsed.hotspots['name:H'].y, .5);
+  const parsed = parseStory(source + '\n- B [preserve] @ H (center 351px, 759.6px) -> D');
+  assert.equal(parsed.hotspots['name:H'].x, 195); assert.equal(parsed.hotspots['name:H'].y, 422);
 });
 
 test('geometry lint accepts the centre on a boundary and rejects an outside centre, including transparent hit areas', () => {
-  const story = parseStory(source.replace('45%', '40%').replace('55%', '60%'));
+  const story = parseStory(source.replace('175.5px', '156px').replace('214.5px', '234px'));
   const measurements = [{id:'name:H', chapter:0, width:78, height:80}];
   assert.deepEqual(lintPlacementGeometry(story, measurements), []);
-  const invalid = parseStory(source.replace('55%', '60.01%'));
+  const invalid = parseStory(source.replace('214.5px', '234.039px'));
   const diagnostics = lintPlacementGeometry(invalid, measurements);
   assert.equal(diagnostics.length,1); assert.equal(diagnostics[0].code,'place-outside-hotspot');
   assert.equal(diagnostics[0].source.line,9);

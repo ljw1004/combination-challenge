@@ -76,7 +76,7 @@ function prepare() {
       const id = declaration[1], index = chapter.hotspots.indexOf(`id:${id}`);
       assert(index >= 0 && chapter.hotspots.length <= 2);
       const x = chapter.hotspots.length === 1 ? 50 : index === 0 ? 25 : 75;
-      return [...prefix, `${line} (at ${x}%, 40%)`, `  - icon: ![${before.items[`id:${id}`].name}](${assetBase}/hotspots/${id}.png)`];
+      return [...prefix, `${line} (center ${x*780/100}px, 675.2px)`, `  - icon: ![${before.items[`id:${id}`].name}](${assetBase}/hotspots/${id}.png)`];
     }
     if (declaration && section === 'Items' && portable.has(declaration[1]) && !added.has(declaration[1])) {
       const id = declaration[1];
@@ -112,14 +112,14 @@ function registration() {
     const result = {
       chapter: bare(chapter.id), background, inheritsFrom,
       hotspots: hotspots.map(hotspot => ({
-        item: bare(hotspot.id), file: hotspot.icon.url, centrePercent: [hotspot.x * 100, hotspot.y * 100],
+        item: bare(hotspot.id), file: hotspot.icon.url, centrePixels: [hotspot.x, hotspot.y],
       })),
     };
     inherited = {background, chapter: bare(chapter.id), hotspots};
     return result;
   });
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     status: 'Author integration geometry; full browser and independent artwork reviews are recorded separately.',
     manuscript: 'galaxies.md', preArtworkSha256: originalSha256, manuscriptSha256: sha(markdown), semanticSha256,
     semanticCheck: 'Shared-parser equality preserves titles, readings, names, goals, supplies, recipes, tutorial and fixed/portable roles; only artwork, source locations and artwork coordinates are omitted.',

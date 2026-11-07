@@ -23,10 +23,10 @@ Juice, porridge, bread.
 - Cook porridge. -- Porridge
 
 **Hotspots**
-- Cookstove (at 27%, 17.5%)
+- Cookstove (center 210.6px, 295.4px)
   - icon: ![Cookstove receiving area](assets/rework/stations/receiving-area.png)
 
-- Fruit press (at 73%, 17.5%)
+- Fruit press (center 569.4px, 295.4px)
   - icon: ![Fruit press](assets/rework/stations/receiving-area.png)
 
 **Items**
@@ -64,10 +64,10 @@ background: ![Milk, two ways](assets/rework/backgrounds/dairy.webp)
 - Make unstrained yoghurt. -- Unstrained yoghurt
 
 **Hotspots**
-- Warm shelf (at 27%, 17.654028%)
+- Warm shelf (center 210.6px, 297.99999264px)
   - icon: ![Warm shelf receiving area](assets/rework/stations/receiving-area.png)
 
-- Butter churn (at 73%, 17.5%)
+- Butter churn (center 569.4px, 295.4px)
   - icon: ![Butter churn](assets/rework/stations/receiving-area.png)
 
 **Items**
@@ -104,11 +104,11 @@ What could be nicer than freshly baked bread with butter?
 - next: Make cucumber finger sandwiches. -- Cucumber finger sandwiches
 
 **Hotspots**
-- Proofing shelf (at 28.205128%, 18.246445%)
+- Proofing shelf (center 219.9999984px, 307.9999916px)
   - icon: ![Proofing shelf receiving area](assets/cooks-pen/hotspots/proofing-shelf.png)
-- `bakehouse-oven-bread` Oven (at 74.615385%, 17.417062%)
+- `bakehouse-oven-bread` Oven (center 582.000003px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/bakehouse-oven-bread.png)
-  - place: Bread (at 74.615385%, 19.417062%)
+  - place: Bread (center 582.000003px, 327.76000656px)
 
 **Items**
 - Proofing shelf
@@ -185,7 +185,7 @@ Acidity balances richness.
 - Dress a green salad. -- Dressed salad
 
 **Hotspots**
-- Air fed vat (at 50.000000%, 17.357820%)
+- Air fed vat (center 390px, 293.0000016px)
   - icon: ![Air fed vat receiving area](assets/cooks-pen/hotspots/air-fed-vat.png)
 
 **Items**
@@ -221,11 +221,11 @@ background: ![Toast and warm apples](assets/cooks-pen/backgrounds/warm-apples-co
 - Serve compote yoghurt. -- Compote yoghurt
 
 **Hotspots**
-- Grill (at 26.923077%, 20.912322%)
+- Grill (center 210.0000006px, 352.99999536px)
   - icon: ![Grill receiving area](assets/cooks-pen/hotspots/grill.png)
-- `orchard-stove-orchard-lunch` Hob (at 73.076923%, 17.357820%)
+- `orchard-stove-orchard-lunch` Hob (center 569.9999994px, 293.0000016px)
   - icon: ![Stove receiving area](assets/cooks-pen/hotspots/orchard-stove-orchard-lunch.png)
-  - place: Apple compote (at 73.076923%, 14.357820%)
+  - place: Apple compote (center 569.9999994px, 242.3600016px)
 
 **Items**
 - Grill
@@ -261,10 +261,10 @@ background: ![A pot of broth](assets/cooks-pen/backgrounds/onions-and-a-bowl-of-
 - Serve onion soup with herb toast. -- Onion soup with herb toast
 
 **Hotspots**
-- `soup-stove-soup` Hob (at 50.000000%, 17.357820%)
+- `soup-stove-soup` Hob (center 390px, 293.0000016px)
   - icon: ![Stove receiving area](assets/cooks-pen/hotspots/soup-stove-soup.png)
-  - place: Vegetable broth (at 50.000000%, 14.357820%)
-  - place: Softened onions (at 50.000000%, 14.357820%)
+  - place: Vegetable broth (center 390px, 242.3600016px)
+  - place: Softened onions (center 390px, 242.3600016px)
 
 **Items**
 - `soup-stove-soup` Hob
@@ -307,10 +307,10 @@ background: ![Roots, beans and crisp edges](assets/cooks-pen/backgrounds/roasted
 - Bake croutons. -- Croutons
 
 **Hotspots**
-- `roasting-oven-roast` Oven (at 50.000000%, 17.417062%)
+- `roasting-oven-roast` Oven (center 390px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/roasting-oven-roast.png)
-  - place: Roasted roots (at 50.000000%, 19.417062%)
-  - place: Croutons (at 50.000000%, 19.417062%)
+  - place: Roasted roots (center 390px, 327.76000656px)
+  - place: Croutons (center 390px, 327.76000656px)
 
 **Items**
 - `roasting-oven-roast` Oven
@@ -387,7 +387,7 @@ background: ![Fruit, sugar and time](assets/cooks-pen/backgrounds/citrus-peel-an
 - Cook marmalade. -- Marmalade
 
 **Hotspots**
-- `saucepan-preserves` Saucepan (at 50.000000%, 19.135071%)
+- `saucepan-preserves` Saucepan (center 390px, 322.99999848px)
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/saucepan-preserves.png)
 
 **Items**
@@ -432,10 +432,10 @@ background: ![Cake lightened with air](assets/cooks-pen/backgrounds/air-in-the-s
 - Bake a chocolate sponge. -- Chocolate sponge
 
 **Hotspots**
-- `choux-oven-sponge` Oven (at 50.000000%, 17.417062%)
+- `choux-oven-sponge` Oven (center 390px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/choux-oven-sponge.png)
-  - place: Sponge cake (at 50.000000%, 19.417062%)
-  - place: Chocolate sponge (at 50.000000%, 19.417062%)
+  - place: Sponge cake (center 390px, 327.76000656px)
+  - place: Chocolate sponge (center 390px, 327.76000656px)
 
 **Items**
 - `choux-oven-sponge` Oven
@@ -476,11 +476,11 @@ background: ![Scones for tea](assets/cooks-pen/backgrounds/scones-jam-and-cream.
 - Bake brown-butter biscuits. -- Brown-butter biscuits
 
 **Hotspots**
-- `tea-oven-tea` Oven (at 26.923077%, 17.417062%)
+- `tea-oven-tea` Oven (center 210.0000006px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/tea-oven-tea.png)
-  - place: Scones (at 26.923077%, 19.417062%)
-  - place: Brown-butter biscuits (at 26.923077%, 19.417062%)
-- `chocolate-pan-tea` Saucepan (at 73.076923%, 19.431280%)
+  - place: Scones (center 210.0000006px, 327.76000656px)
+  - place: Brown-butter biscuits (center 210.0000006px, 327.76000656px)
+- `chocolate-pan-tea` Saucepan (center 569.9999994px, 328.0000064px)
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/chocolate-pan-tea.png)
 
 **Items**
@@ -533,13 +533,13 @@ background: ![Afternoon tea](assets/rework/backgrounds/afternoon-parlour.webp)
 - Brew a cup of tea. -- Cup of tea
 
 **Hotspots**
-- `afternoon-tea-kettle` Kettle (at 50%, 21.52606635%)
+- `afternoon-tea-kettle` Kettle (center 390px, 363.359999988px)
   - icon: ![Kettle](assets/rework/stations/kettle.png)
 
 **Items**
 - `afternoon-tea-kettle` Kettle
 - Tea stand (compound)
-  - icon: ![Tea stand](assets/rework/compounds/tea-stand.png) (at 50%, 44%)
+  - icon: ![Tea stand](assets/rework/compounds/tea-stand.png) (center 390px, 742.72px)
   - unnamed slot: accepts Cucumber finger sandwiches, icon: ![Fitted cucumber finger sandwiches](assets/rework/compounds/tea-stand-cucumber-finger-sandwiches.png)
   - unnamed slot: accepts Scones, icon: ![Fitted scones](assets/rework/compounds/tea-stand-scones.png)
   - unnamed slot: accepts Brown-butter biscuits, icon: ![Fitted biscuits](assets/rework/compounds/tea-stand-brown-butter-biscuits.png)
@@ -578,7 +578,7 @@ background: ![One sheet, two pastas](assets/cooks-pen/backgrounds/ribbons-and-ra
 - Prepare breadcrumbs. -- Breadcrumbs
 
 **Hotspots**
-- `mushroom-pan` Frying pan (at 50%, 17.5%)
+- `mushroom-pan` Frying pan (center 390px, 295.4px)
   - icon: ![Frying pan](assets/rework/stations/mushroom-pan.png)
 
 **Items**
@@ -627,9 +627,9 @@ background: ![Pasta at the table](assets/cooks-pen/backgrounds/herb-butter-and-p
 - Serve ravioli with brown butter. -- Ravioli with brown butter
 
 **Hotspots**
-- Cooking pot (at 26.923077%, 17.357820%)
+- Cooking pot (center 210.0000006px, 293.0000016px)
   - icon: ![Cooking pot receiving area](assets/cooks-pen/hotspots/cooking-pot.png)
-- Frying pan (at 73.076923%, 20.793839%)
+- Frying pan (center 569.9999994px, 351.00000232px)
   - icon: ![Frying pan receiving area](assets/cooks-pen/hotspots/frying-pan.png)
 
 **Items**
@@ -681,7 +681,7 @@ background: ![Two ways with butter](assets/cooks-pen/backgrounds/butter-between-
 - Fold laminated dough. -- Laminated dough
 
 **Hotspots**
-- Pastry bench (at 50.000000%, 19.194313%)
+- Pastry bench (center 390px, 324.00000344px)
   - icon: ![Pastry bench receiving area](assets/cooks-pen/hotspots/pastry-bench.png)
 
 **Items**
@@ -714,12 +714,12 @@ background: ![What pastry can hold](assets/cooks-pen/backgrounds/pastry-shells-a
 - next: Bake cheese straws. -- Cheese straws
 
 **Hotspots**
-- `pastry-oven-pastry` Oven (at 50.000000%, 17.417062%)
+- `pastry-oven-pastry` Oven (center 390px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/pastry-oven-pastry.png)
-  - place: Fruit tart (at 50.000000%, 19.417062%)
-  - place: Puff pastry (at 50.000000%, 19.417062%)
-  - place: Bean pie (at 50.000000%, 19.417062%)
-  - place: Cheese straws (at 50.000000%, 19.417062%)
+  - place: Fruit tart (center 390px, 327.76000656px)
+  - place: Puff pastry (center 390px, 327.76000656px)
+  - place: Bean pie (center 390px, 327.76000656px)
+  - place: Cheese straws (center 390px, 327.76000656px)
 
 **Items**
 - `pastry-oven-pastry` Oven
@@ -761,7 +761,7 @@ background: ![The sauce page](assets/cooks-pen/backgrounds/the-ribbon-of-white-s
 - Prepare cheese sauce. -- Cheese sauce
 
 **Hotspots**
-- `saucepan-sauce` Saucepan (at 50.000000%, 19.135071%)
+- `saucepan-sauce` Saucepan (center 390px, 322.99999848px)
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/saucepan-sauce.png)
 
 **Items**
@@ -794,12 +794,12 @@ background: ![A vegetable supper](assets/cooks-pen/backgrounds/cauliflower-to-gr
 - Bake cheese noodles. -- Baked cheese noodles
 
 **Hotspots**
-- Steamer (at 26.923077%, 17.357820%)
+- Steamer (center 210.0000006px, 293.0000016px)
   - icon: ![Steamer receiving area](assets/cooks-pen/hotspots/steamer.png)
-- `supper-oven-gratin` Oven (at 73.076923%, 17.417062%)
+- `supper-oven-gratin` Oven (center 569.9999994px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/supper-oven-gratin.png)
-  - place: Cauliflower gratin (at 73.076923%, 19.417062%)
-  - place: Baked cheese noodles (at 73.076923%, 19.417062%)
+  - place: Cauliflower gratin (center 569.9999994px, 327.76000656px)
+  - place: Baked cheese noodles (center 569.9999994px, 327.76000656px)
 
 **Items**
 - Steamer
@@ -842,9 +842,9 @@ background: ![What keeping really means](assets/cooks-pen/backgrounds/fruit-kept
 - Can spare bean stew. -- Processed bean-stew tin
 
 **Hotspots**
-- Controlled fruit line (at 26.923077%, 18.127962%)
+- Controlled fruit line (center 210.0000006px, 305.99999856px)
   - icon: ![Controlled fruit line receiving area](assets/cooks-pen/hotspots/controlled-fruit-line.png)
-- Controlled stew line (at 73.076923%, 18.483412%)
+- Controlled stew line (center 569.9999994px, 311.99999456px)
   - icon: ![Controlled stew line receiving area](assets/cooks-pen/hotspots/controlled-stew-line.png)
 
 **Items**
@@ -889,10 +889,10 @@ background: ![Tarts from earlier pages](assets/cooks-pen/backgrounds/jam-tart-an
 - Bake a fruit crumble. -- Fruit crumble
 
 **Hotspots**
-- `supper-oven-fruit-baking` Oven (at 50.000000%, 17.417062%)
+- `supper-oven-fruit-baking` Oven (center 390px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/supper-oven-fruit-baking.png)
-  - place: Jam tart (at 50.000000%, 19.417062%)
-  - place: Fruit crumble (at 50.000000%, 19.417062%)
+  - place: Jam tart (center 390px, 327.76000656px)
+  - place: Fruit crumble (center 390px, 327.76000656px)
 
 **Items**
 - `supper-oven-fruit-baking` Oven
@@ -972,7 +972,7 @@ background: ![Sugar taken further](assets/cooks-pen/backgrounds/amber-sugar-and-
 - Prepare caramel sauce. -- Caramel sauce
 
 **Hotspots**
-- `sugar-pan-caramel` Saucepan (at 50.000000%, 19.135071%)
+- `sugar-pan-caramel` Saucepan (center 390px, 322.99999848px)
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/sugar-pan-caramel.png)
 
 **Items**
@@ -1008,7 +1008,7 @@ A pouring sauce and a pastry filling.
 - Cook pastry cream. -- Pastry cream
 
 **Hotspots**
-- `sugar-pan-custard` Saucepan (at 50.000000%, 19.135071%)
+- `sugar-pan-custard` Saucepan (center 390px, 322.99999848px)
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/sugar-pan-custard.png)
 
 **Items**
@@ -1052,10 +1052,10 @@ background: ![Bread soaked, pastry filled](assets/cooks-pen/backgrounds/bread-pu
 - Finish caramel bread pudding. -- Caramel bread pudding
 
 **Hotspots**
-- `custard-oven-custard-baking` Oven (at 50.000000%, 17.417062%)
+- `custard-oven-custard-baking` Oven (center 390px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/custard-oven-custard-baking.png)
-  - place: Baked tart case (at 50.000000%, 19.417062%)
-  - place: Bread pudding (at 50.000000%, 19.417062%)
+  - place: Baked tart case (center 390px, 327.76000656px)
+  - place: Bread pudding (center 390px, 327.76000656px)
 
 **Items**
 - `custard-oven-custard-baking` Oven
@@ -1111,12 +1111,12 @@ background: ![Steam does the lifting](assets/cooks-pen/backgrounds/the-hollow-ch
 - Bake cheese puffs. -- Cheese puffs
 
 **Hotspots**
-- `choux-pan-choux` Saucepan (at 26.923077%, 19.431280%)
+- `choux-pan-choux` Saucepan (center 210.0000006px, 328.0000064px)
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/choux-pan-choux.png)
-- `choux-oven-choux` Oven (at 73.076923%, 17.417062%)
+- `choux-oven-choux` Oven (center 569.9999994px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/choux-oven-choux.png)
-  - place: Hollow choux buns (at 73.076923%, 19.417062%)
-  - place: Cheese puffs (at 73.076923%, 19.417062%)
+  - place: Hollow choux buns (center 569.9999994px, 327.76000656px)
+  - place: Cheese puffs (center 569.9999994px, 327.76000656px)
 
 **Items**
 - `choux-pan-choux` Saucepan
@@ -1295,10 +1295,10 @@ background: ![Bread without waiting](assets/cooks-pen/backgrounds/soda-bread-and
 - Bake soda bread. -- Soda bread
 
 **Hotspots**
-- `tea-oven-crew-baking` Oven (at 50.000000%, 17.417062%)
+- `tea-oven-crew-baking` Oven (center 390px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/tea-oven-crew-baking.png)
-  - place: Fruit muffins (at 50.000000%, 19.417062%)
-  - place: Soda bread (at 50.000000%, 19.417062%)
+  - place: Fruit muffins (center 390px, 327.76000656px)
+  - place: Soda bread (center 390px, 327.76000656px)
 
 **Items**
 - `tea-oven-crew-baking` Oven
@@ -1351,7 +1351,7 @@ background: ![Cold changes things](assets/cooks-pen/backgrounds/three-kinds-of-f
 - Churn milk ice cream. -- Milk ice cream
 
 **Hotspots**
-- Freezing churn (at 50%, 17.5%)
+- Freezing churn (center 390px, 295.4px)
   - icon: ![Freezing churn](assets/rework/stations/freezing-churn.png)
 
 **Items**
@@ -1389,10 +1389,10 @@ background: ![The egg-white pages](assets/cooks-pen/backgrounds/egg-whites-almon
 - Sandwich chocolate macarons. -- Chocolate macarons
 
 **Hotspots**
-- `meringue-oven-meringue` Oven (at 50.000000%, 17.417062%)
+- `meringue-oven-meringue` Oven (center 390px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/meringue-oven-meringue.png)
-  - place: Meringue nests (at 50.000000%, 19.417062%)
-  - place: Macaron shells (at 50.000000%, 19.417062%)
+  - place: Meringue nests (center 390px, 327.76000656px)
+  - place: Macaron shells (center 390px, 327.76000656px)
 
 **Items**
 - `meringue-oven-meringue` Oven
@@ -1444,9 +1444,9 @@ background: ![Ice cream dressed for dinner](assets/cooks-pen/backgrounds/baked-a
 - Finish Baked Alaska. -- Baked Alaska
 
 **Hotspots**
-- `meringue-oven-dessert-service` Oven (at 50.000000%, 17.417062%)
+- `meringue-oven-dessert-service` Oven (center 390px, 294.00000656px)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/meringue-oven-dessert-service.png)
-  - place: Baked Alaska (at 50.000000%, 19.417062%)
+  - place: Baked Alaska (center 390px, 327.76000656px)
 
 **Items**
 - `meringue-oven-dessert-service` Oven
@@ -1490,12 +1490,12 @@ Beef and mushrooms in puff pastry.
 - next: Bake Beef Wellington. -- Beef Wellington
 
 **Hotspots**
-- `wellington-hob` Hob (at 27%, 17.5%)
+- `wellington-hob` Hob (center 210.6px, 295.4px)
   - icon: ![Hob](assets/rework/stations/receiving-area.png)
-  - place: Seared beef fillet (at 27%, 14.500000%)
-- `wellington-oven` Oven (at 73%, 17.5%)
+  - place: Seared beef fillet (center 210.6px, 244.76px)
+- `wellington-oven` Oven (center 569.4px, 295.4px)
   - icon: ![Oven](assets/rework/stations/receiving-area.png)
-  - place: Beef Wellington (at 73%, 19.500000%)
+  - place: Beef Wellington (center 569.4px, 329.16px)
 
 **Items**
 - `wellington-hob` Hob
@@ -1563,7 +1563,7 @@ Balance rich with plain.
 
 **Items**
 - Dining table (compound)
-  - icon: ![Dining table](assets/rework/compounds/dining-table.png) (at 57.6%, 41.7%)
+  - icon: ![Dining table](assets/rework/compounds/dining-table.png) (center 449.28px, 703.896px)
   - unnamed slot: accepts Bean pie, icon: ![Fitted Bean pie](assets/rework/compounds/dining-table/bean-pie.png)
   - unnamed slot: accepts Green salad with croutons, icon: ![Fitted Green salad with croutons](assets/rework/compounds/dining-table/green-salad-with-croutons.png)
   - unnamed slot: accepts Apple juice, icon: ![Fitted Apple juice](assets/rework/compounds/dining-table/apple-juice.png)

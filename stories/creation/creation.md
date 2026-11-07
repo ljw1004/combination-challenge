@@ -22,26 +22,26 @@ In the beginning, the Earth was without form, and void.
 
 **Hotspots**
 - (three hotspots are a lot but okay here because the surrounding waters, opened sky and world are distinct parts of one creation scene)
-- Waters of the deep (at 51%, 31%)
+- Waters of the deep (center 397.8px, 523.28px)
   - icon: ![The primordial waters](assets/hotspots/receiver.png)
-  - hitbox: (at 51%, 31%) (size 94%, 52%)
-  - place: Stars (at 85%, 14%)
-  - place: Asteroids (at 15%, 36%)
-- Void (at 50%, 50%)
+  - hitbox: (center 397.8px, 523.28px) (size 733.2px, 877.76px)
+  - place: Stars (center 663px, 236.32px)
+  - place: Asteroids (center 117px, 607.68px)
+- Void (center 390px, 844px)
   - icon: ![The open void](assets/hotspots/c01-void.webp)
-  - hitbox: (at 51%, 31%) (size 62%, 23%)
-  - place: Sun (at 33%, 25.5%)
-- `primordial-world` (at 50.82%, 32.72%)
+  - hitbox: (center 397.8px, 523.28px) (size 483.6px, 388.24px)
+  - place: Sun (center 257.4px, 430.44px)
+- `primordial-world` (center 396.396px, 552.3136px)
   - icon: ![Proto-Earth before the impact](assets/hotspots/c01-world.png)
   - icon after creating Moon: ![Molten world displaced by the impact](assets/hotspots/c01-impact-world.png)
-  - hitbox: (at 54.5%, 33.5%) (size 44%, 15%)
-  - place: Moon (at 64.5%, 27.7%)
-  - place: Light (at 36.5%, 38%)
-- Steadied world (at 50.82%, 32.72%)
+  - hitbox: (center 425.1px, 565.48px) (size 343.2px, 253.2px)
+  - place: Moon (center 503.1px, 467.576px)
+  - place: Light (center 284.7px, 641.44px)
+- Steadied world (center 396.396px, 552.3136px)
   - icon: ![The steadied molten world](assets/hotspots/c01-steady-world.png)
-  - hitbox: (at 54.5%, 33.5%) (size 44%, 15%)
-  - place: Moon (at 64.5%, 27.7%)
-  - place: Light (at 36.5%, 38%)
+  - hitbox: (center 425.1px, 565.48px) (size 343.2px, 253.2px)
+  - place: Moon (center 503.1px, 467.576px)
+  - place: Light (center 284.7px, 641.44px)
 
 **Items**
 - Earth
@@ -1118,9 +1118,9 @@ Variation produces different descendants of sea animals. Some become insects liv
 - Establish flying insects in the forest canopy -- Canopy life
 
 **Hotspots**
-- Variation (at 25%, 39%)
+- Variation (center 195px, 658.32px)
   - icon: ![Variation in this habitat](assets/hotspots/variation-c13.svg)
-  - hitbox: (at 25%, 39%) (size 43%, 17%)
+  - hitbox: (center 195px, 658.32px) (size 335.4px, 286.96px)
 
 **Items**
 - Arthropods
@@ -1183,9 +1183,9 @@ Fish breathe air in shallow wetlands and move among roots. Over many generations
   - and: Birds
 
 **Hotspots**
-- Variation (at 70%, 39%)
+- Variation (center 546px, 658.32px)
   - icon: ![Variation in this habitat](assets/hotspots/variation-c14.svg)
-  - hitbox: (at 70%, 39%) (size 45%, 17%)
+  - hitbox: (center 546px, 658.32px) (size 351px, 286.96px)
 
 **Items**
 - Air-breathing fish
@@ -1635,9 +1635,9 @@ Birds cross mountains and follow the seasons to new feeding grounds. Some settle
 - Support island birds with a food web -- Many-voiced world
 
 **Hotspots**
-- Variation (at 76%, 27%)
+- Variation (center 592.8px, 455.76px)
   - icon: ![Variation in this habitat](assets/hotspots/variation-c18.svg)
-  - hitbox: (at 76%, 27%) (size 40%, 18%)
+  - hitbox: (center 592.8px, 455.76px) (size 312px, 303.84px)
 
 **Items**
 - Far-ranging birds
@@ -1958,15 +1958,15 @@ Cycles in the Earth's orbit leave northern summers too weak to melt all the wint
 - Help wildlife survive until the ice retreats -- World after the ice
 
 **Hotspots**
-- Glacier (at 50%, 50%)
+- Glacier (center 390px, 844px)
   - icon: ![Mountain glacier](assets/hotspots/receiver.png)
-  - hitbox: (at 65.4%, 20.5%) (size 38.46%, 12.44%)
-- Advancing ice (at 50%, 50%)
+  - hitbox: (center 510.12px, 346.04px) (size 299.988px, 209.9872px)
+- Advancing ice (center 390px, 844px)
   - icon: ![Glacier front](assets/hotspots/c22-advancing-ice.webp)
-  - hitbox: (at 68.5%, 36.5%) (size 51%, 19%)
-- Variation (at 11%, 25%)
+  - hitbox: (center 534.3px, 616.12px) (size 397.8px, 320.72px)
+- Variation (center 85.8px, 422px)
   - icon: ![Variation in the foothills](assets/hotspots/variation-c22.svg)
-  - hitbox: (at 23%, 31%) (size 34%, 14%)
+  - hitbox: (center 179.4px, 523.28px) (size 265.2px, 236.32px)
 
 **Items**
 - Snowfall
@@ -2388,18 +2388,18 @@ In a dimly lit cave, we create art and songs about the world around us. We teach
 - (three goals are a lot but okay here because painting, song and teaching are independent achievements that can be pursued in any order)
 
 **Hotspots**
-- `cave` (at 50%, 50%)
+- `cave` (center 390px, 844px)
   - icon: ![Dark cave](assets/hotspots/receiver.png)
-  - hitbox: (at 54%, 30%) (size 78%, 30%)
-- Cave (at 50%, 50%)
+  - hitbox: (center 421.2px, 506.4px) (size 608.4px, 506.4px)
+- Cave (center 390px, 844px)
   - icon: ![Cave](assets/hotspots/c25-lit.webp)
-  - hitbox: (at 54%, 30%) (size 78%, 30%)
-- Painted cave (at 50%, 50%)
+  - hitbox: (center 421.2px, 506.4px) (size 608.4px, 506.4px)
+- Painted cave (center 390px, 844px)
   - icon: ![Painted cave](assets/hotspots/c25-painted.webp)
-  - hitbox: (at 54%, 30%) (size 78%, 30%)
-- Painted cave with stars (at 50%, 50%)
+  - hitbox: (center 421.2px, 506.4px) (size 608.4px, 506.4px)
+- Painted cave with stars (center 390px, 844px)
   - icon: ![Painted cave with stars](assets/hotspots/c25-stars.webp)
-  - hitbox: (at 54%, 30%) (size 78%, 30%)
+  - hitbox: (center 421.2px, 506.4px) (size 608.4px, 506.4px)
 
 **Items**
 - Cave
@@ -2502,9 +2502,9 @@ The work is done. It is time to rest, and sing.
 - next: Sing about creation -- Song of creation
 
 **Hotspots**
-- Social group (at 50%, 56%)
+- Social group (center 390px, 945.28px)
   - icon: ![Gathered people](assets/hotspots/receiver.png)
-  - hitbox: (at 50%, 56%) (size 76%, 14%)
+  - hitbox: (center 390px, 945.28px) (size 592.8px, 236.32px)
 
 **Items**
 - Shared song

@@ -134,7 +134,7 @@ After the first show, the visitors leave and Sera brings your complete work to t
 - Let the same ship carry its bottled harbour -- Ship carrying its harbour
 
 **Hotspots**
-- Inside-out arch (at 50%, 13%)
+- Inside-out arch (center 426px, 240.11px)
   - icon: ![Inside-out arch](harbour-assets/fixed/inside-out-arch.svg) (circular)
 
 **Items**
@@ -385,7 +385,7 @@ Sera opens two drawers: blue bellflowers in one, broad gold fans in the other. T
 - Bring both trees' new growth into one garden -- First garden tree
 
 **Hotspots**
-- Merging frame (at 50%, 13%)
+- Merging frame (center 426px, 239.98px)
   - icon: ![Merging frame](harbour-assets/fixed/merging-frame.svg) (circular)
 
 **Items**
@@ -769,13 +769,13 @@ Sera draws the sail between two branches. The puppets have their journeys; now t
 - Bring the two performers onto the stage and make a portable copy -- Theatre globe
 
 **Hotspots**
-- Harbour stage (at 50%, 13%)
+- Harbour stage (center 426px, 239.98px)
   - icon: ![Harbour stage](harbour-assets/fixed/harbour-stage.svg) (circular)
-- Coloured-puppet stage (at 50%, 13%)
+- Coloured-puppet stage (center 426px, 239.98px)
   - icon: ![Coloured-puppet stage](harbour-assets/fixed/coloured-puppet-stage.svg) (circular)
-- Black-puppet stage (at 50%, 13%)
+- Black-puppet stage (center 426px, 239.98px)
   - icon: ![Black-puppet stage](harbour-assets/fixed/black-puppet-stage.svg) (circular)
-- Two-puppet harbour stage (at 50%, 13%)
+- Two-puppet harbour stage (center 426px, 239.98px)
   - icon: ![Two-puppet harbour stage](harbour-assets/fixed/two-puppet-harbour-stage.svg) (circular)
 
 **Items**
@@ -848,9 +848,9 @@ The firefly has found its way back to the garden. Sera lays two glass wings besi
 - next: Let a copy become the living setting of the play -- Living garden play
 
 **Hotspots**
-- Two-puppet harbour stage (at 50%, 13%)
+- Two-puppet harbour stage (center 426px, 239.98px)
   - icon: ![Two-puppet harbour stage](harbour-assets/fixed/two-puppet-harbour-stage.svg) (circular)
-- Living garden play (at 50%, 13%)
+- Living garden play (center 426px, 239.98px)
   - icon: ![Living garden play](harbour-assets/fixed/living-garden-play.svg) (circular)
 
 **Items**
@@ -1260,7 +1260,7 @@ Sera brings the work back to the Turning Gallery. Beyond the copying bench, the 
   - or: Workshop with a globed gold tree
 
 **Hotspots**
-- Inside-out arch (at 50%, 13%)
+- Inside-out arch (center 426px, 240.11px)
   - icon: ![Inside-out arch](harbour-assets/fixed/inside-out-arch.svg) (circular)
 
 **Items**
@@ -1538,7 +1538,7 @@ The gallery floor is still dry. Give the regatta a pool, and give its far shore 
   - and: Cut-paper forest
 
 **Hotspots**
-- Lit tracing screen (at 50%, 13%)
+- Lit tracing screen (center 426px, 239.98px)
   - icon: ![Lit tracing screen](harbour-assets/fixed/lit-tracing-screen.svg) (circular)
 
 **Items**
@@ -1594,21 +1594,21 @@ Place the raft on the pool, the lantern creature at its starting mark above the 
 - Bring garden, creature and forest together over the water -- Night regatta
 
 **Hotspots**
-- Mirror pool (at 50%, 13%)
+- Mirror pool (center 426px, 239.98px)
   - icon: ![Mirror pool](harbour-assets/fixed/mirror-pool.svg) (circular)
-- Pool with garden raft (at 50%, 13%)
+- Pool with garden raft (center 426px, 239.98px)
   - icon: ![Pool with garden raft](harbour-assets/fixed/pool-with-garden-raft.svg) (circular)
-- Pool with lantern creature (at 50%, 13%)
+- Pool with lantern creature (center 426px, 239.98px)
   - icon: ![Pool with lantern creature](harbour-assets/fixed/pool-with-lantern-creature.svg) (circular)
-- Pool with paper forest (at 50%, 13%)
+- Pool with paper forest (center 426px, 239.98px)
   - icon: ![Pool with paper forest](harbour-assets/fixed/pool-with-paper-forest.svg) (circular)
-- Pool with garden and lantern (at 50%, 13%)
+- Pool with garden and lantern (center 426px, 239.98px)
   - icon: ![Pool with garden and lantern](harbour-assets/fixed/pool-with-garden-and-lantern.svg) (circular)
-- Pool with garden and forest (at 50%, 13%)
+- Pool with garden and forest (center 426px, 239.98px)
   - icon: ![Pool with garden and forest](harbour-assets/fixed/pool-with-garden-and-forest.svg) (circular)
-- Pool with lantern and forest (at 50%, 13%)
+- Pool with lantern and forest (center 426px, 239.98px)
   - icon: ![Pool with lantern and forest](harbour-assets/fixed/pool-with-lantern-and-forest.svg) (circular)
-- Night regatta (at 50%, 13%)
+- Night regatta (center 426px, 239.98px)
   - icon: ![Night regatta](harbour-assets/fixed/night-regatta.svg) (circular)
 
 **Items**
@@ -1663,7 +1663,7 @@ Before the gallery opens, you step back inside the bottle to the harbour stage. 
 - Give the earlier theatre globe its own blue evening -- Blue-hour theatre globe
 
 **Hotspots**
-- Living garden play (at 50%, 13%)
+- Living garden play (center 426px, 239.98px)
   - icon: ![Living garden play](harbour-assets/fixed/living-garden-play.svg) (circular)
 
 **Items**
@@ -1722,7 +1722,7 @@ Back in the gallery, the regatta is ready. Set the live window and the old theat
 - Give the travelling harbour its own regatta -- Ship with a regatta in its harbour
 
 **Hotspots**
-- Night regatta (at 50%, 13%)
+- Night regatta (center 426px, 239.98px)
   - icon: ![Night regatta](harbour-assets/fixed/night-regatta.svg) (circular)
 
 **Items**

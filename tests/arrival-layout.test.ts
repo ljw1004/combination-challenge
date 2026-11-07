@@ -246,7 +246,7 @@ test('an item wider than the comfort inset still respects reserved supplies',()=
 });
 
 test('circular hotspots use the inscribed circle, minimum touch diameter, and exact rectangle clearance',()=>{
-  const story=parseStory('# Circle\n## Work\nbackground: ![room](room.svg)\n**Hotspots**\n- H (at 50%, 50%)\n  - icon: ![round](round.svg) (circular)\n  - place: A (at 60%, 55%)\n**Items**\n- H\n- A');
+  const story=parseStory('# Circle\n## Work\nbackground: ![room](room.svg)\n**Hotspots**\n- H (center 195px, 422px)\n  - icon: ![round](round.svg) (circular)\n  - place: A (center 234px, 464.2px)\n**Items**\n- H\n- A');
   const h=story.hotspots['name:H'],circle=hotspotRect(h,0,{width:140,height:100});
   assert.equal(circle.width,100);
   assert(containsPoint(circle,{x:245,y:422}));

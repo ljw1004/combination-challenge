@@ -7,16 +7,16 @@ background: ![room](room.svg)
 Build the assembly.
 **Items**
 - Parts
-  - icon: ![parts](part.svg) (at 25%, 65%)
+  - icon: ![parts](part.svg) (center 195px, 1097.2px)
 - Tool
-  - icon: ![tool](part.svg) (at 75%, 65%)
+  - icon: ![tool](part.svg) (center 585px, 1097.2px)
 - Rear
   - icon: ![rear](rear.svg)
 - Front
   - icon: ![front](front.svg)
 **Hotspots**
-- Rear (at 50%, 25%)
-- Front (at 50%, 25%)
+- Rear (center 390px, 422px)
+- Front (center 390px, 422px)
 **Goals**
 - Build the rear assembly -- Rear
 **Combinations**

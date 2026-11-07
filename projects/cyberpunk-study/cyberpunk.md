@@ -1981,7 +1981,7 @@ At the scheduled minute, the courier's handset declares Meridian's migration com
   - and: `working-moth`
 
 **Hotspots**
-- `migration-monitor` (at 50%, 27%)
+- `migration-monitor` (center 390px, 455.76px)
 
 **Items**
 - `migration-monitor` Dawn migration monitor

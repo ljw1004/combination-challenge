@@ -9,7 +9,7 @@ import {lintStoryImages} from '../src/lint/images.ts';
 import {newGame} from '../src/engine/game.ts';
 
 const manuscript = (body: string) => `# ![icon](https://example.com/icon.png) Icon workshop\n## Start\nbackground: ![room](https://example.com/room.webp)\n\n${body}`;
-const iconErrors = (text: string) => lintStory(parseStory(text), {analysis: false}).filter(diagnostic => diagnostic.code.includes('icon'));
+const iconErrors = (text: string) => lintStory(parseStory(text), {analysis: false, backgroundMeasurements:[{chapter:0,width:390,height:844}]}).filter(diagnostic => diagnostic.code.includes('icon'));
 
 test('item icons and aligned slot overlays retain source spans without creating references or wonders', () => {
   const markdown = manuscript([
@@ -122,7 +122,7 @@ test('hotspot artwork retains coordinates and contextual recipes without introdu
   const text = manuscript(`**Goals**
 - Shape it -- Bowl
 **Hotspots**
-- Kiln yard (at 78%, 65%)
+- Kiln yard (center 304.2px, 548.6px)
   - icon: ![yard](yard.png)
   - Clay [transform] + Fire [preserve] -> Bowl
 > NOTE: Hotspot centre is on the right firing ground.
@@ -133,13 +133,13 @@ test('hotspot artwork retains coordinates and contextual recipes without introdu
 ## Return
 background: ![yard](https://example.com/yard.webp)
 **Hotspots**
-- Kiln yard (at 78%, 65%)
+- Kiln yard (center 304.2px, 548.6px)
   - icon: ![same yard](yard.png)
   - icon: ![conflicting](other.png)
 `);
   const story = parseStory(text), hotspot = story.hotspots['name:Kiln yard'];
   assert.deepEqual(Object.keys(story.items).sort(), ['name:Bowl', 'name:Clay', 'name:Fire', 'name:Kiln yard']);
-  assert.equal(hotspot.x, .78); assert.equal(hotspot.y, .65);
+  assert.equal(hotspot.x, 304.2); assert.equal(hotspot.y, 548.6);
   assert.equal(hotspot.icon?.url, 'yard.png');
   assert.equal(story.recipes.length, 1);
   assert.equal(story.recipes[0].hotspot, hotspot.id);
@@ -153,27 +153,27 @@ background: ![yard](https://example.com/yard.webp)
 test('primitive icon centres accept either marker order and preserve authoritative metadata', () => {
   const text = manuscript(`**Items**
 - Air
-  - icon: ![air](air.png) (at 70%, 80%) (circular)
-  - icon: ![same](air.png) (circular) (at 70%, 80%)
+  - icon: ![air](air.png) (center 273px, 675.2px) (circular)
+  - icon: ![same](air.png) (circular) (center 273px, 675.2px)
 - House (compound)
-  - icon: ![house](house.png) (at 20.5%, 30%)
+  - icon: ![house](house.png) (center 79.95px, 253.2px)
   - unnamed slot: accepts Window, icon: ![fitted](fitted.png)
 - Window
   - icon: ![window](window.png)
 `).replaceAll('\n', '\r\n');
   const story = parseStory(text), icon = story.items['name:Air'].icon!;
-  assert.deepEqual(icon.position, {x:.7,y:.8}); assert.equal(icon.circular,true);
-  assert.equal(text.slice(icon.source.span!.from,icon.source.span!.to),'icon: ![air](air.png) (at 70%, 80%) (circular)');
+  assert.deepEqual(icon.position, {x:273,y:675.2}); assert.equal(icon.circular,true);
+  assert.equal(text.slice(icon.source.span!.from,icon.source.span!.to),'icon: ![air](air.png) (center 273px, 675.2px) (circular)');
   assert.deepEqual(iconErrors(text),[], 'implicit installation does not make a compound derived');
-  const conflict=text.replace('![same](air.png) (circular) (at 70%, 80%)','![same](air.png) (at 71%, 80%) (circular)');
+  const conflict=text.replace('![same](air.png) (circular) (center 273px, 675.2px)','![same](air.png) (center 276.9px, 675.2px) (circular)');
   assert.deepEqual(iconErrors(conflict).map(d=>d.code),['conflicting-icon']);
-  assert.deepEqual(parseStory(conflict).items['name:Air'].icon?.position,{x:.7,y:.8});
+  assert.deepEqual(parseStory(conflict).items['name:Air'].icon?.position,{x:273,y:675.2});
 });
 
 test('icon starting positions reject derived identities even when their producer appears later', () => {
   const text=manuscript(`**Items**
 - Steam
-  - icon: ![steam](steam.png) (at 70%, 80%)
+  - icon: ![steam](steam.png) (center 273px, 675.2px)
 - Water
   - icon: ![water](water.png)
 - Fire
@@ -189,16 +189,16 @@ background: ![place](https://example.com/room.webp)
 });
 
 test('icon start coordinates validate ranges, duplicate markers and placement context', () => {
-  for(const suffix of ['(at -1%, 20%)','(at 20%, 101%)'])assert.deepEqual(iconErrors(manuscript(`**Items**\n- Air\n  - icon: ![air](air.png) ${suffix}`)).map(d=>d.code),['icon-position']);
-  for(const suffix of ['(at 20, 30%)','(at NaN%, 20%)','(circular) (circular)','(at 20%, 30%) (at 20%, 30%)','(square)'])assert(iconErrors(manuscript(`**Items**\n- Air\n  - icon: ![air](air.png) ${suffix}`)).some(d=>d.code==='icon-syntax'));
+  for(const suffix of ['(center -3.9px, 168.8px)','(center 78px, 852.44px)'])assert.deepEqual(iconErrors(manuscript(`**Items**\n- Air\n  - icon: ![air](air.png) ${suffix}`)).map(d=>d.code),['icon-position']);
+  for(const suffix of ['(at 20, 30%)','(at NaN%, 20%)','(circular) (circular)','(center 78px, 253.2px) (center 78px, 253.2px)','(square)'])assert(iconErrors(manuscript(`**Items**\n- Air\n  - icon: ![air](air.png) ${suffix}`)).some(d=>d.code==='icon-syntax'));
   const text=manuscript(`**Hotspots**
-- Shore (at 70%, 80%)
-  - icon: ![shore](shore.png) (at 20%, 30%)
+- Shore (center 273px, 675.2px)
+  - icon: ![shore](shore.png) (center 78px, 253.2px)
 **Items**
 - Shore
 - House (compound)
   - icon: ![house](house.png)
-  - unnamed slot: accepts Window, icon: ![fitted](fitted.png) (at 20%, 30%)
+  - unnamed slot: accepts Window, icon: ![fitted](fitted.png) (center 78px, 253.2px)
 - Window
   - icon: ![window](window.png)
 `);

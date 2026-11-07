@@ -14,7 +14,7 @@ The orange star will outlive the spiral that contains it. Another galaxy is appr
 - Bring the two clouds together -- `p-crowded-cloud`
 
 **Hotspots**
-- `p-passing-outskirts` (at 72%, 32%)
+- `p-passing-outskirts` (center 561.6px, 540.16px)
 
 **Items**
 - `p-old-stars` Old stars around an orange sun
@@ -93,7 +93,7 @@ Around the smaller star, inherited dust circles in a disk. The galaxies are stil
 - Find what a faster encounter leaves -- `p-fragments`
 
 **Hotspots**
-- `p-young-system` (at 68%, 32%)
+- `p-young-system` (center 530.4px, 540.16px)
 
 **Items**
 - `p-grains` Fine rocky grains
@@ -138,7 +138,7 @@ The galaxies turn back toward one another. The orange sun approaches the returni
 - Follow the cloud-born stars through the same region -- `p-young-return`
 
 **Hotspots**
-- `p-returning-outskirts` (at 70%, 32%)
+- `p-returning-outskirts` (center 546px, 540.16px)
 
 **Items**
 - `p-returning-outskirts` The returning galaxy's stars

@@ -25,15 +25,15 @@ The stabilizer fin broke. I can't steer. We're coming in hot.
 - Stabilize the lander -- `rock-supported-lander`
 
 **Hotspots**
-- `deflated-habitat` (at 22.75641%, 20.7346%)
+- `deflated-habitat` (center 177.499998px, 350.000048px)
   - icon: ![deflated habitat](assets/survival/items/crash-landing-deflated-habitat.png)
-- `patched-habitat` (at 22.75641%, 20.76422%)
+- `patched-habitat` (center 177.499998px, 350.5000336px)
   - icon: ![patched habitat](assets/survival/items/crash-landing-patched-habitat.png)
-- `breathable-habitat` (at 22.75641%, 20.76422%)
+- `breathable-habitat` (center 177.499998px, 350.5000336px)
   - icon: ![breathable habitat](assets/survival/items/crash-landing-breathable-habitat.png)
-- `damaged-lander` (at 71.47436%, 22.63033%)
+- `damaged-lander` (center 557.500008px, 381.9999704px)
   - icon: ![damaged lander](assets/survival/items/crash-landing-damaged-lander.png)
-- `rock-supported-lander` (at 71.47436%, 22.65995%)
+- `rock-supported-lander` (center 557.500008px, 382.499956px)
   - icon: ![rock supported lander](assets/survival/items/crash-landing-rock-supported-lander.png)
 
 **Items**
@@ -90,19 +90,19 @@ I need to power the hab’s air scrubber before the air runs out.
 
 **Hotspots**
 - (three hotspots are a lot but okay here because the array connection, air scrubber and antenna mounting have three distinct physical jobs)
-- `solar-array-base` (at 38.01282%, 21.71209%)
+- `solar-array-base` (center 296.499996px, 366.5000792px)
   - icon: ![solar-array-base](assets/survival/items/air-solar-array-base.png)
-  - hitbox: (at 20.19231%, 26.83649%) (size 38.33333%, 4.73934%)
-- `deployed-solar-array` (at 38.01282%, 21.71209%)
+  - hitbox: (center 157.500018px, 452.9999512px) (size 298.999974px, 80.0000592px)
+- `deployed-solar-array` (center 296.499996px, 366.5000792px)
   - icon: ![deployed-solar-array](assets/survival/items/air-deployed-solar-array.png)
-  - hitbox: (at 20.19231%, 23.63744%) (size 38.33333%, 11.49289%)
-- `station-power` (at 38.01282%, 21.71209%)
+  - hitbox: (center 157.500018px, 398.9999872px) (size 298.999974px, 193.9999832px)
+- `station-power` (center 296.499996px, 366.5000792px)
   - icon: ![station-power](assets/survival/items/air-station-power.png)
-  - hitbox: (at 20.19231%, 23.63744%) (size 38.33333%, 11.49289%)
-- `habitat-scrubber` (at 84.87179%, 23.31161%)
+  - hitbox: (center 157.500018px, 398.9999872px) (size 298.999974px, 193.9999832px)
+- `habitat-scrubber` (center 661.999962px, 393.4999768px)
   - icon: ![habitat-scrubber](assets/live-feedback/air-targets/scrubber-base.png)
-  - hitbox: (at 87.94872%, 23.19313%) (size 22.56410%, 10.84123%)
-- `antenna-mount` (at 73.78205%, 5.89455%)
+  - hitbox: (center 686.000016px, 391.5000344px) (size 175.99998px, 182.9999624px)
+- `antenna-mount` (center 575.49999px, 99.500004px)
   - icon: ![antenna-mount](assets/survival/items/air-antenna-mount.png)
 
 **Items**
@@ -167,11 +167,11 @@ After air, water. Pale ice shows beneath a dusty bank a short walk from the hab.
 
 **Hotspots**
 - (three hotspots are a lot but okay here because the ice bank, heater and temporary pot sitting on that heater have separate actions)
-- `visible-ice` (at 47.75641%, 30.03555%)
+- `visible-ice` (center 372.499998px, 507.000084px)
   - icon: ![Visible ice](assets/survival/items/water-visible-ice.png)
-- `heater` (at 77%, 39%)
+- `heater` (center 600.6px, 658.32px)
   - icon: ![Battery heater](assets/live-feedback/battery-heater-base.png)
-- `pot-on-heater` (at 79.6%, 34.9%)
+- `pot-on-heater` (center 620.88px, 589.112px)
   - icon: ![Empty pot on heater](assets/live-feedback/pot-empty.png)
 
 **Items**
@@ -256,15 +256,15 @@ The rock offers shelter, but no air. I can build a small room inside it.
 - next: Bring in light -- `lit-growing-room`
 
 **Hotspots**
-- `surveyed-cavern-floor` (at 49.29487%, 35.87085%)
+- `surveyed-cavern-floor` (center 384.499986px, 605.499948px)
   - icon: ![surveyed-cavern-floor](assets/live-feedback/earth-surveyed-cavern-floor.png)
-- `cleared-cavern-bay` (at 49.29487%, 35.87085%)
+- `cleared-cavern-bay` (center 384.499986px, 605.499948px)
   - icon: ![cleared-cavern-bay](assets/live-feedback/earth-cleared-cavern-bay.png)
-- `sealed-growing-room` (at 49.29487%, 35.87085%)
+- `sealed-growing-room` (center 384.499986px, 605.499948px)
   - icon: ![sealed-growing-room](assets/live-feedback/earth-sealed-growing-room.png)
-- `pressurized-growing-room` (at 49.29487%, 35.87085%)
+- `pressurized-growing-room` (center 384.499986px, 605.499948px)
   - icon: ![pressurized-growing-room](assets/live-feedback/earth-pressurized-growing-room.png)
-- `lit-growing-room` (at 49.29487%, 35.87085%)
+- `lit-growing-room` (center 384.499986px, 605.499948px)
   - icon: ![lit-growing-room](assets/live-feedback/earth-lit-growing-room.png)
 
 **Items**
@@ -323,11 +323,11 @@ The sheltered room is up. Now I need ceramic blocks for the berth and crop beds,
   - and: `fired-granules`
 
 **Hotspots**
-- `reflector-base` (at 55.25641%, 28.08057%)
+- `reflector-base` (center 430.999998px, 474.0000216px)
   - icon: ![reflector base](assets/live-feedback/fire-reflector-base.png)
-- `open-reflector` (at 55.25641%, 28.08057%)
+- `open-reflector` (center 430.999998px, 474.0000216px)
   - icon: ![open reflector](assets/live-feedback/fire-open-reflector.png)
-- `solar-furnace` (at 55.25641%, 28.08057%)
+- `solar-furnace` (center 430.999998px, 474.0000216px)
   - icon: ![assembled solar furnace](assets/live-feedback/fire-solar-furnace.png)
 
 **Items**
@@ -396,13 +396,13 @@ I can sleep beneath the rock. The laboratory can stay in the repaired starter ha
 - Make a sheltered berth -- `cave-berth`
 
 **Hotspots**
-- `berth-alcove` (at 51.98718%, 38.47749%)
+- `berth-alcove` (center 405.500004px, 649.5000312px)
   - icon: ![berth alcove](assets/survival/items/a-bed-under-the-hill-berth-alcove.png)
-- `ceramic-berth` (at 51.98718%, 38.47749%)
+- `ceramic-berth` (center 405.500004px, 649.5000312px)
   - icon: ![ceramic berth](assets/survival/items/a-bed-under-the-hill-ceramic-berth.png)
-- `insulated-ceramic-berth` (at 51.98718%, 38.47749%)
+- `insulated-ceramic-berth` (center 405.500004px, 649.5000312px)
   - icon: ![insulated ceramic berth](assets/survival/items/a-bed-under-the-hill-insulated-ceramic-berth.png)
-- `cave-berth` (at 51.98718%, 38.47749%)
+- `cave-berth` (center 405.500004px, 649.5000312px)
   - icon: ![cave berth](assets/survival/items/a-bed-under-the-hill-cave-berth.png)
 
 **Items**
@@ -462,35 +462,35 @@ Potatoes on the left, soybeans against the far wall, lettuce on the right. Three
 
 **Hotspots**
 - (three hotspots are a lot but okay here because the three crop beds occupy separate established locations and replace their own construction states)
-- `potato-plot` (at 17.30769%, 31.90166%)
+- `potato-plot` (center 134.999982px, 538.5000208px)
   - icon: ![Potato bed](assets/live-feedback/garden/potato-floor.png)
-- `potato-bed-walls` (at 17.30769%, 31.90166%)
+- `potato-bed-walls` (center 134.999982px, 538.5000208px)
   - icon: ![Potato bed](assets/live-feedback/garden/potato-ceramic.png)
-- `lined-potato-bed` (at 17.30769%, 31.90166%)
+- `lined-potato-bed` (center 134.999982px, 538.5000208px)
   - icon: ![Potato bed](assets/live-feedback/garden/potato-fabric.png)
-- `filled-potato-bed` (at 17.30769%, 31.90166%)
+- `filled-potato-bed` (center 134.999982px, 538.5000208px)
   - icon: ![Potato bed](assets/live-feedback/garden/potato-medium.png)
-- `watered-potato-bed` (at 17.30769%, 31.90166%)
+- `watered-potato-bed` (center 134.999982px, 538.5000208px)
   - icon: ![Potato bed](assets/live-feedback/garden/potato-dripped.png)
-- `soybean-plot` (at 52.4359%, 27.66588%)
+- `soybean-plot` (center 409.00002px, 467.0000544px)
   - icon: ![Soybean bed](assets/live-feedback/garden/soybean-floor.png)
-- `soybean-bed-walls` (at 52.4359%, 27.66588%)
+- `soybean-bed-walls` (center 409.00002px, 467.0000544px)
   - icon: ![Soybean bed](assets/live-feedback/garden/soybean-ceramic.png)
-- `lined-soybean-bed` (at 52.4359%, 27.66588%)
+- `lined-soybean-bed` (center 409.00002px, 467.0000544px)
   - icon: ![Soybean bed](assets/live-feedback/garden/soybean-fabric.png)
-- `filled-soybean-bed` (at 52.4359%, 27.66588%)
+- `filled-soybean-bed` (center 409.00002px, 467.0000544px)
   - icon: ![Soybean bed](assets/live-feedback/garden/soybean-medium.png)
-- `watered-soybean-bed` (at 52.4359%, 27.66588%)
+- `watered-soybean-bed` (center 409.00002px, 467.0000544px)
   - icon: ![Soybean bed](assets/live-feedback/garden/soybean-dripped.png)
-- `lettuce-plot` (at 85.25641%, 31.90166%)
+- `lettuce-plot` (center 664.999998px, 538.5000208px)
   - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-floor.png)
-- `lettuce-bed-walls` (at 85.25641%, 31.90166%)
+- `lettuce-bed-walls` (center 664.999998px, 538.5000208px)
   - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-ceramic.png)
-- `lined-lettuce-bed` (at 85.25641%, 31.90166%)
+- `lined-lettuce-bed` (center 664.999998px, 538.5000208px)
   - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-fabric.png)
-- `filled-lettuce-bed` (at 85.25641%, 31.90166%)
+- `filled-lettuce-bed` (center 664.999998px, 538.5000208px)
   - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-medium.png)
-- `watered-lettuce-bed` (at 85.25641%, 31.90166%)
+- `watered-lettuce-bed` (center 664.999998px, 538.5000208px)
   - icon: ![Lettuce bed](assets/live-feedback/garden/lettuce-dripped.png)
 
 **Items**
@@ -627,15 +627,15 @@ The stems have grown. More medium will keep new potatoes out of the light; the f
 
 **Hotspots**
 - (three hotspots are a lot but okay here because the two tended crops and the first lettuce occupy the three established beds)
-- `growing-potato-bed` (at 17.94872%, 33.91588%)
+- `growing-potato-bed` (center 140.000016px, 572.5000544px)
   - icon: ![Low-sided potato bed](assets/survival/items/under-the-leaves-growing-potato-bed.png)
-- `hilled-potato-bed` (at 17.94872%, 33.91588%)
+- `hilled-potato-bed` (center 140.000016px, 572.5000544px)
   - icon: ![Hilled potato bed](assets/survival/items/under-the-leaves-hilled-potato-bed.png)
-- `growing-soybean-row` (at 52.11538%, 28.88033%)
+- `growing-soybean-row` (center 406.499964px, 487.4999704px)
   - icon: ![Unsupported soybean row](assets/survival/items/under-the-leaves-growing-soybean-row.png)
-- `supported-soybean-row` (at 52.11538%, 28.88033%)
+- `supported-soybean-row` (center 406.499964px, 487.4999704px)
   - icon: ![Supported soybean row](assets/survival/items/under-the-leaves-supported-soybean-row.png)
-- `lettuce-tray` (at 85.64103%, 35.27844%)
+- `lettuce-tray` (center 668.000034px, 595.5000672px)
   - icon: ![Lettuce tray ready to pick](assets/survival/items/under-the-leaves-lettuce-tray.png)
 
 
@@ -700,11 +700,11 @@ After the first harvest, I bring in another pot of meltwater. Brown sludge has c
 - next: Examine it under the microscope -- `examined-sludge-slide`
 
 **Hotspots**
-- `water-filter` (at 28.8%, 18%)
+- `water-filter` (center 224.64px, 303.84px)
   - icon: ![Clogged filter on the galley pot](assets/live-feedback/pot-filter-clogged.png)
-- `laboratory-microscope` (at 71.8%, 16.1%)
+- `laboratory-microscope` (center 560.04px, 271.768px)
   - icon: ![Laboratory microscope](assets/live-feedback/lab-microscope-hit.png)
-  - place: `examined-sludge-slide` (at 71.8%, 19.2%)
+  - place: `examined-sludge-slide` (center 560.04px, 324.096px)
 
 **Items**
 - `water-filter`
@@ -752,7 +752,7 @@ background: ![The ground we know](assets/live-feedback/local-core-laboratory.web
 - next: Protect it before the farther expedition -- `stored-source-core`
 
 **Hotspots**
-- `visible-ice` (at 23%, 22.3%)
+- `visible-ice` (center 179.4px, 376.424px)
   - icon: ![Visible ice](assets/live-feedback/local-ice-hit.png)
 
 **Items**
@@ -794,15 +794,15 @@ Broken ledges and loose rubble block the rover’s climb. I can scramble to soun
 - next: Bring back ice from within the band -- `remote-ice-core`
 
 **Hotspots**
-- `bedrock-anchor` (at 56.53846154%, 16.76540284%)
+- `bedrock-anchor` (center 441.000000012px, 282.9999999392px)
   - icon: ![Bedrock anchor](assets/live-feedback/gully-revision/central-bedrock-hit.png)
-  - hitbox: (at 56.53846154%, 16.76540284%) (size 30.76923077%, 10.66350711%)
-- `anchored-winch` (at 60.25641026%, 26.06635071%)
+  - hitbox: (center 441.000000012px, 282.9999999392px) (size 240.000000006px, 180.0000000168px)
+- `anchored-winch` (center 470.000000028px, 439.9999999848px)
   - icon: ![Winch with extended cable](assets/live-feedback/gully-revision/rigged-winch.png)
-  - hitbox: (at 48.07692308%, 30.65758294%) (size 29.48717949%, 28.73222749%)
-- `reached-ice-bank` (at 60.25641026%, 26.06635071%)
+  - hitbox: (center 375.000000024px, 517.5000000272px) (size 230.000000022px, 485.0000000312px)
+- `reached-ice-bank` (center 470.000000028px, 439.9999999848px)
   - icon: ![Rover beyond the winch at the distant ice bank](assets/live-feedback/gully-revision/reached-rover-and-ice.png)
-  - hitbox: (at 67.43589744%, 9.62677725%) (size 32.82051282%, 8.59004739%)
+  - hitbox: (center 526.000000032px, 162.49999998px) (size 255.999999996px, 144.9999999432px)
 
 **Items**
 - `bedrock-anchor` Bedrock anchor
@@ -819,7 +819,7 @@ Broken ledges and loose rubble block the rover’s climb. I can scramble to soun
   A portable powered winch with its line, anchor sling and remote control.
 
 - `expedition-rover` Expedition rover
-  - icon: ![Expedition rover](assets/live-feedback/expedition-rover-corrected.png) (at 45%, 54%)
+  - icon: ![Expedition rover](assets/live-feedback/expedition-rover-corrected.png) (center 351px, 911.52px)
 
   The small science store behind the seat connects to the rover’s existing cold service. It will keep the wrapped core frozen on the journey home.
 
@@ -853,9 +853,9 @@ The remote core is back in laboratory cooling. A small shaving on a glass slide 
 - next: Look through the ice -- `examined-ice-core`
 
 **Hotspots**
-- `laboratory-microscope` (at 71.8%, 16.1%)
+- `laboratory-microscope` (center 560.04px, 271.768px)
   - icon: ![Laboratory microscope](assets/live-feedback/lab-microscope-hit.png)
-  - place: `examined-ice-core` (at 71.8%, 19.2%)
+  - place: `examined-ice-core` (center 560.04px, 324.096px)
 
 **Items**
 - `laboratory-microscope`
@@ -907,11 +907,11 @@ I need vessels for making fuel, and a new support for the lander. The red ground
 - next: Make usable iron from local minerals -- `iron-stock`
 
 **Hotspots**
-- `solar-furnace` (at 55.25641%, 28.08057%)
+- `solar-furnace` (center 430.999998px, 474.0000216px)
   - icon: ![solar-furnace](assets/live-feedback/metal-from-the-red-ground-solar-furnace.png)
-- `electrochemical-furnace` (at 55.25641%, 28.08057%)
+- `electrochemical-furnace` (center 430.999998px, 474.0000216px)
   - icon: ![electrochemical-furnace](assets/live-feedback/metal-from-the-red-ground-electrochemical-furnace.png)
-- `powered-reduction-furnace` (at 55.25641%, 28.08057%)
+- `powered-reduction-furnace` (center 430.999998px, 474.0000216px)
   - icon: ![powered-reduction-furnace](assets/live-feedback/metal-from-the-red-ground-powered-reduction-furnace.png)
 
 **Items**
@@ -980,18 +980,18 @@ The iron gives me something to build with. A divided cell will supply hydrogen f
   - and: `oxygen-cylinder`
 
 **Hotspots**
-- `water-electrolysis-cell` (at 37.94872%, 32.64218%)
+- `water-electrolysis-cell` (center 296.000016px, 550.9999984px)
   - icon: ![Empty water cell](assets/live-feedback/fuel/cell-empty.png)
-  - place: `empty-gas-tank` (at 54.8%, 30%)
-- `hydrogen-cell` (at 37.94872%, 32.64218%)
+  - place: `empty-gas-tank` (center 427.44px, 506.4px)
+- `hydrogen-cell` (center 296.000016px, 550.9999984px)
   - icon: ![Hydrogen side](assets/live-feedback/fuel/cell-hydrogen.png)
-  - hitbox: (at 37.94872%, 32.64218%) (size 38.46154%, 14.21801%)
-  - place: `empty-gas-tank` (at 21.02564%, 38.27014%)
-  - place: `hydrogen-cylinder` (at 20%, 30%)
-- `oxygen-outlet` (at 46.79487%, 32.52370%)
+  - hitbox: (center 296.000016px, 550.9999984px) (size 300.000012px, 240.0000088px)
+  - place: `empty-gas-tank` (center 163.999992px, 645.9999632px)
+  - place: `hydrogen-cylinder` (center 156px, 506.4px)
+- `oxygen-outlet` (center 364.999986px, 549.000056px)
   - icon: ![Oxygen side](assets/live-feedback/fuel/cell-oxygen-outlet.png)
-  - hitbox: (at 47.56410%, 32.64218%) (size 19.23077%, 14.21801%)
-  - place: `oxygen-cylinder` (at 55.12821%, 30%)
+  - hitbox: (center 370.99998px, 550.9999984px) (size 150.000006px, 240.0000088px)
+  - place: `oxygen-cylinder` (center 430.000038px, 506.4px)
 
 **Items**
 - `salvaged-cell-internals` Reclaimed electrolyzer insert
@@ -1060,11 +1060,11 @@ One of the iron tanks makes the reaction chamber. Now it needs both gases and po
 - next: Collect methane for the return -- `methane-cylinder`
 
 **Hotspots**
-- `fuel-assembly` (at 50%, 34.06398%)
+- `fuel-assembly` (center 390px, 574.9999824px)
   - icon: ![Methane-making installation](assets/live-feedback/fuel/reactor-base.png)
-- `habitat-scrubber` (at 84.87179%, 23.31161%)
+- `habitat-scrubber` (center 661.999962px, 393.4999768px)
   - icon: ![Air scrubber](assets/live-feedback/air-targets/fuel-scrubber-base.png)
-  - hitbox: (at 87.94872%, 23.19313%) (size 22.56410%, 10.84123%)
+  - hitbox: (center 686.000016px, 391.5000344px) (size 175.99998px, 182.9999624px)
 
 **Items**
 - `fuel-assembly` Methane-making installation (compound)
@@ -1112,13 +1112,13 @@ Back in the starter hab, the sky has turned amber.
 - next: Secure the water reserve -- `water-service-secured`
 
 **Hotspots**
-- `reserve-power-selector` (at 31.98718%, 19.78673%)
+- `reserve-power-selector` (center 249.500004px, 334.0000024px)
   - icon: ![Reserve power selector](assets/survival/items/amber-noon-reserve-power-selector.png)
-- `reserve-power-selected` (at 31.98718%, 19.78673%)
+- `reserve-power-selected` (center 249.500004px, 334.0000024px)
   - icon: ![Reserve power selected](assets/survival/items/amber-noon-reserve-power-selected.png)
-- `water-service-control` (at 50.83333%, 19.78673%)
+- `water-service-control` (center 396.499974px, 334.0000024px)
   - icon: ![Water-service control](assets/survival/items/amber-noon-water-service-control.png)
-- `water-service-secured` (at 50.83333%, 19.78673%)
+- `water-service-secured` (center 396.499974px, 334.0000024px)
   - icon: ![Water service secured](assets/survival/items/amber-noon-water-service-secured.png)
 
 **Items**
@@ -1128,7 +1128,7 @@ Back in the starter hab, the sky has turned amber.
   The lamps brighten. The original array is supplying power again; I can resume the fuel batches and the regular water trips.
 
 - `service-key` Service key
-  - icon: ![Service key](assets/fixed/items/service-key.png) (at 52%, 32%)
+  - icon: ![Service key](assets/fixed/items/service-key.png) (center 405.6px, 540.16px)
 
   The removable operating key for the station’s service selectors. Turn the selector, then withdraw it for the next control.
 
@@ -1169,13 +1169,13 @@ Enough warmth, light and water to keep the roots alive. Productive growth can re
 - Cover the plants against cooling -- `covered-crops`
 
 **Hotspots**
-- `growing-room-service-rail` (at 51.15385%, 20.1718%)
+- `growing-room-service-rail` (center 399.00003px, 340.499984px)
   - icon: ![Entrance attachment tabs](assets/survival/items/keep-the-roots-alive-growing-room-service-rail.png)
-- `screened-growing-area` (at 51.15385%, 20.1718%)
+- `screened-growing-area` (center 399.00003px, 340.499984px)
   - icon: ![Screened growing area](assets/survival/items/keep-the-roots-alive-screened-growing-area.png)
-- `crop-canopy-supports` (at 50.0%, 22.09716%)
+- `crop-canopy-supports` (center 390px, 373.0000608px)
   - icon: ![Crop beds needing covers](assets/live-feedback/garden/storm-cover-target.png)
-- `covered-crops` (at 50.0%, 22.09716%)
+- `covered-crops` (center 390px, 373.0000608px)
   - icon: ![Covered crops](assets/live-feedback/garden/storm-covered-crops.png)
 
 **Items**
@@ -1223,9 +1223,9 @@ A pale edge of sunlight returns. Under the dust, the panels are still connected.
 - Wipe the panels and restore power -- `restored-power`
 
 **Hotspots**
-- `dust-covered-solar-panels` (at 20.76923%, 23.66706%)
+- `dust-covered-solar-panels` (center 161.999994px, 399.4999728px)
   - icon: ![Dust-covered solar panels](assets/survival/items/sun-on-the-floor-dust-covered-solar-panels.png)
-- `restored-power` (at 20.76923%, 23.66706%)
+- `restored-power` (center 161.999994px, 399.4999728px)
   - icon: ![restored power](assets/survival/items/sun-on-the-floor-restored-power.png)
 
 **Items**
@@ -1252,13 +1252,13 @@ The plant is working again. Now I can finish the repair that will let this cabin
 - next: Fit the permanent iron support -- `level-launch-platform`
 
 **Hotspots**
-- `landing-footing-site` (at 61.47436%, 37.08531%)
+- `landing-footing-site` (center 479.500008px, 626.0000328px)
   - icon: ![landing-footing-site](assets/survival/items/the-leg-that-stays-landing-footing-site.png)
-- `ceramic-landing-footing` (at 61.47436%, 37.08531%)
+- `ceramic-landing-footing` (center 479.500008px, 626.0000328px)
   - icon: ![ceramic-landing-footing](assets/survival/items/the-leg-that-stays-ceramic-landing-footing.png)
-- `clear-support-gap` (at 61.47436%, 37.08531%)
+- `clear-support-gap` (center 479.500008px, 626.0000328px)
   - icon: ![clear-support-gap](assets/survival/items/the-leg-that-stays-clear-support-gap.png)
-- `level-launch-platform` (at 61.47436%, 37.08531%)
+- `level-launch-platform` (center 479.500008px, 626.0000328px)
   - icon: ![level-launch-platform](assets/live-feedback/lander-support-fit/lander-permanent-leg.png)
 
 **Items**
@@ -1309,13 +1309,13 @@ I bring over oxygen and methane in their separate cylinders. The lander’s cool
   - and: `oxygen-transferred`
 
 **Hotspots**
-- `lander-methane-port` (at 77.17949%, 33.47156%)
+- `lander-methane-port` (center 602.000022px, 564.9999328px)
   - icon: ![lander-methane-port](assets/live-feedback/fuel/port-ch4.png)
-- `methane-transferred` (at 77.17949%, 33.47156%)
+- `methane-transferred` (center 602.000022px, 564.9999328px)
   - icon: ![methane-transferred](assets/live-feedback/fuel/transfer-ch4.png)
-- `lander-oxygen-port` (at 23.71795%, 32.81991%)
+- `lander-oxygen-port` (center 185.00001px, 554.0000808px)
   - icon: ![lander-oxygen-port](assets/live-feedback/fuel/port-o2.png)
-- `oxygen-transferred` (at 23.71795%, 32.81991%)
+- `oxygen-transferred` (center 185.00001px, 554.0000808px)
   - icon: ![oxygen-transferred](assets/live-feedback/fuel/transfer-o2.png)
 
 **Items**
@@ -1363,11 +1363,11 @@ Mara confirms a hold for rendezvous alignment. The spacecraft is ready, the spec
 
 **Hotspots**
 - (three hotspots are a lot but okay here because each mature crop has its own established bed and the sink remains scenery)
-- `harvest-potato-bed` (at 18.46154%, 29.94668%)
+- `harvest-potato-bed` (center 144.000012px, 505.4999584px)
   - icon: ![Potato bed ready to harvest](assets/live-feedback/garden/potato-harvest-target.png)
-- `harvest-soybean-bed` (at 54.29487%, 27.1327%)
+- `harvest-soybean-bed` (center 423.499986px, 457.999976px)
   - icon: ![Soybean bed ready to harvest](assets/live-feedback/garden/soybean-harvest-target.png)
-- `harvest-lettuce-bed` (at 86.34615%, 34.47867%)
+- `harvest-lettuce-bed` (center 673.49997px, 581.9999496px)
   - icon: ![Lettuce bed ready to harvest](assets/live-feedback/garden/lettuce-harvest-target.png)
 
 **Items**
@@ -1440,7 +1440,7 @@ Rendezvous clearance. The mission’s sample rack has room for four cores. I sec
 - Secure both original cores on flight cooling -- `flight-sample-rack`[`stored-source-core`,`remote-ice-core`]
 
 **Hotspots**
-- `flight-sample-rack` (at 47.56410256%, 21.80094787%)
+- `flight-sample-rack` (center 370.999999968px, 368.0000000456px)
   - icon: ![Four-sample return rack](assets/live-feedback/compact-sample-rack/sample-rack-target.png)
 
 **Items**
@@ -1466,9 +1466,9 @@ I take the pilot’s seat and close the hatch. The last command is mine.
 - Fit the arming plug and launch -- `ascent-underway`
 
 **Hotspots**
-- `flight-console` (at 40.51282%, 37.58886%)
+- `flight-console` (center 315.999996px, 634.4999568px)
   - icon: ![Flight console](assets/survival/items/my-hand-on-the-switch-flight-console.png)
-- `ascent-underway` (at 40.51282%, 37.58886%)
+- `ascent-underway` (center 315.999996px, 634.4999568px)
   - icon: ![Ascent underway](assets/survival/items/my-hand-on-the-switch-ascent-underway.png)
 
 **Items**

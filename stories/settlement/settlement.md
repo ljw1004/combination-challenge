@@ -30,13 +30,13 @@ Begin beside the river with earth, water, air and fire. Combine them to make use
   - icon: ![Clay](assets/icons/clay.png)
 
 - Earth
-  - icon: ![Earth](assets/icons/earth.png) (at 28%, 53%)
+  - icon: ![Earth](assets/icons/earth.png) (center 218.4px, 894.64px)
 - Water
-  - icon: ![Water](assets/icons/water.png) (at 54%, 24%)
+  - icon: ![Water](assets/icons/water.png) (center 421.2px, 405.12px)
 - Air
-  - icon: ![Air](assets/icons/air.png) (at 55%, 7%)
+  - icon: ![Air](assets/icons/air.png) (center 429px, 118.16px)
 - Fire
-  - icon: ![Fire](assets/icons/fire.png) (at 75%, 36%)
+  - icon: ![Fire](assets/icons/fire.png) (center 585px, 607.68px)
 
 **Combinations**
 - Water + Earth -> Clay (tutorial)
@@ -280,7 +280,7 @@ At the bakehouse, mix flour with water and tend a wild starter over time. There 
 > NOTE: Hotspot **Warm cellar** is centred at (86%, 34.5%) from the background’s top-left: (671, 582) pixels in the 780×1688 asset. The background itself depicts the stone cellar entrance cut into the existing right-hand earth bank. Its separate 352×376 icon is 100% transparent and defines only the 88×94 hit area on the 390px board. Hover, focus and compatible drags reveal its name and outline; no separate miniature is drawn over the scenery.
 
 **Hotspots**
-- Warm cellar (at 86%, 34.5%)
+- Warm cellar (center 670.8px, 582.36px)
   - icon: ![Warm cellar](assets/hotspots/warm-cellar.png)
 
 **Items**
@@ -400,7 +400,7 @@ The potter's yard has space for firing and glazing. Finish a bowl that can hold 
 > NOTE: Hotspot **Kiln yard** is centred at (83%, 26%) from the background’s top-left: (647, 439) pixels in the 780×1688 asset. The background itself depicts the full-sized brick kiln standing beside the pottery shed against its right-hand wall. Its separate 448×400 icon is 100% transparent and defines only the 112×100 hit area on the 390px board. Hover, focus and compatible drags reveal its name and outline; no separate miniature is drawn over the scenery.
 
 **Hotspots**
-- Kiln yard (at 83%, 26%)
+- Kiln yard (center 647.4px, 438.88px)
   - icon: ![Kiln yard](assets/hotspots/kiln-yard.png)
 
 **Items**
@@ -437,7 +437,7 @@ At the quarry workshop, make a tool for breaking hard ground and a chest for sto
 > NOTE: Hotspot **Iron quarry** is centred at (86%, 22%) from the background’s top-left: (671, 371) pixels in the 780×1688 asset. The background itself depicts the rust-red iron seam in the actual quarry face, in the same position on both visits. Its separate 352×512 icon is 100% transparent and defines only the 88×128 hit area on the 390px board. Hover, focus and compatible drags reveal its name and outline; no separate miniature is drawn over the scenery.
 
 **Hotspots**
-- Iron quarry (at 86%, 22%)
+- Iron quarry (center 670.8px, 371.36px)
   - icon: ![Iron quarry](assets/hotspots/iron-quarry.png)
 
 **Items**
@@ -555,10 +555,10 @@ Visitors need to find the harbour after dark and secure their boats. Build a lig
 > NOTE: Hotspot **Harbour headland** is centred at (87%, 24%) from the background’s top-left: (679, 405) pixels in the 780×1688 asset. The background itself depicts the actual grassy cape and rock face projecting into the sea at upper right; still without a lighthouse. Its separate 352×480 icon is 100% transparent and defines only the 88×120 hit area on the 390px board. Hover, focus and compatible drags reveal its name and outline; no separate miniature is drawn over the scenery.
 
 **Hotspots**
-- Harbour headland (at 87%, 24%)
+- Harbour headland (center 678.6px, 405.12px)
   - icon: ![Harbour headland](assets/hotspots/harbour-headland.png)
-  - place: Tower (at 90%, 18%)
-  - place: Lighthouse (at 90%, 18%)
+  - place: Tower (center 702px, 303.84px)
+  - place: Lighthouse (center 702px, 303.84px)
 
 **Items**
 - Harbour headland
@@ -723,7 +723,7 @@ We stop at the quarry kiln for charcoal. At the landing, we can grind it into in
 > NOTE: Hotspot **Iron quarry** is centred at (86%, 22%) from the background’s top-left: (671, 371) pixels in the 780×1688 asset. The background itself depicts the rust-red iron seam in the actual quarry face, in the same position on both visits. Its separate 352×512 icon is 100% transparent and defines only the 88×128 hit area on the 390px board. Hover, focus and compatible drags reveal its name and outline; no separate miniature is drawn over the scenery.
 
 **Hotspots**
-- Iron quarry (at 86%, 22%)
+- Iron quarry (center 670.8px, 371.36px)
   - icon: ![Iron quarry](assets/hotspots/iron-quarry.png)
 
 **Items**
@@ -874,7 +874,7 @@ At the millpond, examine a water sample more closely. A microscope can reveal th
 > NOTE: Hotspot **Mill pond** is centred at (74%, 28%) from the background’s top-left: (577, 473) pixels in the 780×1688 asset. The background itself depicts the mill pond water between the working wheel and the right-hand rushes. Its separate 416×320 icon is 100% transparent and defines only the 104×80 hit area on the 390px board. Hover, focus and compatible drags reveal its name and outline; no separate miniature is drawn over the scenery.
 
 **Hotspots**
-- Mill pond (at 74%, 28%)
+- Mill pond (center 577.2px, 472.64px)
   - icon: ![Mill pond](assets/hotspots/mill-pond.png)
 
 **Items**
@@ -1032,7 +1032,7 @@ At the tidal shore, boats are preparing for a crossing without a cooking hearth.
 > NOTE: Hotspot **Tidal shore** is centred at (76%, 39%) from the background’s top-left: (593, 658) pixels in the 780×1688 asset. The background itself depicts the shallow sea water washing onto the sandy shore at right. Its separate 496×344 icon is 100% transparent and defines only the 124×86 hit area on the 390px board. Hover, focus and compatible drags reveal its name and outline; no separate miniature is drawn over the scenery.
 
 **Hotspots**
-- Tidal shore (at 76%, 39%)
+- Tidal shore (center 592.8px, 658.32px)
   - icon: ![Tidal shore](assets/hotspots/tidal-shore.png)
 
 **Items**
@@ -1183,7 +1183,7 @@ The cooks and guests are here, with water at hand for cooking. Prepare porridge 
 > NOTE: Hotspot **Kitchen hearth** is centred at (90%, 26%) from the background’s top-left: (702, 439) pixels in the 780×1688 asset. The background itself depicts the soot-dark firebox and small fire built into the kitchen’s right-hand wall. Its separate 272×512 icon is 100% transparent and defines only the 68×128 hit area on the 390px board. Hover, focus and compatible drags reveal its name and outline; no separate miniature is drawn over the scenery.
 
 **Hotspots**
-- Kitchen hearth (at 90%, 26%)
+- Kitchen hearth (center 702px, 438.88px)
   - icon: ![Kitchen hearth](assets/hotspots/kitchen-hearth.png)
 
 **Items**
@@ -1399,7 +1399,7 @@ It is evening. Put the floating lantern in the sheltered basin at the landing.
 - Gathering landing
 
 **Hotspots**
-- Gathering landing (at 82%, 28%)
+- Gathering landing (center 639.6px, 472.64px)
   - icon: ![Gathering landing](assets/hotspots/gathering-landing.png)
 
 > NOTE: Source references and qualifications follow. These are author comments, not new items or goals.

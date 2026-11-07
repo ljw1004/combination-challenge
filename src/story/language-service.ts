@@ -129,8 +129,8 @@ export class StoryLanguageDocument implements StoryLanguageService {
       if (item.icon) properties.push(`Icon: ${item.icon.url}`);
     }
     if (hotspot) {
-      if (hotspot.x !== undefined && hotspot.y !== undefined) properties.push(`Position: ${hotspot.x * 100}%, ${hotspot.y * 100}%`);
-      for (const placement of hotspot.placements ?? []) properties.push(`Places ${label(placement.item)} at ${placement.x * 100}%, ${placement.y * 100}%`);
+      if (hotspot.x !== undefined && hotspot.y !== undefined) properties.push(`Center: ${hotspot.x}px, ${hotspot.y}px (background pixels)`);
+      for (const placement of hotspot.placements ?? []) properties.push(`Places ${label(placement.item)} with center ${placement.x}px, ${placement.y}px (background pixels)`);
       if (hotspot.icon) properties.push(`Icon: ${hotspot.icon.url}`);
       for (const change of hotspot.iconChanges ?? []) properties.push(`Icon after creating ${label(change.after)}: ${change.icon.url}`);
     }

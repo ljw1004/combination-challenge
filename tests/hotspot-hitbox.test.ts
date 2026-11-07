@@ -11,23 +11,23 @@ background: ![room](room.svg)
 **Goals**
 - Charge -- Charged
 **Hotspots**
-- Panels (at 50%, 30%)
+- Panels (center 195px, 253.2px)
   - icon: ![panels with long cable](panels.svg)
-  - hitbox: (at 25%, 30%) (size 20%, 12%)
-  - place: Charged (at 25%, 30%)
+  - hitbox: (center 97.5px, 253.2px) (size 78px, 101.28px)
+  - place: Charged (center 97.5px, 253.2px)
 **Items**
 - Panels
 - Battery
 **Combinations**
 - Charged
 - Battery [transform] @ Panels -> Charged (tutorial)`;
-const errors = (text:string) => lintStory(parseStory(text),{analysis:false}).filter(d=>d.severity==='error');
+const errors = (text:string) => lintStory(parseStory(text),{analysis:false,backgroundMeasurements:[{chapter:0,width:390,height:844}]}).filter(d=>d.severity==='error');
 
 test('receiving geometry preserves artwork coordinates, recipes and declarations',()=>{
   const story=parseStory(source),h=story.hotspots['name:Panels'];
   assert.deepEqual(errors(source),[]);
-  assert.equal(h.x,.5);assert.equal(h.y,.3);
-  assert.deepEqual(h.hitbox&&[h.hitbox.x,h.hitbox.y,h.hitbox.width,h.hitbox.height],[.25,.3,.2,.12]);
+  assert.equal(h.x,195);assert.equal(h.y,253.2);
+  assert.deepEqual(h.hitbox&&[h.hitbox.x,h.hitbox.y,h.hitbox.width,h.hitbox.height],[97.5,253.2,78,101.28]);
   assert.deepEqual(hotspotCentre(h,0),{x:97.5,y:253.2});
   const html=hotspotHTML(h,0,{className:'hotspot-icon',style:'--icon-width:300px;--icon-height:100px;',html:''});
   assert.match(html,/left:97.5px;top:253.2px/);
@@ -38,16 +38,16 @@ test('receiving geometry preserves artwork coordinates, recipes and declarations
 
 test('hitbox errors are source-located and do not invent item identities',()=>{
   for(const [before,after,code] of [
-    ['(size 20%, 12%)','(size 0%, 12%)','hitbox-position'],
-    ['(at 25%, 30%) (size','(at 101%, 30%) (size','hitbox-position'],
-    ['(size 20%, 12%)','(size twenty%, 12%)','hitbox-syntax'],
+    ['(size 78px, 101.28px)','(size 0px, 101.28px)','hitbox-position'],
+    ['(center 97.5px, 253.2px) (size','(center 393.9px, 253.2px) (size','hitbox-position'],
+    ['(size 78px, 101.28px)','(size twenty%, 12%)','hitbox-syntax'],
     ['(panels.svg)','(panels.svg) (circular)','hitbox-circular'],
-    ['  - place: Charged','  - hitbox: (at 24%, 30%) (size 20%, 12%)\n  - place: Charged','conflicting-hitbox'],
+    ['  - place: Charged','  - hitbox: (center 93.6px, 253.2px) (size 78px, 101.28px)\n  - place: Charged','conflicting-hitbox'],
   ]){
     const text=source.replace(before,after),diagnostic=errors(text).find(d=>d.code===code);
     assert(diagnostic,code);assert(text.slice(diagnostic.span.from,diagnostic.span.to).length>0);
   }
-  const misplaced=source.replace('- Battery\n','- Battery\n  - hitbox: (at 25%, 30%) (size 20%, 12%)\n');
+  const misplaced=source.replace('- Battery\n','- Battery\n  - hitbox: (center 97.5px, 253.2px) (size 78px, 101.28px)\n');
   assert(errors(misplaced).some(d=>d.code==='hitbox-context'));
   assert.equal(Object.keys(parseStory(misplaced).items).length,3);
 });
@@ -56,11 +56,11 @@ test('receiving rectangle governs placements, minimum touch size and invalid-pre
   const story=parseStory(source),h=story.hotspots['name:Panels'];
   const measurement={id:h.id,chapter:0,width:78,height:101.28};
   assert.deepEqual(lintPlacementGeometry(story,[measurement]),[]);
-  const outside=parseStory(source.replace('place: Charged (at 25%','place: Charged (at 50%'));
+  const outside=parseStory(source.replace('place: Charged (center 97.5px','place: Charged (center 195px'));
   assert.equal(lintPlacementGeometry(outside,[measurement])[0]?.code,'place-outside-hotspot');
   const rect=hotspotRect(h,0,{width:20,height:10});
   assert.equal(rect.width,44);assert.equal(rect.height,44);assert.equal(rect.x+rect.width/2,97.5);
-  const invalid=parseStory(source.replace('(size 20%, 12%)','(size -1%, 12%)')).hotspots[h.id];
+  const invalid=parseStory(source.replace('(size 78px, 101.28px)','(size -3.9px, 101.28px)')).hotspots[h.id];
   assert.deepEqual(hotspotCentre(invalid,0),{x:195,y:253.2});
   assert(!hotspotHTML(invalid,0,{className:'hotspot-icon',style:'',html:''}).includes('hotspot-hitbox'));
   const circular=hotspotRect({...h,icon:undefined},0,{width:300,height:100,circular:true});
@@ -74,8 +74,8 @@ background: ![room](room.svg)
 **Goals**
 - Charge -- Charged
 **Hotspots**
-- \`panels\` (at 50%, 30%)
-  - hitbox: (at 25%, 30%) (size 20%, 12%)
+- \`panels\` (center 195px, 253.2px)
+  - hitbox: (center 97.5px, 253.2px) (size 78px, 101.28px)
 **Items**
 - \`panels\` Panels
   - icon: ![default round panel](round.svg) (circular)
@@ -96,6 +96,6 @@ background: ![room](room.svg)
     '  - from chapter "Work" icon: ![rectangular panel](rect.svg)\n  - from chapter "Later" icon: ![later round panel](later.svg) (circular)')
     +'\n## Later\nThe earlier board remains visible.\n';
   assert(errors(later).some(d=>d.code==='hitbox-circular'),'future circular art also affects the surviving earlier receiver');
-  const local=later.replace('- `panels` (at 50%, 30%)','- `panels` (at 50%, 30%)\n  - icon: ![local rectangle](local.svg)');
+  const local=later.replace('- `panels` (center 195px, 253.2px)','- `panels` (center 195px, 253.2px)\n  - icon: ![local rectangle](local.svg)');
   assert(!errors(local).some(d=>d.code==='hitbox-circular'),'local hotspot art supersedes every item presentation');
 });

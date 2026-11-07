@@ -9,7 +9,7 @@ Put the bowl at the station.
 **Goals**
 - Park -- Bowl @ Station
 **Hotspots**
-- Station (at 50%, 35%)
+- Station (center 200px, 112px)
   - icon: ![station](station.svg) (circular)
 **Items**
 - Station
@@ -100,9 +100,9 @@ Arrange the pieces.
 - Put the first piece at the station -- First @ Station
 - Assemble the other pieces -- Assembly
 **Hotspots**
-- Station (at 51%, 31%)
+- Station (center 198.9px, 261.64px)
   - icon: ![station](station.svg)
-  - hitbox: (at 51%, 31%) (size 94%, 52%)
+  - hitbox: (center 198.9px, 261.64px) (size 366.6px, 438.88px)
 **Items**
 - Station
 ${['First','Second','Third'].map(name=>`- ${name}\n  - icon: ![piece](piece.svg) (circular)`).join('\n')}
@@ -174,7 +174,7 @@ background: ![room](room.svg)
 
 Finish the preparation.
 **Hotspots**
-- Station (at 50%, 15%)
+- Station (center 160px, 48px)
   - icon: ![station](station.svg)
 **Items**
 - Station
@@ -222,7 +222,7 @@ test('wrapped icon badges fit a narrow checkpoint and edge badges stay inside th
 background: ![room](room.svg)
 Equipment is ready.
 **Hotspots**
-- Separate propellant service connections (at 82.5%, 27%)
+- Separate propellant service connections (center 1287px, 911.52px)
   - icon: ![ports](ports.svg)
 **Items**
 - Separate propellant service connections

@@ -141,9 +141,10 @@ export function act(story: Story, original: State, action: Action, retirementChe
     if (recipe.installation) state.tokens[recipe.result.id].slots.push(recipe.installation);
     else {
       const destination=receiver.chapter;
-      const fixedTarget=receiverFixed?receiver:undefined;
-      const hotspot=fixedTarget?{...hotspotDefinition(story,destination,fixedTarget.id),...fixedCentre(story,fixedTarget)}:undefined,index=hotspot?activeHotspots(story,destination).indexOf(hotspot.id):0;
-      state.tokens[recipe.result.id] = { id:recipe.result.id, firstSeen:nextEncounter(state), status:'available', slots:[...recipe.result.slots], chapter:destination, x:hotspot?(hotspot.x??(.19+(index%3)*.31))*390-56:receiver.x+12, y:hotspot?(hotspot.y??(.70+Math.floor(index/3)*.13))*844-22:receiver.y+42, ...(hotspot ? { hotspot:hotspot.id } : {}) };
+      const hotspot=receiverFixed?receiver.id:undefined,index=hotspot?activeHotspots(story,destination).indexOf(hotspot):0;
+      // Provisional logical positions need no image I/O. The browser places the
+      // result at its measured receiver after decoding background-pixel anchors.
+      state.tokens[recipe.result.id] = { id:recipe.result.id, firstSeen:nextEncounter(state), status:'available', slots:[...recipe.result.slots], chapter:destination, x:hotspot?(.19+(index%3)*.31)*390-56:receiver.x+12, y:hotspot?(.70+Math.floor(index/3)*.13)*844-22:receiver.y+42, ...(hotspot ? { hotspot } : {}) };
     }
     if (action.resultPlacement) {
       const hotspot = action.hotspot ?? (receiverFixed?receiver.id:receiver.hotspot), result = state.tokens[recipe.result.id];

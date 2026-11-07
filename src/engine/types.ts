@@ -1,7 +1,7 @@
 export interface Token {
   id: string; slots: string[]; chapter: number; x: number; y: number; hotspot?: string;
-  /** Image-relative centre inherited by a fixed replacement. */
-  fixedPosition?: {x: number; y: number};
+  /** Background-pixel centre inherited by a fixed replacement; automatic anchors use internal ratios. */
+  fixedPosition?: {x: number; y: number; relativePosition?: true};
   /** Immutable encounter history, separate from mutable placement. Null marks unknown legacy/deleted history. */
   firstSeen?: { chapter: number | null; order: number };
   /** Visibility/incorporation of an infinite resource, never a depleted quantity. */

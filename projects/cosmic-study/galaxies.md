@@ -18,7 +18,7 @@ The old orange star will outlive the spiral that contains it. As two gas-rich ga
   - and: `a-stretched-cloud`
 
 **Hotspots**
-- `a-stellar-outskirts` (at 50%, 40%)
+- `a-stellar-outskirts` (center 390px, 675.2px)
   - icon: ![Outskirts of the other galaxy](assets/lights-that-remain/hotspots/a-stellar-outskirts.png)
 
 **Items**
@@ -101,7 +101,7 @@ Inside the crowded lane, gas arrives in long ribbons. One ribbon feeds a broad g
 - What forms around the smaller turning centre? -- `young-system`
 
 **Hotspots**
-- `a-collided-lane` (at 50%, 40%)
+- `a-collided-lane` (center 390px, 675.2px)
   - icon: ![Gas crowded into the dark lane](assets/lights-that-remain/hotspots/a-collided-lane.png)
 
 **Items**
@@ -233,7 +233,7 @@ The outer cloud is becoming part of a long tail. Near its base, gas drawn from t
 - Where does the expelled gas go? -- `a-halo-gas`
 
 **Hotspots**
-- `a-hot-halo` (at 50%, 40%)
+- `a-hot-halo` (center 390px, 675.2px)
   - icon: ![The galaxy's thin, hot outer gas](assets/lights-that-remain/hotspots/a-hot-halo.png)
 
 **Items**
@@ -316,7 +316,7 @@ Near the tail's base, the clumps that survived the old nursery are gathering gas
   - and: `a-dust-poor-gas`
 
 **Hotspots**
-- `a-hot-halo` (at 50%, 40%)
+- `a-hot-halo` (center 390px, 675.2px)
   - icon: ![The galaxy's thin, hot outer gas](assets/lights-that-remain/hotspots/a-hot-halo.png)
 
 **Items**
@@ -384,9 +384,9 @@ Return to the first few million years, alongside the birth of the dark-lane star
   - or: `b-rebuilt-clumps`
 
 **Hotspots**
-- `young-system` (at 25%, 40%)
+- `young-system` (center 195px, 675.2px)
   - icon: ![Young star with a dusty disk](assets/lights-that-remain/hotspots/young-system.png)
-- `b-warm-disk` (at 75%, 40%)
+- `b-warm-disk` (center 585px, 675.2px)
   - icon: ![Warm inner disk](assets/lights-that-remain/hotspots/b-warm-disk.png)
 
 **Items**
@@ -568,9 +568,9 @@ The view returns to the first few million years of this same disk, before most o
   - and: `icy-survivors`
 
 **Hotspots**
-- `b-cold-drift` (at 25%, 40%)
+- `b-cold-drift` (center 195px, 675.2px)
   - icon: ![Cold ring where icy solids collect](assets/lights-that-remain/hotspots/b-cold-drift.png)
-- `b-giant` (at 75%, 40%)
+- `b-giant` (center 585px, 675.2px)
   - icon: ![A young gas giant](assets/lights-that-remain/hotspots/b-giant.png)
 
 **Items**
@@ -662,7 +662,7 @@ Now follow that outer planet forward. A small impact changes the loose moon's cl
 - Gather a moon farther from the giant -- `b-outer-small-moon`
 
 **Hotspots**
-- `b-giant` (at 50%, 40%)
+- `b-giant` (center 390px, 675.2px)
   - icon: ![A young gas giant](assets/lights-that-remain/hotspots/b-giant.png)
 
 **Items**
@@ -720,7 +720,7 @@ Across this system's history, the giant takes its gas and the original disk thin
 - Follow the early disk material back into the galaxy -- `b-dusty-outflow`
 
 **Hotspots**
-- `b-exposed-disk` (at 50%, 40%)
+- `b-exposed-disk` (center 390px, 675.2px)
   - icon: ![Exposed inner disk](assets/lights-that-remain/hotspots/b-exposed-disk.png)
 
 **Items**
@@ -811,7 +811,7 @@ Around the young star, the worlds are no longer growing rapidly. Loose rocky fra
 
 **Hotspots**
 
-- `c-warm-inner-system` (at 50%, 40%)
+- `c-warm-inner-system` (center 390px, 675.2px)
   - icon: ![Warm space between the rocky worlds](assets/lights-that-remain/hotspots/c-warm-inner-system.png)
 
 **Items**
@@ -881,7 +881,7 @@ Inside the cluster born at the tail's base, stars pass closer together than they
 
 **Hotspots**
 
-- `a-tail-stars` (at 50%, 40%)
+- `a-tail-stars` (center 390px, 675.2px)
   - icon: ![Young stars at the tail's base](assets/lights-that-remain/hotspots/a-tail-stars.png)
 
 **Items**
@@ -938,7 +938,7 @@ The little rubble world made among the young planets follows a crossing path tow
 
 **Hotspots**
 
-- `e-escaping-star` (at 50%, 40%)
+- `e-escaping-star` (center 390px, 675.2px)
   - icon: ![Star leaving the tail cluster](assets/lights-that-remain/hotspots/e-escaping-star.png)
 
 **Items**
@@ -1016,9 +1016,9 @@ During the long separation, the tail cluster loses its most massive stars while 
 
 **Hotspots**
 
-- `a-tail-stars` (at 25%, 40%)
+- `a-tail-stars` (center 195px, 675.2px)
   - icon: ![Young stars at the tail's base](assets/lights-that-remain/hotspots/a-tail-stars.png)
-- `c-cool-shell-rim` (at 75%, 40%)
+- `c-cool-shell-rim` (center 585px, 675.2px)
   - icon: ![Dense outer rim of the expanding shell](assets/lights-that-remain/hotspots/c-cool-shell-rim.png)
 
 **Items**
@@ -1071,9 +1071,9 @@ Hundreds of millions of years later, the galaxies turn toward one another again.
 
 **Hotspots**
 
-- `c-central-disk` (at 25%, 40%)
+- `c-central-disk` (center 195px, 675.2px)
   - icon: ![Dense gas disk near the common centre](assets/lights-that-remain/hotspots/c-central-disk.png)
-- `c-returning-gas-front` (at 75%, 40%)
+- `c-returning-gas-front` (center 585px, 675.2px)
   - icon: ![Extended gas in the returning galaxy](assets/lights-that-remain/hotspots/c-returning-gas-front.png)
 
 **Items**
@@ -1116,9 +1116,9 @@ Deeper inside one of the merging centres lies a massive black hole. The approach
 
 **Hotspots**
 
-- `c-central-black-hole` (at 25%, 40%)
+- `c-central-black-hole` (center 195px, 675.2px)
   - icon: ![Massive black hole at one galactic centre](assets/lights-that-remain/hotspots/c-central-black-hole.png)
-- `c-inner-polar-space` (at 75%, 40%)
+- `c-inner-polar-space` (center 585px, 675.2px)
   - icon: ![Magnetized space above the inner gas disk](assets/lights-that-remain/hotspots/c-inner-polar-space.png)
 
 **Items**
@@ -1164,9 +1164,9 @@ The narrow stream reaches gas far beyond the bright disk. It can cross thin regi
 
 **Hotspots**
 
-- `c-thin-jet-channel` (at 25%, 40%)
+- `c-thin-jet-channel` (center 195px, 675.2px)
   - icon: ![Thin gas along the jet's outward path](assets/lights-that-remain/hotspots/c-thin-jet-channel.png)
-- `c-outer-bound-reach` (at 75%, 40%)
+- `c-outer-bound-reach` (center 585px, 675.2px)
   - icon: ![Outer reaches of the merging galaxies](assets/lights-that-remain/hotspots/c-outer-bound-reach.png)
 
 **Items**
@@ -1231,9 +1231,9 @@ The returning clouds reach a centre that still contains stars, cold gas and the 
 
 **Hotspots**
 
-- `c-central-black-hole` (at 25%, 40%)
+- `c-central-black-hole` (center 195px, 675.2px)
   - icon: ![Massive black hole at one galactic centre](assets/lights-that-remain/hotspots/c-central-black-hole.png)
-- `c-central-disk` (at 75%, 40%)
+- `c-central-disk` (center 585px, 675.2px)
   - icon: ![Dense gas disk near the common centre](assets/lights-that-remain/hotspots/c-central-disk.png)
 
 **Items**
@@ -1278,7 +1278,7 @@ The centres are drawing closer. Far outside them, the tail cluster survives besi
 
 **Hotspots**
 
-- `c-outer-gas` (at 50%, 40%)
+- `c-outer-gas` (center 390px, 675.2px)
   - icon: ![Diffuse gas around the shared galaxy](assets/lights-that-remain/hotspots/c-outer-gas.png)
 
 **Items**
@@ -1336,9 +1336,9 @@ Across the changing stellar expanse, the orange star still shines and the younge
 
 **Hotspots**
 
-- `c-returning-stellar-outskirts` (at 25%, 40%)
+- `c-returning-stellar-outskirts` (center 195px, 675.2px)
   - icon: ![Stellar outskirts of the returning galaxy](assets/lights-that-remain/hotspots/c-returning-stellar-outskirts.png)
-- `c-cratered-system` (at 75%, 40%)
+- `c-cratered-system` (center 585px, 675.2px)
   - icon: ![Moon-bearing world with new craters](assets/lights-that-remain/hotspots/c-cratered-system.png)
 
 **Items**

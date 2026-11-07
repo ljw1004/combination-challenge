@@ -88,10 +88,16 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       text = text.slice(0, match.index);
     }
     if (/\s+\(compound\)$/.test(text)) { compound = true; text = text.replace(/\s+\(compound\)$/, ''); }
-    const coordinate = /\s+\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(text);
+    const coordinate = /\s+\(center (-?\d+(?:\.\d+)?)px,\s*(-?\d+(?:\.\d+)?)px\)$/.exec(text);
     if (coordinate) {
       text = text.slice(0, coordinate.index);
       if (mode !== 'hotspot-declaration') error('coordinate-context', 'Hotspot coordinates belong on its Hotspots declaration; item destinations belong in a place: child.', line, raw);
+    } else {
+      const invalid = /\s+\((?:at|center)\b[^)]*\)$/.exec(text);
+      if (invalid) {
+        error('coordinate-syntax', 'Use (center Xpx, Ypx) in background-image pixels; at and percentages are no longer supported.', line, invalid[0].trim());
+        text = text.slice(0, invalid.index);
+      }
     }
     let slots: string[] = [];
     if ((match = /\[([^\[\]]*)\]$/.exec(text))) {
@@ -237,17 +243,17 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   }
   function icon(raw: string, line: number, itemPosition = false): Icon | undefined {
     const match = /^icon:\s*!\[[^\]]*\]\(([^)]+)\)(.*)$/.exec(raw);
-    const invalid = () => error('icon-syntax', 'Use icon: ![icon](path), optionally followed by (circular) and (at 70%, 80%) in either order, each at most once.', line, raw);
+    const invalid = () => error('icon-syntax', 'Use icon: ![icon](path), optionally followed by (circular) and (center 546px, 1350.4px) in either order, each at most once.', line, raw);
     if (!match || !match[1].trim()) {
       invalid();
       return;
     }
     let tail = match[2].trim(), circular = false, position: Icon['position'];
     while (tail) {
-      const marker = /^(\(circular\)|\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\))/.exec(tail);
+      const marker = /^(\(circular\)|\(center (-?\d+(?:\.\d+)?)px,\s*(-?\d+(?:\.\d+)?)px\))/.exec(tail);
       if (!marker || (marker[1] === '(circular)' ? circular : position !== undefined)) { invalid(); return; }
       if (marker[1] === '(circular)') circular = true;
-      else position = {x: +marker[2] / 100, y: +marker[3] / 100};
+      else position = {x: +marker[2], y: +marker[3]};
       tail = tail.slice(marker[0].length).trim();
     }
     if (position && !itemPosition) error('icon-position', 'Starting coordinates belong only to default primitive item icons; chapter-dependent icons cannot reposition an item, hotspot centres belong on their declaration and slot overlays align with their owner.', line, raw);
@@ -493,11 +499,11 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       if (/^icon\s+after\b/.test(node.text)) { error('conditional-icon-context', 'icon after creating belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
       if (/^(?:from|after)\s+chapter\b/.test(node.text)) { error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration.', node.line, node.text); continue; }
       const h = ref(node.text, node.line, 'hotspot', 'hotspot-declaration', 'declaration'); chapter.hotspots.push(h.id);
-      const coordinate = /\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(node.text);
+      const coordinate = /\(center (-?\d+(?:\.\d+)?)px,\s*(-?\d+(?:\.\d+)?)px\)$/.exec(node.text);
       const previous = chapter.hotspotDefinitions?.[h.id];
-      if (previous && coordinate && (previous.x !== +coordinate[1]/100 || previous.y !== +coordinate[2]/100)) error('conflicting-hotspot-position', 'The same fixed item has different positions in this chapter.', node.line, node.text);
+      if (previous && coordinate && (previous.x !== +coordinate[1] || previous.y !== +coordinate[2])) error('conflicting-hotspot-position', 'The same fixed item has different positions in this chapter.', node.line, node.text);
       const definition = (chapter.hotspotDefinitions ??= {})[h.id] ??= {id: h.id, name: story.items[h.id].name, source: source(node.line),
-        ...(coordinate ? {x: +coordinate[1] / 100, y: +coordinate[2] / 100} : {})};
+        ...(coordinate ? {x: +coordinate[1], y: +coordinate[2]} : {})};
       wonder(story.items[h.id], node.prose, node.line);
       for (const child of node.children) {
         if (/^icon\s+after\b/.test(child.text)) {
@@ -518,24 +524,24 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
           else assignIcon(definition, child);
         }
         else if (/^hitbox\s*:/.test(child.text)) {
-          const match = /^hitbox:\s*\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)\s*\(size (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(child.text);
+          const match = /^hitbox:\s*\(center (-?\d+(?:\.\d+)?)px,\s*(-?\d+(?:\.\d+)?)px\)\s*\(size (-?\d+(?:\.\d+)?)px,\s*(-?\d+(?:\.\d+)?)px\)$/.exec(child.text);
           if (!match || child.children.length || child.prose.some(part => part.text.trim())) {
-            error('hitbox-syntax', 'Use hitbox: (at X%, Y%) (size W%, H%) without nested content.', child.line, child.text);
+            error('hitbox-syntax', 'Use hitbox: (center Xpx, Ypx) (size Wpx, Hpx) without nested content.', child.line, child.text);
             continue;
           }
-          const box = {x:+match[1]/100, y:+match[2]/100, width:+match[3]/100, height:+match[4]/100, source:source(child.line,child.text)};
+          const box = {x:+match[1], y:+match[2], width:+match[3], height:+match[4], source:source(child.line,child.text)};
           if (definition.hitbox && (['x','y','width','height'] as const).some(key => definition.hitbox![key] !== box[key])) {
             error('conflicting-hitbox', 'The same fixed item has different receiving rectangles in this chapter.', child.line, child.text);
           } else definition.hitbox ??= box;
         }
         else if (/^place\s*:/.test(child.text)) {
-          const match = /^place:\s*(.+?)\s+\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(child.text);
+          const match = /^place:\s*(.+?)\s+\(center (-?\d+(?:\.\d+)?)px,\s*(-?\d+(?:\.\d+)?)px\)$/.exec(child.text);
           if (!match || child.children.length || child.prose.some(part => part.text.trim())) {
-            error('place-syntax', 'Use place: Item (at X%, Y%) without nested content.', child.line, child.text);
+            error('place-syntax', 'Use place: Item (center Xpx, Ypx) without nested content.', child.line, child.text);
             continue;
           }
           const item = ref(match[1], child.line, 'item', 'placement', 'placement', startOf(child.text, child.line) + child.text.indexOf(match[1], 'place:'.length));
-          (definition.placements ??= []).push({item, x: +match[2] / 100, y: +match[3] / 100, source: source(child.line, child.text)});
+          (definition.placements ??= []).push({item, x: +match[2], y: +match[3], source: source(child.line, child.text)});
         }
         else itemNode(child, undefined, h.id);
       }

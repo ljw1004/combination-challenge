@@ -105,7 +105,8 @@ test('reference lists refresh source positions after edits and remain separate f
 });
 
 test('undeclared references and unused declarations update live without blocking draft saves', async ({page}) => {
-  const source = '# Names\n## Workshop\nbackground: ![room](assets/room.svg)\n**Goals**\n- Repair -- Radio\n**Items**\n- Wire\n- Battery\n- Radio\n- Relic\n**Combinations**\n- Wire [preserve] + Battery [preserve] -> Radio (tutorial)\n';
+  const source = '# ![Names](assets/icon.svg) Names\n## Workshop\nbackground: ![room](assets/room.svg)\n**Goals**\n- Repair -- Radio\n**Items**\n- Wire\n- Battery\n- Radio\n- Relic\n**Combinations**\n- Wire [preserve] + Battery [preserve] -> Radio (tutorial)\n';
+  await page.route('**/language/assets/icon.svg', route => route.fulfill({contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"/>'}));
   await page.route('**/language/assets/room.svg', route => route.fulfill({contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844"/>'}));
   await open(page, source);
   const editor = page.getByRole('textbox', {name: 'Story Markdown'});

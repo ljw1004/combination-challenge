@@ -1,9 +1,18 @@
+import type {ImageSize, Point} from '../story/coordinates.ts';
+
 export interface BoardRect {x:number;y:number;width:number;height:number}
 export const referenceBoard: BoardRect = {x: 0, y: 0, width: 390, height: 844};
+export interface SceneSize extends ImageSize {image?: ImageSize}
 
-/** Artwork keeps its natural proportions in a 390-unit-wide authoring space. */
-export function sceneSize(image?: {width:number;height:number}) {
-  return {width: 390, height: image && image.width > 0 && image.height > 0 ? 390 * image.height / image.width : 844};
+/** Convert source-image pixels to the internal scene units used by saved moves. */
+export function scenePoint(point: Point, scene: SceneSize): Point {
+  return {x: point.x * (scene.width / (scene.image?.width ?? scene.width)), y: point.y * (scene.height / (scene.image?.height ?? scene.height))};
+}
+
+/** Internal display geometry; authors use the background's actual pixel dimensions. */
+export function sceneSize(image?: ImageSize): SceneSize {
+  const usable = image && image.width > 0 && image.height > 0 ? image : undefined;
+  return {width: 390, height: usable ? 390 * usable.height / usable.width : 844, ...(usable ? {image: usable} : {})};
 }
 
 /** Only phone-shaped artwork fills a narrow portrait pane. Else fit the whole scene. */

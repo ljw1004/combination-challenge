@@ -11,6 +11,8 @@ import {recipeConflictDiagnostics} from './recipe-conflicts.ts';
 import {recipeIngredients} from '../engine/fixed-items.ts';
 import {dynamicHotspotChapter,fixedItemDiagnostics} from './fixed-items.ts';
 import {validHitbox} from '../story/hotspot-hitbox.ts';
+import {validCentre} from '../story/coordinates.ts';
+import {lintCoordinateGeometry, type BackgroundMeasurement} from './coordinates.ts';
 import {hotspotIconVariants} from '../engine/presentation.ts';
 import {storyIconDiagnostics, type StoryIconMeasurement} from './story-icons.ts';
 
@@ -20,9 +22,10 @@ export interface LintOptions {
   opportunities?: OpportunityOptions | false;
   onOpportunityAnalysis?: (report: OpportunityReport) => void;
   storyIconMeasurements?: StoryIconMeasurement[];
+  backgroundMeasurements?: BackgroundMeasurement[];
 }
 export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[] {
-  const diagnostics = [...story.diagnostics, ...storyIconDiagnostics(story, options.storyIconMeasurements), ...declarationDiagnostics(story), ...presentationDiagnostics(story), ...recipeConflictDiagnostics(story)];
+  const diagnostics = [...story.diagnostics, ...storyIconDiagnostics(story, options.storyIconMeasurements), ...lintCoordinateGeometry(story, options.backgroundMeasurements ?? []), ...declarationDiagnostics(story), ...presentationDiagnostics(story), ...recipeConflictDiagnostics(story)];
   const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => diagnostics.push({severity,code,message,source,span:source.span??{from:0,to:0},stage:'fast',...(related?.length?{related}:{}),...(fixes?.length?{fixes,fixTitle}:{})});
   const error = (code:string,message:string,source:Source) => add('error',code,message,source);
   const warning = (code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => add('warning',code,message,source,related,fixes,fixTitle);
@@ -44,7 +47,7 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
     if (usesIcons && !item.icon && (!story.hotspots[item.id]||portableDeclaration)) error('missing-item-icon', `${item.name} needs an icon beneath a top-level Items declaration because this story uses icons.`, item.source);
     if (item.icon?.position) {
       if (!index.primitives.has(item.id)) error('derived-icon-position', `${item.name} is derived; only primitive items can specify an icon starting position.`, item.icon.source);
-      if (Object.values(item.icon.position).some(value => !Number.isFinite(value) || value < 0 || value > 1)) error('icon-position', 'Icon starting coordinates must be between 0% and 100%.', item.icon.source);
+      if (!validCentre(item.icon.position)) error('icon-position', 'Icon centers must be finite, nonnegative background-pixel coordinates.', item.icon.source);
     }
     if (item.exclusiveWith === item.id) error('self-exclusion',`${item.name} cannot exclude itself.`,item.source);
     if (item.exclusiveWith && story.items[item.exclusiveWith]?.exclusiveWith !== item.id) error('asymmetric-exclusion',`${item.name}'s exclusivity must also be declared on ${story.items[item.exclusiveWith]?.name ?? item.exclusiveWith}.`,item.source);
@@ -102,17 +105,17 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
     for (const change of hotspot.iconChanges ?? []) checkRef(change.after, change.source);
     if (hotspot.hitbox) {
       const source = hotspot.hitbox.source;
-      if (!validHitbox(hotspot.hitbox)) error('hitbox-position', 'Hitbox centres must be between 0% and 100%; width and height must be greater than 0% and at most 100%.', source);
+      if (!validHitbox(hotspot.hitbox)) error('hitbox-position', 'Hitbox centers must be finite, nonnegative background-pixel coordinates; width and height must be positive background-pixel dimensions.', source);
       // Earlier boards may remain visible as progression changes item artwork.
       // Only effective presentations count; an overridden default never renders.
       const circular = hotspotIconVariants(story, chapterIndex, hotspot.id).some(icon => icon?.circular);
       if (circular) error('hitbox-circular', 'An explicit rectangular hitbox cannot be combined with circular hotspot artwork.', hotspot.hitbox.source);
     }
-    if ((hotspot.x!==undefined && (hotspot.x<0 || hotspot.x>1)) || (hotspot.y!==undefined && (hotspot.y<0 || hotspot.y>1))) error('hotspot-position','Hotspot coordinates must be between 0% and 100%.',hotspot.source);
+    if (hotspot.x!==undefined && hotspot.y!==undefined && !validCentre({x:hotspot.x,y:hotspot.y})) error('hotspot-position','Hotspot centers must be finite, nonnegative background-pixel coordinates.',hotspot.source);
     for (const [i, placement] of (hotspot.placements ?? []).entries()) {
       const {item, x, y, source} = placement;
       if ([item.id, ...item.slots].every(id => story.items[id])) checkRef(item, source);
-      if (![x, y].every(n => Number.isFinite(n) && n >= 0 && n <= 1)) error('place-position', 'Placement coordinates must be between 0% and 100%.', source);
+      if (!validCentre({x,y})) error('place-position', 'Placement centers must be finite, nonnegative background-pixel coordinates.', source);
       const previous = hotspot.placements!.slice(0, i).find(p => p.item.id === item.id && (p.x !== x || p.y !== y));
       if (previous) add('error', 'conflicting-place', `${name(item.id)} has conflicting destinations at ${hotspot.name}.`, source, [related(previous.source, 'Previous destination for this item.')]);
     }

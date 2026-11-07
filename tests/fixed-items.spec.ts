@@ -19,7 +19,7 @@ Build and repair the station.
 - Station
 - Repaired station
 **Hotspots**
-- Station (at 65%, 45%)
+- Station (center 253.5px, 379.8px)
 - Repaired station
 **Goals**
 - Build -- Station
@@ -74,7 +74,7 @@ Fit and use the machine.
 - C
   - icon: ![result](part.svg)
 **Hotspots**
-- H (at 65%, 45%)
+- H (center 145.6px, 100.8px)
 **Goals**
 - Fit -- H[Part]
 - Make -- C

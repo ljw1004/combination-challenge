@@ -81,7 +81,7 @@ test('lint rejects identity collisions, ambiguous titles, conflicting changes, m
     [changingArray.replace('- Inspect -- `array`', '- Inspect -- Dust-covered solar array'), 'presentation-item-reference'],
     [changingArray.replace('- `array` Solar array', '- `array` Solar array (or from chapter "Aftermath", Dusty)'), 'obsolete-rename'],
     [changingArray.replace('from chapter `storm`: Dust-covered', 'after chapter `storm`: Dust-covered'), 'from-chapter-syntax'],
-    [changingArray.replace('(circular)', '(at 50%, 50%)'), 'icon-position'],
+    [changingArray.replace('(circular)', '(center 195px, 422px)'), 'icon-position'],
     [changingArray.replace('## `storm` Amber: Dawn', '## `storm`'), 'chapter-heading'],
     [changingArray.replace(': Dust-covered solar array', ': ** **'), 'from-chapter-syntax'],
     [changingArray.replace('  - from chapter `storm`: Dust-covered solar array', '- from chapter `storm`: Dust-covered solar array'), 'from-chapter-context'],

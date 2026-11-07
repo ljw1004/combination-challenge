@@ -74,7 +74,7 @@ test('all reference positions require declarations, including placements, slots,
 - Finish -- Box[Goal fitting] @ Ghost
 **Hotspots**
 - Bench
-  - place: Placed[Placed fitting] (at 50%, 50%)
+  - place: Placed[Placed fitting] (center 195px, 422px)
 - \`unnamed\`
 **Items**
 - Box (compound)

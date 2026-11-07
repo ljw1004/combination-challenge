@@ -81,12 +81,12 @@ test('conditional icon lint rejects misplaced, malformed and unordered directive
     [conditionalWorld.replace(line,'  - icon after creating : ![after impact](impact.svg)'), 'conditional-icon-syntax'],
     [conditionalWorld.replace(line,line+'\n    - Nested'), 'conditional-icon-syntax'],
     [conditionalWorld.replace(line,'  - icon after creating `moon` Named: ![after impact](impact.svg)'), 'conditional-icon-syntax'],
-    [conditionalWorld.replace(line,'  - icon after creating `moon`: ![after impact](impact.svg) (at 50%, 50%)'), 'icon-position'],
+    [conditionalWorld.replace(line,'  - icon after creating `moon`: ![after impact](impact.svg) (center 195px, 422px)'), 'icon-position'],
     [conditionalWorld.replace('  - icon: ![before](before.svg)\n','').replace(line,line+'\n  - icon: ![before](before.svg)'), 'hotspot-icon-order'],
     [conditionalWorld.replace('  - icon: ![before](before.svg)\n','').replace(line,line+'\n- `world`\n  - icon: ![before](before.svg)'), 'hotspot-icon-order'],
     [conditionalWorld.replace('  - icon: ![world](default.svg)','  - icon: ![world](default.svg)\n'+line), 'conditional-icon-context'],
     [conditionalWorld.replace(line,line.trimStart()), 'conditional-icon-context'],
-    [conditionalWorld.replace(line,line+'\n  - hitbox: (at 50%, 30%) (size 20%, 20%)'), 'hitbox-circular'],
+    [conditionalWorld.replace(line,line+'\n  - hitbox: (center 195px, 253.2px) (size 78px, 168.8px)'), 'hitbox-circular'],
     [conditionalWorld.replace('after creating `moon`:', 'after creating `moon`[`sun`]:'), 'unknown-slot'],
   ];
   for (const [text,code] of cases) assert(errors(text).some(d=>d.code===code), `${code}: ${errors(text).map(d=>d.code)}`);
@@ -102,7 +102,7 @@ test('artwork planning includes imminent hotspot changes and every declared plac
   const after = act(story,before,impact);
   assert(currentArtwork(story,after).includes('impact.svg'));
   assert(resultArtwork(story,after,illuminate).includes('lit.svg'));
-  const placement = parseStory(conditionalWorld.replace('  - icon: ![before](before.svg)','  - place: `sun` (at 50%, 30%)\n  - icon: ![before](before.svg)'));
+  const placement = parseStory(conditionalWorld.replace('  - icon: ![before](before.svg)','  - place: `sun` (center 195px, 253.2px)\n  - icon: ![before](before.svg)'));
   assert.deepEqual(placementArtwork(placement),['space.svg','before.svg','impact.svg','lit.svg']);
 });
 

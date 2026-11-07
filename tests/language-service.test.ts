@@ -9,8 +9,8 @@ Tool in prose is not a reference.
 **Goals**
 - Tool needs Tool -- Tool @ Bench
 **Hotspots**
-- Bench (at 50%, 60%)
-  - place: Box[Tool] (at 50%, 60%)
+- Bench (center 195px, 506.4px)
+  - place: Box[Tool] (center 195px, 506.4px)
   - Tool + Tool -> Result
 **Items**
 - Bench
@@ -90,15 +90,15 @@ test('identifiers, quoted punctuation and partial drafts never fall back to text
 });
 
 test('reference spans disambiguate repeated operands and grammar words inside names', () => {
-  const input = '# 🧰 Story\r\n## Room\r\n**Goals**\r\n- A + A -> A -- A + A -> A\r\n**Hotspots**\r\n- Spot\r\n  - place: place (at 50%, 50%)\r\n**Items**\r\n- Spot\n- A (exclusive with with)\r\n- with (exclusive with A)\r\n- `undeclared`\r\n';
+  const input = '# 🧰 Story\r\n## Room\r\n**Goals**\r\n- A + A -> A -- A + A -> A\r\n**Hotspots**\r\n- Spot\r\n  - place: place (center 195px, 422px)\r\n**Items**\r\n- Spot\n- A (exclusive with with)\r\n- with (exclusive with A)\r\n- `undeclared`\r\n';
   const document = new StoryLanguageDocument(input);
   const ruleStart = input.lastIndexOf('A + A -> A');
   const occurrences = document.references(ruleStart, {includeDeclaration: true}).filter(reference => reference.source.line === 4);
   assert.deepEqual(occurrences.map(reference => reference.source.span.from), [ruleStart, ruleStart + 4, ruleStart + 9]);
   const exclusive = document.references(input.indexOf('- with') + 2, {includeDeclaration: true}).find(reference => reference.role === 'exclusion')!;
   assert.equal(exclusive.source.span.from, input.indexOf('with)'));
-  const placement = document.references(input.indexOf('place (at'), {includeDeclaration: true})[0];
-  assert.equal(placement.source.span.from, input.indexOf('place (at'));
+  const placement = document.references(input.indexOf('place (center'), {includeDeclaration: true})[0];
+  assert.equal(placement.source.span.from, input.indexOf('place (center'));
   const missing = document.referenceAt(input.indexOf('`undeclared`'))!;
   assert.equal(missing.declaration, false); assert.equal(missing.role, 'reference');
 });

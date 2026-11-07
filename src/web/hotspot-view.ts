@@ -2,12 +2,13 @@ import type {Hotspot, Story} from '../story/types.ts';
 import {escape} from './markdown.ts';
 import {activeHotspots, hotspotDefinition} from '../engine/fixed-items.ts';
 import {hotspotIconVariants, itemPresentation} from '../engine/presentation.ts';
-import {referenceBoard} from './board-geometry.ts';
+import {referenceBoard, scenePoint, type SceneSize} from './board-geometry.ts';
 import {validHitbox} from '../story/hotspot-hitbox.ts';
+import {validCentre} from '../story/coordinates.ts';
 
 export interface Rect {x: number; y: number; width: number; height: number}
 export interface HotspotRegion extends Rect {circular?: boolean}
-export interface HotspotMeasurement {id: string; chapter: number; variant?: number; width: number; height: number; circular?: boolean; scene?: {width:number;height:number}}
+export interface HotspotMeasurement {id: string; chapter: number; variant?: number; width: number; height: number; circular?: boolean; scene?: SceneSize}
 export interface HotspotVisual {className: string; style: string; html: string}
 
 export function iconDimensions(width: number, height: number, fixed = false) {
@@ -17,18 +18,21 @@ export function iconDimensions(width: number, height: number, fixed = false) {
   return {width: width / 4 * fit, height: height / 4 * fit};
 }
 const referenceBounds = {x: 0, y: 0, width: 390, height: 844};
-function artworkCentre(hotspot: Hotspot, index: number, bounds = referenceBounds, scene: {width:number;height:number} = referenceBounds) {
+function artworkCentre(hotspot: Hotspot, index: number, bounds = referenceBounds, scene: SceneSize = referenceBounds) {
+  if (hotspot.x !== undefined && hotspot.y !== undefined && validCentre({x:hotspot.x,y:hotspot.y}, hotspot.relativePosition ? {width:1,height:1} : scene.image)) {
+    return hotspot.relativePosition ? {x:hotspot.x * scene.width,y:hotspot.y * scene.height} : scenePoint({x:hotspot.x,y:hotspot.y},scene);
+  }
   return {
-    x: hotspot.x === undefined ? bounds.x + (.19 + index % 3 * .31) * bounds.width : hotspot.x * scene.width,
-    y: hotspot.y === undefined ? (.70 + Math.floor(index / 3) * .13) * bounds.height : hotspot.y * scene.height,
+    x: bounds.x + (.19 + index % 3 * .31) * bounds.width,
+    y: (.70 + Math.floor(index / 3) * .13) * bounds.height,
   };
 }
-export function hotspotCentre(hotspot: Hotspot, index: number, bounds = referenceBounds, scene: {width:number;height:number} = referenceBounds) {
-  return validHitbox(hotspot.hitbox) && !hotspot.icon?.circular
-    ? {x:hotspot.hitbox.x * scene.width, y:hotspot.hitbox.y * scene.height}
+export function hotspotCentre(hotspot: Hotspot, index: number, bounds = referenceBounds, scene: SceneSize = referenceBounds) {
+  return validHitbox(hotspot.hitbox, scene.image) && !hotspot.icon?.circular
+    ? scenePoint(hotspot.hitbox, scene)
     : artworkCentre(hotspot,index,bounds,scene);
 }
-export function hotspotRect(hotspot: Hotspot, index: number, size: {width: number; height: number; circular?: boolean}, scale = 1, bounds = referenceBounds, scene: {width:number;height:number} = referenceBounds): HotspotRegion {
+export function hotspotRect(hotspot: Hotspot, index: number, size: {width: number; height: number; circular?: boolean}, scale = 1, bounds = referenceBounds, scene: SceneSize = referenceBounds): HotspotRegion {
   const circular = size.circular ?? hotspot.icon?.circular;
   const centre = circular ? artworkCentre(hotspot,index,bounds,scene) : hotspotCentre(hotspot, index, bounds,scene);
   if (circular) {
@@ -39,7 +43,7 @@ export function hotspotRect(hotspot: Hotspot, index: number, size: {width: numbe
   return {x: centre.x - width / 2, y: centre.y - height / 2, width, height};
 }
 export function containsPoint(rect: HotspotRegion, point: {x: number; y: number}) {
-  // Keep authored boundary points inclusive despite floating-point percentage conversion.
+  // Keep authored boundary points inclusive despite floating-point image scaling.
   if (rect.circular) return Math.hypot(point.x - rect.x - rect.width / 2, point.y - rect.y - rect.height / 2) <= rect.width / 2 + 1e-7;
   return point.x >= rect.x - 1e-7 && point.x <= rect.x + rect.width + 1e-7 && point.y >= rect.y - 1e-7 && point.y <= rect.y + rect.height + 1e-7;
 }
@@ -51,17 +55,18 @@ export function overlapsHotspot(item: Rect, hotspot: HotspotRegion): boolean {
   const x = Math.max(item.x, Math.min(item.x + item.width, cx)), y = Math.max(item.y, Math.min(item.y + item.height, cy));
   return Math.hypot(x - cx, y - cy) < hotspot.width / 2 - 1e-7;
 }
-export function hotspotHTML(h: Hotspot, index: number, visual: HotspotVisual, bounds = referenceBounds, scene: {width:number;height:number} = referenceBounds) {
+export function hotspotHTML(h: Hotspot, index: number, visual: HotspotVisual, bounds = referenceBounds, scene: SceneSize = referenceBounds) {
   const {x, y} = hotspotCentre(h, index, bounds,scene);
-  const box = validHitbox(h.hitbox) && !h.icon?.circular ? h.hitbox : undefined;
+  const box = validHitbox(h.hitbox, scene.image) && !h.icon?.circular ? h.hitbox : undefined;
   const art = artworkCentre(h,index,bounds,scene);
-  const receivingStyle = box ? `--hit-width:${box.width*scene.width}px;--hit-height:${box.height*scene.height}px;--art-offset-x:${art.x-x}px;--art-offset-y:${art.y-y}px;` : '';
+  const size = box && scenePoint({x:box.width,y:box.height},scene);
+  const receivingStyle = size ? `--hit-width:${size.x}px;--hit-height:${size.y}px;--art-offset-x:${art.x-x}px;--art-offset-y:${art.y-y}px;` : '';
   return `<div class="hotspot ${visual.className}${box?' hotspot-hitbox':''}" data-hotspot="${escape(h.id)}" tabindex="0" role="img" aria-label="${escape(h.name)}" style="left:${x-bounds.x}px;top:${y}px;${visual.style}${receivingStyle}">${visual.html}</div>`;
 }
 
 /** All declared surfaces and artwork variants at the canonical 390px width. */
-export function hotspotProbeHTML(story: Story, visual: (h: Hotspot) => HotspotVisual, size: (chapter:number) => {width:number;height:number} = () => referenceBoard) {
-  return story.chapters.map((chapter, i) => `<section class="chapter-panel" data-chapter="${i}" data-scene-height="${size(i).height}">${[...new Set(chapter.hotspots)].filter(id => hotspotDefinition(story,i,id).placements?.length).map(id => {
+export function hotspotProbeHTML(story: Story, visual: (h: Hotspot) => HotspotVisual, size: (chapter:number) => SceneSize = () => referenceBoard) {
+  return story.chapters.map((chapter, i) => `<section class="chapter-panel" data-chapter="${i}" data-scene-height="${size(i).height}" data-image-width="${size(i).image?.width ?? ''}" data-image-height="${size(i).image?.height ?? ''}">${[...new Set(chapter.hotspots)].filter(id => hotspotDefinition(story,i,id).placements?.length).map(id => {
     const definition=hotspotDefinition(story,i,id), item=itemPresentation(story,i,id);
     return hotspotIconVariants(story,i,id).map((icon, variant) => {
       const h={...definition,name:item.name,icon};
@@ -74,6 +79,8 @@ export function hotspotProbeHTML(story: Story, visual: (h: Hotspot) => HotspotVi
 export function measureHotspots(root: ParentNode): HotspotMeasurement[] {
   return [...root.querySelectorAll<HTMLElement>('[data-hotspot]')].map(el => {
     const {width, height} = el.getBoundingClientRect();
-    return {id: el.dataset.hotspot!, chapter: Number(el.closest<HTMLElement>('[data-chapter]')!.dataset.chapter), variant: Number(el.closest<HTMLElement>('[data-icon-variant]')?.dataset.iconVariant ?? 0), width, height, circular: el.classList.contains('hotspot-circular'), scene: {width:390,height:Number(el.closest<HTMLElement>('[data-chapter]')!.dataset.sceneHeight)||844}};
+    const data = el.closest<HTMLElement>('[data-chapter]')!.dataset;
+    const image = Number(data.imageWidth) > 0 ? {width:Number(data.imageWidth),height:Number(data.imageHeight)} : undefined;
+    return {id: el.dataset.hotspot!, chapter: Number(data.chapter), variant: Number(el.closest<HTMLElement>('[data-icon-variant]')?.dataset.iconVariant ?? 0), width, height, circular: el.classList.contains('hotspot-circular'), scene: {width:390,height:Number(data.sceneHeight)||844,...(image ? {image} : {})}};
   });
 }

@@ -36,14 +36,14 @@ test('global @ recipes wait for a chapter that fixes the same movable item',()=>
 });
 
 test('derived fixed items only become targets after construction',()=>{
-  const story=parse('**Items**\n- A\n- X\n- Y\n- H\n- C\n**Hotspots**\n- H (at 30%, 40%)\n**Goals**\n- Finish -- C\n**Combinations**\n- X [consume] + Y [consume] -> H (tutorial)\n- A [consume] @ H -> C');
+  const story=parse('**Items**\n- A\n- X\n- Y\n- H\n- C\n**Hotspots**\n- H (center 117px, 337.6px)\n**Goals**\n- Finish -- C\n**Combinations**\n- X [consume] + Y [consume] -> H (tutorial)\n- A [consume] @ H -> C');
   let state=newGame(story);
   assert.equal(state.tokens['name:H'],undefined);
   assert.deepEqual(presentHotspots(story,state,0),[]);
   assert(!observe(story,state).hotspots.length);
   state=act(story,state,{type:'combine',a:'name:X',b:'name:Y'});
   assert.deepEqual(presentHotspots(story,state,0),['name:H']);
-  assert.deepEqual(fixedCentre(story,state.tokens['name:H']),{x:.3,y:.4});
+  assert.deepEqual(fixedCentre(story,state.tokens['name:H']),{x:117,y:337.6});
   assert(!legalActions(story,state).some(a=>a.a==='name:H'));
   assert(!observe(story,state).items.some(item=>item.id==='name:H'));
   assert(observe(story,state).hotspots.some(item=>item.id==='name:H'));
@@ -62,23 +62,23 @@ test('later goals cannot rely on optional earlier work with a fixed item',()=>{
 });
 
 test('a contextual combination can consume and replace its fixed context',()=>{
-  const story=parse('**Items**\n- A\n- B\n- H\n- Repaired H\n**Hotspots**\n- H (at 20%, 70%)\n- Repaired H\n**Goals**\n- Finish -- Repaired H\n**Combinations**\n- A [consume] + B [consume] @ H [consume] -> Repaired H');
+  const story=parse('**Items**\n- A\n- B\n- H\n- Repaired H\n**Hotspots**\n- H (center 78px, 590.8px)\n- Repaired H\n**Goals**\n- Finish -- Repaired H\n**Combinations**\n- A [consume] + B [consume] @ H [consume] -> Repaired H');
   let state=newGame(story);
   state=act(story,state,{type:'move',item:'name:B',chapter:0,x:10,y:20,hotspot:'name:H'});
   state=act(story,state,{type:'combine',a:'name:A',b:'name:B',hotspot:'name:H'});
   assert.equal(state.tokens['name:H'].status,'consume');
-  assert.deepEqual(fixedCentre(story,state.tokens['name:Repaired H']),{x:.2,y:.7});
+  assert.deepEqual(fixedCentre(story,state.tokens['name:Repaired H']),{x:78,y:590.8});
   assert.deepEqual(presentHotspots(story,state,0),['name:Repaired H']);
 });
 
 test('retiring a fixed receiver replaces it in place and releases parked occupants',()=>{
-  const story=parse('**Items**\n- Patch\n- Tent\n- Repaired tent\n- Camera\n**Hotspots**\n- Tent (at 35%, 60%)\n- Repaired tent\n**Goals**\n- Put camera down -- Camera @ Tent\n- Repair -- Repaired tent\n**Combinations**\n- Patch [consume] @ Tent [consume] -> Repaired tent (tutorial)');
+  const story=parse('**Items**\n- Patch\n- Tent\n- Repaired tent\n- Camera\n**Hotspots**\n- Tent (center 136.5px, 506.4px)\n- Repaired tent\n**Goals**\n- Put camera down -- Camera @ Tent\n- Repair -- Repaired tent\n**Combinations**\n- Patch [consume] @ Tent [consume] -> Repaired tent (tutorial)');
   let state=newGame(story);
   state=act(story,state,{type:'move',item:'name:Camera',chapter:0,x:80,y:90,hotspot:'name:Tent'});
   state=act(story,state,{type:'combine',a:'name:Patch',hotspot:'name:Tent'});
   assert.equal(state.tokens['name:Tent'].status,'consume');
   assert.deepEqual(presentHotspots(story,state,0),['name:Repaired tent']);
-  assert.deepEqual(fixedCentre(story,state.tokens['name:Repaired tent']),{x:.35,y:.6});
+  assert.deepEqual(fixedCentre(story,state.tokens['name:Repaired tent']),{x:136.5,y:506.4});
   assert.equal(state.tokens['name:Camera'].hotspot,undefined);
   assert.equal(state.tokens['name:Camera'].x,80);
   assert(state.achieved.includes(story.chapters[0].goals[0].id));
@@ -137,14 +137,14 @@ test('a goal cannot require dragging one fixed item onto another',()=>{
 });
 
 test('repeated fixed annotations share an item and allow different chapter presentations',()=>{
-  const story=parse('**Items**\n- H\n**Hotspots**\n- H (at 20%, 30%)\n- H (at 20%, 30%)\n## Revisit\nbackground: ![scene](scene.png)\n**Hotspots**\n- H (at 70%, 80%)');
+  const story=parse('**Items**\n- H\n**Hotspots**\n- H (center 78px, 253.2px)\n- H (center 78px, 253.2px)\n## Revisit\nbackground: ![scene](scene.png)\n**Hotspots**\n- H (center 273px, 675.2px)');
   let state=newGame(story);
   assert.deepEqual(presentHotspots(story,state,0),['name:H']);
-  assert.deepEqual(fixedCentre(story,state.tokens['name:H']),{x:.2,y:.3});
+  assert.deepEqual(fixedCentre(story,state.tokens['name:H']),{x:78,y:253.2});
   state=advance(story,state);
-  assert.deepEqual(fixedCentre(story,state.tokens['name:H']),{x:.7,y:.8});
+  assert.deepEqual(fixedCentre(story,state.tokens['name:H']),{x:273,y:675.2});
   assert(!lintStory(story,{analysis:false}).some(d=>d.code==='conflicting-hotspot-position'));
-  assert(errors('**Hotspots**\n- H (at 20%, 30%)\n- H (at 70%, 80%)').some(d=>d.code==='conflicting-hotspot-position'));
+  assert(errors('**Hotspots**\n- H (center 78px, 253.2px)\n- H (center 273px, 675.2px)').some(d=>d.code==='conflicting-hotspot-position'));
 });
 
 test('successive fixed states count as one simultaneous hotspot',()=>{

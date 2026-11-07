@@ -7,9 +7,9 @@ background: ![room](room.svg)
 Arrange and combine.
 **Goals**
 - Make X -- X
-${station?'**Hotspots**\n- Oven (at 70%, 60%)\n  - icon: ![Oven](station.svg)'+(circular?' (circular)':''):''}
+${station?'**Hotspots**\n- Oven (center 546px, 1012.8px)\n  - icon: ![Oven](station.svg)'+(circular?' (circular)':''):''}
 **Items**
-${['A','B','C','Blocker'].map((name,i)=>`- ${name}${icons?`\n  - icon: ![${name}](tile.svg) (at ${15+i*22}%, 20%)`:''}`).join('\n')}
+${['A','B','C','Blocker'].map((name,i)=>`- ${name}${icons?`\n  - icon: ![${name}](tile.svg) (center ${(15+i*22)*7.8}px, 337.6px)`:''}`).join('\n')}
 - X
 - Y
 **Combinations**

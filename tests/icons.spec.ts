@@ -62,7 +62,7 @@ test('icons use intrinsic quarter sizes, partner name badges and circular select
 });
 
 test('automatic arrivals avoid an upper station, while a deliberate placement there survives reload', async ({page}) => {
-  await openFixture(page, manuscript.replace('**Items**', '**Hotspots**\n- Workbench (at 50%, 33%)\n  - icon: ![fixed workbench](assets/location-empty.svg)\n\n**Items**\n- Workbench\n'));
+  await openFixture(page, manuscript.replace('**Items**', '**Hotspots**\n- Workbench (center 195px, 278.52px)\n  - icon: ![fixed workbench](assets/location-empty.svg)\n\n**Items**\n- Workbench\n'));
   const station=page.locator('[data-hotspot="name:Workbench"]');
   const target=(await station.boundingBox())!;
   for(const item of await page.locator('.thing').all()){
@@ -308,7 +308,7 @@ Prepare the stone, then bring it to the landing.
 - next: Place the marker -- Marker @ Landing
 
 **Hotspots**
-- Landing (at 77%, 65%)
+- Landing (center 300.3px, 548.6px)
   - icon: ![landing](assets/location.svg)
 
 **Items**
@@ -359,16 +359,16 @@ Let the dough rise in the warm cellar.
 **Goals**
 - Let the dough rise -- Risen dough
 **Hotspots**
-- Warm cellar (at 75%, 65%)
+- Warm cellar (center 292.5px, 548.6px)
   - icon: ![cellar](assets/location.svg)
 **Items**
 - Warm cellar
 - Dough
-  - icon: ![dough](assets/dough.svg) (at 20%, 25%)
+  - icon: ![dough](assets/dough.svg) (center 78px, 211px)
 - Wild starter
-  - icon: ![starter](assets/starter.svg) (at 65%, 25%)
+  - icon: ![starter](assets/starter.svg) (center 253.5px, 211px)
 - Salt
-  - icon: ![salt](assets/salt.svg) (at 20%, 45%)
+  - icon: ![salt](assets/salt.svg) (center 78px, 379.8px)
 - Risen dough
   - icon: ![risen dough](assets/risen.svg)
 **Combinations**
@@ -403,11 +403,11 @@ for(const icons of [true,false])test(`${icons?'icon':'text'} hotspot hints conne
 });
 
 test('placing Dough in the cellar prepares a later combination before Wild starter exists',async({page})=>{
-  const preparation=cellarManuscript.replace(' (at 65%, 25%)','').replace('**Items**',`**Items**
+  const preparation=cellarManuscript.replace(' (center 253.5px, 211px)','').replace('**Items**',`**Items**
 - Flour
-  - icon: ![flour](assets/flour.svg) (at 65%, 25%)
+  - icon: ![flour](assets/flour.svg) (center 253.5px, 211px)
 - Air
-  - icon: ![air](assets/air.svg) (at 65%, 45%)`).replace('**Combinations**','**Combinations**\n- Flour [preserve] + Air [preserve] -> Wild starter');
+  - icon: ![air](assets/air.svg) (center 253.5px, 379.8px)`).replace('**Combinations**','**Combinations**\n- Flour [preserve] + Air [preserve] -> Wild starter');
   await openFixture(page,preparation);
   const dough=page.locator('[data-item="name:Dough"]'),flour=page.locator('[data-item="name:Flour"]'),starter=page.locator('[data-item="name:Wild starter"]'),cellar=page.locator('[data-hotspot="name:Warm cellar"]');
   await expect(starter).toHaveCount(0);
@@ -448,9 +448,9 @@ Make steam.
 - Make Steam -- Steam
 **Items**
 - Water
-  - icon: ![water](assets/water.svg) (circular) (at 90%, 20%)
+  - icon: ![water](assets/water.svg) (circular) (center 351px, 168.8px)
 - Fire
-  - icon: ![fire](assets/fire.svg) (at 25%, 70%)
+  - icon: ![fire](assets/fire.svg) (center 97.5px, 590.8px)
 - Air
   - icon: ![air](assets/air.svg)
 - Steam
@@ -466,7 +466,7 @@ Make a cloud.
 - Make Cloud -- Cloud
 **Items**
 - Wind
-  - icon: ![wind](assets/wind.svg) (at 80%, 55%)
+  - icon: ![wind](assets/wind.svg) (center 312px, 464.2px)
 - Cloud
   - icon: ![cloud](assets/cloud.svg)
 **Combinations**
@@ -520,7 +520,7 @@ test('creation names stay above new icons for 1.5 seconds and then fade, without
 test('main catalogue opens the illustrated Settlement story with supplies placed in its landscape', async ({page}) => {
   await page.goto('/');
   const link=page.locator('[data-story="stories/settlement/settlement.md"]');
-  await expect(link.locator('strong')).toHaveText('Settlement: A River Worth Returning To');await link.click();
+  await expect(link.locator('.story-title')).toHaveText('Settlement: A River Worth Returning To');await link.click();
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   for(const [name,x,y] of [['Earth',28,53],['Water',54,24],['Air',55,7],['Fire',75,36]] as const){
@@ -555,8 +555,8 @@ test('Settlement carries exact placements into chapter two when no primitives ar
 });
 
 const placedCellar = cellarManuscript.replace('  - icon: ![cellar](assets/location.svg)', `  - icon: ![cellar](assets/location-empty.svg)
-  - place: Dough (at 70%, 65%)
-  - place: Risen dough (at 78%, 65%)`);
+  - place: Dough (center 273px, 548.6px)
+  - place: Risen dough (center 304.2px, 548.6px)`);
 
 async function dragToPoint(page: Page, item: ReturnType<Page['locator']>, x: number, y: number) {
   const box = (await item.boundingBox())!;
@@ -647,18 +647,18 @@ Choose an ingredient.
 **Goals**
 - Make C -- C
 **Hotspots**
-- Bench (at 50%, 65%)
+- Bench (center 195px, 548.6px)
   - icon: ![bench](assets/house-large.svg)
-  - place: A (at 40%, 65%)
-  - place: B (at 60%, 65%)
+  - place: A (center 156px, 548.6px)
+  - place: B (center 234px, 548.6px)
 **Items**
 - Bench
 - A
-  - icon: ![a](assets/a.svg) (at 20%, 25%)
+  - icon: ![a](assets/a.svg) (center 78px, 211px)
 - B
-  - icon: ![b](assets/b.svg) (at 60%, 25%)
+  - icon: ![b](assets/b.svg) (center 234px, 211px)
 - X
-  - icon: ![x](assets/x.svg) (at 20%, 40%)
+  - icon: ![x](assets/x.svg) (center 78px, 337.6px)
 - C
   - icon: ![c](assets/c.svg)
 - D
@@ -680,14 +680,14 @@ Choose an ingredient.
 
 test('live placement diagnostics report an outside centre and undefined references', async ({page}) => {
   await page.setViewportSize({width:1100,height:900});
-  await openFixture(page,placedCellar.replace('place: Risen dough (at 78%, 65%)','place: Typo (at 10%, 10%)'));
+  await openFixture(page,placedCellar.replace('place: Risen dough (center 304.2px, 548.6px)','place: Typo (center 39px, 84.4px)'));
   await openDebugPanel(page);
   await expect(page.locator('.editor-diagnostics')).toContainText('undeclared-item');
   await expect(page.locator('.editor-diagnostics')).toContainText('place-outside-hotspot');
 });
 
 test('single-item hotspot operations place the result at its authored centre using its measured icon size', async ({page}) => {
-  const text = hotspotManuscript.replace('  - icon: ![landing](assets/location.svg)', '  - icon: ![landing](assets/location.svg)\n  - place: Marker (at 82%, 65%)').replace('- Stone\n', '- Stone\n  - icon: ![stone](assets/stone.svg)\n- Marker\n  - icon: ![marker](assets/marker.svg)\n');
+  const text = hotspotManuscript.replace('  - icon: ![landing](assets/location.svg)', '  - icon: ![landing](assets/location.svg)\n  - place: Marker (center 319.8px, 548.6px)').replace('- Stone\n', '- Stone\n  - icon: ![stone](assets/stone.svg)\n- Marker\n  - icon: ![marker](assets/marker.svg)\n');
   await openFixture(page,text);
   await page.locator('[data-item="name:Stone"]').dragTo(page.locator('[data-hotspot="name:Landing"]'));
   const centre = await itemCentre(page,'Marker');

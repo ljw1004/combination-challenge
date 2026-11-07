@@ -1,3 +1,5 @@
+import {validCentre} from '../story/coordinates.ts';
+import {coordinateEntries} from '../lint/coordinates.ts';
 import { restoreDialogContext, type DialogContext } from './dialog-context.ts';
 import './style.css';
 import './workspace.css';
@@ -28,7 +30,7 @@ import { ItemArtwork } from './item-artwork.ts';
 import { IconNames } from './icon-names.ts';
 import {coverArtwork, currentArtwork, changedHotspotArtwork, lookaheadArtwork, placementArtwork, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
 import { arrivalLayout } from './arrival-layout.ts';
-import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard, sceneSize } from './board-geometry.ts';
+import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard, sceneSize, scenePoint } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
 import {createDropResolver, type DropResolution, type DropTarget} from './drop-target.ts';
 import {DragTrace} from './drag-trace.ts';
@@ -279,7 +281,8 @@ function checkText(parsed: Story, text: string) {
     message => authoring?.setPreviewStatus(message),
   );
   const titleImages = parsed.titleImages ?? [];
-  const prepared = itemArtwork.prepare([...placementArtwork(parsed), ...titleImages.map(image => image.url)], asset);
+  const coordinateChapters = [...new Set(coordinateEntries(parsed).map(e => e.chapter))];
+  const prepared = itemArtwork.prepare([...placementArtwork(parsed), ...coordinateChapters.map(chapter => background(parsed,chapter)).filter((url):url is string=>!!url), ...titleImages.map(image => image.url)], asset);
   if (prepared) {
     diagnostics.check(parsed, text);
     void prepared.then(() => {
@@ -292,7 +295,11 @@ function checkText(parsed: Story, text: string) {
   probe.style.cssText = 'position:fixed;left:-10000px;top:0;width:390px;--board-scale:1;visibility:hidden;pointer-events:none';
   probe.innerHTML = hotspotProbeHTML(parsed, h => itemArtwork.hotspot(h, asset), chapter => sceneSize(itemArtwork.dimensions(background(parsed, chapter), asset)));
   document.body.append(probe);
-  try { diagnostics.check(parsed, text, measureHotspots(probe), titleImages.map(image => ({url: image.url, ...itemArtwork.dimensions(image.url, asset) ?? {width: 0, height: 0}}))); }
+  try {
+    diagnostics.check(parsed, text, measureHotspots(probe),
+      titleImages.map(image => ({url: image.url, ...itemArtwork.dimensions(image.url, asset) ?? {width: 0, height: 0}})),
+      coordinateChapters.map(chapter => ({chapter,...itemArtwork.dimensions(background(parsed,chapter),asset) ?? {width:0,height:0}})));
+  }
   finally { probe.remove(); }
 }
 function schedulePreview() {
@@ -596,7 +603,8 @@ function preferredPosition(id: string, hotspot: string | undefined, chapter: num
   const location = [...(panel(chapter)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(el => el.dataset.hotspot === hotspot);
   if (!place || !el || !location) return;
   const geometry = boardGeometry(chapter);
-  const centre = {x: place.x * geometry.scene.width, y: place.y * geometry.scene.height};
+  if (!validCentre(place, geometry.scene.image)) return;
+  const centre = scenePoint(place, geometry.scene);
   const bounds = location.getBoundingClientRect(), boardScale = geometry.scale;
   const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {width: bounds.width / boardScale, height: bounds.height / boardScale, circular: location.classList.contains('hotspot-circular')}, 1 / geometry.labelScale, geometry.bounds, geometry.scene);
   // Invalid live drafts use ordinary placement; never attach an outside authored point.
@@ -696,7 +704,7 @@ function packArrival(checkpointLayout=false, source?: State){
   const previousChapter=source?.chapter??state.visited.at(-2);
   const descriptions=tokens.map(t=>{
     const position=story.items[t.id].icon?.position;
-    const start=primitives.has(t.id)&&position&&Object.values(position).every(value=>Number.isFinite(value)&&value>=0&&value<=1)?position:undefined;
+    const start=primitives.has(t.id)&&position&&validCentre(position,geometry.scene.image)?{x:position.x/(geometry.scene.image?.width??geometry.scene.width),y:position.y/(geometry.scene.image?.height??geometry.scene.height)}:undefined;
     const element=tile(t.id)!,measured=element.getBoundingClientRect();
     return {id:t.id,x:t.x,y:t.y,width:measured.width/geometry.scale,height:measured.height/geometry.scale,
       headroom:iconNames.headroom(element),
