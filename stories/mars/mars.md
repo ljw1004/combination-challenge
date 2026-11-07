@@ -4,7 +4,7 @@ background: ![The delivered habitat before arrival](assets/live-feedback/cover-b
 
 Your lander crashes badly onto the surface. Can you patch things up and complete your science mission?
 
-> NOTE: Promoted from the accepted Mars v12 reference on 4 November 2026. Fixed identities and recipes implement the 24-chapter story in design-brief.md. The unchanged v12 manuscript, production sources and review records are preserved under projects/mars-study/. Future revisions belong to this live copy. Chapter identifiers remain stable when chapters move.
+> NOTE: Promoted from the accepted Mars v12 reference on 4 November 2026. Fixed identities and recipes implement the 24-chapter story in design-brief.md. The unchanged v12 manuscript, production sources and review records are preserved under archive/2026.11.01 mars study/. Future revisions belong to this live copy. Chapter identifiers remain stable when chapters move.
 
 > NOTE: Visual austerity applies throughout: every component must be original compact mission equipment, finite repurposed packing/service hardware or the minimum locally made part needed for the work. Add no decorative hardware, furniture, trim or new resources. Plain useful forms, hand markings and visible repairs carry the character.
 

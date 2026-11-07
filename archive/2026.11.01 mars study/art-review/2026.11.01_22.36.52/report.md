@@ -30,7 +30,7 @@ A fresh agent reviewed 24 shuffled unnamed pilot objects. Broad equipment famili
 
 A second fresh agent reviewed 16 later records and related objects. Photographs, geology boards, specimen containers, a star chart, spectrum traces and the group portrait communicated their physical families. Context clarified navigation, spectroscopy, portrait archiving and the growing scene. Exact findings, mineral identity, provenance and causal conclusions were not recoverable from the pictures alone; the existing names and readings supply those meanings. The trays still failed the dry/wet distinction after the first moisture repair.
 
-The final tray correction made dry substrate visibly pale and matte and removed condensation from the unwatered covered tray. A separate repeat-exposure check then distinguished all four states: light/dark substrate and clear/condensed cover. That supports the repair decision; first-use human recognition remains unmeasured. Ordinary context is still needed to interpret moisture and the fabric roll's specific role. Human phone trials remain in the [backlog](../../../backlog.md#icon-recognition-awaiting-human-trials).
+The final tray correction made dry substrate visibly pale and matte and removed condensation from the unwatered covered tray. A separate repeat-exposure check then distinguished all four states: light/dark substrate and clear/condensed cover. That supports the repair decision; first-use human recognition remains unmeasured. Ordinary context is still needed to interpret moisture and the fabric roll's specific role. Human phone trials remain in the [backlog](../../../../projects/backlog.md#icon-recognition-awaiting-human-trials).
 
 ## Verification
 

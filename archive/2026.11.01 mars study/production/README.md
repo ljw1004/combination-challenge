@@ -1,6 +1,8 @@
 # Mars production sources
 
-## Current production entry point
+## Archived production entry point
+
+The study was completed and archived on 6 November 2026. The [study index](../README.md) records its completion and retained sources. The packages below preserve their original production roles; embedded `projects/mars-study` paths and commands are historical and were not retargeted by archival.
 
 The live [Mars design brief](../../../stories/mars/design-brief.md) owns accepted intent for all work in this study. Use its [applicable techniques and revision checks](../../../stories/mars/design-brief.md#revision-and-artwork-requirements), the shared [iteration process](../../../docs/story-authoring.md#develop-a-story) and [graphics methods](../../../docs/icon-guide.md).
 
@@ -8,8 +10,8 @@ The live [Mars design brief](../../../stories/mars/design-brief.md) owns accepte
 |---|---|
 | Editable manuscript and runtime assets | `stories/mars/mars.md` and `stories/mars/assets/`. Future integrated changes target these paths. |
 | Accepted physical and visual intent | `stories/mars/design-brief.md`, also governing study iterations. |
-| Preserved story references | `projects/mars-study/mars-v12/` and `illustrated-baseline/`; do not export into or rewrite them. |
-| Current live revision | [Chapter feedback, selected art and checks](live-feedback/README.md), including the two-fill water cell. |
+| Preserved story references | [mars-v12/](../mars-v12/) and [illustrated-baseline/](../illustrated-baseline/); do not export into or rewrite them. |
+| Completed live revision | [Chapter feedback, selected art and checks](live-feedback/README.md), including the two-fill water cell. |
 | Selected production inputs | The [v12 survival package](v12/survival/README.md) supplies the accepted source family, registration, exact requests and catalogue. The [v12 index](v12/README.md) distinguishes its earlier passes. |
 | Disposable work | Ignored `runs/` subdirectories for trial generations, rejected candidates, crops, scene/lifecycle proofs and browser captures. |
 
