@@ -49,6 +49,8 @@ export class TutorialOverlay {
     this.root.dataset.modality = mode;
   }
 
+  get active(): boolean { return !!this.cue; }
+
   dragging(active: boolean) {
     if (this.interacting === active) return;
     this.interacting = active; this.epoch = performance.now();

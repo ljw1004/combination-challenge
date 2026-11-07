@@ -40,6 +40,7 @@ import {containsPoint, hotspotCentre, hotspotRect, hotspotHTML, hotspotProbeHTML
 import {tutorialAction, hotspotTutorials, completesHotspotTutorial} from '../engine/tutorial.ts';
 import {TutorialProgress} from './tutorial-progress.ts';
 import {TutorialOverlay} from './tutorial-overlay.ts';
+import {GoalPulses,goalPulseDuration} from './goal-pulses.ts';
 import { guardGameInput } from './game-input.ts';
 import {addStoryHome, setHomeScreenIdentity} from './home-screen.ts';
 
@@ -74,6 +75,11 @@ let dialogOpener: HTMLElement | undefined;
 let encyclopediaScroll = 0;
 let encyclopediaHistory: EncyclopediaHistory = {};
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const goalPulses = new GoalPulses(surface, () => ({
+  blocked: !storyStarted || starting || mobileDebug.isOpen || document.hidden,
+  tutorial: tutorialOverlay.active,
+  reducedMotion: reducedMotion.matches,
+}));
 const desktopDebug = matchMedia('(min-width: 900px)');
 const itemArtwork = new ItemArtwork();
 let starting = true;
@@ -162,19 +168,18 @@ function parse(text: string): Story {
   }
 }
 function cancelGoalTimers() { goalTimers.forEach(clearTimeout); goalTimers = []; }
-function resetGoalView() { cancelGoalTimers(); goalView = undefined; }
+function resetGoalView() { cancelGoalTimers(); goalView = undefined; goalPulses.reset(); }
 function settleGoalEntrance() {
-  if (goalView?.phase !== 'leaving' && goalView?.phase !== 'entering') return;
+  if (goalView?.phase !== 'leaving') return;
   cancelGoalTimers(); goalView = { ...goalView, phase: 'arrow' };
   app.querySelector('.goals-leaving')?.remove();
   const arrow = app.querySelector<HTMLButtonElement>('.chapter-next'); if (arrow) { arrow.classList.remove('entering'); arrow.disabled = false; }
 }
 function animateGoalEntrance() {
   const current = goalView;
-  goalTimers.push(setTimeout(() => { if (goalView === current && current) { current.phase = 'entering'; app.querySelector('.goals-leaving')?.remove(); const arrow = app.querySelector<HTMLButtonElement>('.chapter-next'); if (arrow) arrow.disabled = false; } }, 220));
-  goalTimers.push(setTimeout(() => { if (goalView === current) settleGoalEntrance(); }, 620));
+  goalTimers.push(setTimeout(() => { if (goalView === current) settleGoalEntrance(); }, goalPulseDuration));
 }
-reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settleGoalEntrance(); });
+reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settleGoalEntrance(); goalPulses.refreshMotion(); });
 
 function rememberInteraction() {
   if (!state) return;
@@ -188,6 +193,10 @@ function save() {
   })), showSaveError);
 }
 function updateTutorial() {
+  try { updateTutorialCue(); }
+  finally { goalPulses.update(); }
+}
+function updateTutorialCue() {
   tutorialOverlay.dragging(!!drag || !!hotspotPress);
   if (!storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen) {
     tutorialOverlay.show(); return;
@@ -464,7 +473,7 @@ function closeDialog() {
 }
 function modal(content: string, kind = 'ordinary', context: DialogContext = { kind: 'error' }) {
   bookSwipe.cancel();
-  feedback.clear(); settleGoalEntrance();
+  feedback.clear();
   let dialog = dialogLayer.querySelector('dialog');
   const focused = document.activeElement as HTMLElement | null;
   const changing = dialogContext?.kind !== context.kind;
@@ -496,6 +505,7 @@ function showPending() {
 }
 function openPendingReading() {
   const notice = state.pending[0];
+  if (notice.kind === 'wonder') goalPulses.wonder(notice.key);
   modal(pendingContent(), notice.kind === 'wonder' ? 'wonder' : 'intertitle', { kind: 'pending' });
   if (notice.kind === 'wonder') encyclopediaHistory.wonder = notice.item;
 }
@@ -805,10 +815,11 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
   const oldHeight=Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)||app.clientHeight;
   const scroll=(oldHeight!==app.clientHeight?expectedScroll:app.querySelector('.viewport')?.scrollTop??0)*app.clientHeight/oldHeight;
   const goals=displayedGoals(story,state),finished=chapterComplete(story,state),geometry=boardGeometry();
-  const nextView=goalPresentation(goalView,`${story.id}:${state.chapter}`,finished&&!state.completed,state.pending.length>0,reducedMotion.matches);
+  goalPulses.observe(story,state);
+  const nextView=goalPresentation(goalView,`${story.id}:${state.chapter}`,finished&&!state.completed,reducedMotion.matches);
   const changedView=goalView?.key!==nextView.key||goalView.phase!==nextView.phase;
   if(changedView){cancelGoalTimers();goalView=nextView;}
-  const transitioning=goalView?.phase==='leaving'||goalView?.phase==='entering',leaving=goalView?.phase==='leaving',showGoals=goalView?.phase==='goals'||leaving||state.completed;
+  const leaving=goalView?.phase==='leaving',showGoals=goalView?.phase==='goals'||leaving||state.completed;
   const gold=new Set<string>();for(const {goal:g,done} of goals)if(done)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
   frameControls(geometry);
   reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
@@ -817,13 +828,13 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
       const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,itemPresentation(story,state.chapter,t.id).icon);
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
-  }))}</div>${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
+  }))}</div>${showGoals?`<div class="hud-stack location-hud ${leaving?'goals-leaving':''}" style="--goal-exit-duration:${goalPulseDuration}ms" ${leaving?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done},index)=>`<span class="objective-line ${done?'done':''}" data-goal-row="${index}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${leaving?'entering':''}" data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleTutorialUpdate();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*app.clientHeight):scroll);
   for(const element of surface.querySelectorAll<HTMLElement>('.icon-thing,.hotspot-icon'))iconNames.measure(element);
   if(arrival){packArrival(checkpointLayout,arrivalSource);if(finish)chapterSession=captureChapter(state,itemOrder);}
   for(const token of availableTokens(state)){const element=tile(token.id);if(element)positionTile(element,token);}
   for(const element of surface.querySelectorAll<HTMLElement>('.hotspot-icon'))iconNames.position(element,elementGeometry(element).bounds.width);
-  if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
+  if(changedView&&leaving)animateGoalEntrance();if(finish)showPending();
   updateEditingIndicators();
   inputTrace?.record('render:finished');
 }
@@ -908,6 +919,7 @@ app.addEventListener('pointerdown',e=>{
   // The stable app owns capture even if an artwork load or redraw updates the tile.
   app.setPointerCapture(e.pointerId);
   inputTrace?.record('drag:begin',{rectangle:{x:bounds.x,y:bounds.y,width:bounds.width,height:bounds.height},boardScale});
+  goalPulses.pickup();
   updateTutorial();
 });
 document.addEventListener('pointermove',e=>{
@@ -966,6 +978,7 @@ function endDrag(e:PointerEvent,cancel=false){
 document.addEventListener('pointerup',e=>{endDrag(e);updateTutorial();});document.addEventListener('pointercancel',e=>{endDrag(e,true);updateTutorial();});
 function cancelGesture(reason:string){inputTrace?.record('gesture:cancel',{reason});if(hotspotPress){const pointer=hotspotPress.pointer;hotspotPress=undefined;releaseCapture(pointer);feedback.clear();}if(drag){const d=drag;drag=undefined;d.edgeScroll?.stop();releaseCapture(d.pointer);restoreGestureTile(d);feedback.clear();}updateTutorial();}
 window.addEventListener('blur',()=>{cancelGesture('window-blur');feedback.clear();});
+document.addEventListener('visibilitychange',updateTutorial);
 app.addEventListener('lostpointercapture',e=>{
   const {pointerId,buttons}=e as PointerEvent;
   // Chrome can end capture on a buttons=0 move before delivering pointerup.
@@ -992,7 +1005,7 @@ app.addEventListener('click',e=>{
   else if(command==='cancel-reset-story')reopenChapter();
   else if(command==='reset-story')restartStory();
   else if(command==='reset-chapter')restartChapter();
-  else if(command==='story'){tutorialProgress?.finish('goalsDone');reopenChapter();}
+  else if(command==='story'){goalPulses.resetCounter();tutorialProgress?.finish('goalsDone');reopenChapter();}
   else if(command==='encyclopedia')openEncyclopedia();
   else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);
   else if(command==='encyclopedia-back')backToEncyclopediaIndex();

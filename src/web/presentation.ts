@@ -5,14 +5,13 @@ export function readingBody(text:string,asset:(path:string)=>string = p=>p):stri
   return `<div class="reading-text">${markdown(text,asset)}</div>`;
 }
 
-export interface GoalPresentation { key:string; phase:'goals'|'leaving'|'entering'|'arrow' }
+export interface GoalPresentation { key:string; phase:'goals'|'leaving'|'arrow' }
 /** Only newly earned readiness animates; a settled reload starts settled. */
-export function goalPresentation(previous:GoalPresentation|undefined,key:string,complete:boolean,blocked:boolean,reducedMotion:boolean):GoalPresentation {
-  if(!previous||previous.key!==key)return {key,phase:complete&&!blocked?'arrow':'goals'};
+export function goalPresentation(previous:GoalPresentation|undefined,key:string,complete:boolean,reducedMotion:boolean):GoalPresentation {
+  if(!previous||previous.key!==key)return {key,phase:complete?'arrow':'goals'};
   if(!complete)return {key,phase:'goals'};
   if(previous.phase==='arrow')return previous;
-  if(blocked)return {key,phase:'goals'};
   if(reducedMotion)return {key,phase:'arrow'};
-  if(previous.phase==='leaving'||previous.phase==='entering')return previous;
+  if(previous.phase==='leaving')return previous;
   return {key,phase:'leaving'};
 }

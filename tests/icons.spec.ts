@@ -524,7 +524,7 @@ test('creation names stay above new icons for 1.5 seconds and then fade, without
 test('main catalogue opens the illustrated Settlement story with supplies placed in its landscape', async ({page}) => {
   await page.goto('/');
   const link=page.locator('[data-story="stories/settlement/settlement.md"]');
-  await expect(link.locator('.story-title')).toHaveText('Settlement: A River Worth Returning To');await link.click();
+  await expect(link.locator('.story-title')).toHaveText('Settlement');await link.click();
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   for(const [name,x,y] of [['Earth',28,53],['Water',54,24],['Air',55,7],['Fire',75,36]] as const){
