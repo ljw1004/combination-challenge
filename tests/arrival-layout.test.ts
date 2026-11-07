@@ -115,17 +115,65 @@ test('overlap budgets use the union and protect smaller neighbours',()=>{
   for(const p of placed)assert(coveredFraction(p,placed.filter(t=>t!==p))<=.100001);
 });
 
-test('crowding can relax item overlap without ever relaxing hotspot clearance',()=>{
+test('hotspot edges yield before greater item overlap, even when each item fits separately',()=>{
   for(const checkpoint of [false,true]){
-    const {result}=layout([tile('one',100,100,{width:180,height:100}),tile('two',100,100,{width:180,height:100})],{bounds:{x:0,y:0,width:240,height:240},goalsTop:230,hotspots:[{x:0,y:0,width:240,height:70}],checkpoint});
+    const tiles=[tile('one',100,100,{width:180,height:100}),tile('two',100,100,{width:180,height:100})];
+    const hotspot={x:0,y:0,width:240,height:70};
+    const result=arrivalLayout(tiles,{bounds:{x:0,y:0,width:240,height:240},goalsTop:230,hotspots:[hotspot],checkpoint});
+    const placed=tiles.map(t=>({...t,...result.positions.get(t.id)!}));
     assert(result.crowded);
+    assert(placed.some(t=>overlapsHotspot(t,hotspot)));
+    assert(coveredFraction(hotspot,placed)<.3,'leave most of the receiving area exposed');
+    for(const t of placed){
+      assert(t.x>=0&&t.y>=0&&t.x+t.width<=240&&t.y+t.height<=240);
+      assert(coveredFraction(t,placed.filter(p=>p!==t))<=.100001);
+    }
   }
 });
 
-test('only an impossible station layout permits a hotspot overlap',()=>{
+test('a station covering the board still gets a packed group rather than independent fallback positions',()=>{
   const tiles=[tile('one',0,0),tile('new',0,0,{fresh:true})];
   const result=arrivalLayout(tiles,{...options,hotspots:[options.bounds]});
   assert(result.crowded);assert.equal(result.positions.size,2);
+  const placed=tiles.map(t=>({...t,...result.positions.get(t.id)!}));
+  assert.equal(coveredFraction(placed[0],[placed[1]]),0);
+  assert(placed.every(t=>t.y+t.height<=options.goalsTop),'avoid goals when equally good hotspot space is available');
+});
+
+test('short phone supplies give up goal spacing, then goal clearance, before covering hotspots',()=>{
+  // Measured Creation opening: a 64px icon plus its hidden 22px name fits below
+  // the large receiver on a 650px phone, but the additional 28px gap does not.
+  const hotspot={x:15.603125,y:42.2025,width:366.59375,height:438.875};
+  for(const checkpoint of [false,true])for(const fresh of [false,true])for(const height of [650,664,600]){
+    const tiles=['earth','air','fire'].map(id=>tile(id,18,120,{width:64,height:64,headroom:22,fresh}));
+    const settings={bounds:{x:0,y:0,width:390,height},goalsTop:height-74.59375,hotspots:[hotspot],checkpoint};
+    const result=arrivalLayout(tiles,settings);
+    const footprints=tiles.map(t=>({...t,...result.positions.get(t.id)!,height:86})).map(t=>({...t,y:t.y-22}));
+    for(const t of footprints){
+      assert(t.y>=hotspot.y+hotspot.height-1e-6,'keep the complete footprint below the hotspot');
+      assert(t.x>=0&&t.x+t.width<=390&&t.y+t.height<=height);
+      assert(coveredFraction(t,footprints.filter(p=>p!==t))<=.100001);
+      if(height>=650)assert(t.y+t.height<=settings.goalsTop,'sacrifice the gap before the goals');
+    }
+    if(height===600)assert(footprints.some(t=>t.y+t.height>settings.goalsTop),'use goals area before covering the hotspot');
+    assert.deepEqual(result,arrivalLayout(tiles,settings),'all relaxation stages are deterministic');
+  }
+});
+
+test('unavoidable item overlap is distributed across the board and anchors stay fixed',()=>{
+  const bounds={x:0,y:0,width:150,height:120};
+  const tiles=['a','b','c','d'].map(id=>tile(id,0,0,{width:90,height:80,fresh:true}));
+  const result=arrivalLayout(tiles,{bounds,goalsTop:90,hotspots:[bounds]});
+  const placed=tiles.map(t=>({...t,...result.positions.get(t.id)!}));
+  assert(result.crowded);
+  for(const t of placed){
+    assert(t.x>=0&&t.y>=0&&t.x+t.width<=150&&t.y+t.height<=120);
+    assert(coveredFraction(t,placed.filter(p=>p!==t))<.85,'do not conceal an item in a pile');
+  }
+  const anchor=tile('anchor',0,0,{fresh:true,start:{x:.5,y:.2}}),occupant=tile('occupant',220,180,{fixed:true});
+  const fixedResult=arrivalLayout([anchor,occupant,tile('loose',180,180)],{...options,hotspots:[options.bounds]});
+  assert.deepEqual(fixedResult.positions.get('anchor'),{x:167,y:140.8});
+  assert.deepEqual(fixedResult.positions.get('occupant'),{x:220,y:180});
 });
 
 test('checkpoint preferences spread unmeasured carried objects while preserving inherited occupants',()=>{

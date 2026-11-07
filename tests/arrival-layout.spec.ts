@@ -91,6 +91,71 @@ test('short viewport arrivals keep measured text cards above multi-line goals an
   await expect.poll(()=>page.locator('.thing').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {x:r.x,y:r.y,bottom:r.bottom,right:r.right};}))).toEqual(positions);
 });
 
+test('phone icons relax goal spacing and receiver clearance without stacking or making logical placements',async({page})=>{
+  const story=`# Short phone
+## Work
+background: ![room](room.svg)
+Arrange the pieces.
+**Goals**
+- Put the first piece at the station -- First @ Station
+- Assemble the other pieces -- Assembly
+**Hotspots**
+- Station (at 51%, 31%)
+  - icon: ![station](station.svg)
+  - hitbox: (at 51%, 31%) (size 94%, 52%)
+**Items**
+- Station
+${['First','Second','Third'].map(name=>`- ${name}\n  - icon: ![piece](piece.svg) (circular)`).join('\n')}
+**Combinations**
+- Assembly
+- Second + Third -> Assembly`;
+  await page.route('**/short-phone/*.md',route=>route.fulfill({contentType:'text/markdown',body:story}));
+  await page.route('**/short-phone/*.svg',route=>{
+    const background=route.request().url().endsWith('/room.svg');
+    return route.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${background?390:256}" height="${background?844:256}"><rect width="100%" height="100%" fill="tan"/></svg>`});
+  });
+  const positions=()=>page.locator('.thing').evaluateAll(els=>els.map(el=>{
+    const rect=el.getBoundingClientRect(),label=el.querySelector<HTMLElement>('.icon-name')!;
+    const style=label.style.cssText;label.style.display='block';label.style.visibility='hidden';
+    const headroom=label.getBoundingClientRect().height;label.style.cssText=style;
+    return {x:rect.x,y:rect.y-headroom,width:rect.width,height:rect.height+headroom,bottom:rect.bottom};
+  }));
+  for(const height of [650,600,540]){
+    await page.setViewportSize({width:390,height});
+    await page.goto(`/make-something.html?story=short-phone/${height}.md`);
+    await page.getByRole('button',{name:'Start',exact:true}).click();
+    await page.getByRole('button',{name:'Begin',exact:true}).click();
+    const placed=await positions(),station=(await page.locator('[data-hotspot]').boundingBox())!,goals=(await page.locator('.hud-stack').boundingBox())!;
+    expect(placed).toHaveLength(3);
+    for(const t of placed){
+      expect(t.x).toBeGreaterThanOrEqual(0);expect(t.y).toBeGreaterThanOrEqual(0);
+      expect(t.x+t.width).toBeLessThanOrEqual(390);expect(t.bottom).toBeLessThanOrEqual(height);
+      for(const other of placed.filter(p=>p!==t)){
+        const overlap=Math.max(0,Math.min(t.x+t.width,other.x+other.width)-Math.max(t.x,other.x))*Math.max(0,Math.min(t.bottom,other.bottom)-Math.max(t.y,other.y));
+        expect(overlap/(t.width*t.height)).toBeLessThanOrEqual(.10001);
+      }
+      // Arrival uses integer offsetHeight for names; painted text can differ by a fraction of a pixel.
+      if(height>=600)expect(t.y).toBeGreaterThanOrEqual(station.y+station.height-.5);
+      if(height===650)expect(t.bottom).toBeLessThanOrEqual(goals.y);
+    }
+    if(height===600)expect(placed.some(t=>t.bottom>goals.y)).toBe(true);
+    if(height===540)expect(placed.some(t=>t.y<station.y+station.height-.1)).toBe(true);
+    const currentState=()=>page.evaluate(path=>JSON.parse(Object.entries(localStorage).find(([key])=>key.startsWith('combination-progress-v2:')&&decodeURIComponent(key).endsWith(path))![1]).state,`short-phone/${height}.md`);
+    const state=await currentState();
+    expect(state.achieved).toEqual([]);
+    for(const name of ['First','Second','Third'])expect(state.tokens[`name:${name}`].hotspot).toBeUndefined();
+    await page.reload();
+    await expect.poll(positions).toEqual(placed);
+    expect((await currentState()).achieved).toEqual([]);
+    if(height===540){
+      await page.getByRole('button',{name:'First',exact:true}).dragTo(page.locator('[data-hotspot]'));
+      const afterDrop=await currentState();
+      expect(afterDrop.tokens['name:First'].hotspot).toBe('name:Station');
+      expect(afterDrop.achieved).toHaveLength(1);
+    }
+  }
+});
+
 test('debug checkpoint jumps centre measured cards and icons and save their arrangement',async({page})=>{
   const story=`# Centred workshop
 ## First

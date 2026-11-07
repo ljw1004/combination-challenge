@@ -49,9 +49,9 @@ The former `combinations.html` and `combinations-dev.html` routes are removed wi
 
 Mars now uses the accepted 24-chapter v12 story at the main route. Future edits belong in `stories/mars`; the v12 reference stays unchanged. The study remains active for the remaining artwork. The [promotion record](projects/mars-study/promotion/README.md) records copy integrity, checks and the existing exhaustive-lint limit. Project drafts for ongoing work stay outside the published catalogue and build; use the [authoring workflow](docs/story-authoring.md#check-and-preview-a-draft) to preview them.
 
-`npm run build` runs story lint, TypeScript checking and Vite bundling in sequence. Lint errors stop the command; warnings allow it to continue. This check runs when the build command is invoked; `npm run dev` and ordinary story loading do not run the CLI lint check. The live editor displays its own diagnostics without blocking saving or preview.
+`npm run build` runs TypeScript checking and Vite bundling. Story lint and analysis are separate steps: use `npm run lint -- STORY` to validate a changed story, or `npm run lint` for an explicit check of all stories. Lint errors fail that command; warnings require author review. Application and engine changes do not require story analysis. Neither building, `npm run dev` nor ordinary story loading runs the CLI linter. The live editor displays its own diagnostics without blocking saving or preview.
 
-Chromium supports the browser tests and measures actual hotspot hit areas for `place:` lint. Only manuscripts containing `place:` entries launch it during lint/build. The [specification](docs/story-format-spec.md) owns placement syntax and validation.
+Chromium supports the browser tests and measures actual hotspot hit areas for `place:` lint. Only manuscripts containing `place:` entries launch it during story lint; the application build does not launch Chromium. The [specification](docs/story-format-spec.md) owns placement syntax and validation.
 
 The editable HTML sources are [`index-dev.html`](index-dev.html) and [`make-something-dev.html`](make-something-dev.html). Vite serves these templates at `/`, `/index.html` and `/make-something.html` during development, even when an older generated page exists. It serves manuscripts and artwork directly at their repository paths under `/stories/`. Development also provides adjacent player routes for draft previews, such as `/projects/example-study/make-something.html?story=draft.md`; these are not generated for publication.
 
@@ -69,7 +69,16 @@ Browser progress, drafts and tutorial completion for the previous `/combination-
 
 The root [`_config.yml`](_config.yml) excludes the two `-dev.html` templates, documentation, source, tests, archives, projects and the retired `dist/` directory. Add any new non-published root files or directories to its exclusion list. It also disables Jekyll's theme and automatic Markdown-page generation, preserving the raw manuscripts. Do not add a root `.nojekyll`: that would bypass the exclusions and publish the rest of the repository.
 
-Before publishing an application or catalogue update, run `npm run build`, then commit the matching source and generated root pages/bundles (including removed bundles), and push to `main`. For manuscript/artwork changes that do not affect the catalogue, lint and commit those original files; rebuilding the application is unnecessary. GitHub handles publication of committed files; there is no custom Actions workflow or separate publishing branch. Access settings are independent of this layout.
+Keep verification, building and publication separate. Choose the preparation steps for the changed files:
+
+| Change | Verification | Build |
+|---|---|---|
+| Engine or browser application | Run the relevant automated tests; no story-wide lint or analysis is required. | `npm run build` |
+| Manuscript or artwork | `npm run lint -- STORY` for each changed story; resolve errors and review warnings. | Only if the catalogue also changes. |
+| Catalogue entries, titles or descriptions | Check the affected catalogue entries; lint any changed stories as above. | `npm run build` |
+| Application and story changes together | Perform both applicable verification steps. | `npm run build` |
+
+When publishing, commit the changed source and original story/artwork files together with any regenerated root pages and bundles, including the bundle inventory and obsolete-bundle removals, then push to `main`. An all-story audit remains an explicit `npm run lint` step; it is not part of the application build or a prerequisite for publishing engine changes. GitHub handles publication of committed files; there is no custom Actions workflow or separate publishing branch. Access settings are independent of this layout.
 
 The former `/dist/` pages and flattened manuscript paths are retired. Browser saves, drafts and tutorial completion at those old Markdown URLs remain stored under their old keys; this layout change does not migrate or delete them. New URLs under `stories/` have their own state, following the [story identity rule](docs/ux.md#catalogue-and-story-identity).
 
@@ -128,7 +137,7 @@ The manuscripts were subsequently renamed from `story.md` to `<slug>.md`, and fo
 | Type checker | `npm run check` | Check active TypeScript source. |
 | Default tests | `npm test` | Run semantic tests and Chromium interaction checks. |
 | Browser tests | `npm run browser-test` | Run just the Chromium checks. |
-| Production build | `npm run build` | Run lint and type checking, then bundle the browser game. |
+| Production build | `npm run build` | Type-check and bundle the browser game; story lint is separate. |
 | Checkpoint generator | `npm run checkpoint -- STORY CHAPTER_INDEX [OUTPUT.json]` | Prepare a chapter through a legal replay. |
 | Logical player | `npm run play -- list` | List stories; start human play with `npm run play -- --fast STORY` or `--detailed STORY`. |
 | AI playtester | `npm run playtest -- --fast ...` or `--detailed ...` | Run a JSON agent process or service through the selected player interface. |

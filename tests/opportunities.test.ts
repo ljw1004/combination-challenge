@@ -45,7 +45,7 @@ test('warns about disconnected primitive chains at their first reference, with p
 - Decoration`);
   const diagnostics = lintStory(story).filter(d => ['unsupplied-primitive', 'no-item-opportunity'].includes(d.code));
   assert.deepEqual(diagnostics.map(d => d.code).sort(), ['no-item-opportunity', 'unsupplied-primitive', 'unsupplied-primitive']);
-  assert(diagnostics.every(d => d.severity === 'warning'), 'content opportunities guide authors without blocking the site build');
+  assert(diagnostics.every(d => d.severity === 'warning'), 'content opportunities guide authors without failing story lint');
   const missing = diagnostics.find(d => d.message.startsWith('Missing'))!;
   assert.equal(missing.span.to - missing.span.from, 'Missing'.length);
   const decoration = diagnostics.find(d => d.code === 'no-item-opportunity')!;
