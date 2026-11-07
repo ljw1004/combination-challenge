@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "The first flight needs a restraint, so I’ll attach the low test tether before trying to lift the whale.",
+    "choice": {
+      "combine": "Low test tether",
+      "with": "Working fair whale"
+    },
+    "expectation": "The tether will limit how high the whale can rise during the test.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Padded landing cradle",
+          "with": "Working fair whale"
+        },
+        "reason": "The cradle also looks important for a safe low test."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The whale is now tethered for the low flight test; it still needs a padded landing place and balance checks.",
+    "reaction": "The restraint is a reassuring first step.",
+    "step": 2,
+    "reason": "The padded cradle should protect the whale when it comes down.",
+    "choice": {
+      "combine": "Padded landing cradle",
+      "with": "Whale on low tether"
+    },
+    "expectation": "The cradle will be positioned beneath the tethered whale for the test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The whale now has a padded landing area as well as a tether.",
+    "reaction": "That makes the low test feel more prepared.",
+    "step": 3,
+    "reason": "The long control lead should let us operate the lift during the test.",
+    "choice": {
+      "combine": "Long lift-control lead",
+      "with": "Whale above landing mat"
+    },
+    "expectation": "The lead will connect the lift controls for the low flight test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first hover revealed that the dragon end is too heavy, so the whale needs balancing before further testing.",
+    "reaction": "The uneven hover makes the purpose of the counterweight clear.",
+    "step": 4,
+    "reason": "The counterweight adjustment handle should let me correct the nose-heavy balance.",
+    "choice": {
+      "combine": "Counterweight adjustment handle",
+      "with": "Nose-heavy hovering whale"
+    },
+    "expectation": "Adjusting the counterweight will bring the whale closer to level.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The counterweight adjustment has rebalanced the whale; the bubble level can help check it.",
+    "reaction": "The correction was straightforward.",
+    "step": 5,
+    "reason": "The bubble level should verify that the hovering whale is level.",
+    "choice": {
+      "combine": "Bubble level",
+      "with": "Rebalanced fair whale"
+    },
+    "expectation": "The level will show whether the counterweight adjustment has balanced the whale.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bubble confirms the whale now hovers level; the emergency stop still needs testing.",
+    "reaction": "It is satisfying that the ordinary counterweight corrected the uneven lift.",
+    "step": 6,
+    "reason": "The stop cord and pivoted lever should let me test the whale’s exterior emergency stop.",
+    "choice": {
+      "combine": "Stop cord with pivoted lever",
+      "with": "Level low-hovering whale"
+    },
+    "expectation": "Pulling the cord will operate the stop and cut power to the lift tile.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stop cord successfully cut lift, completing the test. I also learned that an emergency drop differs from a controlled landing.",
+    "reaction": "The distinction between stopping and landing was useful and a little surprising.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Finding the nose-heavy hover and correcting it made the counterweight’s purpose clear; the level then confirmed the result.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the tether and placing the cradle were sensible preparations, but straightforward compared with diagnosing the balance.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The emergency stop drops the whale rather than landing it gently; a gradual reduction in current is needed for a landing.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: each action had a clear role in preparing, balancing, or stopping the test.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would like to see the balanced whale fly with its attractions working, especially after learning how its safety and balance systems work.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

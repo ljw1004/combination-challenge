@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll attach the jaws to the beam to start building the grabber.",
+    "choice": 1,
+    "expectation": "I expect the jaws to mount on the beam, though they may need links before they can move together.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The syringe and cradle also look useful for the mechanism, but I want to start with the jaws."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jaws are hinged on the beam; they still need a way to move together.",
+    "reaction": "A straightforward first fitting.",
+    "step": 2,
+    "reason": "I'll add the slider and guide as a likely way to drive the jaws.",
+    "choice": 1,
+    "expectation": "I expect a guided slider on the beam, though it may still need links to move the jaws.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The syringe assembly also seems useful, but the slider looks like the next part of the jaw linkage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slider is now guided on the grabber, ready for a connection to the jaws.",
+    "reaction": "A straightforward fitting.",
+    "step": 3,
+    "reason": "The jaw links should connect the slider to both hinged jaws.",
+    "choice": 1,
+    "expectation": "I expect the slider to move the jaws together once the links are fitted, though it may still need a driver.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The syringe assembly looks useful for driving the mechanism, but the linkage comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The links convert the slider’s movement into closing jaws while accommodating their different arcs; the grabber still needs a driver.",
+    "reaction": "The explanation of the separate pivoting links makes the mechanism clearer.",
+    "step": 4,
+    "reason": "The syringe and cradle are the only offered combination and look like the next part of the drive.",
+    "choice": 1,
+    "expectation": "I expect the syringe to be secured in its cradle, ready to connect to the grabber.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The output syringe is secured in its cradle and ready to join the grabber.",
+    "reaction": "A straightforward preparation.",
+    "step": 5,
+    "reason": "The only offered combination should connect the syringe to the jaw mechanism.",
+    "choice": 1,
+    "expectation": "I expect the mounted syringe to attach to the grabber's slider, though it may need another part to operate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The output syringe is now mounted on the grabber; it still needs a way to return the jaws.",
+    "reaction": "A straightforward fitting.",
+    "step": 6,
+    "reason": "The return band is the only offered combination and should help the jaws spring open.",
+    "choice": 1,
+    "expectation": "I expect the band to pull the mechanism back and reopen the jaws, though it may need testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return band is fitted, so the grabber is ready for a test.",
+    "reaction": "A straightforward fitting.",
+    "step": 7,
+    "reason": "The test block is the only offered combination and should let me check the jaws.",
+    "choice": 1,
+    "expectation": "I expect to test whether the jaws grip the block and spring open again, though the syringe may still need a controller.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hand test confirms that the linked jaws close around the block and the return band opens them; remote control remains a future step.",
+    "reaction": "The gentle drop is a satisfying demonstration of the mechanism.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the jaw links was most worthwhile: the explanation made clear how the slider closes the jaws without bending the links.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The syringe cradle and mounting were straightforward preparations, but neither result explained much about how the drive would work.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I found it interesting that the separate links can follow different arcs while closing the jaws together.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary, though the syringe's eventual role was not demonstrated in this chapter.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. The linkage and return-band test were worth seeing, and I am curious how the jaws will be controlled from the other end.",
+        "steps": [
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

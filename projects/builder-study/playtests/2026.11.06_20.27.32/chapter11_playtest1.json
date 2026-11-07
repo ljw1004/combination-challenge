@@ -1,0 +1,187 @@
+[
+  {
+    "step": 1,
+    "reason": "The motor needs a cradle to hold it on the machine.",
+    "choice": {
+      "combine": "Small low-voltage motor",
+      "with": "Motor cradle"
+    },
+    "expectation": "The motor will fit into the cradle, ready to mount.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor is secured in its cradle and looks ready to mount on the base.",
+    "reaction": "A straightforward start.",
+    "step": 2,
+    "reason": "The cradled motor needs a stable place on the wave-machine base.",
+    "choice": {
+      "combine": "Motor secured in its cradle",
+      "with": "Long wave-machine base"
+    },
+    "expectation": "The motor assembly will mount on the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cradled motor cannot currently combine with anything, so the base may need another fitting first.",
+    "reaction": "That mounting attempt was premature.",
+    "step": 3,
+    "reason": "The cord posts look like a plausible first fitting for the base.",
+    "choice": {
+      "combine": "Cord posts and tension screw",
+      "with": "Long wave-machine base"
+    },
+    "expectation": "The posts and tension screw will attach to the base.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Long wave-machine base"
+        },
+        "reason": "I could check the base's available partners first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The posts are installed, so the base may now be ready for the motor.",
+    "reaction": "The fitting order is clearer now.",
+    "step": 4,
+    "reason": "The cradled motor could not mount before the posts were fitted; it is worth trying again now.",
+    "choice": {
+      "combine": "Motor secured in its cradle",
+      "with": "Base with cord posts"
+    },
+    "expectation": "The motor assembly will mount on the base.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Base with cord posts"
+        },
+        "reason": "I could check what the base accepts next."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor is now mounted after the cord posts were installed.",
+    "reaction": "That resolved the earlier mounting problem.",
+    "step": 5,
+    "reason": "The eccentric driver should turn the motor's rotation into movement for the cord.",
+    "choice": {
+      "combine": "Eccentric cord driver",
+      "with": "Wave frame with a motor"
+    },
+    "expectation": "The driver will attach to the motorized frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eccentric driver is fitted; its off-centre peg will repeatedly disturb one end of the cord.",
+    "reaction": "The circular motion turning into a cord disturbance is interesting.",
+    "step": 6,
+    "reason": "The belt should connect the motor to the eccentric driver.",
+    "choice": {
+      "combine": "Soft drive belt",
+      "with": "Wave frame with an eccentric driver"
+    },
+    "expectation": "The belt will link the motor and driver so the motor can turn it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt drive is fitted, connecting the motor and eccentric driver.",
+    "reaction": "That was a straightforward connection.",
+    "step": 7,
+    "reason": "The cord needs to span the posts and connect to the driver to carry its movement.",
+    "choice": {
+      "combine": "Bright flexible cord",
+      "with": "Wave frame with a belt drive"
+    },
+    "expectation": "The cord will attach to the wave frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cord is attached but loose, so it likely needs tensioning before the machine runs.",
+    "reaction": "The loose cord makes the next fitting fairly clear.",
+    "step": 8,
+    "reason": "The tension spring should help keep the cord taut as it moves.",
+    "choice": {
+      "combine": "Cord tension spring",
+      "with": "Wave frame with a loose cord"
+    },
+    "expectation": "The spring will tension the cord on the frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spring has tensioned the cord, leaving the drive guard and power supply to fit.",
+    "reaction": "The cord is ready for the next stage.",
+    "step": 9,
+    "reason": "The guard should cover the moving drive before the motor is powered.",
+    "choice": {
+      "combine": "Clear drive guard",
+      "with": "Wave frame with a tensioned cord"
+    },
+    "expectation": "The guard will fit over the belt drive.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drive is guarded, and the motor is still disconnected until the controller is added.",
+    "reaction": "The clear guard makes the moving parts visible while keeping fingers away.",
+    "step": 10,
+    "reason": "The battery and speed controller should supply and control the motor.",
+    "choice": {
+      "combine": "Battery and speed controller",
+      "with": "Guarded string-wave machine"
+    },
+    "expectation": "The controller will connect the motor to power so the cord can move.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The controller powered the motor, sending a disturbance along the cord that reflected from the far end; the goal is complete.",
+    "reaction": "Seeing the wiggle travel and reflect is an interesting payoff for the assembly.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the eccentric driver was most worthwhile: its off-centre peg explains how rotation can repeatedly disturb the cord.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to mount the motor before fitting the posts was the least worthwhile moment; the required order was not clear beforehand.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The disturbance reflected from the far end of the cord, rather than simply stopping there.",
+        "steps": [
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "Having to fit the cord posts before the cradled motor felt somewhat arbitrary; I did not see why that order was necessary.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see what else the motor-driven wave machine can demonstrate, especially after seeing the reflected disturbance.",
+        "steps": [
+          5,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

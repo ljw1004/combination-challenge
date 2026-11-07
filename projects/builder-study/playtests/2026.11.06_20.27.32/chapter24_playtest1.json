@@ -1,0 +1,168 @@
+[
+  {
+    "step": 1,
+    "reason": "The lift module needs a secure place on the frame, so fitting its padded mount is a useful start.",
+    "choice": {
+      "combine": "Padded module mount",
+      "with": "Braced whale frame"
+    },
+    "expectation": "The mount should attach to the whale frame, ready to support the lift module.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The padded mount has no available operation yet, so another part likely needs fitting first.",
+    "reaction": "The required order was not obvious from the board.",
+    "step": 2,
+    "reason": "Inspecting the frame should reveal which parts can be fitted now.",
+    "choice": {
+      "inspect": "Braced whale frame"
+    },
+    "expectation": "The frame will show its currently compatible parts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame needed its paper skin first, and inspection fitted it automatically.",
+    "reaction": "The required first step is clearer now.",
+    "step": 3,
+    "reason": "The hatch should provide access through the newly fitted skin.",
+    "choice": {
+      "combine": "Hinged service hatch",
+      "with": "Paper-skinned whale"
+    },
+    "expectation": "The hatch will fit into the whale's skin, leaving access to its workings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hatch is fitted and keeps the controller and counterweight accessible.",
+    "reaction": "The access purpose is clear now.",
+    "step": 4,
+    "reason": "The padded mount should provide a secure place for the lift module inside the whale.",
+    "choice": {
+      "combine": "Padded module mount",
+      "with": "Whale with service hatch"
+    },
+    "expectation": "The mount will attach inside the whale, ready for the lift module.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Stiffened fins",
+          "with": "Whale with service hatch"
+        },
+        "reason": "The fins also need fitting, but the module mount seems more directly related to the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The module mount still cannot be fitted, so another step must come first.",
+    "reaction": "The hidden ordering is becoming a little frustrating.",
+    "step": 5,
+    "reason": "The fins are the remaining obvious exterior part to fit before installing the module.",
+    "choice": {
+      "combine": "Stiffened fins",
+      "with": "Whale with service hatch"
+    },
+    "expectation": "The fins will attach to the whale.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Whale with service hatch"
+        },
+        "reason": "Inspecting would confirm the available fitting, but the fins are a plausible next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fins are fitted, completing the whale's silhouette without contributing lift.",
+    "reaction": "The distinction between the fins and the lift tile is useful.",
+    "step": 6,
+    "reason": "With the exterior parts fitted, the padded mount may now be ready to support the lift module.",
+    "choice": {
+      "combine": "Padded module mount",
+      "with": "Whale with fins"
+    },
+    "expectation": "The mount will attach inside the whale, ready for the lift module.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Whale with fins"
+        },
+        "reason": "Inspection could confirm the next available fitting if the mount is still premature."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The padded mount is now fitted, so the whale is ready for its lift module.",
+    "reaction": "It is satisfying to finally have a place for the module.",
+    "step": 7,
+    "reason": "The balanced lift module can now be installed on its mount.",
+    "choice": {
+      "combine": "Balanced lift module",
+      "with": "Whale with module mount"
+    },
+    "expectation": "The lift module will fit securely inside the whale.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balanced lift module is installed in the whale; the exterior stop-button extension remains to be fitted.",
+    "reaction": "The main assembly is coming together.",
+    "step": 8,
+    "reason": "The exterior extension should keep the lift module's stop button accessible.",
+    "choice": {
+      "combine": "Exterior stop-button extension",
+      "with": "Whale carrying lift module"
+    },
+    "expectation": "The stop-button extension will attach to the whale and allow power to be cut from outside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The outside button is linked to the stop switch, and the lift module's low battery and counterweight placement is explained. The chapter goal is complete.",
+    "reaction": "The pushrod and low-set weight made the finished assembly more understandable.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the outside stop button was most worthwhile: it made the safety control accessible and explained how the module sits inside the whale.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the mount twice before it was available was repetitive, especially because the required order was not apparent.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The fins establish the whale's shape but provide no lift; that comes entirely from the invented tile.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The mount had to wait until after the fins, but the results did not explain why that fitting order was necessary.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would like to see how the assembled whale carries the fair, although I hope the next construction makes its required order clearer.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

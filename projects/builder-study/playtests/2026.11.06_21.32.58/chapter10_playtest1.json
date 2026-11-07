@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "The winding drum and its bearing bracket look like the first part of the lifting mechanism to mount on the crane.",
+    "choice": {
+      "combine": "Winding drum and bearing bracket",
+      "with": "Braced crane with spreading feet"
+    },
+    "expectation": "The drum and bracket will be fitted to the crane frame.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Crank and toothed ratchet wheel",
+          "with": "Winding drum and bearing bracket"
+        },
+        "reason": "The crank may need to be assembled with the drum before it is mounted."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drum had to be assembled with the crank first; the resulting hand winch may now fit the crane.",
+    "reaction": "The automatic assembly made the failed guess useful, and the explanation of the longer crank was interesting.",
+    "step": 2,
+    "reason": "The assembled winch should mount on the crane to wind the lifting cord.",
+    "choice": {
+      "combine": "Hand winch",
+      "with": "Braced crane with spreading feet"
+    },
+    "expectation": "The hand winch will be fitted to the crane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is mounted, so the crane can now be fitted with its lifting cord.",
+    "reaction": "The assembly worked as expected.",
+    "step": 3,
+    "reason": "The cord and hook should connect the winch to the load through the tip pulley.",
+    "choice": {
+      "combine": "Lifting cord and closed hook",
+      "with": "Crane with a hand winch"
+    },
+    "expectation": "The cord will be routed over the pulley and attached to the winch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lifting line is installed, leaving the holding and stability parts to fit before the basket lift.",
+    "reaction": "The cord fitting was straightforward.",
+    "step": 4,
+    "reason": "The pawl should engage the winch's ratchet to hold a raised load.",
+    "choice": {
+      "combine": "Holding pawl and release lever",
+      "with": "Crane with a lifting line"
+    },
+    "expectation": "The pawl and release lever will be fitted to the crane's winch.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rear ballast block",
+          "with": "Crane with a lifting line"
+        },
+        "reason": "The ballast also looks useful for stabilizing the crane before lifting."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pawl can hold the rope but cannot prevent tipping, so the crane's stability still needs attention.",
+    "reaction": "The distinction between holding the load and stabilizing the crane is useful.",
+    "step": 5,
+    "reason": "The rear ballast should help counter the load before testing the crane.",
+    "choice": {
+      "combine": "Rear ballast block",
+      "with": "Rigged crane with holding pawl"
+    },
+    "expectation": "The ballast will be fitted to the rear of the crane to improve its stability.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Small padded test weight",
+          "with": "Rigged crane with holding pawl"
+        },
+        "reason": "The test weight could reveal how the crane behaves before lifting the basket."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ballast and pawl are fitted, and the crane is ready for a low test of both.",
+    "reaction": "Testing the two safeguards together makes sense.",
+    "step": 6,
+    "reason": "The padded test weight is intended for the low test before lifting the basket.",
+    "choice": {
+      "combine": "Small padded test weight",
+      "with": "Ballasted holding crane ready for a test"
+    },
+    "expectation": "The crane will lift the test weight low and check its stability and holding pawl.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The low test confirmed that the ballast keeps the feet down and the pawl holds the drum; the basket is the next load to try.",
+    "reaction": "The explanation of holding the crank while releasing the pawl makes the lowering mechanism clearer.",
+    "step": 7,
+    "reason": "The tested crane is ready to lift, hold and lower the cargo basket.",
+    "choice": {
+      "combine": "Small cargo basket",
+      "with": "Crane with a holding pawl"
+    },
+    "expectation": "The crane will lift the basket, hold it with the pawl and lower it gently.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket lift confirmed that the assembled crane can hold a load and lower it under control, completing the goal.",
+    "reaction": "It was satisfying to see the separate stability and holding mechanisms work together in a delivery.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The low test was most worthwhile: it showed how the ballast and pawl do different jobs, and how to lower a load safely.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Mounting the winch and adding the cord were straightforward assembly steps, with less to discover than the test.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I appreciated the distinction that the pawl can prevent the drum from unwinding but cannot stop the whole crane tipping.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. My first mounting guess was wrong, but the compatibility feedback made the required assembly clear.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see what the fair does with these constructions; the crane's practical mechanisms made this chapter worth the time.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

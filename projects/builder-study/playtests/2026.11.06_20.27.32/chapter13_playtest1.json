@@ -1,0 +1,138 @@
+[
+  {
+    "step": 1,
+    "reason": "The jaws need a mounting point on the grabber beam, so I’ll try fitting them there.",
+    "choice": {
+      "combine": "Two crab-shaped jaws",
+      "with": "Grabber beam"
+    },
+    "expectation": "The jaws will attach to the end of the beam.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Grabber beam"
+        },
+        "reason": "I could check what fits the beam first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jaws are now hinged on the beam; they still need a way to move together.",
+    "reaction": "The mounting worked as expected.",
+    "step": 2,
+    "reason": "The slider and guide look like the next part of the jaw mechanism.",
+    "choice": {
+      "combine": "Slider and straight guide",
+      "with": "Beam with hinged jaws"
+    },
+    "expectation": "The guided slider will attach to the beam, ready to operate the jaws through links.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slider is mounted in its guide, ready to be connected to the jaws.",
+    "reaction": "That worked as expected.",
+    "step": 3,
+    "reason": "The separate links should connect the guided slider to the two jaws.",
+    "choice": {
+      "combine": "Two separate jaw links",
+      "with": "Grabber with a guided slider"
+    },
+    "expectation": "The links will connect the slider to both jaws so they can move together.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slider now closes both jaws through pivoting links; the mechanism still needs a return and an actuator.",
+    "reaction": "The short arms spreading to close the long tips is an interesting detail.",
+    "step": 4,
+    "reason": "The output syringe needs a cradle to hold it in place before it can drive the mechanism.",
+    "choice": {
+      "combine": "Needleless output syringe",
+      "with": "Output-syringe cradle"
+    },
+    "expectation": "The syringe will be secured in its cradle, ready to attach to the grabber.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The output syringe is secured in its cradle and can now be fitted to the grabber.",
+    "reaction": "That worked as expected.",
+    "step": 5,
+    "reason": "The cradled syringe should provide the actuator for the linked jaws.",
+    "choice": {
+      "combine": "Output syringe in its cradle",
+      "with": "Grabber with linked jaws"
+    },
+    "expectation": "The syringe assembly will attach to the grabber and connect to its slider.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The output syringe is attached to the linked grabber; the jaws still need a return mechanism.",
+    "reaction": "That worked as expected.",
+    "step": 6,
+    "reason": "The light return band should pull the mechanism back and reopen the jaws.",
+    "choice": {
+      "combine": "Light return band",
+      "with": "Grabber with an output syringe"
+    },
+    "expectation": "The band will be fitted so the jaws spring open again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return band is fitted; the grabber is ready to test with the block.",
+    "reaction": "The return mechanism went on as expected.",
+    "step": 7,
+    "reason": "The wooden block is the available test object for checking the jaws.",
+    "choice": {
+      "combine": "Light wooden test block",
+      "with": "Grabber with a return band"
+    },
+    "expectation": "The jaws will grip the block and spring open again when released.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test confirmed that pushing the crosshead closes the jaws and releasing it lets the band reopen them. The chapter goal is complete, though remote control remains for later.",
+    "reaction": "It was satisfying to see the assembled linkage grip and release the block.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the jaw links was most worthwhile: their separate pivots and short arms explained how slider movement closes the long jaw tips.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the syringe into its cradle was straightforward and revealed little on its own.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The short arms spread as the long jaw tips close; that clarified how the linkage reverses the movement.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The syringe's eventual remote-control role was suggested, though it was not demonstrated in this chapter.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the syringe controls the jaws from the other end, especially after testing the linkage by hand.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "The cut paper is ready to cover the braced whale frame.",
+    "choice": {
+      "combine": "Cut translucent paper skin",
+      "with": "Braced whale frame"
+    },
+    "expectation": "The paper will form the whale’s outer skin while leaving access for its workings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin cannot be fitted yet, so I need to find what the frame accepts first.",
+    "reaction": "That ordering was not obvious from the visible parts.",
+    "step": 2,
+    "reason": "Checking the frame should reveal the available next fitting without another blind guess.",
+    "choice": {
+      "inspect": "Braced whale frame"
+    },
+    "expectation": "The inspection will show which parts can currently be fitted to the frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The padded mount had to go on the frame first; it is now installed.",
+    "reaction": "The inspection resolved the unclear ordering.",
+    "step": 3,
+    "reason": "The balanced lift module should fit the mount made for it.",
+    "choice": {
+      "combine": "Balanced lift module",
+      "with": "Whale with module mount"
+    },
+    "expectation": "The lift module will be secured to the whale frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lift module is now secured to the whale.",
+    "reaction": "The mount’s purpose is clear now.",
+    "step": 4,
+    "reason": "The stop-button extension should connect to the installed module so its stop remains reachable.",
+    "choice": {
+      "combine": "Exterior stop-button extension",
+      "with": "Whale carrying lift module"
+    },
+    "expectation": "The stop control will be extended to the outside of the whale.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The exterior stop-button extension cannot be fitted at this stage, so another fitting must come first.",
+    "reaction": "The required order is still unclear.",
+    "step": 5,
+    "reason": "Inspecting the whale will reveal what can be fitted next without another blind guess.",
+    "choice": {
+      "inspect": "Whale carrying lift module"
+    },
+    "expectation": "The inspection will show the currently available fitting or fittings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin could be fitted after the lift module, and the whale is now covered.",
+    "reaction": "The inspection cleared up the ordering.",
+    "step": 6,
+    "reason": "The service hatch should provide the access the introduction calls for.",
+    "choice": {
+      "combine": "Hinged service hatch",
+      "with": "Paper-skinned whale"
+    },
+    "expectation": "The hatch will make the workings accessible through the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hatch now provides access to the controller and counterweight while preserving the whale’s shape.",
+    "reaction": "It is satisfying to see how the workings stay reachable.",
+    "step": 7,
+    "reason": "The exterior stop-button extension is the remaining fitting and should make the stop accessible from outside.",
+    "choice": {
+      "combine": "Exterior stop-button extension",
+      "with": "Whale with service hatch"
+    },
+    "expectation": "The stop button will be reachable on the outside of the whale.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The outside button is connected to the module’s stop switch, and the completed whale keeps its battery and counterweight low.",
+    "reaction": "The pushrod makes the exterior control’s purpose satisfyingly concrete.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the service hatch was most worthwhile: it showed how to preserve access to the controller and counterweight without spoiling the whale’s shape.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempts to fit the skin and stop extension were frustrating because their required order was not apparent from the parts.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected the skin to go on first, but the frame needed its module mount and lift module before it could be covered.",
+        "steps": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The exact fitting order initially felt arbitrary; inspection revealed what was allowed, though not why the skin had to wait.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the accessible hatch and outside stop make me curious how the assembled whale will be tested, though I hope the next ordering is clearer.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "The hinge pins look useful for joining the dragon’s moving cut-out parts.",
+    "choice": {
+      "combine": "Dragon body and wing cut-outs",
+      "with": "Soft hinge pins"
+    },
+    "expectation": "The pins will attach the wings to the body so they can move.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pins joined the cut-outs into a jointed dragon; it still needs a connection to the lifter.",
+    "reaction": "The hinged dragon is a satisfying first piece.",
+    "step": 2,
+    "reason": "The jointed wing rods appear to connect the dragon's wings to the mechanism.",
+    "choice": {
+      "combine": "Two jointed wing rods",
+      "with": "Jointed card dragon"
+    },
+    "expectation": "The rods will attach to the dragon's wings so the mechanism can move them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wing rods cannot currently be combined with anything, so the dragon may need to be mounted first.",
+    "reaction": "That was an unexpected ordering constraint.",
+    "step": 3,
+    "reason": "The jointed dragon likely needs to sit on the cam lifter before its wings can be connected.",
+    "choice": {
+      "combine": "Jointed card dragon",
+      "with": "Reliable cam lifter"
+    },
+    "expectation": "The dragon will be mounted on the mechanism.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Jointed card dragon"
+        },
+        "reason": "I could check its available partners first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dragon is mounted, so the wing rods may now connect it to the lifter.",
+    "reaction": "The mounting order makes more sense now.",
+    "step": 4,
+    "reason": "The rods should link the mounted wings to the moving mechanism.",
+    "choice": {
+      "combine": "Two jointed wing rods",
+      "with": "Dragon body on the mechanism"
+    },
+    "expectation": "The rods will connect the wings to the follower so they can wave.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rods now link the follower to both wings, with independent pivots at the wing roots.",
+    "reaction": "It is satisfying to see how one rising follower can move both wings.",
+    "step": 5,
+    "reason": "The chapter asks for a wave with the original cam first, so the crank handle should let me test it.",
+    "choice": {
+      "combine": "Removable crank handle",
+      "with": "Dragon linked to its follower"
+    },
+    "expectation": "Turning the handle will make the dragon wave using the original cam.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The original cam produces one wing rise and fall per turn; the next step is to exchange it for the greeting cam.",
+    "reaction": "The single wave makes the cam’s effect clear, and the old fair drawing is intriguing.",
+    "step": 6,
+    "reason": "The chapter calls for exchanging cams after the first wave, and the two-humped cam is the available replacement.",
+    "choice": {
+      "combine": "Two-humped greeting cam",
+      "with": "Dragon giving one wave"
+    },
+    "expectation": "The greeting cam will replace the original cam so I can compare the dragon’s wave.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The replacement cam is installed securely, with two rises ready to compare against the original cam.",
+    "reaction": "The keeper pin and shaft-removal sequence makes the exchange feel mechanically concrete.",
+    "step": 7,
+    "reason": "The handle should let me test the new cam and compare its greeting with the first wave.",
+    "choice": {
+      "combine": "Removable crank handle",
+      "with": "Dragon with a second greeting"
+    },
+    "expectation": "One turn will produce two rises and falls of the wings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The comparison is complete: the two-humped cam gives the dragon a double wave, and the fair has its waving dragon.",
+    "reaction": "The wave-wave pattern is a satisfying payoff for changing the cam.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the wing rods was worthwhile because it showed how one follower moves two independently pivoting wings.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the rods before mounting the dragon was the least worthwhile moment; the ordering constraint was not apparent beforehand.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the rods could not be attached until the dragon was mounted.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial attachment order felt a little arbitrary at first, although mounting the body before connecting the rods made more sense afterward.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would choose to continue: comparing the cams made the mechanism understandable, and the old drawing raises an interesting question about the fair.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

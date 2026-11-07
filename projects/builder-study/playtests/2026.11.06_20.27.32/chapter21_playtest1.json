@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "The guide posts seem like a sensible first part of the stand that will contain the tile.",
+    "choice": {
+      "combine": "Guide posts",
+      "with": "Test-stand base"
+    },
+    "expectation": "The posts should attach to the base to guide the tile during testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guide posts cannot currently be combined, so the stand may need another preparation first.",
+    "reaction": "I’m surprised the posts were not the first fitting.",
+    "step": 2,
+    "reason": "Inspecting the base should reveal which part can be fitted first.",
+    "choice": {
+      "inspect": "Test-stand base"
+    },
+    "expectation": "The base will show its currently available partners.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tether had to go on the base first; the stand is now tethered.",
+    "reaction": "That explains why the guide posts were not available yet.",
+    "step": 3,
+    "reason": "With the safety tether in place, the guide posts may now fit the base.",
+    "choice": {
+      "combine": "Guide posts",
+      "with": "Tethered test base"
+    },
+    "expectation": "The posts will attach to guide the tile during testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guide posts fit once the base was tethered, making a guided lift stand.",
+    "reaction": "The stand’s assembly order is clearer now.",
+    "step": 4,
+    "reason": "The tile cradle appears to be the next part needed to hold the tile in the stand.",
+    "choice": {
+      "combine": "Tile cradle with hanging supports",
+      "with": "Guided lift stand"
+    },
+    "expectation": "The cradle will attach to the stand to support the tile for testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tile must be fitted into its cradle before the assembly goes into the stand.",
+    "reaction": "The compatibility feedback made the next assembly step clear.",
+    "step": 5,
+    "reason": "The cradled tile should now fit the guided stand for a tethered test.",
+    "choice": {
+      "combine": "Cradled lift tile",
+      "with": "Guided lift stand"
+    },
+    "expectation": "The cradled tile will be secured in the stand.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cradled tile is now secured in the guided test stand.",
+    "reaction": "The stand is coming together after the earlier assembly-order surprises.",
+    "step": 6,
+    "reason": "The battery pack and spring-return switch appear to be the power controls needed for a controlled test.",
+    "choice": {
+      "combine": "Tile battery pack",
+      "with": "Spring-return test switch"
+    },
+    "expectation": "The battery and switch will form a switched power supply for the tile.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery and spring-return switch now form a hold-to-lift supply for the test.",
+    "reaction": "The hold-to-lift control seems appropriate for a tethered test.",
+    "step": 7,
+    "reason": "The tile needs the switched supply before it can be tested.",
+    "choice": {
+      "combine": "Hold-to-lift supply",
+      "with": "Tile in test stand"
+    },
+    "expectation": "The supply will connect to the tile so it can be lifted under control.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered tile rises within the tether and settles when the switch is released; the test weight remains to be tried.",
+    "reaction": "The tether catching the rising tile is a striking demonstration of the invented lift.",
+    "step": 8,
+    "reason": "The test weight should help establish how much the tile can lift.",
+    "choice": {
+      "combine": "Test weight",
+      "with": "Rising tile stand"
+    },
+    "expectation": "The weight will be attached for a controlled lift test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loaded test showed that the tile can lift the test weight, though more slowly, and completed the goal; it did not establish a maximum capacity.",
+    "reaction": "The slower rise made the invented lift feel more connected to the load being carried.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The powered and loaded tests were the most worthwhile: the tether and switch made the demonstration controlled, and the weight changed its behavior.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed first attempt to fit the guide posts was the least worthwhile; the required assembly order was not apparent from the board.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the tether had to be fitted before the guide posts, and that the cradle had to receive the tile before joining the stand.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The tether-first requirement initially felt arbitrary, although it established a safety measure before the lift test.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the tested tile becomes part of the flying fair; the contrast between its invented lift and the practical tethering was interesting.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

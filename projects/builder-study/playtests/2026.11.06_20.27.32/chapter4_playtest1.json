@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The pivot plate looks like the mounting point for the flippers, so I'll attach it to the table first.",
+    "choice": {
+      "combine": "Flipper pivot plate",
+      "with": "Marble-return table"
+    },
+    "expectation": "The plate will mount on the table and provide a pivot for the flipper blades.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pivot plate combines with the blades first, making button-operated flippers rather than mounting directly on the table.",
+    "reaction": "The short button and returning paddle make the mechanism clearer; I was surprised the blades had to go on first.",
+    "step": 2,
+    "reason": "The assembled flippers should now fit onto the marble table.",
+    "choice": {
+      "combine": "Button-operated flippers",
+      "with": "Marble-return table"
+    },
+    "expectation": "The flippers will attach to the table for the player to operate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The assembled flippers are now fitted to the marble table.",
+    "reaction": "That attachment worked as expected.",
+    "step": 3,
+    "reason": "The target arches look like the next playing features to add to the table.",
+    "choice": {
+      "combine": "Three target arches",
+      "with": "Table with working flippers"
+    },
+    "expectation": "The arches will be fitted as targets for the marble.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The target arches are now installed on the pinball table.",
+    "reaction": "That worked as expected.",
+    "step": 4,
+    "reason": "The score wheel should add a way to track hits on the targets.",
+    "choice": {
+      "combine": "Score wheel",
+      "with": "Pinball table with three targets"
+    },
+    "expectation": "The score wheel will attach to the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The score wheel has no available combination yet, so another step must come first.",
+    "reaction": "I was surprised it could not be attached yet.",
+    "step": 5,
+    "reason": "Trying the marble on the assembled table may reveal what still needs adjustment.",
+    "choice": {
+      "combine": "Game marble",
+      "with": "Pinball table with three targets"
+    },
+    "expectation": "The marble will test the flippers and targets, possibly revealing what the table needs next.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Stubby screwdriver"
+        },
+        "reason": "The screwdriver might be needed to adjust or secure a component."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The marble test revealed that the launcher has an adjustable stop for reaching the top arch.",
+    "reaction": "The distinction between the gentle launch and the longer shot makes the adjustment purposeful.",
+    "step": 6,
+    "reason": "The screwdriver may adjust the launcher's stop for the top arch.",
+    "choice": {
+      "combine": "Stubby screwdriver",
+      "with": "Pinball table on its gentle setting"
+    },
+    "expectation": "The screwdriver will adjust the launcher for a longer shot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The screwdriver moved the launcher stop, allowing a longer but still gentle launch.",
+    "reaction": "The explanation of the captive stop makes the adjustment feel purposeful.",
+    "step": 7,
+    "reason": "The adjusted launcher is ready to test with the marble, especially against the top arch.",
+    "choice": {
+      "combine": "Game marble",
+      "with": "Pinball table with a longer launch"
+    },
+    "expectation": "The marble will test whether the longer launch reaches the top arch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The longer launch reached the top arch, and the run demonstrated all three targets.",
+    "reaction": "It was satisfying to see the adjustment make the top arch reachable without making the marble stronger.",
+    "step": 8,
+    "reason": "Now that all three targets have been tested, the score wheel may be ready to add.",
+    "choice": {
+      "combine": "Score wheel",
+      "with": "Pinball table after a three-arch run"
+    },
+    "expectation": "The score wheel will attach so players can keep track of their shots.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The score wheel attached after the three-arch run, and the completed table is ready for the fair.",
+    "reaction": "It was satisfying to see the tested game become a finished stall, though I had expected to attach the wheel earlier.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adjusting the launcher and testing the longer shot was most worthwhile: it showed how the stop changes the launch and made the top target reachable.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the score wheel before it was available was the least worthwhile moment; the feedback did not explain what had to happen first.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the flipper blades had to be assembled with the pivot plate before mounting them on the table.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The score wheel's initial unavailability felt somewhat arbitrary because I could not see why it needed to wait until after the test run.",
+        "steps": [
+          4,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the launcher adjustment connected a practical mechanism to a noticeable result, and I am curious what the fair will do next.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

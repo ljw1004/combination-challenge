@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "The clip looks like the part that will hold the pen on the rover.",
+    "choice": {
+      "combine": "Felt-tip pen",
+      "with": "Spring pen clip"
+    },
+    "expectation": "The pen and clip will make a mountable drawing tool.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen and clip are now a single clipped pen, ready to try on the rover.",
+    "reaction": "That fit was straightforward.",
+    "step": 2,
+    "reason": "The clipped pen needs a place on the tested rover before it can draw.",
+    "choice": {
+      "combine": "Clipped pen",
+      "with": "Rover with tested wheel drives"
+    },
+    "expectation": "The clipped pen will attach to the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen is attached, so the rover is ready for a drawing test.",
+    "reaction": "The mounting was straightforward.",
+    "step": 3,
+    "reason": "The test-paper roll provides a surface to check how the rover draws and steers.",
+    "choice": {
+      "combine": "Test-paper roll",
+      "with": "Rover with pen"
+    },
+    "expectation": "The rover will draw on the paper, revealing how well it steers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drawing test revealed unequal motor speeds and a receiver trim adjustment.",
+    "reaction": "The curved line makes the steering problem clear.",
+    "step": 4,
+    "reason": "The small screwdriver should let me adjust the receiver trim to correct the curve.",
+    "choice": {
+      "combine": "Small trim screwdriver",
+      "with": "Rover drawing a curve"
+    },
+    "expectation": "Adjusting the trim will help the rover drive and draw straight.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trim adjustment gives the rover a corrected control setting after a comparison run.",
+    "reaction": "Comparing another line makes the adjustment practical.",
+    "step": 5,
+    "reason": "The pen-lift lever is the remaining part needed to let the rover lift its pen.",
+    "choice": {
+      "combine": "Pen-lift lever",
+      "with": "Trimmed rover"
+    },
+    "expectation": "The lever will let the rover raise the pen off the paper.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen-lift lever currently has no available operation, so something else must happen first.",
+    "reaction": "That was unexpected; the missing prerequisite is unclear.",
+    "step": 6,
+    "reason": "Inspecting the trimmed rover should reveal what it can do next.",
+    "choice": {
+      "inspect": "Trimmed rover"
+    },
+    "expectation": "Its available partners will show the next step toward steering and lifting the pen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote test confirmed the trimmed rover can draw straight and steer into a loop; the pen lift remains to be fitted.",
+    "reaction": "Seeing the correction work makes the earlier adjustment worthwhile.",
+    "step": 7,
+    "reason": "The drawing and steering test is complete, so the pen-lift lever may now be ready to fit.",
+    "choice": {
+      "combine": "Pen-lift lever",
+      "with": "Rover drawing a straight line"
+    },
+    "expectation": "The lever will let the rover raise its pen off the paper.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lever is fitted and can raise the pen without removing it; the rover still needs a complete test.",
+    "reaction": "The pen lift's purpose is clear now.",
+    "step": 8,
+    "reason": "The remote controlled the earlier drawing test, so it is the most likely way to try the finished rover.",
+    "choice": {
+      "combine": "Working remote",
+      "with": "Rover with pen lift"
+    },
+    "expectation": "The rover will demonstrate drawing and moving with its pen raised.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote test demonstrated drawing, steering and moving with the pen raised, completing the goal.",
+    "reaction": "The looping whale was a satisfying final demonstration.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing and correcting the curved line was worthwhile: it connected unequal motor speeds to a practical trim adjustment.",
+        "steps": [
+          3,
+          4,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the pen-lift lever before the straight-line test was frustrating because the missing prerequisite was unclear.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected to fit the pen lift after trimming, but the rover first needed another remote test.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The requirement to test the straight line before fitting the pen lift felt somewhat arbitrary; its purpose was not clear until inspection revealed the remote as the next partner.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: diagnosing the curve and seeing the correction work made the construction feel useful, though I would hope for clearer prerequisites.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

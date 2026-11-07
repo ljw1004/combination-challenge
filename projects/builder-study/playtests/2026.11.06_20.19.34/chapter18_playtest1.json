@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "reason": "The rover needs a pen, so I'll start by fitting it into the clip.",
+    "choice": 1,
+    "expectation": "I expect a pen held in its clip, ready to attach to the rover.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Powering the remote also looks necessary, but I'll prepare the drawing tool first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen is clipped and ready to fit to the rover.",
+    "reaction": "That worked as expected.",
+    "step": 2,
+    "reason": "Attaching the clipped pen should give the rover its drawing tool.",
+    "choice": 1,
+    "expectation": "I expect the pen to be mounted on the rover, though it may still need adjustment.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The remote also needs power, but I'll finish mounting the pen first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen is mounted; the remote is the next available preparation.",
+    "reaction": "The fitting was straightforward.",
+    "step": 3,
+    "reason": "Powering the remote is the only offered combination and should enable steering.",
+    "choice": 1,
+    "expectation": "I expect a powered remote, ready to control the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote now has power and is ready to use with the rover.",
+    "reaction": "That was straightforward.",
+    "step": 4,
+    "reason": "Using the remote with the rover is the only offered combination and should let me test its steering.",
+    "choice": 1,
+    "expectation": "I expect the remote to control the rover, though the pen may still need adjustment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steering test revealed unequal motor speeds and a trim adjustment to correct them.",
+    "reaction": "The curve makes the need for adjustment clear.",
+    "step": 5,
+    "reason": "The screwdriver is the only offered combination and should adjust the motor trim.",
+    "choice": 1,
+    "expectation": "I expect to adjust the trim so the rover travels straighter, though it may need another test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trim balances the wheel speeds, so the rover is ready for another drawing test.",
+    "reaction": "Adjusting the control rather than the drawing makes the correction clear.",
+    "step": 6,
+    "reason": "The test paper is the only offered combination and should let me try the trimmed rover.",
+    "choice": 1,
+    "expectation": "I expect to test whether the rover now draws a straighter line.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test confirms the trim produces a straight line, and different wheel speeds steer the rover into a loop.",
+    "reaction": "Seeing the steering principle make a visible mark is satisfying.",
+    "step": 7,
+    "reason": "The pen-lift lever is the only offered combination and should let the rover move without drawing.",
+    "choice": 1,
+    "expectation": "I expect the lever to lift the pen off the paper so the rover can travel without leaving a line.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen-lift lever is fitted, ready to test with the remote.",
+    "reaction": "The fitting was straightforward.",
+    "step": 8,
+    "reason": "Using the remote is the only offered combination and should test the completed rover.",
+    "choice": 1,
+    "expectation": "I expect to steer the rover and try moving with the pen lifted, though I don't know exactly how the test will unfold.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final test confirms the rover can move without marking, then draw a whale for the invitation; the chapter goal is complete.",
+    "reaction": "The looping whale is a pleasing payoff for the pen lift.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the trimmed rover was most worthwhile: the straight line and loop made the relationship between wheel speeds and steering visible.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Powering the remote was a necessary but unremarkable preparation.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The initial straight-ahead command produced a curve because one motor was faster; the trim corrected the control rather than the drawing.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary, although several fittings were straightforward and offered as the only choice.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the drawing rover and the whale invitation fit into the fair, especially if another mechanism is demonstrated as clearly as the steering.",
+        "steps": [
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,250 @@
+[
+  {
+    "step": 1,
+    "reason": "The remote needs batteries to control the rover.",
+    "choice": {
+      "combine": "Remote batteries",
+      "with": "Matching remote"
+    },
+    "expectation": "The batteries should power the remote.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote is powered and ready; the rover still needs its drive components.",
+    "reaction": "A straightforward start.",
+    "step": 2,
+    "reason": "The gearmotors should drive the rubber wheels.",
+    "choice": {
+      "combine": "Matched gearmotors",
+      "with": "Rubber wheels"
+    },
+    "expectation": "The wheels will attach to the gearmotors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheels and gearmotors are now assembled into drives, and the gearboxes trade speed for turning force.",
+    "reaction": "The gearbox explanation makes the pairing more interesting.",
+    "step": 3,
+    "reason": "The wheel drives need to be mounted on the rover deck.",
+    "choice": {
+      "combine": "Wheel drives",
+      "with": "Rover deck"
+    },
+    "expectation": "The drives will attach to the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel drives have no available operation yet, so the deck may need another fitting first.",
+    "reaction": "I was surprised the drives could not be mounted yet.",
+    "step": 4,
+    "reason": "Inspecting the deck should reveal which parts can be fitted now.",
+    "choice": {
+      "inspect": "Rover deck"
+    },
+    "expectation": "The deck will list its currently compatible parts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ball caster",
+          "with": "Rover deck"
+        },
+        "reason": "The caster may need to go on first, but I am not certain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster had to be fitted before the wheel drives could be mounted.",
+    "reaction": "The automatic fitting resolved the uncertainty quickly.",
+    "step": 5,
+    "reason": "The caster is now in place, so I can retry mounting the wheel drives.",
+    "choice": {
+      "combine": "Wheel drives",
+      "with": "Deck with caster"
+    },
+    "expectation": "The wheel drives will attach to the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel drives are mounted; the caster and two driven wheels support and steer the rover without a steering axle.",
+    "reaction": "The explanation of steering by different wheel speeds is interesting.",
+    "step": 6,
+    "reason": "The receiver and motor driver should connect the remote's commands to the wheel motors.",
+    "choice": {
+      "combine": "Receiver and motor driver",
+      "with": "Three-point rover"
+    },
+    "expectation": "The receiver and motor driver will attach to the rover.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rover battery pack",
+          "with": "Three-point rover"
+        },
+        "reason": "The power supply might need to be fitted first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver and motor driver cannot be fitted yet; another rover component likely comes first.",
+    "reaction": "The required installation order is not obvious.",
+    "step": 7,
+    "reason": "Inspecting the rover should show which component can be fitted next.",
+    "choice": {
+      "inspect": "Three-point rover"
+    },
+    "expectation": "The rover will list its currently compatible parts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rover battery pack",
+          "with": "Three-point rover"
+        },
+        "reason": "The battery pack might be the next fitting."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is installed; the receiver may now be ready to fit.",
+    "reaction": "The inspection resolved the installation order, though it was not obvious beforehand.",
+    "step": 8,
+    "reason": "The rover now has power, so I will try fitting the receiver and motor driver again.",
+    "choice": {
+      "combine": "Receiver and motor driver",
+      "with": "Rover with battery"
+    },
+    "expectation": "The receiver and motor driver will attach to the rover.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Switch harness",
+          "with": "Rover with battery"
+        },
+        "reason": "The switch harness might need to be installed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver still cannot be fitted, so another component must come first.",
+    "reaction": "The repeated hidden installation order is becoming frustrating.",
+    "step": 9,
+    "reason": "The switch harness is the likely next power-system fitting.",
+    "choice": {
+      "combine": "Switch harness",
+      "with": "Rover with battery"
+    },
+    "expectation": "The switch harness will attach to the rover.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Rover with battery"
+        },
+        "reason": "Inspecting the rover would reveal its available fitting."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch harness is installed, so the rover is ready for another attempt at fitting the receiver.",
+    "reaction": "The likely power-system fitting worked.",
+    "step": 10,
+    "reason": "The switched rover now has its power components, so I will retry the receiver and motor driver.",
+    "choice": {
+      "combine": "Receiver and motor driver",
+      "with": "Switched rover"
+    },
+    "expectation": "The receiver and motor driver will attach to the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver and motor driver are installed, with separate outputs to control the wheels for steering.",
+    "reaction": "The explanation connects the electronics to the steering mechanism clearly.",
+    "step": 11,
+    "reason": "The gear guards should cover the drive mechanisms before testing the rover.",
+    "choice": {
+      "combine": "Gear guards",
+      "with": "Radio rover"
+    },
+    "expectation": "The guards will fit over the rover's drive mechanisms.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Working remote",
+          "with": "Radio rover"
+        },
+        "reason": "I could try the remote now, but the guards may be needed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gears are covered and the wheels can still turn; the guarded rover is ready for a control test.",
+    "reaction": "The guard makes the next test feel sensible.",
+    "step": 12,
+    "reason": "The working remote should let me test whether the wheels respond.",
+    "choice": {
+      "combine": "Working remote",
+      "with": "Guarded rover"
+    },
+    "expectation": "The rover will respond to the remote and drive or turn.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The raised-wheel test confirmed that the remote controls the drives and completed the goal; radio carries commands while the batteries supply energy.",
+    "reaction": "The safe test and distinction between energy and instructions made a satisfying finish.",
+    "step": 13,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the wheel drives was worthwhile because it explained how different wheel speeds steer the rover without a steering axle.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Repeatedly trying to fit the receiver before the required power components was frustrating; the installation order was not obvious.",
+        "steps": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the wheel drives could not be mounted until the caster was fitted.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The mandatory fitting order felt somewhat arbitrary because the board did not explain why the caster and power components had to come first.",
+        "steps": [
+          3,
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see how the rover draws: the steering and electronics explanations were useful, though I hope the next construction has fewer hidden ordering requirements.",
+        "steps": [
+          5,
+          10,
+          12
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

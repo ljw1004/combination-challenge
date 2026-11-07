@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "Fit the load tray to the test stand so there is somewhere to place and balance the test load.",
+    "choice": 1,
+    "expectation": "The tray will attach to the tethered lift setup, ready for a balance test.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Preparing the crane sling may help lift a load, but I would start by fitting the tray."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tray is fitted, so I can now test how an off-centre load affects balance.",
+    "reaction": "A straightforward preparation; nothing surprising yet.",
+    "step": 2,
+    "reason": "Add the off-centre block to reveal how the loaded tile behaves before balancing it.",
+    "choice": 1,
+    "expectation": "The load will make the tray tilt or otherwise show an imbalance, while the tether keeps the test contained.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The crane sling may be useful later, but the block advances the balance test now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loaded end dips, confirming that lift alone does not balance the tray. I should try the counterweight.",
+    "reaction": "The tilt makes the balance problem clear.",
+    "step": 3,
+    "reason": "Use the sliding counterweight to counter the off-centre load.",
+    "choice": 1,
+    "expectation": "Moving the counterweight should bring the tray closer to level, though it may need adjustment.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The crane sling could be useful later, but it does not address the visible tilt."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The counterweight leveled the tray but increased the load, so it needs more lift.",
+    "reaction": "The trade-off between balance and added weight is clear and interesting.",
+    "step": 4,
+    "reason": "Fit the current controller to adjust the lift for the heavier tray.",
+    "choice": 1,
+    "expectation": "The controller should let me increase lift enough for the balanced load, though it may still need a separate stop.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The crane sling may be useful later, but the controller addresses the extra load now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lift module now has adjustable power; it still needs a reliable stop.",
+    "reaction": "A straightforward fitting, with no detail yet about how the adjustment works.",
+    "step": 5,
+    "reason": "Fit the power-cut switch to address the goal of a reliable stop.",
+    "choice": 1,
+    "expectation": "The switch should cut power and stay off until reset, though I don't yet know how it will be tested.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The crane sling may be useful later, but the switch directly addresses the remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The power-cut switch overrides the controller, demonstrating a stop during the tethered test.",
+    "reaction": "The override makes the stop's purpose clear.",
+    "step": 6,
+    "reason": "Prepare the crane with the sling; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "The sling will attach to the crane, probably to move the lift module, though its exact use is not yet clear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sling is attached to the crane, ready to handle the stopped lift module.",
+    "reaction": "A straightforward preparation; its exact purpose is still unclear.",
+    "step": 7,
+    "reason": "Use the sling-equipped crane on the module; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "The crane will lift or support the stopped module, perhaps to remove it from the stand.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crane now supports the lift module in its sling, ready for release.",
+    "reaction": "The sling's purpose is clearer now.",
+    "step": 8,
+    "reason": "Use the release spanner on the supported module; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the spanner to release the module from the test stand while the crane supports it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crane supported the module while it was released, completing the balanced lift module with its tether and controls intact.",
+    "reaction": "The supported release neatly explained why the crane and sling were needed.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Balancing the tilting tray was the strongest moment: the counterweight corrected the tilt but added load, making the trade-off easy to understand.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Preparing the crane and sling was straightforward, but its purpose was initially unclear and the separate fittings felt a little drawn out.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The counterweight made the tray level but meant it needed more lift; correcting one problem introduced another.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The sling preparation initially lacked a clear purpose, though supporting the module for release explained it afterward.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the balanced module is used in the flying fair; the balance and safety tests gave that next construction a clear setup.",
+        "steps": [
+          3,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

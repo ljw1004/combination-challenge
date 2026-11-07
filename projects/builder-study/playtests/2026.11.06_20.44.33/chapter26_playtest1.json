@@ -1,0 +1,89 @@
+[
+  {
+    "step": 1,
+    "reason": "The motor is the only available action and should provide the drive for both attractions.",
+    "choice": 1,
+    "expectation": "I expect to mount the motor on the whale; it will probably still need connections and speed reduction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor is mounted; it still needs connections to the attractions.",
+    "reaction": "The result is straightforward, with no detail yet about the drive.",
+    "step": 2,
+    "reason": "The coupler is the only offered combination and should connect the motor to a crank.",
+    "choice": 1,
+    "expectation": "I expect it to connect the motor to the dragon's crank, though the exact arrangement is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dragon is now motor-driven; the star theatre still needs its drive.",
+    "reaction": "The connection makes sense, though the result gives no mechanical detail.",
+    "step": 3,
+    "reason": "The reducing belt drive is the only offered combination and should connect the remaining attraction at a different speed.",
+    "choice": 1,
+    "expectation": "I expect the belt drive to connect the star theatre and slow its rotation, though the exact speed relationship is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt drive slows the star wheel relative to the dragon using different-sized pulleys.",
+    "reaction": "The contrast between drifting stars and brisk waves makes the pulley reduction clear.",
+    "step": 4,
+    "reason": "The cover is the only offered combination and should shield the moving drive.",
+    "choice": 1,
+    "expectation": "I expect a transparent guard to cover the belt and pulleys while leaving them visible.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drive is now guarded; it still needs to be switched on.",
+    "reaction": "The cover is a sensible safety step, though the result gives no further detail.",
+    "step": 5,
+    "reason": "The switch key is the only offered combination and should let me test the attractions.",
+    "choice": 1,
+    "expectation": "I expect the motor to run the dragon and star wheel at their different speeds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test confirms that both attractions run together, and the slipping clutch provides protection if the dragon is held still. Everything is switched off for the later lift test.",
+    "reaction": "Seeing the dragon wave while the stars crawl is a satisfying payoff; the clutch was a useful extra detail.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the reducing belt drive was most worthwhile: the different-sized pulleys explain why the stars move slowly while the dragon waves briskly.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Mounting the motor and fitting the coupler felt rather routine; their results gave little mechanical detail.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The clutch slipping gently when the dragon is held still was an unexpected protective feature.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the coupler's exact arrangement was not explained.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see the assembled whale take its lifting test; this chapter made the two attractions work together but left the flight ahead.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

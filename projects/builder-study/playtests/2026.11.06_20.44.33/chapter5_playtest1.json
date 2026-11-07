@@ -1,0 +1,130 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start by fitting the bearing frames to the base, giving the rotating mechanism support.",
+    "choice": 1,
+    "expectation": "I expect a base ready to hold the crankshaft, though I don't know the exact fitting order.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The rod and guide also look useful, but I prefer to build the base first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bearing frames are in place, so the base is ready for the shaft.",
+    "reaction": "A straightforward first fitting.",
+    "step": 2,
+    "reason": "I'll fit the crankshaft into its bearings to build the rotating part.",
+    "choice": 1,
+    "expectation": "The shaft should sit in the bearings and be able to turn.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The follower assembly is also needed, but I'd like to finish the shaft first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crankshaft turns in the frame, ready for the cam.",
+    "reaction": "The assembly is progressing predictably.",
+    "step": 3,
+    "reason": "I'll add the off-centre cam to the turning shaft so it can eventually lift the follower.",
+    "choice": 1,
+    "expectation": "I expect the cam to rotate with the shaft, though the follower will still need fitting.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The follower and guide are also needed, but I'd like to complete the rotating assembly first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cam's off-centre shape makes its edge rise and fall as the shaft turns, explaining how it can move the follower.",
+    "reaction": "The comparison with a centred disc makes the mechanism clear.",
+    "step": 4,
+    "reason": "I'll assemble the follower and guide; it's the only offered combination and should prepare the moving rod.",
+    "choice": 1,
+    "expectation": "I expect the guide to keep the follower rod moving in a straight line, ready to meet the cam.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The follower is assembled in its guide and can now be joined to the cam mechanism.",
+    "reaction": "A straightforward preparation.",
+    "step": 5,
+    "reason": "I'll join the follower to the cam assembly; it's the only offered combination and should connect the rotating and sliding parts.",
+    "choice": 1,
+    "expectation": "I expect the cam to lift the guided rod as it turns, though the spring and handle may still need fitting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guided follower is now positioned above the cam, connecting the rotating and sliding parts.",
+    "reaction": "The mechanism is coming together straightforwardly.",
+    "step": 6,
+    "reason": "I'll add the crank handle; it's the only offered combination and should let me turn the shaft.",
+    "choice": 1,
+    "expectation": "I expect the handle to turn the cam and move the follower, though the spring may still need fitting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test reveals that the rod can stick and lose contact with the descending cam, so it needs help returning.",
+    "reaction": "The imperfect first test makes the spring's purpose clearer.",
+    "step": 7,
+    "reason": "I'll add the spring; it's the only offered combination and should help keep the follower against the cam.",
+    "choice": 1,
+    "expectation": "I expect the spring to press the follower back toward the cam so the rod rises and falls reliably.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spring keeps the follower against the cam, completing a reliable conversion from rotation to up-and-down motion.",
+    "reaction": "Satisfying to see the failed test resolved and the mechanism working.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the handle was most worthwhile: the follower lost contact, giving the spring a clear practical purpose.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The early bearing and shaft fittings were straightforward but less engaging individually.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I didn't expect the light rod to hang in its guide rather than follow the cam down.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the offered fittings had understandable roles, though several were the only available combination.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. The cam explanation and the troubleshooting were worth the time, and I'd be curious to see how the mechanism makes the dragon wave.",
+        "steps": [
+          3,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

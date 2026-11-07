@@ -1,0 +1,130 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and it should assemble the crane’s winding mechanism.",
+    "choice": 1,
+    "expectation": "I expect a crank-driven drum with a ratchet wheel, though it may need a pawl before it can hold a load.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is assembled, and I understand how its crank winds the cord. It now needs mounting on the crane.",
+    "reaction": "The trade-off between turning force and hand travel is a useful detail.",
+    "step": 2,
+    "reason": "Mounting the winch is the only offered combination and should bring the crane closer to lifting.",
+    "choice": 1,
+    "expectation": "I expect the hand winch to attach to the crane frame, ready for the lifting cord.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is mounted on the crane, ready for the lifting cord.",
+    "reaction": "A straightforward assembly step.",
+    "step": 3,
+    "reason": "Adding the cord and hook is the only offered combination and should make lifting possible.",
+    "choice": 1,
+    "expectation": "I expect the cord to connect the winch to the hook, probably passing over the boom pulley.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lifting line is fitted, so the crane is ready for a test load.",
+    "reaction": "A straightforward step toward trying the mechanism.",
+    "step": 4,
+    "reason": "The test weight is the only offered combination and should show how the crane handles a load.",
+    "choice": 1,
+    "expectation": "I expect the crane to lift the padded weight, though it may reveal a stability or holding problem.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is stiff, but the load makes the whole crane tip; it needs better balance before another lift.",
+    "reaction": "The distinction between bending and tipping is a useful surprise.",
+    "step": 5,
+    "reason": "Rear ballast is the only offered combination and should counter the load's tipping effect.",
+    "choice": 1,
+    "expectation": "I expect the ballast to weigh down the rear feet and make the crane more stable during a low test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ballast keeps the feet on the bench during the low test, so the crane is stable enough to address holding the load.",
+    "reaction": "The repeated test clearly shows what the ballast changed.",
+    "step": 6,
+    "reason": "The pawl and release lever are the only offered combination and should help the winch hold and lower a load.",
+    "choice": 1,
+    "expectation": "I expect the pawl to engage the ratchet to prevent unwinding, with the lever allowing a controlled release.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pawl now holds the drum when winding stops; lowering requires holding the crank while easing the release lever.",
+    "reaction": "The clicking pawl makes the holding mechanism easy to understand.",
+    "step": 7,
+    "reason": "The basket is the only offered combination and should test the crane on its intended load.",
+    "choice": 1,
+    "expectation": "I expect to lift the basket, hold it with the pawl, and lower it carefully using the crank and release lever.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket delivery demonstrated that the pawl holds the load and the crank and lever allow it to be lowered onto the stage.",
+    "reaction": "Seeing the assembled mechanism complete the delivery is satisfying.",
+    "step": 8,
+    "reason": "The screwdriver is the only offered combination; it may release the crane from the bench clips.",
+    "choice": 1,
+    "expectation": "I expect to undo the clips and free the finished crane, though I am not certain that will complete the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crane is free of the bench and ready to move cargo at the stall; the lifting goal is complete.",
+    "reaction": "Moving the finished crane to the fair is a fitting conclusion, though releasing the clips was predictable.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the load and adding ballast made the difference between a stiff frame and a stable crane clear; the repeated test showed the fix working.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Mounting the winch and adding the lifting line were straightforward assembly steps with little decision-making.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The frame stayed stiff while the whole crane tipped, making stability a separate problem from bending.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although every decision had only one offered combination, so I was following a prescribed sequence rather than choosing among mechanisms.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: the tipping test and pawl explanation made the mechanisms worth exploring, though I would hope for more meaningful choices.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

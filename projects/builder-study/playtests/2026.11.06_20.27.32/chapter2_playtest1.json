@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "The bearing tubes look like the first parts needed to support the racer's axles in the chassis.",
+    "choice": {
+      "combine": "Two smooth bearing tubes",
+      "with": "Light wooden chassis"
+    },
+    "expectation": "The tubes should fit into the chassis to support the wheel axles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bearing tubes are installed, so the chassis is ready for its axles.",
+    "reaction": "That was a straightforward first fitting.",
+    "step": 2,
+    "reason": "The wheels and captive axles should fit into the newly installed bearings.",
+    "choice": {
+      "combine": "Wheels and captive axles",
+      "with": "Chassis with axle bearings"
+    },
+    "expectation": "The axles should fit through the bearings, giving the chassis wheels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chassis now has wheels, leaving the sail and its support to assemble.",
+    "reaction": "The bearings and wheels fit together as expected.",
+    "step": 3,
+    "reason": "The sailcloth and mast with crossbar look like the parts of the racer's sail.",
+    "choice": {
+      "combine": "Light sailcloth",
+      "with": "Mast and crossbar"
+    },
+    "expectation": "The sailcloth should attach to the mast and crossbar to make a sail.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail is assembled, and its broad surface should catch air to propel the wheeled chassis.",
+    "reaction": "The explanation makes the sail's role clear.",
+    "step": 4,
+    "reason": "The assembled sail needs to be mounted on the wheeled chassis to make the racer.",
+    "choice": {
+      "combine": "Sail on its mast",
+      "with": "Wheeled chassis"
+    },
+    "expectation": "The mast should attach to the chassis, making a wind-powered racer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail is mounted on the wheeled chassis, making a racer still held at the bench.",
+    "reaction": "The assembly came together as expected.",
+    "step": 5,
+    "reason": "The portable starting gate looks like the way to launch the racer down the lane.",
+    "choice": {
+      "combine": "Portable starting gate",
+      "with": "Racer in the bench clips"
+    },
+    "expectation": "The racer should be moved to the starting gate and sent down the lane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starting gate has no available combination yet, so I need to find what the racer still needs.",
+    "reaction": "I expected the gate to launch it, so that was surprising.",
+    "step": 6,
+    "reason": "Inspecting the racer should reveal the next available fitting or action.",
+    "choice": {
+      "inspect": "Racer in the bench clips"
+    },
+    "expectation": "The compatibility list should show what can be used with the racer.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Pinwheel",
+          "with": "Racer in the bench clips"
+        },
+        "reason": "The pinwheel remains available, but its role in launching the racer is unclear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pinwheel showed the breeze's direction, and the racer is now facing it; the starting gate may be usable now.",
+    "reaction": "Using the pinwheel as a wind-direction indicator was a useful surprise.",
+    "step": 7,
+    "reason": "Now that the racer faces the breeze, the starting gate seems the natural next step for sending it down the lane.",
+    "choice": {
+      "combine": "Portable starting gate",
+      "with": "Racer facing the breeze"
+    },
+    "expectation": "The gate should let the racer start down the garden lane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starting gate worked once the racer was oriented, completing the goal and showing the whole construction in use.",
+    "reaction": "The successful run and Kit asking to try it were a satisfying finish.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the pinwheel to find the breeze direction was the most worthwhile discovery: it gave an earlier toy a practical role and showed why the sail needed orienting.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the starting gate too early was the least informative moment; it only said the gate could not yet combine with anything.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the pinwheel served as a wind-direction indicator rather than becoming part of the racer.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to orient the racer makes sense, though I did not anticipate that the pinwheel was required before the gate could be used.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the wind-direction discovery made the construction more interesting than simply fitting the expected parts together.",
+        "steps": [
+          3,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

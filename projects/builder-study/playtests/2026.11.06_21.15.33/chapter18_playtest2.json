@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The pen needs a holder and lift mechanism before it can draw from the rover.",
+    "choice": {
+      "combine": "Felt-tip pen",
+      "with": "Spring pen clip with lift lever"
+    },
+    "expectation": "The pen will fit into the clip to make a liftable drawing tool.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen is now clipped and ready to fit to the rover.",
+    "reaction": "That was the expected first assembly.",
+    "step": 2,
+    "reason": "The clipped pen needs to be mounted on the tested rover.",
+    "choice": {
+      "combine": "Clipped pen",
+      "with": "Rover with tested wheel drives"
+    },
+    "expectation": "The pen assembly will attach to the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clipped pen is mounted on the rover, so it can be tested on paper.",
+    "reaction": "The attachment worked as expected.",
+    "step": 3,
+    "reason": "The test-paper roll provides a surface for checking how the rover draws.",
+    "choice": {
+      "combine": "Test-paper roll",
+      "with": "Rover with pen"
+    },
+    "expectation": "The rover will make a test drawing, revealing whether the pen needs adjustment.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Small trim screwdriver",
+          "with": "Rover with pen"
+        },
+        "reason": "The pen might need adjustment first, but a test could show what adjustment is needed."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test revealed unequal motor speeds and identified the receiver’s trim as the adjustment to try.",
+    "reaction": "The curve makes the purpose of the screwdriver clear.",
+    "step": 4,
+    "reason": "The screwdriver should let me adjust the receiver’s trim to correct the curve.",
+    "choice": {
+      "combine": "Small trim screwdriver",
+      "with": "Rover drawing a curve"
+    },
+    "expectation": "Adjusting the trim will bring the wheel speeds closer together so the rover can drive straighter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trim has been adjusted and checked with another line; the rover is ready for further remote testing.",
+    "reaction": "It is useful to see the correction made at the control rather than to the drawing.",
+    "step": 5,
+    "reason": "The remote should let me test steering and the pen lift on the trimmed rover.",
+    "choice": {
+      "combine": "Working remote",
+      "with": "Trimmed rover"
+    },
+    "expectation": "The rover will draw and steer under remote control, with its pen raised when needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote test completed the rover: differential wheel speeds steer it, while the clip lever lifts the pen between drawings.",
+    "reaction": "The looping whale is a satisfying payoff for the earlier test and adjustment.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the rover on paper was most worthwhile: the curve made the unequal motor speeds visible and gave the trim adjustment a clear purpose.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Clipping and mounting the pen were necessary but predictable, with little to discover on their own.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The straight-ahead command produced a curve because one motor was quicker; adjusting the receiver could correct the control.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; the screwdriver had an unclear purpose until the drawing test revealed the trim problem.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The test-and-adjust sequence made the mechanism understandable, and drawing a whale was an appealing payoff; I would be curious to see what the fair does with the rover.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

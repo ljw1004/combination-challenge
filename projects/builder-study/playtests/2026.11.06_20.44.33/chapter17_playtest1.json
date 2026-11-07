@@ -1,0 +1,168 @@
+[
+  {
+    "step": 1,
+    "reason": "The rover needs driven wheels, so joining the wheels to the gearmotors is a useful start.",
+    "choice": 1,
+    "expectation": "I expect a pair of motor-driven wheels ready to fit to the rover, though the exact assembly may differ.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Preparing the remote also supports the goal, but I want to build the drive first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheels are now attached to geared outputs; the gearboxes trade speed for turning force. The rover still needs support and controls.",
+    "reaction": "The explanation of the speed-and-force tradeoff was useful.",
+    "step": 2,
+    "reason": "The ball caster should support the deck while allowing the driven wheels to steer it.",
+    "choice": 1,
+    "expectation": "I expect the caster to be fitted to the rover deck, ready for the drive assembly.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The remote also needs preparation, but I want to assemble the rover first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deck now has its caster, and the wheel drives can be fitted.",
+    "reaction": "The straightforward assembly is progressing as expected.",
+    "step": 3,
+    "reason": "Fit the wheel drives to give the supported deck powered wheels.",
+    "choice": 1,
+    "expectation": "I expect the wheel drives to attach to the deck, though they may still need wiring and power.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The remote needs batteries too, but I want to finish the drive assembly first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deck now has two driven wheels and a caster; different wheel speeds will steer it without a steering axle.",
+    "reaction": "That steering explanation makes the three-point layout more interesting.",
+    "step": 4,
+    "reason": "Add the rover battery pack so the drive can eventually receive power.",
+    "choice": 1,
+    "expectation": "I expect the battery pack to attach to the rover, with controls and wiring still needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The remote needs batteries too, but I want to keep assembling the rover first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rover now has its battery; it still needs a way to control power and respond to the remote.",
+    "reaction": "The battery fitting was straightforward.",
+    "step": 5,
+    "reason": "Fit the switch harness to continue wiring the rover.",
+    "choice": 1,
+    "expectation": "I expect the harness to connect the battery through a switch, with the receiver and driver still needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The remote also needs batteries, but I want to finish the rover's wiring first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rover now has a switch harness; it still needs remote control electronics.",
+    "reaction": "The wiring is progressing straightforwardly.",
+    "step": 6,
+    "reason": "Fit the receiver and motor driver so the rover can respond to remote commands.",
+    "choice": 1,
+    "expectation": "I expect the receiver and driver to attach to the rover, though the remote will still need batteries.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The remote needs batteries too, but I want to finish the rover electronics first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver and driver are fitted, with separate outputs allowing independent wheel control.",
+    "reaction": "Seeing how the electronics enable the steering clarified the earlier explanation.",
+    "step": 7,
+    "reason": "Fit the gear guards to finish protecting the rover's drive before testing it.",
+    "choice": 1,
+    "expectation": "I expect the guards to cover the gears; the remote will still need batteries.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The remote needs batteries, but I prefer to finish the rover first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rover's gears are covered while its wheels remain free to turn; it still needs its remote prepared.",
+    "reaction": "The guard is a sensible finishing detail.",
+    "step": 8,
+    "reason": "The only offered combination prepares the remote to control the rover.",
+    "choice": 1,
+    "expectation": "I expect the batteries to power the remote so it can be used to test the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote is ready, so it can now be used with the guarded rover.",
+    "reaction": "The battery fitting was straightforward.",
+    "step": 9,
+    "reason": "Use the only offered combination to test whether the rover responds to the remote.",
+    "choice": 1,
+    "expectation": "I expect to control the wheels and perhaps test steering, though the exact test is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The raised-wheel test confirmed that the remote controls the drives independently; the chapter goal is complete, though the rover does not have a pen yet.",
+    "reaction": "Testing safely in the jig made the assembly feel purposeful, and the distinction between battery energy and radio instructions was clear.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the receiver and motor driver clarified how separate wheel control makes steering possible.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The battery and switch fittings were straightforward but felt like routine assembly.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The free-turning caster and different wheel speeds allow steering without a steering axle.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though several fittings were predictable and offered little meaningful choice.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would like to see how the tested rover draws and delivers invitations; the steering mechanism was interesting, although the assembly became repetitive.",
+        "steps": [
+          3,
+          6,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

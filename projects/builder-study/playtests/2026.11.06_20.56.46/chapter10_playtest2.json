@@ -1,0 +1,156 @@
+[
+  {
+    "step": 1,
+    "reason": "The crank and ratchet look like parts of the winding drum assembly.",
+    "choice": {
+      "combine": "Crank and toothed ratchet wheel",
+      "with": "Winding drum and bearing bracket"
+    },
+    "expectation": "The crank and ratchet will fit onto the drum so it can wind the lifting cord.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drum and crank form a hand winch; it can now be fitted to the crane.",
+    "reaction": "The longer crank trading hand travel for turning effect is interesting.",
+    "step": 2,
+    "reason": "The crane needs the winch to raise its load.",
+    "choice": {
+      "combine": "Hand winch",
+      "with": "Braced crane with spreading feet"
+    },
+    "expectation": "The hand winch will mount on the crane frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is mounted on the crane, ready for the lifting cord.",
+    "reaction": "That was a straightforward assembly step.",
+    "step": 3,
+    "reason": "The cord needs to connect the winch to the hook and pulley for lifting.",
+    "choice": {
+      "combine": "Lifting cord and closed hook",
+      "with": "Crane with a hand winch"
+    },
+    "expectation": "The cord and hook will be fitted to the crane's winch and pulley.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crane now has a lifting line; it still needs a way to hold a raised load.",
+    "reaction": "The line fitting was straightforward.",
+    "step": 4,
+    "reason": "The pawl and release lever should let the ratchet hold the winch and release it for lowering.",
+    "choice": {
+      "combine": "Holding pawl and release lever",
+      "with": "Crane with a lifting line"
+    },
+    "expectation": "The pawl and lever will fit to the winch's ratchet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pawl can hold the rope, but the crane still needs protection against tipping.",
+    "reaction": "The distinction between holding the load and stabilizing the crane is useful.",
+    "step": 5,
+    "reason": "The rear ballast should help counterbalance a load before testing the crane.",
+    "choice": {
+      "combine": "Rear ballast block",
+      "with": "Rigged crane with holding pawl"
+    },
+    "expectation": "The ballast will fit at the rear to help resist tipping.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ballast cannot be used yet, so I need to find what the rigged crane can do first.",
+    "reaction": "I expected the ballast to fit before testing, so that was surprising.",
+    "step": 6,
+    "reason": "Inspecting the crane should reveal the next available operation.",
+    "choice": {
+      "inspect": "Rigged crane with holding pawl"
+    },
+    "expectation": "The crane will list a compatible item, possibly the test weight.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Small padded test weight",
+          "with": "Rigged crane with holding pawl"
+        },
+        "reason": "I could try the test weight directly, but checking first may clarify the intended sequence."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The low test showed that the pawl holds the rope, but the crane begins to tip; ballast now looks like the next step.",
+    "reaction": "The test made the difference between holding and balancing a load clear.",
+    "step": 7,
+    "reason": "The rear ballast should counter the tipping observed during the test.",
+    "choice": {
+      "combine": "Rear ballast block",
+      "with": "Stiff crane beginning to tip"
+    },
+    "expectation": "The ballast will stabilize the crane for another lift.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ballast keeps the feet down in the supported low test, and the pawl holds the drum until released.",
+    "reaction": "The test clarified how the ballast and pawl do different jobs.",
+    "step": 8,
+    "reason": "The crane has passed its low test, so the cargo basket is the next likely load.",
+    "choice": {
+      "combine": "Small cargo basket",
+      "with": "Crane with a holding pawl"
+    },
+    "expectation": "The crane will lift the basket, hold it, and lower it gently.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket test completed the goal and showed the pawl holding the load while the crank and release lever controlled lowering.",
+    "reaction": "It was satisfying to see the separate holding and balancing mechanisms work together in a delivery.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The supported test and ballast adjustment were most worthwhile: they demonstrated that holding the rope and preventing the crane from tipping are different problems.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the ballast before the test was least worthwhile; it could not be fitted yet, despite seeming like a sensible precaution.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the ballast was unavailable until the low test revealed the tipping problem.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for fitting the ballast felt somewhat arbitrary: I understood the benefit of testing, but not why it could not be fitted beforehand.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would try another chapter for the clear mechanical explanations and the opportunity to see another construction tested, though I would hope for fewer hidden sequencing restrictions.",
+        "steps": [
+          1,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

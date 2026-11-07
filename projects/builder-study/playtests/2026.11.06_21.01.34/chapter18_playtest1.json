@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The pen needs a holder before it can be fitted to the rover; this is the only offered action.",
+    "choice": 1,
+    "expectation": "I expect the pen and clip to form a mountable pen assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen is clipped and ready to fit to the rover.",
+    "reaction": "A straightforward preparation; nothing surprising yet.",
+    "step": 2,
+    "reason": "Fit the clipped pen to the rover; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the pen to attach to the rover, though it may still need adjustment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen is now attached to the rover, ready for a drawing test.",
+    "reaction": "The fitting was straightforward.",
+    "step": 3,
+    "reason": "The test paper should let the rover draw; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect to test the pen on the paper, possibly revealing whether it needs adjustment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drawing test showed unequal motor speeds, so the receiver trim needs adjustment.",
+    "reaction": "The curve makes the reason for trimming clear.",
+    "step": 4,
+    "reason": "Use the screwdriver to adjust the trim; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the adjustment to bring the wheel speeds closer together so the rover can draw straighter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trim has been adjusted and another line compared; the remote is now available for the next test.",
+    "reaction": "The distinction between correcting the control and fixing the drawing is useful.",
+    "step": 5,
+    "reason": "Use the remote to drive the trimmed rover; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect to test its steering and see whether it now draws a straighter line.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rover now draws straight and can steer into a loop by changing the wheel speeds.",
+    "reaction": "Seeing the steering principle produce a loop is satisfying.",
+    "step": 6,
+    "reason": "Fit the pen-lift lever to address the remaining goal; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the lever to let the rover lift its pen between marks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lever now raises the pen without removing it, ready for a driving test.",
+    "reaction": "The simple lift makes its purpose clear.",
+    "step": 7,
+    "reason": "Use the remote to test the completed drawing rover; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect to drive the rover with the pen lifted and lowered, making separated marks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final test confirms the rover can reposition without drawing, then make a picture; the chapter goal is complete.",
+    "reaction": "The looping whale is a playful payoff for the pen lift.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the rover and seeing a curve reveal unequal motor speeds was worthwhile: it connected a visible problem to a practical adjustment.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Clipping and fitting the pen were necessary but predictable preparations, with little to decide.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The straight-line test made it clear how changing one wheel’s speed turns the rover into a loop.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the single-option menu made the sequence feel prescribed rather than discovered.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the drawing tests made the rover’s mechanism understandable, and the whale gave the construction a useful, playful outcome.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

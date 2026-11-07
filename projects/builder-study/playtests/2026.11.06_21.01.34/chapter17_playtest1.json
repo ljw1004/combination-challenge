@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "The wheels need drives before the rover can move, so I’ll assemble those first.",
+    "choice": 1,
+    "expectation": "The wheels will attach to the gearmotors as a drive assembly, though it may still need fitting to the deck.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The remote also needs power, but I want to start with the moving parts."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel drives are assembled, and the gearboxes trade speed for greater turning force. They are ready to fit to the deck.",
+    "reaction": "The speed-and-force tradeoff is a useful detail.",
+    "step": 2,
+    "reason": "I’ll fit the assembled drives to the rover deck to give it powered wheels.",
+    "choice": 3,
+    "expectation": "The wheel drives will occupy the deck’s wheel-drive slot; the rover will still need its other components.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drives are fitted, and I now understand that independent wheel speeds will steer the rover without a steering axle.",
+    "reaction": "That steering arrangement is interesting and straightforward.",
+    "step": 3,
+    "reason": "The ball caster will provide the third support point for the deck.",
+    "choice": 2,
+    "expectation": "The caster will fit into its slot, supporting the rover while swivelling freely.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster is fitted, completing the rover’s three support points.",
+    "reaction": "A straightforward fitting step.",
+    "step": 4,
+    "reason": "I’ll fit the receiver and motor driver so the remote can eventually control the wheels.",
+    "choice": 4,
+    "expectation": "The receiver and driver will occupy their deck slot; power and switching will still need fitting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver and motor driver are fitted; the deck still needs its power and switch components.",
+    "reaction": "Another straightforward fitting.",
+    "step": 5,
+    "reason": "I’ll fit the switch harness so the rover can be powered on and off.",
+    "choice": 3,
+    "expectation": "The harness will fill its deck slot, with the switch kept off until assembly is ready.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch harness is fitted; the rover battery is the remaining listed deck component.",
+    "reaction": "Another predictable fitting step.",
+    "step": 6,
+    "reason": "I’ll fit the battery pack to complete the deck’s listed components.",
+    "choice": 2,
+    "expectation": "The battery pack will fit its slot, with the switch kept off until the assembly is ready.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The remote also needs batteries, but I’ll finish fitting the deck first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is fitted, completing the listed deck slots; the gear guards are now available to install.",
+    "reaction": "The fitting was predictable, but the guards feel like useful progress toward a safe test.",
+    "step": 7,
+    "reason": "I’ll fit the gear guards before powering or testing the rover.",
+    "choice": 1,
+    "expectation": "The guards will cover the drive mechanisms; the remote will probably still need batteries before a test.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The remote needs power too, but I prefer to guard the moving parts first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wiring and gear covers are in place, and the rover is ready for a remote test with its wheels clear.",
+    "reaction": "The powered-off wiring and test stops make the preparation feel thoughtful.",
+    "step": 8,
+    "reason": "The only offered combination powers the remote, which the rover needs for testing.",
+    "choice": 1,
+    "expectation": "The batteries will fit into the remote, making it ready to control the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote now has power and is ready to test with the guarded rover.",
+    "reaction": "A predictable preparation step.",
+    "step": 9,
+    "reason": "The only offered action tests the remote against the rover.",
+    "choice": 1,
+    "expectation": "The remote should make the raised drive wheels respond, though they may need adjustment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The raised-wheel test confirmed that the remote controls the rover’s drives, completing the chapter goal; the pen remains for later.",
+    "reaction": "Seeing the steering idea tested was satisfying, though the test was brief.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the drives was most worthwhile because it explained how independent wheel speeds steer without a steering axle.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate receiver and switch fittings felt repetitive, with little to learn from their individual results.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I had not expected the rover to turn by varying wheel speeds rather than using a steering axle.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though several electrical fittings were predictable assembly steps rather than meaningful choices.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see the rover draw and deliver invitations; the tested drive makes that next application intriguing.",
+        "steps": [
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

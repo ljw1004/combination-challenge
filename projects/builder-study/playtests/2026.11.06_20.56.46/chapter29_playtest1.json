@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "The rover is meant to make one last invitation, and the banner looks like the surface for it.",
+    "choice": {
+      "combine": "Drawing rover",
+      "with": "Long welcome banner"
+    },
+    "expectation": "The rover will draw a welcome on the banner.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The banner is decorated and ready to be used at the fair.",
+    "reaction": "The rover's looping border and Kit's whale are a charming welcome.",
+    "step": 2,
+    "reason": "The finished banner seems ready to be displayed at the fair.",
+    "choice": {
+      "combine": "Rover-drawn welcome banner",
+      "with": "Garden-ready flying fair"
+    },
+    "expectation": "The welcome banner will be displayed as part of the fair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The banner is hung safely across the cradle, leaving the two controls ready.",
+    "reaction": "Keeping it clear of the tether lines makes practical sense.",
+    "step": 3,
+    "reason": "The lift-control key should start the flying part of the fair.",
+    "choice": {
+      "combine": "Lift-control key",
+      "with": "Whale with welcome banner"
+    },
+    "expectation": "The whale will rise on its garden tethers.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Accessory-switch key",
+          "with": "Whale with welcome banner"
+        },
+        "reason": "The dragon and stars could be switched on before takeoff instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lift-control key has no available operation yet, so I’ll try starting the attractions first.",
+    "reaction": "The failed attempt suggests there is an order to opening the fair.",
+    "step": 4,
+    "reason": "The accessory switch may need to start the dragon and stars before the whale can rise.",
+    "choice": {
+      "combine": "Accessory-switch key",
+      "with": "Whale with welcome banner"
+    },
+    "expectation": "The dragon and star theatre will switch on.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attractions are running, so the lift control may now be available.",
+    "reaction": "The dragon waving while the stars move makes the fair feel ready for flight.",
+    "step": 5,
+    "reason": "The lift key failed before the attractions were switched on; the result now points to trying the flight.",
+    "choice": {
+      "combine": "Lift-control key",
+      "with": "Whale full of moving stars"
+    },
+    "expectation": "The whale will rise on its garden tethers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lift key worked after the attractions were switched on, and the tethered whale rose to complete the fair.",
+    "reaction": "Seeing Jo’s drawing finally take flight was a satisfying conclusion.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Starting the attractions and then lifting the whale brought the dragon, stars and flying fair together for the finale.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the lift key before the attractions was a brief dead end; the result did not explain why it was unavailable.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I expected the whale to lift before the attractions started, but the controls had to be used in the opposite order.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Starting the accessories before lift felt somewhat arbitrary: the failed attempt gave no explanation for that ordering.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to continue if another chapter offered a new mechanism to explore, though this finale feels like a natural stopping point.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

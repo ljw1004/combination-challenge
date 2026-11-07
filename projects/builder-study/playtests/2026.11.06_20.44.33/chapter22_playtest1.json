@@ -1,0 +1,136 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll attach the load tray so I can test how the tile handles a load.",
+    "choice": 1,
+    "expectation": "The tray should fit beneath the lift setup, ready for balance testing.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sling and crane may help lift the module later, but the tray seems useful for the initial test."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The load tray is fitted, so I can test an uneven load.",
+    "reaction": "A straightforward setup step; nothing notable yet.",
+    "step": 2,
+    "reason": "The off-centre block should reveal whether the tray needs balancing.",
+    "choice": 1,
+    "expectation": "I expect the loaded tray to tilt or otherwise show an imbalance, though the result may differ.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sling and crane may be useful later, but I want to test the load first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The uneven load makes the tray dip, so it needs balancing.",
+    "reaction": "The visible tilt makes the balance problem clear.",
+    "step": 3,
+    "reason": "The sliding counterweight should offset the heavy end.",
+    "choice": 1,
+    "expectation": "I expect to adjust the counterweight until the tray sits level.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The crane and sling may be useful later, but they do not address the tilt."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The counterweight levels the tray, but its added weight means the setup needs more lift.",
+    "reaction": "The trade-off between balance and added load is useful to see.",
+    "step": 4,
+    "reason": "The current controller may let me adjust the lift for the heavier tray.",
+    "choice": 1,
+    "expectation": "I expect to be able to increase the lift and control it more precisely, though I don't yet know how reliably it will stop.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The crane and sling may be useful later, but they don't address the current lift adjustment."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The module now has an adjustable controller; the stop still needs attention.",
+    "reaction": "A straightforward fitting, with no test result yet.",
+    "step": 5,
+    "reason": "The power-cut switch addresses the goal of a reliable stop.",
+    "choice": 1,
+    "expectation": "I expect the switch to disconnect power and stop the lift, though it may need testing.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The crane and sling may help move the module later, but the stop comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stop overrides the controller, and the module is powered down and reset before moving.",
+    "reaction": "The override test makes the stop's purpose clear.",
+    "step": 6,
+    "reason": "The sling and crane are the only available combination, and they should help move the module.",
+    "choice": 1,
+    "expectation": "I expect the sling to attach to the crane so it can lift the module safely.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crane now has a sling in place of its basket, ready to move the stopped module.",
+    "reaction": "Reusing the earlier crane is a satisfying connection.",
+    "step": 7,
+    "reason": "This is the only available combination and should move the module.",
+    "choice": 1,
+    "expectation": "I expect the crane to lift the powered-down module using the sling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crane freed the complete module from the stand, with the test blocks removed and the counterweight reset for the empty tray. The goal is complete.",
+    "reaction": "Reusing the crane to finish the module felt like a satisfying payoff.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Balancing the tilted tray was most worthwhile: it showed both how a counterweight corrects a lopsided load and why its added weight matters.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the controller was a necessary but relatively uneventful step; its result did not yet show a test.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The counterweight levelled the tray but also increased the load, so the module needed more lift.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though preparing the crane was initially only a hint of how it would be used.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the balanced module helps realise Jo's flying fair, especially after the crane's reuse connected earlier work to this chapter.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

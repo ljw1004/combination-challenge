@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The bearing frames should support the rotating crankshaft on the base.",
+    "choice": {
+      "combine": "Two bearing frames",
+      "with": "Dragon mechanism base"
+    },
+    "expectation": "The frames will attach to the base to support the shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The base now has bearings ready to support the shaft.",
+    "reaction": "The first fitting was straightforward.",
+    "step": 2,
+    "reason": "The crankshaft belongs in the shaft bearings.",
+    "choice": {
+      "combine": "Crankshaft",
+      "with": "Base with shaft bearings"
+    },
+    "expectation": "The crankshaft will fit into the bearings and turn on the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crankshaft is installed, so the cam can potentially turn with it.",
+    "reaction": "The shaft fitting was straightforward.",
+    "step": 3,
+    "reason": "The off-centre cam should attach to the turning crankshaft to create the changing lift.",
+    "choice": {
+      "combine": "Off-centre cam",
+      "with": "Frame with a turning crankshaft"
+    },
+    "expectation": "The cam will fit onto the crankshaft and rotate with it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cam is installed, and its changing edge height can lift a follower as the shaft turns.",
+    "reaction": "The comparison with a centred disc makes the mechanism clearer.",
+    "step": 4,
+    "reason": "The follower guide should hold the rod in line above the cam.",
+    "choice": {
+      "combine": "Follower guide",
+      "with": "Crankshaft with an off-centre cam"
+    },
+    "expectation": "The guide will attach to the mechanism, ready to hold the follower rod.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guide fits onto the follower rod first, rather than directly onto the cam assembly.",
+    "reaction": "That assembly order was not obvious to me.",
+    "step": 5,
+    "reason": "The guided follower should now fit onto the cam mechanism so the cam can move the rod.",
+    "choice": {
+      "combine": "Follower in its guide",
+      "with": "Crankshaft with an off-centre cam"
+    },
+    "expectation": "The follower assembly will attach above the cam.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guided follower is now positioned over the cam.",
+    "reaction": "The assembly is taking shape as expected.",
+    "step": 6,
+    "reason": "The follower spring should help keep the rod against the cam as it turns.",
+    "choice": {
+      "combine": "Light follower spring",
+      "with": "Cam beneath a guided follower"
+    },
+    "expectation": "The spring will attach to the follower mechanism.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spring is fitted, and testing can compare its pull with an unhooked run.",
+    "reaction": "I am curious what difference the spring makes.",
+    "step": 7,
+    "reason": "The removable crank handle should let me turn and test the assembled lifter.",
+    "choice": {
+      "combine": "Removable crank handle",
+      "with": "Lifter with its spring fitted"
+    },
+    "expectation": "The handle will fit onto the crankshaft and allow the mechanism to be tested.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed test showed that the spring keeps the follower against the cam, making its downward movement reliable as well as its lift.",
+    "reaction": "The comparison with and without the spring was a satisfying explanation of why it matters.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the finished lifter was most worthwhile: seeing the follower hang without the spring explained a real mechanism rather than just completing an assembly.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the bearings and shaft was straightforward but less informative than seeing how the cam and spring work.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the light follower sometimes hangs without the spring's pull.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The guide's assembly order was not obvious: I expected it to attach to the mechanism rather than the rod first, although the compatibility feedback resolved it.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The cam and spring demonstrations made me curious to see how the mechanism will animate the paper dragon.",
+        "steps": [
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

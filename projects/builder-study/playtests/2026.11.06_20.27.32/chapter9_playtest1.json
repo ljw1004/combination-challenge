@@ -1,0 +1,143 @@
+[
+  {
+    "step": 1,
+    "reason": "The crane needs a standing mast before it can be braced.",
+    "choice": {
+      "combine": "Mast uprights and crosspiece",
+      "with": "Crane base board"
+    },
+    "expectation": "The uprights and crosspiece should form a mast on the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mast is now upright on the base, ready for bracing.",
+    "reaction": "That was a straightforward first assembly.",
+    "step": 2,
+    "reason": "Diagonal braces should help the upright mast resist sideways bending.",
+    "choice": {
+      "combine": "Diagonal mast braces",
+      "with": "Base with an upright mast"
+    },
+    "expectation": "The braces should stiffen the mast against sideways movement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mast now has triangular bracing, which helps prevent its frame from skewing sideways.",
+    "reaction": "The explanation made the purpose of the diagonal braces clear.",
+    "step": 3,
+    "reason": "The boom needs a hinge to attach and pivot on the mast.",
+    "choice": {
+      "combine": "Captive boom hinge pin",
+      "with": "Light crane boom"
+    },
+    "expectation": "The hinge pin should prepare the boom for attachment to the mast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The boom now has its hinge pin and appears ready to attach to the braced mast.",
+    "reaction": "That preparation was straightforward.",
+    "step": 4,
+    "reason": "The prepared boom should attach to the mast at its hinge.",
+    "choice": {
+      "combine": "Boom with its captive hinge pin",
+      "with": "Mast with triangular braces"
+    },
+    "expectation": "The boom should join the braced mast while remaining able to pivot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hinged boom is now attached to the braced mast.",
+    "reaction": "The assembly followed the expected hinge connection.",
+    "step": 5,
+    "reason": "The boom support stay should hold the hinged boom in position.",
+    "choice": {
+      "combine": "Boom support stay",
+      "with": "Crane frame with a hinged boom"
+    },
+    "expectation": "The stay should support the boom on the crane frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stay now supports the hinged boom.",
+    "reaction": "That connection was straightforward.",
+    "step": 6,
+    "reason": "The pulley wheel needs its fork and axle to rotate and mount on the crane.",
+    "choice": {
+      "combine": "Grooved pulley wheel",
+      "with": "Pulley fork and axle"
+    },
+    "expectation": "The wheel should fit into the fork on its axle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulley is assembled, and I learned that it redirects the pull without reducing the load.",
+    "reaction": "The distinction between changing direction and reducing weight was useful.",
+    "step": 7,
+    "reason": "The pulley in its fork should mount at the end of the supported boom.",
+    "choice": {
+      "combine": "Pulley in its fork",
+      "with": "Crane boom held by its stay"
+    },
+    "expectation": "The pulley should attach to the crane boom.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulley is now mounted at the boom tip.",
+    "reaction": "That attachment followed the expected assembly.",
+    "step": 8,
+    "reason": "The spreading feet should widen the crane's support on the ground.",
+    "choice": {
+      "combine": "Spreading crane feet",
+      "with": "Crane frame with a tip pulley"
+    },
+    "expectation": "The feet should stabilize the crane frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spreading feet widened the crane’s support, and the braced frame completed the goal.",
+    "reaction": "The final stability test was a satisfying confirmation of the construction.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the diagonal braces was most worthwhile: the explanation showed why triangles resist the sideways distortion of a rectangular frame.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Preparing and attaching the boom hinge were straightforward but less revealing than the bracing and pulley explanations.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The fixed pulley changes the direction of the pull without halving the weight; that distinction changed how I understood its job.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the parts had recognizable roles in the crane.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. The explanations of bracing and the pulley were useful, and I would be curious to see the crane lift the basket.",
+        "steps": [
+          2,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,172 @@
+[
+  {
+    "step": 1,
+    "reason": "The wheels need powered drives, so the matched gearmotors look like a natural fit.",
+    "choice": {
+      "combine": "Rubber wheels",
+      "with": "Matched gearmotors"
+    },
+    "expectation": "The wheels and motors will form a pair of wheel drives for the rover.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Remote batteries",
+          "with": "Matching remote"
+        },
+        "reason": "Preparing the remote also looks useful, but the rover needs drives first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheels and gearmotors are now wheel drives, ready for the deck; the gearboxes trade speed for turning force.",
+    "reaction": "The explanation of the gearboxes makes the pairing more meaningful.",
+    "step": 2,
+    "reason": "The deck has a named Wheel drives slot, and the assembled drives should fit there.",
+    "choice": {
+      "combine": "Wheel drives",
+      "with": "Rover deck"
+    },
+    "expectation": "The wheel drives will fit into the rover deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel drives are installed, and the remaining deck fittings can be added in any order.",
+    "reaction": "The explanation of steering by different wheel speeds is interesting.",
+    "step": 3,
+    "reason": "The deck has a named Caster slot, and the ball caster should fit it.",
+    "choice": {
+      "combine": "Ball caster",
+      "with": "Rover deck"
+    },
+    "expectation": "The ball caster will fit into the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster is installed alongside the wheel drives; the electrical modules remain to be fitted.",
+    "reaction": "The straightforward fit is useful progress.",
+    "step": 4,
+    "reason": "The deck has a Battery slot, so the rover battery pack is an obvious fit.",
+    "choice": {
+      "combine": "Rover battery pack",
+      "with": "Rover deck"
+    },
+    "expectation": "The battery pack will slot into the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is installed; the switch harness and receiver still need fitting.",
+    "reaction": "Another straightforward fit makes progress.",
+    "step": 5,
+    "reason": "The deck has a Switch harness slot, and the matching part is available.",
+    "choice": {
+      "combine": "Switch harness",
+      "with": "Rover deck"
+    },
+    "expectation": "The switch harness will slot into the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch harness is installed, leaving the receiver slot to fill.",
+    "reaction": "The fittings are straightforward so far.",
+    "step": 6,
+    "reason": "The receiver and motor driver match the deck's remaining named slot.",
+    "choice": {
+      "combine": "Receiver and motor driver",
+      "with": "Rover deck"
+    },
+    "expectation": "The receiver and motor driver will slot into the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver and motor driver are installed, filling the deck's named slots.",
+    "reaction": "The assembly has progressed predictably.",
+    "step": 7,
+    "reason": "The remote needs its batteries before it can control the rover.",
+    "choice": {
+      "combine": "Remote batteries",
+      "with": "Matching remote"
+    },
+    "expectation": "The batteries will fit into the remote, preparing it for use.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Gear guards",
+          "with": "Rover deck"
+        },
+        "reason": "The guards also need fitting, but preparing the remote is a clear next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote now has batteries and is ready for use; the gear guards still need fitting.",
+    "reaction": "That was a predictable preparation step.",
+    "step": 8,
+    "reason": "The gear guards appear intended to cover the rover's wheel drives before testing.",
+    "choice": {
+      "combine": "Gear guards",
+      "with": "Rover deck"
+    },
+    "expectation": "The guards will fit over the rover's drive mechanisms.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rover is wired and guarded, with its wheels safely raised for a remote test.",
+    "reaction": "The test stops make the first powered test feel purposeful.",
+    "step": 9,
+    "reason": "The result says the guarded rover is ready for the remote.",
+    "choice": {
+      "combine": "Working remote",
+      "with": "Guarded rover"
+    },
+    "expectation": "The remote will operate the raised wheels so their responses can be tested.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote test confirmed that the two wheel drives respond independently, completing the chapter’s goal.",
+    "reaction": "Seeing the different wheel responses made the earlier steering explanation concrete.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the raised wheels was the most worthwhile part: it connected the assembled parts to the idea of steering with different wheel speeds.",
+        "steps": [
+          3,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The successive electrical module fittings were straightforward but repetitive; they offered few meaningful decisions.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I found it interesting that the rover can turn by driving its wheels at different speeds, without a steering axle.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary: the parts had clear places or purposes, even when fitting them was predictable.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue to see how the rover earns its pen and draws, though I hope the next chapter offers more decisions than the repeated fittings here.",
+        "steps": [
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

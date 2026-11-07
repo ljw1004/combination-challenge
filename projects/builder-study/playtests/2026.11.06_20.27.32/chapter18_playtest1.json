@@ -1,0 +1,201 @@
+[
+  {
+    "step": 1,
+    "reason": "The pen needs a holder before it can draw from the rover.",
+    "choice": {
+      "combine": "Felt-tip pen",
+      "with": "Spring pen clip"
+    },
+    "expectation": "The clip should hold the pen for mounting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen is now clipped and ready to try mounting on the rover.",
+    "reaction": "That worked as expected.",
+    "step": 2,
+    "reason": "The clipped pen needs to be attached to the tested rover before it can draw.",
+    "choice": {
+      "combine": "Clipped pen",
+      "with": "Rover with tested wheel drives"
+    },
+    "expectation": "The clipped pen should mount on the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clipped pen is mounted on the rover, so it can be tested on paper.",
+    "reaction": "The mounting worked as expected.",
+    "step": 3,
+    "reason": "The rover needs paper to test whether its pen draws while it moves.",
+    "choice": {
+      "combine": "Test-paper roll",
+      "with": "Rover with pen"
+    },
+    "expectation": "The paper should let the rover make a test drawing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test-paper roll has no available operation yet, so the rover likely needs another preparation first.",
+    "reaction": "That was unexpected; I thought it was ready for a paper test.",
+    "step": 4,
+    "reason": "The remote may let me test the mounted pen and steering before adding the paper.",
+    "choice": {
+      "combine": "Working remote",
+      "with": "Rover with pen"
+    },
+    "expectation": "The remote will run a test of the rover with its pen.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Rover with pen"
+        },
+        "reason": "I could check the rover's available partners instead of guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote test revealed a motor-speed mismatch; the receiver's trim adjustment should correct the curve.",
+    "reaction": "The curve makes the need for adjustment clear.",
+    "step": 5,
+    "reason": "The screwdriver should adjust the receiver's trim to balance the wheel speeds.",
+    "choice": {
+      "combine": "Small trim screwdriver",
+      "with": "Rover drawing a curve"
+    },
+    "expectation": "The trim adjustment should help the rover draw straight.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The trim adjustment has balanced the wheel speeds, so the rover is ready for further testing and its pen lift.",
+    "reaction": "It is satisfying to fix the cause of the curve rather than the drawing.",
+    "step": 6,
+    "reason": "The goal calls for lifting the pen, and the lever appears to be the part for that.",
+    "choice": {
+      "combine": "Pen-lift lever",
+      "with": "Trimmed rover"
+    },
+    "expectation": "The lever should fit onto the rover and allow its pen to lift.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Working remote",
+          "with": "Trimmed rover"
+        },
+        "reason": "I could test the trim adjustment before fitting the lever."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen-lift lever is not available to use yet, so another step must come first.",
+    "reaction": "I expected the lever to fit now; its timing is unclear.",
+    "step": 7,
+    "reason": "The remote can test whether the trim corrected the rover's curved path.",
+    "choice": {
+      "combine": "Working remote",
+      "with": "Trimmed rover"
+    },
+    "expectation": "The rover should draw a straighter line after the adjustment.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Trimmed rover"
+        },
+        "reason": "Checking its available partners would avoid another guess."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote cannot be used at this stage, so I need to find what the trimmed rover can accept next.",
+    "reaction": "Another unavailable action makes the sequence unclear.",
+    "step": 8,
+    "reason": "Inspecting the rover should reveal its available next step without another guess.",
+    "choice": {
+      "inspect": "Trimmed rover"
+    },
+    "expectation": "The inspection will list available partners and may automatically perform the only operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The paper test confirmed that the trimmed rover draws straight and can steer into a loop; the pen lift remains.",
+    "reaction": "The automatic paper test resolved the unclear sequence.",
+    "step": 9,
+    "reason": "The rover has now demonstrated drawing and steering, so the pen-lift lever is the next obvious part to try.",
+    "choice": {
+      "combine": "Pen-lift lever",
+      "with": "Rover drawing a straight line"
+    },
+    "expectation": "The lever should attach and let the rover lift its pen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen-lift lever is fitted; the rover still needs to demonstrate its use.",
+    "reaction": "The fitting worked as expected.",
+    "step": 10,
+    "reason": "The remote should let me test the rover with its new pen lift.",
+    "choice": {
+      "combine": "Working remote",
+      "with": "Rover with pen lift"
+    },
+    "expectation": "The rover will demonstrate drawing and lifting its pen.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Rover with pen lift"
+        },
+        "reason": "I could check its available partners before testing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote test demonstrated drawing, steering and lifting the pen, completing the goal.",
+    "reaction": "The looping whale was a pleasing use for the finished rover.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the curve and correcting the motor-speed mismatch made the trim adjustment understandable and worth the time.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed lever and remote attempts were repetitive because it was unclear that the paper test had to come next.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that a small speed difference made the supposedly straight path curve, and that trim could correct it.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The required timing of the paper test felt arbitrary: the roll could not be used earlier, and the next step was not obvious after trimming.",
+        "steps": [
+          3,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: diagnosing the curved path and seeing the rover draw a whale made me curious about what the fair will become, though I hope the next sequence is clearer.",
+        "steps": [
+          4,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,168 @@
+[
+  {
+    "step": 1,
+    "reason": "The deck has a named caster slot, and the ball caster fits it.",
+    "choice": {
+      "combine": "Ball caster",
+      "with": "Rover deck"
+    },
+    "expectation": "The caster should fit into the deck and help support the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster is installed, and the deck accepts the drive and electrical modules in any order. The two driven wheels will steer by running at different speeds.",
+    "reaction": "The explanation of turning without a steering axle is interesting.",
+    "step": 2,
+    "reason": "The rubber wheels and matched gearmotors appear to be the parts needed for the wheel drives.",
+    "choice": {
+      "combine": "Rubber wheels",
+      "with": "Matched gearmotors"
+    },
+    "expectation": "The wheels should attach to the gearmotors to make the rover’s drives.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheels and gearmotors are now wheel drives; the gearboxes trade speed for greater turning force.",
+    "reaction": "The speed-and-force tradeoff is useful to understand.",
+    "step": 3,
+    "reason": "The deck has a named slot for the assembled wheel drives.",
+    "choice": {
+      "combine": "Wheel drives",
+      "with": "Rover deck"
+    },
+    "expectation": "The wheel drives should fit into the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel drives are installed alongside the caster; the electrical modules still need fitting.",
+    "reaction": "The assembly is progressing as expected.",
+    "step": 4,
+    "reason": "The rover deck has a named battery slot, so the battery pack is a clear fit.",
+    "choice": {
+      "combine": "Rover battery pack",
+      "with": "Rover deck"
+    },
+    "expectation": "The battery pack should slot into the deck, with its connector parked and the switch kept off.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is installed; the switch harness and receiver remain to be fitted.",
+    "reaction": "That fit was straightforward.",
+    "step": 5,
+    "reason": "The deck has a named switch harness slot.",
+    "choice": {
+      "combine": "Switch harness",
+      "with": "Rover deck"
+    },
+    "expectation": "The switch harness should slot into the deck, with the switch kept off.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch harness is installed; the receiver still needs fitting.",
+    "reaction": "That was another straightforward fit.",
+    "step": 6,
+    "reason": "The receiver and motor driver match the deck’s remaining named receiver slot.",
+    "choice": {
+      "combine": "Receiver and motor driver",
+      "with": "Rover deck"
+    },
+    "expectation": "The receiver and motor driver should slot into the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver and motor driver are installed, filling the deck’s named slots.",
+    "reaction": "The module fittings were straightforward.",
+    "step": 7,
+    "reason": "The gear guards appear to belong over the installed wheel drives.",
+    "choice": {
+      "combine": "Gear guards",
+      "with": "Rover deck"
+    },
+    "expectation": "The guards should cover the rover’s drive gears.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Remote batteries",
+          "with": "Matching remote"
+        },
+        "reason": "The remote also needs power before testing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rover is wired and guarded, with its wheels clear for a remote test.",
+    "reaction": "The test stops are a sensible way to check the drives before letting the rover move.",
+    "step": 8,
+    "reason": "The remote needs its batteries before it can control the rover.",
+    "choice": {
+      "combine": "Remote batteries",
+      "with": "Matching remote"
+    },
+    "expectation": "The batteries should power the remote for testing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote now has batteries and is ready to test the guarded rover.",
+    "reaction": "That was a straightforward preparation.",
+    "step": 9,
+    "reason": "The guarded rover is ready for the remote, with its wheels clear on the test stops.",
+    "choice": {
+      "combine": "Working remote",
+      "with": "Guarded rover"
+    },
+    "expectation": "The remote should let me test whether the rover’s wheels respond independently.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remote test confirmed that the wheel drives respond, and the chapter’s goal is complete. Radio carries instructions while the batteries supply energy.",
+    "reaction": "It was satisfying to see the assembled rover respond, though the test was brief.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the wheel drives was worthwhile because the gearbox explanation showed how slower rotation gives more turning force.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the battery, switch and receiver was straightforward but a little repetitive.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The rover can turn by running its two driven wheels at different speeds, without a steering axle.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the named slots made the module fittings clear.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the tested rover earns a pen and draws an invitation, especially if that adds another mechanism to explore.",
+        "steps": [
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

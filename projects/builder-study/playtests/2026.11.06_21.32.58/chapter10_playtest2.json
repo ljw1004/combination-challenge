@@ -1,0 +1,130 @@
+[
+  {
+    "step": 1,
+    "reason": "The crank and ratchet wheel look like they belong on the winding drum before it is installed.",
+    "choice": {
+      "combine": "Crank and toothed ratchet wheel",
+      "with": "Winding drum and bearing bracket"
+    },
+    "expectation": "The crank and ratchet will attach to the drum to make a winding mechanism.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crank and drum form a hand winch, ready to be fitted to the crane.",
+    "reaction": "The trade-off between turning effect and hand travel is interesting.",
+    "step": 2,
+    "reason": "The crane needs the winch to wind its lifting cord.",
+    "choice": {
+      "combine": "Hand winch",
+      "with": "Braced crane with spreading feet"
+    },
+    "expectation": "The hand winch will attach to the crane frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is installed, so the crane can now be rigged for lifting.",
+    "reaction": "That fitting was straightforward.",
+    "step": 3,
+    "reason": "The cord and hook should connect the winch to a load through the tip pulley.",
+    "choice": {
+      "combine": "Lifting cord and closed hook",
+      "with": "Crane with a hand winch"
+    },
+    "expectation": "The cord and hook will be fitted to the crane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lifting line is fitted, leaving the crane to be made secure and tested.",
+    "reaction": "The rigging went as expected.",
+    "step": 4,
+    "reason": "The pawl and release lever should let the ratchet hold a raised load and release it for lowering.",
+    "choice": {
+      "combine": "Holding pawl and release lever",
+      "with": "Crane with a lifting line"
+    },
+    "expectation": "The holding and release mechanism will be fitted to the crane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pawl can hold the line but does not prevent the crane tipping, so the crane needs stability before testing.",
+    "reaction": "The distinction between holding the rope and preventing tipping is useful.",
+    "step": 5,
+    "reason": "The rear ballast should help counter the load at the boom before a lifting test.",
+    "choice": {
+      "combine": "Rear ballast block",
+      "with": "Rigged crane with holding pawl"
+    },
+    "expectation": "The ballast will attach to the rear of the crane to improve its stability.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ballast and pawl are fitted, and the crane is ready for a low test of both.",
+    "reaction": "Testing the two safety features together makes sense.",
+    "step": 6,
+    "reason": "The padded test weight is the appropriate load for the low test before lifting the basket.",
+    "choice": {
+      "combine": "Small padded test weight",
+      "with": "Ballasted holding crane ready for a test"
+    },
+    "expectation": "The crane will lift and hold the test weight low down so its stability and pawl can be checked.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The low test showed that the feet stay down and the pawl catches the drum; lowering requires holding the crank while easing the release.",
+    "reaction": "The distinction between holding and controlled release is useful.",
+    "step": 7,
+    "reason": "The crane has passed its low test, so the cargo basket is the next load to try.",
+    "choice": {
+      "combine": "Small cargo basket",
+      "with": "Crane with a holding pawl"
+    },
+    "expectation": "The crane will lift, hold and gently lower the basket.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket test completed the goal and showed the pawl holding the load while the crank and release controlled its descent.",
+    "reaction": "It was satisfying to see the separate holding and lowering mechanisms work together.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The low test was most worthwhile: it showed both how the pawl catches the drum and why the crank must be held during release.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the winch and lifting line was straightforward but less informative than testing the finished mechanism.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The pawl can prevent the drum from unwinding but cannot prevent the crane itself from tipping; ballast addresses a different problem.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; each part had a clear role in the lift or its test.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue: the low test and controlled basket lift made the construction feel purposeful while explaining useful mechanical distinctions.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

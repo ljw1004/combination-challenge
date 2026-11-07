@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "The load tray looks like the foundation for testing and balancing a load on the tethered tile.",
+    "choice": {
+      "combine": "Slotted load tray",
+      "with": "Loaded lift test"
+    },
+    "expectation": "The tray will attach to the lift test so it can carry a load.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tray is attached, so the lift test is ready for a load.",
+    "reaction": "The straightforward fitting makes the next test clearer.",
+    "step": 2,
+    "reason": "The off-centre block should reveal whether the loaded tray tips before I try to balance it.",
+    "choice": {
+      "combine": "Off-centre test block",
+      "with": "Tile with load tray"
+    },
+    "expectation": "The block will load the tray unevenly and show how the tile behaves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The uneven load makes the tray tilt, so it needs balancing.",
+    "reaction": "The test clearly shows why lift alone is not enough.",
+    "step": 3,
+    "reason": "The sliding counterweight should balance the off-centre load.",
+    "choice": {
+      "combine": "Sliding counterweight",
+      "with": "Tilting lift tray"
+    },
+    "expectation": "Adjusting the counterweight will bring the tray closer to level.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The counterweight levels the tray, but the added load requires more lift.",
+    "reaction": "Seeing the trade-off between balance and total load is useful.",
+    "step": 4,
+    "reason": "The current controller should let me adjust the lift for the heavier tray.",
+    "choice": {
+      "combine": "Current controller and replacement harness",
+      "with": "Level lift tray"
+    },
+    "expectation": "The controller will allow enough lift for the balanced load.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balanced tray now has an adjustable lift controller.",
+    "reaction": "The fitting was straightforward.",
+    "step": 5,
+    "reason": "The goal calls for a reliable stop, so the power-cut switch is the next clear addition.",
+    "choice": {
+      "combine": "Latching power-cut switch",
+      "with": "Adjustable lift module"
+    },
+    "expectation": "The switch will provide a way to cut power and stop the lift.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The power-cut switch overrides the controller, and the module is disconnected and reset for moving.",
+    "reaction": "The override makes the stop's purpose clear.",
+    "step": 6,
+    "reason": "The lifting sling looks like the next piece needed to move the module safely with the crane.",
+    "choice": {
+      "combine": "Short lifting sling",
+      "with": "Stopped lift module"
+    },
+    "expectation": "The sling will attach to the module so the crane can lift it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sling attaches to the crane rather than directly to the module; the crane is now ready to lift it.",
+    "reaction": "I expected the other attachment order, but the compatibility feedback made it clear.",
+    "step": 7,
+    "reason": "The prepared crane and stopped module are the remaining pieces for moving the lift module.",
+    "choice": {
+      "combine": "Crane with lifting sling",
+      "with": "Stopped lift module"
+    },
+    "expectation": "The crane will use the sling to lift and move the stopped module.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crane removed the complete balanced module from the stand, with the test weights left behind and the counterweight centred for the empty tray.",
+    "reaction": "It was satisfying to see the tested parts become one movable module.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the off-centre load and correcting it with the sliding counterweight made the balance problem and the cost of added weight clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the tray was straightforward but less informative than the later tests.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The counterweight levelled the tray but also increased the total load, requiring more lift.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The sling attachment order was not obvious to me: I tried the module first, but it needed to go on the crane.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the balance test and power-cut override made the invented lift tile part of a practical construction problem, and I would be curious to see how the module supports the fair.",
+        "steps": [
+          2,
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
