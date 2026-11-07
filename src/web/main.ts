@@ -49,9 +49,9 @@ addStoryHome(app, catalogueURL.href);
 const iconNames = new IconNames();
 let inputTrace:DragTrace|undefined;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
-const surface = document.createElement('div'); surface.className = 'game-surface';
+const surface = app.querySelector<HTMLDivElement>('.game-surface')!;
 const dialogLayer = document.createElement('div'); dialogLayer.className = 'game-dialog-layer'; dialogLayer.hidden = true;
-app.append(surface, dialogLayer);
+app.append(dialogLayer);
 const tutorialOverlay = new TutorialOverlay(app);
 let tutorialProgress: TutorialProgress | undefined;
 // Generated checkpoint history cannot establish tutorial accomplishments on reload.
@@ -371,7 +371,7 @@ function updateHomeScreenIdentity(parsed: Story) {
 }
 async function start() {
   starting = true;
-  surface.innerHTML = '<div class="load-error"><p>Loading story…</p></div>';
+  surface.innerHTML = '<p class="story-loading" role="status">Loading story…</p>';
   try {
     documentURL = resolveStoryURL(location.href);
     tutorialProgress = new TutorialProgress(documentURL, error => {tutorialSaveError = error; renderSaveError();});
